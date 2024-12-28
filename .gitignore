@@ -16,3 +16,6 @@ backup/
 dbfiles/
 eos/
 install/
+storage/
+system/
+template/
