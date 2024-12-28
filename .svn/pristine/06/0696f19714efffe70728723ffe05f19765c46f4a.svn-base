@@ -1,3 +1,0 @@
-[1124/132357.287:WARNING:ipc_message_attachment_set.cc(49)] MessageAttachmentSet destroyed with unconsumed attachments: 0/1
-[1124/132357.494:ERROR:browser_gpu_channel_host_factory.cc(139)] Failed to launch GPU process.
-[1212/103821.718:INFO:CONSOLE(1)] "Long rAF frame-time", source: file:///C:/Program%20Files/Adobe/Adobe%20Photoshop%202020/Required/www-rich-tooltips/build/external.js (1)
