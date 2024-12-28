@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+
+
+<!-- new design -->
+
+<html lang="{{ lang }}">
+    <head>
+        <title>Urbanwood-Bangalore</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% if description %}
+        <meta name="description" content="{{ description }}" />
+        {% endif %}
+<meta name="theme-color" content="#fc7e0091">
+        {% if robots %}
+        <meta name="Robots" content="{{ robots }}" />
+        {% endif %}
+        {# <link rel="icon" type="image/png" href="image/favicon-32x32.png" sizes="32x32" /> #}
+        {# // <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script> #}
+{# <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous"> #}
+        <!-- <link href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css" rel="stylesheet"> -->
+
+        <link rel="stylesheet" href="catalog/view/javascript/assets/css/owl.theme.default.css">
+        <link rel="stylesheet" href="catalog/view/javascript/assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" type="text/css" href="catalog/view/javascript/assets/css/owl-carousel.css">
+        <link rel="stylesheet" type="text/css" href="catalog/view/javascript/assets/css/main.css">
+        <link href="catalog/view/javascript/assets/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="catalog/view/javascript/assets/css/menu.css">
+        <link rel="stylesheet" type="text/css" href="catalog/view/javascript/assets/css/new_product_section.css">
+        {# <link rel='stylesheet' href="catalog/view/javascript/assets/css/swiper-bundle.min.css"> #}
+        {# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/> #}
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
+        <link rel="stylesheet" href="catalog/view/javascript/assets/css/w3animation.css">
+        <link rel="stylesheet" href="catalog/view/javascript/assets/css/jquery-ui.min.css">
+        
+        <link rel="stylesheet" href="catalog/view/javascript/assets/ssi-uploader/styles/ssi-uploader.css"/>
+        {# <link rel="stylesheet" type="text/css" href="catalog/view/javascript/assets/addto-cart-zoom/jquery.ez-plus.css" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="catalog/view/javascript/assets/addto-cart-zoom/style.css" media="screen"/> #}
+        {# <link rel="stylesheet" type="text/css"href="catalog/view/javascript/assets/addto-cart-zoom/jquery.fancybox-plus.css" media="screen"/> #}
+        <style type="text/css"></style>
+        {# <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> #}
+<script type="text/javascript" src="catalog/view/javascript/assets/js/3.2.1-jquery.min.js"></script>
+
+<script src="catalog/view/javascript/assets/js/bootstrap.bundle.min.js"></script>
+{# <script src="catalog/view/javascript/assets/js/jquery1.1.1.min.js"></script> #}
+<script src="catalog/view/javascript/assets/js/jquery-ui.min.js"></script>
+{# <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script> #}
+<script src="catalog/view/javascript/assets/js/owl.carousel.js"></script>
+<script src="catalog/view/javascript/assets/js/slick-js.js"></script>
+{# <script src="catalog/view/javascript/assets/js/swiper-bundle.min.js"></script> #}
+<script src="catalog/view/javascript/assets/js/mob-menu.js"></script>
+<script type="text/javascript" src="catalog/view/javascript/assets/js/main.js"></script>
+<script src="catalog/view/javascript/common.js" type="text/javascript"></script>
+{# <script src="catalog/view/javascript/bootstrap-slider.js" type="text/javascript"></script> #}
+{# <script src="catalog/view/javascript/assets/ssi-uploader/js/ssi-uploader.js"></script>
+<script type="text/javascript" src="catalog/view/javascript/assets/addto-cart-zoom/web.js"></script>
+  <script type="text/javascript" src="catalog/view/javascript/assets/addto-cart-zoom/jquery.ez-plus.js"></script> #}
+
+  <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider-extensions.min.js" crossorigin="anonymous" defer></script>
+<link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script>
+  $.ajax({
+  url: 'https://randomuser.me/api/?nat=in',
+  dataType: 'json',
+  success: function(data) {
+    //console.log(data);
+    $('.user-dp img').attr('src', data['results'][0]['picture']['large']);
+  }
+});
+  </script>
+    </head>
+
+    <script type="text/javascript">
+        $('#demo').carousel({interval: 3000})
+    </script>
+
+    <body onload="myFunction()">
+<div id="loading"></div>
+        {# <nav class="navbarcontainerbottom">
+            <ul class="list">
+                <div style="--position: 0;" data-indicator="data-indicator" class="indicator">
+                    <div class="corners"></div>
+                </div>
+                <li>
+                    <a class="active">
+                        <div class="icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="text">Home</div>
+                    </a>
+                </li>
+                <li>
+                    <a type="button" data-bs-toggle="offcanvas" data-bs-target="#mobilesidemenu" aria-controls="mobilesidemenu">
+                        <div class="icon">
+                            <i class="fas fa-th"></i>
+                        </div>
+                        <div class="text">Categories</div>
+                    </a>
+                </li>
+                <li>
+                    <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom3" aria-controls="offcanvasBottom3">
+                        <div class="icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="text">Cart</div>
+                    </a>
+                </li>
+                <li>
+                {% if logged %}
+                <a href="index.php?route=account/account">
+                <div class="icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="text">User</div>
+                        </a>
+                {% else %}
+                <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom2" aria-controls="offcanvasBottom2">
+                        <div class="icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="text">User</div>
+                    </a>
+                {% endif %}
+                    
+                </li>
+                <li>
+                    <a type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
+                        <div class="icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="text">Contact</div>
+                    </a>
+                </li>
+            </ul>
+        </nav> #}
+        <!-- mobile view contact-->
+        {# <div class="offcanvas offcanvas-bottom call-oofcancavs call-oofcancavs2" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+            <button type="button" class="text-white mob-cls-btn" data-bs-dismiss="offcanvas" aria-label="Close">
+                <i class='bx bx-arrow-back '></i>
+            </button>
+            <div class="mob-offcanva-bottom-inner">
+                <div class="offcanvas-header offcanvas-header-mob">
+                    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Contact Us</h5>
+
+                </div>
+                <div class="offcanvas-body small my-0 py-0">
+                    <ul>
+                        <li>
+                            <div class="latbel--con">Service (10am-8pm)</div>
+                            <span>
+                                <i class="fas fa-phone-alt"></i>
+                            </span>
+                            <a href="tel:+ 91 9311964772">
+                                + 91 9311964772</a>
+                        </li>
+                        <li>
+                            <div class="latbel--con">Sales</div>
+                            <span>
+                                <i class="fas fa-phone-alt"></i>
+                            </span>
+                            <a href="tel:+ 91 8949695921">
+                                + 91 8949695921</a>
+                        </li>
+                        <li>
+                            <div class="latbel--con">WhatsApp</div>
+                            <span>
+                                <i class="fab fa-whatsapp"></i>
+                            </span>
+                            <a href="">
+                                + 91 8949695921</a>
+                        </li>
+                        <li>
+                            <div class="latbel--con">Email Us</div>
+                            <span>
+                                <i class="fas fa-at"></i>
+                            </span>
+                            <a href="mailto:Support @urbanwood.in">
+                                Support @urbanwood.in</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div> #}
+        <!-- mobile ad to cart-->
+        {# <div class="offcanvas offcanvas-bottom call-oofcancavs addtocart-mobfill" tabindex="-1" id="offcanvasBottom3" aria-labelledby="offcanvasBottomLabel">
+          <button type="button" class="text-white mob-cls-btn" data-bs-dismiss="offcanvas" aria-label="Close"><i class='bx bx-arrow-back'></i></button>
+          <div class="mob-offcanva-bottom-inner"> 
+  
+            <div class="offcanvas-body small my-0 py-0">
+          
+              <div class="tab-popup">
+                <button class="tablinks tablinks2" onclick="openCartMob2(this)" id="defaultOpen2">My Cart</button>
+                <button class="tablinks tablinks2" id="wlbtnmob" onclick="openWishlistMob(this)">My Wishlist</button>
+                <button class="tablinks tablinks2" id="orderlistmob" onclick="openOrderMob(this)">My Order</button>
+              </div>
+
+              <div id="mycartmob" class="tabcontent-popup2 height-fixed">
+                <div class="mobcartlist"> #}
+                  {# <div class="mobcart-container2">
+                    <div class="pro-cart-img2">
+                      <img src="assets/image/cart-img/mycart1.jpg" alt="">
+                    </div>
+                    <div class="cart-content2">
+                      <div class="promob-name"><a href=""> Lorem Ipsum </a> 
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <button class="cross-icon" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExamplemob" aria-expanded="false" aria-controls="collapseExamplemob">
+                          <i class="fas fa-times"></i>
+                        </button>
+                      </div>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="cart-price">$ 25.00</div>
+                        <div class="countItem">                    
+                          <span class="btn-minus"><span class="fa fa-minus"></span></span>
+                          <input value="1" class="count">
+                          <span class="btn-plus"><span class="fa fa-plus"></span></span>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="collapse" id="collapseExamplemob">
+                    <ul class="btn-list-cart"> 
+                      <li> <a href="" class="buy-now-btn">Buy Now</a> </li> 
+                      <li><a href="" class="view-m-cart"> view more</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mobcart-container2">
+
+                    <div class="pro-cart-img2">
+                      <img src="assets/image/cart-img/mycart1.jpg" alt="">
+                    </div>
+                    <div class="cart-content2">
+                      <div class="promob-name"><a href=""> Lorem Ipsum </a> 
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                      </div>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="cart-price">$ 25.00</div>
+                        <div class="countItem">                    
+                          <span class="btn-minus"><span class="fa fa-minus"></span></span>
+                          <input value="1" class="count">
+                          <span class="btn-plus"><span class="fa fa-plus"></span></span>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="mobcart-container2">
+                    <a  href="" class=""> 
+                      <div class="pro-cart-img2">
+                        <img src="assets/image/cart-img/mycart1.jpg" alt="">
+                      </div>
+                      <div class="cart-content2">
+                        <div class="promob-name"><a href=""> Lorem Ipsum </a> 
+                          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="cart-price">$ 25.00</div>
+                          <div class="countItem">                    
+                            <span class="btn-minus"><span class="fa fa-minus"></span></span>
+                            <input value="1" class="count">
+                            <span class="btn-plus"><span class="fa fa-plus"></span></span>
+
+                          </div>
+
+                        </div>
+                      </div>
+                    </a>
+                  </div> #}
+
+                {# </div>
+              </div>
+
+              <div id="mywishlistmob" class="tabcontent-popup2 height-fixed">
+                <div class="mobwishlist"> #}
+                  {# <div class="mobcart-container2">
+
+                    <div class="pro-cart-img2">
+                      <img src="assets/image/cart-img/mycart1.jpg" alt="">
+                    </div>
+                    <div class="cart-content2">
+                      <div class="promob-name"><a href=""> Lorem Ipsum Lorem Ipsum</a> 
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                      </div>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="cart-price">$ 25.00</div>
+                        <button class="move-cart-mob"> move to cart </button>
+                      </div>
+                    </div>
+                  </div> #}
+                {# </div>
+              </div>
+
+              <div id="myordermob" class="tabcontent-popup2">
+
+                <div class="moborderlist"> #}
+                  {# <div class="mobcart-container2">
+
+                    <div class="pro-cart-img2">
+                      <img src="assets/image/cart-img/mycart1.jpg" alt="">
+                    </div>
+                    <div class="cart-content2">
+                      <div class="promob-name"><a href=""> Lorem Ipsum Lorem Ipsum</a> 
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                      </div>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="cart-price">$ 25.00</div>
+                        <button class="move-cart-mob"> view Detail </button>
+                      </div>
+                    </div>
+                  </div> #}
+                {# </div>
+              </div>
+
+            </div>
+          </div>
+        </div> #}
+        <!--- mobile menu account -->
+        {# <div class="offcanvas offcanvas-bottom call-oofcancavs" tabindex="-1" id="offcanvasBottom2" aria-labelledby="offcanvasBottomLabel">
+            <button type="button" class="text-white mob-cls-btn" data-bs-dismiss="offcanvas" aria-label="Close">
+                <i class='bx bx-arrow-back '></i>
+            </button>
+            <div class="mob-offcanva-bottom-inner">
+              <div class="offcanvas-body small my-0 py-3">
+                  <div class="signin-form mobisigninnav selected" >      
+                  <div class="text-center">
+                    <h5>Sign in to your Account </h5>
+                    <p style="font-size: .8em;">
+                      <small>To track your orders, manage your account and more.</small>
+                    </p>
+                  </div>
+                  <form class="row g-3 needs-validation loginform" novalidate="" id="form2">
+                    <div class="col-md-12">
+                      <label for="inputEmail" class="form-label">Email</label>
+                      <input type="email" class="form-control  py-2" name="email" id="inputemailmob" placeholder="Enter your email" required="true">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="inputPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control py-2" name="password" id="inputpasswordmob" placeholder="Enter your password" required="true">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="send-btn" id="request_button_mob">Sign In</button>
+                    </div>
+                    <div class="col-12 text-center">
+                      <div>
+                        <a href="" style="font-size: .8em;">Forgot your password?</a>
+                        <span class="q-icon"> <i class='bx bx-question-mark'></i></span>
+                      </div>
+                      <p style="font-size: .8em;">or Continue With</p>
+                      <div class="d-flex justify-content-center">
+                        <div class="sign-way-icon">
+                          <img loading="lazy" src="catalog/view/javascript/assets/image/icon/google.png" class="img-responsive img-fluid rounded" width="40" alt="">
+                        </div>
+                        <div class="sign-way-icon">
+                          <img loading="lazy" src="catalog/view/javascript/assets/image/icon/facebook.png" class="img-responsive img-fluid rounded" width="40" alt="">
+                        </div>
+                        <div class="sign-way-icon">
+                          <i class='bx bxl-apple' style="font-size: 25px;"></i>
+                        </div>
+                      </div>
+                      <div class="my-2" style="font-size: 13px; color: #434342;" >Don't have an account ? &nbsp;<span id="mobsignin"><b>Sign Up</b></span></div>
+                    </div>
+                  </form>
+            
+        </div>
+        <div class="signin-form mobisignupnav dismiss">
+<div class="text-center">
+        <h5>Create to your Account </h5>
+        <p style="font-size: .8em;"><small>To get more Benifits, create your account and more.</small></p>
+      </div>
+        <form class="row g-3 needs-validation" novalidate="" method="post" action="?route=account/register" id="form2">
+        <div class="col-md-12 ">
+        <label for="inputfnamemobs" class="form-label">First Name</label>
+        <input type="text" class="form-control  py-2" name="firstname" id="inputfnamemobs" placeholder="Enter your firstname" required >
+        </div>
+        <div class="col-md-12 ">
+        <label for="inputfnamemobs" class="form-label">Last Name</label>
+        <input type="text" class="form-control  py-2" name="lastname" id="inputlnamemobs" placeholder="Enter your lastname" required >
+        </div>
+        <div class="col-md-12 ">
+        <label for="inputEmail" class="form-label">Email</label>
+        <input type="email" class="form-control py-2" name="email" id="inputEmailmobs" placeholder="Enter your email" required >
+        </div>
+        <div class="col-md-12 ">
+        <label for="inputPhone" class="form-label">Phone</label>
+        <input type="text" class="form-control py-2" name="telephone" id="inputEmailmobs" placeholder="Enter your phone number" required >
+        </div>
+        <div class="col-md-12 ">
+        <label for="inputPassword" class="form-label">Password</label>
+        <input type="password" class="form-control py-2" name="password" id="inputpasswordmobs" placeholder="Enter your password" required >
+        
+        </div>
+        <div class="col-md-12 ">
+        <label for="inputConfirm" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control py-2" name="confirm" id="confirmpassword" placeholder="Re-Enter your password" required >
+        
+        </div>
+        <div class="col-12">
+        <button type="submit" class="send-btn" id="request_button" >Sign Up</button>
+        </div>
+        <div class="col-lg-12 text-center">
+          <p style="font-size: .8em; margin-bottom:0px">or Continue With</p>
+          <div class="d-flex justify-content-center">
+          
+            <div class="sign-way-icon"> <img src="assets/image/icon/google.png" class="img-responsive img-fluid rounded" width="30" alt=""></div>
+            <div  class="sign-way-icon"> <img src="assets/image/icon/facebook.png" class="img-responsive img-fluid rounded" width="30" alt=""></div>
+            <div  class="sign-way-icon"> <img src="assets/image/icon/iphone.png" class="img-responsive img-fluid rounded" width="34" alt=""></div>
+          
+          </div>
+          <div class="my-2" style="font-size: 13px; color: #434342;" >Already have an account ? &nbsp;<span id="mobisignup"><b>Sign In</b></span></div>
+        </div>
+        </form>
+        </div>
+    </div>
+  </div>
+</div> #}
+<style>
+  .mobisigninnav {
+    display: block;
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    margin-bottom:3em;
+}
+.mobisignupnav {
+  display: none;
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+}
+</style>
+<!-- mobile menu end account-->
+<style>
+  .textsliderhead{
+    height: 25px !important;
+  }
+  .textsliderhead >p{
+    color: #fff;
+  }
+#topslider-marquee {
+    /* background: linear-gradient(1deg, black, #4b4b4b); */
+    background: #9c0000;
+    text-align: center;
+    color: #fff;
+    animation: slide-animation 20s infinite;
+    padding: 5px 0px;
+    line-height: 2;
+}
+#topslider-marquee p{
+  margin:auto !important ;   
+  font-size: 16px; 
+}
+#topslider-marquee ul
+{
+	-webkit-animation: slide-animation 20s infinite;
+  animation:slide-animation 20s infinite; 
+  list-style: none outside none;      
+
+}
+#topslider-marquee:hover
+{
+	-moz-animation-play-state: paused;
+	-webkit-animation-play-state: paused;
+  -o-animation-play-state: paused;
+  animation-play-state: paused;
+}
+    </style>
+{# <div id="topslider-marquee" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item textsliderhead active">
+       <p>“<b>Republic sale is live</b>“ : Get 55% + 5% extra off on thousands of products</p>
+      </div>
+      <div class="carousel-item textsliderhead">
+        <p> “<b>No Cost EMI Offers</b> - Available With All Leading Banks“</p>
+      </div>
+      <div class="carousel-item textsliderhead"> 
+        <p>“Free Shipping on All Products Across India“</p> 
+      </div>
+    </div>
+  </div> #}
+
+{# <div class="top-head d-none d-lg-block">
+    <div class="container container-custom">
+        <div class="row">
+            <div class="col-lg-9">
+                <ul class="tophead-link">
+                    <li>
+                        <span>
+                            <i class='bx bx-mail-send bx-flashing'></i>
+                        </span>
+                        <a href="">
+                            Support @urbanwood.in
+                        </a>
+                    </li>
+                    <li>
+                        <span>
+                            <i class='bx bx-phone-call bx-flashing'></i>
+                        </span>
+                        <a href="tel:+ 91 8949695921">
+                            <span>
+                                Sales
+                            </span>
+                            + 91 8949695921
+                        </a>
+                    </li>
+                    <li>
+                        <span>
+                            <i class='bx bx-phone-call bx-flashing'></i>
+                        </span>
+                        <a href="tel:+ 91 9311964772">
+                            <span>
+                                Service (10am-8pm)
+                            </span>
+                            + 91 9311964772
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <ul class="tophead-link float-right-side">
+                    <li class="track-order">
+                        <span class="root-t">
+                            <i class='bx bxs-truck bx-fade-right text-white'></i>
+                        </span>
+                        <a href="" class="text-white">Track Order
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div> #}
+
+{# <div class="headbar pt-lg-3 "> #}
+    {# <div class="container container-custom">
+        <div class="row d-lg-flex align-items-center">
+            <div class="col-lg-4 d-none d-lg-block">
+                <a href="https://www.urbanwood.in/" data-bs-toggle="tooltip" data-bs-placement="top" title="UrbanWood Furniture"><img loading="lazy" src="catalog/view/javascript/assets/image/urbanwoodlogo.jpg" width="20%" class="img-responsive img-fluid">
+                </a>
+            </div>
+            <div class="col-lg-4 d-none d-lg-block">
+
+                <div id="search11" class="search-form">
+                    <input class="input-group form-control me-2" type="text" name="search" id="searchinput" placeholder="Search for products, brands and more..." aria-label="Search">
+                    <button class="search-btn" type="button">
+                        <i class='bx bx-search'></i>
+                    </button>
+                </div>
+                
+            </div>
+            <div class="col-lg-4 d-none d-lg-block">
+                <ul class="tophead-link-2 float-right-side">
+                    <li>
+                       
+                        <div class="dropdown-pp">
+                            <button class="dropbtn-profile">
+                                <i class='bx bx-user'></i>
+                            </button>
+                            <div class="dropdown-content-pp">
+                                <a href="javascript:toProfilepage()">My Profile</a>
+                                <a href="javascript:toOrderpage()">
+                                    My Order</a>
+                                <a href="">
+                                    My Wishlists</a>
+                                {% if logged %}
+                                <div class=" sign-up-btn">
+                                    <a href={{ logout }} type="button" class="text-white">
+                                        Logout
+                                    </a>
+                                </div>
+                                {% else %}
+                                <a href="javascript:;" type="button" onclick="signinmodal()">
+                                    Log In
+                                </a>
+                                <div class=" sign-up-btn">
+                                    <a href="javascript:;" type="button" class="text-white" onclick="signupmodal()">
+                                        Sign In
+                                        <span class="text-white d-block" style="font-size:13px ">
+                                            <small>( If you are not Register)</small>
+                                        </span>
+                                    </a>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        
+                    </li>
+                    <li>
+                        <button class="btn border-none p-0 m-0" id="wishlist" onclick="openWishlist(this);" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight2" aria-controls="offcanvasRight2"> <i class='bx bx-heart'></i></button>
+                        <span class="badge_pp text-white">
+                            {{ wishlist_items }}</span>
+                        <span class="visually-hidden">unread messages</span>
+                    </li>
+                    <li id="cartli">
+                        <a href="?route=checkout/cart" class="btn border-none p-0 m-0" id="cartlist"><i class='bx bx-cart-alt'></i></a>
+                        {# <button class="btn border-none p-0 m-0" id="cartlist" onclick="openCart2(this);" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight2" aria-controls="offcanvasRight2"><i class='bx bx-cart-alt'></i></button> #
+                        {% if cart_items %}
+                        <span class="badge_pp text-white">
+                            {{ cart_items }}</span>
+                        <span class="visually-hidden">unread messages</span>
+                        {% else %}
+                        <span class="badge_pp text-white">
+                            0</span>
+                        <span class="visually-hidden">unread messages</span>
+                        {% endif %}
+                        
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div> #}
+
+    <!---- desktop- wishlist / add to cart / my order-slide right popup -->
+
+  {# <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight2" aria-labelledby="offcanvasRightLabel2">
+    <div class="offcanvas-header slider-header-offcanvas">
+    {% if customer_name %}
+      <h5 id="offcanvasRightLabel2"><span class="our-user-name">Hello, &nbsp;{{ customer_name }}</span></h5>
+    {% else %}
+      <h5 id="offcanvasRightLabel2"><span class="our-user-name">Hello , Guest </span></h5>
+    {% endif %}
+      <button type="button" class="mob-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" id="liveToastBtn"><i class="bx bx-arrow-back" style="color:#fff"></i></button>
+    </div>
+    <div class="offcanvas-body">
+      
+<div class="tab-popup">
+  <button class="tablinks" onclick="openCart2(this)" id="defaultOpen">My Cart</button>
+  <button class="tablinks" id="wlbtn" onclick="openWishlist(this)">My Wishlist</button>
+  <button class="tablinks" id="orderlist" onclick="openOrder(this)">My Order</button>
+</div> #}
+
+<!-- my cart -->
+{# <div id="mycart" class="tabcontent-popup">
+  
+<div class="empty-desktop-cart">
+  <div class="con-for-empty-order">
+    <h6>I Feel So Bad!</h6>
+    <p>Cause am <b>Empty</b></p>
+  </div>
+  <div class="empty-cart-img">
+    <img loading="lazy" src="catalog/view/javascript/assets/image/icon/empthy-cart-desktop.png" alt="empthy-cart">
+</div>   
+<a href="" class="cart-shop-btn">Shop Now</a>
+</div>
+
+
+
+</div> #}
+
+
+
+{# <div id="mywishlist" class="tabcontent-popup"> #}
+ 
+{# <div class="mb-3"> 
+  <div class="list-of-cart">
+    <a href="#remove-cart-drop" class="position-absolute top-0 text-black-50 fw-normal fs-6" data-bs-toggle="collapse" style="right:10px;z-index: 9;"><i class="fas fa-times"></i></a>
+    <!-- <button type="button" class="btn-close text-reset" aria-label="Close" style="font-size:8px;" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"></button> -->
+    <div class="d-flex align-items-center">
+      <div class="pp-img-cart">
+        <div class="heart-wish">
+          <i class="fas fa-heart"></i>
+        </div>
+        <div class="cart-img">
+        <img loading="lazy" src="./assets/image/cart-img/mycart1.jpg" class="img-fluid img-responsive">
+      </div>
+      </div>
+      <div class="cart-deatils">
+        <div class="d-flex justify-content-start my-2">
+          <div class="cart-p-name">Lounge Chair  <br> <span class="pp-quality-name">Premium chair </span></div> 
+          <div class="my-cart-price"><i class="fa fa-rupee-sign" ></i>1,500</div>
+        </div>
+        <div class="d-flex justify-content-between my-2">
+          <ul class="btn-list-cart"> 
+          <li> <a href="" class="buy-now-btn">Move to Cart</a> </li> 
+          </ul>
+       
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="remove-cart-drop" class="collapse">
+  <div class="romove cart-pop-bottom">
+ <div class="con-rem" >
+  <p>Are you sure you want to remove this item from cart? </p></div>
+   <div class="rem-btn-sec">
+  <button class="btn remove-cart-btn mx-1"> remove</button>
+  <button class=" mx-1 move-wishlist-btn"> move to wishlist</button>
+</div>
+  </div>
+</div>
+</div> #}
+
+ 
+{# <div class="mb-3"> 
+  <div class="list-of-cart">
+    <a href="#remove-cart-drop" class="position-absolute top-0 text-black-50 fw-normal fs-6" data-bs-toggle="collapse" style="right:10px;z-index: 9;"><i class="fas fa-times"></i></a>
+    <!-- <button type="button" class="btn-close text-reset" aria-label="Close" style="font-size:8px;" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"></button> -->
+    <div class="d-flex align-items-center">
+      <div class="pp-img-cart">
+        <div class="heart-wish">
+          <i class="fas fa-heart"></i>
+        </div>
+        <div class="cart-img">
+        <img loading="lazy" src="./assets/image/cart-img/mycart1.jpg" class="img-fluid img-responsive">
+      </div>
+      </div>
+      <div class="cart-deatils">
+        <div class="d-flex justify-content-start my-2">
+          <div class="cart-p-name">Lounge Chair  <br> <span class="pp-quality-name">Premium chair </span></div> 
+          <div class="my-cart-price"><i class="fa fa-rupee-sign" ></i>1,500</div>
+        </div>
+        <div class="d-flex justify-content-between my-2">
+          <ul class="btn-list-cart"> 
+          <li> <a href="" class="buy-now-btn">Move to Cart</a> </li> 
+          </ul>
+       
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="remove-cart-drop" class="collapse">
+  <div class="romove cart-pop-bottom">
+ <div class="con-rem" >
+  <p>Are you sure you want to remove this item from cart? </p></div>
+   <div class="rem-btn-sec">
+  <button class="btn remove-cart-btn mx-1"> remove</button>
+  <button class=" mx-1 move-wishlist-btn"> move to wishlist</button>
+</div>
+  </div>
+</div>
+</div> #}
+
+ 
+{# <div class="mb-3"> 
+  <div class="list-of-cart">
+    <a href="#remove-cart-drop" class="position-absolute top-0 text-black-50 fw-normal fs-6" data-bs-toggle="collapse" style="right:10px;z-index: 9;"><i class="fas fa-times"></i></a>
+    <!-- <button type="button" class="btn-close text-reset" aria-label="Close" style="font-size:8px;" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"></button> -->
+    <div class="d-flex align-items-center">
+      <div class="pp-img-cart">
+        <div class="heart-wish">
+          <i class="fas fa-heart"></i>
+        </div>
+        <div class="cart-img">
+        <img loading="lazy" src="./assets/image/cart-img/mycart1.jpg" class="img-fluid img-responsive">
+      </div>
+      </div>
+      <div class="cart-deatils">
+        <div class="d-flex justify-content-start my-2">
+          <div class="cart-p-name">Lounge Chair  <br> <span class="pp-quality-name">Premium chair </span></div> 
+          <div class="my-cart-price"><i class="fa fa-rupee-sign" ></i>1,500</div>
+        </div>
+        <div class="d-flex justify-content-between my-2">
+          <ul class="btn-list-cart"> 
+          <li> <a href="" class="buy-now-btn">Move to Cart</a> </li> 
+          </ul>
+       
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="remove-cart-drop" class="collapse">
+  <div class="romove cart-pop-bottom">
+ <div class="con-rem" >
+  <p>Are you sure you want to remove this item from cart? </p></div>
+   <div class="rem-btn-sec">
+  <button class="btn remove-cart-btn mx-1"> remove</button>
+  <button class=" mx-1 move-wishlist-btn"> move to wishlist</button>
+</div>
+  </div>
+</div>
+</div> #}
+
+ 
+{# <div class="mb-3"> 
+  <div class="list-of-cart">
+    <a href="#remove-cart-drop" class="position-absolute top-0 text-black-50 fw-normal fs-6" data-bs-toggle="collapse" style="right:10px;z-index: 9;"><i class="fas fa-times"></i></a>
+    <!-- <button type="button" class="btn-close text-reset" aria-label="Close" style="font-size:8px;" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"></button> -->
+    <div class="d-flex align-items-center">
+      <div class="pp-img-cart">
+        <div class="heart-wish">
+          <i class="fas fa-heart"></i>
+        </div>
+        <div class="cart-img">
+        <img loading="lazy" src="./assets/image/cart-img/mycart1.jpg" class="img-fluid img-responsive">
+      </div>
+      </div>
+      <div class="cart-deatils">
+        <div class="d-flex justify-content-start my-2">
+          <div class="cart-p-name">Lounge Chair  <br> <span class="pp-quality-name">Premium chair </span></div> 
+          <div class="my-cart-price"><i class="fa fa-rupee-sign" ></i>1,500</div>
+        </div>
+        <div class="d-flex justify-content-between my-2">
+          <ul class="btn-list-cart"> 
+          <li> <a href="" class="buy-now-btn">Move to Cart</a> </li> 
+          </ul>
+       
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="remove-cart-drop" class="collapse">
+  <div class="romove cart-pop-bottom">
+ <div class="con-rem" >
+  <p>Are you sure you want to remove this item from cart? </p></div>
+   <div class="rem-btn-sec">
+  <button class="btn remove-cart-btn mx-1"> remove</button>
+  <button class=" mx-1 move-wishlist-btn"> move to wishlist</button>
+</div>
+  </div>
+</div>
+</div> #}
+
+
+
+
+{# </div> #}
+
+{# <div id="myorder" class="tabcontent-popup">
+  
+<div class="mb-3"> 
+  <div class="list-of-cart">
+    <a href="#remove-cart-drop" class="position-absolute" style="right: 7px; z-index: 9;color: #c7c7c7;font-size: 12px;font-weight: 100;top: 3px;"><i class="fas fa-chevron-right"></i></a>
+    <div class="d-flex align-items-center">
+      <div class="pp-img-cart">
+        <div class="cart-img">
+        <img loading="lazy" src="./assets/image/cart-img/mycart1.jpg" class="img-fluid img-responsive">
+      </div>
+      </div>
+      <div class="cart-deatils">
+        <div class="d-flex justify-content-between my-2">
+          <div class="cart-p-name">Lounge Chair  <br> <span class="pp-quality-name">Premium chair </span>
+            <div class="ordered-pricec"><i class="fa fa-rupee-sign" ></i>1,500</div>
+          </div> 
+          <div class="cart-checkout">Delivered  <i class="fas fa-check"></i></div>
+        </div>
+        
+      </div>
+    </div>
+    <div class="devider"> </div>
+    <div class="d-flex justify-content-start align-items-center my-2">
+    <div class="cart-order-time"><span class="month">December</span><span class="date">14,</span> <span>2:33 PM</span></div>
+    <div class="dileverd-area"> Jaipur Bhakrota 302026 </div>
+    <div class="order-btn-sec">
+      <ul>
+        <li><a href="" class="re-order-btn remove-cart-btn">Reorder</a></li>
+        <li><a href="" class="rate-btn move-wishlist-btn">Rateme </a></li>
+      </ul>
+    </div>
+    </div>
+  </div>
+ 
+</div>
+
+<div class="mb-3"> 
+  <div class="list-of-cart">
+    <a href="#remove-cart-drop" class="position-absolute" style="right: 7px; z-index: 9;color: #c7c7c7;font-size: 12px;font-weight: 100;top: 3px;"><i class="fas fa-chevron-right"></i></a>
+    <div class="d-flex align-items-center">
+      <div class="pp-img-cart">
+        <div class="cart-img">
+        <img loading="lazy" src="./assets/image/cart-img/mycart1.jpg" class="img-fluid img-responsive">
+      </div>
+      </div>
+      <div class="cart-deatils">
+        <div class="d-flex justify-content-between my-2">
+          <div class="cart-p-name">Lounge Chair  <br> <span class="pp-quality-name">Premium chair </span>
+            <div class="ordered-pricec"><i class="fa fa-rupee-sign" ></i>1,500</div>
+          </div> 
+          <div class="cart-checkout">Canceled <i class="fas fa-times" style="background-color:#ff6a6a;"></i></div>
+        </div>
+        
+      </div>
+    </div>
+    <div class="devider"> </div>
+    <div class="d-flex justify-content-start align-items-center my-2">
+    <div class="cart-order-time"><span class="month">December</span><span class="date">14,</span> <span>2:33 PM</span></div>
+    <div class="dileverd-area"> Jaipur Bhakrota 302026 </div>
+    <div class="order-btn-sec">
+      <ul>
+        <li><a href="" class="re-order-btn remove-cart-btn">Reorder</a></li>
+        <li><a href="" class="rate-btn move-wishlist-btn">Rateme </a></li>
+      </ul>
+    </div>
+    </div>
+  </div>
+ 
+</div>
+
+<div class="mb-3"> 
+  <div class="list-of-cart">
+    <a href="#remove-cart-drop" class="position-absolute" style="right: 7px; z-index: 9;color: #c7c7c7;font-size: 12px;font-weight: 100;top: 3px;"><i class="fas fa-chevron-right"></i></a>
+    <div class="d-flex align-items-center">
+      <div class="pp-img-cart">
+        <div class="cart-img">
+        <img loading="lazy" src="./assets/image/cart-img/mycart1.jpg" class="img-fluid img-responsive">
+      </div>
+      </div>
+      <div class="cart-deatils">
+        <div class="d-flex justify-content-between my-2">
+          <div class="cart-p-name">Lounge Chair  <br> <span class="pp-quality-name">Premium chair </span>
+            <div class="ordered-pricec"><i class="fa fa-rupee-sign" ></i>1,500</div>
+          </div> 
+          <div class="cart-checkout">Pending <i class="fas fa-history" style="background:#6493da"></i> </div>
+        </div>
+        
+      </div>
+    </div>
+    <div class="devider"> </div>
+    <div class="d-flex justify-content-start align-items-center my-2">
+    <div class="order-btn-sec ">
+      <ul>
+        <li><a href="" class="rate-btn move-wishlist-btn">See Order </a></li>
+      </ul>
+    </div>
+    </div>
+  </div>
+ 
+</div>
+</div> #}
+
+    {# </div>
+  </div> #}
+<!---- end desktop- wishlist / add to cart / my order-slide right popup -->
+
+<!-- request call back -->
+<div class="sidecall">
+        <button type="button" class=" requestcall" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            Request Call
+            <span>
+                <i class='bx bx-phone-call bx-tada'></i>
+            </span>
+        </button>
+    </div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="modal-header text-center d-block">
+                <h5 class="modal-title" id="exampleModalLabel">Request a Callback</h5>
+                <p class="text-center">We will contact you as soon as we have received your information.
+                </p>
+            </div>
+            <div class="modal-body">
+                <form id="myform">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Name</label>
+                        <input type="text" name="name" class="form-control" id="user-name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Email Adderess</label>
+                        <input type="text" name="email" class="form-control" id="email-address" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient-num" class="col-form-label">Contact No.</label>
+                        <input type="text" name="mobile" class="form-control" id="con-num" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="state" class="col-form-label">State</label>
+                        <select name="state" id="state" name="state" class="form-control" required>
+			<option value="">Select state</option>
+<option value="Andhra Pradesh">Andhra Pradesh</option>
+<option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+<option value="Assam">Assam</option>
+<option value="Bihar">Bihar</option>
+<option value="Chandigarh">Chandigarh</option>
+<option value="Chhattisgarh">Chhattisgarh</option>
+<option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+<option value="Daman and Diu">Daman and Diu</option>
+<option value="Delhi">Delhi</option>
+<option value="Lakshadweep">Lakshadweep</option>
+<option value="Puducherry">Puducherry</option>
+<option value="Goa">Goa</option>
+<option value="Gujarat">Gujarat</option>
+<option value="Haryana">Haryana</option>
+<option value="Himachal Pradesh">Himachal Pradesh</option>
+<option value="Jammu and Kashmir">Jammu and Kashmir</option>
+<option value="Jharkhand">Jharkhand</option>
+<option value="Karnataka">Karnataka</option>
+<option value="Kerala">Kerala</option>
+<option value="Madhya Pradesh">Madhya Pradesh</option>
+<option value="Maharashtra">Maharashtra</option>
+<option value="Manipur">Manipur</option>
+<option value="Meghalaya">Meghalaya</option>
+<option value="Mizoram">Mizoram</option>
+<option value="Nagaland">Nagaland</option>
+<option value="Odisha">Odisha</option>
+<option value="Punjab">Punjab</option>
+<option value="Rajasthan">Rajasthan</option>
+<option value="Sikkim">Sikkim</option>
+<option value="Tamil Nadu">Tamil Nadu</option>
+<option value="Telangana">Telangana</option>
+<option value="Tripura">Tripura</option>
+<option value="Uttar Pradesh">Uttar Pradesh</option>
+<option value="Uttarakhand">Uttarakhand</option>
+<option value="West Bengal">West Bengal</option>
+</select>
+			</div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Message:</label>
+                        <textarea class="form-control" name="message" id="message-text" required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer text-center">
+                <button type="button" id="subbtn" onclick="submitCallRequest('myform','subbtn')" class="send-btn">Send message</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+     function submitCallRequest(idd,btn){
+    if(!formRule(idd)) return false;
+    $('#'+btn).text('Processing...');
+
+   
+    $.ajax({
+      url:'?route=information/requestcallback',
+      data:$('#'+idd).serialize(),
+      type:'POST',
+    // dataType:'JSON',
+    success:function(res){      
+      console.log(res);
+        var thanksHtml = '<div class="ThankuMsgx" style="text-align:center;">\n\
+        <img loading="lazy" src="https://i.pinimg.com/originals/06/ae/07/06ae072fb343a704ee80c2c55d2da80a.gif" style="width: 136px;"><br>\n\
+        <h1 style="color: gray;">Success!</h1><br>\n\
+        <p>Our team will contact you shortly.</p><br>';
+        $('#'+idd).html('');
+        $('#'+idd).html(thanksHtml);
+        $('#'+btn).remove();
+      
+    }
+  });
+  }
+    </script>
+    <script>
+    // function withJquery(){
+    //     console.time('time1');
+	  //     var temp = $("<input>");
+    //     $("body").append(temp);
+    //     temp.val($('#couponcode').text()).select();
+    //     document.execCommand("copy");
+    //     temp.remove();
+    //     console.timeEnd('time1');
+    // }
+
+//     function openCartmob(evt, cityName2) {
+//   var i, tabcontent2, tablinks2;
+//   tabcontent2 = document.getElementsByClassName("tabcontent-popup2");
+//   for (i = 0; i < tabcontent2.length; i++) {
+//     tabcontent2[i].style.display = "none";
+//   }
+//   tablinks2 = document.getElementsByClassName("tablinks2");
+//   for (i = 0; i < tablinks2.length; i++) {
+//     tablinks2[i].className = tablinks2[i].className.replace(" active", "");
+//   }
+//   document.getElementById(cityName2).style.display = "block";
+//   evt.currentTarget.className += " active";
+// }
+
+// Get the element with id="defaultOpen" and click on it
+// document.getElementById("defaultOpen2").click();
+
+//for mobile view cart list
+
+// function openCartMob2(elm){
+//         openCartmob(event, 'mycartmob');
+//         //$('#defaultOpen2').addClass('active');
+//         $.ajax({
+//             url:'index.php?route=checkout/cart/cartlist',
+//             type:'POST',
+//             dataType:'JSON',
+//             success:function(res){    
+//                 //console.log(res); 
+//                 var cartlist = '';
+//                  if(res.data == 'Empty'){
+//                     cartlist += '<div class="empty-desktop-cart"><div class="con-for-empty-order"><h6>I Feel So Bad!</h6><p>Cause am <b>Empty</b></p></div><div class="empty-cart-img"><img src="catalog/view/javascript/assets/image/icon/empthy-cart-cion.png" alt="empthy-cart"></div><a href="" class="cart-shop-btn">Shop Now</a></div>';
+//                 }else{
+//                     cartlist += '<form action="index.php?route=checkout/cart/edit" method="post" enctype="multipart/form-data" class="cartForm">';
+//                     $.each(res.data.products, function (i, currProgram) {
+                    
+//                         console.log(currProgram); 
+
+//                         cartlist += '<div class="mobcart-container2"> <div class="pro-cart-img2"> <img src="' + currProgram.thumb +'" alt=""> </div> <div class="cart-content2"> <div class="promob-name"><a href="">' + currProgram.name +'</a>                         <button class="cross-icon" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExamplemob" aria-expanded="false" aria-controls="collapseExamplemob">                          <i class="fas fa-times"></i>                        </button>                      </div>                      <div class="d-flex justify-content-between align-items-center">                        <div class="cart-price">' + currProgram.price +'</div>                        <div class="quantity-bar">          <div class="countItem">    <span class="btn-minus minus" onclick="minusPro(this);" data-id="' + currProgram.cart_id +'"><span class="fa fa-minus"></span></span>            <input name="quantity[' + currProgram.cart_id + ']" value="' + currProgram.quantity + '" class="count quantity cart_'+ currProgram.cart_id + '">   <span class="btn-plus plus" onclick="plusPro(this);" data-id="' + currProgram.cart_id +'"><span class="fa fa-plus"></span></span>    </div>        </div>                      </div>                    </div>                  </div>                  <div class="collapse" id="collapseExamplemob">                    <ul class="btn-list-cart">                       <li> <a href="'+ res.data.checkout  +'" class="buy-now-btn">Buy Now</a> </li>                       <li><button class="btn remove-cart-btn mx-1" onclick="cart.remove('+ currProgram.cart_id +');" class="view-m-cart"> Remove</button></li>                    </ul>                  </div>';                   
+                    
+//                     });
+//                     cartlist += '</form>';
+//                 }
+//                 $('.mobcartlist').html(cartlist);
+//                 //$('#'+btn).text('Submit');
+      
+//             }
+//         });
+//     }
+
+    // for mobbile view wishlist 
+    // function openWishlistMob(elm){
+    //     openCartmob(event, 'mywishlistmob');
+    //     $('#wlbtnmob').addClass('active');
+    //     $.ajax({
+    //         url:'?route=account/wishlist/wlist',
+    //         type:'POST',
+    //         dataType:'JSON',
+    //         success:function(res){   
+    //             console.log(res);
+                
+    //             var wlist = '';
+    //             if(res['status']){
+    //                 wlist += '<div class="empty-desktop-cart">  <div class="con-for-empty-order">    <h6>I Feel So Bad!</h6>    <p>Can\'t see wishlist! <b>Login</b></p>  </div>  <div class="empty-cart-img">    <img loading="lazy" src="catalog/view/javascript/assets/image/icon/notisignin.png" alt="empthy-cart"></div>   <a href="" class="cart-shop-btn">Shop Now</a></div>';
+    //             }else if(res['witems']){
+    //                 wlist += '<div class="empty-desktop-cart"><div class="con-for-empty-order"><h6>I Feel So Bad!</h6><p>Cause am <b>Empty</b></p></div><div class="empty-cart-img"><img loading="lazy" src="catalog/view/javascript/assets/image/icon/empthy-cart-cion.png" alt="empthy-cart"></div><a href="" class="cart-shop-btn">Shop Now</a></div>';
+    //             }else{
+                
+    //                 $.each(res.data, function (i, currProgram) {
+    
+    //                 // console.log(currProgram); 
+    //                     wlist += '<div class="mb-3">   <div class="list-of-cart">    <a href="#remove-cart-drop" class="position-absolute top-0 text-black-50 fw-normal fs-6" data-bs-toggle="collapse" style="right:10px;z-index: 9;"><i class="fas fa-times"></i></a>    <!-- <button type="button" class="btn-close text-reset" aria-label="Close" style="font-size:8px;" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"></button> -->    <div class="d-flex align-items-center">      <div class="pp-img-cart">        <div class="heart-wish">          <i class="fas fa-heart"></i>        </div>        <div class="cart-img">        <img loading="lazy" src="'+ currProgram.thumb +'" class="img-fluid img-responsive">      </div>      </div>      <div class="cart-deatils">        <div class="d-flex justify-content-start my-2">          <div class="cart-p-name">'+ currProgram.name +'  <br> <span class="pp-quality-name">Premium chair </span></div>           <div class="my-cart-price">'+ currProgram.special +'</div>        </div>        <div class="d-flex justify-content-between my-2">          <ul class="btn-list-cart">           <li> <button  class="buy-now-btn" onclick="cart.add('+ currProgram.product_id +','+ undefined +',1);">Move to Cart</button> </li>           </ul>      </div>      </div>    </div>  </div>  <div id="remove-cart-drop" class="collapse">  <div class="romove cart-pop-bottom"> <div class="con-rem" >  <p>Are you sure you want to remove this item from cart? </p></div>   <div class="rem-btn-sec">  <a class="btn remove-cart-btn mx-1" href="'+ currProgram.remove +'"> remove</a>  <button class=" mx-1 move-wishlist-btn"> move to wishlist</button></div>  </div></div></div>';
+    //                 });
+    //             }
+    //             $('.mobwishlist').html(wlist);
+    //             //$('#'+btn).text('Submit');
+      
+    //         }
+    //     });
+    // }
+
+    // for mobile view orderlist
+    // function openOrderMob(elm){
+    //     openCartmob(event, 'myordermob');
+    //     $('#orderlistmob').addClass('active');
+    //     $.ajax({
+    //         url:'?route=account/order/orderlist',
+    //         type:'POST',
+    //         dataType:'JSON',
+    //         success:function(res){
+    //             console.log(res);  
+    //             var orderlist = '';
+    //             if(res.status){
+    //                 orderlist +='<div class="empty-desktop-cart">  <div class="con-for-empty-order">    <h6>I Feel So Bad!</h6>    <p>Can\'t see orders! <b>Login</b></p>  </div>  <div class="empty-cart-img">    <img loading="lazy" src="catalog/view/javascript/assets/image/icon/notisignin.png" alt="empthy-cart"></div>   <a href="" class="cart-shop-btn">Shop Now</a></div>';
+    //             }else if(res.orderlist){
+    //                 orderlist += '<div class="empty-desktop-cart"><div class="con-for-empty-order"><h6>I Feel So Bad!</h6><p>Cause am <b>Empty</b></p></div><div class="empty-cart-img"><img loading="lazy" src="catalog/view/javascript/assets/image/icon/empthy-cart-desktop.png" alt="empthy-cart"></div><a href="" class="cart-shop-btn">Shop Now</a></div>';
+    //             }else{
+    //                 $.each(res.data, function (i, currProgram) {
+                    
+    //                  //console.log(currProgram); 
+    //                     $.each(currProgram.order_products, function (i, products) {
+    //                         orderlist += '<div class="mb-3">  <div class="list-of-cart">    <a href="#remove-cart-drop" class="position-absolute" style="right: 7px; z-index: 9;color: #c7c7c7;font-size: 12px;font-weight: 100;top: 3px;"><i class="fas fa-chevron-right"></i></a>    <div class="d-flex align-items-center">      <div class="pp-img-cart">        <div class="cart-img">        <img loading="lazy" src="./assets/image/cart-img/mycart1.jpg" class="img-fluid img-responsive">      </div>      </div>      <div class="cart-deatils">        <div class="d-flex justify-content-between my-2">          ';
+                    
+    //                         orderlist += '<div class="cart-p-name">'+ products.name +' <br> <span class="pp-quality-name">Premium chair </span>            <div class="ordered-pricec">'+ products.p_total +'</div>          </div> <div class="cart-checkout">';      
+
+    //                         if(currProgram.status == "Processing"){
+    //                             orderlist +=  currProgram.status +'  <i class="fas fa-history" style="background:#6493da"></i>';
+    //                         }else if(currProgram.status == "Complete"){
+    //                             orderlist +=  currProgram.status +'  <i class="fas fa-check"></i>';
+    //                         }else if(currProgram.status == "Canceled" || currProgram.status == "Failed"){
+    //                             orderlist +=  currProgram.status +'  <i class="fas fa-times" style="background-color:#ff6a6a;"></i>';
+    //                         }else{
+    //                             orderlist +=  currProgram.status +'  <i class="fas fa-history" style="background-color:#ff6a6a;"></i>';
+    //                         }
+    //                         orderlist += '</div>        </div>      </div>    </div>    <div class="devider"> </div>    <div class="d-flex justify-content-start align-items-center my-2">    <div class="cart-order-time"><span class="month">December 14,</span> <span>2:33 PM</span></div>    <div class="dileverd-area"> Jaipur Bhakrota 302026 </div>    <div class="order-btn-sec">      <ul>        <li><a href="" class="re-order-btn remove-cart-btn">Reorder</a></li>        <li><a href="" class="rate-btn move-wishlist-btn">Rateme </a></li>      </ul>    </div>    </div>  </div> </div>';
+    //                     });
+    //                 });
+    //             }
+    //             $('.moborderlist').html(orderlist);
+    //             //$('#'+btn).text('Submit');
+      
+    //         }
+    //     });
+    // }
+    </script>
+    <script>
+// $('#mobsignin').click(function(event) {
+//   if ($('.mobisigninnav').hasClass('selected')) {
+//     $('.mobisignupnav').removeClass('dismiss').addClass('selected').show();
+//     $('.mobisigninnav').removeClass('selected').addClass('dismiss').hide();
+//   } else {
+//     $('.mobisigninnav').removeClass('dismiss').addClass('selected').show();
+//     $('.mobisignupnav').removeClass('selected').addClass('dismiss').hide();
+//   }
+//   event.preventDefault();
+// });
+
+// $('#mobisignup').click(function(event) {
+//   if ($('.mobisignupnav').hasClass('selected')) {
+//     $('.mobisignupnav').removeClass('selected').addClass('dismiss').hide();
+//     $('.mobisigninnav').removeClass('dismiss').addClass('selected').show();
+//   } else {
+//     $('.mobisignupnav').removeClass('dismiss').addClass('selected').show();
+//     $('.mobisigninnav').removeClass('selected').addClass('dismiss').hide();
+//   }
+//   event.preventDefault();
+// });
+// $(document).ready(function(){
+// $('#search11').keyup(function (){
+//   var dInput = $('#searchinput').val();
+//   // alert(dInput);ki            
+//   if(dInput.length >= 3) {     
+//   $.ajax({
+//     url: "https://QP8FXBSZKC-dsn.algolia.net/1/indexes/uw/query",
+//     crossOrigin: true,
+//     headers: {
+//               'X-Algolia-API-Key': '5b01e93141fac27458ee494ee9b58336',
+//               'X-Algolia-Application-Id': 'QP8FXBSZKC'
+//         },
+//     type: 'POST',
+//     dataType: 'json',
+//     contentType: 'application/json',
+//     processData: false,
+//     data: '{ "params": "query='+ dInput +'"}',
+//     success: function (data) {
+//       // alert(JSON.stringify(data.hits));
+//       $('#search11').append(data.hits);
+//       $( ".live-search" ).remove();
+//       var html = '<div class="live-search"><ul></ul><div class="result-text"></div></div>';
+//         $('#search11').after(html);
+        
+//     },
+//     error: function(){
+//       alert("Cannot get data");
+//     }
+// });
+//   }
+// });
+// });
+  </script>

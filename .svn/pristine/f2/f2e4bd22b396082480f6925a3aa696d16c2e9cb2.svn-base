@@ -1,0 +1,58 @@
+{# <div class="panel panel-default">
+  <div class="panel-heading">{{ heading_title }}</div>
+  <div class="list-group"> {% for filter_group in filter_groups %} <a class="list-group-item">{{ filter_group.name }}</a>
+    <div class="list-group-item">
+      <div id="filter-group{{ filter_group.filter_group_id }}">{% for filter in filter_group.filter %}
+        <div class="checkbox">
+          <label>{% if filter.filter_id in filter_category %}
+            <input type="checkbox" name="filter[]" value="{{ filter.filter_id }}" checked="checked" />
+            {{ filter.name }}
+            {% else %}
+            <input type="checkbox" name="filter[]" value="{{ filter.filter_id }}" />
+            {{ filter.name }}
+            {% endif %}</label>
+        </div>
+        {% endfor %}</div>
+    </div>
+    {% endfor %}</div>
+  <div class="panel-footer text-right">
+    <button type="button" id="button-filter" class="btn btn-primary">{{ button_filter }}</button>
+  </div>
+</div> #}
+
+
+<div class="filter-sec-heading"> Filter</div>
+    <div class="accordion" id="accordionPanelsStayOpen2">
+    {% for filter_group in filter_groups %}
+    <div class="accordion-item accordion-item-filter">
+    
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo{{ filter_group.filter_group_id }}" aria-expanded="false" aria-controls="collapseTwo">
+            {{ filter_group.name }}
+          </button>
+        </h2>
+        <div id="collapseTwo{{ filter_group.filter_group_id }}" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+           
+            <ul>
+            {% for filter in filter_group.filter %}
+              <li>
+              <div class="form-check filter-switch">
+              {% if filter.filter_id in filter_category %}
+                <input class="form-check-input ifilter" name="filter[]" id="{{ filter.filter_id }}" value="{{ filter.filter_id }}" type="checkbox" id="flexSwitchCheckChecke2" checked>
+                <label class="form-check-label" for="flexSwitchCheckChecked">{{ filter.name }}</label>
+                {% else %}
+                <input class="form-check-input ifilter" name="filter[]" id="{{ filter.filter_id }}" value="{{ filter.filter_id }}" type="checkbox" id="flexSwitchCheckChecke2">
+                <label class="form-check-label" for="flexSwitchCheckChecked">{{ filter.name }}</label>
+                {% endif %}
+                
+              </div>
+            </li>
+           {% endfor %}
+               </ul>
+          </div>
+        </div>
+        
+      </div>
+      {% endfor %}
+      </div>

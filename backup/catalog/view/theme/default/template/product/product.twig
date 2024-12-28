@@ -1,0 +1,2466 @@
+
+{{ header }}
+{{ menu }}
+</div>
+<link  rel="stylesheet"  href="catalog/view/javascript/assets/css/product.css" > 
+<link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" > 
+<link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.css" > 
+<link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.css" > 
+<style>
+/* .owl-carousel {
+    position: relative;
+}
+.owl-nav{
+    bottom:150px;
+}
+.owl-next, .owl-prev {
+    position: absolute;
+    bottom: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #fff;
+    align-items: center;
+    justify-content: center;
+}
+.owl-next {
+    right: 0;
+    display: flex;
+}
+.owl-prev{
+    left: 0;
+    display: flex;
+}
+@media only screen and (max-width: 600px) {
+    .owl-nav{
+        bottom:100px;
+    }
+}
+@media only screen and (min-width: 600px) {
+    .owl-nav{
+        bottom:120px;
+    }
+} */
+</style>
+<style>
+.options-div {
+      display: inline-block;
+      position: relative;
+      width: 100%;
+  }
+  .box-opt {
+      display: flex;
+      width: 30%;
+      padding: 5px;
+      border-radius: 9px;
+      /* padding: 11px; */
+      border: 1px solid #efefef;
+      box-sizing: content-box;
+      box-shadow: 0px 0px 20px #f1f1f1;
+      margin: 0px 3px 18px;
+      float: left;
+      align-content: center;
+      justify-content: center;
+  }
+  .product-img-opt {
+      width: 59%;
+  }
+  .box-opt img {
+      width: 100%;
+      height: 100%;
+      border-radius: 6px;
+  }
+  .price-opt-box {
+      padding: 3px;
+      display: block;
+      text-align: center;
+      width: 70%;
+  }
+  .finish-nm {
+      color: #000;
+      font-size: 14px;
+      /* text-transform: uppercase; */
+  }
+  .price-object {
+      color: #5c5c5c;
+      font-size: 15px;
+      display: block;
+  }
+  .size-block {
+      width: 100%;
+      display: block;
+      position: relative;
+  }
+  .box-opt-size {
+      display: flex;
+      width: 12%;
+      padding: 5px;
+      border-radius: 9px;
+      /* padding: 11px; */
+      border: 1px solid #efefef;
+      box-sizing: content-box;
+      box-shadow: 0px 0px 20px #f1f1f1;
+      margin: 0px 7px 18px;
+      float: left;
+      align-content: center;
+      justify-content: center;
+  }
+  @media only screen 
+  and (max-width: 1500px)
+   {
+    .finish-nm {
+      color: #000;
+      font-size: 12px;
+  }
+  .box-opt {
+      width: 29%;
+  }
+  .product-img-opt {
+      width: 50%;
+  }
+  .price-object {
+      font-size: 14px;
+  }
+   }
+  
+   @media only screen 
+  and (max-width: 1300px)
+   {
+    .box-opt {
+      width: 24%;
+      display: block
+  }
+  .price-opt-box {
+      width: 100%;
+  }
+  .product-img-opt {
+      width: 100%;
+  }
+  .box-opt-size {
+      width: 16%;
+  }
+   }
+  
+   @media only screen 
+  and (max-width: 400px)
+   {
+    .box-opt {
+      width: 26%;
+      height: max-content;
+  }
+  .price-object {
+      font-size: 13px;
+  }
+   }
+
+    .add-to-cart-p-sec{
+      height: max-content;
+      width: 100%;
+      margin: 0 auto;
+  
+    }
+    .child-sticky {
+    height: max-content;
+    position: sticky;
+    top: 20px;
+}
+.child {
+    /* background-color: #8888bb; */
+    height: max-content;
+}
+  .shake {
+  -webkit-animation: shake-animation 4.72s ease infinite;
+          animation: shake-animation 4.72s ease infinite;
+  transform-origin: 50% 50%;
+}
+.element {
+  margin: 0 auto;
+}
+@-webkit-keyframes shake-animation {
+   0% { transform:translate(0,0) }
+  1.78571% { transform:translate(5px,0) }
+  3.57143% { transform:translate(0,0) }
+  5.35714% { transform:translate(5px,0) }
+  7.14286% { transform:translate(0,0) }
+  8.92857% { transform:translate(5px,0) }
+  10.71429% { transform:translate(0,0) }
+  100% { transform:translate(0,0) }
+}
+@keyframes shake-animation {
+   0% { transform:translate(0,0) }
+  1.78571% { transform:translate(5px,0) }
+  3.57143% { transform:translate(0,0) }
+  5.35714% { transform:translate(5px,0) }
+  7.14286% { transform:translate(0,0) }
+  8.92857% { transform:translate(5px,0) }
+  10.71429% { transform:translate(0,0) }
+  100% { transform:translate(0,0) }
+}
+.product-count {
+    margin-top: 0px;
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    /* width: 52%; */
+}
+input#quantity {
+    width: 39px !important;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    flex: none;
+    border: none;
+}
+.product-dtl label {
+    line-height: 16px;
+    font-size: 15px;
+}
+.product-count .qtyminus {
+    border-radius: 3px 0 0 3px;
+}
+.product-count .qtyminus, .product-count .qtyplus {
+    width: 34px;
+    height: 34px;
+    background: #212529;
+    text-align: center;
+    font-size: 19px;
+    line-height: 36px;
+    color: #fff;
+    cursor: pointer;
+}
+.product-count .qty {
+    width: 60px;
+    text-align: center;
+}
+.product-count .qtyplus {
+    border-radius: 0 3px 3px 0;
+}
+.product-count .input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 118px;
+    justify-content: center;
+    margin: 0px 37px;
+    border-radius: 20px;
+    border: #ebeef5 1px solid;
+    padding: 5px 15px;
+}
+.btn-number {
+    background: none;
+    border: none;
+    color: #2c3034;
+}
+
+.blink-image {
+  animation: blink 1.5s linear infinite;
+}
+@keyframes blink{
+  25%{opacity:1;} /* Make half of the image faded out */
+  50%{opacity:0;} /* Make the other half faded out as well */
+  75%{transform:scale(1);} /* Start with*/
+}
+.product-detial-sec {
+    margin-top: 20px;
+}
+
+</style>
+</style>
+<div class="wrapper">
+<!--- banner section-->
+
+<div class="qu-sec py-2 ">
+  <div class="container container-custom">
+    <div class="row">
+<div class="col-md-12 col-sm-12">
+  <nav class="breadcumb-navigation">
+    <ol class="breadcrumb m-0">
+      {# <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li> #}
+      {% for breadcrumb in breadcrumbs %}
+      <li class="breadcrumb-item active" aria-current="page"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+      {% endfor %}
+    </ol>
+  </nav>   
+</div>
+</div>
+    </div>
+</div>
+
+<section class="py-2 add-to-cart-p-sec">
+<div class="container-custom container">
+    <div class="row"> 
+  <div class="col-lg-7 col-md-12 col-sm-12 child-sticky ">
+  <div class="f-carousel" id="myCarousel">
+{% if images %}
+{% set i = 0 %}
+{% for image in images %}
+<div class="f-carousel__slide" data-thumb-src="{{ image.img_thumb }}">
+          <a href="{{ image.big_thumb }}" class="sld_lnk" data-fancybox="gallery"><img class="sld_img" alt="{{ heading_title }}" data-lazy-src="{{ image.thumb }}" /></a>
+        </div>
+{% set i = i + 1 %}
+{% endfor %}
+{% endif %}
+</div>  
+
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.umd.js"></script>
+<script>
+const container = document.getElementById("myCarousel");
+const options = { Dots: false,transition: 'slide', preload: 3 };
+
+new Carousel(container, options, { Thumbs });
+
+Fancybox.bind("[data-fancybox]", {
+  // Your custom options
+});
+
+jQuery(document).ready(function($) {
+    $(".sld_lnk").fancybox({
+        fitToView: true,
+        maxWidth: "100%",
+       
+        
+    });
+}); // ready
+
+</script>
+<picture>
+            <source srcset="catalog/view/javascript/assets/image/big-strip-mobile.jpg" type="avif" alt="no cost emi small banner" class=" img-fluid mobile-offer-baner ">
+            <img src="catalog/view/javascript/assets/image/big-strip-mobile.jpg" alt="no cost emi small banner" class=" img-fluid mobile-offer-baner " style="width:100%;" media="(min-width: 425px)"/>
+        </picture>
+  </div>
+
+
+  <div class="col-lg-5 col-md-12 col-sm-12 child">
+    <div class="shopping-pp-detail">
+{# <div class="side-bnner-11"> 
+  <a href="sofas">
+     <img alt="christmas discount on furniture only at Urbanwood" src="catalog/view/javascript/assets/image/singleproduct-sidebanner.avif" class="img-fluid img-responsive"> #
+    <picture>
+      <source srcset="catalog/view/javascript/assets/image/singleproduct-sidebanner.avif" type="image/avif"  width="415" height="300" alt="new year discount on furniture only at Urbanwoode" class="img-fluid img-responsive" >
+      <img src="catalog/view/javascript/assets/image/singleproduct-sidebanner.webp" width="415" height="300" alt="ew year discount on furniture only at Urbanwoode" class="img-fluid img-responsive" />
+    </picture>
+  </a>
+</div> #}
+<div class="pp-dd-21 scroll-text">
+<div class="solid-amount"> 
+  {% if bestseller %}
+    <span class="bestseller-tag-"><img src="catalog/view/javascript/assets/image/icon/bestseller-con.png" alt="best seller" width="60" class="img-fluid"></span>
+    <style>
+      .solid-amount{
+        flex-direction: row;
+      }
+    </style>
+  {% endif %}
+  <div>
+    <img src="catalog/view/javascript/assets/image/icon/onfire.png" class="blink-image " alt="fire-icon" width="13"> 
+    <span id="foo">7</span> sold in last 
+    <span id="hrs">4</span> hours
+  </div>
+</div>
+<h1 class="pp-heading-line">{{ heading_title }}</h1>
+  <span class="pp-about"> {{ finish }}</span>
+<span class="pd-creater"> By&nbsp;{{ manufacturer }}</span>
+<div class="d-flex justify-content-between">
+<div class="price--order">
+  <div class="real-amm">{{ special }}</div>
+  <div class="dis-amm">{{ price }}</div>
+  <div class="off-amm">{{ per_dis }}% OFF</div>
+  &nbsp;
+  <span class="pp-about">Incl all taxes*</span>
+</div>
+
+{% if review|length %}
+<div class="rating-pp-ad-shoping"> 
+  <span class="rr-start"><i class="fas fa-star"></i></span>
+  <span class="rr-start"><i class="fas fa-star"></i></span>
+  <span class="rr-start"><i class="fas fa-star"></i></span>
+  <span class="rr-start"><i class="fas fa-star"></i></span>
+  <span class="rr-start"><i class="fas fa-star-half"></i></span>
+  <span class="" style="color:#a5a5a5; font-size:10px">( {{ reviews }} )</span>
+</div>
+{% endif %}
+
+</div>
+
+{# <h6>Features :</h6> #}
+{% if manufacturer_id == 1 %}
+<div class="feature-box">
+<ul>
+  <li>
+    <svg fill="#787878" width="35px" height="35px" viewBox="0 0 32 32" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" xmlns:xlink="http://www.w3.org/1999/xlink" stroke="#787878" stroke-width="0.384"><g id="SVGRepo_bgCarrier" stroke-width="0"/><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/><g id="SVGRepo_iconCarrier"> <g transform="matrix(1,0,0,1,-96,-384)"> <g transform="matrix(1,0,0,1.5,0,-195)"> <path d="M123,390.139C123,389.941 122.869,389.755 122.642,389.628C122.415,389.501 122.116,389.448 121.825,389.483C119.095,389.739 115.9,389.237 113.167,387.95C112.472,387.611 111.529,387.612 110.835,387.953C108.106,389.249 104.916,389.77 102.184,389.504C101.896,389.468 101.598,389.519 101.372,389.643C101.146,389.768 101.015,389.954 101.015,390.149C101,392.424 101,398.817 101,401.141C101,401.664 101.458,402.139 102.172,402.355C104.41,403.033 109.237,404.496 111.172,405.083C111.698,405.242 112.302,405.242 112.828,405.083C114.763,404.496 119.59,403.033 121.828,402.355C122.542,402.139 123,401.664 123,401.141C123,398.813 123,392.403 123,390.139Z" style="fill:#f5f5f5;"/> </g> <path d="M124,406.712L124,390.208C124,389.616 123.738,389.055 123.284,388.675C122.836,388.3 122.247,388.14 121.671,388.236C119.171,388.584 116.25,387.878 113.747,386.109C112.704,385.354 111.293,385.357 110.253,386.116C107.762,387.889 104.859,388.626 102.364,388.272C101.772,388.168 101.183,388.323 100.734,388.695C100.279,389.072 100.015,389.633 100.015,390.224C100,393.632 100,403.225 100,406.712L100,406.712C100,407.889 100.688,408.956 101.759,409.443C103.996,410.46 108.823,412.654 110.759,413.534C111.547,413.893 112.453,413.893 113.241,413.534C115.177,412.654 120.004,410.46 122.241,409.443C123.312,408.956 124,407.889 124,406.712ZM121.999,390.208L122,390.209L122,406.712C122,407.104 121.771,407.46 121.414,407.623C119.177,408.639 114.349,410.834 112.414,411.713C112.151,411.833 111.849,411.833 111.586,411.713C109.651,410.834 104.823,408.639 102.586,407.623C102.229,407.46 102,407.104 102,406.712C102,403.231 102,393.664 102.015,390.242L102.018,390.243C104.998,390.678 108.459,389.849 111.416,387.743L111.422,387.739C111.77,387.483 112.235,387.482 112.578,387.732L112.584,387.736C115.547,389.831 119.009,390.63 121.964,390.214L121.999,390.208ZM107.293,399.707L110.44,402.854C110.83,403.244 111.463,403.244 111.854,402.854L117.748,396.96C118.138,396.57 118.138,395.936 117.748,395.546C117.357,395.155 116.724,395.155 116.334,395.546L111.147,400.732C111.147,400.732 108.707,398.293 108.707,398.293C108.317,397.903 107.683,397.903 107.293,398.293C106.903,398.683 106.903,399.317 107.293,399.707ZM122,390.209C122,390.209 122,390.209 122,390.209Z" style="fill:#787878;"/> </g> </g></svg>
+    <span class="fe-con-"> 36 Months' Warranty</span>
+  </li>
+  <li>
+    <svg width="35px" height="35px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#787878"><g id="SVGRepo_bgCarrier" stroke-width="0"/><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/><g id="SVGRepo_iconCarrier"> <path fill="var(--ci-primary-color, #787878)" d="M245.151,168a88,88,0,1,0,88,88A88.1,88.1,0,0,0,245.151,168Zm0,144a56,56,0,1,1,56-56A56.063,56.063,0,0,1,245.151,312Z" class="ci-primary"/> <path fill="var(--ci-primary-color, #787878)" d="M464.7,322.319l-31.77-26.153a193.081,193.081,0,0,0,0-80.332l31.77-26.153a19.941,19.941,0,0,0,4.606-25.439l-32.612-56.483a19.936,19.936,0,0,0-24.337-8.73l-38.561,14.447a192.038,192.038,0,0,0-69.54-40.192L297.49,32.713A19.936,19.936,0,0,0,277.762,16H212.54a19.937,19.937,0,0,0-19.728,16.712L186.05,73.284a192.03,192.03,0,0,0-69.54,40.192L77.945,99.027a19.937,19.937,0,0,0-24.334,8.731L21,164.245a19.94,19.94,0,0,0,4.61,25.438l31.767,26.151a193.081,193.081,0,0,0,0,80.332l-31.77,26.153A19.942,19.942,0,0,0,21,347.758l32.612,56.483a19.937,19.937,0,0,0,24.337,8.73l38.562-14.447a192.03,192.03,0,0,0,69.54,40.192l6.762,40.571A19.937,19.937,0,0,0,212.54,496h65.222a19.936,19.936,0,0,0,19.728-16.712l6.763-40.572a192.038,192.038,0,0,0,69.54-40.192l38.564,14.449a19.938,19.938,0,0,0,24.334-8.731L469.3,347.755A19.939,19.939,0,0,0,464.7,322.319Zm-50.636,57.12-48.109-18.024-7.285,7.334a159.955,159.955,0,0,1-72.625,41.973l-10,2.636L267.6,464h-44.89l-8.442-50.642-10-2.636a159.955,159.955,0,0,1-72.625-41.973l-7.285-7.334L76.241,379.439,53.8,340.562l39.629-32.624-2.7-9.973a160.9,160.9,0,0,1,0-83.93l2.7-9.972L53.8,171.439l22.446-38.878,48.109,18.024,7.285-7.334a159.955,159.955,0,0,1,72.625-41.973l10-2.636L222.706,48H267.6l8.442,50.642,10,2.636a159.955,159.955,0,0,1,72.625,41.973l7.285,7.334,48.109-18.024,22.447,38.877-39.629,32.625,2.7,9.972a160.9,160.9,0,0,1,0,83.93l-2.7,9.973,39.629,32.623Z" class="ci-primary"/> </g></svg>
+    <span class="fe-con-"> Free Installation</span>
+  </li>
+  <li>
+    <svg width="35px" height="35px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#787878"><g id="SVGRepo_bgCarrier" stroke-width="0"/><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/><g id="SVGRepo_iconCarrier"> <g id="Layer_2" data-name="Layer 2"> <g id="invisible_box" data-name="invisible box"> <rect width="48" height="48" fill="none"/> </g> <g id="Health_Icons" data-name="Health Icons"> <g> <path d="M37.7,11.1A3,3,0,0,0,35.4,10H34.2l.3-1.7A3.1,3.1,0,0,0,33.9,6a3.2,3.2,0,0,0-2.2-1H7.8a2,2,0,0,0,0,4H30.3l-4,22.9a6.8,6.8,0,0,0-1,2.1H20.7A7,7,0,0,0,7.3,34H6.2l.5-2.9a2,2,0,0,0-1.6-2.3,2,2,0,0,0-2.3,1.6L2,34.7A2.8,2.8,0,0,0,2.7,37a2.8,2.8,0,0,0,2.1,1H7.3a7,7,0,0,0,13.4,0h4.6a7,7,0,0,0,13.4,0h2a3.2,3.2,0,0,0,3.1-2.7L46,22.5ZM14,39a3,3,0,0,1-3-3,3,3,0,0,1,6,0A3,3,0,0,1,14,39ZM33.5,14h1.3l5.9,8H32.1ZM32,39a3,3,0,0,1-3-3,3,3,0,0,1,6,0A3,3,0,0,1,32,39Zm8-5H38.7A7,7,0,0,0,32,29H30.9l.5-3.1h9.9Z"/> <path d="M4,15H14a2,2,0,0,0,0-4H4a2,2,0,0,0,0,4Z"/> <path d="M15,19a2,2,0,0,0-2-2H5a2,2,0,0,0,0,4h8A2,2,0,0,0,15,19Z"/> <path d="M6,23a2,2,0,0,0,0,4h6a2,2,0,0,0,0-4Z"/> </g> </g> </g> </g></svg>
+    <span class="fe-con-"> Free Delivery</span>
+  </li>
+</ul>
+</div>
+{% endif %}
+
+<div class="my-2"> 
+<h6>Delivery : <span class="pp-about">( Check Delivery availabilty by are your area ) </span></h6>
+<div class="d-flex search-form-dd">
+  <input class="search-form-delivery" id="input-pincode" type="search" placeholder="Enter Pincode" aria-label="Search">
+  <button class="search-devlivery-btn" type="button" onclick="checkPincode($(this))"><i class="bx bx-search"></i></button>
+</div>
+<div class="pincode-msg">
+                        
+                      </div>
+</div>
+<div class="my-3"  id="productcart">
+<label for="size">Quantity</label>
+    <select name="quantity" class="form-select qty-select-drop" style="display:inline;line-height: 1;" aria-label="Default select example">
+      <option selected value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+{% if stock_status == 'Out Of Stock' %}
+  <div class="w-100 d-block mt-3 text-center" style="position: sticky;">
+    <span class="add-to-cart-btn">Out of Stock</span>
+  </div>
+{% else %}
+  <div class="w-100 d-block mt-3 text-center" style="position: sticky;">
+    <input name="product_id" type="hidden" value="{{ product_id }}">
+    <a class="add-to-cart-btn" id="addtocart">ADD TO CART</a>
+    <div class="shake">
+      <a class="buy-now-btn-pp element" id="buynow">BUY NOW</a>  
+    </div>
+  </div>
+  {% endif %}
+</div>
+<hr style="border-bottom: 1px dashed #6a6a6a; background: none; border-top:none; margin: none;">
+{# <input type='hidden' name='{{ starting_emi }}'> #}
+<h6>Available offers:</h6>
+
+<ul class="offer-avil-list">
+  <li> <i class="fas fa-tag"></i> &nbsp; No Cost EMI - Starting from Rs&nbsp;{{ starting_emi }} on HDFC credit card & More
+  {# <span type="button" class="check-t-c-pop" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">More </span> #}
+  
+  
+  </li>
+
+</ul>
+
+{% for product_group in product_groups %}
+  {% if product_group.finish_name == 'Finish Option' %}
+  <div class="options-div">
+    <h6>{{ product_group.finish_name }}</h6>
+    {% for pg in product_group.group_product %}
+    <a href="{{pg.p_link}}" class="box-opt">
+      <div class="product-img-opt"><img src="{{ pg.p_image }}" alt="{{ pg.text }}"></div>
+      <div class="price-opt-box">
+        <span class="finish-nm">{{ pg.text }}</span>
+        <span class="price-object">₹&nbsp;{{ pg.p_price }}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% elseif product_group.finish_name == 'Deco' %}
+  <div class="options-div">
+    <h6>{{ product_group.finish_name }}</h6>
+    {% for pg in product_group.group_product %}
+    <a href="{{pg.p_link}}" class="box-opt">
+      <div class="product-img-opt"><img src="{{ pg.p_image }}" alt="{{ pg.text }}"></div>
+      <div class="price-opt-box">
+        <span class="finish-nm">{{ pg.text }}</span>
+        <span class="price-object">₹&nbsp;{{ pg.p_price }}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% elseif product_group.finish_name == 'Cotton Fabric' %}
+  <div class="options-div">
+    <h6>{{ product_group.finish_name }}</h6>
+    {% for pg in product_group.group_product %}
+    <a href="{{pg.p_link}}" class="box-opt">
+      <div class="product-img-opt"><img src="{{ pg.p_image }}" alt=""></div>
+      <div class="price-opt-box">
+        <span class="finish-nm">{{ pg.text }}</span>
+        <span class="price-object">₹&nbsp;{{ pg.p_price }}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% elseif product_group.finish_name == 'Velvet' %}
+  <div class="options-div">
+    <h6>{{ product_group.finish_name }}</h6>
+    {% for pg in product_group.group_product %}
+    <a href="{{pg.p_link}}" class="box-opt">
+      <div class="product-img-opt"><img src="{{ pg.p_image }}" alt=""></div>
+      <div class="price-opt-box">
+        <span class="finish-nm">{{ pg.text }}</span>
+        <span class="price-object">₹&nbsp;{{ pg.p_price }}</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="options-div">
+  <h6>{{ product_group.finish_name }}</h6>
+  {% for pg in product_group.group_product %}
+  <a href="{{pg.p_link}}" class="box-opt">
+    {# <div class="product-img-opt"><img src="assets/image/opti-img.jpg" alt=""></div> #}
+    <div class="price-opt-box">
+      <span class="finish-nm">{{ pg.text }}</span>
+      <span class="price-object">₹&nbsp;{{ pg.p_price }}</span>
+    </div>
+  </a>
+  {% endfor %}
+  </div>
+  {% endif %}
+  
+  {% endfor %}
+
+
+<div class="product-detial-sec">
+<h6>Product Details </h6> 
+<a class="btn-to-open" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+
+</a>
+
+<div class="collapse show" id="collapseExample">
+  <div class="card card-body">
+  <table class="table table-borderless2">
+      <tbody>
+        <tr >
+          <td class="bill-sec">Brand :</td>
+          <td>{{ manufacturer }}</td>
+  
+        </tr>
+        {% if dimension %}
+        <tr>
+          <td class="bill-sec">Dimensions :</td>
+          <td>{{ dimension }}</td>
+       
+        </tr>
+        {% endif %}
+        <tr>
+          <td class="bill-sec">Sku :</td>
+          <td>{{ sku }}</td>
+        </tr>
+        {# <tr>
+        <td class="bill-sec">Warranty :</td>
+          <td>36 Months</td>
+        </tr> #}
+        {% for attributes in attribute_groups %}
+        {% for attribute in attributes.attribute %}
+        {# {% if attribute.name == 'Warranty' %}
+          <tr>
+          <td>{{ attribute.name }} : </td>
+          <td>36 Months</td>
+          </tr> 
+          {% else %} #}
+          <tr>
+          <td>{{ attribute.name }} : </td>
+          <td>{{ attribute.text }}</td>
+          </tr> 
+          {# {% endif %} #}
+        {% endfor %}
+      {% endfor %}
+      <tr>
+          <td class="bill-sec">Dispatch in :</td>
+          <td>5 Weeks</td>
+        </tr>
+        <tr>
+          <td class="bill-sec">Customization :</td>
+          <td>Customized can be as per requirement.</td>
+        </tr>
+        <tr>
+          <td class="bill-sec">*NOTE :</td>
+          <td>Furniture having intricate hand-painted details are individual unique pieces (ceramic tile) and may have 
+            slight distinctions and variances between the picture and the actual product..</td>
+    
+        </tr>
+       
+        
+      </tbody>
+    </table>
+    
+  </div>
+</div>
+</div>
+</div>
+
+
+    </div>
+  </div>
+    </div>
+    
+</div>
+</section>
+<style>
+  .trending_product_box {
+    padding: 0;
+    margin: 6px auto;
+    border:1px solid #ededed;
+    transition: .5s ease-out;
+    border-radius: 0.3rem;
+
+}
+.product_img_ img {
+    border-radius: 0.3rem 0.3rem 0 0;
+    image-rendering: smooth;
+}
+.sale_badge {
+    position: absolute;
+    left: auto;
+    right: 0px;
+    background: #eee;
+    padding: 4px 4px;
+    top: 0px;
+    display: inline-flex;
+    width: 70px;
+}
+.sale_badge img {
+    width: 60px;
+}
+.product_content {
+    padding: .5rem;
+    text-align: left;
+}
+.p_item_name {
+    font-size: 15px;
+    color: #2c2c2c;
+    font-weight: 500;
+    line-height: 2.3;
+}
+
+.p_item_amount {
+    color: #7d7d7d;
+    font-size: 14px;
+    font-weight: 400;
+}
+.tag_start_from{
+  font-size:14px;
+  font-weight:400;
+  color:#767676;
+}
+
+.owner-tag {
+    color: #ff8000d4;
+    font-size: 0.8em;
+    line-height: 1;
+    position: absolute;
+    right: .8em;
+    top: 1em;
+}
+</style>
+{% if bundle_products %}
+
+<section class="game-section py-lg-4 py-3">
+ <div class="container">
+  <div class="row"> 
+  <h2 class="pg-heading text-center"> Frequently Bought Together</h2>
+    {# <p class="heading-para text-center">Complete the look</p> #}
+
+    <div class="owl-carousel owl-carousel2 custom-carousel custom-carousel2 owl-theme">
+    {% for product in bundle_products %}
+      <div class="item _item2">
+        <div class="uw_prduct_box_">
+          <div class="uw_p_img">
+            <img src="{{ product.thumb }}" alt="coffee-table" class="img-fluid" loading="lazy">
+            </div>
+          <div class="product_content">
+            <a href="{{ product.href }}" class="p_item_name">{{ product.name }}</a>
+            <div class="uw_price">
+              <span class="giving_p">{{ product.special }}</span><span class="real_p">{{ product.price }}</span> <span class="offer_dis">{{ product.discount }}%</span>
+            </div>
+           </div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+
+  </div>
+  </div> 
+</section>
+{# <section class="py-4">
+<div class="container container-custom">
+<div class="row">
+<div class="col-lg-12 col-md-12">
+  <h2 class="pg-heading text-lg-start text-center">
+    Frequently Bought Products
+  </h2>
+  <br>
+</div>
+<div class="bbb_slider_container"> #}
+  <!-- <div class="bbb_slider_nav">
+        <div class="bbb_prev4 bbb_nav"><i class='bx bx-chevron-left' ></i></div>
+        <div class="bbb_next4 bbb_nav"><i class='bx bx-chevron-right'></i></div>
+    </div> -->
+{# //     <script>
+        
+
+//         const filters = {{ products | json_encode | raw }};
+          
+// var itemsList = [];
+
+// for(var i = 0; i < filters.length; i++) {
+//     var obj = {};
+//     obj['id'] = filters[i]['product_id'];
+//     obj['name'] = filters[i]['name'];
+//     obj['price'] = filters[i]['special_number'];
+//     obj['image'] = filters[i]['thumb'];
+//     obj['link'] = filters[i]['href'];
+//     obj['category'] = filters[i]['p_cat'];
+//     obj['brand'] = 'Urbanwood';
+//     itemsList.push(obj);
+// }
+
+//           </script> #}
+    {# <div class="owl-carousel owl-theme bbb_slider bbb_slider5">
+        {% for product in bundle_products %}
+        <div class="owl-item owl-item5">
+            <div class="bbb_item bbb_item5 is_new">
+               
+              <div class="pp-with-together">
+                <div class="pp-2-img">
+                {% if product.stock_status == 'Out Of Stock' %}
+                  <a href="{{ product.href }}"><img alt="{{ product.name }}" src="{{ product.thumb }}" class="out-of-stock"></a>
+                {% else %}
+                <a href="{{ product.href }}"><img alt="{{ product.name }}" src="{{ product.thumb }}" ></a>
+                {% endif %}
+                </div>
+                <div class="pp-together-content">
+                  
+                  <div class="pp-heading-line2"><a href="{{ product.href }}">{{ product.name }}</a> <br>
+                    <span class="pp-about">({{ product.finish }}</span>
+                  </div>
+                  <div class="pd-creater" style="text-align:left;">
+                    <span>By&nbsp;{{ product.brand }}</span>
+                    </div>
+                    {% if product.stock_status == 'Out Of Stock' %}
+                    <div class="price--order">
+                    <div class="real-amm" style="color:grey;">Out Of Stock</div>
+                  </div>
+                    <button type="button" class="buy-now-together" style="background:grey;border:1px solid grey;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"> Notify Me</button>
+                    {% else %}
+                  <div class="price--order">
+                    <div class="real-amm">{{ product.special }}</div>
+                    <div class="dis-amm">{{ product.price }}</div>
+                    <div class="off-amm-together">{{ product.discount }}% OFF</div>
+                  </div>
+                  <a href="{{ product.href }}" type="button" class="buy-now-together"> Buy Now</a>
+                  {% endif %}
+                </div>
+              </div>
+
+            </div>
+        </div>
+        {% endfor %}
+            
+    </div>
+</div>
+</div>
+</div>
+</section> #}
+{% endif %}
+{% if products %}
+<section class="game-section py-lg-4 py-3">
+ <div class="container">
+  <div class="row"> 
+  <h2 class="pg-heading text-center"> Related Products</h2>
+    <p class="heading-para text-center">Complete the look</p>
+
+    <div class="owl-carousel owl-carousel2 custom-carousel custom-carousel2 owl-theme">
+    {% for product in products %}
+      <div class="item _item2">
+        <div class="uw_prduct_box_">
+          <div class="uw_p_img">
+            <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid" loading="lazy"></a>
+            </div>
+          <div class="product_content">
+            <a href="{{ product.href }}" class="p_item_name">{{ product.name }}</a>
+            <div class="uw_price">
+              <span class="giving_p">{{ product.special }}</span><span class="real_p">{{ product.price }}</span> <span class="offer_dis">{{ product.discount }}%</span>
+            </div>
+           </div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+
+  </div>
+  </div> 
+</section>
+{# <section class="py-4">
+<div class="container container-custom">
+<div class="row">
+<div class="col-lg-12 col-md-12">
+  <h2 class="pg-heading text-lg-start text-center">
+    Related Products
+  </h2>
+  <br>
+</div>
+<div class="bbb_slider_container"> #}
+  <!-- <div class="bbb_slider_nav">
+        <div class="bbb_prev4 bbb_nav"><i class='bx bx-chevron-left' ></i></div>
+        <div class="bbb_next4 bbb_nav"><i class='bx bx-chevron-right'></i></div>
+    </div> -->
+    <script>
+        
+
+        const filters = {{ products | json_encode | raw }};
+          
+var itemsList = [];
+
+for(var i = 0; i < filters.length; i++) {
+    var obj = {};
+    obj['id'] = filters[i]['product_id'];
+    obj['name'] = filters[i]['name'];
+    obj['price'] = filters[i]['special_number'];
+    obj['image'] = filters[i]['thumb'];
+    obj['link'] = filters[i]['href'];
+    obj['category'] = filters[i]['p_cat'];
+    obj['brand'] = 'Urbanwood';
+    itemsList.push(obj);
+}
+
+          </script>
+    {# <div class="owl-carousel owl-theme bbb_slider bbb_slider5">
+        {% for product in products %}
+        <div class="owl-item owl-item5">
+            <div class="bbb_item bbb_item5 is_new">
+               
+              <div class="pp-with-together">
+                <div class="pp-2-img">
+                  <a href="{{ product.href }}"><img alt="{{ product.name }}" src="{{ product.thumb }}" ></a>
+                </div>
+                <div class="pp-together-content">
+                  
+                  <div class="pp-heading-line2"><a href="{{ product.href }}">{{ product.name }}</a> <br>
+                    <span class="pp-about">({{ product.finish }}</span>
+                  </div>
+                  <div class="pd-creater" style="text-align:left;">
+                    <span>By&nbsp;{{ product.brand }}</span>
+                    </div>
+                  <div class="price--order">
+                    <div class="real-amm">{{ product.special }}</div>
+                    <div class="dis-amm">{{ product.price }}</div>
+                    <div class="off-amm-together">{{ product.discount }}% OFF</div>
+                  </div>
+                  <a href="{{ product.href }}" type="button" class="buy-now-together"> Buy Now</a>
+                </div>
+              </div>
+
+            </div>
+        </div>
+        {% endfor %}
+            
+    </div>
+</div>
+</div>
+</div>
+</section> #}
+{% endif %}
+
+
+<section class="py-2">
+  <div class="container container-custom"> 
+    <div class="row">
+      
+<div class="col-lg-12 col-sm-12">
+  <div style="    background-color: #fbfbfb;padding: 29px 20px;"> 
+  <div class="text-center py-3 heading-nrm"><b>MORE PRODUCT INFORMATION  </b></div>
+  <div class="d-lg-block d-none"> 
+  <ul class="nav nav-pills  info-pills my-3" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="pills-overview-tab" data-bs-toggle="pill" data-bs-target="#pills-overview" type="button" role="tab" aria-controls="pills-overview" aria-selected="true">Overview</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-care-tab" data-bs-toggle="pill" data-bs-target="#pills-care" type="button" role="tab" aria-controls="pills-care" aria-selected="false">Care & Instructions</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-devlivery-tab" data-bs-toggle="pill" data-bs-target="#pills-delivery" type="button" role="tab" aria-controls="pills-delivery" aria-selected="false">Delivery & Installation</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-warranty-tab" data-bs-toggle="pill" data-bs-target="#pills-warranty" type="button" role="tab" aria-controls="pills-warranty" aria-selected="false">Warranty</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-t-c-tab" data-bs-toggle="pill" data-bs-target="#pills-t-c" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">T&C</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-merchant-tab" data-bs-toggle="pill" data-bs-target="#pills-merchant" type="button" role="tab" aria-controls="pills-merchant" aria-selected="false">Merchant Details</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-faq-tab" data-bs-toggle="pill" data-bs-target="#pills-faq" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">FAQ’s</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="pills-disclaimer-tab" data-bs-toggle="pill" data-bs-target="#pills-disclaimer" type="button" role="tab" aria-controls="pills-disclaimer" aria-selected="false">Disclaimer</button>
+    </li>
+  </ul>
+  <div class="tab-content info-pills-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-overview" role="tabpanel" aria-labelledby="pills-overview-tab">
+      
+    
+      {{ description }}
+      
+    </div>
+    <div class="tab-pane fade" id="pills-care" role="tabpanel" aria-labelledby="pills-care-tab">
+      <span>Cleaning Technique</span>
+      <p>Use soft cotton cloth to wipe off the dirt from the bed. Don’t use excess water for cleaning; instead use moistened cloth to clean the dirt.</p>
+      <span>Avoid Chemicals</span>
+      <p>Don’t use chemicals with the furniture as it may damage the natural finish and durability of the wood. Also, don’t use polyurethane paints on the furniture.</p>
+      <span>Scratch &amp; Burn Remedy</span>
+      <p>Any kind of scratch, burn, residue and other surface damages can be cleared with fine-grit sandpaper. Use mineral oil after sanding with the sandpaper.</p>
+    </div>
+
+    <div class="tab-pane fade" id="pills-delivery" role="tabpanel" aria-labelledby="pills-devlivery-tab">
+      <span>Delivery:</span>
+      <p>Our help and delivery groups will be in contact with you for a problem-free delivery. </p>
+      <p>Free delivery is just relevant for the primary endeavor to deliver at your transportation address. In the event that a client misses this delivery, an additional meeting charge will be appropriate for the subsequent endeavor. </p>
+      <p>Our delivery partner will only deliver to the ground floor of the residence if there isn't a service lift. In such cases, there will be additional fees per floor for delivery to the customer's floor (on request). </p>
+      <p>Additional charges were relevant for the end of the week or time-explicit delivery. </p>
+      <p>Your product(s) will be held for 10 days at the closest delivery center in the event that you've neglected to get the delivery. After this, Urbanwood will be allowed to charge or drop the request. </p>
+      <span>Installation: </span>
+      <p>Contingent upon the delivery condition, your item could conceivably require installation help upon delivery. </p>
+      <p>In the event that The Delivery Condition Is: </p>
+      <p><strong>Pre-assembled – </strong> no installation is required. The item comes completely assembled and prepared to utilize. </p>
+      <p><strong> Wrecked – </strong> master help is needed, for which Urbanwood will give woodworkers to complete appropriate installation and assembly. </p>
+      <p> <strong>Essential assembly/DIY –</strong> the item requires insignificant installation/assembly, which can be completed by the client utilizing basic devices and assembly guidelines gave. No master help required.</p>
+      <p>Delivery of the product will only be provided till the ground floor.</p>
+    </div>
+    <div class="tab-pane fade" id="pills-warranty" role="tabpanel" aria-labelledby="pills-warranty-tab">
+      <span>Warranty</span>
+      <ol>
+        <li>This item accompanies a&nbsp;{% for attributes in attribute_groups %}
+        {% for attribute in attributes.attribute %}
+         {% if attribute.name == 'Warranty' %}
+          {{ attribute.text }}
+          {% endif %}
+        {% endfor %}
+      {% endfor %} warranty covering all termite issues, and wood borer issues alongwith manufacturing defects.</li>
+        <li>For products with upholstery, the warranty applies to the casing or frames, if any</li>
+        </ol>
+        <h2>This warranty does not cover the following conditions</h2>
+        <ol>
+        <li>Regular wear and tear that occurs with extended-term usage</li>
+        <li>Damage caused due to false/inapprprtae installation done by customer</li>
+        <li>Minor cuts, scratches, or damages due to improper/ wrong cleaning methods or effects/mishaps</li>
+        <li>Cracks occurred due to the displacement of the item</li>
+        <li>Fading caused due to direct exposure to sunlight on the product</li>
+        <li>Decaying of wood due to continuous exposure to water</li>
+        <li>Upholstery textures, for example, seat covers have no warranty</li>
+        <li>Damage caused due to non-standard dry-cleaning strategies or using harsh chemicals on the product</li>
+        <li><strong>In the case of differences in floor and surface levels, an imbalance of up to 5 mm is often accepted according to commercial standards. There is no guarantee covering this.</strong></li>
+      </ol>
+    </div>
+    <div class="tab-pane fade" id="pills-t-c" role="tabpanel" aria-labelledby="pills-t-c-tab">
+      <p>For any inquiries or explanations identifying with the item, don't hesitate to contact our Customer Support. </p>
+      <span>Understanding Your Product: </span>
+      <p>Accessories appeared in the photo are intended for portrayal purposes just, and are not part of the real item. </p>
+      <p>Furniture products having perplexing and hand-painted subtleties have been carefully made by talented specialists, following on the strides of a few ages of achieved craftsmen. Each bit of such Furniture is, in this manner, novel, and there is a chance of slight contrasts between the image and the genuine item. </p>
+      <span>Submitting A Request: </span>
+      <p>If you don't mind check the components of your entrance/door to your reason before purchasing, so that there is no issue in getting the item inside at the time of delivery. In such a circumstance, we won't have the option to acknowledge return or cancellation demands. Certain things require no get together and can be utilized with no guarantees. For this, kindly check the thing subtleties. Any place we help with gathering, the craftsman visits will be booked. </p>
+      <span>On Delivery: </span>
+      <p>On Delivery: Our support and delivery group will be in a joint effort with you for a problem-free establishment measure. </p>
+      <p>Free delivery is just pertinent for the absolute first endeavor on a visit to your boat to address. In the event of a missed delivery, (from a customer)/an extra visiting charge would be relevant for later establishment. Our delivery accomplice will just deliver the item to the ground floor without an assistance lift in your condo. (on the off chance that relevant) </p>
+      <p>Extra charges appropriate for the end of the week or explicit time deliveries. When the request has reached your closest delivery place and you neglect to get the products, we would hold the products for 10 days, after this timeline, Urbanwood will be free to charge or drop the request.</p>
+      <span>Damages: </span>
+      <p>Urbanwood's conveyance game plans to your home have been intended to guarantee a zero-harm and bother free insight. Kindly reach us promptly on the off chance that: You got a harmed or deficient item, acquire it the notification of conveyance staff quickly at the hour of conveyance and report a grievance at client care. Harm and imperfection will be evaluated in 72 hours', and an answer will be given. In the event that in the assessment of Urbanwood, the item is broken, it might be returned/supplanted, or some other remedial measure might be taken, as regarded fitting by Urbanwood, to address the issue. </p>
+      <p>Any missing parts needed in the gathering of the item ought to be promptly informed to the Customer Support group, with the goal that they can be organized to be conveyed to you at the earliest opportunity. </p>
+    </div>
+    <div class="tab-pane fade" id="pills-merchant" role="tabpanel" aria-labelledby="pills-merchant-tab">
+      <span>Merchant Details</span>
+      <small>Generic Name -{{ heading_title }}  {{ finish }} </small>
+      <small>Packed By :{{ manufacturer_official_name }}</small>
+      <small>Packer Address:{{ manufacturer_address_1 }}{{ manufacturer_address_2 }}{{ manufacturer_city }}, Rajasthan, 302026</small>
+      <small>Marketed By : {{ manufacturer_official_name }}</small>
+      <small>Marketer Address :{{ manufacturer_address_1 }}{{ manufacturer_address_2 }}{{ manufacturer_city }}, {{ manufacturer_zone }}, 302026</small>
+      <small>Country Of Assembly : {{ manufacturer_country }}</small>
+      <small>Country Of Manufacture : {{ manufacturer_country }}</small>
+      <small>Package Count : 1</small>
+      <small>Dimensions (Inch) : &nbsp;{{ dimension }}</small>
+    </div>
+    <div class="tab-pane fade" id="pills-faq" role="tabpanel" aria-labelledby="pills-faq-tab">
+      FAQ’s
+      <ul class="Faqs">
+        <li>
+          <span>How would I check stock availability? </span>
+          <article><p>Essentially login to your enlisted record to check stock availability for every single recorded product. Everything will express the amount as either "In Stock", "Out of Stock". Pre-order things will be recorded in that capacity, with the following shipment date noticeable underneath the buy button. </p></article>
+        </li>
+        <li>
+          <span>On the off chance that a thing I require is out of stock, what would I be able to do to make sure about the thing? </span>
+          <article><p>In the event that a thing is named as "Out of stock" this implies our purchasing group has not confirmed the date of the following shipment. In the event that the thing has a pre-order date recorded, you can essentially handle an online order to make sure about the stock. Kindly note, when buying the product online you will be charged in full for the thing. On the off chance that you'd want to just compensation a store on your pre-order if it's not too much trouble get in touch with us and we can physically receipt you for a store. </p></article>
+        </li>
+        <li>
+          <span>How would I get a statement? </span>
+          <article><p>Pricing will be accessible after signing into your enrolled record and delivery cites are determined whenever things are added to your truck. </p></article>
+        </li>
+        <li>
+          <span>I am prepared to make a buy; how might I submit my request? </span>
+          <article><p>When your last choices have been added to your truck, if you don't mind continue straightforwardly to the checkout. You will be needed to enter your favored technique for payment and once confirmed, your order will be consequently positioned through the site. Whenever required, our group will be in contact with you. If you don't mind guarantee to leave any order notes or extra data if necessary. </p></article>
+        </li>
+        <li>
+          <span>I've put in a request online, what happens now? </span>
+          <article><p>In the event that there are no further directions required, our group will arrange dispatch and instruct you regarding the following or transporter data. </p>
+          <p>On the off chance that we require additional data, one of our colleagues will be in contact with you by means of email to examine your order. </p>
+          </article>
+        </li>
+        <li>
+          <span>Consider the possibility that I have to cancel my order. </span>
+          <article><p>On the off chance that you are needed to cancel your order if you don't mind email through your cancellation demand as quickly as time permits. Our group will at that point change this for you. On the off chance that the order has been paid for, our records group will give you a credit note. </p></article>
+        </li>
+        <li>
+          <span>Do your products come flat packed, or would they say they are completely assembled? </span>
+          <article><p>Each posting will indicate whether a thing is completely assembled, requires getting together, or is flat packed. On the off chance that you are uncertain, you are generally free to reach us. </p></article>
+        </li>
+        <li>
+          <span>What does "Delivery Only" incorporate? </span>
+          <article><p>All standard delivery administrations are careful to the ground floor. In the event that you require additional administrations, for example, over the ground floor by means of stairs or lift, get together, or potentially refuse evacuation, if it's not too much trouble connect with our group. </p></article>
+        </li>
+        <li>
+          <span>What amount does the delivery cost? </span>
+          <article><p>Our transportation mini-computer will consequently decide the most ideal delivery cost dependent on product size, weight, and your area. The transportation delivery cost is determined upon checkout after you enter your delivery address subtleties, and will show up preceding the creation of a payment. </p></article>
+        </li>
+        <li>
+          <span>What do I have to check for when the product is delivered? </span>
+          <article><p>You should check to guarantee that the fabric over the product is very much sewed and there is no tear/gap in the sewing over the whole front, back, and sides of the product </p>
+          <p>You ought to guarantee that there are no stains on the fabric over the whole front, back, and sides of the product You ought to guarantee that the product is consistent on your floor. Various floors may have a slight slope that may not be perceptible to the unaided eye; in the event that the product wobbles unevenly on your floor, we will do the needful to ensure it stands firm. </p>
+          </article>
+        </li>
+        <li>
+          <span>How would I realize that the correct material has been utilized on the product? </span>
+          <article><p>We just utilize the most strong, great materials in building your product be it the casing, froth, fabric, or pad. </p></article>
+        </li>
+        <li>
+          <span>Will the product color be actually equivalent to it shows up on the patterns? </span>
+          <article><p>While we do a Quality Check at our end for color coordinating, a 5-10% variety in color may show up in a clump contingent on states of production. As an industry-standard, we take into account a limit of a 10% variety. In the event that this limit is crossed, we reject the fabric clump. Inside these restrictions, we make an honest effort to ensure that the ideal color contacts you! </p></article>
+        </li>
+        <li>
+          <span>Do you have a showroom? </span>
+          <article><p>Our showroom space is at present being developed, anyway, we do have a brief region that is accessible to see a restricted determination of our products. We are striving to get our showroom ready for action once we are back in the office. Stay tuned! For more data with respect to our showroom, it would be ideal if you reach us straightforwardly. </p></article>
+        </li>
+        <li>
+          <span>Are on the whole the things recorded online, showed in your showrooms? </span>
+          <article><p>Just chose products will be shown in our showroom. On the off chance that there is a particular thing you wish to see that isn't in plain view, we can facilitate with our distribution center group to have the piece taken out. This must be organized earlier by means of arrangement as it were. </p>
+          <p>Then again, if a retailer has this product in plain view, we might have the option to orchestrate a visit to their showroom for you. </p>
+          </article>
+        </li>
+      </ul>
+    </div>
+    <div class="tab-pane fade" id="pills-disclaimer" role="tabpanel" aria-labelledby="pills-disclaimer-tab">
+      <span>Disclaimer</span>
+      <p>Embellishments displayed in the image are simply to give a thought regarding the arrangement. These are not an aspect of the item, except if determined. </p>
+      <p>On account of strong wood-based furnishings, the wood grain may somewhat change from item to item. </p>
+      <p>Many-sided plans or hand-paint may have slight variations between the 3D picture and the real item. </p>
+      <p>As per the distinctive screen settings and goals, there may be brief contrast in fabric tone and wood finish between the website images and genuine item.</p>
+      <p>ALL PICTURES SHOWN ARE FOR ILLUSTRATION PURPOSE ONLY.ACTUAL PRODUCT MAY VARY DUE TO PRODUCT ENHANCEMENT.</p>
+    </div>
+
+  </div>
+</div>
+<div class="accordion accordion-flush d-lg-none d-block" id="accordionFlushExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        Overview
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        {{ description }}
+    </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+        Care & Instructions
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <span>Cleaning Technique</span>
+      <p>Use soft cotton cloth to wipe off the dirt from the bed. Don’t use excess water for cleaning; instead use moistened cloth to clean the dirt.</p>
+      <span>Avoid Chemicals</span>
+      <p>Don’t use chemicals with the furniture as it may damage the natural finish and durability of the wood. Also, don’t use polyurethane paints on the furniture.</p>
+      <span>Scratch &amp; Burn Remedy</span>
+      <p>Any kind of scratch, burn, residue and other surface damages can be cleared with fine-grit sandpaper. Use mineral oil after sanding with the sandpaper.</p>
+    </div>
+  </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+        Delivery & Installation
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <span>Delivery:</span>
+        <p>Our help and delivery groups will be in contact with you for a problem-free delivery. </p>
+        <p>Free delivery is just relevant for the primary endeavor to deliver at your transportation address. In the event that a client misses this delivery, an additional meeting charge will be appropriate for the subsequent endeavor. </p>
+        <p>Our delivery partner will only deliver to the ground floor of the residence if there isn't a service lift. In such cases, there will be additional fees per floor for delivery to the customer's floor (on request). </p>
+        <p>Additional charges were relevant for the end of the week or time-explicit delivery. </p>
+        <p>Your product(s) will be held for 10 days at the closest delivery center in the event that you've neglected to get the delivery. After this, Urbanwood will be allowed to charge or drop the request. </p>
+        <span>Installation: </span>
+        <p>Contingent upon the delivery condition, your item could conceivably require installation help upon delivery. </p>
+        <p>In the event that The Delivery Condition Is: </p>
+        <p><strong>Pre-assembled – </strong> no installation is required. The item comes completely assembled and prepared to utilize. </p>
+        <p><strong> Wrecked – </strong> master help is needed, for which Urbanwood will give woodworkers to complete appropriate installation and assembly. </p>
+        <p> <strong>Essential assembly/DIY –</strong> the item requires insignificant installation/assembly, which can be completed by the client utilizing basic devices and assembly guidelines gave. No master help required.</p>
+        <p>Delivery of the product will only be provided till the ground floor.</p>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+        Warranty
+      </button>
+    </h2>
+    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <span>Warranty</span>
+        <ol>
+          <li>This item accompanies a 3-year warranty covering all termite issues, and wood borer issues alongwith manufacturing defects.</li>
+          <li>For products with upholstery, the warranty applies to the casing or frames, if any</li>
+          </ol>
+          <h5>This warranty does not cover the following conditions</h5>
+          <ol>
+          <li>Regular wear and tear that occurs with extended-term usage</li>
+          <li>Damage caused due to false/inapprprtae installation done by customer</li>
+          <li>Minor cuts, scratches, or damages due to improper/ wrong cleaning methods or effects/mishaps</li>
+          <li>Cracks occurred due to the displacement of the item</li>
+          <li>Fading caused due to direct exposure to sunlight on the product</li>
+          <li>Decaying of wood due to continuous exposure to water</li>
+          <li>Upholstery textures, for example, seat covers have no warranty</li>
+          <li>Damage caused due to non-standard dry-cleaning strategies or using harsh chemicals on the product</li>
+          <li>In the case of differences in floor and surface levels, an imbalance of up to 5 mm is often accepted according to commercial standards. There is no guarantee covering this.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingFive">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+        T&C
+      </button>
+    </h2>
+    <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingfive" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <p>For any inquiries or explanations identifying with the item, don't hesitate to contact our Customer Support. </p>
+        <span>Understanding Your Product: </span>
+        <p>Accessories appeared in the photo are intended for portrayal purposes just, and are not part of the real item. </p>
+        <p>Furniture products having perplexing and hand-painted subtleties have been carefully made by talented specialists, following on the strides of a few ages of achieved craftsmen. Each bit of such Furniture is, in this manner, novel, and there is a chance of slight contrasts between the image and the genuine item. </p>
+        <span>Submitting A Request: </span>
+        <p>If you don't mind check the components of your entrance/door to your reason before purchasing, so that there is no issue in getting the item inside at the time of delivery. In such a circumstance, we won't have the option to acknowledge return or cancellation demands. Certain things require no get together and can be utilized with no guarantees. For this, kindly check the thing subtleties. Any place we help with gathering, the craftsman visits will be booked. </p>
+        <span>On Delivery: </span>
+        <p>On Delivery: Our support and delivery group will be in a joint effort with you for a problem-free establishment measure. </p>
+        <p>Free delivery is just pertinent for the absolute first endeavor on a visit to your boat to address. In the event of a missed delivery, (from a customer)/an extra visiting charge would be relevant for later establishment. Our delivery accomplice will just deliver the item to the ground floor without an assistance lift in your condo. (on the off chance that relevant) </p>
+        <p>Extra charges appropriate for the end of the week or explicit time deliveries. When the request has reached your closest delivery place and you neglect to get the products, we would hold the products for 10 days, after this timeline, Urbanwood will be free to charge or drop the request.</p>
+        <span>Damages: </span>
+        <p>Urbanwood's conveyance game plans to your home have been intended to guarantee a zero-harm and bother free insight. Kindly reach us promptly on the off chance that: You got a harmed or deficient item, acquire it the notification of conveyance staff quickly at the hour of conveyance and report a grievance at client care. Harm and imperfection will be evaluated in 72 hours', and an answer will be given. In the event that in the assessment of Urbanwood, the item is broken, it might be returned/supplanted, or some other remedial measure might be taken, as regarded fitting by Urbanwood, to address the issue. </p>
+        <p>Any missing parts needed in the gathering of the item ought to be promptly informed to the Customer Support group, with the goal that they can be organized to be conveyed to you at the earliest opportunity. </p>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingSix">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+        Merchant Details
+      </button>
+    </h2>
+    <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <span>Merchant Details</span>
+        <small>Generic Name -{{ heading_title }}  {{ finish }} </small>
+        <small>Packed By :Urban Wood Furniture Private limited</small>
+        <small>Packer Address:843, Gram Basdi, mukandpura Road, Bhankrota, Ajmer road, Jaipur, Rajasthan, 302026</small>
+        <small>Marketed By :Urban Wood Furniture Private limited</small>
+        <small>Marketer Address :843, Gram Basdi, mukandpura Road, Bhankrota, Ajmer road, Jaipur, Rajasthan, 302026</small>
+        <small>Country Of Assembly : India</small>
+        <small>Country Of Manufacture : India</small>
+        <small>Package Count : 1</small>
+        <small>Dimensions (Inch) : &nbsp;{{ dimension }}</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingSeven">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
+        FAQ's
+      </button>
+    </h2>
+    <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        FAQ’s
+      <ul class="Faqs">
+        <li>
+          <span>How would I check stock availability? </span>
+          <article><p>Essentially login to your enlisted record to check stock availability for every single recorded product. Everything will express the amount as either "In Stock", "Out of Stock". Pre-order things will be recorded in that capacity, with the following shipment date noticeable underneath the buy button. </p></article>
+        </li>
+        <li>
+          <span>On the off chance that a thing I require is out of stock, what would I be able to do to make sure about the thing? </span>
+          <article><p>In the event that a thing is named as "Out of stock" this implies our purchasing group has not confirmed the date of the following shipment. In the event that the thing has a pre-order date recorded, you can essentially handle an online order to make sure about the stock. Kindly note, when buying the product online you will be charged in full for the thing. On the off chance that you'd want to just compensation a store on your pre-order if it's not too much trouble get in touch with us and we can physically receipt you for a store. </p></article>
+        </li>
+        <li>
+          <span>How would I get a statement? </span>
+          <article><p>Pricing will be accessible after signing into your enrolled record and delivery cites are determined whenever things are added to your truck. </p></article>
+        </li>
+        <li>
+          <span>I am prepared to make a buy; how might I submit my request? </span>
+          <article><p>When your last choices have been added to your truck, if you don't mind continue straightforwardly to the checkout. You will be needed to enter your favored technique for payment and once confirmed, your order will be consequently positioned through the site. Whenever required, our group will be in contact with you. If you don't mind guarantee to leave any order notes or extra data if necessary. </p></article>
+        </li>
+        <li>
+          <span>I've put in a request online, what happens now? </span>
+          <article><p>In the event that there are no further directions required, our group will arrange dispatch and instruct you regarding the following or transporter data. </p>
+          <p>On the off chance that we require additional data, one of our colleagues will be in contact with you by means of email to examine your order. </p>
+          </article>
+        </li>
+        <li>
+          <span>Consider the possibility that I have to cancel my order. </span>
+          <article><p>On the off chance that you are needed to cancel your order if you don't mind email through your cancellation demand as quickly as time permits. Our group will at that point change this for you. On the off chance that the order has been paid for, our records group will give you a credit note. </p></article>
+        </li>
+        <li>
+          <span>Do your products come flat packed, or would they say they are completely assembled? </span>
+          <article><p>Each posting will indicate whether a thing is completely assembled, requires getting together, or is flat packed. On the off chance that you are uncertain, you are generally free to reach us. </p></article>
+        </li>
+        <li>
+          <span>What does "Delivery Only" incorporate? </span>
+          <article><p>All standard delivery administrations are careful to the ground floor. In the event that you require additional administrations, for example, over the ground floor by means of stairs or lift, get together, or potentially refuse evacuation, if it's not too much trouble connect with our group. </p></article>
+        </li>
+        <li>
+          <span>What amount does the delivery cost? </span>
+          <article><p>Our transportation mini-computer will consequently decide the most ideal delivery cost dependent on product size, weight, and your area. The transportation delivery cost is determined upon checkout after you enter your delivery address subtleties, and will show up preceding the creation of a payment. </p></article>
+        </li>
+        <li>
+          <span>What do I have to check for when the product is delivered? </span>
+          <article><p>You should check to guarantee that the fabric over the product is very much sewed and there is no tear/gap in the sewing over the whole front, back, and sides of the product </p>
+          <p>You ought to guarantee that there are no stains on the fabric over the whole front, back, and sides of the product You ought to guarantee that the product is consistent on your floor. Various floors may have a slight slope that may not be perceptible to the unaided eye; in the event that the product wobbles unevenly on your floor, we will do the needful to ensure it stands firm. </p>
+          </article>
+        </li>
+        <li>
+          <span>How would I realize that the correct material has been utilized on the product? </span>
+          <article><p>We just utilize the most strong, great materials in building your product be it the casing, froth, fabric, or pad. </p></article>
+        </li>
+        <li>
+          <span>Will the product color be actually equivalent to it shows up on the patterns? </span>
+          <article><p>While we do a Quality Check at our end for color coordinating, a 5-10% variety in color may show up in a clump contingent on states of production. As an industry-standard, we take into account a limit of a 10% variety. In the event that this limit is crossed, we reject the fabric clump. Inside these restrictions, we make an honest effort to ensure that the ideal color contacts you! </p></article>
+        </li>
+        <li>
+          <span>Do you have a showroom? </span>
+          <article><p>Our showroom space is at present being developed, anyway, we do have a brief region that is accessible to see a restricted determination of our products. We are striving to get our showroom ready for action once we are back in the office. Stay tuned! For more data with respect to our showroom, it would be ideal if you reach us straightforwardly. </p></article>
+        </li>
+        <li>
+          <span>Are on the whole the things recorded online, showed in your showrooms? </span>
+          <article><p>Just chose products will be shown in our showroom. On the off chance that there is a particular thing you wish to see that isn't in plain view, we can facilitate with our distribution center group to have the piece taken out. This must be organized earlier by means of arrangement as it were. </p>
+          <p>Then again, if a retailer has this product in plain view, we might have the option to orchestrate a visit to their showroom for you. </p>
+          </article>
+        </li>
+      </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingEight">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEight" aria-expanded="false" aria-controls="flush-collapseEight">
+        Disclaimer
+      </button>
+    </h2>
+    <div id="flush-collapseEight" class="accordion-collapse collapse" aria-labelledby="flush-headingEight" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <span>Disclaimer</span>
+      <p>Embellishments displayed in the image are simply to give a thought regarding the arrangement. These are not an aspect of the item, except if determined. </p>
+      <p>On account of strong wood-based furnishings, the wood grain may somewhat change from item to item. </p>
+      <p>Many-sided plans or hand-paint may have slight variations between the 3D picture and the real item. </p>
+      <p>As per the distinctive screen settings and goals, there may be brief contrast in fabric tone and wood finish between the website images and genuine item.</p>
+      <p>ALL PICTURES SHOWN ARE FOR ILLUSTRATION PURPOSE ONLY.ACTUAL PRODUCT MAY VARY DUE TO PRODUCT ENHANCEMENT.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+</div>
+      </div>
+      </div>
+</section>  
+
+<style>
+  .pp-deati-accordian{
+    margin: 0px;
+    padding:0px;
+  }
+  .pp-deati-accordian li{
+    margin-bottom: 10px;
+    text-align: justify;
+    font-size: 13px;
+  }
+</style>
+{% if rating %}
+<section class="py-2">
+<div class="container container-custom">
+  <div class="row comments-sec py-3 px-3 ">
+    <div class="col-lg-6 col-md-6 col-sm-12 px-lg-5 px-0">
+      <div class="pp-rating-graph">
+        <div class="text-lg-start text-center p-lg-3 heading-nrm"><b>Product Ratings & Reviews</b></div>
+        <div class="d-sm-flex d-xs-block align-items-center py-5">
+          <div class="rate-pro-point">
+            <div class="rating-num"><span>{{ rating }}  </span><i class="fa fa-star"></i></div> 
+            <div class="tol-rate-review">
+              <span> {{ reviews }}  </span></div>
+          </div>
+          <div class="progress-bat-sec">
+            <div class="d-flex justify-content-start align-items-center mb-3"> 
+              <span class="progress-bar-name"> Excellent</span>
+            <div class="meter green">
+              <span data-progress="{{ rating5 }}" style="width:{{ rating5 }};"></span>
+            </div>
+            <span class="progress-bar-nums">{{ review5 }}</span>
+          </div>
+          <!-- -->
+          <div class="d-flex justify-content-start align-items-center mb-3"> 
+          <span class="progress-bar-name">Very Good</span>
+            <div class="meter">
+              <span data-progress="{{ rating4 }}" style="width:{{ rating4 }};"></span>
+            </div>
+            <span class="progress-bar-nums">{{ review4 }}</span>
+          </div>
+
+            <!-- -->
+
+            <div class="d-flex justify-content-start align-items-center mb-3"> 
+              <span class="progress-bar-name">Good</span>
+            <div class="meter yellow">
+              <span data-progress="{{ rating3 }}" style="width:{{ rating3 }};"></span>
+            </div>
+            <span class="progress-bar-nums">{{ review3 }}</span>
+          </div>
+
+
+           <!-- -->
+
+           
+           <div class="d-flex justify-content-start align-items-center mb-3"> 
+            <span class="progress-bar-name">Average</span>
+          <div class="meter orange ">
+            <span data-progress="{{ rating2 }}" style="width:{{ rating2 }};"></span>
+          </div>
+          <span class="progress-bar-nums">{{ review2 }}</span>
+        </div>
+
+        <!-- -->
+
+           
+        <div class="d-flex justify-content-start align-items-center mb-3"> 
+          <span class="progress-bar-name">Poor</span>
+        <div class="meter red">
+          <span data-progress="{{ rating1 }}" style="width:{{ rating1 }};"></span>
+        </div>
+        <span class="progress-bar-nums">{{ review1 }}</span>
+      </div>
+
+      
+
+          </div>
+        </div>
+       
+      </div>
+      <a class="write-rew" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Give Your Valueable Review</a>
+  
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content p-md-2 p-sm-0" style="background: #fff5f0;">
+            <div class="modal-header border-0">
+            <div class="com-logo"> <img alt="" src="catalog/view/javascript/assets/image/urbanwoodlogo.png" class="img-fluid" alt="urbanwoodlogo"></div>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body">
+              <form class="form form-for-profile" id="reviewForm">
+                <div class="mb-3">
+                <div class="form-group" id="rating-ability-wrapper">
+                  <label class="control-label" for="rating">
+                  <span class="field-label-header">How would you rate our product quality?*</span><br>
+                  <span class="field-label-info"></span>
+                  <input type="hidden" id="selected_rating" name="rating" value="" required="required">
+                  </label>
+                  <h2 class="bold rating-header">
+                  <span class="selected-rating">0</span><small> / 5</small>
+                  </h2>
+                  <button type="button" class="btnrating btn btn-default btn-lg" data-attr="1" id="rating-star-1">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btnrating btn btn-default btn-lg" data-attr="2" id="rating-star-2">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btnrating btn btn-default btn-lg" data-attr="3" id="rating-star-3">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btnrating btn btn-default btn-lg" data-attr="4" id="rating-star-4">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btnrating btn btn-default btn-lg" data-attr="5" id="rating-star-5">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                  </button>
+              </div>
+            </div>
+                <div class="mb-3">
+                  <input type="text" class="form-control" id="title" name="title" placeholder="Enter review title here" style="background: none;">
+                </div>
+                <div class="mb-3">
+                  <textarea class="form-control " name="text" rows="2" id="message-text" placeholder="write your review here!" style="background: none;"></textarea>
+                </div>
+                <div class="up">
+                <div class="file-search-button">
+                  <label for="file-upload" class="custom-file-upload">
+                    <i class="fa fa-search"></i> BROWSE FOR FILES
+                  </label>
+                  <input type="file" id="file-upload" name="reviewImage[]"  multiple/>
+                </div>
+                <div class="clear-btn">
+                  <button type="button" value="clear" class="clear-btn" id="clearbtn"> Clear</button>
+                </div>
+                <div class="fileName">
+                <div class="image-preview">
+                  <!-- previews will be added dynamically here -->
+                </div>
+              </div>
+              </div>
+              <div class="">
+                <button type="reset" class="cancel-btn-profle" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" id="reviewSubmit" class="update-btn-profile">Submit</button>
+              </div>
+              </form>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12 px-xs-0">
+      <div class="d-sm-flex  d-block justify-content-between align-content-center text-center">
+      <div class="text-sm-start text-center text-center py-3 heading-nrm"><b>Real Images and videos from customers</b></div>
+      <div><button class="view-rew"  type="button" data-bs-toggle="offcanvas" onclick="getProductReviews('{{ product_id }}')" data-bs-target="#offcanvasRightr-view" aria-controls="offcanvasRight">View all reviews</button></div>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRightr-view" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+          <h5 id="offcanvasRightLabel">Real Images and videos from customers</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body" id="allreviews">
+          {# <div class="client-review-cc">
+            <div class="boc-ckient-rew">
+              <div class="header"> 
+                <div class="cutom-detail">
+                <div class="user-dp">
+                  <img alt="" src="catalog/view/javascript/assets/image/comment-img/c-dp.png">
+                </div>
+                <div class="client-name-com">
+                  <span class="cc-name-title">Eva Dezi</span>
+                  <span class="customer-rating">4.8 <i class="fa fa-star"></i></span>
+                  <span class="post-date">Posted on 4 Aug 2022</span>
+                  <div class="certified-tick"> <i class="fas fa-check"></i> Certified Buyer  </div>
+                </div>
+              </div>
+                <div class="likes-for-pp">
+                  <span> <i class="fa fa-thumbs-up"></i></span> <span class="count-of-like">201 Likes</span>
+                </div>
+                
+              </div>
+              <div class="com-sec-wrote">
+               The quality of the help and the product that we received from Urbanwood was very much appreciated.
+                  We were not pressured to buy but were presented with options,
+                  Most I like they customize as per my need and the decision was up to us.
+                  Our experience was very positive.
+              </div>
+              <div class="clien-rew-img">
+                <ul>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                </ul>
+              </div>
+            </div>
+           </div>
+
+           <div class="client-review-cc">
+            <div class="boc-ckient-rew">
+              <div class="header"> 
+                <div class="cutom-detail">
+                <div class="user-dp">
+                  <img alt="" src="catalog/view/javascript/assets/image/comment-img/c-dp.png">
+                </div>
+                <div class="client-name-com">
+                  <span class="cc-name-title">Eva Dezi</span>
+                  <span class="customer-rating">4.8 <i class="fa fa-star"></i></span>
+                  <span class="post-date">Posted on 4 Aug 2022</span>
+                  <div class="certified-tick"> <i class="fas fa-check"></i> Certified Buyer  </div>
+                </div>
+              </div>
+                <div class="likes-for-pp">
+                  <span> <i class="fa fa-thumbs-up"></i></span> <span class="count-of-like">201 Likes</span>
+                </div>
+                
+              </div>
+              <div class="com-sec-wrote">
+               The quality of the help and the product that we received from Urbanwood was very much appreciated.
+                  We were not pressured to buy but were presented with options,
+                  Most I like they customize as per my need and the decision was up to us.
+                  Our experience was very positive.
+              </div>
+              <div class="clien-rew-img">
+                <ul>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                </ul>
+              </div>
+            </div>
+           </div>
+
+
+           <div class="client-review-cc">
+            <div class="boc-ckient-rew">
+              <div class="header"> 
+                <div class="cutom-detail">
+                <div class="user-dp">
+                  <img alt="" src="catalog/view/javascript/assets/image/comment-img/c-dp.png">
+                </div>
+                <div class="client-name-com">
+                  <span class="cc-name-title">Eva Dezi</span>
+                  <span class="customer-rating">4.8 <i class="fa fa-star"></i></span>
+                  <span class="post-date">Posted on 4 Aug 2022</span>
+                  <div class="certified-tick"> <i class="fas fa-check"></i> Certified Buyer  </div>
+                </div>
+              </div>
+                <div class="likes-for-pp">
+                  <span> <i class="fa fa-thumbs-up"></i></span> <span class="count-of-like">201 Likes</span>
+                </div>
+                
+              </div>
+              <div class="com-sec-wrote">
+               The quality of the help and the product that we received from Urbanwood was very much appreciated.
+                  We were not pressured to buy but were presented with options,
+                  Most I like they customize as per my need and the decision was up to us.
+                  Our experience was very positive.
+              </div>
+              <div class="clien-rew-img">
+                <ul>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                </ul>
+              </div>
+            </div>
+           </div>
+
+
+           <div class="client-review-cc">
+            <div class="boc-ckient-rew">
+              <div class="header"> 
+                <div class="cutom-detail">
+                <div class="user-dp">
+                  <img alt="" src="catalog/view/javascript/assets/image/comment-img/c-dp.png">
+                </div>
+                <div class="client-name-com">
+                  <span class="cc-name-title">Eva Dezi</span>
+                  <span class="customer-rating">4.8 <i class="fa fa-star"></i></span>
+                  <span class="post-date">Posted on 4 Aug 2022</span>
+                  <div class="certified-tick"> <i class="fas fa-check"></i> Certified Buyer  </div>
+                </div>
+              </div>
+                <div class="likes-for-pp">
+                  <span> <i class="fa fa-thumbs-up"></i></span> <span class="count-of-like">201 Likes</span>
+                </div>
+                
+              </div>
+              <div class="com-sec-wrote">
+               The quality of the help and the product that we received from Urbanwood was very much appreciated.
+                  We were not pressured to buy but were presented with options,
+                  Most I like they customize as per my need and the decision was up to us.
+                  Our experience was very positive.
+              </div>
+              <div class="clien-rew-img">
+                <ul>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                </ul>
+              </div>
+            </div>
+           </div>
+
+           <div class="client-review-cc">
+            <div class="boc-ckient-rew">
+              <div class="header"> 
+                <div class="cutom-detail">
+                <div class="user-dp">
+                  <img alt="" src="catalog/view/javascript/assets/image/comment-img/c-dp.png">
+                </div>
+                <div class="client-name-com">
+                  <span class="cc-name-title">Eva Dezi</span>
+                  <span class="customer-rating">4.8 <i class="fa fa-star"></i></span>
+                  <span class="post-date">Posted on 4 Aug 2022</span>
+                  <div class="certified-tick"> <i class="fas fa-check"></i> Certified Buyer  </div>
+                </div>
+              </div>
+                <div class="likes-for-pp">
+                  <span> <i class="fa fa-thumbs-up"></i></span> <span class="count-of-like">201 Likes</span>
+                </div>
+                
+              </div>
+              <div class="com-sec-wrote">
+               The quality of the help and the product that we received from Urbanwood was very much appreciated.
+                  We were not pressured to buy but were presented with options,
+                  Most I like they customize as per my need and the decision was up to us.
+                  Our experience was very positive.
+              </div>
+              <div class="clien-rew-img">
+                <ul>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                </ul>
+              </div>
+            </div>
+           </div>
+
+           <div class="client-review-cc">
+            <div class="boc-ckient-rew">
+              <div class="header"> 
+                <div class="cutom-detail">
+                <div class="user-dp">
+                  <img alt="" src="catalog/view/javascript/assets/image/comment-img/c-dp.png">
+                </div>
+                <div class="client-name-com">
+                  <span class="cc-name-title">Eva Dezi</span>
+                  <span class="customer-rating">4.8 <i class="fa fa-star"></i></span>
+                  <span class="post-date">Posted on 4 Aug 2022</span>
+                  <div class="certified-tick"> <i class="fas fa-check"></i> Certified Buyer  </div>
+                </div>
+              </div>
+                <div class="likes-for-pp">
+                  <span> <i class="fa fa-thumbs-up"></i></span> <span class="count-of-like">201 Likes</span>
+                </div>
+                
+              </div>
+              <div class="com-sec-wrote">
+               The quality of the help and the product that we received from Urbanwood was very much appreciated.
+                  We were not pressured to buy but were presented with options,
+                  Most I like they customize as per my need and the decision was up to us.
+                  Our experience was very positive.
+              </div>
+              <div class="clien-rew-img">
+                <ul>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                </ul>
+              </div>
+            </div>
+           </div><div class="client-review-cc">
+            <div class="boc-ckient-rew">
+              <div class="header"> 
+                <div class="cutom-detail">
+                <div class="user-dp">
+                  <img alt="" src="catalog/view/javascript/assets/image/comment-img/c-dp.png">
+                </div>
+                <div class="client-name-com">
+                  <span class="cc-name-title">Eva Dezi</span>
+                  <span class="customer-rating">4.8 <i class="fa fa-star"></i></span>
+                  <span class="post-date">Posted on 4 Aug 2022</span>
+                  <div class="certified-tick"> <i class="fas fa-check"></i> Certified Buyer  </div>
+                </div>
+              </div>
+                <div class="likes-for-pp">
+                  <span> <i class="fa fa-thumbs-up"></i></span> <span class="count-of-like">201 Likes</span>
+                </div>
+                
+              </div>
+              <div class="com-sec-wrote">
+               The quality of the help and the product that we received from Urbanwood was very much appreciated.
+                  We were not pressured to buy but were presented with options,
+                  Most I like they customize as per my need and the decision was up to us.
+                  Our experience was very positive.
+              </div>
+              <div class="clien-rew-img">
+                <ul>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                </ul>
+              </div>
+            </div>
+           </div>
+
+           <div class="client-review-cc">
+            <div class="boc-ckient-rew">
+              <div class="header"> 
+                <div class="cutom-detail">
+                <div class="user-dp">
+                  <img alt="" src="catalog/view/javascript/assets/image/comment-img/c-dp.png">
+                </div>
+                <div class="client-name-com">
+                  <span class="cc-name-title">Eva Dezi</span>
+                  <span class="customer-rating">4.8 <i class="fa fa-star"></i></span>
+                  <span class="post-date">Posted on 4 Aug 2022</span>
+                  <div class="certified-tick"> <i class="fas fa-check"></i> Certified Buyer  </div>
+                </div>
+              </div>
+                <div class="likes-for-pp">
+                  <span> <i class="fa fa-thumbs-up"></i></span> <span class="count-of-like">201 Likes</span>
+                </div>
+                
+              </div>
+              <div class="com-sec-wrote">
+               The quality of the help and the product that we received from Urbanwood was very much appreciated.
+                  We were not pressured to buy but were presented with options,
+                  Most I like they customize as per my need and the decision was up to us.
+                  Our experience was very positive.
+              </div>
+              <div class="clien-rew-img">
+                <ul>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                </ul>
+              </div>
+            </div>
+           </div>
+
+
+           <div class="client-review-cc">
+            <div class="boc-ckient-rew">
+              <div class="header"> 
+                <div class="cutom-detail">
+                <div class="user-dp">
+                  <img alt="" src="catalog/view/javascript/assets/image/comment-img/c-dp.png">
+                </div>
+                <div class="client-name-com">
+                  <span class="cc-name-title">Eva Dezi</span>
+                  <span class="customer-rating">4.8 <i class="fa fa-star"></i></span>
+                  <span class="post-date">Posted on 4 Aug 2022</span>
+                  <div class="certified-tick"> <i class="fas fa-check"></i> Certified Buyer  </div>
+                </div>
+              </div>
+                <div class="likes-for-pp">
+                  <span> <i class="fa fa-thumbs-up"></i></span> <span class="count-of-like">201 Likes</span>
+                </div>
+                
+              </div>
+              <div class="com-sec-wrote">
+               The quality of the help and the product that we received from Urbanwood was very much appreciated.
+                  We were not pressured to buy but were presented with options,
+                  Most I like they customize as per my need and the decision was up to us.
+                  Our experience was very positive.
+              </div>
+              <div class="clien-rew-img">
+                <ul>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                </ul>
+              </div>
+            </div>
+           </div>
+
+
+           <div class="client-review-cc">
+            <div class="boc-ckient-rew">
+              <div class="header"> 
+                <div class="cutom-detail">
+                <div class="user-dp">
+                  <img alt="" src="catalog/view/javascript/assets/image/comment-img/c-dp.png">
+                </div>
+                <div class="client-name-com">
+                  <span class="cc-name-title">Eva Dezi</span>
+                  <span class="customer-rating">4.8 <i class="fa fa-star"></i></span>
+                  <span class="post-date">Posted on 4 Aug 2022</span>
+                  <div class="certified-tick"> <i class="fas fa-check"></i> Certified Buyer  </div>
+                </div>
+              </div>
+                <div class="likes-for-pp">
+                  <span> <i class="fa fa-thumbs-up"></i></span> <span class="count-of-like">201 Likes</span>
+                </div>
+                
+              </div>
+              <div class="com-sec-wrote">
+               The quality of the help and the product that we received from Urbanwood was very much appreciated.
+                  We were not pressured to buy but were presented with options,
+                  Most I like they customize as per my need and the decision was up to us.
+                  Our experience was very positive.
+              </div>
+              <div class="clien-rew-img">
+                <ul>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                </ul>
+              </div>
+            </div>
+           </div>
+
+           <div class="client-review-cc">
+            <div class="boc-ckient-rew">
+              <div class="header"> 
+                <div class="cutom-detail">
+                <div class="user-dp">
+                  <img alt="" src="catalog/view/javascript/assets/image/comment-img/c-dp.png">
+                </div>
+                <div class="client-name-com">
+                  <span class="cc-name-title">Eva Dezi</span>
+                  <span class="customer-rating">4.8 <i class="fa fa-star"></i></span>
+                  <span class="post-date">Posted on 4 Aug 2022</span>
+                  <div class="certified-tick"> <i class="fas fa-check"></i> Certified Buyer  </div>
+                </div>
+              </div>
+                <div class="likes-for-pp">
+                  <span> <i class="fa fa-thumbs-up"></i></span> <span class="count-of-like">201 Likes</span>
+                </div>
+                
+              </div>
+              <div class="com-sec-wrote">
+               The quality of the help and the product that we received from Urbanwood was very much appreciated.
+                  We were not pressured to buy but were presented with options,
+                  Most I like they customize as per my need and the decision was up to us.
+                  Our experience was very positive.
+              </div>
+              <div class="clien-rew-img">
+                <ul>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                </ul>
+              </div>
+            </div>
+           </div>
+
+           <div class="client-review-cc">
+            <div class="boc-ckient-rew">
+              <div class="header"> 
+                <div class="cutom-detail">
+                <div class="user-dp">
+                  <img alt="" src="catalog/view/javascript/assets/image/comment-img/c-dp.png">
+                </div>
+                <div class="client-name-com">
+                  <span class="cc-name-title">Eva Dezi</span>
+                  <span class="customer-rating">4.8 <i class="fa fa-star"></i></span>
+                  <span class="post-date">Posted on 4 Aug 2022</span>
+                  <div class="certified-tick"> <i class="fas fa-check"></i> Certified Buyer  </div>
+                </div>
+              </div>
+                <div class="likes-for-pp">
+                  <span> <i class="fa fa-thumbs-up"></i></span> <span class="count-of-like">201 Likes</span>
+                </div>
+                
+              </div>
+              <div class="com-sec-wrote">
+               The quality of the help and the product that we received from Urbanwood was very much appreciated.
+                  We were not pressured to buy but were presented with options,
+                  Most I like they customize as per my need and the decision was up to us.
+                  Our experience was very positive.
+              </div>
+              <div class="clien-rew-img">
+                <ul>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                  <li><a href="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg" data-lightbox="photos"> <img alt="" src="catalog/view/javascript/assets/image/comment-img/client-pp-img.jpg"></a></li>
+                </ul>
+              </div>
+            </div>
+           </div> #}
+
+
+        </div>
+      </div>
+    </div>
+ 
+   <div class="com-sec-box-scroll scroll-text" id="review">
+     </div>
+  </div>
+</div>
+</section>
+{% else %}
+<a class="write-rew" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Give Your Valueable Review</a>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content p-md-2 p-sm-0" style="background: #fff5f0;">
+            <div class="modal-header border-0">
+            <div class="com-logo"> <img alt="" src="catalog/view/javascript/assets/image/urbanwoodlogo.png" class="img-fluid" alt="urbanwoodlogo"></div>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body">
+              <form class="form form-for-profile" id="reviewForm">
+                <div class="mb-3">
+                <div class="form-group" id="rating-ability-wrapper">
+                  <label class="control-label" for="rating">
+                  <span class="field-label-header">How would you rate your ability to use the computer and access internet?*</span><br>
+                  <span class="field-label-info"></span>
+                  <input type="hidden" id="selected_rating" name="rating" value="" required="required">
+                  </label>
+                  <h2 class="bold rating-header">
+                  <span class="selected-rating">0</span><small> / 5</small>
+                  </h2>
+                  <button type="button" class="btnrating btn btn-default btn-lg" data-attr="1" id="rating-star-1">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btnrating btn btn-default btn-lg" data-attr="2" id="rating-star-2">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btnrating btn btn-default btn-lg" data-attr="3" id="rating-star-3">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btnrating btn btn-default btn-lg" data-attr="4" id="rating-star-4">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btnrating btn btn-default btn-lg" data-attr="5" id="rating-star-5">
+                      <i class="fa fa-star" aria-hidden="true"></i>
+                  </button>
+              </div>
+            </div>
+                <div class="mb-3">
+                  <input type="text" class="form-control" id="title" name="title" placeholder="Enter review title here" style="background: none;">
+                </div>
+                <div class="mb-3">
+                  <textarea class="form-control " name="text" rows="2" id="message-text" placeholder="write your review here!" style="background: none;"></textarea>
+                </div>
+                <div class="up">
+                <div class="file-search-button">
+                  <label for="file-upload" class="custom-file-upload">
+                    <i class="fa fa-search"></i> BROWSE FOR FILES
+                  </label>
+                  <input type="file" id="file-upload" name="reviewImage[]"  multiple/>
+                </div>
+                <div class="clear-btn">
+                  <button type="button" value="clear" class="clear-btn" id="clearbtn"> Clear</button>
+                </div>
+                <div class="fileName">
+                <div class="image-preview">
+                  <!-- previews will be added dynamically here -->
+                </div>
+              </div>
+              </div>
+              <div class="">
+                <button type="reset" class="cancel-btn-profle" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" id="reviewSubmit" class="update-btn-profile">Submit</button>
+              </div>
+              </form>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+{% endif %}
+
+<section class="py-5">
+  <div class="container container-custom">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-10 col-md-10">
+        <div class="banner-strip-location">
+          <div class="sign-banner-con text-cente">
+            <h5 class="r text-white">VISIT OUR NEAREST STORE</h5>
+              <p class="text-white">&amp;</p>
+              <h6 class="text-white">get extra <span style="color:#fc0000; font-weight: 700;"> DISCOUNT</span></h6>
+              <br>
+              <a href="our-stores" class="shop-find-btn">Find Store</a>
+          </div>
+        
+        <div class="image-forloaction">
+            <div class="img-location-ceative">
+              <img alt="our store locations" src="catalog/view/javascript/assets/image/location-strip.png" class="img-responsive img-fluid">
+            </div>
+        
+        </div>
+         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Easy EMI Payment Options</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-3">
+            <p> HDFC bank</p>
+          </div>
+          <div class="col-9">
+            <table width="100%" border="0">
+                <tbody>
+                </tbody><thead>
+                    <tr>
+                        <th>EMI Tenure</th>
+                        <th>Interest</th>
+                        <th>EMI Amount</th>
+                        <th>Total Payment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="display:none">
+                        <td>3 Months</td>
+                        <td>16%</td>
+                         
+                        <td>Rs. 15000.00</td>
+                        <td>Rs. 45,000</td>
+                    </tr>
+                    <tr class="nocost">
+            <td>3 Months</td>
+            <td>No Cost EMI</td>
+            <td>Rs. 14,633</td>
+            <td>Rs. 43,899</td>
+        </tr>                    <tr>
+                        <td>6 Months</td>
+                        <td>16%</td>
+                         
+                        <td>Rs. 7640.00</td>
+                        <td>Rs. 45,840</td>
+                    </tr>
+                    <tr>
+                        <td>9 Months</td>
+                        <td>16%</td>
+                         
+                        <td>Rs. 5187.00</td>
+                        <td>Rs. 46,683</td>
+                    </tr>
+                    <tr>
+                        <td>12 Months</td>
+                        <td>16%</td>
+                         
+                        <td>Rs. 3962.00</td>
+                        <td>Rs. 47,544</td>
+                    </tr>
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<script type="text/javascript"><!--
+$('#addtocart').on('click', function() {
+	$.ajax({
+		url: '?route=checkout/cart/add',
+		type: 'post',
+		data: $('#productcart input[type=\'text\'], #productcart input[type=\'hidden\'], #productcart input[type=\'radio\']:checked, #productcart input[type=\'checkbox\']:checked, #productcart select, #productcart textarea'),
+		dataType: 'json',
+		beforeSend: function() {
+			$('#button-cart').button('loading');
+		},
+		complete: function() {
+			$('#button-cart').button('reset');
+		},
+		success: function(json) {
+			$('.alert-dismissible, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
+
+			if (json['error']) {
+				if (json['error']['option']) {
+					for (i in json['error']['option']) {
+						var element = $('#input-option' + i.replace('_', '-'));
+
+						if (element.parent().hasClass('input-group')) {
+							element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						} else {
+							element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						}
+					}
+				}
+
+				if (json['error']['recurring']) {
+					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+			}
+
+			if (json['success']) {
+				// $('.breadcrumb').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+        $('body').prepend('<div class="success-popup ">	<span class="warrning-svg">	<svg id="smile"		width="35" height="35" viewBox="0 0 41 41" fill="none">					  <path d="M16.2432 29.9911L16.5968 30.3439L16.95 29.9907L30.5886 16.352L30.9422 15.9985L30.5886 15.6449L27.7128 12.7691L27.3593 12.4156L27.0057 12.7691L16.592 23.1828L12.2699 18.8682L11.9158 18.5148L11.5626 18.869L8.69086 21.7489L8.33792 22.1028L8.69174 22.4558L16.2432 29.9911ZM0.823975 20.662C0.823975 9.72375 9.72375 0.823975 20.662 0.823975C31.6002 0.823975 40.5 9.72375 40.5 20.662C40.5 31.6002 31.6002 40.5 20.662 40.5C9.72375 40.5 0.823975 31.6002 0.823975 20.662Z" stroke="#33C300"/>  </svg>					</span>	<span class="warrning-text">   <p>' + json['success'] + '</p>	</span>				  </div>');
+				$('#cartli .badge_pp').text(json['total']);
+        
+				// $('html, body').animate({ scrollTop: 0 }, 'slow');
+
+				$('#cart > ul').load('index.php?route=common/cart/info ul li');
+        var qun = $('#productcart select').val();
+        var totalvalue = {{ special_number }} * qun;
+        gtag("event", "add_to_cart", {
+          currency: "INR",
+          value: totalvalue,
+          items: [
+            {
+              item_id: "{{ product_id }}",
+              item_name: "{{ heading_title }}",
+              item_brand: "Urbanwood",
+              item_category: "Furniture",
+              price: {{ special_number }},
+              quantity: qun
+            }
+          ]
+        });
+
+        
+  fbq('track', 'AddToCart', {
+    currency: 'INR',
+    value:totalvalue,
+    content_ids: '{{ product_id }}',
+    content_type: 'product'
+  });
+
+			}
+		},
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+	});
+});
+
+//buy now
+$('#buynow').on('click', function() {
+	$.ajax({
+		url: '?route=checkout/cart/add',
+		type: 'post',
+		data: $('#productcart input[type=\'text\'], #productcart input[type=\'hidden\'], #productcart input[type=\'radio\']:checked, #productcart input[type=\'checkbox\']:checked, #productcart select, #productcart textarea'),
+		dataType: 'json',
+		beforeSend: function() {
+			$('#buynow').button('loading');
+      var qun = $('#productcart select').val();
+        var totalvalue = {{ special_number }} * qun;
+        console.log("{{ heading_title }}");
+        gtag("event", "add_to_cart", {
+          currency: "INR",
+          value: totalvalue,
+          items: [
+            {
+              item_id: {{ product_id }},
+              item_name: "{{ heading_title }}",
+              item_brand: "Urbanwood",
+              item_category: "Furniture",
+              price: {{ special_number }},
+              quantity: qun
+            }
+          ]
+        });
+
+        fbq('track', 'AddToCart', {
+          currency: 'INR',
+          value:totalvalue,
+          content_ids: '{{ product_id }}',
+          content_type: 'product'
+        });
+		},
+		complete: function() {
+			$('#button-cart').button('reset');
+		},
+		success: function(json) {
+			$('.alert-dismissible, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
+
+			if (json['error']) {
+				if (json['error']['option']) {
+					for (i in json['error']['option']) {
+						var element = $('#input-option' + i.replace('_', '-'));
+
+						if (element.parent().hasClass('input-group')) {
+							element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						} else {
+							element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						}
+					}
+				}
+
+				if (json['error']['recurring']) {
+					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+			}
+
+			if (json['success']) {
+				// //$('.breadcrumb').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+        // $('body').prepend('<div class="success-popup ">	<span class="warrning-svg">	<svg id="smile"		width="35" height="35" viewBox="0 0 41 41" fill="none">					  <path d="M16.2432 29.9911L16.5968 30.3439L16.95 29.9907L30.5886 16.352L30.9422 15.9985L30.5886 15.6449L27.7128 12.7691L27.3593 12.4156L27.0057 12.7691L16.592 23.1828L12.2699 18.8682L11.9158 18.5148L11.5626 18.869L8.69086 21.7489L8.33792 22.1028L8.69174 22.4558L16.2432 29.9911ZM0.823975 20.662C0.823975 9.72375 9.72375 0.823975 20.662 0.823975C31.6002 0.823975 40.5 9.72375 40.5 20.662C40.5 31.6002 31.6002 40.5 20.662 40.5C9.72375 40.5 0.823975 31.6002 0.823975 20.662Z" stroke="#33C300"/>  </svg>					</span>	<span class="warrning-text">   <p>' + json['success'] + '</p>	</span>;				  </div>');
+				// $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+				// $('html, body').animate({ scrollTop: 0 }, 'slow');
+
+				// $('#cart > ul').load('index.php?route=common/cart/info ul li');
+        
+        location = location = '{{ buynow }}';//'?route=checkout/cart';
+			}
+		},
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+	});
+});
+//--></script> 
+<script>
+
+const fileInput = document.querySelector("#file-upload");
+const previewContainer = document.querySelector(".image-preview");
+
+fileInput.addEventListener("change", function () {
+  const files = this.files;
+  if (files) {
+    $('.clear-btn').css('display','inline-block')
+    for (let i = 0; i < files.length; i++) {
+      const reader = new FileReader();
+      reader.addEventListener("load", function () {
+        const img = new Image();
+        img.addEventListener("load", function () {
+          const canvas = document.createElement("canvas");
+          canvas.width = 150;
+          canvas.height = 100;
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0, 150, 100);
+          const preview = document.createElement("div");
+          preview.classList.add("preview");
+          preview.appendChild(canvas);
+          previewContainer.appendChild(preview);
+        });
+        img.src = reader.result;
+      });
+      reader.readAsDataURL(files[i]);
+    }
+  }
+});
+$('#clearbtn').on('click', function() { 
+    $('#file-upload').val('');
+    $('.image-preview').empty();
+    reset($('#file-upload'))
+});
+</script>
+<script>
+var bars = document.querySelectorAll('.meter > span');
+// console.clear();
+
+setInterval(function(){
+  bars.forEach(function(bar){
+    var getWidth = parseFloat(bar.dataset.progress);
+    
+    for(var i = 0; i < getWidth; i++) {
+      bar.style.width = i + '%';
+    }
+  });
+}, 500);
+
+</script>
+<script>
+//client rivew star rating on product 
+  	jQuery(document).ready(function($){
+	    
+      $(".btnrating").on('click',(function(e) {
+      
+      var previous_value = $("#selected_rating").val();
+      
+      var selected_value = $(this).attr("data-attr");
+      $("#selected_rating").val(selected_value);
+      
+      $(".selected-rating").empty();
+      $(".selected-rating").html(selected_value);
+      
+      for (i = 1; i <= selected_value; ++i) {
+      $("#rating-star-"+i).toggleClass('btn-warning');
+      $("#rating-star-"+i).toggleClass('btn-default');
+      }
+      
+      for (ix = 1; ix <= previous_value; ++ix) {
+      $("#rating-star-"+ix).toggleClass('btn-warning');
+      $("#rating-star-"+ix).toggleClass('btn-default');
+      }
+      
+      }));
+      
+        
+    });
+$('#review').load('?route=product/product/review&product_id={{ product_id }}');
+
+$('#reviewSubmit').on('click', function(e) {
+  e.preventDefault();
+  var formData = new FormData(document.getElementById("reviewForm"));
+	$.ajax({
+		url: '?route=product/product/write&product_id={{ product_id }}',
+		type: 'post',
+		dataType: 'json',
+    processData: true,
+		data: formData,//$("#reviewForm").serialize(),
+    processData: false,
+    contentType: false,
+		beforeSend: function() {
+			$('#button-review').button('loading');
+		},
+		complete: function() {
+			$('#button-review').button('reset');
+		},
+		success: function(json) {
+			$('.alert-dismissible').remove();
+
+			if (json['error']) {
+				// $('#review').after('<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
+        $('body').prepend('<div class="success-popup2">    <span class="warrning-svg">      <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">        <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>        </svg>  </span>      <span class="warrning-text">      <p>' + json['error'] + '</p>    </span>     </div>');
+			}
+
+			if (json['success']) {
+        $('#exampleModal').modal('toggle');
+				$('#review').after('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+
+				$('input[name=\'title\']').val('');
+				$('textarea[name=\'text\']').val('');
+				$('input[name=\'reviewImage[]\']').val('');
+			}
+		}
+	});
+});
+</script>
+
+<script>
+  function getProductReviews(p_id) {
+    //console.log(p_id);
+    $.ajax({
+            url:'?route=product/product/getProductReviews',
+            type:'POST',
+            data: { pid: p_id},
+            dataType:'JSON',
+            success:function(res){    
+              //console.log(res); 
+                var reviewList = '';
+                $.each(res.data, function (i, currProgram) {
+    
+                    console.log(currProgram.review_image ); 
+                    reviewList += '<div class="client-review-cc">            <div class="boc-ckient-rew">              <div class="header">                 <div class="cutom-detail">                <div class="user-dp">                  <img alt="" src="catalog/view/javascript/assets/image/user-pic.png">                </div>                <div class="client-name-com">                  <span class="cc-name-title">' + currProgram.author +'</span>                  <span class="customer-rating">' + currProgram.rating + ' <i class="fa fa-star"></i></span>                  <span class="post-date">Posted on ' + currProgram.date_added + '</span>                  <div class="certified-tick"> <i class="fas fa-check"></i> Certified Buyer  </div>                </div>              </div>                <div class="likes-for-pp">                  <span> <i class="fa fa-thumbs-up"></i></span> <span class="count-of-like">201 Likes</span>                </div>            </div>              <div class="com-sec-wrote">'                + currProgram.text + ' </div>              <div class="clien-rew-img"><ul>';
+                    $.each(currProgram.review_image , function (i) {
+                          $.each(currProgram.review_image [i], function (key, val) {
+                            reviewList += '<li><a href="'+val+'" data-lightbox="photos"> <img alt="" src="'+val+'"></a></li>';    
+                          });
+                    });                
+                    reviewList += '                </ul>              </div>            </div>           </div>';
+                    
+                });
+         
+                $('#allreviews').html(reviewList);
+                //$('#'+btn).text('Submit');
+      
+            }
+        });
+  }
+</script>
+<script>
+  
+  let buttonRight = document.getElementById('slideRight');
+		let buttonLeft = document.getElementById('slideLeft');
+
+		buttonLeft.addEventListener('click', function(){
+			document.getElementById('gal1').scrollLeft -= 280
+		})
+
+		buttonRight.addEventListener('click', function(){
+			document.getElementById('gal1').scrollLeft += 280
+		})
+    </script>
+
+    <script>
+      $('.moreless-button').click(function() {
+  $('.moretext').slideToggle();
+  if ($('.moreless-button').text() == "Read more") {
+    $(this).text("Read less")
+  } else {
+    $(this).text("Read more")
+  }
+});
+    function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    function updateContent() {
+      let fooElement = document.getElementById('foo');
+      let hrsElement = document.getElementById('hrs');
+      // Update content with random numbers
+      fooElement.textContent = getRandomInt(2, 10); // Example range for foo
+      hrsElement.textContent = getRandomInt(1, 24); // Example range for hrs
+    }
+
+    // Initial update
+    updateContent();
+
+    // Periodically update content every 5 seconds (5000 milliseconds)
+    setInterval(updateContent, 90000);
+
+</script>
+
+    <script>
+// Measure a view of product details. This example assumes the detail view occurs on pageload,
+// and also tracks a standard pageview of the details page.
+ // Clear the previous ecommerce object.
+dataLayer.push({
+  'ecommerce': {
+    'detail': {
+      'actionField': {'list': 'Furniture'},    // 'detail' actions have an optional list property.
+      'products': [{
+        'name': '{{ heading_title }}',         // Name or ID is required.
+        'id': '{{ product_id }}',
+        'price': '{{ special_number }}',
+        'brand': 'Urbanwood',
+        'category': 'Furniture'
+       }]
+     }
+   }
+});
+
+gtag("event", "view_item", {
+  currency: "INR",
+  value: {{ special_number }},
+  items: [
+    {
+      item_id: "{{ product_id }}",
+      item_name: "{{ heading_title }}",
+      item_brand: "Urbanwood",
+      item_category: "Furniture",
+      price: {{ special_number }},
+      quantity: 1
+    }
+  ]
+});
+</script>
+<script>
+// Measures product impressions and also tracks a standard
+// pageview for the tag configuration.
+// Product impressions are sent by pushing an impressions object
+// containing one or more impressionFieldObjects.
+  // Clear the previous ecommerce object.
+
+dataLayer.push({
+  'event': 'view_item_list', 
+  'ecommerce': {
+    'currencyCode': 'INR',                       // Local currency is optional.
+    'impressions': itemsList
+  }
+});
+
+
+</script>
+{{ footer }}

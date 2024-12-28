@@ -1,0 +1,104 @@
+{# {{ header }}
+<div id="account-forgotten" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  {% if error_warning %}
+  <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
+  {% endif %}
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      <h1>{{ heading_title }}</h1>
+      <p>{{ text_email }}</p>
+      <form action="{{ action }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+        <fieldset>
+          <legend>{{ text_your_email }}</legend>
+          <div class="form-group required">
+            <label class="col-sm-2 control-label" for="input-email">{{ entry_email }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="form-control" />
+            </div>
+          </div>
+        </fieldset>
+        <div class="buttons clearfix">
+          <div class="pull-left"><a href="{{ back }}" class="btn btn-default">{{ button_back }}</a></div>
+          <div class="pull-right">
+            <input type="submit" value="{{ button_continue }}" class="btn btn-primary" />
+          </div>
+        </div>
+      </form>
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>
+{{ footer }} #}
+{{ header }}
+{% if error_warning %}
+  {# <div class="success-popup-outer">   #}
+  <div class="success-popup2">
+    <span class="warrning-svg">
+      <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>
+        </svg>
+
+            
+    </span>
+      <span class="warrning-text"> 
+        
+      <p>{{ error_warning }}</p>
+    </span>
+      
+  </div>
+  {# </div> #}
+  {% endif %}
+ <section class="forget-pass-sec">
+  <div class="container container-custom">
+    <div class="row">
+  <div class="col-lg-6 col-lg-6 col-sm-12">
+<h2 class="forgot-heading">
+    Forgot Your <br>
+<span >Password?</span>
+</h2>
+<p>Enter the email address associated
+    with your account</p>
+</div>
+<div class="col-lg-6 col-lg-6 col-sm-12">
+<div class="fotgot-form">
+
+    <form action="{{ action }}" method="post" enctype="multipart/form-data" class="fotgot-form-in">
+        <div class="mb-3">
+            <label for="useremailforgot" class="form-label">Enter Your Email address</label>
+            <input type="email" class="form-control" name="email" id="useremailforgot" required>
+          </div>
+          <div id="emailHelp" class="form-text">Enter Email to receive a reset password link.</div>
+        <div class="d-flex justify-content-between align-items-center mt-lg-5 mt-0">
+            <span class="step-button">Send</span>
+            <button type="submit" class="submit-forgot-btn" id="sbm"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </form>
+
+    
+</div>
+</div>
+  </div>
+    </div>
+  </div>
+ </section> 
+ <style>
+ .bx-loader-circle {
+  font-size: 20px;
+ }
+ </style>
+ <script>
+  $("form").submit(function(){
+   $('#sbm').html("<i class='bx bx-loader-circle bx-spin' ></i>");
+});
+ </script>

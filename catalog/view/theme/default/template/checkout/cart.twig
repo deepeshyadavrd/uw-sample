@@ -1,0 +1,1369 @@
+{# {{ header }}
+<div id="checkout-cart" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  {% if attention %}
+  <div class="alert alert-info"><i class="fa fa-info-circle"></i> {{ attention }}
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+  </div>
+  {% endif %}
+  {% if success %}
+  <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+  </div>
+  {% endif %}
+  {% if error_warning %}
+  <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+  </div>
+  {% endif %}
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      <h1>{{ heading_title }}
+        {% if weight %}
+        &nbsp;({{ weight }})
+        {% endif %} </h1>
+      <form action="{{ action }}" method="post" enctype="multipart/form-data">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <td class="text-center">{{ column_image }}</td>
+                <td class="text-left">{{ column_name }}</td>
+                <td class="text-left">{{ column_model }}</td>
+                <td class="text-left">{{ column_quantity }}</td>
+                <td class="text-right">{{ column_price }}</td>
+                <td class="text-right">{{ column_total }}</td>
+              </tr>
+            </thead>
+            <tbody>
+            
+            {% for product in products %}
+            <tr>
+              <td class="text-center">{% if product.thumb %} <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-thumbnail" /></a> {% endif %}</td>
+              <td class="text-left"><a href="{{ product.href }}">{{ product.name }}</a> {% if not product.stock %} <span class="text-danger">***</span> {% endif %}
+                {% if product.option %}
+                {% for option in product.option %} <br />
+                <small>{{ option.name }}: {{ option.value }}</small> {% endfor %}
+                {% endif %}
+                {% if product.reward %} <br />
+                <small>{{ product.reward }}</small> {% endif %}
+                {% if product.recurring %} <br />
+                <span class="label label-info">{{ text_recurring_item }}</span> <small>{{ product.recurring }}</small> {% endif %}</td>
+              <td class="text-left">{{ product.model }}</td>
+              <td class="text-left"><div class="input-group btn-block" style="max-width: 200px;">
+                  <input type="text" name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}" size="1" class="form-control" />
+                  <span class="input-group-btn">
+                  <button type="submit" data-toggle="tooltip" title="{{ button_update }}" class="btn btn-primary"><i class="fa fa-refresh"></i></button>
+                  <button type="button" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger" onclick="cart.remove('{{ product.cart_id }}');"><i class="fa fa-times-circle"></i></button>
+                  </span></div></td>
+              <td class="text-right">{{ product.price }}</td>
+              <td class="text-right">{{ product.total }}</td>
+            </tr>
+            {% endfor %}
+            {% for voucher in vouchers %}
+            <tr>
+              <td></td>
+              <td class="text-left">{{ voucher.description }}</td>
+              <td class="text-left"></td>
+              <td class="text-left"><div class="input-group btn-block" style="max-width: 200px;">
+                  <input type="text" name="" value="1" size="1" disabled="disabled" class="form-control" />
+                  <span class="input-group-btn">
+                  <button type="button" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger" onclick="voucher.remove('{{ voucher.key }}');"><i class="fa fa-times-circle"></i></button>
+                  </span></div></td>
+              <td class="text-right">{{ voucher.amount }}</td>
+              <td class="text-right">{{ voucher.amount }}</td>
+            </tr>
+            {% endfor %}
+              </tbody>
+            
+          </table>
+        </div>
+      </form>
+      {% if modules %}
+      <h2>{{ text_next }}</h2>
+      <p>{{ text_next_choice }}</p>
+      <div class="panel-group" id="accordion"> {% for module in modules %}
+        {{ module }}
+        {% endfor %} </div>
+      {% endif %} <br />
+      <div class="row">
+        <div class="col-sm-4 col-sm-offset-8">
+          <table class="table table-bordered">
+            {% for total in totals %}
+            <tr>
+              <td class="text-right"><strong>{{ total.title }}:</strong></td>
+              <td class="text-right">{{ total.text }}</td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+      <div class="buttons clearfix">
+        <div class="pull-left"><a href="{{ continue }}" class="btn btn-default">{{ button_shopping }}</a></div>
+        <div class="pull-right"><a href="{{ checkout }}" class="btn btn-primary">{{ button_checkout }}</a></div>
+      </div>
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>
+{{ footer }}  #}
+{{ header }}
+
+<div class="wrapper">
+<div class="wizard-sec"> 
+  <div class="stepwizard-outer">
+    <div class="stepwizard">
+      <div class="stepwizard-row setup-panel">
+          <div class="stepwizard-step col-xs-3"> 
+              <a href="#step-1" type="button" class="step-for-checkout-scuss "><i class="fas fa-chair"></i></a>
+              <!-- <p><small>Shipper</small></p> -->
+          </div>
+          <div class="stepwizard-step col-xs-3"> 
+              <a href="#step-2" type="button" class="step-for-checkout " disabled="disabled"><i class="fas fa-street-view"></i></a>
+              <!-- <p><small>Destination</small></p> -->
+          </div>
+          <div class="stepwizard-step col-xs-3"> 
+              <a href="#step-3" type="button" class="step-for-checkout " disabled="disabled"><i class="fas fa-shopping-bag"></i></a>
+              <!-- <p><small>Schedule</small></p> -->
+          </div>
+        
+      </div>
+  </div>
+</div>
+    <div class="container container-custom">
+        <div class="row">
+            <div class="col-lg-12">
+              
+                <div class="panel panel-primary setup-content" id="step-1">
+                   <div class="row">
+                    <div class="col-lg-8">
+                    <div class="d-md-flex justify-content-between d-block my-3 text-sm-center">
+                      <div class="text-md-start text-center"> <b>Check Delivery time & Services</b></div>
+                      <div class="enter-pin-btn" type="button" tabindex="-1" aria-labelledby="..." aria-hidden="true" data-bs-toggle="modal" data-bs-target="#ModalToggle"> ENTER PIN CODE </div>
+                      <!-- modal for search pincode-->
+                      <div class="modal fade" id="ModalToggle" aria-hidden="true" aria-labelledby="ModalToggleLabel" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content p-0 m-0" style="background: #f6feff;">
+                            <div class="modal-header"  style="border-bottom: none;">
+                              <!-- <h5 class="modal-title" id="ModalToggleLabel">Search Your Area to See delivery</h5> -->
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="font-size: 10px;"></button>
+                            </div>
+                            <div class="modal-body">
+                             <div class="d-flex justify-content-center search-form-dd">
+                              <input class="form-control search-pincode-input" id="input-pincode"   placeholder="Enter your PinCode" type="search">
+                              <button type="button" onclick="checkPincode($(this))" class="search-pincode-btn-modal"><i class="fa fa-search"></i></button>
+                             </div>
+                            </div>
+                            <div class="modal-footer m-0 p-0">
+                             <img src="catalog/view/javascript/assets/image/pinc-de-loactio-banner.jpg" class="img-fluid" style="margin: 0px;">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+<!--- active user -->
+                    <div class="out-active-user">
+                      <img src="catalog/view/javascript/assets/image/icon/active-users-icon.png">
+                      <div class="log-n-con">Login to add address & Avail Offres <span style="color:#d90505; font-weight: 600;"> ( Required )</span></div>
+                      <div><a class="login-fot-being-user">LOGIN NOW</a></div>
+                    </div>
+
+
+<!-- add to cart list for order -->
+
+<div class="cart-list-for-order">
+<div class="d-lg-flex d-block justify-content-between align-items-center ">
+  <div>
+    <input type="checkbox" name="check-list" class="form-check-input form-check-finish">
+    <label for="pp-select"> 0 / &nbsp;{{ cart_total_items }} Item Selected</label>
+  </div>
+<ul class="act-btn-list">
+  <li><button type="button" class="rem-list" name="remove-cart"> Remove</button></li>
+  <li><button type="button" class="rem-list" name="move-wishllist"> Move to wishlist</button></li>
+</ul>
+
+</div>
+<div class="the-cart-list my-lg-5"> 
+<form action="?route=checkout/cart/edit" method="post" enctype="multipart/form-data" class="cartForm">
+{% for product in products %}
+<div class="mb-3"> 
+  
+  <div class="list-of-cart list-of-cart2 clear">
+    <div class="chec--do-"> 
+    <input class="form-check-input form-check-finish" type="checkbox">
+  </div>
+    <a href="#remove-cart-drop" class="position-absolute top-0 text-black-50 fw-normal fs-6" data-bs-toggle="collapse" style="right:10px;z-index: 9;"><i class="fas fa-times" style="color:#ff8000"></i></a>
+    <!-- <button type="button" class="btn-close text-reset" aria-label="Close" style="font-size:8px;" data-bs-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapse"></button> -->
+    <div class="d-flex align-items-center">
+      <div class="pp-img-cart">
+        <div class="cart-img">
+        <img src="{{ product.thumb }}" class="img-fluid img-responsive">
+      </div>
+      </div>
+      <div class="cart-deatils">
+        <div class="d-sm-flex d-block justify-content-start  align-items-start my-2">
+          <div class="cart-p-name mx-sm-4 m-0">{{ product.name }}  <br> <span class="pp-quality-name">Premium chair </span></div> 
+          <div class="price--order">
+            <div class="real-amm">{{ product.price }}</div>
+            <div class="dis-amm">{{ product.total }}</div>
+            <div class="off-amm">{{ product.discount }}% OFF</div>
+          </div>
+        </div>
+        <div class="d-lg-flex d-block justify-content-between my-2">
+          <ul class="btn-list-cart"> 
+          <li> <img src="catalog/view/javascript/assets/image/icon/coupon-icon.png" width="20px"> <a href="" class="couppon-apply" type="button" data-bs-toggle="offcanvas" data-bs-target="#canvasapplycoupon" aria-controls="canvasapplycoupon">Apply Coupon for Discount</a> </li> 
+       
+          </ul>
+        <div class="quantity-bar">
+          <div class="countItem">   
+                           
+            <span class="btn-minus minus" data-id="{{ product.cart_id }}"><span class="fa fa-minus"></span></span>
+            <input name="quantity[{{ product.cart_id }}]"value="{{ product.quantity }}" class="count quantity cart_{{ product.cart_id }}">
+            <span class="btn-plus plus" data-id="{{ product.cart_id }}"><span class="fa fa-plus"></span></span>
+          
+    </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="remove-cart-drop" class="collapse">
+  <div class="romove cart-pop-bottom">
+ <div class="con-rem" >
+  <p>Are you sure you want to remove this item from cart? </p></div>
+   <div class="rem-btn-sec">
+  <button type="button" onclick="cart.remove({{ product.cart_id }}); removefromcart({{ product.product_id }},{{ product.cart_id }});" class="btn remove-cart-btn mx-1"> remove</button>
+  <button type="button" onclick="wishlist.add({{ product.product_id }}, {{ product.cart_id }});" class=" mx-1 move-wishlist-btn"> move to wishlist</button>
+</div>
+  </div>
+</div>
+</div>
+{% endfor %}
+</form>
+{# <div class="mb-3"> 
+  
+  <div class="list-of-cart list-of-cart2">
+    <div class="chec--do-"> 
+    <input class="form-check-input form-check-finish" type="checkbox" checked >
+  </div>
+    <a href="#remove-cart-drop" class="position-absolute top-0 text-black-50 fw-normal fs-6" data-bs-toggle="collapse" style="right:10px;z-index: 9;"><i class="fas fa-times" style="color:#ff8000"></i></a>
+    <!-- <button type="button" class="btn-close text-reset" aria-label="Close" style="font-size:8px;" data-bs-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapse"></button> -->
+    <div class="d-flex align-items-center">
+      <div class="pp-img-cart">
+        <div class="cart-img">
+        <img src="catalog/view/javascript/assets/image/cart-img/mycart1.jpg" class="img-fluid img-responsive">
+      </div>
+      </div>
+      <div class="cart-deatils">
+        <div class="d-sm-flex d-block justify-content-start  align-items-start my-2">
+          <div class="cart-p-name mx-sm-4 m-0">Lounge Chair  <br> <span class="pp-quality-name">Premium chair </span></div> 
+          <div class="price--order">
+            <div class="real-amm">₹24,332</div>
+            <div class="dis-amm">₹35,035</div>
+            <div class="off-amm">31% OFF</div>
+          </div>
+        </div>
+        <div class="d-lg-flex d-block justify-content-between my-2">
+          <ul class="btn-list-cart"> 
+          <li> <img src="catalog/view/javascript/assets/image/icon/coupon-icon.png" width="20px"> <a href="" class="couppon-apply" type="button" data-bs-toggle="offcanvas" data-bs-target="#canvasapplycoupon" aria-controls="canvasapplycoupon">Apply Coupon for Dsicount</a> </li> 
+       
+          </ul>
+        <div class="quantity-bar">
+          <div class="countItem">                    
+            <span class="btn-minus"><span class="fa fa-minus"></span></span>
+            <input value="1" class="count">
+            <span class="btn-plus"><span class="fa fa-plus"></span></span>
+    </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="remove-cart-drop" class="collapse">
+  <div class="romove cart-pop-bottom">
+ <div class="con-rem" >
+  <p>Are you sure you want to remove this item from cart? </p></div>
+   <div class="rem-btn-sec">
+  <button class="btn remove-cart-btn mx-1"> remove</button>
+  <button class=" mx-1 move-wishlist-btn"> move to wishlist</button>
+</div>
+  </div>
+</div>
+</div>
+
+
+<div class="mb-3"> 
+  
+  <div class="list-of-cart list-of-cart2">
+    <div class="chec--do-"> 
+    <input class="form-check-input form-check-finish" type="checkbox" >
+  </div>
+    <a href="#remove-cart-drop" class="position-absolute top-0 text-black-50 fw-normal fs-6" data-bs-toggle="collapse" style="right:10px;z-index: 9;"><i class="fas fa-times" style="color:#ff8000"></i></a>
+    <!-- <button type="button" class="btn-close text-reset" aria-label="Close" style="font-size:8px;" data-bs-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapse"></button> -->
+    <div class="d-flex align-items-center">
+      <div class="pp-img-cart">
+        <div class="cart-img">
+        <img src="catalog/view/javascript/assets/image/cart-img/mycart1.jpg" class="img-fluid img-responsive">
+      </div>
+      </div>
+      <div class="cart-deatils">
+        <div class="d-sm-flex d-block justify-content-start  align-items-start my-2">
+          <div class="cart-p-name mx-sm-4 m-0">Lounge Chair  <br> <span class="pp-quality-name">Premium chair </span></div> 
+          <div class="price--order">
+            <div class="real-amm">₹24,332</div>
+            <div class="dis-amm">₹35,035</div>
+            <div class="off-amm">31% OFF</div>
+          </div>
+        </div>
+        <div class="d-lg-flex d-block justify-content-between my-2">
+          <ul class="btn-list-cart"> 
+          <li> <img src="catalog/view/javascript/assets/image/icon/coupon-icon.png" width="20px"> <a href="" class="couppon-apply" type="button" data-bs-toggle="offcanvas" data-bs-target="#canvasapplycoupon" aria-controls="canvasapplycoupon">Apply Coupon for Dsicount</a> </li> 
+       
+          </ul>
+        <div class="quantity-bar">
+          <div class="countItem">                    
+            <span class="btn-minus"><span class="fa fa-minus"></span></span>
+            <input value="1" class="count">
+            <span class="btn-plus"><span class="fa fa-plus"></span></span>
+    </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="remove-cart-drop" class="collapse">
+  <div class="romove cart-pop-bottom">
+ <div class="con-rem" >
+  <p>Are you sure you want to remove this item from cart? </p></div>
+   <div class="rem-btn-sec">
+  <button class="btn remove-cart-btn mx-1"> remove</button>
+  <button class=" mx-1 move-wishlist-btn"> move to wishlist</button>
+</div>
+  </div>
+</div>
+</div>
+
+<div class="mb-3"> 
+  
+  <div class="list-of-cart list-of-cart2">
+    <div class="chec--do-"> 
+    <input class="form-check-input form-check-finish" type="checkbox" >
+  </div>
+    <a href="#remove-cart-drop" class="position-absolute top-0 text-black-50 fw-normal fs-6" data-bs-toggle="collapse" style="right:10px;z-index: 9;"><i class="fas fa-times" style="color:#ff8000"></i></a>
+    <!-- <button type="button" class="btn-close text-reset" aria-label="Close" style="font-size:8px;" data-bs-toggle="collapse" href="#collapse" role="button" aria-expanded="false" aria-controls="collapse"></button> -->
+    <div class="d-flex align-items-center">
+      <div class="pp-img-cart">
+        <div class="cart-img">
+        <img src="catalog/view/javascript/assets/image/cart-img/mycart1.jpg" class="img-fluid img-responsive">
+      </div>
+      </div>
+      <div class="cart-deatils">
+        <div class="d-sm-flex d-block justify-content-start  align-items-start my-2">
+          <div class="cart-p-name mx-sm-4 m-0">Lounge Chair  <br> <span class="pp-quality-name">Premium chair </span></div> 
+          <div class="price--order">
+            <div class="real-amm">₹24,332</div>
+            <div class="dis-amm">₹35,035</div>
+            <div class="off-amm">31% OFF</div>
+          </div>
+        </div>
+        <div class="d-lg-flex d-block justify-content-between my-2">
+          <ul class="btn-list-cart"> 
+          <li> <img src="catalog/view/javascript/assets/image/icon/coupon-icon.png" width="20px"> <a href="" class="couppon-apply" type="button" data-bs-toggle="offcanvas" data-bs-target="#canvasapplycoupon" aria-controls="canvasapplycoupon">Apply Coupon for Dsicount</a> </li> 
+       
+          </ul>
+        <div class="quantity-bar">
+          <div class="countItem">                    
+            <span class="btn-minus"><span class="fa fa-minus"></span></span>
+            <input value="1" class="count">
+            <span class="btn-plus"><span class="fa fa-plus"></span></span>
+    </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="remove-cart-drop" class="collapse">
+  <div class="romove cart-pop-bottom">
+ <div class="con-rem" >
+  <p>Are you sure you want to remove this item from cart? </p></div>
+   <div class="rem-btn-sec">
+  <button class="btn remove-cart-btn mx-1"> remove</button>
+  <button class=" mx-1 move-wishlist-btn"> move to wishlist</button>
+</div>
+  </div>
+</div>
+</div> #}
+
+
+</div>
+
+</div>
+
+                    </div>
+
+                    <div class="col-lg-4">
+                    {% if applied_coupon %}
+                    <div class="coupon-box-buton coupon-box-buton-applied" >
+                      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" >
+                        <path d="M20.4915 9.84173L22.0626 11.6746C22.223 11.8618 22.223 12.1382 22.0626 12.3254L20.4915 14.1583C20.2312 14.462 20.103 14.857 20.1353 15.2557L20.3313 17.6723C20.3514 17.9211 20.185 18.1467 19.9414 18.2008L17.6137 18.7181C17.2096 18.8079 16.8606 19.0607 16.6493 19.4166L15.4226 21.4826C15.2935 21.7001 15.0223 21.7869 14.7909 21.6848L12.6055 20.7206C12.2198 20.5505 11.7802 20.5505 11.3945 20.7206L9.20914 21.6848C8.97773 21.7869 8.70653 21.7001 8.5774 21.4826L7.35071 19.4166C7.13938 19.0607 6.79038 18.8079 6.38632 18.7181L4.05865 18.2008C3.81498 18.1467 3.64858 17.9211 3.66875 17.6723L3.86469 15.2557C3.89702 14.857 3.76878 14.462 3.50849 14.1583L1.93745 12.3254C1.77695 12.1382 1.77695 11.8618 1.93745 11.6746L3.50849 9.84173C3.76878 9.53805 3.89702 9.14298 3.86469 8.74432L3.66875 6.32767C3.64858 6.07887 3.81498 5.85331 4.05865 5.79916L6.38632 5.2819C6.79038 5.19211 7.13938 4.93934 7.35071 4.58343L8.5774 2.51743C8.70653 2.29994 8.97773 2.21314 9.20914 2.31524L11.3945 3.27938C11.7802 3.44955 12.2198 3.44955 12.6055 3.27938L14.7909 2.31524C15.0223 2.21314 15.2935 2.29994 15.4226 2.51743L16.6493 4.58343C16.8606 4.93934 17.2096 5.19211 17.6137 5.2819L19.9414 5.79916C20.185 5.85331 20.3514 6.07887 20.3313 6.32766L20.1353 8.74432C20.103 9.14298 20.2312 9.53805 20.4915 9.84173ZM11.0607 16.6464L17.6536 10.0536C18.2354 9.47169 18.2354 8.52831 17.6536 7.94645C17.0717 7.36458 16.1283 7.36459 15.5464 7.94645L10.3536 13.1393C10.1583 13.3346 9.84171 13.3346 9.64645 13.1393L8.45355 11.9464C7.87169 11.3646 6.92831 11.3646 6.34645 11.9464C5.76459 12.5283 5.76458 13.4717 6.34645 14.0536L8.93934 16.6464C9.52513 17.2322 10.4749 17.2322 11.0607 16.6464Z" stroke="#33C300"/>
+                        </svg>
+                        
+                        
+                        &nbsp;
+                      {{ applied_coupon }}  <span style="float:right " onclick="removecoupon();"> <i class="fas fa-times"></i> </span>
+                    </div>
+                    {# <div class="coupon-box-buton" ><img src="catalog/view/javascript/assets/image/icon/coupon-icon.jpg" alt="coupon-icon">  &nbsp;
+                      {{ applied_coupon }}  <span style="float:right " onclick="removecoupon();"> <i class="fas fa-times"></i></span></div> #}
+                    {% else %}
+                    <div class="coupon-box-buton"  type="button" data-bs-toggle="offcanvas" data-bs-target="#canvasapplycoupon" aria-controls="canvasapplycoupon"><img src="catalog/view/javascript/assets/image/icon/coupon-icon.jpg" alt="coupon-icon">  &nbsp;
+                      Apply Coupon  <span style="float:right "> <i class="fas fa-chevron-right"></i></span></div>
+                    {% endif %}
+                    
+
+                      <div class="order-summary-box">
+                        <div class="summary-heading"> Order Summary <span>( &nbsp;{{ cart_total_items }} Item )</span></div>
+                        <table class="table table-borderless">
+                          <!-- <tbody>
+                            <tr>
+                              <td class="bill-sec">Total MRP :</td>
+                              <td>₹62,535</td>
+                      
+                            </tr>
+                            
+                            <tr>
+                              <td class="bill-sec">Delivery Charges</td>
+                              <td><span class="free-tag">FREE	</span></td>
+                        
+                            </tr>
+                            <tr>
+                              <td class="bill-sec">Coupon Discount :</td>
+                              <td>₹-3,131</td>
+                           
+                            </tr>
+                           
+                            <tr class="final-biil" style="border-top:none
+                            ">
+                              <td>Bill Total</td>
+                              <td>₹50,000</td>
+                            </tr>
+                            
+                          </tbody> -->
+
+                          <tbody>
+                            <tr>
+                              <td>MRP</td>
+                              <td>{{ total_mrp }}</td>
+                            </tr>
+                            <tr>
+                              <td>Delivery</td>
+                              <td style="color:#48ca1a;font-weight:800;">Free</td>
+                            </tr>
+                            {# <tr style="color:#48ca1a;font-weight:600;">
+                              <td>Discount</td>
+                              <td>{{ discount_amt }}</td>
+                            </tr> #}
+                          {% for total in totals %}
+
+                          {% if loop.last %}  
+                            
+                            <tr class="bill-total-sub">
+                              <td>{{ total.title }}</td>
+                              <td>{{ total.text }}</td>
+                            </tr>
+                            {% else %}
+
+                              {% if 'Coupon' in total.title %}
+                                <tr style="color:#48ca1a;font-weight:600;">
+                                  <td>{{ total.title }}</td>
+                                  <td>{{ total.text }}</td>
+                                </tr>
+                              {% else %}
+                                <tr>
+                                  <td>{{ total.title }}</td>
+                                  <td>{{ total.text }}</td>
+                                </tr>
+                              {% endif %}
+
+                            {% endif %}
+                          {% endfor %}
+                            {# <tr>
+                              <td class="bill-sec">Item No</td>
+                              <td>1</td>
+                      
+                            </tr>
+                            <tr>
+                              <td class="bill-sec">Item  Total</td>
+                              <td>₹24,332</td>
+                           
+                            </tr>
+                            <tr>
+                              <td class="bill-sec">Coupon Discount :</td>
+                              <td> <span class="free-tag"> ₹-3,131 </span></td>
+                           
+                            </tr>
+                            <tr>
+                              <td class="bill-sec">Order Packing Charges <span><small>( Per Item )</small></span></td>
+                              <td>₹332</td>
+                              
+                        
+                            </tr>
+                            <tr>
+                              <td class="bill-sec">Order Packing Charges <span><small>( Per Item )</small></span></td>
+                              <td> <span class="free-tag"> FREE	</span></td>
+                              
+                        
+                            </tr>
+                            
+                            <tr>
+                              <td class="bill-sec">Taxes <span><small>( Per Item )</small></span></td>
+                              <td><span class="free-tag">FREE	</span></td>
+                        
+                            </tr>
+                            <tr class="bill-total-sub">
+                              <td>Bill Total</td>
+                              <td>₹50,000</td>
+                            </tr> #}
+                            
+                          </tbody>
+                        </table>
+                        <div class="save-ammt-con">You will save &nbsp;{{ total_save }} on this order</div>
+                        <a href="{{ checkout }}" class="procced-next-button" type="button"> Procced </a>
+
+                        <div class="we-accpt-pay">
+                          <div class="heading-acpt">We Accept</div>
+                          <div class="pay-way-box"> <img src="catalog/view/javascript/assets/image/icon/visa-pay.jpg" width="100%"></div>
+                          <div class="pay-way-box"> <img src="catalog/view/javascript/assets/image/icon/rupay.jpg" width="100%"></div>
+                          <div class="pay-way-box"> <img src="catalog/view/javascript/assets/image/icon/master-card.jpg" width="100%"></div>
+                          <div class="pay-way-box"> <img src="catalog/view/javascript/assets/image/icon/meastro-card.jpg" width="100%"></div>
+                          <div class="pay-way-box"> <img src="catalog/view/javascript/assets/image/icon/netbanking.jpg" width="100%"></div>
+                          <div class="pay-way-box"> <img src="catalog/view/javascript/assets/image/icon/wallet.jpg" width="100%"></div>
+                  
+                          <div class="copyright-2">© 2018-2023 Urbanwood.in All rights reserved.</div>
+                        </div>
+                      </div>
+                    </div>
+                   </div>
+                </div>
+                
+
+
+
+                <div class="panel panel-primary setup-content" id="step-2">
+                  <div class="row ">
+                    <div class="col-lg-8">
+  <div class="Biiling Haeding"> Billing Address</div>
+
+<div class="address-perpose-tabing"> 
+
+<input type="radio" name="test" id="test-1" class="radio-test form-check-input form-check-finish" checked="checked"/>
+<label for="test-1" id="label-test-1" class="label-00">Personal</label>
+<input type="radio" name="test" id="test-2" class="radio-test form-check-input form-check-finish" />
+<label for="test-2" id="label-test-2" class="label-00">Business</label>
+
+
+<div class="content content-test-1" id="content-test-1">
+  <form class="billing-from needs-validation" novalidate>
+    <div class="row">
+    <div class="col-lg-12"> 
+    <div class="mb-3">
+      <label for="Inputuser-nm-pp" class="form-label">Name <sup style="color:#d90505">*</sup></label>
+      <input type="name" class="form-control" id="Inputuser-nm-pp"  placeholder="Write your full name" required>
+    
+    </div>
+  </div>
+  <div class="col-lg-12"> 
+    <div class="mb-3">
+      <label for="InputuserEmail-pp" class="form-label">Email <sup style="color:#d90505">*</sup></label>
+      <input type="email" class="form-control" id="InputuserEmail-pp" placeholder="Write your Email Address" required>
+    
+    </div>
+   </div>
+   <div class="col-lg-12"> 
+    <div class="mb-3">
+      <label for="Inputuser-num-pp" class="form-label">Mobile No. <sup style="color:#d90505">*</sup></label>
+      <input type="text" class="form-control" id="Inputuser-num-pp" placeholder="Enter Your Contact Number" required>
+    
+    </div>
+  </div>
+  <div class="col-lg-12"> 
+    <div class="mb-3">
+      <label for="Inputuser-add-pp" class="form-label">Address <sup style="color:#d90505">*</sup></label>
+      <input type="text" class="form-control"   id="Inputuser-add-pp" placeholder="Flat / House no. / Floor / Building" required>
+     
+    </div>
+    </div>
+    <div class="col-lg-12"> 
+    <div class="mb-3">
+      <input type="text" class="form-control" id="nputuser-add-pp2" placeholder="Colony / Street / Locality" required>
+    
+    </div>
+     </div>
+    <div class="col-lg-6">
+      <div class="mb-3">
+        <label for="Inputuser-country-pp" class="form-label">Country<sup style="color:#d90505">*</sup></label>
+            <select class="form-select" aria-label="Default select " id="Inputuser-country-pp"  required>
+              <option >Select your country</option>
+              <option selected value="1">India</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+        
+
+    </div>
+</div>
+    <div class="col-lg-6">
+      <div class="mb-3">
+        <label for="Inputuser-pincode-pp" class="form-label">Pin Code<sup style="color:#d90505">*</sup></label>
+        <input type="text" class="form-control" id="Inputuser-pincode-pp" placeholder="Write your pincode" required >
+      
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="mb-3">
+        <label for="Inputuser-citye-pp" class="form-label">City<sup style="color:#d90505">*</sup></label>
+        <select class="form-select" aria-label="Default select " id="Inputuser-city-pp"  required>
+          <option selected>Select your City</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="mb-3">
+        <label for="Inputuser-state-pp" class="form-label">State<sup style="color:#d90505">*</sup></label>
+
+        <select class="form-select" aria-label="Default select " id="Inputuser-state-pp" >
+          <option selected>Select your state</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-lg-12">
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input form-check-finish" id="checkwtpsupdate">
+        <label class="form-check-label" for="checkwtpsupdate">Receive Updates Over <img src="catalog/view/javascript/assets/image/icon/what-update-icon.png" alt="" class="img-fluid"></label>
+      </div>
+    </div>
+    <div class="col-lg-12">
+      
+        <input type="checkbox" name="test3" id="delivery-2" class="radio-test form-check-input form-check-finish" />
+<label for="delivery-2" class="label-00">Delivery Address is not same as Billing Address</label>
+   
+<div class="content " id="content-delivery-2">
+  <div class="Biiling Haeding">Delivery Address</div>
+  <div class="row">
+    <div class="col-lg-12"> 
+    <div class="mb-3">
+      <label for="Inputuser-nm-pp" class="form-label">Name <sup style="color:#d90505">*</sup></label>
+      <input type="name" class="form-control" id="Inputuser-nm-pp" placeholder="Write your Full Name" required>
+    
+    </div>
+  </div>
+
+  <div class="col-lg-12"> 
+    <div class="mb-3">
+      <label for="Inputuser2-add-pp" class="form-label">Address <sup style="color:#d90505">*</sup></label>
+      <input type="text" class="form-control"   id="Inputuser2-add-pp" placeholder="Flat / House no. / Floor / Building" required>
+    </div>
+    </div>
+    <div class="col-lg-12"> 
+    <div class="mb-3">
+      <input type="text" class="form-control" id="nputuser-add-pp2" placeholder="Colony / Street / Locality" required>
+    
+    </div>
+     </div>
+     <div class="col-lg-12">
+      <div class="mb-3">
+        <label for="Inputuser-pincode-pp" class="form-label">Pin Code<sup style="color:#d90505">*</sup></label>
+        <input type="text" class="form-control" id="Inputuser-pincode-pp" placeholder="Colony / Street / Locality" required>
+      
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="mb-3">
+        <label for="Inputuser2-city-pp" class="form-label">City<sup style="color:#d90505">*</sup></label>
+        <select class="form-select" aria-label="Default select " id="Inputuser2-city-pp" placeholder="Write your pincode" required>
+          <option selected>Select your City</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="mb-3">
+        <label for="Inputuser2-state-pp" class="form-label">State<sup style="color:#d90505">*</sup></label>
+        <select class="form-select" aria-label="Default select " id="Inputuser2-state-pp" >
+          <option selected>Select your state</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+    </div>
+
+</div>
+</div>
+
+  </div>
+
+  <button type="submit" class="save-continue-btn">Save & Continue</button>
+    </div>
+  </form>
+
+</div>
+
+
+
+<div class="content content-test-2" id="content-test-2">
+<form class="billing-from needs-validation" novalidate>
+  <div class="row">
+  <div class="col-lg-12"> 
+  <div class="mb-3">
+    <label for="Inputcompany-nm-bb" class="form-label">Company Name<sup style="color:#d90505">*</sup></label>
+    <input type="name" class="form-control" id="Inputcompany-nm-bb"  placeholder="Your Company Name" required>
+  
+  </div>
+</div>
+<div class="col-lg-12"> 
+  <div class="mb-3">
+    <label for="Inputgst-bb" class="form-label">Billing GSTIN<sup style="color:#d90505">*</sup></label>
+    <input type="email" class="form-control" id="Inputgst-bb" placeholder="Your GSTIN number" required>
+  
+  </div>
+ </div>
+ <div class="col-lg-12"> 
+  <div class="mb-3">
+    <label for="Inputuser-name-bb" class="form-label">Contact Name <sup style="color:#d90505">*</sup></label>
+    <input type="text" class="form-control" id="Inputuser-name-bb" placeholder="Write your full name" required>
+  
+  </div>
+</div>
+<div class="col-lg-12"> 
+  <div class="mb-3">
+    <label for="Inputuser-con-bb" class="form-label">Contact No. <sup style="color:#d90505">*</sup></label>
+    <input type="text" class="form-control" id="Inputuser-con-bb" placeholder="Enter Your Contact Number" required="">
+  
+  </div>
+</div>
+<div class="col-lg-12"> 
+  <div class="mb-3">
+    <label for="InputuserEmail-bb" class="form-label">Email <sup style="color:#d90505">*</sup></label>
+    <input type="email" class="form-control" id="InputuserEmail-bb" placeholder="Write your Email Address" required="">
+  
+  </div>
+ </div>
+ <div class="col-lg-12"> 
+  <div class="mb-3">
+    <label for="Inputuser-mob-bb" class="form-label">Mobile No. <sup style="color:#d90505">*</sup></label>
+    <input type="text" class="form-control" id="Inputuser-mob-bb" placeholder="Enter Your mobile Number" required="">
+  
+  </div>
+</div>
+<div class="col-lg-12"> 
+  <div class="mb-3">
+    <label for="Inputuser-add-pp" class="form-label">Address <sup style="color:#d90505">*</sup></label>
+    <input type="text" class="form-control"   id="Inputuser-add-pp" placeholder="Flat / House no. / Floor / Building" required>
+   
+  </div>
+  </div>
+  <div class="col-lg-12"> 
+  <div class="mb-3">
+    <input type="text" class="form-control" id="nputuser-add-pp2" placeholder="Colony / Street / Locality" required>
+  
+  </div>
+   </div>
+  <div class="col-lg-6">
+    <div class="mb-3">
+      <label for="Inputuser-country-pp" class="form-label">India<sup style="color:#d90505">*</sup></label>
+          <select class="form-select" aria-label="Default select " id="Inputuser-country-pp"  required>
+            <option >Select your country</option>
+            <option selected value="1">India</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+      
+
+  </div>
+</div>
+  <div class="col-lg-6">
+    <div class="mb-3">
+      <label for="Inputuser-pincode-pp" class="form-label">Pin Code<sup style="color:#d90505">*</sup></label>
+      <input type="text" class="form-control" id="Inputuser-pincode-pp" placeholder="Write your pincode" required >
+    
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="mb-3">
+      <label for="Inputuser-citye-pp" class="form-label">City<sup style="color:#d90505">*</sup></label>
+      <select class="form-select" aria-label="Default select " id="Inputuser-city-pp"  required>
+        <option selected>Select your City</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="mb-3">
+      <label for="Inputuser-state-pp" class="form-label">State<sup style="color:#d90505">*</sup></label>
+
+      <select class="form-select" aria-label="Default select " id="Inputuser-state-pp" >
+        <option selected>Select your state</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-lg-12">
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input form-check-finish" id="checkwtpsupdate">
+      <label class="form-check-label" for="checkwtpsupdate">Receive Updates Over <img src="catalog/view/javascript/assets/image/icon/what-update-icon.png" alt="" class="img-fluid"></label>
+    </div>
+  </div>
+  <div class="col-lg-12">
+    
+      <input type="checkbox" name="test3" id="delivery-2" class="radio-test form-check-input form-check-finish" />
+<label for="delivery-2" class="label-00">Delivery Address is not same as Billing Address</label>
+ 
+<div class="content " id="content-delivery-2">
+<div class="Biiling Haeding">Delivery Address</div>
+<div class="row">
+  <div class="col-lg-12"> 
+  <div class="mb-3">
+    <label for="Inputuser-nm-pp" class="form-label">Name <sup style="color:#d90505">*</sup></label>
+    <input type="name" class="form-control" id="Inputuser-nm-pp" placeholder="Write your Full Name" required>
+  
+  </div>
+</div>
+
+<div class="col-lg-12"> 
+  <div class="mb-3">
+    <label for="Inputuser2-add-pp" class="form-label">Address <sup style="color:#d90505">*</sup></label>
+    <input type="text" class="form-control"   id="Inputuser2-add-pp" placeholder="Flat / House no. / Floor / Building" required>
+  </div>
+  </div>
+  <div class="col-lg-12"> 
+  <div class="mb-3">
+    <input type="text" class="form-control" id="nputuser-add-pp2" placeholder="Colony / Street / Locality" required>
+  
+  </div>
+   </div>
+   <div class="col-lg-12">
+    <div class="mb-3">
+      <label for="Inputuser-pincode-pp" class="form-label">Pin Code<sup style="color:#d90505">*</sup></label>
+      <input type="text" class="form-control" id="Inputuser-pincode-pp" placeholder="Colony / Street / Locality" required>
+    
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="mb-3">
+      <label for="Inputuser2-city-pp" class="form-label">City<sup style="color:#d90505">*</sup></label>
+      <select class="form-select" aria-label="Default select " id="Inputuser2-city-pp" placeholder="Write your pincode" required>
+        <option selected>Select your City</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="mb-3">
+      <label for="Inputuser2-state-pp" class="form-label">State<sup style="color:#d90505">*</sup></label>
+      <select class="form-select" aria-label="Default select " id="Inputuser2-state-pp" >
+        <option selected>Select your state</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+  </div>
+
+</div>
+</div>
+
+</div>
+
+<button type="submit" class="save-continue-btn">Save & Continue</button>
+  </div>
+</form>
+</div>
+
+</div>
+
+                   </div>
+
+<div class="col-lg-4">
+  
+    <div class="order-summary-box order-summary-box2">
+      <div class="summary-heading"> Order Summary <span>( 1 Item )</span></div>
+      <table class="table table-borderless">
+        
+        <tbody>
+          <tr>
+            <td class="bill-sec">Item No</td>
+            <td>1</td>
+    
+          </tr>
+          <tr>
+            <td class="bill-sec">Item  Total</td>
+            <td>₹24,332</td>
+         
+          </tr>
+          <tr>
+            <td class="bill-sec">Coupon Discount :</td>
+            <td> <span class="free-tag"> ₹-3,131 </span></td>
+         
+          </tr>
+          <tr>
+            <td class="bill-sec">Order Packing Charges <span><small>( Per Item )</small></span></td>
+            <td>₹332</td>
+            
+      
+          </tr>
+          <tr>
+            <td class="bill-sec">Order Packing Charges <span><small>( Per Item )</small></span></td>
+            <td> <span class="free-tag"> FREE	</span></td>
+            
+      
+          </tr>
+          
+          <tr>
+            <td class="bill-sec">Taxes <span><small>( Per Item )</small></span></td>
+            <td><span class="free-tag">FREE	</span></td>
+      
+          </tr>
+          <tr class="bill-total-sub">
+            <td>Bill Total</td>
+            <td>₹50,000</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      <div class="save-ammt-con">You will save &nbsp;{{ total_save }} on this order</div>
+      <!-- <button class="procced-next-button" type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Procced </button> -->
+
+      <div class="we-accpt-pay">
+        <div class="heading-acpt">We Accept</div>
+        <div class="pay-way-box"> <img src="catalog/view/javascript/assets/image/icon/visa-pay.jpg" width="100%"></div>
+        <div class="pay-way-box"> <img src="catalog/view/javascript/assets/image/icon/rupay.jpg" width="100%"></div>
+        <div class="pay-way-box"> <img src="catalog/view/javascript/assets/image/icon/master-card.jpg" width="100%"></div>
+        <div class="pay-way-box"> <img src="catalog/view/javascript/assets/image/icon/meastro-card.jpg" width="100%"></div>
+        <div class="pay-way-box"> <img src="catalog/view/javascript/assets/image/icon/netbanking.jpg" width="100%"></div>
+        <div class="pay-way-box"> <img src="catalog/view/javascript/assets/image/icon/wallet.jpg" width="100%"></div>
+
+        <div class="copyright-2">© 2018-2023 Urbanwood.in All rights reserved.</div>
+      </div>
+    </div>
+
+    <div class="sum-order-details">
+      <div> Order  Deatils</div>
+      <div class="the-cart-list my-lg-5"> 
+
+        <div class="mb-3"> 
+          
+          <div class="list-of-cart list-of-cart2">
+            <a href="#remove-cart-drop" class="position-absolute top-0 text-black-50 fw-normal fs-6" data-bs-toggle="collapse" style="right:10px;z-index: 9;"><i class="fas fa-times" style="color:#ff8000"></i></a>
+            <div class="d-flex align-items-center">
+              <div class="pp-img-cart">
+                <div class="cart-img">
+                <img src="catalog/view/javascript/assets/image/cart-img/mycart1.jpg" class="img-fluid img-responsive">
+              </div>
+              </div>
+              <div class="cart-deatils">
+                <div class="d-sm-flex d-block justify-content-start  align-items-start my-2">
+                  <div class="cart-p-name mx-lg-2 m-0">Lounge Chair  <br> <span class="pp-quality-name">Premium chair </span></div> 
+                  <div class="price--order">
+                    <div class="real-amm">₹24,332</div>
+                    <div class="dis-amm">₹35,035</div>
+                    <div class="off-amm">31% OFF</div>
+                  </div>
+                </div>
+                <div class="d-md-flex justify-content-between my-2">
+                <div class="quantity-bar">
+                  <div class="countItem">                    
+                    <span class="btn-minus"><span class="fa fa-minus"></span></span>
+                    <input value="1" class="count">
+                    <span class="btn-plus"><span class="fa fa-plus"></span></span>
+            </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="remove-cart-drop" class="collapse">
+          <div class="romove cart-pop-bottom">
+         <div class="con-rem">
+          <p>Are you sure you want to remove this item from cart? </p></div>
+           <div class="rem-btn-sec">
+          <button class="btn remove-cart-btn mx-1"> remove</button>
+          <button class=" mx-1 move-wishlist-btn"> move to wishlist</button>
+        </div>
+          </div>
+        </div>
+        </div>
+       
+        
+        <div class="mb-3"> 
+          
+          <div class="list-of-cart list-of-cart2">
+            <a href="#remove-cart-drop" class="position-absolute top-0 text-black-50 fw-normal fs-6" data-bs-toggle="collapse" style="right:10px;z-index: 9;"><i class="fas fa-times" style="color:#ff8000"></i></a>
+            <div class="d-flex align-items-center">
+              <div class="pp-img-cart">
+                <div class="cart-img">
+                <img src="catalog/view/javascript/assets/image/cart-img/mycart1.jpg" class="img-fluid img-responsive">
+              </div>
+              </div>
+              <div class="cart-deatils">
+                <div class="d-sm-flex d-block justify-content-start  align-items-start my-2">
+                  <div class="cart-p-name mx-lg-2 m-0">Lounge Chair  <br> <span class="pp-quality-name">Premium chair </span></div> 
+                  <div class="price--order">
+                    <div class="real-amm">₹24,332</div>
+                    <div class="dis-amm">₹35,035</div>
+                    <div class="off-amm">31% OFF</div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between my-2">
+                <div class="quantity-bar">
+                  <div class="countItem">                    
+                    <span class="btn-minus"><span class="fa fa-minus"></span></span>
+                    <input value="1" class="count">
+                    <span class="btn-plus"><span class="fa fa-plus"></span></span>
+            </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="remove-cart-drop" class="collapse">
+          <div class="romove cart-pop-bottom">
+         <div class="con-rem">
+          <p>Are you sure you want to remove this item from cart? </p></div>
+           <div class="rem-btn-sec">
+          <button class="btn remove-cart-btn mx-1"> remove</button>
+          <button class=" mx-1 move-wishlist-btn"> move to wishlist</button>
+        </div>
+          </div>
+        </div>
+        </div>
+       
+        
+        </div>
+    </div>
+  </div>
+
+
+
+
+                      </div>
+                </div>
+         
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="canvasapplycoupon" aria-labelledby="canvasapplycouponLabel" style="background-color: #fff5f0;">
+  <div class="offcanvas-header">
+    <h5 id="canvasapplycouponLabel">Apply Coupons</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="enter-cuopon-code">
+<input type="text" name="coupon" class="form-control enter-coupon-input" placeholder="Enter Your Coupon Code ">
+<butrton class="button-apply-coupon-btn" id="button-coupon" type="submit" >Apply</butrton>
+    </div>
+
+    <div class="login-sideslash"> <a href="" class=""> LOGIN </a><span> for Exclusive Offers </span> </div>
+
+    <div class="coupon-heading my-4">Available Coupons</div>
+<!--first coupon -->
+{% if coupon_info %}
+{% for c_info in coupon_info %}
+  <div class="coupon-box">
+<div> <img src="catalog/view/javascript/assets/image/icon/coupon-uw.png" alt="coupon-icon"></div>
+<div class="coupon-content">
+  <div class="d-flex justify-content-between align-items-center"> 
+  <div class="avail-coupon">{{c_info.name }}</div>
+  <button class="aplly-coupon-btn" type="button"  data-bs-toggle="modal" onclick="addcoupon('{{c_info.code }}')"; data-bs-target="#couponapplied"> Apply</button>
+</div>
+{# <p>Get Extra Chashback Credits  Worth <b> $214 </b> for Your Next 
+  Purchase  </p> #}
+  <p>Get Upto <b> &nbsp;{{ c_info.discount|round(1, 'ceil') }}% Flat OFF </b> on Furniture and Decor </p>
+  <button type="button" data-bs-toggle="collapse" data-bs-target="#coupon-avail-details{{ c_info.coupon_id}}" aria-expanded="false" aria-controls="coupon-avail-details1" class="avail-coupon-details"> Show details</button>
+
+  <div class="d-block" style="position: absolute; right: -0px; top:15px;">
+    <span class="circle--cc"></span>
+    <span class="circle--cc"></span>
+    <span class="circle--cc"></span>
+    <span class="circle--cc"></span>
+    <span class="circle--cc"></span>
+
+  </div>
+</div>
+    </div>
+    <div class="collapse" id="coupon-avail-details{{ c_info.coupon_id}}">
+      <div class="card card-body detail-box-for-coupon">
+        <div class="c-deatil-heading">Applicable Terms & Conditions</div>
+        <ul class="c-detail-list">
+          <li> <i class="fas fa-chevron-right"></i> &nbsp; Get Upto &nbsp;{{ c_info.discount|round(1, 'ceil') }}% Off On Furniture and Decor </li>
+          <li>  <i class="fas fa-chevron-right"></i> &nbsp; Offer valid till &nbsp;{{ c_info.date_end }} </li>
+          <li>  <i class="fas fa-chevron-right"></i> &nbsp;  Other TnC may apply </li>
+        </ul>
+      </div>
+    </div>
+{% endfor %}
+{% else %}
+<p> Sorry, coupon not available right now</p>
+{% endif %}
+
+    
+
+    
+
+
+  </div>
+</div>
+
+</div>
+
+<script>
+  //for billing form tabing to choose the perpose
+  $('[name=tab]').each(function(i,d){
+   var p = $(this).prop('checked');
+ //   console.log(p);
+   if(p){
+     $('div').eq(i)
+       .addClass('on');
+   }    
+ });  
+ 
+ $('[name=tab]').on('change', function(){
+   var p = $(this).prop('checked');
+   
+   // $(type).index(this) == nth-of-type
+   var i = $('[name=tab]').index(this);
+   
+   $('div').removeClass('on');
+   $('div').eq(i).addClass('on');
+ });
+ </script>
+<script>
+  $(document).ready(function () {
+
+var navListItems = $('div.setup-panel div a'),
+    allWells = $('.setup-content'),
+    allNextBtn = $('.nextBtn');
+
+allWells.hide();
+
+navListItems.click(function (e) {
+    e.preventDefault();
+    var $target = $($(this).attr('href')),
+        $item = $(this);
+
+    if (!$item.hasClass('disabled')) {
+        navListItems.removeClass('step-for-checkout-scuss').addClass('step-for-checkout');
+        $item.addClass('step-for-checkout-scuss');
+        allWells.hide();
+        $target.show();
+        $target.find('input:eq(0)').focus();
+    }
+});
+
+allNextBtn.click(function () {
+    var curStep = $(this).closest(".setup-content"),
+        curStepBtn = curStep.attr("id"),
+        nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+        curInputs = curStep.find("input[type='text'],input[type='url']"),
+        isValid = true;
+
+    $(".form-group").removeClass("has-error");
+    for (var i = 0; i < curInputs.length; i++) {
+        if (!curInputs[i].validity.valid) {
+            isValid = false;
+            $(curInputs[i]).closest(".form-group").addClass("has-error");
+        }
+    }
+
+    if (isValid) nextStepWizard.removeAttr('disabled').trigger('click');
+});
+
+$('div.setup-panel div a.step-for-checkout-scuss ').trigger('click');
+});
+</script>
+<script>
+  // $('.minus').on('click',function(){
+  //   var domse = $('.cart_'+$(this).data('id')).val();
+  //   if(domse > 1){
+  //     var newval = Number(domse)-1;
+  //     $('.cart_'+$(this).data('id')).val(newval);
+  //     $('#cartForm').submit();
+  //   }
+  // });
+  // $('.plus').on('click',function(){
+  //   var domse = $('.cart_'+$(this).data('id')).val();
+  //   if(domse < 10){
+  //     var newval = Number(domse)+1;
+  //     $('.cart_'+$(this).data('id')).val(newval);
+  //     $('#cartForm').submit();
+  //   }
+  // });
+</script>
+<script type="text/javascript"><!--
+	$('#button-coupon').on('click', function() {
+		$('.cerror').hide();
+		$.ajax({
+			url: '?route=extension/total/coupon/coupon',
+			type: 'post',
+			data: 'coupon=' + encodeURIComponent($('input[name=\'coupon\']').val()),
+			dataType: 'json',
+
+			success: function(json) {
+				$('.alert-dismissible').remove();
+
+				if (json['error']) {
+					$('.cerror').html(json['error']).show();
+
+					$('html, body').animate({ scrollTop: 0 }, 'slow');
+				}
+
+				if (json['redirect']) {
+					location = json['redirect'];
+				}
+			},
+			error: function(xhr, ajaxOptions, thrownError) {
+				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+			}
+		});
+	});
+  function addcoupon(coupon){
+    $('.cerror').hide();
+		$.ajax({
+			url: '?route=extension/total/coupon/coupon',
+			type: 'post',
+			data: 'coupon=' + coupon,
+			dataType: 'json',
+
+			success: function(json) {
+				$('.success-popup2').remove();
+
+				if (json['error']) {
+					//$('.cerror').html(json['error']).show();
+          //alert('coupon removed');
+          // location.reload();
+					// $('html, body').animate({ scrollTop: 0 }, 'slow');
+          $('body').prepend('<div class="success-popup2">    <span class="warrning-svg">      <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">        <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>        </svg>  </span>      <span class="warrning-text">      <p>Can be applied on selected products</p>    </span>     </div>');
+				}
+
+				if (json['redirect']) {
+					location = json['redirect'];
+				}
+			},
+			error: function(xhr, ajaxOptions, thrownError) {
+				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+			}
+		});
+  }
+  function removecoupon(coupon = '') {
+		$('.cerror').hide();
+		$.ajax({
+			url: '?route=extension/total/coupon/coupon',
+			type: 'post',
+			data: 'coupon=' + coupon,
+			dataType: 'json',
+
+			success: function(json) {
+				$('.alert-dismissible').remove();
+
+				if (json['error']) {
+					//$('.cerror').html(json['error']).show();
+          //alert('coupon removed');
+          location.reload();
+					$('html, body').animate({ scrollTop: 0 }, 'slow');
+				}
+
+				if (json['redirect']) {
+					location = json['redirect'];
+				}
+			},
+			error: function(xhr, ajaxOptions, thrownError) {
+				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+			}
+		});
+	};
+
+  function removefromcart(productid, cartid){
+    $.ajax({
+			url: '?route=checkout/cart/getcartproduct',
+			type: 'post',
+			data: {productid: productid, cartid: cartid},
+			dataType: 'json',
+
+			success: function(json) {
+				$('.alert-dismissible').remove();
+gtag("event", "remove_from_cart", {
+  currency: "INR",
+  value: json.total_value,
+  items: [
+    {
+      item_id: json.product_id,
+      item_name: json.name,
+      item_brand: "Urbanwood",
+      item_category: "Furniture",
+      price: json.special,
+      quantity: json.cart_quantity
+    }
+  ]
+});
+				// if (json['error']) {
+				// 	//$('.cerror').html(json['error']).show();
+        //   //alert('coupon removed');
+        //   location.reload();
+				// 	$('html, body').animate({ scrollTop: 0 }, 'slow');
+				// }
+
+				// if (json['redirect']) {
+				// 	location = json['redirect'];
+				// }
+			},
+			error: function(xhr, ajaxOptions, thrownError) {
+				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+			}
+		});
+  }
+	--></script>
+  
+{{ footer }}

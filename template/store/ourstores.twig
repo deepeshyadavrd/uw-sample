@@ -1,0 +1,434 @@
+{{ header }}
+{{ menu }}
+
+<div class="wrapper">
+
+<div class="breadcrumb-sec">
+  <div class="container container-custom">
+    <div class="breadcrumb-content breadcrumb-content ">
+      <h6> Were We Locate</h6>
+      <p class="text-lg-start d-sm-block d-none"> To add a touch of elegance to your home at a reasonable price, get furniture online from our wide selection of wooden furniture units. To suit your home interiors. </p>
+<p  class="text-lg-start d-sm-block d-none" style="color:#fd8500"> <strong>You can also purchase specifically customized for your needs. </strong></p>
+      <!-- <nav class="breadcrumb-nav" >
+  <ol class="breadcrumb m-0 p-2 d-flex align-items-center">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Our Stores</li>
+  </ol>
+</nav> -->
+
+    </div>
+
+  </div>
+</div>
+<div class="qu-sec py-2 ">
+  <div class="container container-custom">
+    <div class="row">
+<div class="col-md-12 col-sm-12">
+  <nav class="breadcumb-navigation">
+    <ol class="breadcrumb m-0 p-2">
+      <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+      <li class="breadcrumb-item active" aria-current="page">Our Stores</li>
+    </ol>
+  </nav>   
+</div>
+</div>
+    </div>
+</div>
+<!-- location list--->
+<!-- <div class="qu-sec py-2 d-sm-none d-block">
+  <div class="container container-custom">
+    <div class="row">
+<div class="col-md-12 col-sm-12">
+  <nav class="breadcumb-navigation">
+    <ol class="breadcrumb m-0 p-2">
+      <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+      <li class="breadcrumb-item active" aria-current="page">Our Stores</li>
+    </ol>
+  </nav>   
+</div>
+</div>
+    </div>
+</div> -->
+<section class="py-2">
+<div class="container container-custom">
+  <div class="row">
+    <div class="d-sm-flex justify-content-between align-items-center d-block">
+        <div class="col-lg-6"> 
+          <h2 class="pg-heading text-lg-start text-center">Select a Location to <br>
+Discover the Nearest Stores</h2>
+     </div>
+      <div class="col-lg-6">
+        <!-- <a href="" type="button" class="view_all_btn float-right-btn"> View all</a> -->
+        <div class="custom-select">
+  <select>
+    <option value="0"> All Location</option>
+    <option value="1">Select Location</option>
+    <option value="2">Jaipur</option>
+    <option value="3">Chennai</option>
+    <option value="4">Bangalore</option>
+    <option value="5">Mumbai</option>
+    <option value="6">Gurugram</option>
+    
+  </select>
+</div>
+</div>
+      </div>    
+  </div>
+{% for location in locationList %}
+<div class="location-box">
+        <div class="row">
+    <div class="col-lg-6">
+      <div class="map-img">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15550.771003733586!2d80.21634100000001!3d12.991493!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x604a15e2d0121e2f!2sHome%20Stop!5e0!3m2!1sen!2sin!4v1670583045918!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-loc-name d-flex justify-content-between align-items-center"> 
+          <div class="branch-icon"> <img src="assets/image/icon/jaipur-icon.png" class="img-responsive img-fluid"></div>
+          <div> <p class="p-0 m-0 text-white">{{ location.name }} </p>
+           <a href="" class="text-white p-0 m-0">Get Directions <i class='bx bx-right-arrow-alt' style='color:#ffffff' ></i></a>
+          </div>
+        </div>
+      </div>
+      </div>
+ <div class="col-lg-6 text-lg-end text-center"> 
+<div class="brachlist-heading">{{ location.name }}</div>
+<ul class="listing-bb m-0 p-0">
+  <li class="d-flex align-items-center">
+    <div> <span>ADDRESS </span> <br>
+     {{ location.address }}
+</div>
+<div class="list-con-icon">
+  <i class='bx bx-map' style='color:#fd8400'  ></i>
+</div>
+  </li>
+
+  <li class="d-flex align-items-center">
+    <div> <span>CALL</span> <br>
+     {{ location.telephone }}
+</div>
+<div class="list-con-icon">
+  <i class='bx bx-phone-call' style='color:#fd8400' ></i>
+</div>
+  </li>
+
+  <li class="d-flex align-items-center">
+    <div> <span>HOURS</span> <br>
+     {{ location.open }}
+</div>
+<div class="list-con-icon">
+ <i class='bx bxs-time-five' style='color:#fd8400' ></i>
+</div>
+  </li>
+</ul>
+ </div>
+<a href="{{ location.name|lower|replace({' ': '-'}) }}" class="view-m"> view <br> more</a>
+    </div>
+</div>
+{% endfor %}
+      {# <div class="location-box">
+        <div class="row">
+    <div class="col-lg-6">
+      <div class="map-img">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15550.771003733586!2d80.21634100000001!3d12.991493!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x604a15e2d0121e2f!2sHome%20Stop!5e0!3m2!1sen!2sin!4v1670583045918!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-loc-name d-flex justify-content-between align-items-center"> 
+          <div class="branch-icon"> <img src="assets/image/icon/jaipur-icon.png" class="img-responsive img-fluid"></div>
+          <div> <p class="p-0 m-0 text-white">jaipur store </p>
+           <a href="" class="text-white p-0 m-0">Get Directions <i class='bx bx-right-arrow-alt' style='color:#ffffff' ></i></a>
+          </div>
+        </div>
+      </div>
+      </div>
+ <div class="col-lg-6 text-lg-end text-center"> 
+<div class="brachlist-heading">Jaipur Store</div>
+<ul class="listing-bb m-0 p-0">
+  <li class="d-flex align-items-center">
+    <div> <span>ADDRESS </span> <br>
+     URBANWOOD FURNITURE PRIVATE LIMITED 843 , Gram Basdi , mukandpura Road , Bhankrota , Ajmer road , Jaipur  
+Rajasthan , 302026
+</div>
+<div class="list-con-icon">
+  <i class='bx bx-map' style='color:#fd8400'  ></i>
+</div>
+  </li>
+
+  <li class="d-flex align-items-center">
+    <div> <span>CALL</span> <br>
+     +91 89496 95921
+</div>
+<div class="list-con-icon">
+  <i class='bx bx-phone-call' style='color:#fd8400' ></i>
+</div>
+  </li>
+
+  <li class="d-flex align-items-center">
+    <div> <span>HOURS</span> <br>
+     Monday - Sunday: 11:00am - 9:00pm
+</div>
+<div class="list-con-icon">
+ <i class='bx bxs-time-five' style='color:#fd8400' ></i>
+</div>
+  </li>
+</ul>
+ </div>
+<a href="singlestorepage.html" class="view-m"> view <br> more</a>
+    </div>
+</div>
+
+<!--- second location-->
+
+      <div class="location-box">
+        <div class="row">
+    <div class="col-lg-6">
+      <div class="map-img">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15550.771003733586!2d80.21634100000001!3d12.991493!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x604a15e2d0121e2f!2sHome%20Stop!5e0!3m2!1sen!2sin!4v1670583045918!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-loc-name d-flex justify-content-between align-items-center"> 
+          <div class="branch-icon"> <img src="assets/image/icon/jaipur-icon.png" class="img-responsive img-fluid"></div>
+          <div> <p class="p-0 m-0 text-white">jaipur store </p>
+           <a href="" class="text-white p-0 m-0">Get Directions <i class='bx bx-right-arrow-alt' style='color:#ffffff' ></i></a>
+          </div>
+        </div>
+      </div>
+      </div>
+ <div class="col-lg-6 text-lg-end text-center"> 
+<div class="brachlist-heading">Jaipur Store</div>
+<ul class="listing-bb m-0 p-0">
+  <li class="d-flex align-items-center">
+    <div> <span>ADDRESS </span> <br>
+     URBANWOOD FURNITURE PRIVATE LIMITED 843 , Gram Basdi , mukandpura Road , Bhankrota , Ajmer road , Jaipur  
+Rajasthan , 302026
+</div>
+<div class="list-con-icon">
+  <i class='bx bx-map' style='color:#fd8400'  ></i>
+</div>
+  </li>
+
+  <li class="d-flex align-items-center">
+    <div> <span>CALL</span> <br>
+     +91 89496 95921
+</div>
+<div class="list-con-icon">
+  <i class='bx bx-phone-call' style='color:#fd8400' ></i>
+</div>
+  </li>
+
+  <li class="d-flex align-items-center">
+    <div> <span>HOURS</span> <br>
+     Monday - Sunday: 11:00am - 9:00pm
+</div>
+<div class="list-con-icon">
+ <i class='bx bxs-time-five' style='color:#fd8400' ></i>
+</div>
+  </li>
+</ul>
+ </div>
+<a href="" class="view-m"> view <br> more</a>
+    </div>
+</div>
+
+<!-- third location -->
+
+
+
+      <div class="location-box">
+        <div class="row">
+    <div class="col-lg-6">
+      <div class="map-img">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15550.771003733586!2d80.21634100000001!3d12.991493!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x604a15e2d0121e2f!2sHome%20Stop!5e0!3m2!1sen!2sin!4v1670583045918!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-loc-name d-flex justify-content-between align-items-center"> 
+          <div class="branch-icon"> <img src="assets/image/icon/jaipur-icon.png" class="img-responsive img-fluid"></div>
+          <div> <p class="p-0 m-0 text-white">jaipur store </p>
+           <a href="" class="text-white p-0 m-0">Get Directions <i class='bx bx-right-arrow-alt' style='color:#ffffff' ></i></a>
+          </div>
+        </div>
+      </div>
+      </div>
+ <div class="col-lg-6 text-lg-end text-center"> 
+<div class="brachlist-heading">Jaipur Store</div>
+<ul class="listing-bb m-0 p-0">
+  <li class="d-flex align-items-center">
+    <div> <span>ADDRESS </span> <br>
+     URBANWOOD FURNITURE PRIVATE LIMITED 843 , Gram Basdi , mukandpura Road , Bhankrota , Ajmer road , Jaipur  
+Rajasthan , 302026
+</div>
+<div class="list-con-icon">
+  <i class='bx bx-map' style='color:#fd8400'  ></i>
+</div>
+  </li>
+
+  <li class="d-flex align-items-center">
+    <div> <span>CALL</span> <br>
+     +91 89496 95921
+</div>
+<div class="list-con-icon">
+  <i class='bx bx-phone-call' style='color:#fd8400' ></i>
+</div>
+  </li>
+
+  <li class="d-flex align-items-center">
+    <div> <span>HOURS</span> <br>
+     Monday - Sunday: 11:00am - 9:00pm
+</div>
+<div class="list-con-icon">
+ <i class='bx bxs-time-five' style='color:#fd8400' ></i>
+</div>
+  </li>
+</ul>
+ </div>
+<a href="" class="view-m"> view <br> more</a>
+    </div>
+</div>
+
+<!-- fourth loasction -->
+
+
+      <div class="location-box">
+        <div class="row">
+    <div class="col-lg-6">
+      <div class="map-img">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15550.771003733586!2d80.21634100000001!3d12.991493!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x604a15e2d0121e2f!2sHome%20Stop!5e0!3m2!1sen!2sin!4v1670583045918!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-loc-name d-flex justify-content-between align-items-center"> 
+          <div class="branch-icon"> <img src="assets/image/icon/jaipur-icon.png" class="img-responsive img-fluid"></div>
+          <div> <p class="p-0 m-0 text-white">jaipur store </p>
+           <a href="" class="text-white p-0 m-0">Get Directions <i class='bx bx-right-arrow-alt' style='color:#ffffff' ></i></a>
+          </div>
+        </div>
+      </div>
+      </div>
+ <div class="col-lg-6 text-lg-end text-center"> 
+<div class="brachlist-heading">Jaipur Store</div>
+<ul class="listing-bb m-0 p-0">
+  <li class="d-flex align-items-center">
+    <div> <span>ADDRESS </span> <br>
+     URBANWOOD FURNITURE PRIVATE LIMITED 843 , Gram Basdi , mukandpura Road , Bhankrota , Ajmer road , Jaipur  
+Rajasthan , 302026
+</div>
+<div class="list-con-icon">
+  <i class='bx bx-map' style='color:#fd8400'  ></i>
+</div>
+  </li>
+
+  <li class="d-flex align-items-center">
+    <div> <span>CALL</span> <br>
+     +91 89496 95921
+</div>
+<div class="list-con-icon">
+  <i class='bx bx-phone-call' style='color:#fd8400' ></i>
+</div>
+  </li>
+
+  <li class="d-flex align-items-center">
+    <div> <span>HOURS</span> <br>
+     Monday - Sunday: 11:00am - 9:00pm
+</div>
+<div class="list-con-icon">
+ <i class='bx bxs-time-five' style='color:#fd8400' ></i>
+</div>
+  </li>
+</ul>
+ </div>
+<a href="" class="view-m"> view <br> more</a>
+    </div>
+</div> 
+
+<!--fifth location -->
+
+
+      <div class="location-box">
+        <div class="row">
+    <div class="col-lg-6">
+      <div class="map-img">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15550.771003733586!2d80.21634100000001!3d12.991493!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x604a15e2d0121e2f!2sHome%20Stop!5e0!3m2!1sen!2sin!4v1670583045918!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-loc-name d-flex justify-content-between align-items-center"> 
+          <div class="branch-icon"> <img src="assets/image/icon/jaipur-icon.png" class="img-responsive img-fluid"></div>
+          <div> <p class="p-0 m-0 text-white">jaipur store </p>
+           <a href="" class="text-white p-0 m-0">Get Directions <i class='bx bx-right-arrow-alt' style='color:#ffffff' ></i></a>
+          </div>
+        </div>
+      </div>
+      </div>
+ <div class="col-lg-6 text-lg-end text-center"> 
+<div class="brachlist-heading">Jaipur Store</div>
+<ul class="listing-bb m-0 p-0">
+  <li class="d-flex align-items-center">
+    <div> <span>ADDRESS </span> <br>
+     URBANWOOD FURNITURE PRIVATE LIMITED 843 , Gram Basdi , mukandpura Road , Bhankrota , Ajmer road , Jaipur  
+Rajasthan , 302026
+</div>
+<div class="list-con-icon">
+  <i class='bx bx-map' style='color:#fd8400'  ></i>
+</div>
+  </li>
+
+  <li class="d-flex align-items-center">
+    <div> <span>CALL</span> <br>
+     +91 89496 95921
+</div>
+<div class="list-con-icon">
+  <i class='bx bx-phone-call' style='color:#fd8400' ></i>
+</div>
+  </li>
+
+  <li class="d-flex align-items-center">
+    <div> <span>HOURS</span> <br>
+     Monday - Sunday: 11:00am - 9:00pm
+</div>
+<div class="list-con-icon">
+ <i class='bx bxs-time-five' style='color:#fd8400' ></i>
+</div>
+  </li>
+</ul>
+ </div>
+<a href="" class="view-m"> view <br> more</a>
+    </div>
+</div> #}
+
+</div>
+</section>
+
+
+<style type="text/css">
+ 
+</style>
+<!---- end-- list -->
+<!--<section class="bottom-content py-4"> 
+<div class="container container-custom"> 
+<div class="row">
+  <div class="col-lg-12">
+   <h5>Buy Wooden Furniture (फर्नीचर) Online in Bangalore For Your Dream Home</h5> 
+<p> mbellishing Your Office Space at Home With Urbanwood. In the event that you have your workspace at your home, the <stong> office furniture </stong> ought to be amazing as well. It very well may be the conventional sort with work area and seat or like modern furniture with rocker, couches and <a href="https://www.urbanwood.in/sofas"> sofas </a>. Further, numerous <stong>modern furniture stores </stong> likewise sell foldable furniture, called <stong> modular furniture </stong>. You can look at them as well at furniture online Bangalore.</p>
+<h5> Search For Home furniture Online Bangalore For Different Looks & Designs</h5>
+
+<p>The early introduction of your home is a ton relied upon the furniture you have in your home. In the event that your furniture is decrepit and broken, it would debase the magnificence of your home, regardless of how gigantic your house is or how vivid are the paints on the wall. Rather you can look for stylish at Urbanwood. You can either search for a stylish and smart look with furniture like arm chairs and couches or give it a conventional vibe with the texture of wooden sofas and rugs and carpets. Then again, you can likewise try different things with the various plans of <a href="https://www.urbanwood.in/tv-units"> tv units </a> and <a href="https://www.urbanwood.in/dining-tables">dining tables </a> to give it a modern look.</p>
+<h5>India's Best Online Furniture Shop in Bangalore: Check Furniture Ranges at Urbanwood</h5>
+
+<p>Urbanwood has a wide scope of home furniture <a href="https://www.urbanwood.in/l-shaped-sofas"> l shaped sofas </a>, Dining table, <strong> Cupboards, Dressing table </strong>, <a href="https://www.urbanwood.in/study-room-furniture"> study room furniture </a>, <strong> mattresses and wall paintings </strong>. Our furnitures is a comprehensive inventory of what you would in our stores. You could say that our online furniture store in Bangalore is an unobtrusive impression of the reach that we have in our <a href="https://www.urbanwood.in/online-furniture-store"> online furniture store </a>. Every class ventures into a sub-classification assisting you with picking among the different models and plans accessible. We have multi-purpose wooden furniture and all the most recent styles and plans.</p>
+
+<p> <a href="https://www.urbanwood.in/bedroom-furniture"> <strong> Bedroom Furniture: </strong></a> A spot to return home and crash following a difficult day. Settle on the most ideal selection of wooden beds to cause you to feel loose and comfortable.</p>
+<p><a href="https://www.urbanwood.in/fabric-sofas"> <strong> Fabric Sofas: </strong></a>A Sofa is the most pursued spot at home, where everybody likes to crash in the wake of a difficult day's worth of effort so it should a comfortable spot to crash. Your sofa set would discuss your style to visitors that you engage and furthermore give solace to those family parties. Idiosyncratic or tasteful what's your decision. Buy sofas online from our wide scope of premium contributions at furniture online Bangalore.
+ </p>
+
+<p><a href="https://www.urbanwood.in/wardrobes"><strong>Wardrobes:</strong> </a>An exceptionally planned wardrobe can possibly raise the style of generally basic bedroom furniture. Urbanwood presents to you a one of a kind assortment of almirahs. A decent wardrobe ought to permit you to store and arrange your own things as per your comfort. At our furniture present to you a collection of wardrobes that are customized for differed capacity needs. Pick a wardrobe that is in a state of harmony with the style of your room just as obliges all the capacity and practical necessities.</p>
+
+<p><a href="https://www.urbanwood.in/dining-room-furniture"><strong>Dining room furniture:  </strong></a>A dining table is a place of food, fun, and discussions. From showing your cooking abilities to holding over food and recollections, where household work completes, investigate the enormous assortment of wooden dining tables and pick the one that is ideal for your family. Investigate the new scope of dining sets for your dining region and ensure you pick the best arrangement for your family to appreciate an incredible supper consistently. Get an individual dining table and pick your own dining chairs or go for a complete set, we have it both.</p>
+
+<p><strong> Study and Office:</strong> For our home office and different purposes, a <a href="https://www.urbanwood.in/study-table-online">study table online </a> can be valuable and can help you work gainfully. Study tables have now become an essential need for homes. A decent table makes the errand of perusing and composing significantly more comfortable, so let the inventive brain in you be more profitable.</p>
+
+<p><a href="https://www.urbanwood.in/D%C3%A9cor"> <strong >Decor: </strong></a>  Gone are the days where individuals favoured a plain wall with paint or only a couple of photograph edges to make it look outwardly great. Today individuals are continually searching for something new and imaginative that can get their walls decorated. With the assistance of <strong> wall hangings, wall paintings, wall arts </strong>, and gorgeously created mirrors, your wall won't ever look plain. You may get the best furniture online Bangalore that will change the appearance of your home, yet in the event that you overlook to decorate your walls, at that point you may lose the equilibrium. You may even paint the walls with a stylish tone, however, without wall decors, your wall will, in any case, continue as before. There's no motivation behind why your utility room or clothing space can't coordinate the polish of the remainder of rooms. Come look at the assortment of utility stylistic layout things just made for your home.</p>
+<p><a href="https://www.urbanwood.in/Coffee-Tables"><strong>Coffee Tables:</strong> </a>  Look over the most recent <strong> wooden centre table for living room  </strong> at the best costs. The coffee table is probably going to be one of the normal furniture tables in any house. It is the point of convergence of your living room, which is encircled by originator sofa sets. No living room is finished without a coffee table that visitors and guests will see when they show up in your living room. It is the thing that gets the attention of everybody first; in this manner, it ought to be picked with the most extreme consideration from the furniture. Discover a totally modern, straightforward and exquisite focal point that will finish the vibe of your living room. Make a mark look in your living room with beautiful Coffee and end tables from Urbanwood. Shop furniture online in Bangalore at Urbanwood or shop in stores across Bangalore. In each home, the coffee table offers a new territory where you can share drinks and games with friends and family and visitors. Investigate coffee and end table sets with mathematical components and a straightforward allure.</p>
+<p>Choose Different Looks Furniture for Each Room</p>
+<p>You can give an alternate search for every one of your rooms in the house. For instance, the furniture utilized in your living room ought to be wonderful, exquisite just as the originator. Regardless of whether it is a sofa set or an originator plan of conventional furniture, it should upgrade the search for your living room. Essentially, your bedroom furniture ought to be comfortable, durable just as strong. It should very much fit inside the accessible space in your room without jumbling or clogging it. The furniture should coordinate the general subject of your house, which could be grave or peculiar.</p>
+<p>Further, for a modern look, you can utilize a modular kitchen that embellishes the house right away. Urbanwood offers a wide scope of furniture plans to assist you with getting the best pick. You can likewise try different things with various materials for each room separately for furniture online Bangalore. For instance, you can utilize <a href="https://www.urbanwood.in/sheesham-wood-furniture"> Sheesham wood furniture </a> for your living room and utilize a wooden bed in the bedroom. At Urbanwood you can likewise investigate outdoor furniture like <a href="https://www.urbanwood.in/hanging-chairs"> hanging chairs, ottomans and pouffes </a>, <a href="https://www.urbanwood.in/bean-bags"> bean bags</a>, etc. to have a private space for yourself.</p>
+<p> Urbanwood furniture in Bangalore</p>
+
+<p> The best thing about buying furniture online is, you can get the best arrangements for furniture sale, all-round the year. While investigating furniture available to be purchased with Urbanwood, you can get the best furniture online Bangalore for your home at a profoundly limited cost with alluring looks and solidness. With Urbanwood, you can likewise get diverse furniture pieces as an unconditional present with your purchases. While buying furniture, you can utilize various channels to limit your choices. At Urbanwood, you can utilize channels like material, value, shading, markdown, class, and so on to pick the furniture that best suits your need and taste. While it would make your shopping simpler, it would likewise help you save time and endeavours.</p>
+
+<p>The Leading Online Furniture Store Serving All Over India
+Urbanwood has a wide range of home furniture to accentuate the beauty and elegance of your house. Buy <strong> furniture online in Bangalore, Hyderabad, Jaipur, Pune, Mumbai, Delhi </strong> and various other major cities of India including </p>
+<p> Find the most stylish & luxury furniture sofas, beds, wardrobes, study tables and coffee tables made from high-quality Sheesham wood at Urbanwood. Stay comfortable and classy with our modern and amazing furniture for your home at competitive prices. Complete your home interiors with the best wooden furniture of your choice. Urbanwood offers a wide range of <strong> customized wooden furniture </strong> to match your interiors and styles.</p>
+<p><strong> Urbanwood </strong> offers all kinds of luxury and affordable wooden furniture for your home and office made with top-notch quality materials with a vast collection to choose from. </p>
+  </div>
+</div>
+</div>
+
+
+</section>-->
+<div>
+{{ footer }}

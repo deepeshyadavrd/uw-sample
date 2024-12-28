@@ -1,0 +1,142 @@
+{% for product in products %}
+     <div class="col-lg-3 col-md-6 col-sm-12">
+<div class="product-box-img">
+  <div class="button-pd">
+  <div class="like-heart mx-2"> 
+  
+    <span ><i class="fas fa-heart" onclick="wishlist.add('{{ product.product_id }}');" id="likeheart" ></i></span> 
+  </div>  
+  <div class="sharer">
+        <button id="share" class="cursor-pointer ">
+          <i class='bx bxs-share-alt'></i></button> 
+          <div id="share_icons" class="absolute opacity-0"> 
+            <a href="" class="pd-share cursor-pointer">
+              <i class="bx bxl-twitter"></i>
+            </a> 
+            <a href="" class=" pd-share cursor-pointer">
+              <i class="bx bxl-facebook"></i>
+            </a> 
+              <a href="" class=" pd-share cursor-pointer">
+                <i class="bx bxl-linkedin"></i>
+              </a> 
+            </div> 
+
+  </div> 
+
+  </div>
+  
+  <div class="pd-img-in">
+  {% if (product.stock_status == 'Out Of Stock') and (product.quantity == 0) %}
+      <h3 class="shop-nowb-btn" style="margin-top: 19px;"> Out Of Stock</h3>
+      {% else %}
+      
+      {# <input name="product_id" type="hidden" id="addtocart_p_id" value="{{ product.product_id }}">
+      <input name="quantity" type="hidden" id="addtocart_p_qnty" value="1"> #}
+  <button class="shop-nowb-btn" onclick="addtocart(1,{{ product.product_id }})"> Shop Now</button>
+  
+{% endif %}
+    <a href="{{ product.href }}"><div class="overlay-pd"></div></a>
+    <img src="{{ product.thumb }}" alt="" class="img-fluid">
+  </div>
+  <div class="pd-deatils-sec">
+    <div class="d-flex justify-content-between align-items-start p-2">
+      <div class="pd-heading"> 
+       <div class="pd-name"><a href="">{{ product.name }}</a></div> 
+       {% if product.finish %}
+        <div class="pd-config">({{ product.finish }}</div>
+        {% endif %}
+        <span class="pd-creater"> By UrbanWood</span>
+      </div>
+      <div class="color-feature">
+      {% if (product.stock_status == 'Out Of Stock') and (product.quantity == 0) %}
+      <span class="availibility-pd">Out of Stock</span>
+      {% else %}
+      
+
+      <span class="availibility-pd">Available Finish</span>
+      {# <div class="color-feature-check"> 
+        {% if category_id != 71 %}
+          {% if 'honey' in product.href %}
+          <div class="zoom" data-toggle="tooltip" data-placement="top" title="Teak">
+            
+              <a href="{{ product.href|replace({'honey': 'teak'}) }}"><img src="catalog/view/javascript/assets/image/icon/teakfinish.jpg" alt="Option 1"></a>
+            
+          </div>
+          <div class="zoom" data-toggle="tooltip" data-placement="top" title="Walnut" >
+            <a href="{{ product.href|replace({'honey': 'walnut'}) }}"> <img src="catalog/view/javascript/assets/image/icon/walnutfinish.jpg" alt="Option 2"></a>
+          </div>
+          {% elseif 'teak' in product.href %}
+        
+          <div class="zoom" data-toggle="tooltip" data-placement="top" title="Walnut" >
+            <a href="{{ product.href|replace({'teak': 'walnut'}) }}"><img src="catalog/view/javascript/assets/image/icon/walnutfinish.jpg" alt="Option 2"></a>
+          </div>
+        
+          <div class="zoom" data-toggle="tooltip" data-placement="top" title="Honey" >
+            <a href="{{ product.href|replace({'teak': 'honey'}) }}"><img src="catalog/view/javascript/assets/image/icon/honeyfinish.jpg" alt="Option 3"></a>
+          </div>
+          {% else %}
+            <div class="zoom" data-toggle="tooltip" data-placement="top" title="Teak">
+            
+              <a href="{{ product.href|replace({'walnut': 'teak'}) }}"><img src="catalog/view/javascript/assets/image/icon/teakfinish.jpg" alt="Option 1"></a>
+            
+          </div>
+          <div class="zoom" data-toggle="tooltip" data-placement="top" title="Honey" >
+            <a href="{{ product.href|replace({'walnut': 'honey'}) }}"><img src="catalog/view/javascript/assets/image/icon/honeyfinish.jpg" alt="Option 3"></a>
+          </div>
+          {% endif %}
+        {% else %}
+          <div class="zoom" data-toggle="tooltip" data-placement="top" title="Teak">
+            
+              <a href="{{ product.href|replace({'stone-gray': 'diana-orange'}) }}"><img src="catalog/view/javascript/assets/image/icon/teakfinish.jpg" alt="Option 1"></a>
+            
+          </div>
+          <div class="zoom" data-toggle="tooltip" data-placement="top" title="Honey" >
+            <a href="{{ product.href|replace({'stone-gray': 'honey'}) }}"><img src="catalog/view/javascript/assets/image/icon/honeyfinish.jpg" alt="Option 3"></a>
+          </div>
+          <div class="zoom" data-toggle="tooltip" data-placement="top" title="Teak">
+            
+              <a href="{{ product.href|replace({'walnut': 'teak'}) }}"><img src="catalog/view/javascript/assets/image/icon/teakfinish.jpg" alt="Option 1"></a>
+            
+          </div>
+          <div class="zoom" data-toggle="tooltip" data-placement="top" title="Honey" >
+            <a href="{{ product.href|replace({'walnut': 'honey'}) }}"><img src="catalog/view/javascript/assets/image/icon/honeyfinish.jpg" alt="Option 3"></a>
+          </div>
+          <div class="zoom" data-toggle="tooltip" data-placement="top" title="Teak">
+            
+              <a href="{{ product.href|replace({'walnut': 'teak'}) }}"><img src="catalog/view/javascript/assets/image/icon/teakfinish.jpg" alt="Option 1"></a>
+            
+          </div>
+          <div class="zoom" data-toggle="tooltip" data-placement="top" title="Honey" >
+            <a href="{{ product.href|replace({'walnut': 'honey'}) }}"><img src="catalog/view/javascript/assets/image/icon/honeyfinish.jpg" alt="Option 3"></a>
+          </div>
+        {% endif %}
+      </div> #}
+      {% endif %}
+      </div>
+     
+    </div>
+    <hr>
+    <div class="d-flex justify-content-between align-items-start p-2">
+      <div class="pricing-pd">
+        <span class="badge badgerating">
+          {{ product.rating }}
+          <span class="starr-rate"><i class="fas fa-star"></i></span>
+        </span>
+        <span class="likes">({{ product.review_count }})</span>
+        <div class=""> 
+        <div class="pd-amount"> {{ product.special }} </div> <div class="cut-ammount">{{ product.price }} </div>  
+        <span class=" badge bridge-offer" style="font-size:10px">{{ product.discount }}% off </span>
+      </div>
+      </div>
+      <div class="pd-offers">
+      <ul>
+        <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+        <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+</div>
+   {% endfor %}

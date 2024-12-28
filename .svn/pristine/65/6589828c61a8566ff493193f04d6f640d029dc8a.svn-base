@@ -1,0 +1,20 @@
+<?php
+class ControllerStoreOurstores extends Controller{
+     public function index(){
+
+        $data['header'] = $this->load->controller('common/header');  
+        $data['footer'] = $this->load->controller('common/footer');  
+        $data['menu'] = $this->load->controller('common/menu');  
+        $data['storehead'] = $this->load->controller('store/storehead');  
+
+        
+
+
+        $data['locationlist'] = $this->load->controller('store/locationlist');  
+        $data['bottomcontent'] = $this->load->controller('store/bottomcontent');  
+          
+        
+        $this->response->setOutput($this->load->view('store/ourstores', $data));
+     }
+}
+?>

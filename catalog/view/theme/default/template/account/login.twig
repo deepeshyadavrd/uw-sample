@@ -1,0 +1,70 @@
+{{ header }}
+{{ menu }}
+
+  <div class="qu-sec py-2 ">
+  <div class="container container-custom">
+    <div class="row">
+<div class="col-md-12 col-sm-12">
+  <nav class="breadcumb-navigation">
+    <ol class="breadcrumb m-0">
+      {# <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li> #}
+      {% for breadcrumb in breadcrumbs %}
+      <li class="breadcrumb-item active" aria-current="page"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+      {% endfor %}
+    </ol>
+  </nav>   
+</div>
+</div>
+    </div>
+</div>
+  {% if success %}
+  <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}</div>
+  {% endif %}
+  {% if error_warning %}
+  <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
+  {% endif %}
+    <section class="login-reg-sec">
+      <div class="row">
+        <div class="col-md-7 col-sm-6 col-xs-6 width-30">
+          <div class="login-side">
+               <img src="catalog/view/javascript/assets/image/popupimg/slider1.png" class="img-responsive">
+          </div>
+        </div>
+        <div class="col-md-5 col-sm-6 col-xs-6 width-70">
+        <!--- sign in form-->
+          <div class="signin-form-popup signupform1 selected">
+            <div class="from-header">
+              <h6> Welcome to  <br> <span> UrbanWood</span> </h6>
+              <p>Glad to See You!</p>
+            </div>
+            <div class="popup-signform">
+              <!-- class="loginform" -->
+              <form method="post" action="?route=account/login">
+                <div class="row">
+                  <div class="col-md-12">
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email Address" required="">
+                  </div>
+                  <div class="col-md-12 ">
+                    <input type="password" name="password" class="form-control password" autocomplete="current-password" required="" id="id_password" placeholder="Password">
+                    <i class="far fa-eye-slash" id="togglePassword"></i>
+                  </div>
+                  <div class="d-block">
+                    <button type="submit" class="login-btn-popup">Login</button>
+                    <a href="?route=account/forgotten" class="forget-pass text-center">Forget password?</a>
+                    {# <div class="d-flex justify-content-center align-items-center my-3">
+                      <span class="line"></span><p class="or-way-tolog">OR Login with</p> <span class="line"></span>
+                    </div> #}
+                    {# <div class="d-flex justify-content-center align-items-center my-3">
+                      <img src="./assets/image/icon/g-icon.png" alt="" width="40" class="mx-1">
+                      <img src="./assets/image/icon/f-icon.png" alt="" width="40" class="mx-1">
+                    </div> #}
+                    <p class="text-center dont-accont">Dont Have an Account ? <a href="?route=account/register" >Sign Up Now</a></p>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+{{footer}}

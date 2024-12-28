@@ -1,0 +1,312 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="button" data-toggle="tooltip" title="{{ button_filter }}" onclick="$('#filter-marketing').toggleClass('hidden-sm hidden-xs');" class="btn btn-default hidden-md hidden-lg"><i class="fa fa-filter"></i></button>
+        <a href="{{ add }}" data-toggle="tooltip" title="{{ button_add }}" class="btn btn-primary"><i class="fa fa-plus"></i></a>
+        <button type="button" data-toggle="tooltip" title="{{ button_delete }}" class="btn btn-danger" onclick="confirm('{{ text_confirm }}') ? $('#form-marketing').submit() : false;"><i class="fa fa-trash-o"></i></button>
+      </div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">{% if error_warning %}
+    <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    {% if success %}
+    <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    <div class="row">
+      <div id="filter-marketing" class="col-md-3 col-md-push-9 col-sm-12 hidden-sm hidden-xs">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-filter"></i> {{ text_filter }}</h3>
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+              <label class="control-label" for="input-name">{{ entry_name }}</label>
+              <input type="text" name="filter_name" value="{{ filter_name }}" placeholder="{{ entry_name }}" id="input-campaign_ame" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="input-code">UTM Source</label>
+              <input type="text" name="filter_code" value="{{ filter_code }}" placeholder="utm source" id="input-utm_source" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="input-date-added">{{ entry_date_added }}</label>
+              <div class="input-group date">
+                <input type="text" name="filter_date_added" value="{{ filter_date_added }}" placeholder="{{ entry_date_added }}" data-date-format="YYYY-MM-DD" class="form-control" />
+                <span class="input-group-btn">
+                <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                </span></div>
+            </div>
+            <div class="form-group text-right">
+              <button type="button" id="button-filter" class="btn btn-default"><i class="fa fa-filter"></i> {{ button_filter }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9 col-md-pull-3 col-sm-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-list"></i>Campaign Track List</h3>
+          </div>
+          <div class="panel-body">
+            <form action="{{ delete }}" method="post" enctype="multipart/form-data" id="form-marketing">
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <td style="width: 1px;" class="text-center"><input type="checkbox" onclick="$('input[name*=\'selected\']').prop('checked', this.checked);" /></td>
+                      <td class="text-left">{% if sort == 'm.name' %} <a href="{{ sort_name }}" class="{{ order|lower }}">{{ column_name }}</a> {% else %} <a href="{{ sort_name }}">{{ column_name }}</a> {% endif %}</td>
+                      <td class="text-left">{% if sort == 'm.code' %} <a href="{{ sort_code }}" class="{{ order|lower }}">UTM Source </a> {% else %} <a href="{{ sort_code }}">{{ column_code }}</a> {% endif %}</td>
+                      <td class="text-right">{{ column_clicks }}</td>
+                      <td class="text-right">Order received</td>
+                      <td class="text-right">Sale Amount</td>
+                      <td class="text-right">Report</td>
+                      <td class="text-left">{% if sort == 'm.date_added' %} <a href="{{ sort_date_added }}" class="{{ order|lower }}">{{ column_date_added }}</a> {% else %} <a href="{{ sort_date_added }}">{{ column_date_added }}</a> {% endif %}</td>
+                      <td class="text-right">{{ column_action }}</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  
+                  {% if marketings %}
+                  {% for marketing in marketings %}
+                  <tr>
+                    <td class="text-center">{% if marketing.campaign_id in selected %}
+                      <input type="checkbox" name="selected[]" value="{{ marketing.campaign_id }}" checked="checked" />
+                      {% else %}
+                      <input type="checkbox" name="selected[]" value="{{ marketing.campaign_id }}" />
+                      {% endif %}</td>
+                    <td class="text-left">{{ marketing.campaign_name }}</td>
+                    <td class="text-left">{{ marketing.utm_source }}</td>
+                    <td class="text-right">{{ marketing.clicks }}</td>
+                    <td class="text-right">{{ marketing.total_orders }}</td>
+                    <td class="text-right">{{ marketing.orders }}</td>
+                    <td class="text-right"><button type="button" class="btn btn-info btn-lg repobtn" data-id="{{ marketing.campaign_id }}" data-toggle="modal" data-target="#myModal">Report</button></td>
+                    <td class="text-left">{{ marketing.date_added }}</td>
+                    <td class="text-right"><a href="{{ marketing.edit }}" data-toggle="tooltip" title="{{ button_edit }}" class="btn btn-primary"><i class="fa fa-pencil"></i></a></td>
+                  </tr>
+                  {% endfor %}
+                  {% else %}
+                  <tr>
+                    <td class="text-center" colspan="8">{{ text_no_results }}</td>
+                  </tr>
+                  {% endif %}
+                    </tbody>
+                  
+                </table>
+              </div>
+            </form>
+            <div class="row">
+              <div class="col-sm-6 text-left">{{ pagination }}</div>
+              <div class="col-sm-6 text-right">{{ results }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Generate Report</h4>
+        </div>
+        <div class="modal-body">
+        <input type="hidden" id="campid" name="campid">
+          <label class="control-label" for="input-start-date">Start Date</label>
+              <div class="input-group date">
+                <input type="text" name="start-date" value="{{ filter_date_added }}" placeholder="Start Date" data-date-format="YYYY-MM-DD" class="form-control" />
+                <span class="input-group-btn">
+                <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                </span></div>
+            <label class="control-label" for="input-end-date">End Date</label>
+              <div class="input-group date">
+                <input type="text" name="end-date" value="{{ filter_date_added }}" placeholder="End Date" data-date-format="YYYY-MM-DD" class="form-control" />
+                <span class="input-group-btn">
+                <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+                </span></div>  
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="getCampReport()" class="btn btn-default">Get Report</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <script type="text/javascript"><!--
+$('#button-filter').on('click', function() {
+	url = 'index.php?route=marketing/campaign&user_token={{ user_token }}';
+	
+	var filter_name = $('input[name=\'filter_name\']').val();
+	
+	if (filter_name) {
+		url += '&filter_name=' + encodeURIComponent(filter_name);
+	}
+	
+	var filter_code = $('input[name=\'filter_code\']').val();
+	
+	if (filter_code) {
+		url += '&filter_code=' + encodeURIComponent(filter_code);
+	}
+		
+	var filter_date_added = $('input[name=\'filter_date_added\']').val();
+	
+	if (filter_date_added) {
+		url += '&filter_date_added=' + encodeURIComponent(filter_date_added);
+	}
+	
+	location = url;
+});
+//--></script> 
+  <script type="text/javascript"><!--
+$('.date').datetimepicker({
+	language: '{{ datepicker }}',
+	pickTime: false
+});
+//--></script>
+
+<script>
+
+$(document).on("click", ".repobtn", function () {
+     var eventId = $(this).data('id');
+     $('#campid').val( eventId );
+});
+  function getCampReport(){
+    var campid = $('input[name=\'campid\']').val();
+    var startDate = $('input[name=\'start-date\']').val();
+    var endDate = $('input[name=\'end-date\']').val();
+$.ajax({
+				url: '?route=marketing/campaign/getReport&user_token={{ user_token }}',
+        type: 'POST',
+        data: {'start_date':startDate,'end_date': endDate,'camp_id': campid },
+				dataType: 'html',
+				beforeSend: function() {
+					$(this).prop('disabled', true);
+					// if ($icon.length) {
+					// 	$icon.attr('class', 'fa fa-circle-o-notch fa-spin');
+					// }
+				},
+				// complete: function() {
+				// 	$button.prop('disabled', false);
+				// 	if ($icon.length) {
+				// 		$icon.attr('class', 'fa fa-pencil');
+				// 	}
+				// },
+				success: function(html) {
+					// $('body').append('<div id="modal-image" class="modal">' + html + '</div>');
+					// $('#modal-image').modal('show');
+          JSONToCSVConvertor(html, true);
+				}
+
+			});
+
+  }
+
+  function JSONToCSVConvertor(JSONData, ShowLabel) {
+    //If JSONData is not an object then JSON.parse will parse the JSON string in an Object
+    var arrData = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
+    
+    var CSV = '';    
+    //Set Report title in first row or line
+    const date = new Date().toJSON().slice(0, 10);
+// console.log(date);
+ReportTitle = date;
+    // CSV += ReportTitle + '\r\n\n';
+
+    //This condition will generate the Label/Header
+    if (ShowLabel) {
+        var row = "";
+        
+        //This loop will extract the label from 1st index of on array
+        for (var index in arrData[0]) {
+            
+            // if(index == 'tracking'){
+            //   index = 'utm_source';
+            // }
+            // console.log(index);
+            //Now convert each value to string and comma-seprated
+            row += index + ',';
+        }
+
+        row = row.slice(0, -1);
+        
+        //append Label row with line break
+        CSV += row + '\r\n';
+    }
+    
+    //1st loop is to extract each row
+    for (var i = 0; i < arrData.length; i++) {
+        var row = "";
+        
+        //2nd loop will extract each column and convert it in string comma-seprated
+        for (var index in arrData[i]) {
+            //row += '"' + arrData[i][index] + '",';
+    			if(typeof arrData[i][index] === 'object'){
+                    var data = arrData[i][index];
+                    // for (var j = 0; j < arrData.length; j++) {
+                        for (var key in data) {
+                            // if (row != '') row += ','
+                            for( v in data[key]){
+                                //  console.log(data[key][v])
+                                someText = data[key][v].replace(/(,)/gm, "");
+                                someText = $.trim(someText);
+                                someText = someText.replace(/(\r\n|\n|\r)/gm, ",");
+                                row +=  '\"' + someText + '\" , ,';
+                            }
+                            row = row.slice(0, row.length - 1);
+                        }
+                    // }
+    			}else {
+                    row += '"' + arrData[i][index] + '",';
+            }
+    				
+        }
+
+        row.slice(0, row.length - 1);
+        
+        //add a line break after each row
+        CSV += row + '\r\n';
+    }
+
+    if (CSV == '') {        
+        alert("Invalid data");
+        return;
+    }   
+    
+    //Generate a file name
+    var fileName = "MyReport_";
+    //this will remove the blank-spaces from the title and replace it with an underscore
+    fileName += ReportTitle.replace(/ /g,"_");   
+    
+    //Initialize file format you want csv or xls
+    var uri = 'data:text/csv;charset=utf-8,' + escape(CSV);
+
+    var link = document.createElement("a");    
+    link.href = uri;
+    
+    //set the visibility hidden so it will not effect on your web-layout
+    link.style = "visibility:hidden";
+    link.download = fileName + ".csv";
+    
+    //this part will append the anchor tag and remove it after automatic click
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+</script>
+</div>
+{{ footer }}

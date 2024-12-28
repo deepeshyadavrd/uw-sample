@@ -1,0 +1,9 @@
+{{ header }}
+{{ menu }}
+{{ singlestorehead }}
+{{ storedetail }}
+{{ catelogrequest }}
+{{ customerstories }}
+{{ bottomcontent }}
+
+{{ footer }}

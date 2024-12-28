@@ -1,0 +1,66 @@
+{# {% if reviews %}
+{% for review in reviews %}
+<table class="table table-striped table-bordered">
+  <tr>
+    <td style="width: 50%;"><strong>{{ review.author }}</strong></td>
+    <td class="text-right">{{ review.date_added }}</td>
+  </tr>
+  <tr>
+    <td colspan="2"><p>{{ review.text }}</p>
+      {% for i in 1..5 %}
+      {% if review.rating < i %} <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> {% else %} <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> {% endif %}
+      {% endfor %}</td>
+  </tr>
+</table>
+{% endfor %}
+<div class="text-right">{{ pagination }}</div>
+{% else %}
+<p>{{ text_no_reviews }}</p>
+{% endif %}  #}
+
+{% if reviews %}
+    {% for review in reviews %}
+<div class="client-review-cc">
+    <div class="boc-ckient-rew">
+      <div class="header"> 
+        <div class="cutom-detail">
+        <div class="user-dp">
+          <img alt="" src="{{ review.customer_img }}">
+        </div>
+        <div class="client-name-com">
+          <span class="cc-name-title"><strong>{{ review.author }}</strong></span>
+          <span class="customer-rating">{{ review.rating }} <i class="fa fa-star"></i></span>
+          <span class="post-date">Posted on &nbsp;{{ review.date_added }}</span>
+          <div class="certified-tick"> <i class="fas fa-check"></i> Certified Buyer  </div>
+        </div>
+      </div>
+        {# <div class="likes-for-pp">
+          <span> <i class="fa fa-thumbs-up"></i></span> <span class="count-of-like">201 Likes</span>
+        </div> #}
+        
+      </div>
+      <div class="com-sec-wrote">
+       {{ review.text }}
+      </div>
+      <div class="clien-rew-img">
+      <ul>
+      {% if review.review_image is iterable  %}
+    {% for row in review.review_image %}
+        {% for column in row %}
+            
+            <li><a href="{{ column }}" data-lightbox="photos"> <img alt="" src="{{ column }}"></a></li>
+        {% endfor %}
+      {% endfor %}
+{% else %}
+    <li><a href="{{ column }}" data-lightbox="photos"> <img alt="" src="{{ review.review_image }}"></a></li>
+{% endif %}
+      
+        
+          
+          
+        </ul>
+      </div>
+    </div>
+   </div>
+   {% endfor %}
+{% endif %}

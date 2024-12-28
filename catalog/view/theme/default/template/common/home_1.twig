@@ -1,0 +1,291 @@
+{{ header }}
+{% if success %}
+{# <div class="success-popup-outer">   #}
+<div class="success-popup ">
+  <span class="warrning-svg">
+  <svg 
+  id="smile"
+  width="35" height="35" viewBox="0 0 41 41" fill="none">
+    <path d="M16.2432 29.9911L16.5968 30.3439L16.95 29.9907L30.5886 16.352L30.9422 15.9985L30.5886 15.6449L27.7128 12.7691L27.3593 12.4156L27.0057 12.7691L16.592 23.1828L12.2699 18.8682L11.9158 18.5148L11.5626 18.869L8.69086 21.7489L8.33792 22.1028L8.69174 22.4558L16.2432 29.9911ZM0.823975 20.662C0.823975 9.72375 9.72375 0.823975 20.662 0.823975C31.6002 0.823975 40.5 9.72375 40.5 20.662C40.5 31.6002 31.6002 40.5 20.662 40.5C9.72375 40.5 0.823975 31.6002 0.823975 20.662Z" stroke="#33C300"/>
+    </svg>
+  </span>
+    <span class="warrning-text"> 
+      
+    <p>{{ success }}</p>
+  </span>
+    
+</div>
+{# </div> #}
+  {% endif %}
+{{ menu }}
+<div class="wrapper">
+
+    
+    <div class="slider-outer text-white">
+        <!-- Carousel -->
+
+        <div class="container container-custom" style="width: 100%;">
+            <div class="row ">
+                <div class="col-lg-3 d-lg-block d-none">
+                    <div class=" cp-with">
+                        <img loading="lazy" src="https://s6.imgcdn.dev/992Dg.gif" class="img-responsive img-fluid">
+
+                    </div>
+
+                </div>
+                <div class="col-lg-9">
+
+                    <div id="demo" class="carousel slide d-none d-sm-block" data-bs-ride="carousel">
+
+                        <!-- Indicators/dots -->
+                        <div class="carousel-indicators">
+                            {%for keysss,banner in banners%}
+                                <button type="button" data-bs-target="#demo" data-bs-slide-to="{{keysss}}" class="{{banner.active}}"></button>
+                            {% endfor %}
+
+                        </div>
+
+                        <!-- The slideshow/carousel -->
+                        <div class="carousel-inner">
+                            {%for keysss,banner in banners%}
+                                <!-- <div class="carousel-item {{banner.active}}"> -->
+                                <div class="{{banner.active}}   carousel-item   &amp;  ">
+                                    <div class="slider-img">
+                                        <a href="{{banner.link}}"><img src="{{banner.image}}" alt="{{banner.title}}" class="d-block img-responsive img-fluid" width="100%" height="100%" loading="lazy"></a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                        <!-- Left and right controls/icons -->
+                        <button class="carousel-control-prev home-slider-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next home-slider-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+
+                    <div id="demo2" class="carousel slide d-block d-sm-none mt-5 pt-3" data-bs-ride="carousel">
+
+                        <!-- Indicators/dots -->
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#demo2" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#demo2" data-bs-slide-to="1"></button>
+                        </div>
+<style>
+* {
+    box-sizing:border-box;
+}
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+</style>
+                        <!-- The slideshow/carousel -->
+                        <div class="carousel-inner" style="min-height: 500px;">
+                            <div class="carousel-item active">
+                                <div class="slider-img">
+                                    {# <img loading="lazy" src="catalog/view/javascript/assets/image/mobile-banner.jpg" alt="Los Angeles" class="d-block img-fluid img-responsive skeleton"> #}
+                                    <picture>
+                                            <source srcset="catalog/view/javascript/assets/image/mobile-banner/mobile-winter-banner-420.avif" type="image/avif">
+                                            <img src="catalog/view/javascript/assets/image/mobile-banner/mobile-winter-banner-420.webp" width="415" height="300" alt="new year discount sale" class="d-block img-fluid img-responsive"  />
+                                    </picture>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="slider-img">
+                                    {# <img loading="lazy" src="catalog/view/javascript/assets/image/mobile-banner-design1.jpg" alt="Los Angeles" class="d-block img-fluid img-responsive skeleton"> #}
+                                    <picture>
+                                            <source srcset="catalog/view/javascript/assets/image/mobile-banner/mobile-winter-banner-2.avif" type="image/avif"  width="415" height="300" alt="new year discount sale" class="d-block img-fluid img-responsive" >
+                                            <img src="catalog/view/javascript/assets/image/mobile-banner/mobile-winter-banner-2.webp" width="415" height="300" alt="new year discount sale" class="d-block img-fluid img-responsive"  />
+                                    </picture>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Left and right controls/icons -->
+                        <button class="carousel-control-prev home-slider-control-prev" type="button" data-bs-target="#demo2" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next home-slider-control-next" type="button" data-bs-target="#demo2" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- -slider end -->
+{{ quality }}
+{{ popularcategory }}
+{{ talktoexpert }}
+{{ trending }}
+{{ shopbyroom }}
+{{ customize }}
+{{ topselling }}
+{{ onsale }}
+{{ stores }}
+{{ customerstories }}
+{{ social }}
+{{ faq }}
+{{ bottomcontent }}
+<!--sign in signup popup-->
+<div id="signuppopup" class="modal fade" role="dialog">
+  <div class="modal-dialog popup_content">
+    <!-- Modal content-->
+    <div class="modal-content p-0">
+      <!-- <div class="modal-header">
+        <h4 class="modal-title">Modal Header</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div> -->
+      <div class="modal-body m-0 p-0">
+       <div class="row">
+        <div class="col-md-7 col-sm-6 col-xs-6 width-30">
+          <div id="carouselExampleCaptions3" class="carousel slide popup-slider" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleCaptions3" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions3" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleCaptions3" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+               <img src="catalog/view/javascript/assets/image/popupimg/slider1.png" class="img-responsive">
+                <div class="carousel-caption d-none d-md-block">
+                  <button href="" type="submit" class="text-lg-start shop-now">Submit</button>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="catalog/view/javascript/assets/image/popupimg/slider2.png" class="img-responsive">
+                <div class="carousel-caption d-none d-md-block">
+                  <button href="" type="submit" class="text-lg-start shop-now">Submit</button>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="catalog/view/javascript/assets/image/popupimg/slider3.png" class="img-responsive">
+                <div class="carousel-caption d-none d-md-block">
+                  <button href="" type="submit" class="text-lg-start shop-now">Submit</button>
+                </div>
+              </div>
+            </div>
+        
+          </div>
+        </div>
+<div class="col-md-5 col-sm-6 col-xs-6 width-70">
+
+<!--- sign in form-->
+<div class="signin-form-popup signupform1 notification-container selected">
+  <div class="from-header">
+   <h6> Welcome to  <br> <span> UrbanWood</span> </h6>
+   <p>Glad to See You!</p>
+  </div>
+  <div class="popup-signform">
+  <form method="post" enctype="multipart/form-data" class="loginform">
+    <div class="row">
+    <div class="col-md-12">
+      <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email Address" required="">
+  
+    </div>
+    <div class="col-md-12 ">
+      <input type="password" name="password" class="form-control password" autocomplete="current-password" required="" id="id_password" placeholder="Password">
+      <i class="far fa-eye-slash" id="togglePassword"></i>
+    </div>
+    <div class="d-block">
+    <button type="submit" class="login-btn-popup">Login</button>
+    <a href="#" class="forget-pass text-center">Forget password?</a>
+   
+    <div class="d-flex justify-content-center align-items-center my-3">
+    <span class="line"></span><p class="or-way-tolog">OR Login with</p> <span class="line"></span>
+  </div>
+  <div class="d-flex justify-content-center align-items-center my-3">
+    <img src="./assets/image/icon/g-icon.png" alt="" width="40" class="mx-1">
+    <img src="./assets/image/icon/f-icon.png" alt="" width="40" class="mx-1">
+  </div>
+  <p class="text-center dont-accont">Dont Have an Account ? <a href="" id="showFilePanel" >Sign Up Now</a></p>
+  </div>
+</div>
+  </form>
+  </div>
+  </div>
+  <!-- sign up for first time form -->
+  <div class="signin-form-popup signupform2 notification-container2 dismiss">
+    <div class="from-header">
+     <h6> Start journey with us <br> <span> Create an Account </span> </h6>
+     <p class="mb-0">Welcome!</p>
+    </div>
+    <div class="popup-signform">
+    <form method="post" enctype="multipart/form-data" class="registerform">
+      <div class="row">
+      <div class="col-md-6 col-lg-6 ">
+        <input type="name" name="firstname" class="form-control mt-0 mb-1" id="exampleInputFirstname" placeholder="name" required="" >
+    
+      </div>
+      <div class="col-md-6 col-lg-6 ">
+        <input type="text" name="lastname" class="form-control mt-0 mb-1" id="exampleInputlastname" placeholder="last Anme" required="">
+    
+      </div> 
+      <div class="col-md-12 ">
+        <input type="email" name="email" class="form-control mt-0mb-1" id="giveInputEmail1" placeholder="Email Address" required="">
+    
+      </div>
+      <div class="col-md-12 ">
+        <input type="text" name="telephone" class="form-control mt-0 mb-1" id="giveInputnumber" placeholder="contact Number" required="">
+    
+      </div>
+      <div class="col-md-12">
+        <input type="password" name="password" class="form-control password" autocomplete="current-password" required="" id="id_password" placeholder="Password">
+        <i class="far fa-eye" id="togglePassword"></i>
+      </div>
+      <div class="col-md-12">
+        <input type="password" name="confirm" class="form-control password" autocomplete="current-password" required="" id="id_password" placeholder="Confirm password">
+        <i class="far fa-eye" id="togglePassword"></i>
+      </div>
+      <div class="d-block">
+      <button type="submit" class="login-btn-popup">Sign up</button>
+     <div class="d-flex justify-content-center align-items-center my-1">
+      <span class="line"></span><p class="or-way-tolog">OR Sign with</p> <span class="line"></span>
+    </div>
+    {# <div class="d-flex justify-content-center align-items-center my-1">
+      <img src="./assets/image/icon/g-icon.png" alt="" width="30" class="mx-1">
+      <img src="./assets/image/icon/f-icon.png" alt="" width="30" class="mx-1">
+    </div> #}
+    <div class="social-login">
+            OR Continue with &nbsp;
+            <a href="https://www.facebook.com/v2.4/dialog/oauth?client_id=197117682185659&amp;state=f4309f53de7bb353dbb766af0e211e86&amp;response_type=code&amp;sdk=php-sdk-5.5.0&amp;redirect_uri=https%3A%2F%2Fwww.urbanwood.in%2F%3Froute%3Dextension%2Fmodule%2Fsocial_login_by_tejas_rana%2FFacebookLogin&amp;scope=public_profile%2Cemail" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><g transform="translate(-1274 -273)"><g transform="translate(1274 273)" fill="#fff" stroke="#a4a4a4" stroke-width="1"><circle cx="14" cy="14" r="14" stroke="none"></circle><circle cx="14" cy="14" r="13.5" fill="none"></circle></g><path d="M136.08,5.555h-3.03V3.537a1.01,1.01,0,0,1,1.01-1.01h1.01V0h-2.018a3.03,3.03,0,0,0-3.035,3.03V5.555H128V8.08h2.018v8.08h3.03V8.08h2.018Z" transform="translate(1156.004 279.211)" fill="#1976d2"></path></g></svg></a>
+            &nbsp;
+            <a href="https://accounts.google.com/o/oauth2/auth?response_type=code&amp;redirect_uri=https%3A%2F%2Fwww.urbanwood.in%2F%3Froute%3Dextension%2Fmodule%2Fsocial_login_by_tejas_rana%2FGoogleLogin&amp;client_id=474412625667-jtf60oeb0k3eqo0ku238l37giu8mpchc.apps.googleusercontent.com&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&amp;access_type=offline&amp;approval_prompt=force" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"><g transform="translate(73 -702)"><g transform="translate(-73 702)" fill="#fff" stroke="#a4a4a4" stroke-width="1"><circle cx="14" cy="14" r="14" stroke="none"></circle><circle cx="14" cy="14" r="13.5" fill="none"></circle></g><g transform="translate(-66 709)"><path d="M14.683,6.031a.119.119,0,0,1,.119.119V7.4a7.4,7.4,0,1,1-2.255-5.319.119.119,0,0,1,0,.17l-1.77,1.77a.119.119,0,0,1-.166,0,4.66,4.66,0,1,0,1.243,4.747H7.521A.119.119,0,0,1,7.4,8.652V6.15a.119.119,0,0,1,.119-.119h7.163Z" transform="translate(0)" fill="#2196f3"></path><g transform="translate(6.954 6.031)"><path d="M248.26,208.612h-.893a.119.119,0,0,1,.119.119v1.251a7.395,7.395,0,0,1-6.955,7.388q.2.012.4.013a7.4,7.4,0,0,0,7.453-7.4v-1.251A.119.119,0,0,0,248.26,208.612Z" transform="translate(-240.531 -208.612)" fill="#1e88e5"></path></g><path d="M34.06,5.449,31.812,3.825A7.4,7.4,0,0,1,43.44,2.082a.119.119,0,0,1,0,.17l-1.77,1.77a.119.119,0,0,1-.166,0A4.662,4.662,0,0,0,34.06,5.449Z" transform="translate(-30.892 0)" fill="#f44336"></path><path d="M87.115,97.017l.649.469A4.664,4.664,0,0,1,91.513,94.8l.037,0q-.22-.021-.446-.021A4.647,4.647,0,0,0,87.115,97.017Z" transform="translate(-84.596 -92.037)" fill="#e53935"></path><path d="M245.245,2.082a.119.119,0,0,1,0,.171l-1.436,1.436a4.685,4.685,0,0,1,.394.336.119.119,0,0,0,.166,0l1.77-1.77a.119.119,0,0,0,0-.171A7.378,7.378,0,0,0,240.992,0c-.15,0-.3.005-.447.014A7.377,7.377,0,0,1,245.245,2.082Z" transform="translate(-233.591 0)" fill="#e53935"></path><path d="M39.03,319.392a7.4,7.4,0,0,1-12.05-1.72l2.295-1.573a4.662,4.662,0,0,0,7.508,1.668Z" transform="translate(-26.2 -306.962)" fill="#4caf50"></path><path d="M83.627,316.1l-.677.464a4.66,4.66,0,0,0,4.109,2.46c.15,0,.3-.007.446-.021A4.665,4.665,0,0,1,83.627,316.1Z" transform="translate(-80.552 -306.962)" fill="#43a047"></path><path d="M241.032,418.989a7.38,7.38,0,0,0,5.429-2.371l-.551-.4a7.388,7.388,0,0,1-5.324,2.756Q240.807,418.989,241.032,418.989Z" transform="translate(-233.631 -404.187)" fill="#43a047"></path><path d="M2.74,135.882a4.647,4.647,0,0,0,.335,1.738L.78,139.192a7.413,7.413,0,0,1,.14-6.886l2.248,1.624A4.642,4.642,0,0,0,2.74,135.882Z" transform="translate(0 -128.481)" fill="#ffc107"></path><path d="M64.423,176.887l.677-.464a4.674,4.674,0,0,1,.093-3.69l-.649-.469a4.683,4.683,0,0,0-.12,4.622Z" transform="translate(-62.025 -167.285)" fill="#ffb300"></path></g></g></svg>
+            </a>
+
+          </div>
+    <p class="text-center dont-accont mb-0">Already Have an Account ? <a href="" id="closeFilePanel">Sign in Now</a></p>
+    </div>
+  </div>
+    </form>
+    </div>
+    </div>
+</div>
+
+       </div>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+
+  </div>
+</div>
+
+
+<!--end popup-->
+{{ footer }}

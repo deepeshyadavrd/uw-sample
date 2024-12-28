@@ -1,0 +1,412 @@
+{{ header }}
+{{ menu }}
+{# <div id="information-information" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      <h1>{{ heading_title }}</h1>
+      {{ description }}{{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div> #}
+{# new about page #}
+<div class="wrapper">
+
+<div class="breadcrumb-sec about-banner">
+  <div class="container container-custom">
+    <div class="breadcrumb-content breadcrumb-content ">
+      <h6> About Us</h6>
+      <p class="text-lg-start d-sm-block d-none"> To add a touch of elegance to your home at a reasonable price, get furniture online from our wide selection of wooden furniture units. To suit your home interiors. </p>
+<p  class="text-lg-start" style="color:#fd8500"> <strong>You can also purchase specifically customized for your needs. </strong></p>
+      <!-- <nav class="breadcrumb-nav" >
+  <ol class="breadcrumb m-0 p-2 d-flex align-items-center">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Our Stores</li>
+  </ol>
+</nav> -->
+
+    </div>
+
+  </div>
+</div>
+<div class="qu-sec py-2 ">
+    <div class="container container-custom">
+      <div class="row">
+  <div class="col-md-12 col-sm-12">
+    <nav class="breadcumb-navigation">
+      <ol class="breadcrumb m-0 p-2">
+      {% for breadcrumb in breadcrumbs %}
+      <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+      </ol>
+    </nav>   
+  </div>
+  </div>
+      </div>
+  </div>
+
+ <section class="py-2 about-us-sec">
+  <div class="container container-custom">
+    <div class="row">
+     
+        <h2 class="pg-heading text-center mt-lg-5">About Us</h2>
+        <p class="heading-para text-center">Welcome to UrbanWood</p>
+        <div class="col-lg-6 pt-5">
+        <h3 class="heading-2-text">Who We Are</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. 
+          Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+          <h3 class="heading-2-text">What We Do</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. 
+            Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+      </div>
+      <div class="col-lg-6">
+        <div class="about-img">
+          <img src="catalog/view/javascript/assets/image/about-us-img.jpg" alt="" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+ </section> 
+<div class="qu-sec py-2">
+<div class="container container-custom">
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+     <div class="about-us">
+
+     </div>
+    </div>
+</div>
+</div>
+</div>
+<div class="qu-sec py-2 m-v-sec">
+    <div class="container container-custom">
+    <div class="row">
+        <h2 class="pg-heading text-center mt-lg-5">Mision & Vision </h2>
+        <p class="heading-para text-center">Furniture... Dreams in Reality</p>
+        <div class="col-lg-3 col-md-12 col-sm-12 text-lg-start text-center">
+            <div class="side-box">
+            <h3 class="heading-2-text">OUR MISSION</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p>
+        </div>
+    </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <div class="v-m-img">
+            <div class="con-benifit">
+                <span class="bb-text-1"><h6>Lorem ipsum</h6> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p></span>
+            </div>
+            <div class="con-benifit ">
+              <span class="bb-text-1 bb-text-2"><h6>Lorem ipsum</h6> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p></span>
+          </div>
+          <div class="con-benifit">
+            <span class="bb-text-1 bb-text-3"><h6>Lorem ipsum</h6> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p></span>
+        </div>
+        <div class="con-benifit">
+          <span class="bb-text-1 bb-text-4"><h6>Lorem ipsum</h6> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p></span>
+      </div>
+      <div class="con-benifit">
+        <span class="bb-text-1 bb-text-5"><h6>Lorem ipsum</h6> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p></span>
+    </div>
+            <img src="catalog/view/javascript/assets/image/v-m-img.png" alt="" class="img-fluid">
+            <div class="floating-sofa"> <img src="catalog/view/javascript/assets/image/floating-gray-sofa.png" alt="" class="img-fluid"></div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-12 col-sm-12 text-lg-end text-center">
+            <div class="side-box">
+            <h3 class="heading-2-text">OUR VISION</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p>
+        </div>
+    </div>
+        </div>
+        </div>
+        </div>
+
+     <section class="one-stop ">
+      <div class="container container-custom ">
+   <div class="row">
+<div class="col-lg-6 col-md-6 col-12">
+  <div class="heading-3-text">
+    <h5>One - Stop </h5> <span class="">Furniture Company </span>
+  </div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-12">
+  <div class="cloud-1"><img src="catalog/view/javascript/assets/image/cloud-1.png"></div>
+  <div class="cloud-2"><img src="catalog/view/javascript/assets/image/cloud-2.png"></div>
+  <div class="on-stop-img">
+    <img src="catalog/view/javascript/assets/image/one-stop-img.png" alt="" class="img-fluid">
+  </div>
+</div>
+   </div>
+      </div>
+     </section>
+     
+<section class="py-2">
+<div class="container container-custom">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 class="pg-heading text-center mt-lg-5">Our Branches</h2>
+      <p class="heading-para text-center">Where We are</p>
+      <div class="map-box-2">
+        <div class="map"><img src="catalog/view/javascript/assets/image/india-map.png" alt="" class="img-fluid"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<section class="py-2">
+<div class="container container-custom">
+  <div class="row">
+    <div class="col-lg-6 col-md-12 col-sm-12">
+      <div class="">
+        <h2 class="client-heading text-lg-start text-center mt-lg-5">What Our <br>Clients Say</h2>
+        <!-- <p class="heading-para text-lg-start text-center">We Have Valuable Customers</p> -->
+  <div class="glad-msg-us">
+        <p class=" text-lg-start text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit tempora aut voluptatum, impedit ullam inventore doloribus aspernatur, distinctio ducimus error a libero ab pariatur cum commodi quia soluta consequuntur. Unde!Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit tempora aut voluptatum, impedit ullam inventore doloribus aspernatur, 
+          distinctio ducimus error a libero ab pariatur cum commodi quia soluta consequuntur. Unde!</p>
+          <button href="" type="submit" class="view_all_btn">Get a Quote </button>
+      </div>
+       
+      </div>
+      </div>
+  
+    <div class="col-lg-6 col-md-12 col-sm-12 ">
+        <!-- <img src="../10-1-23/catalog/view/javascript/assets/image/custommade1.png" alt="" class="img-fulid"> -->
+        <div class="w3-content compaire-slider" >
+         <div  class="greviews w3-animate-top w3-animate-fading"> 
+         <div class="review-item">
+          <div class="g-review-box mb-3">
+            <div class="g-user-name ">
+              <div class="user-dp-g"><img src="catalog/view/javascript/assets/image/g-review-user/user-1.jpg" alt="" class="img-fluid" width="100%"> </div><div class="google-icon-review"><img src="catalog/view/javascript/assets/image/icon/google.png" alt="" class="img-fluid" width="100%"></div>
+            </div>
+            <div class="g-content-review">
+              Recently, I purchased a  lounge chair online and loved it because it is so comfortable. I love the design and the color scheme because it is so classic. The chair is made of high-quality material that gives me the best value for my money. …
+            </div>
+            <div class="g-star-rating">
+              <ul>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+
+              </ul>
+              <span class="tim-g-review">2 Weeks ago</span>
+            </div>
+          </div>
+          <div class="g-review-box g-review-box2 mb-3">
+            <div class="g-user-name">
+              <div class="user-dp-g"><img src="catalog/view/javascript/assets/image/g-review-user/user-3.jpg" alt="" class="img-fluid" width="100%"> </div><div class="google-icon-review"><img src="catalog/view/javascript/assets/image/icon/google.png" alt="" class="img-fluid" width="100%"></div>
+            </div>
+            <div class="g-content-review">
+              I recently purchased a wooden bed from Urbanwood and I am so happy with my purchase! The bed is made from high-quality. The sales associate was knowledgeable and answering all of my questions, helping me select the perfect bed for my needs. Delivery was prompt and hassle-free. Overall it was my best expierence with urbanwood.
+            </div>
+            <div class="g-star-rating">
+              <ul>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+
+              </ul>
+              <span class="tim-g-review">a month ago</span>
+            </div>
+          </div>
+
+          <div class="g-review-box g-review-box3 mb-3">
+            <div class="g-user-name ">
+              <div class="user-dp-g"><img src="catalog/view/javascript/assets/image/g-review-user/user-2.jpg" alt="" class="img-fluid" width="100%"> </div><div class="google-icon-review"><img src="catalog/view/javascript/assets/image/icon/google.png" alt="" class="img-fluid" width="100%"></div>
+            </div>
+            <div class="g-content-review">
+              Very good service. The product was delivered on time. Sagar was extremely helping during the installation and made sure  everything was perfect.
+            </div>
+            <div class="g-star-rating">
+              <ul>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+
+              </ul>
+              <span class="tim-g-review">9 months ago</span>
+            </div>
+          </div>
+          <div class="g-review-box g-review-box4 mb-3">
+            <div class="g-user-name">
+              <div class="user-dp-g"><img src="catalog/view/javascript/assets/image/g-review-user/user-4.jpg" alt="" class="img-fluid" width="100%"> </div><div class="google-icon-review"><img src="catalog/view/javascript/assets/image/icon/google.png" alt="" class="img-fluid" width="100%"></div>
+            </div>
+            <div class="g-content-review">
+              Needed custom coffee table to match my pouffes . They did an excellent job in designing to my requirements and delivering on time , with very good quality finish and packaging
+            </div>
+            <div class="g-star-rating">
+              <ul>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+                <li><i class="fas fa-star"></i></li>
+
+              </ul>
+              <span class="tim-g-review">10 months ago</span>
+            </div>
+          </div>
+          
+         </div>
+         </div>
+         <div  class="greviews w3-animate-bottom w3-animate-fading"> 
+          <div class="review-item">
+           <div class="g-review-box mb-3">
+             <div class="g-user-name ">
+               <div class="user-dp-g"><img src="catalog/view/javascript/assets/image/g-review-user/user-5.jpg" alt="" class="img-fluid" width="100%"> </div><div class="google-icon-review"><img src="catalog/view/javascript/assets/image/icon/google.png" alt="" class="img-fluid" width="100%"></div>
+             </div>
+             <div class="g-content-review">
+              Recently purchased the product, We are very much satisfied with it
+
+             </div>
+             <div class="g-star-rating">
+               <ul>
+                 <li><i class="fas fa-star"></i></li>
+                 <li><i class="fas fa-star"></i></li>
+                 <li><i class="fas fa-star"></i></li>
+                 <li><i class="fas fa-star"></i></li>
+                 <li><i class="fas fa-star"></i></li>
+ 
+               </ul>
+               <span class="tim-g-review">a month ago</span>
+             </div>
+           </div>
+           <div class="g-review-box g-review-box2 mb-3">
+             <div class="g-user-name">
+               <div class="user-dp-g"><img src="catalog/view/javascript/assets/image/g-review-user/user-6.jpg" alt="" class="img-fluid" width="100%"> </div><div class="google-icon-review"><img src="catalog/view/javascript/assets/image/icon/google.png" alt="" class="img-fluid" width="100%"></div>
+             </div>
+             <div class="g-content-review">
+              Great product and excellent experience with Kabeer and Sagar. Got a custom bed and side tables made. Will certainly be a return customer. Thank you.
+             </div>
+             <div class="g-star-rating">
+               <ul>
+                 <li><i class="fas fa-star"></i></li>
+                 <li><i class="fas fa-star"></i></li>
+                 <li><i class="fas fa-star"></i></li>
+                 <li><i class="fas fa-star"></i></li>
+                 <li><i class="fas fa-star"></i></li>
+ 
+               </ul>
+               <span class="tim-g-review">6 months ago</span>
+             </div>
+           </div>
+ 
+           <div class="g-review-box g-review-box3 mb-3">
+             <div class="g-user-name ">
+               <div class="user-dp-g"><img src="catalog/view/javascript/assets/image/g-review-user/user-7.jpg" alt="" class="img-fluid" width="100%"> </div><div class="google-icon-review"><img src="catalog/view/javascript/assets/image/icon/google.png" alt="" class="img-fluid" width="100%"></div>
+             </div>
+             <div class="g-content-review">
+              Nice product. Order delivered in time frame delivered in good condition and installation done,nice team work.
+             </div>
+             <div class="g-star-rating">
+               <ul>
+                 <li><i class="fas fa-star"></i></li>
+                 <li><i class="fas fa-star"></i></li>
+                 <li><i class="fas fa-star"></i></li>
+                 <li><i class="fas fa-star"></i></li>
+                 <li><i class="fas fa-star"></i></li>
+ 
+               </ul>
+               <span class="tim-g-review">a month ago</span>
+             </div>
+           </div>
+           <div class="g-review-box g-review-box4 mb-3">
+             <div class="g-user-name">
+               <div class="user-dp-g"><img src="catalog/view/javascript/assets/image/g-review-user/user-8.jpg" alt="" class="img-fluid" width="100%"> </div><div class="google-icon-review"><img src="catalog/view/javascript/assets/image/icon/google.png" alt="" class="img-fluid" width="100%"></div>
+             </div>
+             <div class="g-content-review">
+              Urban Wood furniture, they have lots of collection and very beautiful products and the most important thing is Urban Wood products are more stronger then other wood and I'm really happy with there quality......  I suggest please visit to Urban Wood furniture store and meet Mr.Subrakanta, he'll give you a good explanation about the product... Thank you
+             </div>
+             <div class="g-star-rating">
+               <ul>
+                 <li><i class="fas fa-star"></i></li>
+                 <li><i class="fas fa-star"></i></li>
+                 <li><i class="fas fa-star"></i></li>
+                 <li><i class="fas fa-star"></i></li>
+                 <li><i class="fas fa-star"></i></li>
+ 
+               </ul>
+               <span class="tim-g-review">9 months ago</span>
+             </div>
+           </div>
+           
+          </div>
+          </div>
+         
+        </div>
+       
+    
+       
+      
+    </div>
+   
+  </div>
+</div>
+</section>
+
+<section class="py-2">
+<div class="container container-custom">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 class="pg-heading text-center mt-lg-5">Expert In</h2>
+      <p class="heading-para text-center">Our Expertise</p>
+      <div class="text-pp">We Are Good At</div>
+      <p class="heading-para text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br>
+        Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
+    </div>
+<div class="d-block d-md-flex justify-content-center">
+      <div class="box--2">
+        <span class="sr-no-ex">1</span>
+        <div class="ex-subheading">Customization</div>
+        <ul class="list-thing">
+          <li><i class="fas fa-circle"></i> &nbsp; Order to Made</li>
+          <li><i class="fas fa-circle"></i> &nbsp; Lorem Ipsum</li>
+          <li><i class="fas fa-circle"></i> &nbsp; Lorem Ipsum</li>
+        </ul>
+      </div>
+
+      <div class="box--2">
+        <span class="sr-no-ex">2</span>
+        <div class="ex-subheading">Sheesham Wood</div>
+        <ul class="list-thing">
+          <li><i class="fas fa-circle"></i> &nbsp; Order to Made</li>
+          <li><i class="fas fa-circle"></i> &nbsp; Lorem Ipsum</li>
+          <li><i class="fas fa-circle"></i> &nbsp; Lorem Ipsum</li>
+        </ul>
+      </div>
+
+      <div class="box--2">
+        <span class="sr-no-ex">3</span>
+        <div class="ex-subheading">Bulk Order</div>
+        <ul class="list-thing">
+          <li><i class="fas fa-circle"></i> &nbsp; Order to Made</li>
+          <li><i class="fas fa-circle"></i> &nbsp; Lorem Ipsum</li>
+          <li><i class="fas fa-circle"></i> &nbsp; Lorem Ipsum</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="img-bulk">
+      <img src="catalog/view/javascript/assets/image/bluk-image.png" alt="" class="img-fluid"width="50%" >
+    </div>
+    </div>
+    </div>
+    </section>
+</div>
+{{ footer }}

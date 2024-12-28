@@ -1,0 +1,294 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  	<div class="page-header">
+    	<div class="container-fluid">
+      		<div class="pull-right">
+        		<button type="submit" form="form-social-login-by-tejas-rana" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i> {{ button_save }}</button>
+        		<a class="btn btn-success" onclick="$('#action').val('save_edit');$('#form-social-login-by-tejas-rana').submit();" data-toggle="tooltip" title="{{ objlang.get('entry_button_save_and_edit') }}" ><i class="fa fa-pencil-square-o"></i> {{ objlang.get('entry_button_save_and_edit') }}</a>
+				<a class="btn btn-info" onclick="$('#action').val('save_new');$('#form-social-login-by-tejas-rana').submit();" data-toggle="tooltip" title="{{ objlang.get('entry_button_save_and_new') }}" ><i class="fa fa-book"></i>  {{ objlang.get('entry_button_save_and_new') }}</a>
+        		<a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-danger"><i class="fa fa-reply"></i> {{ button_cancel }}</a>
+        	</div>
+			<h1>{{ heading_title_so }}</h1>
+      		<ul class="breadcrumb">
+        		{% for breadcrumb in breadcrumbs %}
+        			<li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        		{% endfor %}
+      		</ul>
+    	</div>
+  	</div>
+  	<div class="container-fluid">
+    	{% if error_warning %}
+    		<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+      			<button type="button" class="close" data-dismiss="alert">&times;</button>
+    		</div>
+    	{% endif %}
+    	{% if success %}
+    		<div class="alert alert-success"><i class="fa fa-check-circle"></i> {{ success }}
+      			<button type="button" class="close" data-dismiss="alert">&times;</button>
+    		</div>
+    	{% endif %}
+    	<div class="panel panel-default">
+      		<div class="panel-heading">
+        		<h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }}</h3>
+      		</div>
+      		<div class="panel-body">
+	   			<ul class="nav nav-tabs">
+            		<li class="active"><a href="#tab-setting" data-toggle="tab"><i class="fa fa-cog fa-fw"></i> {{ tab_setting }}</a></li>
+            		<li><a href="#tab-facbook" data-toggle="tab"><i class="fa fa-facebook"></i> {{ tab_facbook }}</a></li>
+            		<li><a href="#tab-twitter" data-toggle="tab"><i class="fa fa-twitter-square"></i> {{ tab_twitter }}</a></li>
+            		<li><a href="#tab-google" data-toggle="tab"><i class="fa fa-google"></i> {{ tab_google }}</a></li>
+            		<li><a href="#tab-linkedin" data-toggle="tab"><i class="fa fa-linkedin-square"></i> {{ tab_linkedin }}</a></li>
+          		</ul>
+    			<form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-social-login-by-tejas-rana" class="form-horizontal">
+    				<input type="hidden" name="action" id="action" value=""/>        
+					<div class="tab-content">
+						<div class="tab-pane active in" id="tab-setting">			  
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-name">{{ entry_name }}</label>
+								<div class="col-sm-10">
+				  					<input type="text" name="social_login_by_tejas_rana[social_login_by_tejas_rana_name]" value="{{ name }}" placeholder="{{ entry_name }}" id="input-name" class="form-control" />
+				  					{% if error_name %}
+				  						<div class="text-danger">{{ error_name }}</div>
+				  					{% endif %}
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-icon">{{ entry_iconsize }}</label>
+								<div class="col-sm-10">
+									<div class="row">
+										<div class="col-sm-6">
+											<input type="text" name="social_login_by_tejas_rana[social_login_by_tejas_rana_width]" value="{{ width }}" placeholder="" id="input-width" class="form-control" />
+											{% if error_width %}
+										  		<div class="text-danger">{{ error_width }}</div>
+										  	{% endif %}
+										</div>
+										<div class=" col-sm-6">
+											<input type="text" name="social_login_by_tejas_rana[social_login_by_tejas_rana_height]" value="{{ height }}" placeholder="" id="input-height" class="form-control" />
+											{% if error_height %}
+										  		<div class="text-danger">{{ error_height }}</div>
+										  	{% endif %}
+										</div>
+									</div>
+									<div class="help-block">Note: Only use for Button Social is Image</div>
+								</div>
+							</div>
+							<div class="form-group">
+					            <label class="col-sm-2 control-label" for="input-button">{{ entry_buttonsocial }}</label>
+								<div class="col-sm-10">
+								  	<select name="social_login_by_tejas_rana[social_login_by_tejas_rana_button]" id="input-button" class="form-control">
+										<option value="icon" {{ button_social == 'icon' ? 'selected="selected"' : '' }}>Icons</option>
+										<option value="image" {{ button_social == 'image' ? 'selected="selected"' : '' }}>Image</option>
+								  	</select>
+								</div>
+				            </div>
+							<div class="form-group">
+					            <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
+								<div class="col-sm-10">
+								  	<select name="social_login_by_tejas_rana[social_login_by_tejas_rana_enable]" id="input-status" class="form-control">
+										{% if status %}
+											<option value="1" selected="selected">{{ text_enabled }}</option>
+											<option value="0">{{ text_disabled }}</option>
+										{% else %}
+											<option value="1">{{ text_enabled }}</option>
+											<option value="0" selected="selected">{{ text_disabled }}</option>
+										{% endif %}
+								  	</select>
+								</div>
+				            </div>
+				        </div>
+						<div class="tab-pane" id="tab-facbook">
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-fbtitle">{{ entry_title }}</label>
+								<div class="col-sm-10">
+								  	<input type="text" name="social_login_by_tejas_rana[social_login_by_tejas_rana_fbtitle]" value="{{ fbtitle }}" placeholder="{{ entry_title }}" id="input-fbtitle" class="form-control" />
+								</div>
+							</div>
+							<div class="form-group">
+				                <label class="col-sm-2 control-label" for="input-fbimage">{{ entry_image }}</label>
+				                <div class="col-sm-10">
+				                  	<a href="" id="thumb-fbimage" data-toggle="image" class="img-thumbnail"><img src="{{ fbthumb }}" alt="" title="" data-placeholder="{{ placeholder }}" /></a>
+				                  	<input type="hidden" name="social_login_by_tejas_rana[social_login_by_tejas_rana_fbimage]" value="{{ fbimage }}" id="input-fbimage" />
+				                </div>
+				            </div>			  
+							<div class="form-group">
+						        <label class="col-sm-2 control-label" for="input-fbapikey">{{ entry_apikey }}</label>
+								<div class="col-sm-10">
+									<input type="text" name="social_login_by_tejas_rana[social_login_by_tejas_rana_fbapikey]" id="fb-apikey" value="{{ fbapikey }}" class="form-control"/>
+								 	{% if error_fbapikey %}
+								  		<div class="text-danger">{{ error_fbapikey }}</div>
+								  	{% endif %}
+					         	</div>
+							</div>			
+						 	<div class="form-group">
+							    <label class="col-sm-2 control-label" for="input-fbsecretapi">{{ entry_apisecret }}</label>
+							 	<div class="col-sm-10">
+								 	<input type="text" name="social_login_by_tejas_rana[social_login_by_tejas_rana_fbsecretapi]" id="fb-apisecret" value="{{ fbsecretapi }}" class="form-control"/> 
+								 	{% if error_fbsecretapi %}
+								  		<div class="text-danger">{{ error_fbsecretapi }}</div>
+								  	{% endif %}
+							 	</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-fbstatus">{{ entry_status }}</label>
+								<div class="col-sm-10">
+								  	<select name="social_login_by_tejas_rana[social_login_by_tejas_rana_fbstatus]" id="input-fbstatus" class="form-control">
+										{% if fbstatus %}
+											<option value="1" selected="selected">{{ text_enabled }}</option>
+											<option value="0">{{ text_disabled }}</option>
+										{% else %}
+											<option value="1">{{ text_enabled }}</option>
+											<option value="0" selected="selected">{{ text_disabled }}</option>
+										{% endif %}
+								  	</select>
+								</div>
+						  	</div>
+						</div>			
+						<div class="tab-pane" id="tab-twitter">
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-twittertitle">{{ entry_title }}</label>
+								<div class="col-sm-10">
+					  				<input type="text" name="social_login_by_tejas_rana[social_login_by_tejas_rana_twittertitle]" value="{{ twittertitle }}" placeholder="{{ entry_title }}" id="input-twittertitle" class="form-control" />
+								</div>
+							</div>				
+							<div class="form-group">
+                				<label class="col-sm-2 control-label" for="input-twitimage">{{ entry_image }}</label>
+                				<div class="col-sm-10">
+                  					<a href="" id="thumb-twitimage" data-toggle="image" class="img-thumbnail"><img src="{{ twiterthumb }}" alt="" title="" data-placeholder="{{ placeholder }}" /></a>
+                  					<input type="hidden" name="social_login_by_tejas_rana[social_login_by_tejas_rana_twitimage]" value="{{ twitimage }}" id="input-twitimage" />
+                				</div>
+							</div>
+							<div class="form-group">
+		        				<label class="col-sm-2 control-label" for="input-twitapikey">{{ entry_twapikey }}</label>
+								<div class="col-sm-10">
+									<input type="text" name="social_login_by_tejas_rana[social_login_by_tejas_rana_twitapikey]" id="twit-apikey" value="{{ twitapikey }}" class="form-control"/> 
+		           					{% if error_twitapikey %}
+				  						<div class="text-danger">{{ error_twitapikey }}</div>
+				  					{% endif %}
+		         				</div>
+				 			</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-twitsecretapi">{{ entry_twapisecret }}</label>
+					 			<div class="col-sm-10">
+					 				<input type="text" name="social_login_by_tejas_rana[social_login_by_tejas_rana_twitsecretapi]" id="twit-apisecret" value="{{ twitsecretapi }}" class="form-control"/> 
+					   				{% if error_twitsecret %}
+				  						<div class="text-danger">{{ error_twitsecret }}</div>
+				  					{% endif %}
+					 			</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-twitstatus">{{ entry_status }}</label>
+								<div class="col-sm-10">
+					  				<select name="social_login_by_tejas_rana[social_login_by_tejas_rana_twitstatus]" id="input-twitstatus" class="form-control">
+										{% if twitstatus %}
+											<option value="1" selected="selected">{{ text_enabled }}</option>
+											<option value="0">{{ text_disabled }}</option>
+										{% else %}
+											<option value="1">{{ text_enabled }}</option>
+											<option value="0" selected="selected">{{ text_disabled }}</option>
+										{% endif %}
+					  				</select>
+								</div>
+			  				</div>
+						</div>			
+						<div class="tab-pane" id="tab-google">
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-googletitle">{{ entry_title }}</label>
+								<div class="col-sm-10">
+								  	<input type="text" name="social_login_by_tejas_rana[social_login_by_tejas_rana_googletitle]" value="{{ googletitle }}" placeholder="{{ entry_title }}" id="input-googletitle" class="form-control" />
+								</div>
+							</div>
+							<div class="form-group">
+				                <label class="col-sm-2 control-label" for="input-googleimage">{{ entry_image }}</label>
+				                <div class="col-sm-10">
+				                  	<a href="" id="thumb-googleimage" data-toggle="image" class="img-thumbnail"><img src="{{ googlethumb }}" alt="" title="" data-placeholder="{{ placeholder }}" /></a>
+				                  	<input type="hidden" name="social_login_by_tejas_rana[social_login_by_tejas_rana_googleimage]" value="{{ googleimage }}" id="input-googleimage" />
+				                </div>
+							</div>
+							<div class="form-group">
+						        <label class="col-sm-2 control-label" for="input-googleapikey">{{ entry_googleapikey }}</label>								
+								<div class="col-sm-10">
+									<input type="text" name="social_login_by_tejas_rana[social_login_by_tejas_rana_googleapikey]" id="google-apikey" value="{{ googleapikey }}" class="form-control"/>
+								 	{% if error_googleapikey %}
+								  		<div class="text-danger">{{ error_googleapikey }}</div>
+								  	{% endif %}
+					        	</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-googlesecretapi">{{ entry_googleapisecret }}</label>
+							 	<div class="col-sm-10">
+							 		<input type="text" name="social_login_by_tejas_rana[social_login_by_tejas_rana_googlesecretapi]" id="google-secret" value="{{ googlesecretapi }}" class="form-control"/>
+									{% if error_googlesecret %}
+							  			<div class="text-danger">{{ error_googlesecret }}</div>
+							  		{% endif %}
+							 	</div>
+							</div>			
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-googlestatus">{{ entry_status }}</label>
+								<div class="col-sm-10">
+								  	<select name="social_login_by_tejas_rana[social_login_by_tejas_rana_googlestatus]" id="input-googlestatus" class="form-control">
+										{% if googlestatus %}
+											<option value="1" selected="selected">{{ text_enabled }}</option>
+											<option value="0">{{ text_disabled }}</option>
+										{% else %}
+											<option value="1">{{ text_enabled }}</option>
+											<option value="0" selected="selected">{{ text_disabled }}</option>
+										{% endif %}
+								  	</select>
+								</div>
+							</div>
+						</div>			
+						<div class="tab-pane" id="tab-linkedin">
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-linkedintitle">{{ entry_title }}</label>
+								<div class="col-sm-10">
+								  	<input type="text" name="social_login_by_tejas_rana[social_login_by_tejas_rana_linkedintitle]" value="{{ linkedintitle }}" placeholder="{{ entry_title }}" id="input-linkedintitle" class="form-control" />
+								</div>
+							</div>
+							<div class="form-group">
+				                <label class="col-sm-2 control-label" for="input-linkdinimage">{{ entry_image }}</label>
+				                <div class="col-sm-10">
+				                  	<a href="" id="thumb-linkdinimage" data-toggle="image" class="img-thumbnail"><img src="{{ linkdinthumb }}" alt="" title="" data-placeholder="{{ placeholder }}" /></a>
+				                  	<input type="hidden" name="social_login_by_tejas_rana[social_login_by_tejas_rana_linkdinimage]" value="{{ linkdinimage }}" id="input-linkdinimage" />
+				                </div>
+							</div> 							
+							<div class="form-group">
+					        	<label class="col-sm-2 control-label" for="input-linkdinapikey">{{ entry_liapikey }}</label>
+								<div class="col-sm-10">
+									<input type="text" name="social_login_by_tejas_rana[social_login_by_tejas_rana_linkdinapikey]" id="linkdin-apikey" value="{{ linkdinapikey }}" class="form-control"/> 
+					         		{% if error_linkdinapikey %}
+							  			<div class="text-danger">{{ error_linkdinapikey }}</div>
+							  		{% endif %}		  	  
+					         	</div>
+							</div>						
+						 	<div class="form-group">
+						    	<label class="col-sm-2 control-label" for="input-linkdinsecretapi">{{ entry_liapisecret }}</label>
+							 	<div class="col-sm-10">
+							 		<input type="text" name="social_login_by_tejas_rana[social_login_by_tejas_rana_linkdinsecretapi]" id="linkdin-apisecret" value="{{ linkdinsecretapi }}" class="form-control"/>
+									{% if error_linkdinsecret %}
+							  			<div class="text-danger">{{ error_linkdinsecret }}</div>
+							  		{% endif %}
+							 	</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label" for="input-linkstatus">{{ entry_status }}</label>
+								<div class="col-sm-10">
+								  	<select name="social_login_by_tejas_rana[social_login_by_tejas_rana_linkstatus]" id="input-linkstatus" class="form-control">
+										{% if linkstatus %}
+											<option value="1" selected="selected">{{ text_enabled }}</option>
+											<option value="0">{{ text_disabled }}</option>
+										{% else %}
+											<option value="1">{{ text_enabled }}</option>
+											<option value="0" selected="selected">{{ text_disabled }}</option>
+										{% endif %}
+								  	</select>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+    		</form>
+      	</div>
+	</div>
+</div>
+{{ footer }}

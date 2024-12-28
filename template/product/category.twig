@@ -1,0 +1,457 @@
+
+
+{{ header }}
+{{ menu }}
+</div>
+{{ wishlist }}
+<style>
+  .red{
+    color: red!important;
+  }
+</style>
+<div class="wrapper">
+  <!--- banner section-->
+  <div class="qu-sec py-2 ">
+    <div class="container container-custom">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <nav class="breadcumb-navigation" >
+            <ol class="breadcrumb m-0">
+
+              {% for breadcrumb in breadcrumbs %}
+              <li class="breadcrumb-item "> <a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+              {% endfor %}
+
+            </ol>
+          </nav>   
+        </div>
+      </div>
+    </div>
+  </div>
+
+<style>
+ 
+</style>
+  <section class=" py-2">
+    <div class="container container-custom">
+      <div class="row">
+        <div class="col-lg-10 m-auto">
+          <h1 class="pg-heading text-center">{{ heading_title }}</h1>
+          <div class="ViewContent">
+            {{ description }}
+              <span type="button" class="btAnimate" > </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="container container-custom">
+      <div class="row">
+        <div class="d-flex justify-content-md-center  m-md-auto  categories-pp" id="custom_filter_div">
+        </div>
+      </div>
+    </div>
+  </section>    
+
+  <section class="py-2">
+    <div class="container container-custom">
+      <div class="row">
+        {{ filter }}
+    <div class="col-md-9 col-sm-12">
+      <div class="product-img-list">
+        <div class="row"  id="product_box">
+          {% for product in products %}
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="product-box-img">
+              <div class="button-pd">
+                <div class="like-heart mx-2"> 
+
+                  <span ><i class="fas fa-heart" onclick="wishlist.add('{{ product.product_id }}');" id="likeheart" ></i></span> 
+                </div>  
+                <div class="sharer">
+                  <button id="share" class="cursor-pointer share">
+                    <i class='bx bxs-share-alt'></i></button> 
+                    <div id="share_icons" class="absolute opacity-0 share_icons"> 
+                      <a href="http://twitter.com/intent/tweet?text=Im Sharing on Twitter&url=https://www.urbanwood.in&hashtags=urbanwood,custom furniture,furniture" target="_blank" class="pd-share cursor-pointer">
+                        <i class="bx bxl-twitter"></i>
+                      </a> 
+                      <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.urbanwood.in" target="_blank" class=" pd-share cursor-pointer">
+                        <i class="bx bxl-facebook"></i>
+                      </a> 
+                      
+                    </div> 
+                  </div> 
+                </div>
+
+                <div class="pd-img-in">
+                {% if badge %}
+                  <div class="item-name" style="top:4px !important; font-size:12px;">Big Deal Flat 55% Off<span> </span></div>
+                {% endif %}
+                {% if (product.stock_status == 'Out Of Stock') and (product.quantity == 0) %}
+                  <h3 class="shop-nowb-btn" style="margin-top: 19px;"> Out Of Stock</h3>
+                {% else %}
+                  <button class="shop-nowb-btn" onclick="addtocart(1,{{ product.product_id }})"> Add To Cart</button>
+                {% endif %}
+                  <a href="{{ product.href }}" target="_blank"><div class="overlay-pd"></div></a>
+                  <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid" loading="lazy">
+                </div>
+                <div class="pd-deatils-sec">
+                  <div class="d-flex justify-content-between align-items-start p-2">
+                    <div class="pd-heading"> 
+                     <div class="pd-name"><a href="{{ product.href }}" target="_blank">{{ product.name }}</a></div> 
+                      {% if product.finish %}
+                        <div class="pd-config">({{ product.finish }}</div>
+                      {% endif %}
+                     {# <span class="pd-creater"> By UrbanWood</span> #}
+                   </div>
+                   <div class="color-feature">
+                    {% if (product.stock_status == 'Out Of Stock') and (product.quantity == 0) %}
+                      <span class="availibility-pd">Out of Stock</span>
+                    {% else %}
+                    <span class="availibility-pd">Available Finish</span>
+                    <div class="color-feature-check"> 
+                      {% if 'honey' in product.href %}
+                      <div class="zoom" data-toggle="tooltip" data-placement="top" title="Honey">
+                        <a href="{{ product.href }}"><img src="catalog/view/javascript/assets/image/icon/honeyfinish.jpg" alt="Option 3" loading="lazy"></a>
+                      </div>
+                      <div class="zoom" data-toggle="tooltip" data-placement="top" title="Teak">
+                        <a href="{{ product.href|replace({'honey': 'teak'}) }}"><img src="catalog/view/javascript/assets/image/icon/teakfinish.jpg" alt="Option 1" loading="lazy"></a>
+                      </div>
+                      <div class="zoom" data-toggle="tooltip" data-placement="top" title="Walnut" >
+                        <a href="{{ product.href|replace({'honey': 'walnut'}) }}"> <img src="catalog/view/javascript/assets/image/icon/walnutfinish.jpg" alt="Option 2" loading="lazy"></a>
+                      </div>
+                    {% elseif 'teak' in product.href %}
+                      <div class="zoom" data-toggle="tooltip" data-placement="top" title="Teak">
+                        <a href="{{ product.href }}"><img src="catalog/view/javascript/assets/image/icon/teakfinish.jpg" alt="Option 1" loading="lazy"></a>
+                      </div>
+                      <div class="zoom" data-toggle="tooltip" data-placement="top" title="Walnut" >
+                        <a href="{{ product.href|replace({'teak': 'walnut'}) }}"><img src="catalog/view/javascript/assets/image/icon/walnutfinish.jpg" alt="Option 2" loading="lazy"></a>
+                      </div>
+                      <div class="zoom" data-toggle="tooltip" data-placement="top" title="Honey" >
+                        <a href="{{ product.href|replace({'teak': 'honey'}) }}"><img src="catalog/view/javascript/assets/image/icon/honeyfinish.jpg" alt="Option 3" loading="lazy"></a>
+                      </div>
+                    {% elseif 'walnut' in product.href %}
+                      <div class="zoom" data-toggle="tooltip" data-placement="top" title="Walnut" >
+                        <a href="{{ product.href }}"><img src="catalog/view/javascript/assets/image/icon/walnutfinish.jpg" alt="Option 2" loading="lazy"></a>
+                      </div>
+                      <div class="zoom" data-toggle="tooltip" data-placement="top" title="Teak">
+                        <a href="{{ product.href|replace({'walnut': 'teak'}) }}"><img src="catalog/view/javascript/assets/image/icon/teakfinish.jpg" alt="Option 1" loading="lazy"></a>
+                      </div>
+                      <div class="zoom" data-toggle="tooltip" data-placement="top" title="Honey" >
+                        <a href="{{ product.href|replace({'walnut': 'honey'}) }}"><img src="catalog/view/javascript/assets/image/icon/honeyfinish.jpg" alt="Option 3" loading="lazy"></a>
+                      </div>
+                    {% endif %}
+                    </div>
+                    {% endif %}
+                  </div>
+
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between align-items-start p-2">
+                  <div class="pricing-pd">
+                    {# <span class="badge badgerating">
+                      {{ product.rating }}
+                      <span class="starr-rate"><i class="fas fa-star"></i></span>
+                    </span> #}
+                    {# <span class="likes">({{ product.review_count }})</span> #}
+                    <div class=""> 
+                      <div class="pd-amount"> {{ product.special }} </div> <div class="cut-ammount">{{ product.price }} </div>  
+                      <span class=" badge bridge-offer" style="font-size:10px">{{ product.discount }}% off </span>
+                    </div>
+                  </div>
+                  <div class="pd-offers">
+                    <ul>
+                      {# <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li> #}
+                      <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          {% if  loop.index0 == 5 %}
+          <div class="signup-banner-strip">
+            <div class="d-md-flex d-block justify-content-around align-items-center text-center ">
+              <div class="sign-banner-con">
+                <h5>Empower Your Choices</h5>
+                {# <p>&</p> #}
+                <h6>EMI Options Now <span style="color:#fc0000;font-weight: 700;"> Unlocked!</span></h6>
+              </div>
+              <div>
+                <a href="/" type="button" class="view_all_btn" style="margin-top: 19px;"> Shop Now</a>
+              </div>
+              <div class="banner-strip-img">
+                <img src="catalog/view/javascript/assets/image/red-shape-bg.png" alt="background shape to highlight our sofa" class="img-fluid img-responsive" loading="lazy">
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+          <div id="newslr"></div>
+        </div> 
+
+
+        
+        {# <div>{{ pagination }}</div> #}
+        <div class="banner-strip-location">
+          <div class="sign-banner-con text-lg-start text-cente">
+            <h5 class="r text-white">VISIT OUR NEAREST STORE</h5>
+            <p class="text-white">&</p>
+            <h6 class=" text-white">get extra <span style="color:#fc0000; font-weight: 700;"> DISCOUNT</span></h6>
+            <br>
+            <a href="our-stores" class="shop-find-btn">Find Store</a>
+          </div>
+
+          <div class="image-forloaction">
+            <div class="img-location-ceative">
+              <img src="catalog/view/javascript/assets/image/location-strip.png" class="img-responsive img-fluid" alt="location where urbanwood have presence in India" loading="lazy">
+            </div>
+
+          </div>
+        </div> 
+
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+</section> 
+
+<section class="py-2">
+  <div class="container container-custom">
+    <div class="row">
+      <h2 class="pg-heading text-center">Popular Categories</h2>
+      <p class="heading-para text-center">Unlimited Choices. Unbeatable Prices. Free Shipping</p>
+      <div class="d-sm-flex d-block justify-content-center categories">
+        <div class="item-box3">
+          <a href="beds">
+            <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="urbanwood beds icon" loading="lazy">
+            <h6>Beds</h6> 
+            <p>883+ Options Available</p>
+          </a>
+        </div>
+        <div class="item-box3">
+          <a href="sofas">
+            <img src="catalog/view/javascript/assets/image/icon/sofa-pp-icon1.png" alt="wooden sofas" loading="lazy">
+            <h6>Sofas</h6> 
+            <p>883+ Options Available</p>
+          </a>
+        </div>
+
+        <div class="item-box3">
+          <a href="dining-room-furniture">
+            <img src="catalog/view/javascript/assets/image/icon/diningtable-pp-icons1.png" alt="complete dining room furniture at urbanwood" loading="lazy">
+            <h6>Dining</h6> 
+            <p>883+ Options Available</p>
+          </a>
+        </div>
+
+        <div class="item-box3">
+          <a href="shoe-racks">
+            <img src="catalog/view/javascript/assets/image/icon/shoerack-pp-icon1.png" alt="stylish and solid shoe racks" loading="lazy">
+            <h6>Shoe Rack</h6> 
+            <p>883+ Options Available</p>
+            </a>
+        </div>
+
+        <div class="item-box3">
+          <a href="study-tables">
+            <img src="catalog/view/javascript/assets/image/icon/studytable-pp-icon1.png" alt="study tables made of pure sheesham wood" loading="lazy">
+            <h6>Study Table</h6> 
+            <p>883+ Options Available</p>
+            </a>
+        </div>
+
+        <div class="item-box3">
+          <a href="bookcase">
+            <img src="catalog/view/javascript/assets/image/icon/bookcase-pp-icon1.png" alt="bookcase urbanwood wooden" loading="lazy">
+            <h6>Bookcase</h6> 
+            <p>883+ Options Available</p>
+          </a>
+        </div>
+
+        <div class="item-box3">
+          <a href="wardrobes">
+            <img src="catalog/view/javascript/assets/image/icon/wardrobe-pp-icon1.png" alt="wardrobes made by urbanwood" loading="lazy">
+            <h6>Wardrobes</h6> 
+            <p>883+ Options Available</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bottom-content py-4"> 
+  <div class="container container-custom"> 
+    <div class="row">
+      <div class="col-lg-12">
+      {{ long_description }}
+      </div>
+    </div>
+  </div>
+
+
+</section>
+</div>
+
+<script type="text/javascript">
+
+ var custom_filter = '{{custom_filter}}';
+ var custom_filter_cat_id = '{{category_id}}';
+ if(custom_filter){
+  categoryFilter(custom_filter,custom_filter_cat_id);
+}
+
+function categoryFilter(custom_filter_ids,custom_f_cat_id){
+
+  $.ajax({
+    url: '?route=product/category/categoryFilter',
+    type: 'post',
+    data: {'catids':custom_filter_ids,'main_category_id':custom_f_cat_id},
+
+    success: function(httml) {
+
+      $('#custom_filter_div').html(httml);
+
+    },
+    error: function(xhr, ajaxOptions, thrownError) {
+      alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+    }
+  });
+}
+$(".btAnimate").click(function(){
+    $(".ViewContent").toggleClass("show");
+  });
+</script>
+<script>
+  var plock = 1;
+  var page = 2;
+  var limitp = 15;
+  var categoryloadmore = {{category_id}};
+  var queryString = window.location.href;
+  var urlParam = '';
+  
+  $(window).scroll(function() {
+
+    var scrollTop     = $(window).scrollTop();
+    var elementOffset = $('#newslr').offset().top;
+    var diffr = elementOffset-scrollTop;
+    
+    if($(window).scrollTop() >= $(
+              '#product_box').offset().top + $('#product_box').
+                outerHeight() - window.innerHeight){  
+
+      if(plock==1){
+        plock=0;
+        productLoading(); 
+      }
+    }
+  });
+
+
+  
+var psort = '{{sort}}';
+var pfilter = '{{filters_data}}';
+var porder = '{{order}}';
+var pr = '{{pr}}';
+var ajaxUrl = '';
+function productLoading(){    
+
+   ajaxUrl = '?route=product/category/productLoading&limit='+limitp+'&page='+page+'&category_id='+categoryloadmore;
+
+   if(typeof(psort)!='undefined'){
+     ajaxUrl += '&sort='+psort;
+   }
+
+   if(typeof(pfilter)!='undefined'){
+
+     ajaxUrl += '&filter='+pfilter;
+   }
+
+   if(typeof(porder)!='undefined'){
+     ajaxUrl += '&order='+porder;
+   }
+    
+  if(typeof(pr)!='undefined'){
+     ajaxUrl += '&pr='+pr;
+   }
+
+   $.ajax({
+      url: ajaxUrl,
+      dataType: 'html',
+      success: function(html) {
+        if(html.length != 0){
+        page = page+1
+        $('#product_box').append(html);
+        plock=1;
+        }else{
+          plock=0;
+        }
+
+      },
+      error: function(xhr, ajaxOptions, thrownError) {
+       alert('Loading....');
+     }
+   });
+  }
+  </script>
+  <script>
+  function addtocart(quantity, product_id) {
+
+	$.ajax({
+		url: '?route=checkout/cart/add',
+		type: 'post',
+		data: {"quantity":quantity,"product_id":product_id},
+		dataType: 'json',
+		beforeSend: function() {
+			$('#button-cart').button('loading');
+		},
+		complete: function() {
+			$('#button-cart').button('reset');
+		},
+		success: function(json) {
+			$('.alert-dismissible, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
+
+			if (json['error']) {
+				if (json['error']['option']) {
+					for (i in json['error']['option']) {
+						var element = $('#input-option' + i.replace('_', '-'));
+
+						if (element.parent().hasClass('input-group')) {
+							element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						} else {
+							element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						}
+					}
+				}
+
+				if (json['error']['recurring']) {
+					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+			}
+
+			if (json['success']) {
+				//$('.breadcrumb').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+        $('body').prepend('<div class="success-popup ">	<span class="warrning-svg">	<svg id="smile"		width="35" height="35" viewBox="0 0 41 41" fill="none">					  <path d="M16.2432 29.9911L16.5968 30.3439L16.95 29.9907L30.5886 16.352L30.9422 15.9985L30.5886 15.6449L27.7128 12.7691L27.3593 12.4156L27.0057 12.7691L16.592 23.1828L12.2699 18.8682L11.9158 18.5148L11.5626 18.869L8.69086 21.7489L8.33792 22.1028L8.69174 22.4558L16.2432 29.9911ZM0.823975 20.662C0.823975 9.72375 9.72375 0.823975 20.662 0.823975C31.6002 0.823975 40.5 9.72375 40.5 20.662C40.5 31.6002 31.6002 40.5 20.662 40.5C9.72375 40.5 0.823975 31.6002 0.823975 20.662Z" stroke="#33C300"/>  </svg>					</span>	<span class="warrning-text">   <p>' + json['success'] + '</p>	</span>				  </div>');
+				$('#cartli .badge_pp').text(json['total']);
+				$('html, body').animate({ scrollTop: 0 }, 'slow');
+
+				$('#cart > ul').load('index.php?route=common/cart/info ul li');
+			}
+		},
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+	});
+}
+</script>
+{{ footer }}

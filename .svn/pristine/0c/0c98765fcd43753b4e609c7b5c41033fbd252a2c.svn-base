@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Forgot password</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/menu.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
+<link rel="stylesheet" href="assets/css/w3animation.css">
+</head> 
+<body> 
+
+  <div class="wrapper">
+
+ <section class="forget-pass-sec">
+  <div class="container container-custom">
+    <div class="row">
+  <div class="col-lg-6 col-lg-6 col-sm-12">
+<h2 class="forgot-heading">
+    Forgot Your <br>
+<span >Password?</span>
+</h2>
+<p>Enter the email address associated
+    with your account</p>
+</div>
+<div class="col-lg-6 col-lg-6 col-sm-12">
+<div class="fotgot-form">
+    <form action="" class="fotgot-form-in">
+        <div class="mb-3">
+            <label for="useremailforgot" class="form-label">Enter Your Email address</label>
+            <input type="email" class="form-control" name="user-email-forgot" id="useremailforgot" required>
+          </div>
+          <div id="emailHelp" class="form-text">Enter Email to receive a reset password link.</div>
+        <div class="d-flex justify-content-between align-items-center mt-lg-5 mt-0">
+            <span class="step-button">Send</span>
+            <button type="submit" class="submit-forgot-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </form>
+
+    <div class="mail-sent-box d-none">
+        <i class='bx bxs-badge-check bx-flashing' ></i>
+        <p>The link to Reset your password is sent on your@mail.</p>
+    </div>
+</div>
+</div>
+  </div>
+    </div>
+  </div>
+ </section> 
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/3.2.1-jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/main.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script> 
+</body>
+</html>

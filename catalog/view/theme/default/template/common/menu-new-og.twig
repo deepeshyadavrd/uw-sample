@@ -1,0 +1,533 @@
+<!-- header start -->
+    <style>
+    .dropdown-content-pp {
+    position: absolute;
+    background-color: #fdfdfd;
+    min-width: 222px;
+    display: none;
+    z-index: 1;
+    margin: 0 auto 0 -94px;
+    box-shadow: 0 8px 20px rgb(0 0 0/17%);
+    border-radius: 8px;
+}
+.dropdown-pp:hover .dropdown-content-pp {
+    display: block;
+}
+.sign-up-btn {
+    background: #2d94dd;
+    display: block;
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+}
+    </style>
+    <header class="header">
+        <div class="header-content-top">
+          <div class="vwrap">
+            <div class="vmove">
+              <div class="vslide"><p><b>“Summer Sale is live“</b> : Get 55% + 5% extra off on thousands of products</p></div>
+              <div class="vslide"><p> “<b>No Cost EMI Offers</b> - Available With All Leading Banks“</p></div>
+              <div class="vslide"><p>“Free Shipping on All Products Across India“</p></div>
+            </div>
+          </div>
+            <div class="content">
+              <ul class="tophead-link float-right-side">
+                <li class="track-order">
+                  <span class="root-t">
+                    <i class='bx bxs-truck bx-fade-right text-white'></i>
+                  </span>
+                  <a href="" class="text-white">Track Order</a>
+                </li>
+                <li class="track-order"><a href="bulk-order" style="color:#fc7e00;">Bulk Order</a></li>
+              </ul>
+              <span class="info-at-top"><i class='bx bx-phone' ></i> Sales +91 9599283126 </span>
+              <span class="info-at-top"><i class='bx bx-envelope'></i>Support@urbanwood.in</span>
+            </div>
+          </div>
+      <div class="container">
+        <div class="row v-center">
+          <div class="header-item item-left">
+            <div class="logo">
+              <a href="#"><img src="catalog/view/javascript/assets/image/urbanwoodlogo.png"></a>
+            </div>
+          </div>
+          
+          <div class="header-item item-right">
+            <label class="open-search" for="open-search" style="flex: 1 0 17%;">
+                <i class='bx bx-search' ></i>
+                <input class="input-open-search" id="open-search" type="checkbox" name="menu" />
+              <div class="search">
+                <button class="button-search"><i class='bx bx-search bx-tada' ></i></button>
+                <input type="text" placeholder="What are you looking for?" class="input-search" id="searchinput"/>
+              </div>
+              </label>
+            
+            <div class="dropdown-pp">
+              <a href="#"><i class='bx bx-user'></i></a>
+              <div class="dropdown-content-pp"> 
+                <a type="button" id="signin">Log In
+                <span class="d-block" style="font-size:13px "><small>( If already have account)</small></span>
+                </a>
+                <div class=" sign-up-btn">
+                <a type="button" class="text-white" id="signup" >
+                Sign Up
+                <span class="text-white d-block" style="font-size:13px "><small>( If you are not Register)</small></span>
+                </a>
+                </div> 
+              </div>
+            </div>
+            <a href="#"><i class="bx bx-heart"></i></a>
+            <a href="#"><i class='bx bx-basket' ></i></a>
+            <!-- mobile menu trigger -->
+            <div class="mobile-menu-trigger">
+              <i class='bx bx-menu'></i>
+            </div>
+          </div>
+          <!-- menu start here -->
+          <div class="header-item item-center">
+            <div class="menu-overlay"></div>
+            <nav class="menu">
+              <div class="mobile-menu-head">
+                <div class="go-back"><i class='bx bx-chevron-left'></i></div>
+                <div class="current-menu-title"><a href="#"><img src="catalog/view/javascript/assets/image/urbanwoodlogo.png"></a></div>
+                <div class="mobile-menu-close">&times;</div>
+              </div>
+              <ul class="menu-main">
+                <li>
+                  <a href="#">TODAY SALE</a>
+                </li>
+                <!-- <li class="menu-item-has-children">
+                  <a href="#">New  </a>
+                  <div class="sub-menu mega-menu mega-menu-column-4">
+                    <div class="list-item text-center">
+                      <a href="#">
+                        <img
+                          src="https://th.bing.com/th/id/R.ce8de1adaa3fcc169f0d97c436b8274b?rik=6W1qX6Qp03lNWg&riu=http%3a%2f%2fimages.unsplash.com%2fphoto-1504633273314-6a929fcd7090%3fixlib%3drb-0.3.5%26q%3d80%26fm%3djpg%26crop%3dentropy%26cs%3dtinysrgb%26w%3d1080%26fit%3dmax%26ixid%3deyJhcHBfaWQiOjEyMDd9%26s%3de8e0ff2cce3792a276fa84086113a17c&ehk=chx16tzqSRzpfA6BYM4FNaZZ%2fMJwEtxaqHPW1FZb9FI%3d&risl=&pid=ImgRaw&r=0"
+                          alt="Fashion"
+                        />
+                        <h4 class="title">Fashion</h4>
+                      </a>
+                    </div>
+                    <div class="list-item text-center">
+                      <a href="#">
+                        <img
+                          src="https://img.freepik.com/free-photo/male-technician-repairing-computer-motherboard-wooden-desk_23-2147923493.jpg?w=740&t=st=1671765056~exp=1671765656~hmac=4c8dffc9558819b4c21b126aaa394150f48adc3be9c8004c0b65d0420709ec00"
+                          alt="Electronics"
+                        />
+                        <h4 class="title">Electronics</h4>
+                      </a>
+                    </div>
+                    <div class="list-item text-center">
+                      <a href="#">
+                        <img
+                          src="https://images.unsplash.com/photo-1571380401583-72ca84994796?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
+                          alt="Mobiles"
+                        />
+                        <h4 class="title">Mobiles</h4>
+                      </a>
+                    </div>
+                    <div class="list-item text-center">
+                      <a href="#">
+                        <img
+                          src="https://images.unsplash.com/photo-1578643463396-0997cb5328c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80"
+                          alt="Appliances"
+                        />
+                        <h4 class="title">Appliances</h4>
+                      </a>
+                    </div>
+                  </div>
+                </li> -->
+                <li class="menu-item-has-children">
+                  <a href="#">Sofas  </a>
+                  <div class="sub-menu mega-menu mega-menu-column-4 mega-menu-column-5">
+                    <div class="list-item">
+                      <h4 class="title">Sofa Sets</h4>
+                      <ul>
+                        <li><a href="#">Wooden Sofa Set</a></li>
+                        <li><a href="#">Fabric Sofa Set</a></li>
+                        <li><a href="#">Sofa cum Bed</a></li>
+                        <li><a href="#">3+1+1 Wooden Sofa Set</a></li>
+                        <li><a href="#">Fabric Sofa Set  3+1+1</a></li>
+                      </ul>
+                      
+                    </div>
+                    <div class="list-item">
+                      <h4 class="title">Sofas</h4>
+                      <ul>
+                        <li><a href="#">Wooden Sofas</a></li>
+                        <li><a href="#">Fabric Sofas</a></li>
+                        <li><a href="#">3 Seater Sofas</a></li>
+                        <li><a href="#">2 Seater Sofas</a></li>
+                        <li><a href="#">1 Seater Sofas</a></li>
+                        <li><a href="#">L-shape Sofas</a></li>
+                      </ul>
+                      </div>
+                    <div class="list-item">
+                      <h4 class="title">Seating</h4>
+                      <ul>
+                        <li><a href="#">Lounge Chairs</a></li>
+                        <li><a href="#">Loveseats</a></li>
+                        <li><a href="#">Arm Chairs</a></li>
+                        <li><a href="#">Diwans</a></li>
+                      </ul>
+                    </div>
+                    <div class="list-item">
+                      <h4 class="title">Sofa cum Bed</h4>
+                      <ul>
+                        <li><a href="#">Wooden Sofa Cum Bed</a></li>
+                        <li><a href="#">Sofa Cum Bed with Storage</a></li>
+                        <li><a href="#">Sofa Cum Bed</a></li>
+                      </ul>
+                    </div>
+                    
+                    <div class="list-item">
+                      <img
+                        src="https://images.unsplash.com/photo-1549497538-303791108f95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"
+                        alt="Chair"
+                      />
+                    </div>
+                  </div>
+                </li>
+                <li class="menu-item-has-children">
+                  <a href="#">Living  </a>
+                  <div class="sub-menu mega-menu mega-menu-column-4 mega-menu-column-5">
+                    <div class="list-item">
+                      <h4 class="title">Living Storage</h4>
+                      <ul>
+                        <li><a href="#">TV Units</a></li>
+                        <li><a href="#">Bookshelves</a></li>
+                        <li><a href="#">Shoe Racks</a></li>
+                        <li><a href="#">Wall Shelves</a></li>
+                        <li><a href="#">Cabinets & Sideborads</a></li>
+                        <li><a href="#">Chest of Drawers</a></li>
+                      </ul>
+                      
+                    </div>
+                    <div class="list-item">
+                      <h4 class="title">Sofas</h4>
+                      <ul>
+                        <li><a href="#">Wooden Sofas</a></li>
+                        <li><a href="#">Fabric Sofas</a></li>
+                        <li><a href="#">3 Seater Sofas</a></li>
+                        <li><a href="#">2 Seater Sofas</a></li>
+                        <li><a href="#">1 Seater Sofas</a></li>
+                        <li><a href="#">L-shape Sofas</a></li>
+                      </ul>
+                      </div>
+                    <div class="list-item">
+                      <h4 class="title">Seating</h4>
+                      <ul>
+                        <li><a href="#">Lounge Chairs</a></li>
+                        <li><a href="#">Loveseats</a></li>
+                        <li><a href="#">Arm Chairs</a></li>
+                        <li><a href="#">Diwans</a></li>
+                      </ul>
+                    </div>
+                    <div class="list-item">
+                      <h4 class="title">Sofa cum Bed</h4>
+                      <ul>
+                        <li><a href="#">Wooden Sofa Cum Bed</a></li>
+                        <li><a href="#">Sofa Cum Bed with Storage</a></li>
+                        <li><a href="#">Sofa Cum Bed</a></li>
+                      </ul>
+                    </div>
+                    <div class="list-item">
+                      <img
+                        src="https://images.unsplash.com/photo-1549497538-303791108f95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"
+                        alt="Chair"
+                      />
+                    </div>
+                  </div>
+                </li>
+                <li class="menu-item-has-children">
+                  <a href="#">Bedroom  </a>
+                  <div class="sub-menu mega-menu mega-menu-column-4">
+                    <div class="list-item">
+                      <h4 class="title">Beds</h4>
+                      <ul>
+                        <li><a href="#">King Size Beds</a></li>
+                        <li><a href="#">Queen Size Beds</a></li>
+                        <li><a href="#">Sofa cum Bed</a></li>
+                        <li><a href="#">Single Beds</a></li>
+                        <li><a href="#">Poster Beds</a></li>
+                        <li><a href="#">Diwan Beds</a></li>
+                        <li><a href="#">Platform Beds</a></li>
+                        <li><a href="#">Hydraulic Beds</a></li>
+                        <li><a href="#">Bunk Beds</a></li>
+                      </ul>
+                      
+                    </div>
+                    <div class="list-item">
+                      <h4 class="title">Bedroom Storage</h4>
+                      <ul>
+                        <li><a href="#">Wardrobes</a></li>
+                        <li><a href="#">TV Units</a></li>
+                        <li><a href="#">Shoe Racks</a></li>
+                        <li><a href="#">Cabinets & Sideborad</a></li>
+                        <li><a href="#">Booksheleves</a></li>
+                        <li><a href="#">Cupboards</a></li>
+                        <li><a href="#">Chest of Drawers</a></li>
+                      </ul>
+                      </div>
+                    <div class="list-item">
+                      <h4 class="title">Bedroom Tables</h4>
+                      <ul>
+                        <li><a href="#">Bedside Tables</a></li>
+                        <li><a href="#">Dressing Tables</a></li>
+                        <li><a href="#">Side & End tables</a></li>
+                        <li><a href="#">Console Tables</a></li>
+                        <li><a href="#">Nest of Tables</a></li>
+                        <li><a href="#">Study Tables</a></li>
+                        <li><a href="#">Coffee Tables</a></li>
+                      </ul>
+                    </div>
+                   
+                    <div class="list-item">
+                      <img
+                        src="https://images.unsplash.com/photo-1549497538-303791108f95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"
+                        alt="Chair"
+                      />
+                    </div>
+                  </div>
+                </li>
+                <li class="menu-item-has-children">
+                  <a href="#">Dining  </a>
+                  <div class="sub-menu mega-menu mega-menu-column-4">
+                    <div class="list-item">
+                      <h4 class="title">Dining Set</h4>
+                      <ul>
+                        <li><a href="#">6 Seater Dining Table Set</a></li>
+                        <li><a href="#">4 Seater Dining Table Set</a></li>
+                        <li><a href="#">2 Seater Dining Table Set</a></li>
+                        <li><a href="#">Round Dining Table Set</a></li>
+                      </ul>
+                      
+                    </div>
+                    <div class="list-item">
+                      <h4 class="title">Dining Tables</h4>
+                      <ul>
+                        <li><a href="#">6 Seater Tables</a></li>
+                        <li><a href="#">4 Seater Tables</a></li>
+                        <li><a href="#">2 Seater Tables</a></li>
+                      </ul>
+                      </div>
+                    <div class="list-item">
+                      <h4 class="title">Dining Chairs</h4>
+                      <ul>
+                        <li><a href="#">Wooden Dining Chairs</a></li>
+                      </ul>
+
+                      <h4 class="title">Bar Farniture</h4>
+                      <ul>
+                        <li><a href="#">Bar Cabinets</a></li>
+                        <li><a href="#">Wine Racks</a></li>
+                        <li><a href="#">Bar Units</a></li>
+                      </ul>
+                    </div>
+                   
+                    <div class="list-item">
+                      <img
+                        src="https://images.unsplash.com/photo-1549497538-303791108f95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"
+                        alt="Chair"
+                      />
+                    </div>
+                  </div>
+                </li>
+                <li class="menu-item-has-children">
+                  <a href="#">Storage  </a>
+                  <div class="sub-menu mega-menu mega-menu-column-4">
+                    <div class="list-item">
+                      <h4 class="title">Living Storage</h4>
+                      <ul>
+                        <li><a href="#">TV Units</a></li>
+                        <li><a href="#">Bookshelves</a></li>
+                        <li><a href="#">Shoe Racks</a></li>
+                        <li><a href="#">Chest of Drawers</a></li>
+                      </ul>
+                      
+                    </div>
+                    <div class="list-item">
+                      <h4 class="title">Bedroom Storage</h4>
+                      <ul>
+                        <li><a href="#">Wardrobes</a></li>
+                        <li><a href="#">Dressing</a></li>
+                        <li><a href="#">Bedside Table</a></li>
+                        <li><a href="#">Wall Shelves</a></li>
+                      </ul>
+                      </div>
+                    <div class="list-item">
+                      <h4 class="title">Dining Storage</h4>
+                      <ul>
+                        <li><a href="#">Cabinets & Sideboards</a></li>
+                        <li><a href="#">Bar Cabinets</a></li>
+                        <li><a href="#">Wine Racks</a></li>
+                      </ul>
+                    </div>
+                   
+                    <div class="list-item">
+                      <img
+                        src="https://images.unsplash.com/photo-1549497538-303791108f95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"
+                        alt="Chair"
+                      />
+                    </div>
+                  </div>
+                </li>
+                <li class="menu-item-has-children">
+                  <a href="#">Study & Office  </a>
+                  <div class="sub-menu mega-menu mega-menu-column-4">
+                    <div class="list-item">
+                      <h4 class="title">Study Room Furniture</h4>
+                      <ul>
+                        <li><a href="#">Study Tables</a></li>
+                        <li><a href="#">Study Chairs</a></li>
+                        <li><a href="#">Kids Study Tables</a></li>
+                        <li><a href="#">Arm Chairs</a></li>
+                      </ul>
+                      
+                    </div>
+                    <div class="list-item">
+                      <h4 class="title">Office Furniture</h4>
+                      <ul>
+                        <li><a href="#">Office Tables</a></li>
+                        <li><a href="#">Office Chairs</a></li>
+                        <li><a href="#">File Cabinets</a></li>
+                        <li><a href="#">Office Desk</a></li>
+                      </ul>
+                      </div>
+                    <div class="list-item">
+                      <h4 class="title">Study/Office Storage</h4>
+                      <ul>
+                        <li><a href="#">Book Shelves</a></li>
+                        <li><a href="#">Wall Shelves</a></li>
+                        <li><a href="#">Cabinets</a></li>
+                      </ul>
+                    </div>
+                   
+                    <div class="list-item">
+                      <img
+                        src="https://images.unsplash.com/photo-1549497538-303791108f95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"
+                        alt="Chair"
+                      />
+                    </div>
+                  </div>
+                </li>
+                <li class="menu-item-has-children">
+                  <a href="#">Decor  </a>
+                  <div class="sub-menu mega-menu mega-menu-column-4">
+                    <div class="list-item">
+                      <h4 class="title">Wall Decor Art</h4>
+                      {# <ul>
+                        <li><a href="#">Study Tables</a></li>
+                        <li><a href="#">Study Chairs</a></li>
+                        <li><a href="#">Kids Study Tables</a></li>
+                        <li><a href="#">Arm Chairs</a></li>
+                      </ul> #}
+                      
+                    </div>
+                    
+                   
+                    <div class="list-item">
+                      <img
+                        src="https://images.unsplash.com/photo-1549497538-303791108f95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=761&q=80"
+                        alt="Chair"
+                      />
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <a href="#">New Arrivals</a>
+                </li>
+                <li>
+                  <a href="#">Custom Furniture</a>
+                </li>
+                <li>
+                  <a href="#">Our Stores</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <!-- menu end here -->
+          
+        </div>
+      </div>
+      <hr class="hr-line">
+    </header>
+    <script>
+    
+
+// const menu = document.querySelector(".menu");
+// const menuMain = menu.querySelector(".menu-main");
+// const goBack = menu.querySelector(".go-back");
+// const menuTrigger = document.querySelector(".mobile-menu-trigger");
+// const closeMenu = menu.querySelector(".mobile-menu-close");
+// let subMenu;
+// menuMain.addEventListener("click", (e) =>{
+//     if(!menu.classList.contains("active")){
+//         return;
+//     }
+//   if(e.target.closest(".menu-item-has-children")){
+//        const hasChildren = e.target.closest(".menu-item-has-children");
+//      showSubMenu(hasChildren);
+//   }
+// });
+// goBack.addEventListener("click",() =>{
+//      hideSubMenu();
+// })
+// menuTrigger.addEventListener("click",() =>{
+//      toggleMenu();
+// })
+// closeMenu.addEventListener("click",() =>{
+//      toggleMenu();
+// })
+// document.querySelector(".menu-overlay").addEventListener("click",() =>{
+//     toggleMenu();
+// })
+// function toggleMenu(){
+//     menu.classList.toggle("active");
+//     document.querySelector(".menu-overlay").classList.toggle("active");
+// }
+// function showSubMenu(hasChildren){
+//    subMenu = hasChildren.querySelector(".sub-menu");
+//    subMenu.classList.add("active");
+//    subMenu.style.animation = "slideLeft 0.5s ease forwards";
+//    const menuTitle = hasChildren.querySelector("i").parentNode.childNodes[0].textContent;
+//    menu.querySelector(".current-menu-title").innerHTML=menuTitle;
+//    menu.querySelector(".mobile-menu-head").classList.add("active");
+// }
+
+// function  hideSubMenu(){  
+//    subMenu.style.animation = "slideRight 0.5s ease forwards";
+//    setTimeout(() =>{
+//       subMenu.classList.remove("active");	
+//    },300); 
+//    menu.querySelector(".current-menu-title").innerHTML='<a href="#"><img src="catalog/view/javascript/assets/image/urbanwoodlogo.png"></a>';
+//    menu.querySelector(".mobile-menu-head").classList.remove("active");
+// }
+
+// window.onresize = function(){
+//     if(this.innerWidth >991){
+//         if(menu.classList.contains("active")){
+//             toggleMenu();
+//         }
+
+//     }
+// }
+
+// $(function () {
+//     "use strict";
+    
+//     function uncheckBox() {
+//       var isChecked = $("#open-search").prop("checked");
+//       if (isChecked) {
+//         $("#open-search").prop("checked", false);
+//       }
+//     }
+    
+//     $("body").on("click", function () {
+//       uncheckBox();
+//     });
+    
+//     $("#open-search,label").on("click", function (e) {
+//       e.stopPropagation();
+//     });
+//   });
+    </script>

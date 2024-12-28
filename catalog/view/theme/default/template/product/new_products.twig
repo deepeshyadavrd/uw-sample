@@ -1,0 +1,736 @@
+{# {{ header }}
+<div id="product-category" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      <h2>{{ heading_title }}</h2>
+      {% if thumb or description %}
+      <div class="row"> {% if thumb %}
+        <div class="col-sm-2"><img src="{{ thumb }}" alt="{{ heading_title }}" title="{{ heading_title }}" class="img-thumbnail" /></div>
+        {% endif %}
+        {% if description %}
+        <div class="col-sm-10">{{ description }}</div>
+        {% endif %}</div>
+      <hr>
+      {% endif %}
+      {% if categories %}
+      <h3>{{ text_refine }}</h3>
+      {% if categories|length <= 5 %}
+      <div class="row">
+        <div class="col-sm-3">
+          <ul>
+            {% for category in categories %}
+            <li><a href="{{ category.href }}">{{ category.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% else %}
+      <div class="row">{% for category in categories|batch((categories|length / 4)|round(1, 'ceil')) %}
+        <div class="col-sm-3">
+          <ul>
+            {% for child in category %}
+            <li><a href="{{ child.href }}">{{ child.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}</div>
+      <br />
+      {% endif %}
+      {% endif %}
+      {% if products %}
+      <div class="row">
+        <div class="col-md-2 col-sm-6 hidden-xs">
+          <div class="btn-group btn-group-sm">
+            <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="{{ button_list }}"><i class="fa fa-th-list"></i></button>
+            <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="{{ button_grid }}"><i class="fa fa-th"></i></button>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="form-group"><a href="{{ compare }}" id="compare-total" class="btn btn-link">{{ text_compare }}</a></div>
+        </div>
+        <div class="col-md-4 col-xs-6">
+          <div class="form-group input-group input-group-sm">
+            <label class="input-group-addon" for="input-sort">{{ text_sort }}</label>
+            <select id="input-sort" class="form-control" onchange="location = this.value;">
+              
+              
+              
+              {% for sorts in sorts %}
+              {% if sorts.value == '%s-%s'|format(sort, order) %}
+              
+              
+              
+              <option value="{{ sorts.href }}" selected="selected">{{ sorts.text }}</option>
+              
+              
+              
+              {% else %}
+              
+              
+              
+              <option value="{{ sorts.href }}">{{ sorts.text }}</option>
+              
+              
+              
+              {% endif %}
+              {% endfor %}
+            
+            
+            
+            </select>
+          </div>
+        </div>
+        <div class="col-md-3 col-xs-6">
+          <div class="form-group input-group input-group-sm">
+            <label class="input-group-addon" for="input-limit">{{ text_limit }}</label>
+            <select id="input-limit" class="form-control" onchange="location = this.value;">
+              
+              
+              
+              {% for limits in limits %}
+              {% if limits.value == limit %}
+              
+              
+              
+              <option value="{{ limits.href }}" selected="selected">{{ limits.text }}</option>
+              
+              
+              
+              {% else %}
+              
+              
+              
+              <option value="{{ limits.href }}">{{ limits.text }}</option>
+              
+              
+              
+              {% endif %}
+              {% endfor %}
+            
+            
+            
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row"> {% for product in products %}
+        <div class="product-layout product-list col-xs-12">
+          <div class="product-thumb">
+            <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a></div>
+            <div>
+              <div class="caption">
+                <h4><a href="{{ product.href }}">{{ product.name }}</a></h4>
+                <p>{{ product.description }}</p>
+                {% if product.price %}
+                <p class="price"> {% if not product.special %}
+                  {{ product.price }}
+                  {% else %} <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span> {% endif %}
+                  {% if product.tax %} <span class="price-tax">{{ text_tax }} {{ product.tax }}</span> {% endif %} </p>
+                {% endif %}
+                {% if product.rating %}
+                <div class="rating"> {% for i in 1..5 %}
+                  {% if product.rating < i %} <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> {% else %} <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>{% endif %}
+                  {% endfor %} </div>
+                {% endif %} </div>
+              <div class="button-group">
+                <button type="button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></button>
+                <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
+                <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %} </div>
+      <div class="row">
+        <div class="col-sm-6 text-left">{{ pagination }}</div>
+        <div class="col-sm-6 text-right">{{ results }}</div>
+      </div>
+      {% endif %}
+      {% if not categories and not products %}
+      <p>{{ text_empty }}</p>
+      <div class="buttons">
+        <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+      </div>
+      {% endif %}
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>
+{{ footer }}  #}
+
+{{ header }}
+{{ menu }}
+{{ wishlist }}
+<link  rel="stylesheet"  href="catalog/view/javascript/assets/css/category.css" > 
+<style>
+.red{
+  color: red!important;
+}
+</style>
+
+<div class="wrapper">
+<!--- banner section-->
+<div class="qu-sec py-2 ">
+  <div class="container container-custom">
+    <div class="row">
+<div class="col-md-12 col-sm-12">
+  <nav class="breadcumb-navigation" >
+    <ol class="breadcrumb m-0 p-2">
+    
+    {% for breadcrumb in breadcrumbs %}
+      <li class="breadcrumb-item "> <a href="#">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+      
+      {# <li class="breadcrumb-item "> <a href="#">Bedroom Furniture </a></li>
+      <li class="breadcrumb-item "> <a href="">Bedroom Storage</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Beds</li> #}
+    </ol>
+  </nav>   
+</div>
+</div>
+    </div>
+</div>
+
+
+  <section class=" py-2">
+    <div class="container container-custom">
+      <div class="row">
+        <div class="col-lg-10 m-auto">
+          <h2 class="pg-heading text-center">{{ heading_title }}</h2>
+          <div class="ViewContent">
+            <p class="heading-para text-center px-lg-5">{{ description|striptags('<b>,<span>,<a>') }}</p>
+            <span type="button" class="btAnimate" value="Read more"></span>
+            <div id="divC">
+               <p class="heading-para text-center "> 
+      With king size beds with storage, you can maintain organization while making the best use of your open area and reducing clutter. 
+        To get the greatest deal on a king-sized bed at a cost that works for you,
+         you can now browse the selection of beds available online at Urbanwood. King-size beds are usually quite comfortable. </p>
+         <h2 class="font-table-heading my-3" style="text-align:center;">Wardrobes Price List in India</h2>
+<table class="table table-bordered table-price-pp">
+  <thead>
+    <tr>
+      <th scope="col">Wardrobes Online in India</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for product in products|slice(0, 5) %}
+      <tr>
+      <td scope="row"><a href="{{ product.href }}" target="_blank" rel="noopener noreferrer"> {{ product.name }}</a> </td>
+      <td>{{ product.special }}</td>
+    </tr>
+            
+      {% endfor %}
+  </tbody>
+</table>
+
+                        <input type="button" id="btHide" value="Read less" />
+                
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+      </section>
+  <section>
+  <style>
+  .pbc{
+    background: white;
+    width:155px;
+  }
+
+  .ipc{
+background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ececec 80px);
+  background-image: -o-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ececec 80px);
+  background-image: linear-gradient(90deg, #ececec 0px, #f4f4f4 40px, #ececec 80px);
+  background-size: 250px;
+  -webkit-animation: shine-loading-image 2s infinite ease-out;
+          animation: shine-loading-image 2s infinite ease-out;
+    width: 98%;
+    height: 94px;
+  }
+
+  .cat-txt{
+background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ececec 80px);
+  background-image: -o-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ececec 80px);
+  background-image: linear-gradient(90deg, #ececec 0px, #f4f4f4 40px, #ececec 80px);
+  background-size: 250px;
+  -webkit-animation: shine-loading-image 2s infinite ease-out;
+          animation: shine-loading-image 2s infinite ease-out;
+    width: 85%;
+    height: 14px;
+  }
+  .buttoncn{
+background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ececec 80px);
+  background-image: -o-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ececec 80px);
+  background-image: linear-gradient(90deg, #ececec 0px, #f4f4f4 40px, #ececec 80px);
+  background-size: 250px;
+  -webkit-animation: shine-loading-image 2s infinite ease-out;
+          animation: shine-loading-image 2s infinite ease-out;
+    height: 18px;
+  }
+@-webkit-keyframes shine-loading-image {
+  0% {
+    background-position: -32px;
+  }
+  40%, 100% {
+    background-position: 208px;
+  }
+}
+
+
+@keyframes shine-loading-image {
+  0% {
+    background-position: -32px;
+  }
+  40% {
+    background-position: 180px;
+  }
+  100% {
+    background-position: 250px;
+  }
+}
+  
+  </style>
+    <div class="container container-custom">
+      <div class="row">
+        <div class="d-flex justify-content-md-center  m-md-auto  categories-pp">
+        <div class=" pp-box-cat pbc">
+            <div class="img-pp-cat ipc "></div>
+              <div class="con-pp-cat"> 
+                <span class="cat-txt "></span>
+              </div>
+            <div class="buttoncn check-out-pp "> </div>
+          </div>
+        <div class="active2 pp-box-cat">
+          <div class="img-pp-cat"> <img src="catalog/view/javascript/assets/image/product-slider-img/img1.png" alt=""></div>
+          <div class="con-pp-cat"> 
+          <span>King Size Beds</span><span> <i class="fas fa-star"></i> (4.5)</span>
+          </div>
+          <div> <a href="" class="check-out-pp" disabled>check now</a></div>
+        </div>
+        <div class="pp-box-cat">
+          <div class="img-pp-cat"> <img src="catalog/view/javascript/assets/image/product-slider-img/img1.png" alt=""></div>
+          <div class="con-pp-cat"> 
+          <span>Queen Size Beds</span><span> <i class="fas fa-star"></i> (4.5)</span>
+          </div>
+          <div> <a href="" class="check-out-pp">check now</a></div>
+        </div>
+
+        <div class="pp-box-cat">
+          <div class="img-pp-cat"> <img src="catalog/view/javascript/assets/image/product-slider-img/img1.png" alt=""></div>
+          <div class="con-pp-cat"> 
+          <span>Single Beds</span><span> <i class="fas fa-star"></i> (4.5)</span>
+          </div>
+          <div> <a href="" class="check-out-pp">check now</a></div>
+        </div>
+
+        <div class="pp-box-cat">
+          <div class="img-pp-cat"> <img src="catalog/view/javascript/assets/image/product-slider-img/img1.png" alt=""></div>
+          <div class="con-pp-cat"> 
+          <span>Poster Beds</span><span> <i class="fas fa-star"></i> (4.5)</span>
+          </div>
+          <div> <a href="" class="check-out-pp">check now</a></div>
+        </div>
+
+        <div class="pp-box-cat">
+          <div class="img-pp-cat"> <img src="catalog/view/javascript/assets/image/product-slider-img/img1.png" alt=""></div>
+          <div class="con-pp-cat"> 
+          <span>Sofa Cum Beds</span><span> <i class="fas fa-star"></i> (4.5)</span>
+          </div>
+          <div> <a href="" class="check-out-pp">check now</a></div>
+        </div>
+
+      </div>
+        </div>
+        </div>
+  </section>    
+
+<section class="py-2">
+  <div class="container container-custom">
+    <div class="row">
+      
+{{ filter }}
+    
+   
+
+
+
+      
+      
+    
+<div class="col-12">
+  <div class="product-img-list">
+<div class="row" id="product_box">
+
+{% for product in products %}
+<div class="col-lg-3 col-md-6 col-sm-12">
+<div class="product-box-img">
+  <div class="button-pd">
+  <div class="like-heart mx-2"> 
+  
+    <span ><i class="fas fa-heart" onclick="wishlist.add('{{ product.product_id }}');" id="likeheart" ></i></span> 
+  </div>  
+  <div class="sharer">
+        <button id="share" class="cursor-pointer ">
+          <i class='bx bxs-share-alt'></i></button> 
+          <div id="share_icons" class="absolute opacity-0"> 
+            <a href="" class="pd-share cursor-pointer">
+              <i class="bx bxl-twitter"></i>
+            </a> 
+            <a href="" class=" pd-share cursor-pointer">
+              <i class="bx bxl-facebook"></i>
+            </a> 
+              <a href="" class=" pd-share cursor-pointer">
+                <i class="bx bxl-linkedin"></i>
+              </a> 
+            </div> 
+
+  </div> 
+
+  </div>
+  
+  <div class="pd-img-in">
+  {% if (product.stock_status == 'Out Of Stock') and (product.quantity == 0) %}
+      <h3 class="shop-nowb-btn" style="margin-top: 19px;"> Out Of Stock</h3>
+      {% else %}
+      
+      {# <input name="product_id" type="hidden" id="addtocart_p_id" value="{{ product.product_id }}">
+      <input name="quantity" type="hidden" id="addtocart_p_qnty" value="1"> #}
+  <button class="shop-nowb-btn" onclick="addtocart(1,{{ product.product_id }})"> Shop Now</button>
+  
+{% endif %}
+{# {{ product.product_id }} #}
+{# <a href="{{ product.href }}" type="button" class="shop-nowb-btn" style="margin-top: 19px;"> Shop Now</a> #}
+    <a href="{{ product.href }}"><div class="overlay-pd"></div></a>
+    {% if loop.first %}
+                    {% if (product.stock_status == 'Out Of Stock') %}
+                      <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid out-of-stock" fetchpriority="high" loading="eager">
+                    {% else %}
+                      <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid" fetchpriority="high" loading="eager">
+                    {% endif %}
+
+                  {% else %}
+                    {% if (product.stock_status == 'Out Of Stock') %}
+                      <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid out-of-stock" loading="lazy">
+                    {% else %}
+                      <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid" loading="lazy">
+                    {% endif %}
+                  {% endif %}
+  </div>
+  <div class="pd-deatils-sec">
+    <div class="d-flex justify-content-between align-items-start p-2">
+      <div class="pd-heading"> 
+       <div class="pd-name"><a href="">{{ product.name }}</a></div> 
+       {% if product.finish %}
+        <div class="pd-config">({{ product.finish }}</div>
+        {% endif %}
+        <span class="pd-creater"> By {{ product.brand }}</span>
+      </div>
+      <div class="color-feature">
+      {% if (product.stock_status == 'Out Of Stock') and (product.quantity == 0) %}
+        <span class="availibility-pd">Out of Stock</span>
+      {% else %}
+      
+
+      <span class="availibility-pd">Available Finish</span>
+      <div class="color-feature-check"> 
+      {% for progro in product.pro_gro %}
+        <div class="zoom" data-toggle="tooltip" data-placement="top" title="{{progro.text }}">  
+          <a href="{{ progro.link }}"><img src="catalog/view/javascript/assets/image/icon/{{progro.text|lower }}.jpg" alt="{{progro.text }}"></a>      
+        </div>
+      {% endfor %}
+        
+      </div>
+      {% endif %}
+      </div>
+     
+    </div>
+    <hr>
+    <div class="d-flex justify-content-between align-items-start p-2">
+      <div class="pricing-pd">
+        <span class="badge badgerating">
+          {{ product.rating }}
+          <span class="starr-rate"><i class="fas fa-star"></i></span>
+        </span>
+        <span class="likes">({{ product.review_count }})</span>
+        <div class=""> 
+        <div class="pd-amount"> {{ product.special }} </div> <div class="cut-ammount">{{ product.price }} </div>  
+        <span class=" badge bridge-offer" style="font-size:10px">{{ product.discount }}% off </span>
+      </div>
+      </div>
+      <div class="pd-offers">
+      <ul>
+        <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+        <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+</div>
+{% if  loop.index0 == 7 %}
+  <div class="signup-banner-strip">
+<div class="d-md-flex d-block justify-content-around align-items-center text-center ">
+  <div class="sign-banner-con">
+    <h5>Sign Up Now </h5>
+      <p>&</p>
+      <h6>get extra <span style="color:#fc0000;font-weight: 700;"> DISCOUNT</span></h6>
+  </div>
+  <div>
+  <a href="" type="button" class="view_all_btn" style="margin-top: 19px;"> Sign Up</a>
+  </div>
+  <div class="banner-strip-img">
+    <img src="catalog/view/javascript/assets/image/red-shape-bg.png" alt="" class="img-fluid img-responsive">
+  </div>
+</div>
+</div>
+{% endif %}
+{% endfor %}
+
+
+
+
+</div> 
+
+
+ <div class="banner-strip-location">
+  <div class="sign-banner-con text-lg-start text-cente">
+    <h5 class="r text-white">VISIT OUR NEAREST STORE</h5>
+      <p class="text-white">&</p>
+      <h6 class=" text-white">get extra <span style="color:#fc0000; font-weight: 700;"> DISCOUNT</span></h6>
+      <br>
+      <a href="" class="shop-find-btn">Find Shop</a>
+  </div>
+
+<div class="image-forloaction">
+    <div class="img-location-ceative">
+      <img src="catalog/view/javascript/assets/image/location-strip.png" class="img-responsive img-fluid">
+    </div>
+
+</div>
+ </div> 
+
+</div>
+</div>
+
+
+</div>
+</div>
+
+</section> 
+
+<section class="py-2">
+<div class="container container-custom">
+  <div class="row">
+    <h2 class="pg-heading text-center">Popular Categories</h2>
+    <p class="heading-para text-center">Unlimited Choices. Unbeatable Prices. Free Shipping</p>
+    <div class="d-sm-flex d-block justify-content-center categories">
+    <div class="item-box3">
+    <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
+     <h6>Beds</h6> 
+     <p>883+ Options Available</p>
+    </div>
+    <div class="item-box3">
+    <a href="beds">
+      <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
+       <h6>Sofas</h6> 
+       <p>883+ Options Available</p>
+       </a>
+      </div>
+
+      <div class="item-box3">
+        <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
+         <h6>Dining</h6> 
+         <p>883+ Options Available</p>
+        </div>
+
+        <div class="item-box3">
+          <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
+           <h6>Shoe Rack</h6> 
+           <p>883+ Options Available</p>
+          </div>
+
+          <div class="item-box3">
+            <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
+             <h6>Study Table</h6> 
+             <p>883+ Options Available</p>
+            </div>
+
+            <div class="item-box3">
+              <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
+               <h6>bookcase</h6> 
+               <p>883+ Options Available</p>
+              </div>
+
+              <div class="item-box3">
+                <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
+                 <h6>Wardrobes</h6> 
+                 <p>883+ Options Available</p>
+                </div>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="bottom-content py-4"> 
+<div class="container container-custom"> 
+<div class="row">
+  <div class="col-lg-12">
+  {{ long_description }}
+   </div>
+</div>
+</div>
+
+
+</section>
+</div>
+{{ footer }}
+<script>
+  var plock = 1;
+  var page = 2;
+  var limitp = 15;
+  var categoryloadmore = {{category_id}};
+  var queryString = window.location.href;
+  var urlParam = '';
+  
+  $(window).scroll(function() {
+
+    var scrollTop     = $(window).scrollTop();
+    var elementOffset = $('#product_box').offset().bottom;
+    var diffr = elementOffset-scrollTop;
+    
+    if($(window).scrollTop() >= $(
+              '#product_box').offset().top + $('#product_box').
+                outerHeight() - window.innerHeight -500){  
+
+      if(plock==1){
+        plock++;
+        
+        productLoading(); 
+      }
+    }
+  });
+
+
+  
+var psort = '{{sort}}';
+var pfilter = '{{filters_data}}';
+var porder = '{{order}}';
+var ajaxUrl = '';
+function productLoading(){    
+
+   ajaxUrl = '?route=product/category2/productLoading&limit='+limitp+'&page='+page+'&category_id='+categoryloadmore;
+
+   if(typeof(psort)!='undefined'){
+     ajaxUrl += '&sort='+psort;
+   }
+
+   if(typeof(pfilter)!='undefined'){
+
+     ajaxUrl += '&filter='+pfilter;
+   }
+
+   if(typeof(porder)!='undefined'){
+     ajaxUrl += '&order='+porder;
+   }
+    
+   $.ajax({
+      url: ajaxUrl,
+      dataType: 'html',
+      beforeSend: function() {
+        var loader_img = '<img src="catalog/view/javascript/assets/image/load-sofa.gif" alt="Loading" id="loadicn" style="width:70px;height:70px;"/>';
+  
+   $("#product_box").append(loader_img);
+      },
+      success: function(html) {
+        if(html.length != 0){
+        page = page+1
+        $("#loadicn").remove();
+        $('#product_box').append(html);
+        plock=1;
+        }else{
+          $("#loadicn").remove();
+          plock=0;
+        }
+
+      },
+      error: function(xhr, ajaxOptions, thrownError) {
+       alert('Loading....');
+     }
+   });
+  }
+
+  $(".btAnimate").click(function(){
+    $(".ViewContent").toggleClass("show");
+  });
+  </script>
+  <script>
+ function addtocart(quantity, product_id) {
+  // var formdata = new FormData();
+  // formData.append("quantity", quantity);
+  // formData.append("product_id", product_id);
+
+	$.ajax({
+		url: 'index.php?route=checkout/cart/add',
+		type: 'post',
+		data: {"quantity":quantity,"product_id":product_id},
+		dataType: 'json',
+		beforeSend: function() {
+			$('#button-cart').button('loading');
+		},
+		complete: function() {
+			$('#button-cart').button('reset');
+		},
+		success: function(json) {
+			$('.alert-dismissible, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
+
+			if (json['error']) {
+				if (json['error']['option']) {
+					for (i in json['error']['option']) {
+						var element = $('#input-option' + i.replace('_', '-'));
+
+						if (element.parent().hasClass('input-group')) {
+							element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						} else {
+							element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						}
+					}
+				}
+
+				if (json['error']['recurring']) {
+					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+			}
+
+			if (json['success']) {
+				//$('.breadcrumb').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+        $('body').prepend('<div class="success-popup ">	<span class="warrning-svg">	<svg id="smile"		width="35" height="35" viewBox="0 0 41 41" fill="none">					  <path d="M16.2432 29.9911L16.5968 30.3439L16.95 29.9907L30.5886 16.352L30.9422 15.9985L30.5886 15.6449L27.7128 12.7691L27.3593 12.4156L27.0057 12.7691L16.592 23.1828L12.2699 18.8682L11.9158 18.5148L11.5626 18.869L8.69086 21.7489L8.33792 22.1028L8.69174 22.4558L16.2432 29.9911ZM0.823975 20.662C0.823975 9.72375 9.72375 0.823975 20.662 0.823975C31.6002 0.823975 40.5 9.72375 40.5 20.662C40.5 31.6002 31.6002 40.5 20.662 40.5C9.72375 40.5 0.823975 31.6002 0.823975 20.662Z" stroke="#33C300"/>  </svg>					</span>	<span class="warrning-text">   <p>' + json['success'] + '</p>	</span>				  </div>');
+				$('#cartli .badge_pp').text(json['total']);
+				$('html, body').animate({ scrollTop: 0 }, 'slow');
+
+				$('#cart > ul').load('index.php?route=common/cart/info ul li');
+			}
+		},
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+	});
+}
+</script>

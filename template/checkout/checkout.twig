@@ -1,0 +1,1491 @@
+{# {{ header }}
+<div id="checkout-checkout" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  {% if error_warning %}
+  <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+  </div>
+  {% endif %}
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      <h1>{{ heading_title }}</h1>
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">{{ text_checkout_option }}</h4>
+          </div>
+          <div class="panel-collapse collapse" id="collapse-checkout-option">
+            <div class="panel-body"></div>
+          </div>
+        </div>
+        {% if not logged and account != 'guest' %}
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">{{ text_checkout_account }}</h4>
+          </div>
+          <div class="panel-collapse collapse" id="collapse-payment-address">
+            <div class="panel-body"></div>
+          </div>
+        </div>
+        {% else %}
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">{{ text_checkout_payment_address }}</h4>
+          </div>
+          <div class="panel-collapse collapse" id="collapse-payment-address">
+            <div class="panel-body"></div>
+          </div>
+        </div>
+        {% endif %}
+        {% if shipping_required %}
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">{{ text_checkout_shipping_address }}</h4>
+          </div>
+          <div class="panel-collapse collapse" id="collapse-shipping-address">
+            <div class="panel-body"></div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">{{ text_checkout_shipping_method }}</h4>
+          </div>
+          <div class="panel-collapse collapse" id="collapse-shipping-method">
+            <div class="panel-body"></div>
+          </div>
+        </div>
+        {% endif %}
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">{{ text_checkout_payment_method }}</h4>
+          </div>
+          <div class="panel-collapse collapse" id="collapse-payment-method">
+            <div class="panel-body"></div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">{{ text_checkout_confirm }}</h4>
+          </div>
+          <div class="panel-collapse collapse" id="collapse-checkout-confirm">
+            <div class="panel-body"></div>
+          </div>
+        </div>
+      </div>
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div> #}
+
+{{ header }}
+</div>
+<div class="wrapper">
+<div class="wizard-sec"> 
+  <div class="stepwizard-outer">
+    <div class="stepwizard">
+      <div class="stepwizard-row setup-panel">
+          <div class="stepwizard-step col-xs-3"> 
+              <a href="#step-1" type="button" class="step-for-checkout step-for-checkout-scuss"><i class="fas fa-chair"></i></a>
+              <!-- <p><small>Shipper</small></p> -->
+          </div>
+          <div class="stepwizard-step col-xs-3"> 
+              <a href="#step-2" type="button" class="step-for-checkout" disabled="disabled"><i class="fas fa-street-view"></i></a>
+              <!-- <p><small>Destination</small></p> -->
+          </div>
+          <div class="stepwizard-step col-xs-3"> 
+              <a href="#step-3" type="button" class="step-for-checkout" disabled="disabled"><i class="fas fa-shopping-bag"></i></a>
+              <!-- <p><small>Schedule</small></p> -->
+          </div>
+        
+      </div>
+  </div>
+</div>
+    <div class="container container-custom">
+        <div class="row">
+            <div class="col-lg-12">
+              
+                
+                
+
+
+
+
+                <div class="panel panel-primary setup-content" id="step-2" style="display:block;">
+                  <div class="row ">
+                    <div class="col-lg-8">
+                    
+                    <div id="addressform">
+  <div class="Biiling Haeding"> Billing Address</div>
+
+<div class="address-perpose-tabing" id=""> 
+
+<input type="radio" name="test" id="test-1" class="radio-test form-check-input form-check-finish" checked="checked">
+<label for="test-1" id="label-test-1" class="label-00">Personal</label>
+<input type="radio" name="test" id="test-2" class="radio-test form-check-input form-check-finish">
+<label for="test-2" id="label-test-2" class="label-00">Business</label>
+
+
+<div class="content content-test-1" id="content-test-1">
+  <form class="billing-from needs-validation" novalidate="">
+    <div class="row">
+    <div class="col-lg-12"> 
+    <div class="mb-3">
+      <label for="Inputuser-nm-pp" class="form-label">Name <sup style="color:#d90505">*</sup></label>
+      <input type="name" class="form-control" id="Inputuser-nm-pp" placeholder="Write your full name" required="">
+    
+    </div>
+  </div>
+  <div class="col-lg-12"> 
+    <div class="mb-3">
+      <label for="InputuserEmail-pp" class="form-label">Email <sup style="color:#d90505">*</sup></label>
+      <input type="email" class="form-control" id="InputuserEmail-pp" placeholder="Write your Email Address" required="">
+    
+    </div>
+   </div>
+   <div class="col-lg-12"> 
+    <div class="mb-3">
+      <label for="Inputuser-num-pp" class="form-label">Mobile No. <sup style="color:#d90505">*</sup></label>
+      <input type="text" class="form-control" id="Inputuser-num-pp" placeholder="Enter Your Contact Number" required="">
+    
+    </div>
+  </div>
+  <div class="col-lg-12"> 
+    <div class="mb-3">
+      <label for="Inputuser-add-pp" class="form-label">Address <sup style="color:#d90505">*</sup></label>
+      <input type="text" class="form-control" id="Inputuser-add-pp" placeholder="Flat / House no. / Floor / Building" required="">
+     
+    </div>
+    </div>
+    <div class="col-lg-12"> 
+    <div class="mb-3">
+      <input type="text" class="form-control" id="nputuser-add-pp2" placeholder="Colony / Street / Locality" required="">
+    
+    </div>
+     </div>
+    <div class="col-lg-6">
+      <div class="mb-3">
+        <label for="Inputuser-country-pp" class="form-label">Country<sup style="color:#d90505">*</sup></label>
+            <select class="form-select" aria-label="Default select " id="Inputuser-country-pp" required="">
+              <option>Select your country</option>
+              <option selected="" value="1">India</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+        
+
+    </div>
+</div>
+    <div class="col-lg-6">
+      <div class="mb-3">
+        <label for="Inputuser-pincode-pp" class="form-label">Pin Code<sup style="color:#d90505">*</sup></label>
+        <input type="text" class="form-control" id="Inputuser-pincode-pp" placeholder="Write your pincode" required="">
+      
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="mb-3">
+        <label for="Inputuser-citye-pp" class="form-label">City<sup style="color:#d90505">*</sup></label>
+        <select class="form-select" aria-label="Default select " id="Inputuser-city-pp" required="">
+          <option selected="">Select your City</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="mb-3">
+        <label for="Inputuser-state-pp" class="form-label">State<sup style="color:#d90505">*</sup></label>
+
+        <select class="form-select" aria-label="Default select " id="Inputuser-state-pp">
+          <option selected="">Select your state</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-lg-12">
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input form-check-finish" id="checkwtpsupdate">
+        <label class="form-check-label" for="checkwtpsupdate">Receive Updates Over <img src="catalog/view/javascript/assets/image/icon/what-update-icon.png" alt="" class="img-fluid"></label>
+      </div>
+    </div>
+    <div class="col-lg-12">
+      
+        <input type="checkbox" name="test3" id="delivery-2" class="radio-test form-check-input form-check-finish">
+<label for="delivery-2" class="label-00">Delivery Address is not same as Billing Address</label>
+   
+<div class="content " id="content-delivery-2">
+  <div class="Biiling Haeding">Delivery Address</div>
+  <div class="row">
+    <div class="col-lg-12"> 
+    <div class="mb-3">
+      <label for="Inputuser-nm-pp" class="form-label">Name <sup style="color:#d90505">*</sup></label>
+      <input type="name" class="form-control" id="Inputuser-nm-pp" placeholder="Write your Full Name" required="">
+    
+    </div>
+  </div>
+
+  <div class="col-lg-12"> 
+    <div class="mb-3">
+      <label for="Inputuser2-add-pp" class="form-label">Address <sup style="color:#d90505">*</sup></label>
+      <input type="text" class="form-control" id="Inputuser2-add-pp" placeholder="Flat / House no. / Floor / Building" required="">
+    </div>
+    </div>
+    <div class="col-lg-12"> 
+    <div class="mb-3">
+      <input type="text" class="form-control" id="nputuser-add-pp2" placeholder="Colony / Street / Locality" required="">
+    
+    </div>
+     </div>
+     <div class="col-lg-12">
+      <div class="mb-3">
+        <label for="Inputuser-pincode-pp" class="form-label">Pin Code<sup style="color:#d90505">*</sup></label>
+        <input type="text" class="form-control" id="Inputuser-pincode-pp" placeholder="Colony / Street / Locality" required="">
+      
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="mb-3">
+        <label for="Inputuser2-city-pp" class="form-label">City<sup style="color:#d90505">*</sup></label>
+        <select class="form-select" aria-label="Default select " id="Inputuser2-city-pp" placeholder="Write your pincode" required="">
+          <option selected="">Select your City</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="mb-3">
+        <label for="Inputuser2-state-pp" class="form-label">State<sup style="color:#d90505">*</sup></label>
+        <select class="form-select" aria-label="Default select " id="Inputuser2-state-pp">
+          <option selected="">Select your state</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+    </div>
+
+</div>
+</div>
+
+  </div>
+
+  <button type="submit" class="save-continue-btn">Save &amp; Continue</button>
+    </div>
+  </form>
+
+</div>
+
+
+
+<div class="content content-test-2" id="content-test-2">
+<form class="billing-from needs-validation" novalidate="">
+  <div class="row">
+  <div class="col-lg-12"> 
+  <div class="mb-3">
+    <label for="Inputcompany-nm-bb" class="form-label">Company Name<sup style="color:#d90505">*</sup></label>
+    <input type="name" class="form-control" id="Inputcompany-nm-bb" placeholder="Your Company Name" required="">
+  
+  </div>
+</div>
+<div class="col-lg-12"> 
+  <div class="mb-3">
+    <label for="Inputgst-bb" class="form-label">Billing GSTIN<sup style="color:#d90505">*</sup></label>
+    <input type="email" class="form-control" id="Inputgst-bb" placeholder="Your GSTIN number" required="">
+  
+  </div>
+ </div>
+ <div class="col-lg-12"> 
+  <div class="mb-3">
+    <label for="Inputuser-name-bb" class="form-label">Contact Name <sup style="color:#d90505">*</sup></label>
+    <input type="text" class="form-control" id="Inputuser-name-bb" placeholder="Write your full name" required="">
+  
+  </div>
+</div>
+<div class="col-lg-12"> 
+  <div class="mb-3">
+    <label for="Inputuser-con-bb" class="form-label">Contact No. <sup style="color:#d90505">*</sup></label>
+    <input type="text" class="form-control" id="Inputuser-con-bb" placeholder="Enter Your Contact Number" required="">
+  
+  </div>
+</div>
+<div class="col-lg-12"> 
+  <div class="mb-3">
+    <label for="InputuserEmail-bb" class="form-label">Email <sup style="color:#d90505">*</sup></label>
+    <input type="email" class="form-control" id="InputuserEmail-bb" placeholder="Write your Email Address" required="">
+  
+  </div>
+ </div>
+ <div class="col-lg-12"> 
+  <div class="mb-3">
+    <label for="Inputuser-mob-bb" class="form-label">Mobile No. <sup style="color:#d90505">*</sup></label>
+    <input type="text" class="form-control" id="Inputuser-mob-bb" placeholder="Enter Your mobile Number" required="">
+  
+  </div>
+</div>
+<div class="col-lg-12"> 
+  <div class="mb-3">
+    <label for="Inputuser-add-pp" class="form-label">Address <sup style="color:#d90505">*</sup></label>
+    <input type="text" class="form-control" id="Inputuser-add-pp" placeholder="Flat / House no. / Floor / Building" required="">
+   
+  </div>
+  </div>
+  <div class="col-lg-12"> 
+  <div class="mb-3">
+    <input type="text" class="form-control" id="nputuser-add-pp2" placeholder="Colony / Street / Locality" required="">
+  
+  </div>
+   </div>
+  <div class="col-lg-6">
+    <div class="mb-3">
+      <label for="Inputuser-country-pp" class="form-label">India<sup style="color:#d90505">*</sup></label>
+          <select class="form-select" aria-label="Default select " id="Inputuser-country-pp" required="">
+            <option>Select your country</option>
+            <option selected="" value="1">India</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+      
+
+  </div>
+</div>
+  <div class="col-lg-6">
+    <div class="mb-3">
+      <label for="Inputuser-pincode-pp" class="form-label">Pin Code<sup style="color:#d90505">*</sup></label>
+      <input type="text" class="form-control" id="Inputuser-pincode-pp" placeholder="Write your pincode" required="">
+    
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="mb-3">
+      <label for="Inputuser-citye-pp" class="form-label">City<sup style="color:#d90505">*</sup></label>
+      <select class="form-select" aria-label="Default select " id="Inputuser-city-pp" required="">
+        <option selected="">Select your City</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="mb-3">
+      <label for="Inputuser-state-pp" class="form-label">State<sup style="color:#d90505">*</sup></label>
+
+      <select class="form-select" aria-label="Default select " id="Inputuser-state-pp">
+        <option selected="">Select your state</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-lg-12">
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input form-check-finish" id="checkwtpsupdate">
+      <label class="form-check-label" for="checkwtpsupdate">Receive Updates Over <img src="catalog/view/javascript/assets/image/icon/what-update-icon.png" alt="" class="img-fluid"></label>
+    </div>
+  </div>
+  <div class="col-lg-12">
+    
+      <input type="checkbox" name="test3" id="delivery-2" class="radio-test form-check-input form-check-finish">
+<label for="delivery-2" class="label-00">Delivery Address is not same as Billing Address</label>
+ 
+<div class="content " id="content-delivery-2">
+<div class="Biiling Haeding">Delivery Address</div>
+<div class="row">
+  <div class="col-lg-12"> 
+  <div class="mb-3">
+    <label for="Inputuser-nm-pp" class="form-label">Name <sup style="color:#d90505">*</sup></label>
+    <input type="name" class="form-control" id="Inputuser-nm-pp" placeholder="Write your Full Name" required="">
+  
+  </div>
+</div>
+
+<div class="col-lg-12"> 
+  <div class="mb-3">
+    <label for="Inputuser2-add-pp" class="form-label">Address <sup style="color:#d90505">*</sup></label>
+    <input type="text" class="form-control" id="Inputuser2-add-pp" placeholder="Flat / House no. / Floor / Building" required="">
+  </div>
+  </div>
+  <div class="col-lg-12"> 
+  <div class="mb-3">
+    <input type="text" class="form-control" id="nputuser-add-pp2" placeholder="Colony / Street / Locality" required="">
+  
+  </div>
+   </div>
+   <div class="col-lg-12">
+    <div class="mb-3">
+      <label for="Inputuser-pincode-pp" class="form-label">Pin Code<sup style="color:#d90505">*</sup></label>
+      <input type="text" class="form-control" id="Inputuser-pincode-pp" placeholder="Colony / Street / Locality" required="">
+    
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="mb-3">
+      <label for="Inputuser2-city-pp" class="form-label">City<sup style="color:#d90505">*</sup></label>
+      <select class="form-select" aria-label="Default select " id="Inputuser2-city-pp" placeholder="Write your pincode" required="">
+        <option selected="">Select your City</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="mb-3">
+      <label for="Inputuser2-state-pp" class="form-label">State<sup style="color:#d90505">*</sup></label>
+      <select class="form-select" aria-label="Default select " id="Inputuser2-state-pp">
+        <option selected="">Select your state</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+  </div>
+
+</div>
+</div>
+
+</div>
+
+<button type="submit" class="save-continue-btn">Save &amp; Continue</button>
+  </div>
+</form>
+</div>
+
+</div>
+</div>
+                   </div>
+
+<div class="col-lg-4">
+  
+    <div class="order-summary-box order-summary-box2">
+      <div class="summary-heading"> Order Summary <span>( &nbsp;{{ cart_total_items }}  Item )</span></div>
+      <table class="table table-borderless">
+        
+        <tbody>
+        <tr>
+                              <td>MRP</td>
+                              <td>{{ total_mrp }}</td>
+                            </tr>
+                            <tr>
+                              <td>Delivery</td>
+                              <td style="color:#48ca1a;font-weight:800;">Free</td>
+                            </tr>
+                            {# <tr style="color:#48ca1a;font-weight:600;">
+                              <td>Discount</td>
+                              <td>{{ discount_amt }}</td>
+                            </tr> #}
+          {% for total in totals %}
+
+            {% if loop.last %}
+
+              <tr class="bill-total-sub">
+                <td>{{ total.title }}</td>
+                <td>{{ total.text }}</td>
+              </tr>
+            {% else %}
+            
+                              {% if 'Coupon' in total.title %}
+                                <tr style="color:#48ca1a;font-weight:600;">
+                                  <td>{{ total.title }}</td>
+                                  <td>{{ total.text }}</td>
+                                </tr>
+                              {% else %}
+              <tr>
+                <td>{{ total.title }}</td>
+                <td>{{ total.text }}</td>
+              </tr>
+            {% endif %}
+             
+                            {% endif %}
+          {% endfor %}
+          {# <tr class="even">
+            <td class="bill-sec">Item No</td>
+            <td>1</td>
+    
+          </tr>
+          <tr class="odd">
+            <td class="bill-sec">Item  Total</td>
+            <td>₹24,332</td>
+         
+          </tr>
+          <tr class="even">
+            <td class="bill-sec">Coupon Discount :</td>
+            <td> <span class="free-tag"> ₹-3,131 </span></td>
+         
+          </tr>
+          <tr class="odd">
+            <td class="bill-sec">Order Packing Charges <span><small>( Per Item )</small></span></td>
+            <td>₹332</td>
+            
+      
+          </tr>
+          <tr class="even">
+            <td class="bill-sec">Order Packing Charges <span><small>( Per Item )</small></span></td>
+            <td> <span class="free-tag"> FREE	</span></td>
+            
+      
+          </tr>
+          
+          <tr class="odd">
+            <td class="bill-sec">Taxes <span><small>( Per Item )</small></span></td>
+            <td><span class="free-tag">FREE	</span></td>
+      
+          </tr>
+          <tr class="bill-total-sub even">
+            <td>Bill Total</td>
+            <td>₹50,000</td>
+          </tr> #}
+          
+        </tbody>
+      </table>
+      <div class="save-ammt-con">You will save &nbsp;{{ total_save }} on this order</div>
+      <!-- <button class="procced-next-button" type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Procced </button> -->
+
+      <div class="we-accpt-pay">
+        <div class="heading-acpt">We Accept</div>
+        <div class="pay-way-box"> <img src="catalog/view/javascript/assets/image/icon/visa-pay.jpg" width="100%"></div>
+        <div class="pay-way-box"> <img src="catalog/view/javascript/assets/image/icon/rupay.jpg" width="100%"></div>
+        <div class="pay-way-box"> <img src="catalog/view/javascript/assets/image/icon/master-card.jpg" width="100%"></div>
+        <div class="pay-way-box"> <img src="catalog/view/javascript/assets/image/icon/meastro-card.jpg" width="100%"></div>
+        <div class="pay-way-box"> <img src="catalog/view/javascript/assets/image/icon/netbanking.jpg" width="100%"></div>
+        <div class="pay-way-box"> <img src="catalog/view/javascript/assets/image/icon/wallet.jpg" width="100%"></div>
+
+        <div class="copyright-2">© 2018-2023 Urbanwood.in All rights reserved.</div>
+      </div>
+    </div>
+
+    <div class="sum-order-details">
+      <div> Order  Deatils</div>
+      <div class="the-cart-list my-lg-5"> 
+        {% for product in products %}
+        <div class="mb-3"> 
+          
+          <div class="list-of-cart list-of-cart2">
+            {# <a href="#remove-cart-drop" class="position-absolute top-0 text-black-50 fw-normal fs-6" data-bs-toggle="collapse" style="right:10px;z-index: 9;"><i class="fas fa-times" style="color:#ff8000"></i></a> #}
+            <div class="d-flex align-items-center">
+              <div class="pp-img-cart">
+                <div class="cart-img">
+                <img src="{{ product.thumb }}" class="img-fluid img-responsive">
+              </div>
+              </div>
+              <div class="cart-deatils">
+                <div class="d-sm-flex d-block justify-content-start  align-items-start my-2">
+                  <div class="cart-p-name mx-lg-2 m-0">
+                    {{ product.name }}  <br> 
+                    {# <span class="pp-quality-name">Premium chair </span> #}
+                  </div> 
+                  <div class="price--order price--order-checkout">
+                    <div class="real-amm">{{ product.total }}</div>
+                    {# <div class="dis-amm">₹35,035</div> #}
+                    <div class="off-amm">{{ product.discount }}% OFF</div>
+                  </div>
+                </div>
+                {# <div class="d-md-flex justify-content-between my-2">
+                <div class="quantity-bar">
+                  <div class="countItem">                    
+                    <span class="btn-minus"><span class="fa fa-minus"></span></span>
+                    <input value="1" class="count">
+                    <span class="btn-plus"><span class="fa fa-plus"></span></span>
+            </div>
+                </div>
+                </div> #}
+              </div>
+            </div>
+          </div>
+          {# <div id="remove-cart-drop" class="collapse">
+          <div class="romove cart-pop-bottom">
+         <div class="con-rem">
+          <p>Are you sure you want to remove this item from cart? </p></div>
+           <div class="rem-btn-sec">
+          <button class="btn remove-cart-btn mx-1"> remove</button>
+          <button class=" mx-1 move-wishlist-btn"> move to wishlist</button>
+        </div>
+          </div>
+        </div> #}
+        </div>
+        {% endfor %}       
+        
+        </div>
+    </div>
+  </div>
+
+
+
+
+                      </div>
+                </div>
+         
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="canvasapplycoupon" aria-labelledby="canvasapplycouponLabel" style="background-color: #fff5f0;">
+  <div class="offcanvas-header">
+    <h5 id="canvasapplycouponLabel">Apply Coupons</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="enter-cuopon-code">
+<input type="text" name="coupon" class="form-control enter-coupon-input" placeholder="Enter Your Coupon Code ">
+<butrton class="button-apply-coupon-btn" id="button-coupon" type="submit">Apply</butrton>
+    </div>
+
+    <div class="login-sideslash"> <a href="" class=""> LOGIN </a><span> for Exclusive Offers </span> </div>
+
+    <div class="coupon-heading my-4">Available Coupons</div>
+<!--first coupon -->  <div class="coupon-box">
+<div> <img src="catalog/view/javascript/assets/image/icon/coupon-uw.png" alt="coupon-icon"></div>
+<div class="coupon-content">
+  <div class="d-flex justify-content-between align-items-center"> 
+  <div class="avail-coupon">HAPPY23</div>
+  <button class="aplly-coupon-btn" type="button" data-bs-toggle="modal" onclick="addcoupon('HAPPY23')" ;="" data-bs-target="#couponapplied"> Apply</button>
+</div>  <p>Get Upto <b> &nbsp;5% Flat OFF </b> on Furniture and Decor </p>
+  <button type="button" data-bs-toggle="collapse" data-bs-target="#coupon-avail-details10" aria-expanded="false" aria-controls="coupon-avail-details1" class="avail-coupon-details"> Show details</button>
+
+  <div class="d-block" style="position: absolute; right: -0px; top:15px;">
+    <span class="circle--cc"></span>
+    <span class="circle--cc"></span>
+    <span class="circle--cc"></span>
+    <span class="circle--cc"></span>
+    <span class="circle--cc"></span>
+
+  </div>
+</div>
+    </div>
+    <div class="collapse" id="coupon-avail-details10">
+      <div class="card card-body detail-box-for-coupon">
+        <div class="c-deatil-heading">Applicable Terms &amp; Conditions</div>
+        <ul class="c-detail-list">
+          <li> <i class="fas fa-chevron-right"></i> &nbsp; Get Upto &nbsp;5% Off On Furniture and Decor </li>
+          <li>  <i class="fas fa-chevron-right"></i> &nbsp; Offer valid till &nbsp;2023-12-30 </li>
+          <li>  <i class="fas fa-chevron-right"></i> &nbsp;  Other TnC may apply </li>
+        </ul>
+      </div>
+    </div>  <div class="coupon-box">
+<div> <img src="catalog/view/javascript/assets/image/icon/coupon-uw.png" alt="coupon-icon"></div>
+<div class="coupon-content">
+  <div class="d-flex justify-content-between align-items-center"> 
+  <div class="avail-coupon">EXTRA15</div>
+  <button class="aplly-coupon-btn" type="button" data-bs-toggle="modal" onclick="addcoupon('EXTRA15')" ;="" data-bs-target="#couponapplied"> Apply</button>
+</div>  <p>Get Upto <b> &nbsp;15% Flat OFF </b> on Furniture and Decor </p>
+  <button type="button" data-bs-toggle="collapse" data-bs-target="#coupon-avail-details11" aria-expanded="false" aria-controls="coupon-avail-details1" class="avail-coupon-details"> Show details</button>
+
+  <div class="d-block" style="position: absolute; right: -0px; top:15px;">
+    <span class="circle--cc"></span>
+    <span class="circle--cc"></span>
+    <span class="circle--cc"></span>
+    <span class="circle--cc"></span>
+    <span class="circle--cc"></span>
+
+  </div>
+</div>
+    </div>
+    <div class="collapse" id="coupon-avail-details11">
+      <div class="card card-body detail-box-for-coupon">
+        <div class="c-deatil-heading">Applicable Terms &amp; Conditions</div>
+        <ul class="c-detail-list">
+          <li> <i class="fas fa-chevron-right"></i> &nbsp; Get Upto &nbsp;15% Off On Furniture and Decor </li>
+          <li>  <i class="fas fa-chevron-right"></i> &nbsp; Offer valid till &nbsp;2023-06-12 </li>
+          <li>  <i class="fas fa-chevron-right"></i> &nbsp;  Other TnC may apply </li>
+        </ul>
+      </div>
+    </div>
+    
+
+    
+
+
+  </div>
+</div>
+
+</div>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"></div>
+<script type="text/javascript"><!--
+$(document).on('change', 'input[name=\'account\']', function() {
+	if ($('#collapse-payment-address').parent().find('.panel-heading .panel-title > *').is('a')) {
+		if (this.value == 'register') {
+			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_account }} <i class="fa fa-caret-down"></i></a>');
+		} else {
+			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_address }} <i class="fa fa-caret-down"></i></a>');
+		}
+	} else {
+		if (this.value == 'register') {
+			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('{{ text_checkout_account }}');
+		} else {
+			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('{{ text_checkout_payment_address }}');
+		}
+	}
+});
+
+{% if not logged %}
+$(document).ready(function() {
+    $.ajax({
+        url: '?route=checkout/login',
+        dataType: 'html',
+        success: function(html) {
+           $('#staticBackdrop').html(html).modal('show');
+
+			// $('#collapse-checkout-option').parent().find('.panel-heading .panel-title').html('<a href="#collapse-checkout-option" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_option }} <i class="fa fa-caret-down"></i></a>');
+
+			// $('a[href=\'#collapse-checkout-option\']').trigger('click');
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+{% else %}
+$(document).ready(function() {
+    $.ajax({
+        url: '?route=checkout/payment_address',
+        dataType: 'html',
+        success: function(html) {
+            $('#addressform').html(html);
+
+			$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_address }} <i class="fa fa-caret-down"></i></a>');
+
+			$('a[href=\'#collapse-payment-address\']').trigger('click');
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+{% endif %}
+
+// Checkout
+$(document).delegate('.guestlogin', 'click', function() {
+  var whereto = $(this).attr('data-value');
+    $.ajax({
+        url: '?route=checkout/'+whereto,// + $('input[name=\'account\']:checked').val(),
+        dataType: 'html',
+        beforeSend: function() {
+        	$('.guestlogin').button('loading');
+		},
+        complete: function() {
+			$('.guestlogin').button('reset');
+        },
+        success: function(html) {
+          $('#staticBackdrop').modal('hide');
+        //    $('.alert-dismissible, .text-danger').remove();
+			//$('.form-group').removeClass('has-error');
+
+            $('#addressform').html(html);
+
+			if ($('input[name=\'account\']:checked').val() == 'register') {
+				$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_account }} <i class="fa fa-caret-down"></i></a>');
+			} else {
+				$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_address }} <i class="fa fa-caret-down"></i></a>');
+			}
+
+			$('a[href=\'#collapse-payment-address\']').trigger('click');
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Login
+$(document).delegate('#button-login', 'click', function() {
+    $.ajax({
+        url: '?route=checkout/login/save',
+        type: 'post',
+        data: $('#loginform :input'),
+        dataType: 'json',
+        beforeSend: function() {
+        	$('#button-login').button('loading');
+		},
+        complete: function() {
+            $('#button-login').button('reset');
+        },
+        success: function(json) {
+            $('.alert-dismissible, .text-danger').remove();
+            $('.form-group').removeClass('has-error');
+
+            if (json['redirect']) {
+                location = json['redirect'];
+            } else if (json['error']) {
+                $('#collapse-checkout-option .panel-body').prepend('<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> ' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+
+				// Highlight any found errors
+				$('input[name=\'email\']').parent().addClass('has-error');
+				$('input[name=\'password\']').parent().addClass('has-error');
+		   }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Register
+$(document).delegate('#button-register', 'click', function() {
+    $.ajax({
+        url: '?route=checkout/register/save',
+        type: 'post',
+        data: $('#registerform input[type=\'text\'], #registerform input[type=\'email\'], #registerform input[type=\'password\'], #registerform input[type=\'hidden\'], #registerform input[type=\'checkbox\']:checked, #registerform input[type=\'radio\']:checked, #registerform textarea, #registerform select'),
+        dataType: 'json',
+        beforeSend: function() {
+			$('#button-register').button('loading');
+		},
+        success: function(json) {
+            $('.alert-dismissible, .text-danger').remove();
+            $('.form-group').removeClass('has-error');
+
+            if (json['redirect']) {
+                location = json['redirect'];
+            } else if (json['error']) {
+                $('#button-register').button('reset');
+
+                if (json['error']['warning']) {
+                    $('#collapse-payment-address .panel-body').prepend('<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> ' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                }
+
+				for (i in json['error']) {
+					var element = $('#input-payment-' + i.replace('_', '-'));
+
+					if ($(element).parent().hasClass('input-group')) {
+						$(element).parent().after('<div class="text-danger">' + json['error'][i] + '</div>');
+					} else {
+						$(element).after('<div class="text-danger">' + json['error'][i] + '</div>');
+					}
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+            } else {
+                {% if shipping_required %}
+                var shipping_address = $('#payment-address input[name=\'shipping_address\']:checked').prop('value');
+
+                if (shipping_address) {
+                    $.ajax({
+                        url: '?route=checkout/shipping_method',
+                        dataType: 'html',
+                        success: function(html) {
+							// Add the shipping address
+                            $.ajax({
+                                url: '?route=checkout/shipping_address',
+                                dataType: 'html',
+                                success: function(html) {
+                                    $('#collapse-shipping-address .panel-body').html(html);
+
+									$('#collapse-shipping-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-shipping-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_shipping_address }} <i class="fa fa-caret-down"></i></a>');
+                                },
+                                error: function(xhr, ajaxOptions, thrownError) {
+                                    alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                                }
+                            });
+
+							$('#collapse-shipping-method .panel-body').html(html);
+
+							$('#collapse-shipping-method').parent().find('.panel-heading .panel-title').html('<a href="#collapse-shipping-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_shipping_method }} <i class="fa fa-caret-down"></i></a>');
+
+   							$('a[href=\'#collapse-shipping-method\']').trigger('click');
+
+							$('#collapse-shipping-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_shipping_method }}');
+							$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_payment_method }}');
+							$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                        }
+                    });
+                } else {
+                    $.ajax({
+                        url: '?route=checkout/shipping_address',
+                        dataType: 'html',
+                        success: function(html) {
+                            $('#collapse-shipping-address .panel-body').html(html);
+
+							$('#collapse-shipping-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-shipping-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_shipping_address }} <i class="fa fa-caret-down"></i></a>');
+
+							$('a[href=\'#collapse-shipping-address\']').trigger('click');
+
+							$('#collapse-shipping-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_shipping_method }}');
+							$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_payment_method }}');
+							$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                        }
+                    });
+                }
+                {% else %}
+                $.ajax({
+                    url: '?route=checkout/payment_method',
+                    dataType: 'html',
+                    success: function(html) {
+                        $('#addressform').html(html);
+
+						$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_method }} <i class="fa fa-caret-down"></i></a>');
+
+						$('a[href=\'#collapse-payment-method\']').trigger('click');
+
+						$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                });
+                {% endif %}
+
+                $.ajax({
+                    url: '?route=checkout/payment_address',
+                    dataType: 'html',
+                    complete: function() {
+                        $('#button-register').button('reset');
+                    },
+                    success: function(html) {
+                        $('#addressform').html(html);
+
+						$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_address }} <i class="fa fa-caret-down"></i></a>');
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                });
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Payment Address
+$(document).delegate('#button-payment-address', 'click', function() {
+    $.ajax({
+        url: '?route=checkout/payment_address/save',
+        type: 'post',
+        data: $('#newaddressform input[type=\'text\'], #newaddressform input[type=\'date\'], #newaddressform input[type=\'datetime-local\'], #newaddressform input[type=\'time\'], #newaddressform input[type=\'password\'], #newaddressform input[type=\'checkbox\']:checked, #newaddressform input[type=\'radio\']:checked, #newaddressform input[type=\'hidden\'], #newaddressform textarea, #newaddressform select'),
+        dataType: 'json',
+        beforeSend: function() {
+        	$('#button-payment-address').button('loading');
+		},
+        complete: function() {
+			$('#button-payment-address').button('reset');
+        },
+        success: function(json) {
+            $('.alert-dismissible, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
+
+            if (json['redirect']) {
+                location = json['redirect'];
+            } else if (json['error']) {
+              alert(json['error']['warning']);
+                if (json['error']['warning']) {
+                    $('#collapse-payment-address .panel-body').prepend('<div class="alert alert-warning alert-dismissible">' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                }
+
+				for (i in json['error']) {
+					var element = $('#input-payment-' + i.replace('_', '-'));
+
+					if ($(element).parent().hasClass('input-group')) {
+						$(element).parent().after('<div class="text-danger">' + json['error'][i] + '</div>');
+					} else {
+						$(element).after('<div class="text-danger">' + json['error'][i] + '</div>');
+					}
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().parent().addClass('has-error');
+            } else {
+                {% if shipping_required %}
+                $.ajax({
+                    url: '?route=checkout/shipping_address',
+                    dataType: 'html',
+                    success: function(html) {
+                        $('#collapse-shipping-address .panel-body').html(html);
+
+						$('#collapse-shipping-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-shipping-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_shipping_address }} <i class="fa fa-caret-down"></i></a>');
+
+						$('a[href=\'#collapse-shipping-address\']').trigger('click');
+
+						$('#collapse-shipping-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_shipping_method }}');
+						$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_payment_method }}');
+						$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                }).done(function() {
+					$.ajax({
+						url: '?route=checkout/payment_address',
+						dataType: 'html',
+						success: function(html) {
+							$('#addressform').html(html);
+						},
+						error: function(xhr, ajaxOptions, thrownError) {
+							alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+						}
+					});
+				});
+                {% else %}
+                $.ajax({
+                    url: '?route=checkout/payment_method',
+                    dataType: 'html',
+                    success: function(html) {
+                        $('#addressform').html(html);
+
+						$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_method }} <i class="fa fa-caret-down"></i></a>');
+
+						$('a[href=\'#collapse-payment-method\']').trigger('click');
+
+						$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                }).done(function() {
+					$.ajax({
+						url: '?route=checkout/payment_address',
+						dataType: 'html',
+						success: function(html) {
+							$('#addressform').html(html);
+						},
+						error: function(xhr, ajaxOptions, thrownError) {
+							alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+						}
+					});				
+				});
+                {% endif %}
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Shipping Address
+$(document).delegate('#button-shipping-address', 'click', function() {
+    $.ajax({
+        url: '?route=checkout/shipping_address/save',
+        type: 'post',
+        data: $('#collapse-shipping-address input[type=\'text\'], #collapse-shipping-address input[type=\'date\'], #collapse-shipping-address input[type=\'datetime-local\'], #collapse-shipping-address input[type=\'time\'], #collapse-shipping-address input[type=\'password\'], #collapse-shipping-address input[type=\'checkbox\']:checked, #collapse-shipping-address input[type=\'radio\']:checked, #collapse-shipping-address textarea, #collapse-shipping-address select'),
+        dataType: 'json',
+        beforeSend: function() {
+			$('#button-shipping-address').button('loading');
+	    },
+        success: function(json) {
+            $('.alert-dismissible, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
+
+            if (json['redirect']) {
+                location = json['redirect'];
+            } else if (json['error']) {
+                $('#button-shipping-address').button('reset');
+
+                if (json['error']['warning']) {
+                    $('#collapse-shipping-address .panel-body').prepend('<div class="alert alert-warning alert-dismissible">' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                }
+
+				for (i in json['error']) {
+					var element = $('#input-shipping-' + i.replace('_', '-'));
+
+					if ($(element).parent().hasClass('input-group')) {
+						$(element).parent().after('<div class="text-danger">' + json['error'][i] + '</div>');
+					} else {
+						$(element).after('<div class="text-danger">' + json['error'][i] + '</div>');
+					}
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().parent().addClass('has-error');
+            } else {
+                $.ajax({
+                    url: '?route=checkout/shipping_method',
+                    dataType: 'html',
+                    complete: function() {
+                        $('#button-shipping-address').button('reset');
+                    },
+                    success: function(html) {
+                        $('#collapse-shipping-method .panel-body').html(html);
+
+						$('#collapse-shipping-method').parent().find('.panel-heading .panel-title').html('<a href="#collapse-shipping-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_shipping_method }} <i class="fa fa-caret-down"></i></a>');
+
+						$('a[href=\'#collapse-shipping-method\']').trigger('click');
+
+						$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_payment_method }}');
+						$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+						
+                        $.ajax({
+                            url: '?route=checkout/shipping_address',
+                            dataType: 'html',
+                            success: function(html) {
+                                $('#collapse-shipping-address .panel-body').html(html);
+                            },
+                            error: function(xhr, ajaxOptions, thrownError) {
+                                alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                            }
+                        });
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                }).done(function() {
+					$.ajax({
+						url: '?route=checkout/payment_address',
+						dataType: 'html',
+						success: function(html) {
+							$('#addressform').html(html);
+						},
+						error: function(xhr, ajaxOptions, thrownError) {
+							alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+						}
+					});
+				});
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Guest
+$(document).delegate('#button-guest', 'click', function() {
+    $.ajax({
+        url: '?route=checkout/guest/save',
+        type: 'post',
+        data: $('#addform input[type=\'text\'],#addform input[type=\'email\'], #addform input[type=\'checkbox\']:checked, #addform input[type=\'radio\']:checked, #addform input[type=\'hidden\'], #addressform textarea, #addform select'),
+        dataType: 'json',
+        beforeSend: function() {
+       		$('#button-guest').button('loading');
+	    },
+        success: function(json) {
+            $('.alert-dismissible, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
+
+            if (json['redirect']) {
+                location = json['redirect'];
+            } else if (json['error']) {
+                $('#button-guest').button('reset');
+
+                if (json['error']['warning']) {
+                    $('#collapse-payment-address .panel-body').prepend('<div class="alert alert-warning alert-dismissible">' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                }
+
+				for (i in json['error']) {
+          $('html, body').animate({ scrollTop: 0 }, 'slow');
+          $('body').prepend('<div class="success-popup2"> <span class="warrning-svg"> <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     </svg>  </span> <span class="warrning-text">  <p>'+ json['error'][i] +'</p> </span> </div>');
+					var element = $('#input-payment-' + i.replace('_', '-'));
+
+					if ($(element).parent().hasClass('input-group')) {
+						$(element).parent().after('<div class="text-danger">' + json['error'][i] + '</div>');
+					} else {
+						$(element).after('<div class="text-danger">' + json['error'][i] + '</div>');
+					}
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+            } else {
+                {% if shipping_required %}
+                var shipping_address = $('#collapse-payment-address input[name=\'shipping_address\']:checked').prop('value');
+
+                if (shipping_address) {
+                    $.ajax({
+                        url: '?route=checkout/shipping_method',
+                        dataType: 'html',
+                        complete: function() {
+                            $('#button-guest').button('reset');
+                        },
+                        success: function(html) {
+							// Add the shipping address
+                            $.ajax({
+                                url: '?route=checkout/guest_shipping',
+                                dataType: 'html',
+                                success: function(html) {
+                                    $('#collapse-shipping-address .panel-body').html(html);
+
+									$('#collapse-shipping-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-shipping-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_shipping_address }} <i class="fa fa-caret-down"></i></a>');
+                                },
+                                error: function(xhr, ajaxOptions, thrownError) {
+                                    alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                                }
+                            });
+
+						    $('#collapse-shipping-method .panel-body').html(html);
+
+							$('#collapse-shipping-method').parent().find('.panel-heading .panel-title').html('<a href="#collapse-shipping-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_shipping_method }} <i class="fa fa-caret-down"></i></a>');
+
+							$('a[href=\'#collapse-shipping-method\']').trigger('click');
+
+							$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_payment_method }}');
+							$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                        }
+                    });
+                } else {
+                    $.ajax({
+                        url: '?route=checkout/guest_shipping',
+                        dataType: 'html',
+                        complete: function() {
+                            $('#button-guest').button('reset');
+                        },
+                        success: function(html) {
+                            $('#collapse-shipping-address .panel-body').html(html);
+
+							$('#collapse-shipping-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-shipping-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_shipping_address }} <i class="fa fa-caret-down"></i></a>');
+
+							$('a[href=\'#collapse-shipping-address\']').trigger('click');
+
+							$('#collapse-shipping-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_shipping_method }}');
+							$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_payment_method }}');
+							$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                        }
+                    });
+                }
+                {% else %}
+                $.ajax({
+                    url: '?route=checkout/payment_method',
+                    dataType: 'html',
+                    complete: function() {
+                        $('#button-guest').button('reset');
+                    },
+                    success: function(html) {
+                        $('#addressform').html(html);
+
+						$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_method }} <i class="fa fa-caret-down"></i></a>');
+
+						$('a[href=\'#collapse-payment-method\']').trigger('click');
+
+						$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                });
+                {% endif %}
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Guest Shipping
+$(document).delegate('#button-guest-shipping', 'click', function() {
+    $.ajax({
+        url: '?route=checkout/guest_shipping/save',
+        type: 'post',
+        data: $('#collapse-shipping-address input[type=\'text\'], #collapse-shipping-address input[type=\'date\'], #collapse-shipping-address input[type=\'datetime-local\'], #collapse-shipping-address input[type=\'time\'], #collapse-shipping-address input[type=\'password\'], #collapse-shipping-address input[type=\'checkbox\']:checked, #collapse-shipping-address input[type=\'radio\']:checked, #collapse-shipping-address textarea, #collapse-shipping-address select'),
+        dataType: 'json',
+        beforeSend: function() {
+        	$('#button-guest-shipping').button('loading');
+		},
+        success: function(json) {
+            $('.alert-dismissible, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
+
+            if (json['redirect']) {
+                location = json['redirect'];
+            } else if (json['error']) {
+                $('#button-guest-shipping').button('reset');
+
+                if (json['error']['warning']) {
+                    $('#collapse-shipping-address .panel-body').prepend('<div class="alert alert-danger alert-dismissible">' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                }
+
+				for (i in json['error']) {
+					var element = $('#input-shipping-' + i.replace('_', '-'));
+
+					if ($(element).parent().hasClass('input-group')) {
+						$(element).parent().after('<div class="text-danger">' + json['error'][i] + '</div>');
+					} else {
+						$(element).after('<div class="text-danger">' + json['error'][i] + '</div>');
+					}
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+            } else {
+                $.ajax({
+                    url: '?route=checkout/shipping_method',
+                    dataType: 'html',
+                    complete: function() {
+                        $('#button-guest-shipping').button('reset');
+                    },
+                    success: function(html) {
+                        $('#collapse-shipping-method .panel-body').html(html);
+
+						$('#collapse-shipping-method').parent().find('.panel-heading .panel-title').html('<a href="#collapse-shipping-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_shipping_method }} <i class="fa fa-caret-down"></i>');
+
+						$('a[href=\'#collapse-shipping-method\']').trigger('click');
+
+						$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('{{ text_checkout_payment_method }}');
+						$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                });
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+$(document).delegate('#button-shipping-method', 'click', function() {
+    $.ajax({
+        url: '?route=checkout/shipping_method/save',
+        type: 'post',
+        data: $('#collapse-shipping-method input[type=\'radio\']:checked, #collapse-shipping-method textarea'),
+        dataType: 'json',
+        beforeSend: function() {
+        	$('#button-shipping-method').button('loading');
+		},
+        success: function(json) {
+            $('.alert-dismissible, .text-danger').remove();
+
+            if (json['redirect']) {
+                location = json['redirect'];
+            } else if (json['error']) {
+                $('#button-shipping-method').button('reset');
+
+                if (json['error']['warning']) {
+                    $('#collapse-shipping-method .panel-body').prepend('<div class="alert alert-danger alert-dismissible">' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                }
+            } else {
+                $.ajax({
+                    url: '?route=checkout/payment_method',
+                    dataType: 'html',
+                    complete: function() {
+                        $('#button-shipping-method').button('reset');
+                    },
+                    success: function(html) {
+                        $('#addressform').html(html);
+
+						$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_method }} <i class="fa fa-caret-down"></i></a>');
+
+						$('a[href=\'#collapse-payment-method\']').trigger('click');
+
+						$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                });
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+$(document).delegate('#button-payment-methods', 'click', function() {
+  $.ajax({
+                    url: '?route=checkout/payment_method',
+                    dataType: 'html',
+                    complete: function() {
+                        $('#button-shipping-method').button('reset');
+                    },
+                    success: function(html) {
+                        $('#addressform').html(html);
+
+						$('#collapse-payment-method').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-method" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_payment_method }} <i class="fa fa-caret-down"></i></a>');
+
+						$('a[href=\'#collapse-payment-method\']').trigger('click');
+
+						$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                });
+});
+$(document).delegate('#button-payment-method', 'click', function() {
+    $.ajax({
+        url: '?route=checkout/payment_method/save',
+        type: 'post',
+        data: $('#addressform input[type=\'radio\']:checked, #addressform input[type=\'checkbox\']:checked, #addressform textarea'),
+        dataType: 'json',
+        beforeSend: function() {
+         	$('#button-payment-method').button('loading');
+		},
+        success: function(json) {
+            $('.alert-dismissible, .text-danger').remove();
+//console.log(json);
+            if (json['redirect']) {
+                location = json['redirect'];
+            } else if (json['error']) {
+                $('#button-payment-method').button('reset');
+                
+                if (json['error']['warning']) {
+                    $('html, body').animate({ scrollTop: 0 }, 'slow');
+                    $('body').prepend('<div class="success-popup2"> <span class="warrning-svg"> <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     </svg>  </span> <span class="warrning-text">  <p>'+ json['error']['warning'] +'</p> </span> </div>');
+                    // $('#collapse-payment-method .panel-body').prepend('<div class="alert alert-danger alert-dismissible">' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                }
+            } else {
+                $.ajax({
+                    url: '?route=checkout/confirm',
+                    dataType: 'html',
+                    complete: function() {
+                        $('#button-payment-method').button('reset');
+                    },
+                    success: function(html) {
+                        $('#addressform').html(html);
+
+						$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('<a href="#collapse-checkout-confirm" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_confirm }} <i class="fa fa-caret-down"></i></a>');
+
+						$('a[href=\'#collapse-checkout-confirm\']').trigger('click');
+					},
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                });
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+//--></script>
+{{ footer }}

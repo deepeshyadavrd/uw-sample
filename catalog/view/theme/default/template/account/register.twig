@@ -1,0 +1,92 @@
+{{ header }}
+
+{{ menu }}
+<style>
+.login-reg-sec{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 74vh;
+    background: linear-gradient(90deg, #f9d6b317, #fc7e0038);
+}
+.login-reg-sec .container{
+    position: relative;
+    width: 850px;
+    /* height: 510px; */
+    background: #fff;
+    margin: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .2);
+    overflow: hidden;
+}
+.login-reg-sec .signin-form-popup2 {
+    padding: 11px;
+    margin: 26px 0px;
+}
+form{ width: 100%; }
+label{
+  color: black;
+}
+</style>
+<section class="login-reg-sec">
+  <div class="container">
+  <div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-6 width-30" style="padding:0">
+      <div class="login-side" style="height:100%">
+        <img src="catalog/view/javascript/assets/image/popupimg/slider1.png" class="img-responsive" style="width:100%; height:100%;">
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-6 width-70">
+      <div class="signin-form-popup2 signupform1 selected">
+      <div class="from-header">
+        <h6> Start journey with us <br> <span> Create an Account </span> </h6>
+      </div>
+      <div class="popup-signform">
+        <form method="post"  action="?route=account/register">
+          <div class="row" >
+            <div class="col-md-6 col-lg-6 ">
+              <label for="firstname">Firstname:</label>
+              <input type="name" name="firstname" class="form-control mt-0 mb-3" id="exampleInputFirstname" placeholder="Enter your first name" required="" >
+            </div>
+            <div class="col-md-6 col-lg-6 ">
+              <label for="lastname">Lastname:</label>
+              <input type="text" name="lastname" class="form-control mt-0 mb-3" id="exampleInputlastname" placeholder="Enter your last name" required="">
+            </div> 
+            <div class="col-md-12 ">
+              <label for="email">Email:</label>
+              <input type="email" name="email" class="form-control mt-0 mb-3" id="giveInputEmail1" placeholder="Enter your email address" required="">
+            </div>
+            <div class="col-md-12 ">
+              <label for="telephone">Contact:</label>
+              <input type="tel" name="telephone" class="form-control mt-0 mb-3" id="giveInputnumber" placeholder="Enter your contact number" required="" maxlength="10" pattern=".{9,}" title="10 digits">
+            </div>
+            <div class="col-md-12">
+              <label for="password">Password:</label>
+              <input type="password" name="password" class="form-control password mt-0 mb-3" autocomplete="current-password" required="" id="id_password" placeholder="Enter new password">
+              <i class="far fa-eye" id="togglePassword"></i>
+            </div>
+            <div class="col-md-12">
+              <label for="confirm">Confirm password:</label>
+              <input type="password" name="confirm" class="form-control password mt-0 mb-3" autocomplete="current-password" required="" id="id_password" placeholder="Confirm your password">
+              <i class="far fa-eye" id="togglePassword"></i>
+            </div>
+            <div class="d-block">
+              <button type="submit" class="login-btn-popup">Sign up</button>
+              {# <div class="d-flex justify-content-center align-items-center my-1">
+                <span class="line"></span><p class="or-way-tolog">OR Sign with</p> <span class="line"></span>
+              </div>
+              <div class="d-flex justify-content-center align-items-center my-1">
+                <img src="./assets/image/icon/g-icon.png" alt="" width="30" class="mx-1">
+                <img src="./assets/image/icon/f-icon.png" alt="" width="30" class="mx-1">
+              </div> #}
+              <p class="text-center dont-accont mb-0">Already Have an Account ? <a href="?route=account/login">Sign in Now</a></p>
+            </div>
+          </div>
+        </form>
+      </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+{{ footer }}

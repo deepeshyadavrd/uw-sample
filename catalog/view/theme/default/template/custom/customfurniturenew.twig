@@ -1,0 +1,1568 @@
+{{ header }}
+{{ menu }}
+  <style>
+    /**{
+        box-sizing: border-box;
+        margin:0;
+        padding: 0;
+        list-style: none;
+    }*/
+    :root{
+       
+        --primaery-text-color:#434342;
+        --secondery-text-color:#8a8a8a;
+        --special_color:#fc7f03;
+        --white-color-text:#fff;
+    }
+
+  body{
+    --banner-heading:5rem;
+    --heading-text-size:2.5rem;
+    --Paragraph_text-size:16px;
+    --section-padding:1rem 0;
+    --section-margin:1rem 0;
+  }  
+.headbanner {
+    background-image: url(catalog/view/javascript/assets/image/img/customfurniturebanner.jpg);
+    padding: 2rem 0;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.headbanner h6{
+    font-size: var(--banner-heading);
+
+}
+.headbanner h6 span{
+color:var(--special_color);
+font-weight: 100;
+}
+.headbanner p {
+    color: #FFF;
+    font-size: var(--Paragraph_text-size);
+    margin: 0;
+}
+/* .headbanner ul{
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    width: 100%;
+} */
+.headbanner ul li {
+    color: #fff;
+    /* font-size: var(--Paragraph_text-size); */
+    text-transform: uppercase;
+    font-weight: 500;
+    float: left;
+    /* padding-left: 0px; */
+    margin: 10px 0px;
+}
+.form-outer {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    /* border: 1px solid #efefef; */
+}
+/* .form-outer h6 {
+    font-size: 1.3rem;
+    margin: .5rem 0;
+} */
+.form-outer span{
+    color:#ff7800;
+    /* font-size: 1rem; */
+}
+.form-outer input[type=name], .form-outer input[type=email], .form-outer input[type=text], .form-outer select, .form-outer textarea, .form-outer input[type=file]{
+border:1px solid #bed1ff;
+}
+.form-outer input:placeholder,.form-outer select {
+    color:var(--secondery-text-color)
+}
+.form-outer input[type=name]:focus,
+.form-outer input[type=email]:focus,
+.form-outer input[type=text]:focus,
+.form-outer select:focus,
+.form-outer textarea:focus,
+.form-outer input[type=file]:focus {
+    /* outline: 0px; Remove default outline */
+     box-shadow: 0 0 5px rgba(81, 203, 238, 1); /* Add custom focus style */
+    border: 1px solid rgba(81, 203, 238, 1); /* Optional: Add border */
+}
+
+.cusstom-img {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+}
+.cusstom-img input[type=file] {
+    width: 300px;
+    max-width: 100%;
+    color:var(--secondery-text-color);
+    padding: 2px;
+    background: var(--white-color-text);
+    border: 1px solid #bed1ff;
+}
+
+.cusstom-img input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background:#6990f2;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: var(--white-color-text);
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+.cusstom-img input[type=file]::file-selector-button:hover {
+  background: #0d45a5;
+}
+.cusstom-img span {
+    color:#ff9696;
+    font-size: .8rem;
+    margin-left:10px
+}
+.submit-btn {
+    background: #ff7800;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    color:var(--white-color-text);
+    font-size: var(--Paragraph_text-size);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.breadcumb-navigation {
+    display: block;
+    bottom: 15px;
+    position: absolute;
+}
+.breadcumb-navigation .breadcrumb-item {
+    position: relative;
+    margin: 0;
+    padding: 0 18px;
+    font-size:var(--Paragraph_text-size);
+    color:var(--white-color-text);
+}
+.breadcumb-navigation .breadcrumb-item:first-child{
+    padding-left: 0;
+}
+
+.breadcumb-navigation .breadcrumb-item i{
+    color: var(--special_color);
+}
+.breadcumb-navigation .breadcrumb-item:after {
+    position: absolute;
+    content: "\f054";
+    font-family: 'font awesome\ 5 free';
+    font-weight: 900;
+    top: 7px;
+    right: -8px;
+    width: 10px;
+    height: 10px;
+    background-repeat: no-repeat;
+    font-size: 8px;
+    color: var(--white-color-text);
+}
+.breadcumb-navigation .breadcrumb-item:last-child::after {
+    display: none;
+}
+.breadcrumb-item+.breadcrumb-item::before{
+    display: none;
+}
+.page-globel{
+    padding: var(--section-padding);
+    margin:var(--section-margin)
+}
+.heading-all {
+    color: var(--primaery-text-color);
+    font-size: var(--heading-text-size);
+    font-weight: 600;
+    /* margin-bottom: 1rem; */
+}
+.heading-all span {
+    font-size: 16px;
+    font-weight: 400;
+}
+.page-globel p{
+    color: var(--secondery-text-color);
+    font-size: var(--Paragraph_text-size);
+}
+.process-icon {
+    display: flex;
+    border: 1px solid #f3f3f3;
+    padding: 1.5rem 1rem;
+    border-radius: 14px;
+}
+.process-icon .box-process {
+    position: relative;
+    width: calc(100% / 4);
+    border-radius: 15px;
+    padding: 10px;
+    border: 1px solid #f1f1f1;
+    text-align: center;
+    margin: 0px 8px;
+}
+.process-icon .box-process img{
+    width: 60%;
+}
+.process-icon .box-process p {
+    margin-block: 10px;
+    color:var(--secondery-text-color);
+    font-size: var(--Paragraph_text-size);
+}
+.badge-num {
+    background: red;
+    font-size: .6rem;
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    text-shadow: 2px 2px #363636;
+}
+.pricing-outer {
+    margin: 2rem 0 0 0;
+    border: 1px solid #ebebeb;
+    padding: 2rem;
+}
+.pricing-module{
+    display: block;
+    width: 100%;
+}
+.price {
+    padding: 0;
+    width: 70%;
+    display: flex;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+}
+
+.price .header {
+    border: none;
+}
+.price .header, .price .header p {
+  font-size: 18px;
+  color:var(--primaery-text-color);
+  font-weight: 600;
+}
+.price li {
+    padding: 0px;
+    margin: 10px 0px;
+    float: left;
+    width: 30%;
+}
+.price li label {
+    font-size: 1.3rem;
+    margin: 0px;
+    padding: 15px;
+    font-weight: 600;
+    width: 100%;
+}
+li.ux-mdl_li {
+    border: 1px solid #e6edff;
+    border-radius: 10px;
+    box-shadow: 1px 3px 10px #e3e3e3;
+    margin-left: 19px;
+}
+.price li span {
+    display: block;
+    padding: 15px 20px;
+    border: 1px solid #e6edff;
+    line-height: 40px;
+    border-radius: 0px;
+    margin: 13px 0px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.price .grey {
+    background-color: #f3f3f3;
+    font-size: 20px;
+    border-radius: 0px 10px 10px 0px;
+}
+.header-uw-li {
+    background: #fffcf7;
+    color: var(--special_color);
+    border-radius: 10px 10px 0px 0px ;
+}
+.ux-mdl {
+    margin: 0px !important;
+    border-bottom: 1px solid #e6edff !important;
+    border-radius: 0px !important;
+    border-right: none !important;
+    border-left: none !important;
+    border-top: none !important;
+    padding: 1.5rem !important;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.customise-now {
+    background: #ff7800;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+}
+.box-1 {
+    border-radius: 10px;
+    background: #f9f9f9;
+    text-align: center;
+    padding: 30px;
+    border: 1px solid #f1f1f1;
+}
+.box-1 img {
+    width: 75px;
+    height: 75px;
+    background: #ffffff;
+    border: 1px solid #f3f3f3;
+    padding: 10px;
+    border-radius: 6px;
+}
+.box-1 .sec-heading-pp {
+    color: var(--primaery-text-color);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 12px 0px;
+}
+.box-1 p{
+    font-size:var(--Paragraph_text-size);
+    color:var(--secondery-text-color);
+
+}
+/*--- slick slider ---*/
+
+.slick-slide img {
+    width: 100%;
+}
+
+.slick-slider
+{
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+            user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+        touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list
+{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus
+{
+    outline: none;
+}
+.slick-list.dragging
+{
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list
+{
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+.slick-slide{
+  margin: 0;
+}
+.slick-track
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+}
+.slick-track:before,
+.slick-track:after
+{
+    display: table;
+    content: '';
+}
+.slick-track:after
+{
+    clear: both;
+}
+.slick-loading .slick-track
+{
+    visibility: hidden;
+}
+
+.slick-slide
+{
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+[dir='rtl'] .slick-slide
+{
+    float: right;
+}
+.slick-slide img
+{
+    display: block;
+}
+.slick-slide.slick-loading img
+{
+    display: none;
+}
+.slick-slide.dragging img
+{
+    pointer-events: none;
+}
+.slick-initialized .slick-slide
+{
+    display: flex;
+}
+.slick-loading .slick-slide
+{
+    visibility: hidden;
+}
+.slick-vertical .slick-slide
+{
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+/*---- end slick slider----*/
+
+.whatsappsection {
+    background:#424241;
+}
+.whatsappsection .chatting-img{
+    margin-top: 46px;
+    width: 100%;
+}
+.wtsap-heading{
+    font-size: 3rem;
+    font-weight: 200;
+}
+.text-big {
+    font-size: 3.5rem !important;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.right-whastapp {
+    padding: 0rem 4rem;
+    margin-top: 2rem;
+}
+.chat-now {
+    background: #21cf6b;
+    padding: 9px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #242424;
+    font-size: 1.5rem;
+    font-weight: 600;
+    width: 50%;
+    margin: 2rem 0;
+}
+.chat-now img {
+    width: 21px;
+    margin-right: 10px;
+}
+.chat-now:hover{
+    background: #21cf6b;
+    color:#242424;
+}
+/*--========grid image =========---*/
+
+
+
+/* Create four equal columns that sits next to each other */
+.row-1 {
+    display: -ms-flexbox !important;
+    display: flex;
+    -ms-flex-wrap: wrap !important;
+    flex-wrap: wrap !important;
+    padding: 0 0px;
+    width: 100%;
+    margin: 0px;
+}
+.column {
+    -ms-flex: 25%;
+    flex: 25%;
+    max-width: 100%;
+    padding: 0 0px;
+    width: 100%;
+    margin: 0px;
+    height: 574px;
+    display: flex;
+}
+.img-grid {
+    width: 100%;
+    height: 100%;
+    transition: all ease-in-out .5s;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+.img-grid img {
+    margin-top: 8px;
+    vertical-align: middle;
+    max-width: 100%;
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+}
+.img-grid .img-content {
+    position: absolute;
+    bottom: 90px;
+    width: 100%;
+    top: auto;
+    padding: 0px 30px;
+}
+.img-grid .img-content h6{
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color:#fff;
+}
+.img-grid .img-content hr{
+    background: #fff;
+    border: 1px solid #fff;
+    width: 100%;
+}
+.img-grid .img-content span{
+    text-align: end;
+    float: right;
+    color:#fff;
+}
+.card-img-overlay {
+    background: #00000094;
+    position: absolute;
+    top: auto;
+    right: 0;
+    bottom: -5px;
+    left: 0;
+    padding: 6rem;
+    border-radius: calc(.25rem - 1px);
+    filter: blur(23px);
+}
+
+
+/*--- custom --*/
+.client-comment p {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0px;
+    color: #a3a3a3;
+}
+.client-box {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 7px #5b5b5b30;
+    padding: 10px;
+    margin: .7rem .8rem;
+
+}
+.client-img-cstm {
+    border-radius: 10px;
+    position: relative;
+    width: 20%;
+    display: block;
+}
+
+.client-content {
+    width: 80%;
+}
+
+.client-img-cstm img {
+    max-width: 70px;
+    width: 70px;
+    min-width: 70px; 
+    min-height: 70px;
+    height: 70px;
+}
+.see-product-btn{
+  font-size: 12px;
+  margin: 10px 0px;
+  padding: 8px 15px;
+}
+.client-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.client-name span {
+    font-size: 13px;
+    color: #434342;
+    font-weight: 600;
+    margin: 0px;
+}
+.rating{
+    padding: 0px;
+    margin:0px;
+    line-height: 1;
+}
+.rating span i{
+  color:green;
+   background:-webkit-linear-gradient(#efff00, #fc7e00);
+  -webkit-background-clip: text;
+   background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family:"Font Awesome 6 Free";
+  font-size: 10px;
+}
+.client-comment {
+    max-height: 48px;
+    scroll-behavior: auto;
+    overscroll-behavior-y: auto;
+    overflow-y: scroll;
+}
+
+.client-comment::-webkit-scrollbar{
+	width: 1px
+}
+.client-comment::-webkit-scrollbar-track{
+	background: rgba(216, 216, 216, 0.04)
+}
+.client-comment::-webkit-scrollbar-thumb{
+	background: #d4f6ff}
+
+.partner-logo-list {
+    width: 100%;
+    height: 100px;
+    display: flex;
+}
+.partner-logo-list span {
+    float: left;
+    width: 50%;
+    margin: 0px 20px;
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+}
+
+.partner-logo-list span img {
+    width: 100%;
+}
+/*--media query ---*/
+
+@media (max-width: 1024px){
+    body {
+    --banner-heading: 4rem;
+    --heading-text-size: 1.7rem;
+    --Paragraph_text-size: 14px;
+    --section-padding: .5rem 0;
+    --section-margin: .5rem 0;
+}
+.chat-now {
+    font-size: 1rem;
+    margin: 1rem 0;
+}
+.pricing-outer {
+    margin: 2rem 0 0 0;
+    padding: 2rem;
+}
+.price {
+    width: 90%;
+}
+.text-big {
+    font-size: 2.5rem !important;
+}
+.right-whastapp {
+    padding: 0rem 4rem;
+}
+.wtsap-heading.text-white {
+    font-size: 2rem;
+}
+.box-1 {
+    padding: 18px;
+}
+.column {
+    height: 384px;
+}
+.img-grid .img-content {
+    bottom: 22px;
+    padding: 0px 12px;
+}
+.img-grid .img-content h6 {
+    font-size: 20px;
+}
+}
+@media (max-width: 768px)
+{
+    .reverse-row-cl {
+        flex-direction: column-reverse;
+    }
+    .img-grid .img-content h6 {
+        font-size: 13px;
+    }
+ .breadcumb-navigation {
+    bottom: auto;
+}
+.form-outer {
+    margin-top: 3rem;
+}
+.cusstom-img {
+    flex-direction: column;
+}
+.cusstom-img input[type=file] {
+    width: 100%;
+}
+.cusstom-img span {
+    text-align: left;
+    width: 100%;
+}
+.pricing-outer {
+        margin: 1rem 0 0 0;
+        padding: 1rem;
+    }
+    .price {
+        width: 100%;
+    }
+    .price li label {
+    font-size: 1.1rem;
+}
+    .price .header, .price .header p {
+    font-size: 16px;
+}
+.price .grey {
+    font-size: 16px;
+}
+.right-whastapp {
+        text-align: center;
+}
+.box-1 img {
+    width: 60px;
+    height: 60px;
+}
+.box-1 {
+        padding: 8px;
+    }
+    .column {
+        height: 280px;
+    }
+    .client-content{
+        width: 70%;
+    }
+
+.client-img-cstm{
+    width:30%
+}
+.rating span i{
+    font-size: 8px;
+}
+.width-50 {
+    width: 50%;
+    margin-bottom: 1rem;
+}
+.partner-logo-list {
+    scroll-behavior: smooth;
+    overflow-x: scroll;
+    height: 50px;
+    overflow-y: hidden;
+    display: flex;
+}
+.partner-logo-list span {
+    width: 27%;
+}
+.partner-logo-list span img {
+    width: 100px;
+}
+}
+@media (max-width: 425px){
+    body {
+        --banner-heading: 3rem;
+    }
+    .h5, h5 {
+    font-size: 1rem;
+}
+
+.form-outer span {
+    font-size: .9rem;
+}
+    .img-grid .img-content h6 {
+        font-size: 16px;
+    }
+.heading-all span {
+    font-size: 14px;
+}
+.breadcumb-navigation .breadcrumb-item:after {
+    top: 5px;
+}
+    .right-whastapp {
+        padding: 0rem 0rem;
+        text-align: center;
+    }
+    .chat-now{
+        margin: 0rem 0;
+    }  
+    .text-big {
+        font-size: 1.7rem !important;
+    }
+    .column {
+        -ms-flex: 25% !important;
+        flex: 100%;
+        max-width: 100%;
+        padding: 0 0px;
+        width: 100%;
+        margin: 0px;
+        display: flex;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 20px;
+    }
+    .img-grid {
+        width: 100%;
+        height: 100%;
+        flex: 50%;
+        min-width: 100%;
+    }
+    .img-grid img {
+    max-width: max-content;
+}
+
+.ourpartner ul li{
+    width: 165px;
+    border: 1px solid #ececec;
+    height: 160px;
+    text-align: center;
+    padding: 0;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.process-icon {
+    display: inline-block;
+    padding: 1rem;
+}
+.process-icon .box-process {
+    width: 46%;
+    margin: 6px 6px;
+    float: left;
+}
+.wtsap-heading.text-white {
+        font-size: 1.5rem;
+    }
+    .chat-now {
+    width: 90%;
+}
+.chat-now img {
+    width: 17px;
+}
+.chat-now {
+    padding: 4px;
+    font-size: 1rem;
+}
+}
+
+
+@media (max-width: 320px){
+   body {
+        --banner-heading: 2.5rem;
+        --heading-text-size: 1rem;
+        --Paragraph_text-size: 12px;
+    }
+    .process-icon .box-process {
+        width: 45.4%;
+    }
+
+.box-1 .sec-heading-pp {
+    font-size: 15px;
+    margin: 2px 0px;
+}
+
+}
+@media only screen and (max-width: 600px) {
+  .columns {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+    <div class="warpper">
+    <section class="headbanner" id="headersec">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h6 class="text-white"><span>Design Your </span>  <br>
+                    Custom Order</h6>
+                    <p>Share your Design Idea & Our Expert will Get Back With The Best Possible Custom Made Furniture  Suggestions Online</p>
+                    <ul>
+                        <li>Size &nbsp; | &nbsp;</li>
+                        <li>DESIGN &nbsp; | &nbsp;</li>
+                        <li>Finishing &nbsp; | &nbsp;</li>
+                        <li>Meterials   </li>
+                    </ul>
+
+            </div>
+            <div class="col-lg-6">
+                <div class="form-outer">
+                    <span>Crafted by you</span>
+                    <h5>Fill details for your custom furniture </h5>
+                <form class="row" id="customizedetails"> 
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                      <input type="name" class="form-control" id="inputname" name="name" placeholder="Enter your full name">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                        <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Enter your email">
+                      </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                      <input type="text" class="form-control" id="inputphone" name="mobile" placeholder="Enter your contact">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12  mb-3 ">
+                      <select name="state" id="state" name="state" class="form-control" required>
+			                <option value="">Select state</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                            <option value="Daman and Diu">Daman and Diu</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Lakshadweep">Lakshadweep</option>
+                            <option value="Puducherry">Puducherry</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="West Bengal">West Bengal</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-12 col-md-6 col-sm-12  mb-3 ">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="comment" name="message" rows="3"></textarea>
+                    </div>
+                    <div class="col-lg-12 col-md-6 col-sm-12  mb-3 ">
+
+                    <div class="cusstom-img">
+                    <input type="file"  class="form-control" id="InputFile1" name="customImage" placeholder="Upload your image" aria-describedby="supooertfile">
+                    <span id="supooertfile">Supported file JPG, PDF PNG</span>
+                    </div>
+                    </div>
+                    <div class="col-lg-12 col-md-6 col-sm-12  mb-3 ">
+                    <button type="button" class="submit-btn" onclick="customRequest('customizedetails', 'submitbtn')">Send Request</button>
+                </div>
+                  </form>
+                </div>
+            </div>
+            
+          
+        </div>
+    </div>
+        </section>
+     
+<section class="process_section page-globel">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6"><div class="content-sec-forcustom-process">
+            <h1 class="heading-all"><span>MODERN CUSTOM  FURNITURE </span><br>
+                MADE TO ORDER OF YOUR CHOICE
+            </h1>
+            <p>UrbanWood is an online furniture store offering exclusive custom-made & ready to order furniture with the "Best price & Quality" standards in the market. We extend you the chance to make wonderful and moving interiors utilizing your dream furniture one that mirrors your style and energy forever. We make and customize furniture to suit and supplement your
+                home and lifestyle.</p>
+        </div>
+    </div>
+        <div class="col-lg-6">
+           <div class="process-icon">
+            <div class="box-process box-4"><img src="catalog/view/javascript/assets/image/img/icon/brainstorming.gif" alt="">
+                <span class="position-absolute top-0 start-0">
+<img src="catalog/view/javascript/assets/image/img/icon/1.svg" alt="">
+              </span> <p>Share your Idea</p></div>
+            <div class="box-process box-4"><img src="catalog/view/javascript/assets/image/img/icon/design.gif" alt=""><span class="position-absolute top-0 start-0">
+                <img src="catalog/view/javascript/assets/image/img/icon/2.svg" alt="">
+                              </span>
+                <p>Designing</p></div>
+            <div class="box-process box-3"><img src="catalog/view/javascript/assets/image/img/icon/sofa.gif" alt=""> <span class="position-absolute top-0 start-0">
+                <img src="catalog/view/javascript/assets/image/img/icon/3.svg" alt="">
+                              </span> <p>Manufacturing</p></div>
+            <div class="box-process box-4"><img src="catalog/view/javascript/assets/image/img/icon/delivery-truck2.gif" alt=""> <span class="position-absolute top-0 start-0">
+                <img src="catalog/view/javascript/assets/image/img/icon/4.svg" alt="">
+                              </span> <p>Delivery</p></div>
+           </div>
+            
+        </div>
+    </div>
+</div>
+</section>
+
+<section class="pricing-module page-globel">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="heading-all"><span>Why?</span><br> Urbanwood
+                </h2>
+                <div class="pricing-outer d-md-block d-none">
+                         
+                            <ul class="price">
+                                <li>
+                                    <label  class="header">Process</label>
+                                <span> Manufacturer</span>
+                                <span>Wholesaler </span>
+                                <span>Retailer </span>
+                                <span>Customer</span>
+                                </li>
+                                <li>
+                                 <label  class="header">The Market Model</label>
+                                <span class="grey "> Rs 500</span>
+                                <span class="grey ">Rs 700 </span>
+                                <span class="grey ">Rs 1000</span>
+                                <span class="grey ">Rs 2000</span>
+                                </li>
+                                <li class="ux-mdl_li">
+                                    <label class="header-uw-li">The Urbanwood Model</label>
+                                   <span class="ux-mdl"> Rs 500</span>
+                                   <span class="ux-mdl" style="color:red">X </span>
+                                   <span class="ux-mdl" style="color:red" >X</span>
+                                   <span class="ux-mdl">Rs 500</span>
+                                   </li>
+                                   
+                            </ul>
+                    <p>Your furniture leaves the care of craftsmen and is <br>
+                        delivered to your doorstep. No middlemen, no hidden costs!</p>
+                        <button class="customise-now" onClick="document.getElementById('headersec').scrollIntoView();">Customise Now</button>
+                </div>
+                <img src="catalog/view/javascript/assets/image/img/customfurniture-costchargetable.jpg" alt="" class="img-fluid d-md-none d-block">
+                <img src="catalog/view/javascript/assets/image/img/customfurniture-costchargetable2.jpg" alt="" class="img-fluid d-md-none d-block">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="how-we-do page-globel py-0 my-0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3 class="heading-all">Already customized
+                </h3>
+            
+            </div>
+            <div class="popularitems slider" dir="rtl">
+                <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-1.jpg"></div>
+                <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-2.jpg"></div>
+                <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-3.jpg"></div>
+                <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-4.jpg"></div>
+                <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-5.jpg"></div>
+                <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-6.jpg"></div>
+                <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-7.jpg"></div>
+                <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-8.jpg"></div>
+                <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-9.jpg"></div>
+              </div>
+             <div class="popularitems2 slider">
+              <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-10.jpg"></div>
+              <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-11.jpg"></div>
+              <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-12.jpg"></div>
+              <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-13.jpg"></div>
+              <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-14.jpg"></div>
+              <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-15.jpg"></div>
+              <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-16.jpg"></div>
+              <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-17.jpg"></div>
+              <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-18.jpg"></div>
+             </div>
+        </div>
+    
+</section>
+
+<section class="whatsappsection">
+    <div class="container">
+        <div class="row reverse-row-cl">
+            <div class="col-lg-6"> <img src="catalog/view/javascript/assets/image/img/whatsappchat.png" alt="" class="img-fluid chatting-img" width="100%" height="100%"></div>
+            <div class="col-lg-6">
+                <div class="right-whastapp">
+                   <h4 class="wtsap-heading text-white ">Instant <b>Chat</b> With 
+                    <br> Our <b>Expert</b> for your<br> <span class="text-big">Custominsation</span> </h4>
+                    <a href="https://wa.me/919311662426" type="button" class="chat-now"><img src="catalog/view/javascript/assets/image/img/icon/whatsapp.png" alt="">Chat now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+ <section class="uw-feasture page-globel">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h5 class="heading-all"><span>We personalize</span><br>
+                    Your Furniture Completely!
+                </h5>
+            </div>
+   <div class="col-lg-3 col-md-3 col-sm-12 width-50"><div class="box-1"><img src="catalog/view/javascript/assets/image/img/icon/wood.png" alt="" class="src"><div class="sec-heading-pp">Wood</div><p>Pick from the vast range of sturdy furniture woods for elegant and solid wood looking furniture</p></div></div>
+   <div class="col-lg-3 col-md-3 col-sm-12 width-50"><div class="box-1"><img src="catalog/view/javascript/assets/image/img/icon/furnitures.png" alt="" class="src"><div class="sec-heading-pp">Style</div><p>Get a unique design of your choice with personalized look and feel to your Dream furniture.</p></div></div>
+   <div class="col-lg-3 col-md-3 col-sm-12 width-50"><div class="box-1"><img src="catalog/view/javascript/assets/image/img/icon/finish.png" alt="" class="src"><div class="sec-heading-pp">Finish</div><p>The right finishing gives elegant and alluring look and feel to your furniture design.</p></div></div>
+   <div class="col-lg-3 col-md-3 col-sm-12 width-50"><div class="box-1"><img src="catalog/view/javascript/assets/image/img/icon/fabric.png" alt="" class="src"><div class="sec-heading-pp">Fabric</div><p>Enhance your living space with amazing fabric designs and material of your furniture.</p></div></div> 
+            
+            
+        </div>
+    </div>
+</section>
+
+
+<section class="custom-review-ec page-globel">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1 class="heading-all">Loved By 2000+ Customers 
+                </h1>
+            </div>
+            <div class="customer-logos slider">
+                <div class="slide client-box"> 
+                    <div class="client-img-cstm">
+                      <img src="catalog/view/javascript/assets/image/img/review-img/client-1-img.png" class="img-responsive img-fluid ">
+                    </div>
+             <div class="client-content">
+               <div class="client-name"> <span> Raza Abbas </span></div>
+               <div class="client-comment">
+             <p>The finish and style of the table are superb. Very subtle yet beautiful design to have for a small space apartment. The delivery was done safely, and we are completely satisfied with the purchase. THANK YOU URBANWOOD</p>
+                </div>
+             </div>
+                 </div>
+                <div class="slide client-box"> 
+                 <div class="client-img-cstm">
+                   <img src="catalog/view/javascript/assets/image/img/review-img/client-1-img.png" class="img-responsive img-fluid ">
+                 </div>
+          <div class="client-content">
+            <div class="client-name"> <span> Manaranjan Das </span></div>
+            <div class="client-comment">
+          <p>I purchased furniture from the Urban Wood website. I'm delighted to share that they exceeded my expectations with their delivery. Thank you, Urban Wood, for providing such beautiful products!</p>
+             </div>
+          </div>
+              </div>
+                <div class="slide client-box"> 
+                 <div class="client-img-cstm">
+                   <img src="catalog/view/javascript/assets/image/img/review-img/client-2-img.png" class="img-responsive img-fluid ">
+                 </div>
+          <div class="client-content">
+            <div class="client-name"> <span> Sonam Kumari </span></div>
+            <div class="client-comment">
+          <p>I am absolutely in love with my new dining table, The craftsmanship is exceptional, It's a perfect blend of style and functionality. I am so happy with the purchase from Urbanwood. .</p>
+             </div>
+          </div>
+                </div>
+                <div class="slide client-box"> 
+                 <div class="client-img-cstm">
+                   <img src="catalog/view/javascript/assets/image/img/review-img/client-3-img.png" class="img-responsive img-fluid ">
+                 </div>
+          <div class="client-content">
+            <div class="client-name"> <span> Satyendra Patel </span></div>
+            <div class="client-comment">
+          <p>Extremely Satisfied l, right from ordering to product delivery and installation. Hight professional staff and committed to customer satisfaction. Highly recommended for people looking to purchase product online or offline.</p>
+             </div>
+          </div>
+                </div>
+                <div class="slide client-box"> 
+                  <div class="client-img-cstm">
+                    <img src="catalog/view/javascript/assets/image/img/review-img/client-4-img.png" class="img-responsive img-fluid ">
+                  </div>
+           <div class="client-content">
+            <div class="client-name"> <span> Priyaspatle Patle </span></div>
+             <div class="client-comment">
+           <p>I had been surching a customised bed for long time. Finely I got this site.The experience With urbanwood is so good. I received my sheesum wood bed . It look very nice. The polish and crafting, finishing is the best.Thanks urbanwood.</p>
+              </div>
+           </div>
+                 </div>
+          <div class="slide client-box"> 
+          <div class="client-img-cstm">
+          <img src="catalog/view/javascript/assets/image/img/review-img/client-5-img.png" class="img-responsive img-fluid ">
+           </div>
+          <div class="client-content">
+            <div class="client-name"> <span> Yatharth Joiya </span></div>
+          <div class="client-comment">
+           <p>Impressive work as per my expectations. Finishing, polish and wood quality is also good, overall product is fantastic and as per my expectations.</p>
+           
+          </div>
+          </div>
+          </div>
+          </div>
+
+          <div class="customer-logos2 slider">
+            <div class="slide client-box"> 
+                
+                <div class="client-img-cstm">
+                  <img src="catalog/view/javascript/assets/image/img/review-img/client-1-img.png" class="img-responsive img-fluid ">
+                </div>
+         <div class="client-content">
+           <div class="client-name"> <span> JOHN PINTO </span>        </div>
+           <div class="client-comment">
+         <p>Urban Wood Furniture exceeded my expectations in every way! From start to finish, their customer service was exceptional, ensuring my custom requirements were met with precision and care. The quality of the furniture delivered is outstanding, surpassing anything I've seen elsewhere.</p>
+            </div>
+         </div>
+             </div>
+            <div class="slide client-box"  > 
+             <div class="client-img-cstm">
+               <img src="catalog/view/javascript/assets/image/img/review-img/client-1-img.png" class="img-responsive img-fluid ">
+             </div>
+      <div class="client-content">
+        <div class="client-name"> <span> Deepak Gopinath </span></div>
+        <div class="client-comment">
+      <p>We got a custom made crockery unit from Urbanwood Bangalore and are very happy with the quality of work, customer service and timeliness of delivery. Thank you Subhrakanta for your assistance.</p>
+         </div>
+      </div>
+          </div>
+            <div class="slide client-box"> 
+             <div class="client-img-cstm">
+               <img src="catalog/view/javascript/assets/image/img/review-img/client-2-img.png" class="img-responsive img-fluid ">
+             </div>
+      <div class="client-content">
+        <div class="client-name"> <span> MR Vlogs </span></div>
+        <div class="client-comment">
+      <p>This table and chair set is so preety and cleverly made. It is perfect size for 4 people. I love this beautiful set... THANK YOU URBANWOOD..</p>
+         </div>
+      </div>
+            </div>
+            <div class="slide client-box"> 
+             <div class="client-img-cstm">
+               <img src="catalog/view/javascript/assets/image/img/review-img/client-3-img.png" class="img-responsive img-fluid ">
+             </div>
+      <div class="client-content">
+        <div class="client-name"> <span> Meganath Chowdary </span>
+        </div>
+        <div class="client-comment">
+      <p>I have purchased a beautiful coffee table from urban wood furniture and the quality of the material gives premium look and experience</p>
+         </div>
+      </div>
+            </div>
+      
+            <div class="slide client-box"> 
+              <div class="client-img-cstm">
+                <img src="catalog/view/javascript/assets/image/img/review-img/client-4-img.png" class="img-responsive img-fluid ">
+              </div>
+       <div class="client-content">
+        <div class="client-name"> <span> Sneha tn </span>
+        </div>
+         <div class="client-comment">
+       <p>Needed custom coffee table to match my pouffes . They did an excellent job in designing to my requirements and delivering on time , with very good quality finish and packaging</p>
+          </div>
+       </div>
+             </div>
+      <div class="slide client-box"> 
+      <div class="client-img-cstm">
+      <img src="catalog/view/javascript/assets/image/img/review-img/client-5-img.png" class="img-responsive img-fluid ">
+       </div>
+      <div class="client-content">
+        <div class="client-name"> <span> Junaid Pasha </span>
+        </div>
+      <div class="client-comment">
+       <p>I really like urban wood products quality because I came their store to buy some furniture for my home and I really satisfy with their product quality and durability and one more important thing urban wood gives you 1 year warranty as well as 5 years termite warranty..... Thank you Urban wood</p>
+       
+      </div>
+      </div>
+      </div>
+      
+      </div>
+        </div>
+    </div>
+</section>
+
+<section class="uw-unit page-globel" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1 class="heading-all">
+                    Own Manufacturing Factory 
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="row row-1"> 
+      <div class="column">
+  <div class="img-grid-box">
+        
+        <div class="img-grid" > 
+          <div class="card-img-overlay "></div>
+        <img src="catalog/view/javascript/assets/image/img/categories/beadrooms.jpg">
+        <div class="img-content">
+      <h6>Choosing the Right Wood</h6>
+      <hr>
+    
+  
+        </div>
+      </div>
+  
+    </div>
+    <!---->
+  
+      <div class="img-grid-box"> 
+      <div class="img-grid"> 
+        <div class="card-img-overlay card-img-overlay2"></div>
+      <img src="catalog/view/javascript/assets/image/img/categories/diningroom.jpg">
+      <div class="img-content">
+    <h6>Measuring and Cutting the Wood</h6>
+    <hr>
+      </div>
+    </div>
+  </div>
+  <!---->
+  
+  <div class="img-grid-box"> 
+    <div class="img-grid"> 
+      <div class="card-img-overlay"></div>
+    <img src="catalog/view/javascript/assets/image/img/categories/livingroom.jpg">
+    <div class="img-content">
+  <h6>Joinery Techniques</h6>
+  <hr>
+  
+    </div>
+  </div>
+  </div>
+  <!---->
+  
+  <div class="img-grid-box"> 
+  <div class="img-grid"> 
+    <div class="card-img-overlay card-img-overlay2"></div>
+  <img src="catalog/view/javascript/assets/image/img/categories/storageroom.jpg">
+  <div class="img-content">
+  <h6>Sanding and Finishing</h6>
+  <hr>
+  </div>
+  </div>
+  </div>
+  
+      </div>
+      </div>
+</section>
+
+<section class="ourpartner page-globel">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1 class="heading-all">
+                    Trusted Partners
+                </h1>
+                </div>
+            </div>
+            <div class="partner-logo-list">
+                <span><img src="catalog/view/javascript/assets/image/img/partner/amezon.jpg" alt="amezon-partner"></span>
+                <span><img src="catalog/view/javascript/assets/image/img/partner/flipkart.jpg" alt="flipkart-partner"></span>
+                <span><img src="catalog/view/javascript/assets/image/img/partner/pepperfry.jpg" alt="pepperfry-partner"></span>
+                <span><img src="catalog/view/javascript/assets/image/img/partner/apkainterior.jpg" alt="apkainterior-partner"></span>
+                <span><img src="catalog/view/javascript/assets/image/img/partner/shopper.jpg" alt="shopperstop-partner"></span>
+            </div>
+
+            </div>
+ 
+       
+
+</section>
+
+
+</div>
+<script src='catalog/view/javascript/js/jquery.min.js'></script>    
+<script src="catalog/view/javascript/js/slick-js.js"></script>   
+
+<script>
+  
+    //why urbanwood popular item
+  
+    $(document).ready(function(){
+      $('.popularitems').slick({
+          slidesToShow: 4,
+          slidesToScroll:1,
+          autoplay: true,
+          rtl:true,
+          scrollBehavior:'smooth',
+          autoplaySpeed: 1000,
+          arrows: false,
+          dots: false,
+          pauseOnHover: false,
+          responsive: [{
+              breakpoint: 1200,
+              settings: {
+                  slidesToShow: 4
+              }
+          },{
+              breakpoint: 992,
+              settings: {
+                  slidesToShow: 4
+              }
+          },{
+              breakpoint: 768,
+              settings: {
+                  slidesToShow: 4
+              }
+          }, {
+              breakpoint: 520,
+              settings: {
+                  slidesToShow: 2
+              }
+          }]
+      });
+  });
+    
+    
+  </script>
+  <script>
+  
+    //why urbanwood popular item
+  
+    $(document).ready(function(){
+      $('.popularitems2').slick({
+          slidesToShow: 4,
+          slidesToScroll:1,
+          autoplay: true,
+          scrollBehavior:'smooth',
+          autoplaySpeed: 2000,
+          arrows: false,
+          dots: false,
+          pauseOnHover: false,
+          responsive: [{
+              breakpoint: 1200,
+              settings: {
+                  slidesToShow: 4
+              }
+          },{
+              breakpoint: 992,
+              settings: {
+                  slidesToShow: 4
+              }
+          },{
+              breakpoint: 768,
+              settings: {
+                  slidesToShow: 4
+              }
+          }, {
+              breakpoint: 520,
+              settings: {
+                  slidesToShow: 2
+              }
+          }]
+      });
+  });
+    
+  </script>
+
+ 
+<script type="text/javascript">
+  
+
+    //client story
+  
+    $(document).ready(function(){
+      $('.customer-logos').slick({
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 1000,
+          arrows: false,
+          dots: false,
+          pauseOnHover: false,
+          responsive: [{
+              breakpoint: 1200,
+              settings: {
+                  slidesToShow: 2
+              }
+          },{
+              breakpoint: 992,
+              settings: {
+                  slidesToShow: 2
+              }
+          },{
+              breakpoint: 768,
+              settings: {
+                  slidesToShow: 2
+              }
+          }, {
+              breakpoint: 440,
+              settings: {
+                  slidesToShow: 1
+              }
+          }]
+      });
+  });
+
+
+  
+  $(document).ready(function(){
+      $('.customer-logos2').slick({
+          slidesToShow:4,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 1500,
+          arrows: false,
+          dots: false,
+          pauseOnHover: false,
+          responsive: [{
+              breakpoint: 1200,
+              settings: {
+                  slidesToShow: 2
+              }
+          },{
+              breakpoint: 992,
+              settings: {
+                  slidesToShow: 2
+              }
+          },{
+              breakpoint: 768,
+              settings: {
+                  slidesToShow: 2
+              }
+          }, {
+              breakpoint: 440,
+              settings: {
+                  slidesToShow: 1
+              }
+          }]
+      });
+  });
+    function customRequest(idd,btn){
+   if(!formRule(idd)) return false;
+
+    $('#'+btn).text('Processing...');
+var formData = new FormData(document.getElementById('customizedetails'));
+
+    $.ajax({
+      url: '?route=custom/customfurniturenew/customerRequest',
+      type: 'post',
+      dataType: 'json',
+      data: formData, //$('#'+idd).serialize(),
+      processData: false,
+      contentType: false,
+    success:function(res){  
+      console.log(res);    
+        if(res.success == 'text_success'){
+            var thanksHtml = '<div class="success-popup "><span><svg id="smile" width="45" height="45" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M16.2432 29.9911L16.5968 30.3439L16.95 29.9907L30.5886 16.352L30.9422 15.9985L30.5886 15.6449L27.7128 12.7691L27.3593 12.4156L27.0057 12.7691L16.592 23.1828L12.2699 18.8682L11.9158 18.5148L11.5626 18.869L8.69086 21.7489L8.33792 22.1028L8.69174 22.4558L16.2432 29.9911ZM0.823975 20.662C0.823975 9.72375 9.72375 0.823975 20.662 0.823975C31.6002 0.823975 40.5 9.72375 40.5 20.662C40.5 31.6002 31.6002 40.5 20.662 40.5C9.72375 40.5 0.823975 31.6002 0.823975 20.662Z" stroke="#33C300"/> </svg> </span> <span> <h6>Success</h6> <p>You will be notified on whatsapp </p> </span></div>';
+        }else{
+            var thanksHtml = '<div class="success-popup2"><span><svg id="smile2" width="45" height="45" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/></svg></span><span><h6>Alert</h6><p>Add your error message here </p></span></div>';
+        }
+        $('body').prepend(thanksHtml);
+        $('#'+btn).text('Submit');
+      
+    }
+  });
+  }
+  </script> 
+{{ footer }}

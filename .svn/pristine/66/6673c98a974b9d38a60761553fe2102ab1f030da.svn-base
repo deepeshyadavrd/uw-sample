@@ -1,0 +1,144 @@
+<link rel="stylesheet" href="assets/css/owl.theme.default.css">
+<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/owl-carousel.css">
+<link rel="stylesheet" type="text/css" href="assets/css/main2.css">
+<link rel="stylesheet" href="assets/css/bootstrap.min.css" >
+<link rel="stylesheet" type="text/css" href="assets/css/menu.css">
+<link rel='stylesheet' href="assets/css/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
+
+
+<!--sign in signup popup-->
+<div id="signuppopup" class="modal fade" role="dialog">
+<div class="modal-dialog popup_content">
+<!-- Modal content-->
+<div class="modal-content p-0">
+<div class="modal-header">
+<button type="button" class="popup-close2 close" data-bs-dismiss="modal"><i class="fas fa-times" ></i> </button>
+</div>
+<div class="modal-body m-0 p-0">
+
+<div class="row">
+<div class="col-md-6 col-sm-6 col-xs-6 width-30">
+<div id="carouselExampleCaptions3" class="carousel slide popup-slider" data-bs-ride="carousel">
+<div class="carousel-indicators">
+<button type="button" data-bs-target="#carouselExampleCaptions3" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+<button type="button" data-bs-target="#carouselExampleCaptions3" data-bs-slide-to="1" aria-label="Slide 2"></button>
+<button type="button" data-bs-target="#carouselExampleCaptions3" data-bs-slide-to="2" aria-label="Slide 3"></button>
+</div>
+<div class="carousel-inner">
+<div class="carousel-item active">
+<img src="assets/image/popupimg/slider1.png" class="img-responsive">
+<div class="carousel-caption d-none d-md-block">
+<button href="" type="submit" class="text-lg-start shop-now">Submit</button>
+</div>
+</div>
+<div class="carousel-item">
+<img src="assets/image/popupimg/slider2.png" class="img-responsive">
+<div class="carousel-caption d-none d-md-block">
+<button href="" type="submit" class="text-lg-start shop-now">Submit</button>
+</div>
+</div>
+<div class="carousel-item">
+<img src="assets/image/popupimg/slider3.png" class="img-responsive">
+<div class="carousel-caption d-none d-md-block">
+<button href="" type="submit" class="text-lg-start shop-now">Submit</button>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+<div class="col-md-6 col-sm-6 col-xs-6 width-70">
+
+<!--- sign in form-->
+<div class="signin-form-popup signupform1 notification-container selected">
+<div class="from-header">
+<h6> Welcome to  <br> <span> UrbanWood</span> </h6>
+<p>Glad to See You!</p>
+</div>
+<div class="popup-signform">
+<form>
+<div class="row">
+<div class="col-md-12">
+<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email Address" required="">
+
+</div>
+<div class="col-md-12 ">
+<input type="password" name="password" class="form-control id_password" autocomplete="current-password" required=""  placeholder="Password">
+<i class="far fa-eye togglePassword"></i>
+</div>
+<div class="d-block">
+<button type="submit" class="login-btn-popup">Login</button>
+<a href="#" class="forget-pass text-center">Forget password?</a>
+
+<div class="d-flex justify-content-center align-items-center my-3">
+<span class="line"></span><p class="or-way-tolog">OR Login with</p> <span class="line"></span>
+</div>
+<div class="d-flex justify-content-center align-items-center my-3">
+<img src="assets/image/icon/g-icon.png" alt="" width="40" class="mx-1">
+<img src="assets/image/icon/f-icon.png" alt="" width="40" class="mx-1">
+</div>
+<p class="text-center dont-accont">Dont Have an Account ? <a href="" id="showFilePanel" >Sign Up Now</a></p>
+</div>
+</div>
+</form>
+</div>
+</div>
+<!-- sign up for first time form -->
+<div class="signin-form-popup signupform2 notification-container2 dismiss">
+<div class="from-header">
+<h6> Start journey with us <br> <span> Create an Account </span> </h6>
+<p class="mb-0">Welcome!</p>
+</div>
+<div class="popup-signform">
+<form>
+<div class="row">
+<div class="col-md-6 col-lg-6 ">
+<input type="name" name="firstname" class="form-control mt-0 mb-1" id="exampleInputFirstname" placeholder="name" required="" >
+
+</div>
+<div class="col-md-6 col-lg-6 ">
+<input type="email" name="lastname" class="form-control mt-0 mb-1" id="exampleInputlastname" placeholder="last Anme" required="">
+
+</div> 
+<div class="col-md-12 ">
+<input type="email" name="emailid" class="form-control mt-0mb-1" id="giveInputEmail1" placeholder="Email Address" required="">
+
+</div>
+<div class="col-md-12 ">
+<input type="text" name="password" class="form-control mt-0 mb-1" id="giveInputnumber" placeholder="contact Number" required="">
+
+</div>
+<div class="col-md-12">
+<input type="password" name="confirmpassword" class="form-control id_password" autocomplete="current-password" required=""  placeholder="Password">
+<i class="far fa-eye togglePassword"></i>
+</div>
+<div class="d-block">
+<button type="submit" class="login-btn-popup">Sign up</button>
+<div class="d-flex justify-content-center align-items-center my-1">
+<span class="line"></span><p class="or-way-tolog">OR Sign with</p> <span class="line"></span>
+</div>
+<div class="d-flex justify-content-center align-items-center my-1">
+<img src="assets/image/icon/g-icon.png" alt="" width="30" class="mx-1">
+<img src="assets/image/icon/f-icon.png" alt="" width="30" class="mx-1">
+</div>
+<p class="text-center dont-accont mb-0">Already Have an Account ? <a href="" id="closeFilePanel">Sign in Now</a></p>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+<!--end popup-->

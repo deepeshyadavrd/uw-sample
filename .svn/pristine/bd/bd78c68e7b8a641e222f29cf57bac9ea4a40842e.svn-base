@@ -1,0 +1,585 @@
+<section class="shop_by_room">
+    <div class="container container-custom">
+        <div class="row">
+            <h2 class="pg-heading text-center">Shop by Room’s</h2>
+            <p class="heading-para text-center ">Any Room, Any Size, Any Furniture, Just Come To Us</p>
+
+        </div>
+    </div>
+
+    <div class="trends">
+        <div class="bbb_background"></div>
+        <div class="bbb_overlay"></div>
+        <div class="container container-custom">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="bbb_container">
+                        <h2 class="bbb_title pg-heading">Living Room Furniture</h2>
+                        <div class="bbb_text ">
+                            <p class="heading-para">Living room furnishings effectively round off the interior design of the house.When considering how to decorate a home, it is the first idea that everyone has.</p>
+                            <p class="global-price-amount">Starting From
+                                <b>
+                                    ₹ 5,990
+                                </b>
+                            </p>
+                            <a href="" type="button" class="view_all_btn">
+                                View all</a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="bbb_slider_container">
+                        <div class="bbb_slider_nav">
+                            <div class="bbb_prev1 bbb_nav">
+                                <i class='bx bx-chevron-left'></i>
+                            </div>
+                            <div class="bbb_next1 bbb_nav">
+                                <i class='bx bx-chevron-right'></i>
+                            </div>
+                        </div>
+                        <div class="owl-carousel owl-theme bbb_slider bbb-slider1">
+
+                            <div class="owl-item">
+                                <div class="bbb_item is_new">
+                                    <div class="bbb_image d-flex flex-column align-items-center justify-content-center">
+                                        <img src="catalog/view/javascript/assets/image/shopbyrom/livingroom/img-1.jpg" alt=""></div>
+                                    <div class="bbb_content">
+                                        <div class="bbb_name">
+                                            <a href="#">Fabric Sofas</a>
+                                        </div>
+
+                                        <div class="bbb_info clearfix">
+                                            <div class="bbb_category">
+                                                <a href="#">
+                                                    25+ Options | Starting From</a>
+                                            </div>
+                                            <div class="bbb_price">₹13790</div>
+                                        </div>
+                                    </div>
+                                    <ul class="bbb_marks">
+                                        <li class="bbb_mark bbb_discount">-25%</li>
+                                        <li class="bbb_mark bbb_new">new</li>
+                                    </ul>
+                                    <div class="bbb_fav">
+                                        <i class='bx bx-heart'></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item">
+                                <div class="bbb_item is_new">
+                                    <div class="bbb_image d-flex flex-column align-items-center justify-content-center">
+                                        <img src="catalog/view/javascript/assets/image/shopbyrom/livingroom/img-2.jpg" alt=""></div>
+                                    <div class="bbb_content">
+                                        <div class="bbb_name">
+                                            <a href="#">TV Units</a>
+                                        </div>
+
+                                        <div class="bbb_info clearfix">
+                                            <div class="bbb_category">
+                                                <a href="#">
+                                                    25+ Options | Starting From</a>
+                                            </div>
+                                            <div class="bbb_price">₹13790</div>
+                                        </div>
+                                    </div>
+                                    <ul class="bbb_marks">
+                                        <li class="bbb_mark bbb_discount">-25%</li>
+                                        <li class="bbb_mark bbb_new">new</li>
+                                    </ul>
+                                    <div class="bbb_fav">
+                                        <i class='bx bx-heart'></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item">
+                                <div class="bbb_item is_new">
+                                    <div class="bbb_image d-flex flex-column align-items-center justify-content-center">
+                                        <img src="catalog/view/javascript/assets/image/shopbyrom/livingroom/img-3.jpg" alt=""></div>
+                                    <div class="bbb_content">
+                                        <div class="bbb_name">
+                                            <a href="#">Sideboards</a>
+                                        </div>
+
+                                        <div class="bbb_info clearfix">
+                                            <div class="bbb_category">
+                                                <a href="#">
+                                                    25+ Options | Starting From</a>
+                                            </div>
+                                            <div class="bbb_price">₹13790</div>
+                                        </div>
+                                    </div>
+                                    <ul class="bbb_marks">
+                                        <li class="bbb_mark bbb_discount">-25%</li>
+                                        <li class="bbb_mark bbb_new">new</li>
+                                    </ul>
+                                    <div class="bbb_fav">
+                                        <i class='bx bx-heart'></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item">
+                                <div class="bbb_item is_new">
+                                    <div class="bbb_image d-flex flex-column align-items-center justify-content-center">
+                                        <img src="catalog/view/javascript/assets/image/shopbyrom/livingroom/img-4.jpg" alt=""></div>
+                                    <div class="bbb_content">
+                                        <div class="bbb_name">
+                                            <a href="#">Console Tables</a>
+                                        </div>
+
+                                        <div class="bbb_info clearfix">
+                                            <div class="bbb_category">
+                                                <a href="#">
+                                                    25+ Options | Starting From</a>
+                                            </div>
+                                            <div class="bbb_price">₹13790</div>
+                                        </div>
+                                    </div>
+                                    <ul class="bbb_marks">
+                                        <li class="bbb_mark bbb_discount">-25%</li>
+                                        <li class="bbb_mark bbb_new">new</li>
+                                    </ul>
+                                    <div class="bbb_fav">
+                                        <i class='bx bx-heart'></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="bbb_item is_new">
+                                    <div class="bbb_image d-flex flex-column align-items-center justify-content-center">
+                                        <img src="catalog/view/javascript/assets/image/shopbyrom/livingroom/img-5.jpg" alt=""></div>
+                                    <div class="bbb_content">
+                                        <div class="bbb_name">
+                                            <a href="#">Wall Shelves</a>
+                                        </div>
+
+                                        <div class="bbb_info clearfix">
+                                            <div class="bbb_category">
+                                                <a href="#">
+                                                    25+ Options | Starting From</a>
+                                            </div>
+                                            <div class="bbb_price">₹13790</div>
+                                        </div>
+                                    </div>
+                                    <ul class="bbb_marks">
+                                        <li class="bbb_mark bbb_discount">-25%</li>
+                                        <li class="bbb_mark bbb_new">new</li>
+                                    </ul>
+                                    <div class="bbb_fav">
+                                        <i class='bx bx-heart'></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="bbb_item is_new">
+                                    <div class="bbb_image d-flex flex-column align-items-center justify-content-center">
+                                        <img src="catalog/view/javascript/assets/image/shopbyrom/livingroom/img-6.jpg" alt=""></div>
+                                    <div class="bbb_content">
+                                        <div class="bbb_name">
+                                            <a href="#">Coffee Tables</a>
+                                        </div>
+
+                                        <div class="bbb_info clearfix">
+                                            <div class="bbb_category">
+                                                <a href="#">
+                                                    25+ Options | Starting From</a>
+                                            </div>
+                                            <div class="bbb_price">₹13790</div>
+                                        </div>
+                                    </div>
+                                    <ul class="bbb_marks">
+                                        <li class="bbb_mark bbb_discount">-25%</li>
+                                        <li class="bbb_mark bbb_new">new</li>
+                                    </ul>
+                                    <div class="bbb_fav">
+                                        <i class='bx bx-heart'></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <hr class="line_hr">
+        </div>
+        <!--- second carousel--->
+        <div class="container container-custom">
+            <div class="row flex-lg-row-reverse ">
+                <div class="col-lg-4">
+                    <div class="bbb_container">
+                        <h2 class="bbb_title pg-heading text-lg-end">BedRoom Furniture</h2>
+                        <div class="bbb_text text-lg-end">
+                            <p class="heading-para">Making your bedroom feel like home requires a personal touch. Everything you need to feel peaceful and at home in your personal area may be found here.</p>
+                            <p class="global-price-amount">Starting From
+                                <b>
+                                    ₹ 5,990
+                                </b>
+                            </p>
+                            <a href="" type="button" class="view_all_btn">
+                                View all</a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="bbb_slider_container">
+                        <div class="bbb_slider_nav">
+                            <div class="bbb_prev2 bbb_nav">
+                                <i class='bx bx-chevron-left'></i>
+                            </div>
+                            <div class="bbb_next2 bbb_nav">
+                                <i class='bx bx-chevron-right'></i>
+                            </div>
+                        </div>
+                        <div class="owl-carousel owl-theme bbb_slider bbb_slider2">
+
+                            <div class="owl-item">
+                                <div class="bbb_item is_new">
+                                    <div class="bbb_image d-flex flex-column align-items-center justify-content-center">
+                                        <img src="catalog/view/javascript/assets/image/shopbyrom/bedroom/img1.jpg" alt=""></div>
+                                    <div class="bbb_content">
+                                        <div class="bbb_name">
+                                            <a href="#">Canvas</a>
+                                        </div>
+
+                                        <div class="bbb_info clearfix">
+                                            <div class="bbb_category">
+                                                <a href="#">
+                                                    25+ Options | Starting From</a>
+                                            </div>
+                                            <div class="bbb_price">₹13790</div>
+                                        </div>
+                                    </div>
+                                    <ul class="bbb_marks">
+                                        <li class="bbb_mark bbb_discount">-25%</li>
+                                        <li class="bbb_mark bbb_new">new</li>
+                                    </ul>
+                                    <div class="bbb_fav">
+                                        <i class='bx bx-heart'></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item">
+                                <div class="bbb_item is_new">
+                                    <div class="bbb_image d-flex flex-column align-items-center justify-content-center">
+                                        <img src="catalog/view/javascript/assets/image/shopbyrom/bedroom/img2.jpg" alt=""></div>
+                                    <div class="bbb_content">
+                                        <div class="bbb_name">
+                                            <a href="#">Wordrobes</a>
+                                        </div>
+
+                                        <div class="bbb_info clearfix">
+                                            <div class="bbb_category">
+                                                <a href="#">
+                                                    25+ Options | Starting From</a>
+                                            </div>
+                                            <div class="bbb_price">₹13790</div>
+                                        </div>
+                                    </div>
+                                    <ul class="bbb_marks">
+                                        <li class="bbb_mark bbb_discount">-25%</li>
+                                        <li class="bbb_mark bbb_new">new</li>
+                                    </ul>
+                                    <div class="bbb_fav">
+                                        <i class='bx bx-heart'></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item">
+                                <div class="bbb_item is_new">
+                                    <div class="bbb_image d-flex flex-column align-items-center justify-content-center">
+                                        <img src="catalog/view/javascript/assets/image/shopbyrom/bedroom/img3.jpg" alt=""></div>
+                                    <div class="bbb_content">
+                                        <div class="bbb_name">
+                                            <a href="#">Chest of Drawers</a>
+                                        </div>
+
+                                        <div class="bbb_info clearfix">
+                                            <div class="bbb_category">
+                                                <a href="#">
+                                                    25+ Options | Starting From</a>
+                                            </div>
+                                            <div class="bbb_price">₹13790</div>
+                                        </div>
+                                    </div>
+                                    <ul class="bbb_marks">
+                                        <li class="bbb_mark bbb_discount">-25%</li>
+                                        <li class="bbb_mark bbb_new">new</li>
+                                    </ul>
+                                    <div class="bbb_fav">
+                                        <i class='bx bx-heart'></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item">
+                                <div class="bbb_item is_new">
+                                    <div class="bbb_image d-flex flex-column align-items-center justify-content-center">
+                                        <img src="catalog/view/javascript/assets/image/shopbyrom/bedroom/img4.jpg" alt=""></div>
+                                    <div class="bbb_content">
+                                        <div class="bbb_name">
+                                            <a href="#">Bedside Tables</a>
+                                        </div>
+
+                                        <div class="bbb_info clearfix">
+                                            <div class="bbb_category">
+                                                <a href="#">
+                                                    25+ Options | Starting From</a>
+                                            </div>
+                                            <div class="bbb_price">₹13790</div>
+                                        </div>
+                                    </div>
+                                    <ul class="bbb_marks">
+                                        <li class="bbb_mark bbb_discount">-25%</li>
+                                        <li class="bbb_mark bbb_new">new</li>
+                                    </ul>
+                                    <div class="bbb_fav">
+                                        <i class='bx bx-heart'></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item">
+                                <div class="bbb_item is_new">
+                                    <div class="bbb_image d-flex flex-column align-items-center justify-content-center">
+                                        <img src="catalog/view/javascript/assets/image/shopbyrom/bedroom/img5.jpg" alt=""></div>
+                                    <div class="bbb_content">
+                                        <div class="bbb_name">
+                                            <a href="#">Dressing Tables</a>
+                                        </div>
+
+                                        <div class="bbb_info clearfix">
+                                            <div class="bbb_category">
+                                                <a href="#">
+                                                    25+ Options | Starting From</a>
+                                            </div>
+                                            <div class="bbb_price">₹13790</div>
+                                        </div>
+                                    </div>
+                                    <ul class="bbb_marks">
+                                        <li class="bbb_mark bbb_discount">-25%</li>
+                                        <li class="bbb_mark bbb_new">new</li>
+                                    </ul>
+                                    <div class="bbb_fav">
+                                        <i class='bx bx-heart'></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item">
+                                <div class="bbb_item is_new">
+                                    <div class="bbb_image d-flex flex-column align-items-center justify-content-center">
+                                        <img src="catalog/view/javascript/assets/image/shopbyrom/bedroom/img6.jpg" alt=""></div>
+                                    <div class="bbb_content">
+                                        <div class="bbb_name">
+                                            <a href="#">Nested Tables
+                                            </a>
+                                        </div>
+
+                                        <div class="bbb_info clearfix">
+                                            <div class="bbb_category">
+                                                <a href="#">
+                                                    25+ Options | Starting From</a>
+                                            </div>
+                                            <div class="bbb_price">₹13790</div>
+                                        </div>
+                                    </div>
+                                    <ul class="bbb_marks">
+                                        <li class="bbb_mark bbb_discount">-25%</li>
+                                        <li class="bbb_mark bbb_new">new</li>
+                                    </ul>
+                                    <div class="bbb_fav">
+                                        <i class='bx bx-heart'></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <hr class="line_hr">
+        </div>
+        <!--- third carousel--->
+        <div class="container container-custom">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="bbb_container">
+                        <h2 class="bbb_title pg-heading ">Dining Room Furniture</h2>
+                        <div class="bbb_text">
+                            <p class="heading-para">The dining room is a place where families spend quality time together. Therefore, dining room furniture should always be lively and interesting. Get the perfect dining room furniture right here.</p>
+                            <p class="global-price-amount">Starting From
+                                <b>
+                                    ₹ 5,990
+                                </b>
+                            </p>
+                            <a href="" type="button" class="view_all_btn">
+                                View all</a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="bbb_slider_container">
+                        <div class="bbb_slider_nav">
+                            <div class="bbb_prev3 bbb_nav">
+                                <i class='bx bx-chevron-left'></i>
+                            </div>
+                            <div class="bbb_next3 bbb_nav">
+                                <i class='bx bx-chevron-right'></i>
+                            </div>
+                        </div>
+                        <div class="owl-carousel owl-theme bbb_slider bbb_slider3">
+
+                            <div class="owl-item">
+                                <div class="bbb_item is_new">
+                                    <div class="bbb_image d-flex flex-column align-items-center justify-content-center">
+                                        <img src="catalog/view/javascript/assets/image/shopbyrom/diningroom/img-1.jpg" alt=""></div>
+                                    <div class="bbb_content">
+                                        <div class="bbb_name">
+                                            <a href="#">6 Seater Table Sets</a>
+                                        </div>
+
+                                        <div class="bbb_info clearfix">
+                                            <div class="bbb_category">
+                                                <a href="#">
+                                                    25+ Options | Starting From</a>
+                                            </div>
+                                            <div class="bbb_price">₹13790</div>
+                                        </div>
+                                    </div>
+                                    <ul class="bbb_marks">
+                                        <li class="bbb_mark bbb_discount">-25%</li>
+                                        <li class="bbb_mark bbb_new">new</li>
+                                    </ul>
+                                    <div class="bbb_fav">
+                                        <i class='bx bx-heart'></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item">
+                                <div class="bbb_item is_new">
+                                    <div class="bbb_image d-flex flex-column align-items-center justify-content-center">
+                                        <img src="catalog/view/javascript/assets/image/shopbyrom/diningroom/img-2.jpg" alt=""></div>
+                                    <div class="bbb_content">
+                                        <div class="bbb_name">
+                                            <a href="#">Round Dining Table Sets</a>
+                                        </div>
+
+                                        <div class="bbb_info clearfix">
+                                            <div class="bbb_category">
+                                                <a href="#">
+                                                    25+ Options | Starting From</a>
+                                            </div>
+                                            <div class="bbb_price">₹13790</div>
+                                        </div>
+                                    </div>
+                                    <ul class="bbb_marks">
+                                        <li class="bbb_mark bbb_discount">-25%</li>
+                                        <li class="bbb_mark bbb_new">new</li>
+                                    </ul>
+                                    <div class="bbb_fav">
+                                        <i class='bx bx-heart'></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item">
+                                <div class="bbb_item is_new">
+                                    <div class="bbb_image d-flex flex-column align-items-center justify-content-center">
+                                        <img src="catalog/view/javascript/assets/image/shopbyrom/diningroom/img-3.jpg" alt=""></div>
+                                    <div class="bbb_content">
+                                        <div class="bbb_name">
+                                            <a href="#">Dining Tables</a>
+                                        </div>
+
+                                        <div class="bbb_info clearfix">
+                                            <div class="bbb_category">
+                                                <a href="#">
+                                                    25+ Options | Starting From</a>
+                                            </div>
+                                            <div class="bbb_price">₹13790</div>
+                                        </div>
+                                    </div>
+                                    <ul class="bbb_marks">
+                                        <li class="bbb_mark bbb_discount">-25%</li>
+                                        <li class="bbb_mark bbb_new">new</li>
+                                    </ul>
+                                    <div class="bbb_fav">
+                                        <i class='bx bx-heart'></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="owl-item">
+                                <div class="bbb_item is_new">
+                                    <div class="bbb_image d-flex flex-column align-items-center justify-content-center">
+                                        <img src="catalog/view/javascript/assets/image/shopbyrom/diningroom/img-4.jpg" alt=""></div>
+                                    <div class="bbb_content">
+                                        <div class="bbb_name">
+                                            <a href="#">Dining Chairs</a>
+                                        </div>
+
+                                        <div class="bbb_info clearfix">
+                                            <div class="bbb_category">
+                                                <a href="#">
+                                                    25+ Options | Starting From</a>
+                                            </div>
+                                            <div class="bbb_price">₹13790</div>
+                                        </div>
+                                    </div>
+                                    <ul class="bbb_marks">
+                                        <li class="bbb_mark bbb_discount">-25%</li>
+                                        <li class="bbb_mark bbb_new">new</li>
+                                    </ul>
+                                    <div class="bbb_fav">
+                                        <i class='bx bx-heart'></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="bbb_item is_new">
+                                    <div class="bbb_image d-flex flex-column align-items-center justify-content-center">
+                                        <img src="catalog/view/javascript/assets/image/shopbyrom/diningroom/img-5.jpg" alt=""></div>
+                                    <div class="bbb_content">
+                                        <div class="bbb_name">
+                                            <a href="#">Bar Cabinets</a>
+                                        </div>
+
+                                        <div class="bbb_info clearfix">
+                                            <div class="bbb_category">
+                                                <a href="#">
+                                                    25+ Options | Starting From</a>
+                                            </div>
+                                            <div class="bbb_price">₹13790</div>
+                                        </div>
+                                    </div>
+                                    <ul class="bbb_marks">
+                                        <li class="bbb_mark bbb_discount">-25%</li>
+                                        <li class="bbb_mark bbb_new">new</li>
+                                    </ul>
+                                    <div class="bbb_fav">
+                                        <i class='bx bx-heart'></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Urbanwood Blog</title>
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" >
+<link rel="stylesheet" href="assets/css/w3animation.css">
+<link rel="stylesheet" href="assets/css/style-1.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+<body>
+    <div class="headbar pt-lg-3" style="position:relative;">
+        <div class="container">
+          <div class="row d-lg-flex align-items-center">
+            <div class="col-lg-6 col-md-6 col-sm-6 w-sm-50"><a href="https://www.urbanwood.in/" data-bs-toggle="tooltip" data-bs-placement="top" title="UrbanWood Furniture">
+                <img src="assets/img/urbanwood-logo.svg" class="img-fluid web-logo"> </a> 
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6  w-sm-50">
+                <div class="d-flex justify-content-end align-items-center">
+                    <ul class="social- d-md-block d-none">
+                        <li><i class="fab fa-facebook-f"></i></li>
+                        <li><i class="fab fa-instagram"></i></li>
+                        <li><i class="fab fa-twitter"></i></li>
+                    </ul>
+        <a class="book_online_btn" href="https://www.urbanwood.in/" target="_blank">Urbanwood Furniture</a>
+        
+    </div>
+             </div>
+        
+             </div>
+          </div>
+    </div>
+
+<div class="wrapper">
+
+
+<section class="blog-list-outer-section">
+    <div class="container container-fluid-sm">
+        <div class="row">
+            <div class="col-lg-8">
+        <div class="custom-search-input d-lg-none d-block my-3">
+            <div class="input-group col-md-12">
+                <input type="text" class="  search-query form-control" placeholder="Search Here..." />
+                <span class="input-group-btn">
+                    <button class="" type="button">
+                        <span><i class="fas fa-search"></i></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+ 
+        <nav class="breadcumb-navigation">
+    <ol class="breadcrumb m-0 p-2">
+      <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+      <li class="breadcrumb-item active" aria-current="page">Sitemap</li>
+    </ol>
+  </nav>   
+
+                <div class="singleblog">
+                    <div class="single-blogimg">
+                        <img src="assets/img/single-blog-img.jpg" class="img-fluid " alt="">
+                    </div>
+                    <div class="my-4">
+                        <div class="blog-label"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.93999 18.9901H15C15.65 18.9901 16.26 18.6801 16.63 18.1501L20.58 12.5801C20.702 12.4113 20.7677 12.2083 20.7677 12.0001C20.7677 11.7918 20.702 11.5889 20.58 11.4201L16.62 5.84007C16.4389 5.57855 16.1967 5.36529 15.9143 5.21888C15.6319 5.07247 15.318 4.99735 15 5.00007H5.93999C5.12999 5.00007 4.65999 5.93007 5.12999 6.59007L8.99999 12.0001L5.12999 17.4101C4.65999 18.0701 5.12999 18.9901 5.93999 18.9901Z" fill="#FC7E00"/>
+                            </svg>
+                           <span> &nbsp;  Bedroom</span>
+                        </div>  
+                        <h1 class="singleblog-heading"> Make WFH Easy With The Essential WFH Wooden Furniture</h1>
+                        <div class="blog-publish-date"><i class="fas fa-circle"></i> &nbsp; March 20 2023</div>
+                      <p class="blog-para">
+                        A portion of our WFH furniture classifications incorporate Message Boards, Wall Organizers and Key Organizers, Standing Desks, 
+                        Height Adjustable Zoom Tables, Laptop Desk for Bed, Work Desks, and Work Chairs, Desk Lamps, Work Book Cases, Home Office Bins and Baskets, 
+                        Home Office Shelves and Shelving Units, Office Easy Chairs, Home Office Accessories and Home Office in a Box-WFH Furniture Sets. 
+                        A portion of our WFH furniture classifications incorporate Message Boards, Wall Organizers and Key Organizers, Standing Desks, 
+                        Height Adjustable Zoom Tables, Laptop Desk for Bed, Work Desks, and Work Chairs, Desk Lamps, Work Book Cases, Home Office Bins 
+                        and Baskets, Home Office Shelves and Shelving Units, Office Easy Chairs, Home Office Accessories and Home Office in a Box-WFH Furniture Sets.
+                     
+                      <div class="row">
+                        <div class="col-lg-6">
+                      <div class="other-reated-pic">
+                        <img src="assets/img/blog-1a.jpg" alt="" class="img-fluid">
+                    </div>
+                    </div>
+                        <div class="col-lg-6">
+                            <div class="other-reated-pic">
+                        <img src="assets/img/blog-1a.jpg" alt="" class="img-fluid">
+                      </div>
+                    </div>
+                    </div>
+                    <p class="blog-para">
+                        A portion of our WFH furniture classifications incorporate Message Boards, Wall Organizers and Key Organizers, Standing Desks, 
+                        Height Adjustable Zoom Tables, Laptop Desk for Bed, Work Desks, and Work Chairs, Desk Lamps, Work Book Cases, Home Office Bins and Baskets, 
+                        Home Office Shelves and Shelving Units, Office Easy Chairs, Home Office Accessories and Home Office in a Box-WFH Furniture Sets. 
+                        A portion of our WFH furniture classifications incorporate Message Boards, Wall Organizers and Key Organizers, Standing Desks, 
+                        Height Adjustable Zoom Tables, Laptop Desk for Bed, Work Desks, and Work Chairs, Desk Lamps, Work Book Cases, Home Office Bins 
+                        and Baskets, Home Office Shelves and Shelving Units, Office Easy Chairs, Home Office Accessories and Home Office in a Box-WFH Furniture Sets. 
+                        A portion of our WFH furniture classifications incorporate Message Boards, Wall Organizers and Key Organizers, Standing Desks, Height Adjustable 
+                        Zoom Tables, Laptop Desk for Bed, Work Desks, and Work Chairs, Desk Lamps, Work Book Cases, Home Office Bins and Baskets, Home Office Shelves and 
+                        Shelving Units, Office Easy Chairs, Home Office Accessories and Home Office in a Box-WFH Furniture Sets. A portion of our WFH furniture classifications 
+                        incorporate Message Boards, Wall Organizers and Key Organizers, Standing Desks, Height Adjustable Zoom Tables, Laptop Desk for Bed, Work Desks, and Work 
+                        Chairs, Desk Lamps, Work Book Cases, Home Office Bins and Baskets, Home Office Shelves and Shelving Units, 
+                        Office Easy Chairs, Home Office Accessories and Home Office in a Box-WFH Furniture Sets. 
+                      </p>
+                    </div>
+                </div>
+
+                <div class="comment-section">
+                    <div class="comment-sec-heading">Write Your Comment Here </div>
+                    <form action="" class="comments-form needs-validation" novalidate>
+                        <div class="row">
+                        <div class="col-lg-6 mb-3">
+                          
+                            <input type="name" class="form-control" id="commentersName" placeholder="Enter your name" >
+                            
+                          </div>
+                          <div class="col-lg-6 mb-3">
+                          
+                            <input type="email" class="form-control" id="commentersEmail" placeholder="Enter your email" >
+                          </div>
+                          <div class="col-lg-12 mb-3">
+
+                            <textarea class="form-control " id="validationTextarea" placeholder="Enter your comment" required></textarea>
+                            
+                          </div>
+                          
+                        </div>
+                          <button type="submit" class="commen-tbtn">comment</button>
+                    </form>
+                    <div class="alert alert-note alert-danger d-flex align-items-center" role="alert">
+                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.5 2.34375C10.4913 2.34375 8.52768 2.9394 6.85749 4.05539C5.18731 5.17137 3.88556 6.75756 3.11685 8.61337C2.34815 10.4692 2.14702 12.5113 2.5389 14.4814C2.93079 16.4515 3.89807 18.2612 5.31845 19.6816C6.73883 21.1019 8.5485 22.0692 10.5186 22.4611C12.4887 22.853 14.5308 22.6519 16.3866 21.8832C18.2424 21.1144 19.8286 19.8127 20.9446 18.1425C22.0606 16.4723 22.6563 14.5087 22.6563 12.5C22.6534 9.80727 21.5825 7.22564 19.6784 5.32159C17.7744 3.41754 15.1927 2.34659 12.5 2.34375ZM12.1094 7.03125C12.3412 7.03125 12.5677 7.09998 12.7604 7.22875C12.9532 7.35751 13.1034 7.54054 13.1921 7.75467C13.2807 7.9688 13.304 8.20443 13.2587 8.43175C13.2135 8.65907 13.1019 8.86788 12.938 9.03177C12.7741 9.19566 12.5653 9.30727 12.338 9.35248C12.1107 9.3977 11.8751 9.37449 11.6609 9.2858C11.4468 9.1971 11.2638 9.0469 11.135 8.85418C11.0062 8.66147 10.9375 8.4349 10.9375 8.20312C10.9375 7.89232 11.061 7.59425 11.2807 7.37448C11.5005 7.15471 11.7986 7.03125 12.1094 7.03125ZM13.2813 17.9688C12.8669 17.9688 12.4694 17.8041 12.1764 17.5111C11.8834 17.2181 11.7188 16.8207 11.7188 16.4062V12.5C11.5116 12.5 11.3128 12.4177 11.1663 12.2712C11.0198 12.1247 10.9375 11.926 10.9375 11.7188C10.9375 11.5115 11.0198 11.3128 11.1663 11.1663C11.3128 11.0198 11.5116 10.9375 11.7188 10.9375C12.1332 10.9375 12.5306 11.1021 12.8236 11.3951C13.1166 11.6882 13.2813 12.0856 13.2813 12.5V16.4062C13.4885 16.4062 13.6872 16.4886 13.8337 16.6351C13.9802 16.7816 14.0625 16.9803 14.0625 17.1875C14.0625 17.3947 13.9802 17.5934 13.8337 17.7399C13.6872 17.8864 13.4885 17.9688 13.2813 17.9688Z" fill="#A70606"/>
+                            </svg>
+                            
+                            
+                        <div>
+                            Note :-  We will not shere your data to others 
+                        </div>
+                      </div>
+                      
+                     <div class="com-list-fisrt-text">Be the first to comment. 
+                        <span>
+                            <svg id="smile" width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 15C9.85 15.63 10.885 16 12 16C13.115 16 14.15 15.63 15 15" stroke="#FC7E00" stroke-width="1.5" stroke-linecap="round"/>
+                                <path d="M15 11C15.5523 11 16 10.3284 16 9.5C16 8.67157 15.5523 8 15 8C14.4477 8 14 8.67157 14 9.5C14 10.3284 14.4477 11 15 11Z" fill="#FC7E00"/>
+                                <path d="M9 11C9.55228 11 10 10.3284 10 9.5C10 8.67157 9.55228 8 9 8C8.44772 8 8 8.67157 8 9.5C8 10.3284 8.44772 11 9 11Z" fill="#FC7E00"/>
+                                <path d="M22 12.3C22 6.613 17.523 2 12 2C6.477 2 2 6.612 2 12.3V19.723C2 21.045 3.351 21.905 4.5 21.314C4.95425 21.0796 5.46366 20.9731 5.97376 21.0059C6.48386 21.0387 6.97546 21.2094 7.396 21.5C7.86748 21.8257 8.42695 22.0002 9 22.0002C9.57305 22.0002 10.1325 21.8257 10.604 21.5L10.957 21.258C11.2636 21.0463 11.6274 20.933 12 20.933C12.3726 20.933 12.7364 21.0463 13.043 21.258L13.396 21.5C13.8675 21.8257 14.427 22.0002 15 22.0002C15.573 22.0002 16.1325 21.8257 16.604 21.5C17.0246 21.2093 17.5164 21.0384 18.0267 21.0056C18.537 20.9728 19.0466 21.0794 19.501 21.314C20.649 21.905 22 21.045 22 19.723V16.012" stroke="#FC7E00" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg> 
+                            </span>
+                    </div> 
+                     
+                     <div class="all-reponses">
+                        <div class="reply-user-box">
+                            <div class="replyuser-deail">
+                                <div class="user-img-profile">
+                                    <img src="assets/img/cmmt-user-profile.jpg" alt="">
+                                </div>
+                                <span class="replyusername">Lorem ipsum</span>
+                            </div>
+                            <div class="message-cmt-box">
+                                <p class="rpytext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae eveniet officia ipsa a vitae aliquam magni dolore quo ducimus deserunt enim eum nam</p>
+                               <div class="other-response">
+                                <button class="reply-to-commnt" type="button">Reply <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 19V15C19 14.1667 18.7083 13.4583 18.125 12.875C17.5417 12.2917 16.8333 12 16 12H6.8L10.4 15.6L9 17L3 11L9 5L10.4 6.4L6.8 10H16C17.3833 10 18.5627 10.4877 19.538 11.463C20.5133 12.4383 21.0007 13.6173 21 15V19H19Z" fill="#FF8000"/>
+                                    </svg>
+                                    </button>
+                                    <div class="likes">
+                                        <span class="like-text">like</span>
+                                        <span class="like-icon"><i class="fas fa-heart"></i></span>
+                                        <span class="like-count">300</span>
+                                    </div>
+                               </div>
+                            </div>
+                        </div>
+                          <div class="reply-2-reply">
+                            <div class="reply-user-box">
+                                <div class="replyuser-deail">
+                                    <div class="user-img-profile">
+                                        <img src="assets/img/cmmt-user-profile.jpg" alt="">
+                                    </div>
+                                    <span class="replyusername">Lorem ipsum</span>
+                                </div>
+                                <div class="message-cmt-box">
+                                    <p class="rpytext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae eveniet officia ipsa a vitae aliquam magni dolore quo ducimus deserunt enim eum nam</p>
+                                   <div class="other-response">
+                                    <button class="reply-to-commnt" type="button">Reply <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19 19V15C19 14.1667 18.7083 13.4583 18.125 12.875C17.5417 12.2917 16.8333 12 16 12H6.8L10.4 15.6L9 17L3 11L9 5L10.4 6.4L6.8 10H16C17.3833 10 18.5627 10.4877 19.538 11.463C20.5133 12.4383 21.0007 13.6173 21 15V19H19Z" fill="#FF8000"/>
+                                        </svg>
+                                        </button>
+                                        <div class="likes">
+                                            <span class="like-text">like</span>
+                                            <span class="like-icon"><i class="fas fa-heart"></i></span>
+                                            <span class="like-count">300</span>
+                                        </div>
+                                   </div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="reply-2-reply">
+                            <div class="reply-user-box">
+                                <div class="replyuser-deail">
+                                    <div class="user-img-profile">
+                                        <img src="assets/img/cmmt-user-profile.jpg" alt="">
+                                    </div>
+                                    <span class="replyusername">Lorem ipsum</span>
+                                </div>
+                                <div class="message-cmt-box">
+                                    <p class="rpytext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae eveniet officia ipsa a vitae aliquam magni dolore quo ducimus deserunt enim eum nam</p>
+                                   <div class="other-response">
+                                    <button class="reply-to-commnt" type="button">Reply <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19 19V15C19 14.1667 18.7083 13.4583 18.125 12.875C17.5417 12.2917 16.8333 12 16 12H6.8L10.4 15.6L9 17L3 11L9 5L10.4 6.4L6.8 10H16C17.3833 10 18.5627 10.4877 19.538 11.463C20.5133 12.4383 21.0007 13.6173 21 15V19H19Z" fill="#FF8000"/>
+                                        </svg>
+                                        </button>
+                                        <div class="likes">
+                                            <span class="like-text">like</span>
+                                            <span class="like-icon"><i class="fas fa-heart"></i></span>
+                                            <span class="like-count">300</span>
+                                        </div>
+                                   </div>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="reply-2-reply">
+                            <div class="reply-user-box">
+                                <div class="replyuser-deail">
+                                    <div class="user-img-profile">
+                                        <img src="assets/img/cmmt-user-profile.jpg" alt="">
+                                    </div>
+                                    <span class="replyusername">Lorem ipsum</span>
+                                </div>
+                                <div class="message-cmt-box">
+                                    <p class="rpytext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae eveniet officia ipsa a vitae aliquam magni dolore quo ducimus deserunt enim eum nam</p>
+                                   <div class="other-response">
+                                    <button class="reply-to-commnt" type="button">Reply <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19 19V15C19 14.1667 18.7083 13.4583 18.125 12.875C17.5417 12.2917 16.8333 12 16 12H6.8L10.4 15.6L9 17L3 11L9 5L10.4 6.4L6.8 10H16C17.3833 10 18.5627 10.4877 19.538 11.463C20.5133 12.4383 21.0007 13.6173 21 15V19H19Z" fill="#FF8000"/>
+                                        </svg>
+                                        </button>
+                                        <div class="likes">
+                                            <span class="like-text">like</span>
+                                            <span class="like-icon"><i class="fas fa-heart"></i></span>
+                                            <span class="like-count">300</span>
+                                        </div>
+                                   </div>
+                                </div>
+                            </div>
+                          </div>
+                        <div class="reply-user-box">
+                            <div class="replyuser-deail">
+                                <div class="user-img-profile">
+                                    <img src="assets/img/cmmt-user-profile.jpg" alt="">
+                                </div>
+                                <span class="replyusername">Lorem ipsum</span>
+                            </div>
+                            <div class="message-cmt-box">
+                                <p class="rpytext">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae eveniet officia ipsa a vitae aliquam magni dolore quo ducimus deserunt enim eum nam</p>
+                               <div class="other-response">
+                                <button class="reply-to-commnt" type="button">Reply <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M19 19V15C19 14.1667 18.7083 13.4583 18.125 12.875C17.5417 12.2917 16.8333 12 16 12H6.8L10.4 15.6L9 17L3 11L9 5L10.4 6.4L6.8 10H16C17.3833 10 18.5627 10.4877 19.538 11.463C20.5133 12.4383 21.0007 13.6173 21 15V19H19Z" fill="#FF8000"/>
+                                    </svg>
+                                    </button>
+                                    <div class="likes">
+                                        <span class="like-text">like</span>
+                                        <span class="like-icon"><i class="fas fa-heart"></i></span>
+                                        <span class="like-count">300</span>
+                                    </div>
+                               </div>
+                            </div>
+                        </div>
+                     </div>
+                     
+            </div>
+            </div>
+
+<div class="col-lg-4">
+    <div class="right-side-sec-blog">
+        <div  class="custom-search-input d-lg-block d-none">
+            <div class="input-group col-md-12">
+                <input type="text" class="  search-query form-control" placeholder="Search Here..." />
+                <span class="input-group-btn">
+                    <button class="" type="button">
+                        <span><i class="fas fa-search"></i></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+       <div class="website-product-add-box">
+        <a href="http://">
+        <img src="assets/img/ads-banner.jpg" alt="ads-banner" class="img-fluid">
+    </a>
+       </div>
+       <div class="w-100 most-popular-recent-box">
+        <h5>CATEGORY</h5>
+        <div class="listing-for-blog">
+            <ul class="list-post">
+                <li class="li-box-post"> <i class="fas fa-angle-double-right"></i>
+                    <a href="">
+                    Dining room
+                </a>
+                </li>
+                <li class="li-box-post"><i class="fas fa-angle-double-right"></i>
+                    <a href="">
+                  Living room
+                </a>
+                </li>
+                <li class="li-box-post"><i class="fas fa-angle-double-right"></i>
+                    <a href="">
+                   Bedroom
+                </a>
+                </li>
+                <li class="li-box-post"><i class="fas fa-angle-double-right"></i>
+                    <a href="">
+                    Kitchen
+                </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+       
+        <div class="w-100 most-popular-recent-box">
+            <h5>MOST POPULAR POST</h5>
+            <div class="listing-for-blog">
+                <ul class="list-post">
+                    <li class="li-box-post">
+                        <a href="">
+                        <div class="d-flex justify-content-between">
+                            <div class="content-blog-se">
+                                <span class="date-of-publsh"> <svg width="10" height="10" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17 2H15V1C15 0.734784 14.8946 0.48043 14.7071 0.292893C14.5196 0.105357 14.2652 0 14 0C13.7348 0 13.4804 0.105357 13.2929 0.292893C13.1054 0.48043 13 0.734784 13 1V2H7V1C7 0.734784 6.89464 0.48043 6.70711 0.292893C6.51957 0.105357 6.26522 0 6 0C5.73478 0 5.48043 0.105357 5.29289 0.292893C5.10536 0.48043 5 0.734784 5 1V2H3C2.20435 2 1.44129 2.31607 0.87868 2.87868C0.316071 3.44129 0 4.20435 0 5V17C0 17.7956 0.316071 18.5587 0.87868 19.1213C1.44129 19.6839 2.20435 20 3 20H17C17.7956 20 18.5587 19.6839 19.1213 19.1213C19.6839 18.5587 20 17.7956 20 17V5C20 4.20435 19.6839 3.44129 19.1213 2.87868C18.5587 2.31607 17.7956 2 17 2ZM18 17C18 17.2652 17.8946 17.5196 17.7071 17.7071C17.5196 17.8946 17.2652 18 17 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V10H18V17ZM18 8H2V5C2 4.73478 2.10536 4.48043 2.29289 4.29289C2.48043 4.10536 2.73478 4 3 4H5V5C5 5.26522 5.10536 5.51957 5.29289 5.70711C5.48043 5.89464 5.73478 6 6 6C6.26522 6 6.51957 5.89464 6.70711 5.70711C6.89464 5.51957 7 5.26522 7 5V4H13V5C13 5.26522 13.1054 5.51957 13.2929 5.70711C13.4804 5.89464 13.7348 6 14 6C14.2652 6 14.5196 5.89464 14.7071 5.70711C14.8946 5.51957 15 5.26522 15 5V4H17C17.2652 4 17.5196 4.10536 17.7071 4.29289C17.8946 4.48043 18 4.73478 18 5V8Z" fill="#FF8000"/>
+</svg>
+ March 20 2023</span>
+                                <h6 class="">Make WFH Easy With The Essential WFH Wooden Furniture</h6>
+                            </div>
+                            <div class="related-blog-img">
+                                <img src="assets/img/popular-blog-img/img-1.jpg" alt="">
+                            </div>
+                       
+                        </div>
+                    </a>
+                    </li>
+                    <li class="li-box-post">
+                        <a href="">
+                        <div class="d-flex justify-content-between">
+                            <div class="content-blog-se">
+                                <span class="date-of-publsh"><svg width="10" height="10" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17 2H15V1C15 0.734784 14.8946 0.48043 14.7071 0.292893C14.5196 0.105357 14.2652 0 14 0C13.7348 0 13.4804 0.105357 13.2929 0.292893C13.1054 0.48043 13 0.734784 13 1V2H7V1C7 0.734784 6.89464 0.48043 6.70711 0.292893C6.51957 0.105357 6.26522 0 6 0C5.73478 0 5.48043 0.105357 5.29289 0.292893C5.10536 0.48043 5 0.734784 5 1V2H3C2.20435 2 1.44129 2.31607 0.87868 2.87868C0.316071 3.44129 0 4.20435 0 5V17C0 17.7956 0.316071 18.5587 0.87868 19.1213C1.44129 19.6839 2.20435 20 3 20H17C17.7956 20 18.5587 19.6839 19.1213 19.1213C19.6839 18.5587 20 17.7956 20 17V5C20 4.20435 19.6839 3.44129 19.1213 2.87868C18.5587 2.31607 17.7956 2 17 2ZM18 17C18 17.2652 17.8946 17.5196 17.7071 17.7071C17.5196 17.8946 17.2652 18 17 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V10H18V17ZM18 8H2V5C2 4.73478 2.10536 4.48043 2.29289 4.29289C2.48043 4.10536 2.73478 4 3 4H5V5C5 5.26522 5.10536 5.51957 5.29289 5.70711C5.48043 5.89464 5.73478 6 6 6C6.26522 6 6.51957 5.89464 6.70711 5.70711C6.89464 5.51957 7 5.26522 7 5V4H13V5C13 5.26522 13.1054 5.51957 13.2929 5.70711C13.4804 5.89464 13.7348 6 14 6C14.2652 6 14.5196 5.89464 14.7071 5.70711C14.8946 5.51957 15 5.26522 15 5V4H17C17.2652 4 17.5196 4.10536 17.7071 4.29289C17.8946 4.48043 18 4.73478 18 5V8Z" fill="#FF8000"/>
+                                    </svg>
+                                     March 20 2023</span>
+                                <h6 class="">Make WFH Easy With The Essential WFH Wooden Furniture</h6>
+                            </div>
+                            <div class="related-blog-img">
+                                <img src="assets/img/popular-blog-img/img-1.jpg" alt="">
+                            </div>
+                       
+                        </div>
+                    </a>
+                    </li>
+
+                    <li class="li-box-post">
+                        <a href="">
+                        <div class="d-flex justify-content-between">
+                            <div class="content-blog-se">
+                                <span class="date-of-publsh"> <svg width="10" height="10" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17 2H15V1C15 0.734784 14.8946 0.48043 14.7071 0.292893C14.5196 0.105357 14.2652 0 14 0C13.7348 0 13.4804 0.105357 13.2929 0.292893C13.1054 0.48043 13 0.734784 13 1V2H7V1C7 0.734784 6.89464 0.48043 6.70711 0.292893C6.51957 0.105357 6.26522 0 6 0C5.73478 0 5.48043 0.105357 5.29289 0.292893C5.10536 0.48043 5 0.734784 5 1V2H3C2.20435 2 1.44129 2.31607 0.87868 2.87868C0.316071 3.44129 0 4.20435 0 5V17C0 17.7956 0.316071 18.5587 0.87868 19.1213C1.44129 19.6839 2.20435 20 3 20H17C17.7956 20 18.5587 19.6839 19.1213 19.1213C19.6839 18.5587 20 17.7956 20 17V5C20 4.20435 19.6839 3.44129 19.1213 2.87868C18.5587 2.31607 17.7956 2 17 2ZM18 17C18 17.2652 17.8946 17.5196 17.7071 17.7071C17.5196 17.8946 17.2652 18 17 18H3C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V10H18V17ZM18 8H2V5C2 4.73478 2.10536 4.48043 2.29289 4.29289C2.48043 4.10536 2.73478 4 3 4H5V5C5 5.26522 5.10536 5.51957 5.29289 5.70711C5.48043 5.89464 5.73478 6 6 6C6.26522 6 6.51957 5.89464 6.70711 5.70711C6.89464 5.51957 7 5.26522 7 5V4H13V5C13 5.26522 13.1054 5.51957 13.2929 5.70711C13.4804 5.89464 13.7348 6 14 6C14.2652 6 14.5196 5.89464 14.7071 5.70711C14.8946 5.51957 15 5.26522 15 5V4H17C17.2652 4 17.5196 4.10536 17.7071 4.29289C17.8946 4.48043 18 4.73478 18 5V8Z" fill="#FF8000"/>
+</svg>
+ March 20 2023</span>
+                                <h6 class="">Make WFH Easy With The Essential WFH Wooden Furniture</h6>
+                            </div>
+                            <div class="related-blog-img">
+                                <img src="assets/img/popular-blog-img/img-1.jpg" alt="">
+                            </div>
+                       
+                        </div>
+                    </a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="w-100 tag-list">
+            <h5>TAGS</h5>
+            <div class="listing-for-blog">
+                <ul class="">
+                    <li class=""> 
+                        <a href="" class="our-tags">
+                        All Rooms
+                    </a>
+                    </li>
+                    <li class=""> 
+                        <a href="" class="our-tags">
+                        Design Resources
+                    </a>
+                    </li>
+                    <li class=""> 
+                        <a href="" class="our-tags">
+                        Entertaing 
+                    </a>
+                    </li>
+                    <li class=""> 
+                        <a href="" class="our-tags">
+                        Feel Good
+                    </a>
+                    </li>
+                    <li class=""> 
+                        <a href="" class="our-tags">
+                        Guides
+                    </a>
+                    </li>
+                    <li class=""> 
+                        <a href="" class="our-tags">
+                        Home Office
+                    </a>
+                    </li>
+ 
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+
+</section>
+
+<section class="py-2">
+    <div class="container">
+    <div class="row">
+        <h2 class="heading-for-2">RELATED POSTS</h2>
+        <div class="col-lg-3">
+            <div class="card my-4" style="border:none">
+                <img src="assets/img/related-blog-img.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="blog-card-tittle">How to decorate your bedroom with 
+                    spacious furniture?</h5>
+                  <a href="#" class="more-read-link">Read more <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.70001 6.70998C5.6073 6.80249 5.53375 6.91238 5.48357 7.03336C5.43339 7.15433 5.40756 7.28401 5.40756 7.41498C5.40756 7.54595 5.43339 7.67563 5.48357 7.7966C5.53375 7.91758 5.6073 8.02747 5.70001 8.11998L9.58001 12L5.70001 15.88C5.60742 15.9726 5.53398 16.0825 5.48388 16.2034C5.43377 16.3244 5.40799 16.454 5.40799 16.585C5.40799 16.7159 5.43377 16.8456 5.48388 16.9665C5.53398 17.0875 5.60742 17.1974 5.70001 17.29C5.79259 17.3826 5.9025 17.456 6.02346 17.5061C6.14443 17.5562 6.27408 17.582 6.40501 17.582C6.53594 17.582 6.66559 17.5562 6.78655 17.5061C6.90751 17.456 7.01742 17.3826 7.11001 17.29L11.7 12.7C11.7927 12.6075 11.8663 12.4976 11.9164 12.3766C11.9666 12.2556 11.9925 12.1259 11.9925 11.995C11.9925 11.864 11.9666 11.7343 11.9164 11.6134C11.8663 11.4924 11.7927 11.3825 11.7 11.29L7.12001 6.70998C6.73001 6.31998 6.09001 6.31998 5.70001 6.70998Z" fill="#FF8000"/>
+                    <path d="M12.29 6.71002C12.1973 6.80254 12.1238 6.91242 12.0736 7.0334C12.0234 7.15437 11.9976 7.28405 11.9976 7.41502C11.9976 7.54599 12.0234 7.67567 12.0736 7.79665C12.1238 7.91762 12.1973 8.02751 12.29 8.12002L16.17 12L12.29 15.88C12.103 16.067 11.998 16.3206 11.998 16.585C11.998 16.8494 12.103 17.103 12.29 17.29C12.477 17.477 12.7306 17.582 12.995 17.582C13.2594 17.582 13.513 17.477 13.7 17.29L18.29 12.7C18.3827 12.6075 18.4563 12.4976 18.5064 12.3766C18.5566 12.2557 18.5824 12.126 18.5824 11.995C18.5824 11.8641 18.5566 11.7344 18.5064 11.6134C18.4563 11.4924 18.3827 11.3825 18.29 11.29L13.7 6.70002C13.32 6.32002 12.68 6.32002 12.29 6.71002Z" fill="#FF8000"/>
+                    </svg>
+                    </a>
+                </div>
+              </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card my-4" style="border:none">
+                <img src="assets/img/related-blog-img.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="blog-card-tittle">How to decorate your bedroom with 
+                    spacious furniture?</h5>
+                  <a href="#" class="more-read-link">Read more <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.70001 6.70998C5.6073 6.80249 5.53375 6.91238 5.48357 7.03336C5.43339 7.15433 5.40756 7.28401 5.40756 7.41498C5.40756 7.54595 5.43339 7.67563 5.48357 7.7966C5.53375 7.91758 5.6073 8.02747 5.70001 8.11998L9.58001 12L5.70001 15.88C5.60742 15.9726 5.53398 16.0825 5.48388 16.2034C5.43377 16.3244 5.40799 16.454 5.40799 16.585C5.40799 16.7159 5.43377 16.8456 5.48388 16.9665C5.53398 17.0875 5.60742 17.1974 5.70001 17.29C5.79259 17.3826 5.9025 17.456 6.02346 17.5061C6.14443 17.5562 6.27408 17.582 6.40501 17.582C6.53594 17.582 6.66559 17.5562 6.78655 17.5061C6.90751 17.456 7.01742 17.3826 7.11001 17.29L11.7 12.7C11.7927 12.6075 11.8663 12.4976 11.9164 12.3766C11.9666 12.2556 11.9925 12.1259 11.9925 11.995C11.9925 11.864 11.9666 11.7343 11.9164 11.6134C11.8663 11.4924 11.7927 11.3825 11.7 11.29L7.12001 6.70998C6.73001 6.31998 6.09001 6.31998 5.70001 6.70998Z" fill="#FF8000"/>
+                    <path d="M12.29 6.71002C12.1973 6.80254 12.1238 6.91242 12.0736 7.0334C12.0234 7.15437 11.9976 7.28405 11.9976 7.41502C11.9976 7.54599 12.0234 7.67567 12.0736 7.79665C12.1238 7.91762 12.1973 8.02751 12.29 8.12002L16.17 12L12.29 15.88C12.103 16.067 11.998 16.3206 11.998 16.585C11.998 16.8494 12.103 17.103 12.29 17.29C12.477 17.477 12.7306 17.582 12.995 17.582C13.2594 17.582 13.513 17.477 13.7 17.29L18.29 12.7C18.3827 12.6075 18.4563 12.4976 18.5064 12.3766C18.5566 12.2557 18.5824 12.126 18.5824 11.995C18.5824 11.8641 18.5566 11.7344 18.5064 11.6134C18.4563 11.4924 18.3827 11.3825 18.29 11.29L13.7 6.70002C13.32 6.32002 12.68 6.32002 12.29 6.71002Z" fill="#FF8000"/>
+                    </svg>
+                    </a>
+                </div>
+              </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card my-4" style="border:none">
+                <img src="assets/img/related-blog-img.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="blog-card-tittle">How to decorate your bedroom with 
+                    spacious furniture?</h5>
+                  <a href="#" class="more-read-link">Read more <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.70001 6.70998C5.6073 6.80249 5.53375 6.91238 5.48357 7.03336C5.43339 7.15433 5.40756 7.28401 5.40756 7.41498C5.40756 7.54595 5.43339 7.67563 5.48357 7.7966C5.53375 7.91758 5.6073 8.02747 5.70001 8.11998L9.58001 12L5.70001 15.88C5.60742 15.9726 5.53398 16.0825 5.48388 16.2034C5.43377 16.3244 5.40799 16.454 5.40799 16.585C5.40799 16.7159 5.43377 16.8456 5.48388 16.9665C5.53398 17.0875 5.60742 17.1974 5.70001 17.29C5.79259 17.3826 5.9025 17.456 6.02346 17.5061C6.14443 17.5562 6.27408 17.582 6.40501 17.582C6.53594 17.582 6.66559 17.5562 6.78655 17.5061C6.90751 17.456 7.01742 17.3826 7.11001 17.29L11.7 12.7C11.7927 12.6075 11.8663 12.4976 11.9164 12.3766C11.9666 12.2556 11.9925 12.1259 11.9925 11.995C11.9925 11.864 11.9666 11.7343 11.9164 11.6134C11.8663 11.4924 11.7927 11.3825 11.7 11.29L7.12001 6.70998C6.73001 6.31998 6.09001 6.31998 5.70001 6.70998Z" fill="#FF8000"/>
+                    <path d="M12.29 6.71002C12.1973 6.80254 12.1238 6.91242 12.0736 7.0334C12.0234 7.15437 11.9976 7.28405 11.9976 7.41502C11.9976 7.54599 12.0234 7.67567 12.0736 7.79665C12.1238 7.91762 12.1973 8.02751 12.29 8.12002L16.17 12L12.29 15.88C12.103 16.067 11.998 16.3206 11.998 16.585C11.998 16.8494 12.103 17.103 12.29 17.29C12.477 17.477 12.7306 17.582 12.995 17.582C13.2594 17.582 13.513 17.477 13.7 17.29L18.29 12.7C18.3827 12.6075 18.4563 12.4976 18.5064 12.3766C18.5566 12.2557 18.5824 12.126 18.5824 11.995C18.5824 11.8641 18.5566 11.7344 18.5064 11.6134C18.4563 11.4924 18.3827 11.3825 18.29 11.29L13.7 6.70002C13.32 6.32002 12.68 6.32002 12.29 6.71002Z" fill="#FF8000"/>
+                    </svg>
+                    </a>
+                </div>
+              </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card my-4" style="border:none">
+                <img src="assets/img/related-blog-img.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="blog-card-tittle">How to decorate your bedroom with 
+                    spacious furniture?</h5>
+                  <a href="#" class="more-read-link">Read more <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.70001 6.70998C5.6073 6.80249 5.53375 6.91238 5.48357 7.03336C5.43339 7.15433 5.40756 7.28401 5.40756 7.41498C5.40756 7.54595 5.43339 7.67563 5.48357 7.7966C5.53375 7.91758 5.6073 8.02747 5.70001 8.11998L9.58001 12L5.70001 15.88C5.60742 15.9726 5.53398 16.0825 5.48388 16.2034C5.43377 16.3244 5.40799 16.454 5.40799 16.585C5.40799 16.7159 5.43377 16.8456 5.48388 16.9665C5.53398 17.0875 5.60742 17.1974 5.70001 17.29C5.79259 17.3826 5.9025 17.456 6.02346 17.5061C6.14443 17.5562 6.27408 17.582 6.40501 17.582C6.53594 17.582 6.66559 17.5562 6.78655 17.5061C6.90751 17.456 7.01742 17.3826 7.11001 17.29L11.7 12.7C11.7927 12.6075 11.8663 12.4976 11.9164 12.3766C11.9666 12.2556 11.9925 12.1259 11.9925 11.995C11.9925 11.864 11.9666 11.7343 11.9164 11.6134C11.8663 11.4924 11.7927 11.3825 11.7 11.29L7.12001 6.70998C6.73001 6.31998 6.09001 6.31998 5.70001 6.70998Z" fill="#FF8000"/>
+                    <path d="M12.29 6.71002C12.1973 6.80254 12.1238 6.91242 12.0736 7.0334C12.0234 7.15437 11.9976 7.28405 11.9976 7.41502C11.9976 7.54599 12.0234 7.67567 12.0736 7.79665C12.1238 7.91762 12.1973 8.02751 12.29 8.12002L16.17 12L12.29 15.88C12.103 16.067 11.998 16.3206 11.998 16.585C11.998 16.8494 12.103 17.103 12.29 17.29C12.477 17.477 12.7306 17.582 12.995 17.582C13.2594 17.582 13.513 17.477 13.7 17.29L18.29 12.7C18.3827 12.6075 18.4563 12.4976 18.5064 12.3766C18.5566 12.2557 18.5824 12.126 18.5824 11.995C18.5824 11.8641 18.5566 11.7344 18.5064 11.6134C18.4563 11.4924 18.3827 11.3825 18.29 11.29L13.7 6.70002C13.32 6.32002 12.68 6.32002 12.29 6.71002Z" fill="#FF8000"/>
+                    </svg>
+                    </a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<section class="py-2">
+    <div class="container">
+        <div class="row d-md-flex align-items-center">
+            <div class="col-lg-6">
+                <div class="news-latter-box">
+<h5 class="heading-blog-h5">CONTACT US</h5>
+<p class="blog-para">
+    Leave your email here and stay informed about our promotions and new arrivals.
+</p>
+<form action="" method="post" class="news-later-form">
+<div class="mb"></div>
+
+<input type="email" class="form-control" placeholder="Your email address" name="useremail" id="" >
+<label for="useremail" class="form-label">Your email</label>
+<button type="submit" class="submit-btn-news"><i class="fas fa-arrow-right"></i></button>
+</form>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="contact-bg-sec">
+                    <img src="assets/img/contact-img-bg.jpg" alt="">
+                    <div class=" cc-content">
+                    <span class="con-headjng">Get in touch</span>
+                    <div class="hh--bb">With Us</div>
+                    <button type="button" class="contact-btn">Contact us</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</div>
+
+<footer class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul >
+                    <li class="foot-logo-img"><img src="assets/img/urbanwood-logo.svg"  class="img-fluid" alt="urbanwood-logo"></li>
+                
+                <li class="copyright-text">© 2023 <a href="https://urbanwood.in/" traget="_blank" class=""> urbanwood.in.</a> All rights reserved.</li>
+            </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js" ></script>
+
+<!-- <script>
+    $(document).ready(function () {
+
+$('.star').on('click', function () {
+  $(this).toggleClass('star-checked');
+});
+
+$('.ckbox label').on('click', function () {
+  $(this).parents('div').toggleClass('selected');
+});
+
+$('.btn-filter').on('click', function () {
+  var $target = $(this).data('target');
+  if ($target != 'all') {
+    $('.blogfilter div').css('display', 'none');
+    $('.blogfilter div[data-status="' + $target + '"]').fadeIn('slow');
+  } else {
+    $('.blogfilter div').css('display', 'none').fadeIn('slow');
+  }
+});
+
+});
+</script> -->
+</body>
+</html>

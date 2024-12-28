@@ -1,0 +1,54 @@
+{{ header }}
+{{ menu }}
+{# <div id="information-information" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      <h1>{{ heading_title }}</h1>
+      {{ description }}{{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div> #}
+
+
+<div id="information-information" class="wrapper">
+  <div class="breadcrumb-sec about-banner">
+  <div class="container container-custom">
+    <div class="breadcrumb-content breadcrumb-content ">
+      <h6>{{ heading_title }}</h6>
+      <p class="text-lg-start d-sm-block d-none"> To add a touch of elegance to your home at a reasonable price, get furniture online from our wide selection of wooden furniture units. To suit your home interiors. </p>
+      <p  class="text-lg-start" style="color:#fd8500"> <strong>You can also purchase specifically customized for your needs. </strong></p>
+    </div>
+  </div>
+</div>
+<div class="qu-sec py-2 ">
+    <div class="container container-custom">
+      <div class="row">
+  <div class="col-md-12 col-sm-12">
+    <nav class="breadcumb-navigation">
+      <ol class="breadcrumb m-0 p-2">
+      {% for breadcrumb in breadcrumbs %}
+      <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+      </ol>
+    </nav>   
+  </div>
+  </div>
+      </div>
+  </div>
+
+    
+      {{ description }}
+</div>
+
+{{ footer }}

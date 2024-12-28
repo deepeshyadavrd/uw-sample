@@ -1,0 +1,58 @@
+{# {{ header }}
+<div id="common-success" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      <h1>{{ heading_title }}</h1>
+      {{ text_message }}
+      <div class="buttons">
+        <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+      </div>
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>
+{{ footer }} #}
+{{ header }}
+<div class="wrapper">
+<!--- banner section-->
+
+<section class="qu-sec py-2  thank-sec">
+    <div class="container container-custom">
+        <div class="row">
+        <div class="col-lg-12">
+    <div class="thank-box">
+        <div class=""> <svg id="tick" width="150" height="150" viewBox="0 0 44 44" fill="none" >
+            <path d="M37.9293 17.8247L40.6714 21.0238C41.1529 21.5855 41.1529 22.4145 40.6714 22.9762L37.9293 26.1753C37.4955 26.6814 37.2818 27.3398 37.3357 28.0043L37.6775 32.2209C37.7381 32.9673 37.2388 33.644 36.5078 33.8064L32.4525 34.7076C31.7791 34.8573 31.1974 35.2786 30.8452 35.8717L28.7085 39.4704C28.3211 40.1229 27.5075 40.3833 26.8132 40.077L23.0091 38.3987C22.3663 38.1151 21.6338 38.1151 20.9909 38.3987L17.1868 40.077C16.4926 40.3833 15.6789 40.1229 15.2915 39.4704L13.1548 35.8717C12.8026 35.2786 12.221 34.8573 11.5475 34.7076L7.49218 33.8064C6.76118 33.644 6.26196 32.9673 6.32248 32.2209L6.66437 28.0043C6.71824 27.3398 6.50452 26.6814 6.07069 26.1753L3.32861 22.9762C2.84713 22.4145 2.84713 21.5855 3.32861 21.0238L6.07069 17.8247C6.50452 17.3186 6.71824 16.6602 6.66437 15.9957L6.32248 11.7791C6.26196 11.0327 6.76118 10.356 7.49217 10.1936L11.5475 9.29238C12.221 9.14273 12.8026 8.72145 13.1548 8.12826L15.2915 4.52958C15.6789 3.87713 16.4926 3.61674 17.1868 3.92301L20.9909 5.60131C21.6338 5.88491 22.3663 5.88491 23.0091 5.60131L26.8132 3.92302C27.5075 3.61674 28.3211 3.87713 28.7085 4.52958L30.8452 8.12826C31.1974 8.72145 31.7791 9.14273 32.4525 9.29238L36.5078 10.1936C37.2388 10.356 37.7381 11.0327 37.6775 11.7791L37.3357 15.9957C37.2818 16.6602 37.4955 17.3186 37.9293 17.8247ZM20.1011 30.106L32.0702 18.1369C32.9743 17.2329 32.9743 15.7671 32.0702 14.8631C31.1662 13.9591 29.7005 13.9591 28.7965 14.8631L19.394 24.2656C18.8082 24.8514 17.8585 24.8514 17.2727 24.2656L15.2036 22.1964C14.2995 21.2924 12.8338 21.2924 11.9298 22.1964C11.0258 23.1005 11.0258 24.5662 11.9298 25.4702L16.5656 30.106C17.5419 31.0823 19.1248 31.0823 20.1011 30.106Z" stroke="#33C300"/>
+            </svg>
+            </div>
+        <div class="thank-heading"> Thank <span style="font-weight:100">You!</span></div>
+        <p>For Ordering from Us! <b>Your Order has Placed</b></p>
+   
+
+        <div class="for-anyquery">
+            <a href="?route=account/account" class="view-order-btn"> <i class="fas fa-check-circle"></i> View Order </a>
+            <a href="?route=information/information&information_id=63" class="ask-q-btn"> <i class="fas fa-question-circle"></i> Ask Question</a>
+        </div>
+        <div>
+        {% for orderdetail in orderdetails %}
+          <p> Product id : {{ orderdetail.name }}</p>
+          {% endfor %}
+        </div>
+    </div>
+    
+    </div>
+        </div>
+    </div>
+    </section> 
+    {{ footer }}

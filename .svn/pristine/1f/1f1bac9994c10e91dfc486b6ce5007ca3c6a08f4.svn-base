@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Urbanwood.in-our-stores</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+<link rel="stylesheet" type="text/css" href="assets/css/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/owl-carousel.css">
+<link rel="stylesheet" type="text/css" href="assets/css/main2.css">
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/menu.css">
+<link rel='stylesheet' type="text/css" href="assets/css/swiper-bundle.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
+</head> 
+<body> 
+ 
+  <div class="d-none d-lg-block">
+<div class="top-offer-sec dark-bg">
+  <div class="container container-custom d-flex justify-content-between align-items-center">
+  <p class="offer-para text-white m-0 p-0">Get exclusive offers at Urbanwood on the furniture of your choice.Use coupon code <span class="cuppon"> WINTER22</span> </p>
+  <button class="close-offer">X</button>
+</div>
+</div>
+</div>
+  <div class="top-head d-none d-lg-block">
+    <div class="container container-custom">
+      <div class="row">
+        <div class="col-lg-9">
+          <ul class="tophead-link">
+            <li><span> <i class='bx bx-mail-send bx-flashing' ></i></span><a href=""> email@urbanwood.in </a></li>
+             <li><span> <i class='bx bx-phone-call bx-flashing' ></i></span><a href="tel:+91 8949695921">Sales +91 8949695921 </a></li>
+              <li><span> <i class='bx bx-phone-call bx-flashing' ></i></span><a href="tel:+91 9311964772"><span> Services (10am-8pm) </span> +91 9311964772 </a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <ul class="tophead-link float-right-side">
+            <li class="track-order"><span class="root-t"><i class='bx bxs-truck bx-fade-right text-white'></i> </span> <a href="" class="text-white">Track Order </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="headbar pt-lg-3 ">
+<div class="container container-custom">
+  <div class="row d-lg-flex align-items-center" >
+    <div class="col-lg-4 d-none d-lg-block"><a href="https://www.urbanwood.in/"data-bs-toggle="tooltip" data-bs-placement="top" title="UrbanWood Furniture"><img src="assets/image/urbanwoodlogo.jpg"width="20%" class="img-responsive img-fluid"> </a> 
+    </div>
+    <div class="col-lg-4 d-none d-lg-block">
+
+ <form class="d-flex search-form">
+        <input class="form-control me-2" type="search" placeholder="Search for products, brands and more..." aria-label="Search">
+        <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+      </form>
+     </div>
+     <div class="col-lg-4 d-none d-lg-block">
+       <ul class="tophead-link-2 float-right-side">
+            <li><div class="dropdown-pp">
+<button class="dropbtn-profile"> <i class='bx bx-user'></i></button>
+<div class="dropdown-content-pp">
+<a href="">My Profile</a>
+<a href=""> My Order</a>
+<a href=""> My Wishlists</a>
+<a href="" type="button"> Log In </a>
+<div class=" sign-up-btn"> 
+  <a href="" type="button" class="text-white"> Sign In 
+  <span class="text-white d-block"style="font-size:13px "> <small>( If you are not Register)</small>
+  </span>
+</a>
+</div>
+</div>
+</div>
+</li>
+             <li><i class='bx bx-heart'></i> 
+              <span class="badge_pp text-white"> 09+</span> 
+    <span class="visually-hidden">unread messages</span>
+  </li>
+              <li><i class='bx bx-cart-alt'></i>
+                  <span class="badge_pp text-white"> 09+</span> 
+    <span class="visually-hidden">unread messages</span>
+              </li>
+          </ul>
+        </div>
+
+     </div>
+  </div>
+<nav class="navbar navbar-expand-lg navbar-light d-none d-lg-block">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link today-sale-link" aria-current="page" href="#">Today Sale</a>
+        </li>
+        <li class="nav-item dropdown mega-dropdown">
+          <a class="nav-link dropdown-toggle" href="#" target="_blank" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sofas
+          </a>
+          <div class="dropdown-menu mega-dropdown-menu">
+           <div class="row">
+              <div class="col-lg-8">
+                <div class="dropdown-header"><a href="https://www.urbanwood.in/sofas"> All Sofa Sets </a></div>
+
+<div class="d-flex align-items-start">
+  <div class="nav flex-column nav-pills me-3 meganavtab-outer" id="v-pills-tab2" role="tablist" aria-orientation="vertical">
+    <button class="nav-link active custom-navlink" id="v-pills-home-tab2" data-bs-toggle="pill" data-bs-target="#v-pills-home2" type="button" role="tab" aria-controls="v-pills-home2" aria-selected="true">Sofa Sets
+  <span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+
+    <button class="nav-link custom-navlink" id="v-pills-profile-tab2" data-bs-toggle="pill" data-bs-target="#v-pills-profile2" type="button" role="tab" aria-controls="v-pills-profile2" aria-selected="false">Seating
+<span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+
+    <button class="nav-link custom-navlink" id="v-pills-messages-tab2" data-bs-toggle="pill" data-bs-target="#v-pills-messages2" type="button" role="tab" aria-controls="v-pills-messages2" aria-selected="false">Sofa Cum Bed 
+<span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+
+  </div>
+  <div class="tab-content" id="v-pills-tabContent2">
+    <div class="tab-pane fade show active" id="v-pills-home2" role="tabpanel" aria-labelledby="v-pills-home-tab2">
+<ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Fabric Sofas</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Wooden Sofas</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Sofa Cum Beds</a></li>
+               
+              
+</ul>
+<ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">3 Seater Sofas</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">1 Seater Sofas</a></li>
+                 <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">L-Shaped Sofas</a></li>
+              
+</ul>
+
+
+    </div>
+    <div class="tab-pane fade" id="v-pills-profile2" role="tabpanel" aria-labelledby="v-pills-profile-tab2">
+
+  <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Lounge Chairs</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Loveseats</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Ottomans & Pouffes</a></li>
+               
+              
+</ul>
+<ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Bean Bags</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Arm Chairs</a></li>
+                 <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Diwnas</a></li>
+              
+</ul>
+    </div>
+    <div class="tab-pane fade" id="v-pills-messages2" role="tabpanel" aria-labelledby="v-pills-messages-tab2">
+    <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Wooden Sofa Cum Beds</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Sofa Cum Bed with Storage</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Sofa Cum Beds</a></li>
+               
+              
+</ul>
+    </div>
+  </div>
+</div>
+            </div>
+
+<div class="col-lg-4">
+ <img src="assets/image/menuimag/topstories1.jpg" class="img-responsive img-fluid">
+</div>
+
+          </div>
+          </div>
+        </li>
+
+<li class="nav-item dropdown mega-dropdown">
+          <a class="nav-link dropdown-toggle" href="#" target="_blank" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Living
+          </a>
+          <div class="dropdown-menu mega-dropdown-menu">
+           <div class="row">
+            <div class="col-lg-8">
+                <div class="dropdown-header"><a href="https://www.urbanwood.in/sofas"> All Living Room </a></div>
+<div class="d-flex align-items-start">
+  <div class="nav flex-column nav-pills me-3 meganavtab-outer" id="v-pills-tab3" role="tablist" aria-orientation="vertical">
+    <button class="nav-link active custom-navlink" id="v-pills-home-tab3" data-bs-toggle="pill" data-bs-target="#v-pills-home3" type="button" role="tab" aria-controls="v-pills-home3" aria-selected="true">Living Storage
+  <span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+
+    <button class="nav-link custom-navlink" id="v-pills-profile-tab3" data-bs-toggle="pill" data-bs-target="#v-pills-profile3" type="button" role="tab" aria-controls="v-pills-profile3" aria-selected="false">Sofas
+<span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+
+    <button class="nav-link custom-navlink" id="v-pills-messages-tab3" data-bs-toggle="pill" data-bs-target="#v-pills-messages3" type="button" role="tab" aria-controls="v-pills-messages3" aria-selected="false">Seating & Chairs
+<span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+    <button class="nav-link custom-navlink" id="v-pills-tables-tab3" data-bs-toggle="pill" data-bs-target="#v-pills-tables3" type="button" role="tab" aria-controls="v-pills-tables3" aria-selected="false">Tables
+<span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+    <!-- <button class="nav-link custom-navlink" id="v-pills-decors-tab3" data-bs-toggle="pill" data-bs-target="#v-pills-decors3" type="button" role="tab" aria-controls="v-pills-decors3" aria-selected="false">Decor
+<span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button> -->
+
+  </div>
+  <div class="tab-content" id="v-pills-tabContent3">
+    <div class="tab-pane fade show active" id="v-pills-home3" role="tabpanel" aria-labelledby="v-pills-home-tab3">
+
+ <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Tv Units</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Bookshelves</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Shoe Racks</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Wall Shelves</a></li>
+               
+              
+</ul>
+<ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Cabinet & Sideboard</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Chest of Drawers</a></li>
+                 <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Wardrobes</a></li>
+              
+</ul>
+
+    </div>
+    <div class="tab-pane fade" id="v-pills-profile3" role="tabpanel" aria-labelledby="v-pills-profile-tab3">
+
+  <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Fabric Sofas</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Wooden Sofas</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">3 Seater Sofas</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">1 Seater Sofas</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">L-Shaped Sofas</a></li>
+               
+              
+</ul>
+<ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Chaise Lounge</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Sofa Cum Beds</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Loveseats</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Diwan Sofa</a></li>
+              
+</ul>
+    </div>
+    <div class="tab-pane fade" id="v-pills-messages3" role="tabpanel" aria-labelledby="v-pills-messages-tab3">
+      <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Lounge Chairs</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Wing Chairs</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Arm Chairs</a></li>
+               
+              
+</ul>
+<ul class="mega-menu-tab">             
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Office Chairs</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Bean Bags</a></li>
+                 <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Ottomans & Pouffes</a></li>
+              
+</ul>
+    </div>
+
+    <div class="tab-pane fade" id="v-pills-tables3" role="tabpanel" aria-labelledby="v-pills-tables-tab3">
+      <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Coffee Tables</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Nest of Tables</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Side & end Tables</a></li>
+               
+              
+</ul>
+<ul class="mega-menu-tab">             
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Study Tables</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Console Tables</a></li>
+                 <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Laptop Tables</a></li>
+
+              
+</ul>
+    </div>
+
+    <!-- <div class="tab-pane fade" id="v-pills-decors3" role="tabpanel" aria-labelledby="v-pills-decors-tab3">
+      <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Ottomans & Pouffes</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Wall Arts</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Rugs & Carpets</a></li>
+               
+              
+</ul>
+
+    </div> -->
+  </div>
+</div>
+            </div>
+
+<div class="col-lg-4">
+ <img src="assets/image/menuimag/topstories1.jpg" class="img-responsive img-fluid">
+</div>
+
+          </div>
+          </div>
+        </li>
+
+
+<li class="nav-item dropdown mega-dropdown">
+          <a class="nav-link dropdown-toggle" href="#" target="_blank" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Bedroom
+          </a>
+          <div class="dropdown-menu mega-dropdown-menu">
+           <div class="row">
+            <div class="col-lg-8">
+                <div class="dropdown-header"><a href="https://www.urbanwood.in/sofas"> All Bedroom Room </a></div>
+<div class="d-flex align-items-start">
+  <div class="nav flex-column nav-pills me-3 meganavtab-outer" id="v-pills-tab4" role="tablist" aria-orientation="vertical">
+    <button class="nav-link active custom-navlink" id="v-pills-home-tab4" data-bs-toggle="pill" data-bs-target="#v-pills-home4" type="button" role="tab" aria-controls="v-pills-home4" aria-selected="true">Beds
+  <span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+
+    <button class="nav-link custom-navlink" id="v-pills-profile-tab4" data-bs-toggle="pill" data-bs-target="#v-pills-profile4" type="button" role="tab" aria-controls="v-pills-profile4" aria-selected="false">Storage & Accessories
+<span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+
+    <button class="nav-link custom-navlink" id="v-pills-messages-tab4" data-bs-toggle="pill" data-bs-target="#v-pills-messages4" type="button" role="tab" aria-controls="v-pills-messages4" aria-selected="false">Tables
+<span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+
+    <button class="nav-link custom-navlink" id="v-pills-decor-tab4" data-bs-toggle="pill" data-bs-target="#v-pills-decor4" type="button" role="tab" aria-controls="v-pills-decor4" aria-selected="false">Decor
+<span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+
+    <button class="nav-link custom-navlink" id="v-pills-lamp-tab4" data-bs-toggle="pill" data-bs-target="#v-pills-lamp4" type="button" role="tab" aria-controls="v-pills-lamp4" aria-selected="false">Lamp and Lighting
+<span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+
+  </div>
+  <div class="tab-content" id="v-pills-tabContent4">
+    <div class="tab-pane fade show active" id="v-pills-home4" role="tabpanel" aria-labelledby="v-pills-home-tab4">
+
+ <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">King Size Beds</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Queen Size Beds</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Single Beds</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Beds with Storage</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Sofa Cum Beds</a></li>
+               
+              
+</ul>
+<ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Double Beds</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Poster Beds</a></li>
+                 <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Diwan Beds</a></li>
+                 <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Platfrom Beds</a></li>
+              
+</ul>
+
+    </div>
+    <div class="tab-pane fade" id="v-pills-profile4" role="tabpanel" aria-labelledby="v-pills-profile-tab4">
+
+  <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Wardrobes</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Chest of Drawers</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Cabinets & Sideboards</a></li>
+               
+              
+</ul>
+<ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Tv Units</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Bookshelves</a></li>
+                 <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Cupboards</a></li>
+                 <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Shoe Racks </a></li>
+              
+</ul>
+    </div>
+    <div class="tab-pane fade" id="v-pills-messages4" role="tabpanel" aria-labelledby="v-pills-messages-tab4">
+      <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Bedside Tables</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Dressing Tables</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Console Tables</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Nest of Tables</a></li>
+
+               
+              
+</ul>
+<ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Coffee Tables</a></li>
+                 <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Side & end Tables</a></li>
+                 <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Study Table</a></li>
+              
+</ul>
+    </div>
+    <div class="tab-pane fade" id="v-pills-decor4" role="tabpanel" aria-labelledby="v-pills-decor-tab4">
+      <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Bedside Tables</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Dressing Tables</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Console Tables</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Nest of Tables</a></li>
+
+               
+              
+</ul>
+<ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Coffee Tables</a></li>
+                 <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Side & end Tables</a></li>
+                 <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Study Table</a></li>
+              
+</ul>
+    </div>
+
+    <div class="tab-pane fade" id="v-pills-lamp4" role="tabpanel" aria-labelledby="v-pills-lamp-tab4">
+      <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Bedside Tables</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Dressing Tables</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Console Tables</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Nest of Tables</a></li>
+
+               
+              
+</ul>
+<ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Coffee Tables</a></li>
+                 <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Side & end Tables</a></li>
+                 <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Study Table</a></li>
+              
+</ul>
+    </div>
+  </div>
+</div>
+            </div>
+
+<div class="col-lg-4">
+ <img src="assets/image/menuimag/topstories1.jpg" class="img-responsive img-fluid">
+</div>
+
+          </div>
+          </div>
+        </li>
+
+<li class="nav-item dropdown mega-dropdown">
+          <a class="nav-link dropdown-toggle" href="#" target="_blank" id="navbarDropdown5" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Diningroom
+          </a>
+          <div class="dropdown-menu mega-dropdown-menu">
+           <div class="row">
+            <div class="col-lg-8">
+                <div class="dropdown-header"><a href="https://www.urbanwood.in/sofas">Diningroom</a></div>
+<div class="d-flex align-items-start">
+  <div class="nav flex-column nav-pills me-3 meganavtab-outer" id="v-pills-tab5" role="tablist" aria-orientation="vertical">
+    <button class="nav-link active custom-navlink" id="v-pills-home-tab5" data-bs-toggle="pill" data-bs-target="#v-pills-home5" type="button" role="tab" aria-controls="v-pills-home5" aria-selected="true">Dining Table Sets
+  <span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+
+    <button class="nav-link custom-navlink" id="v-pills-profile-tab5" data-bs-toggle="pill" data-bs-target="#v-pills-profile5" type="button" role="tab" aria-controls="v-pills-profile5" aria-selected="false">Dining Tables
+<span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+
+    <button class="nav-link custom-navlink" id="v-pills-messages-tab5" data-bs-toggle="pill" data-bs-target="#v-pills-messages5" type="button" role="tab" aria-controls="v-pills-messages5" aria-selected="false">Chairs
+<span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+
+  </div>
+  <div class="tab-content" id="v-pills-tabContent5">
+    <div class="tab-pane fade show active" id="v-pills-home5" role="tabpanel" aria-labelledby="v-pills-home-tab5">
+
+ <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">2 Seater Dining Table Sets</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">4 Seater Dining Table Sets</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">6 Seater Dining Table Sets</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Round Dining Table Sets</a></li>
+               
+              
+</ul>
+
+
+    </div>
+    <div class="tab-pane fade" id="v-pills-profile5" role="tabpanel" aria-labelledby="v-pills-profile-tab5">
+
+  <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">6 Seater Dining Tables </a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">4 Seater Dining Tables </a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">2 Seater Dining Tables </a></li>
+               
+              
+</ul>
+
+    </div>
+    <div class="tab-pane fade" id="v-pills-messages5" role="tabpanel" aria-labelledby="v-pills-messages-tab5">
+      <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Dining Chairs</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Wooden Dining Chairs</a></li>
+         
+              
+</ul>
+
+    </div>
+  </div>
+</div>
+            </div>
+
+<div class="col-lg-4">
+ <img src="assets/image/menuimag/topstories1.jpg" class="img-responsive img-fluid">
+</div>
+
+          </div>
+          </div>
+        </li>
+
+
+<li class="nav-item dropdown mega-dropdown">
+          <a class="nav-link dropdown-toggle" href="#" target="_blank" id="navbarDropdown6" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Storage Furniture
+          </a>
+          <div class="dropdown-menu mega-dropdown-menu">
+           <div class="row">
+            <div class="col-lg-8">
+                <div class="dropdown-header"><a href="https://www.urbanwood.in/sofas">Storage Furniture</a></div>
+<div class="d-flex align-items-start">
+  <div class="nav flex-column nav-pills me-3 meganavtab-outer" id="v-pills-tab6" role="tablist" aria-orientation="vertical">
+
+    <button class="nav-link active custom-navlink" id="v-pills-home-tab6" data-bs-toggle="pill" data-bs-target="#v-pills-home6" type="button" role="tab" aria-controls="v-pills-home6" aria-selected="true">Living Storage
+  <span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+
+    <button class="nav-link custom-navlink" id="v-pills-profile-tab6" data-bs-toggle="pill" data-bs-target="#v-pills-profile6" type="button" role="tab" aria-controls="v-pills-profile6" aria-selected="false">Bedroom Storage
+<span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+
+    <button class="nav-link custom-navlink" id="v-pills-messages-tab6" data-bs-toggle="pill" data-bs-target="#v-pills-messages6" type="button" role="tab" aria-controls="v-pills-messages6" aria-selected="false">Dining Storage
+<span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+
+  </div>
+  <div class="tab-content" id="v-pills-tabContent6">
+    <div class="tab-pane fade show active" id="v-pills-home6" role="tabpanel" aria-labelledby="v-pills-home-tab6">
+
+ <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Tv Units</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Bookshelves</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Shoe Racks</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Wall Shelves</a></li>
+               
+              
+</ul>
+
+    </div>
+    <div class="tab-pane fade" id="v-pills-profile6" role="tabpanel" aria-labelledby="v-pills-profile-tab6">
+
+  <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Chest of Drawers</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Bedside Tables</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Dressing Tables</a></li>
+               
+              
+</ul>
+<ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">WallShelves</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Wardrobes</a></li>
+               
+              
+</ul>
+    </div>
+    <div class="tab-pane fade" id="v-pills-messages6" role="tabpanel" aria-labelledby="v-pills-messages-tab6">
+      <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Cabinets & Sideboards</a></li>
+    
+</ul>
+
+    </div>
+  </div>
+</div>
+            </div>
+
+<div class="col-lg-4">
+ <img src="assets/image/menuimag/topstories1.jpg" class="img-responsive img-fluid">
+</div>
+
+          </div>
+          </div>
+        </li>
+
+
+<li class="nav-item dropdown mega-dropdown">
+          <a class="nav-link dropdown-toggle" href="#" target="_blank" id="navbarDropdown6" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Study/Office
+          </a>
+          <div class="dropdown-menu mega-dropdown-menu">
+           <div class="row">
+            <div class="col-lg-8">
+                <div class="dropdown-header"><a href="https://www.urbanwood.in/sofas"> Study/Office </a></div>
+<div class="d-flex align-items-start">
+  <div class="nav flex-column nav-pills me-3 meganavtab-outer" id="v-pills-tab6" role="tablist" aria-orientation="vertical">
+
+    <button class="nav-link active custom-navlink" id="v-pills-home-tab7" data-bs-toggle="pill" data-bs-target="#v-pills-home7" type="button" role="tab" aria-controls="v-pills-home7" aria-selected="true">Study Tables
+  <span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+
+    <button class="nav-link custom-navlink" id="v-pills-profile-tab7" data-bs-toggle="pill" data-bs-target="#v-pills-profile7" type="button" role="tab" aria-controls="v-pills-profile7" aria-selected="false">Office Accessories
+<span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+
+    <button class="nav-link custom-navlink" id="v-pills-messages-tab7" data-bs-toggle="pill" data-bs-target="#v-pills-messages7" type="button" role="tab" aria-controls="v-pills-messages7" aria-selected="false">Storage
+<span class="text-lg-end"> <i class='bx bxs-right-arrow' style="font-size: 9px;"></i></span>
+    </button>
+
+  </div>
+  <div class="tab-content" id="v-pills-tabContent6">
+    <div class="tab-pane fade show active" id="v-pills-home7" role="tabpanel" aria-labelledby="v-pills-home-tab7">
+
+ <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Study Tables</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Kids Study Tables</a></li>
+            
+               
+              
+</ul>
+<ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Study Chairs</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Arm Chairs</a></li>          
+</ul>
+
+    </div>
+    <div class="tab-pane fade" id="v-pills-profile7" role="tabpanel" aria-labelledby="v-pills-profile-tab7">
+
+  <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Office Tables</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Office Chairs</a></li>
+               
+              
+</ul>
+<ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">File Cabinets</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Office Desk</a></li>
+               
+              
+</ul>
+    </div>
+    <div class="tab-pane fade" id="v-pills-messages7" role="tabpanel" aria-labelledby="v-pills-messages-tab7">
+      <ul class="mega-menu-tab">
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Wall Shelves</a></li>
+                <li><span><i class="bx bx-chevron-right" style="color:#d46b0b;"></i> </span> <a href="#">Book Shelves</a></li>
+    
+</ul>
+
+    </div>
+
+
+
+  </div>
+</div>
+            </div>
+
+<div class="col-lg-4">
+ <img src="assets/image/menuimag/topstories1.jpg" class="img-responsive img-fluid">
+</div>
+
+          </div>
+          </div>
+        </li>
+
+ <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#">New Arivals</a>
+        </li>
+<li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#">Collections</a>
+        </li>
+<li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#">Custom Furniture</a>
+        </li>
+
+      </ul>
+     
+    </div>
+  </div>
+</nav>
+
+<!--- mobile menu ---->
+<div class="navbar header-top navbar-expand-lg  d-block d-lg-none" id="mobnavbartop"> 
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-sm-4 wdith-25-sm p-0 m-0">
+       <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+  <i class='bx bx-menu' style='color:#434342;font-size:25px'  ></i>
+  </button>
+  
+        </div>
+          <div class="col-sm-4 wdith-25-sm p-0 m-0">
+        <a class="navbar-brand d-block me-auto text-center" href="#"> <img src="assets/image/urbanwoodlogo.jpg" width="100"></a>
+  </div>
+    <div class="col-sm-4 wdith-25-sm p-0 m-0">
+
+
+      <div class="dropdown drop-btn float-right-side" >
+        <span><i class="fas fa-search"></i></span>
+        <div class="dropdown-content mob-search-content">
+          <form class="d-flex search-form">
+            <input class="form-control" type="search" placeholder="Search for products, brands and more..." aria-label="Search">
+            <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+          </form>
+        </div>
+      </div>
+
+                    
+<!-- <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+  <div class="offcanvas-header">
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <form class="d-flex search-form">
+      <input class="form-control" type="search" placeholder="Search for products, brands and more..." aria-label="Search">
+      <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+    </form>
+  </div>
+</div> -->
+
+          </div>
+          </div>
+  
+          <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <div class="offcanvas-title" id="offcanvasExampleLabel"> <img src="assets/image/urbanwoodlogo.jpg" width="130"alt=""></div>
+      <button type="button" class="mob-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"> <i class='bx bx-arrow-back' style="color:#fff"></i></button>
+    </div>
+    <div class="offcanvas-body">
+  <div class="content">
+    <div id="jquery-accordion-menu" class="jquery-accordion-menu">
+      <!-- <div class="jquery-accordion-menu-header">Header </div> -->
+      <ul>
+        <li class="active"><a href="#"><img src="assets/image//icon/mob-sale-icon.png" alt=""> Today's Sale</a></li>
+        <li><a href="#"> <img src="assets/image/icon/mob-sofa-icon.png" alt="">Sofas</a>
+          <ul class="submenu">
+            <li><a href="#">Sofa Sets </a>
+              <ul class="submenu">
+                <li><a href="">Fabric Sofas</a></li>
+                <li><a href="">Wooden Sofas</a></li>
+                <li><a href="">Sofa Cum Beds</a></li>
+                <li><a href="">3 Seater Sofa</a></li>
+                <li><a href="">1 Seater Sofas</a></li>
+                <li><a href="">L-Shaped Sofas</a></li> 
+              </ul>
+            </li>
+            <li><a href="#">Seating</a>
+              <ul class="submenu">
+                <li><a href="">Lounge Chairs</a></li>
+                <li><a href="">Loveseats</a></li>
+                <li><a href="">Ottomans & Pouffes</a></li>
+                <li><a href="">Bean Bags</a></li>
+                <li><a href="">Arm Chairs</a></li>
+                <li><a href="">Diwnas</a></li> 
+              </ul>
+            </li>
+            <li><a href="#">Sofa Cum Bed</a>
+              <ul class="submenu">
+                <li><a href="">Wooden Sofa Cum Beds</a></li>
+                <li><a href="">Sofa Cum Bed with Storage</a></li>
+                <li><a href="">Sofa Cum Beds</a></li>
+                <li><a href="">3 Seater Sofas</a></li>
+                <li><a href="">1 Seater Sofas</a></li>
+                <li><a href="">L-Shaped Sofas</a></li> 
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+      <li><a href="#"> <img src="assets/image/icon/mob-living-icon.png"> Living</a>
+          <ul class="submenu">
+            <li><a href="#">Living Storage</a>
+              <ul class="submenu">
+                <li><a href="">Tv Units</a></li>
+                <li><a href="">Bookshelves</a></li>
+                <li><a href="">Shoe Racks</a></li>
+                <li><a href="">Wall Shelves</a></li>
+                <li><a href="">Cabinet & Sideboard</a></li>
+                <li><a href="">Chest of Drawers</a></li> 
+                <li><a href="">Wardrobes</a></li> 
+              </ul>
+            </li>
+            <li><a href="#"> Sofas</a>
+              <ul class="submenu">
+                <li><a href="">Fabric Sofas</a></li>
+                <li><a href="">Wooden Sofas</a></li>
+                <li><a href="">Sofa Cum Beds</a></li>
+                <li><a href="">3 Seater Sofa</a></li>
+                <li><a href="">1 Seater Sofas</a></li>
+                <li><a href="">L-Shaped Sofas</a></li> 
+                <li><a href="">Chaise Lounge</a></li>
+                <li><a href="">Loveseats</a></li>
+                <li><a href="">Diwan Sofa</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Seating & Chairs</a>
+              <ul class="submenu">
+                <li><a href="">Lounge Chairs</a></li>
+                <li><a href="">Wing Chairs</a></li>
+                <li><a href="">Arm Chairs</a></li>
+                <li><a href="">Office Chairs</a></li>
+                <li><a href="">Bean Bags</a></li>
+                <li><a href="">Ottomans & Pouffes</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Tables</a>
+              <ul class="submenu">
+                <li><a href="">Coffee Tables</a></li>
+                <li><a href="">Nest of Tables</a></li>
+                <li><a href="">Side & end Tables</a></li>
+                <li><a href="">Study Tables</a></li>
+                <li><a href="">Console Tables</a></li>
+                <li><a href="">Laptop Tables</a></li> 
+              </ul>
+            </li>
+            <!-- <li><a href="#">Decor</a>
+              <ul class="submenu">
+                <li><a href="">Ottomans & Pouffes</a></li>
+                <li><a href="">Wall Arts</a></li>
+                <li><a href="">Rugs & Carpets</a></li>
+              </ul>
+            </li> -->
+          </ul>
+        </li>
+
+
+        <li><a href="#"> <img src="assets/image/icon/mob-bed-icon.png" alt=""class="img-fluid"> Bedroom </a>
+          <ul class="submenu">
+            <li><a href="#">Beds</a>
+              <ul class="submenu">
+                <li><a href="">King Size Beds</a></li>
+                <li><a href="">Queen Size Beds</a></li>
+                <li><a href="">Single Beds</a></li>
+                <li><a href="">Beds with Storage</a></li>
+                <li><a href="">Sofa Cum Beds</a></li>
+                <li><a href="">Double Beds</a></li> 
+                <li><a href="">Poster Beds</a></li> 
+                <li><a href="">Diwan Beds</a></li> 
+                <li><a href="">Platfrom Beds</a></li>  
+              </ul>
+            </li>
+            <li><a href="#">Storage & Accessories</a>
+              <ul class="submenu">
+                <li><a href="">Wardrobes</a></li>
+                <li><a href="">Chest of Drawers</a></li>
+                <li><a href="">Cabinets & Sideboards</a></li>
+                <li><a href="">Tv Units</a></li>
+                <li><a href="">Booksheles</a></li>
+                <li><a href="">Cupboards</a></li> 
+              </ul>
+            </li>
+            <li><a href="#">Tables</a>
+              <ul class="submenu">
+                <li><a href="">Bedside Tables</a></li>
+                <li><a href="">Dressing Tables</a></li>
+                <li><a href="">Console Tables</a></li>
+                <li><a href="">Nest of Tables</a></li>
+                <li><a href="">Coffee Tables</a></li>
+                <li><a href="">Side & end Tables</a></li> 
+                <li><a href="">Study Table</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+
+        <li><a href="#"><img src="assets/image/icon/dining-mobicon.png"> Diningroom </a>
+          <ul class="submenu">
+            <li><a href="#">Dining Table Sets</a>
+              <ul class="submenu">
+                <li><a href="">2 Seater Dining Table Sets</a></li>
+                <li><a href="">4 Seater Dining Table Sets</a></li>
+                <li><a href="">6 Seater Dining Table Sets</a></li>
+                <li><a href="">Round Dining Table Sets</a></li> 
+              </ul>
+            </li>
+            <li><a href="#">Dining Table Sets</a>
+              <ul class="submenu">
+                <li><a href="">6 Seater Dining Tables</a></li>
+                <li><a href="">4 Seater Dining Tables </a></li>
+                <li><a href="">2 Seater Dining Tables </a></li>
+              </ul>
+            </li>
+            <li><a href="#">Chairs</a>
+              <ul class="submenu">
+                <li><a href="">Dining Chairs</a></li>
+                <li><a href="">Wooden Dining Chairse</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#"><img src="assets/image/icon/studytable-icon.png"> Study/Office </a>
+          <ul class="submenu">
+            <li><a href="#">Study Tables</a>
+              <ul class="submenu">
+                <li><a href="">Study Tables</a></li>
+                <li><a href="">Kids Study Tables</a></li> 
+                <li><a href="">Study Chairs</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Office Furnitures</a>
+              <ul class="submenu">
+                <li><a href="">Arm Chairs</a></li>
+                <li><a href="">Office Tables</a></li>
+                <li><a href="">Office Chairs</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Office Accessories</a>
+              <ul class="submenu">
+                <li><a href="">File Cabinets</a></li>
+                <li><a href="">Office Desk</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Storage</a>
+              <ul class="submenu">
+                <li><a href="">Wall Shelves</a></li>
+                <li><a href="">Book Shelves</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        </li>
+        <li><a href="#"><img src="assets/image/icon/mob-colect-icon.png">Collections </a></li>
+        <li><a href="#"><img src="assets/image/icon/newarival-icon.png"> New Arivals</a></li>
+        <li><a href="#"><img src="assets/image/icon/custom-icon-mob.png">Custom Furniture </a></li>
+        <li><a href="#"><img src="assets/image/icon/custom-icon-mob.png">Our Stores </a></li>
+      </ul>
+     
+    </div>
+    <div class="bg-gray">
+    <ul class="m-0 p-0 mob-menu-log">
+      <li> <i class="bx bxs-truck text-white"></i> <a href=""> Track Order </a> </li>
+      <li> <i class="fas fa-sign-in-alt text-white"></i> <a href="">Sign in </a> &nbsp; <span class="text-white"> | </span> &nbsp;<a href="">Sign Up </a>  </li>
+     
+     </ul>
+    </div>
+  </div>
+</div>
+  </div>
+  <!-- mobile menu end-->
+</div>
+  <div class="wrapper">
+<div class="qu-sec py-2 ">
+    <div class="container container-custom">
+      <div class="row">
+  <div class="col-md-12 col-sm-12">
+    <nav class="breadcumb-navigation">
+      <ol class="breadcrumb m-0 p-2">
+        <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+        <li class="breadcrumb-item active" aria-current="page">Contact us</li>
+      </ol>
+    </nav>   
+  </div>
+  </div>
+      </div>
+  </div>
+<section class="py-2">
+    <div class="container container-custom">
+        <div class="row">
+            <div class="outer-help-center">
+              <div class="outer-xx d-md-flex d-block justify-content-between  my-2 py-2">
+                <div class="contact-us-heading"> CONTACT US <br> <p>For any query reach to us!</p></div>
+                <div class="order-sec">
+                    <div> 
+                    <i class="fas fa-shopping-bag"></i> &nbsp; TRACK, RE-ORDER <br> 
+                    <span> Manage your purchases</span>
+                </div>
+                <div><a href="" class="mang-order-btn">ORDERS</a></div>
+            </div>
+          </div>
+           <div class="row">
+            <div class="col-lg-3"> 
+<div class="sidebar-helpcenter">
+    <ul>
+      <li><a href="  order-complaint.html" class="help-list"><i class="fas fa-comment-alt"></i> Order Feedback</a> </li>
+        <li ><a href="help-center.html" class="help-list"> <i class="fas fa-question-circle"></i> FAQ </a> </li>
+        <li><a href="policies.html" class="help-list"> <i class="fas fa-clipboard-list"></i> Policies </a> </li>
+        <li class="active-sidebar" ><a href="contactus.html" class="help-list"> <i class="far fa-paper-plane"></i> Contact Us </a> </li>
+        <li><a href="Postal-address.html" class="help-list"> <i class="fas fa-map-marker-alt"></i> Postal Address</a> </li>
+        
+    </ul>
+</div>    
+</div>
+<div class="col-lg-9"> 
+  <div class="contact-customer-form">
+    <h6>We are Here for your Problems!</h6>
+    <div class="conts-box">
+      <div class="out-cc-bx">
+        <div class="cont-box-in">
+          <div class="icon-for-cc"><i class="fab fa-whatsapp"></i></div>
+          <div class="d-block" style="float: left;">
+         Chat with Us<br>
+       <span> get in touch for more deatils and your issues </span>
+      </div>
+      </div>
+      <div class="chat-live"> <a href=""> Chat Now</a>
+      </div>
+    </div>
+    </div>
+
+    <div class="conts-box">
+      <div class="out-cc-bx">
+        <div class="cont-box-in">
+          <div class="icon-for-cc"><i class="fas fa-at"></i></div>
+          <div class="d-block" style="float: left;">
+         Mail Us<br>
+       <span> Mail us for your Query , we will revert you soon! </span>
+      </div>
+      </div>
+      <div class="chat-live"> <a href="mailto:support@urbanwood.in"> mail us</a>
+      </div>
+    </div>
+    </div>
+
+    <div class="conts-box">
+      <div class="out-cc-bx">
+        <div class="cont-box-in">
+          <div class="icon-for-cc"><i class="fas fa-headset"></i></div>
+          <div class="d-block" style="float: left;">
+         Give a call <br>
+       <span> get in touch for more deatils and your issues </span>
+      </div>
+      </div>
+      <div class="chat-live"> <a href="tel:+91 8949695921"> Call Now</a>
+      </div>
+    </div>
+    </div>
+
+    
+  </div>
+
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+</section>
+<footer id="footer"> 
+  
+  <div class="container container-custom"> 
+    <div class="row"> 
+      <div class="footer-newsletter"> 
+      <div class="col-lg-6 col-md-6 col-sm-12"> 
+        <h2 class="pg-heading text-lg-start">Subscribe Our Newsletter</h2>
+      <p class="heading-para text-lg-start ">Enter you email address to stay tuned with latest offers and products.</p>
+       </div>
+        <div class="col-lg-6 col-md-6 col-sm-12"> 
+          <form action="" method="post"> 
+            <input type="email" name="email" placeholder="Enter your email address &hellip;">
+            <input type="submit" value="Subscribe"> 
+          </form> 
+        </div> 
+      </div> 
+    </div> 
+  </div> 
+  <div class="footer-top d-md-block d-none"> 
+    <div class="container container-custom"> 
+      <div class="row">
+        <div class="col-lg-3 col-md-6 footer-info"> 
+          <h4>Contact Info</h4> <p>We at Urbanwood would love to hear your 
+opinion about our venture.</p> 
+<ul class="contact-list">
+  <li> <span> <i class='bx bxs-map'></i></span> URBANWOOD FURNITURE PRIVATE LIMITED
+843 , Gram Basdi , mukandpura Road , Bhankrota , 
+Ajmer road , Jaipur , Rajasthan , 302026</li>
+<li> <span><i class='bx bxs-phone'></i></span>+91 89496 95921</li>
+<li><span> <i class='bx bx-envelope' ></i></span> support@urbanwood.in </li>
+</ul>
+         
+         <div class="map"> 
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.6927478024973!2d80.2163412!3d12.991493199999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526762150b2b4d%3A0x604a15e2d0121e2f!2sHome%20Stop!5e0!3m2!1sen!2sin!4v1669466511215!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div> 
+       <div class="col-lg-3 col-md-6 footer-links"> 
+        <h4>Useful Links</h4>
+         <ul> 
+          <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/about-us">About us</a></li> 
+          <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/contact-us">Services</a></li> 
+          <li><i class="bx bx-chevron-right"></i> <a href="https://blog.urbanwood.in/"> Blog</a></li>
+          
+        </ul> 
+      </div> 
+      <div class="col-lg-3 col-md-6 footer-links "> 
+          <h4>Customer Service</h4> 
+          <ul> 
+            <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/return-and-refunds">Return & Refunds</a></li> 
+            <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/terms-of-use">Terms of Uses</a></li> 
+          <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/payment-policy">Privacy policy</a></li> 
+            <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/security-and-privacy">Security & Privacy</a></li> 
+            <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/customer-stories">Customer Stories</a></li> 
+             <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/delivery-and-shipping-policy">Delivery & Shipping Policy</a></li>
+          </ul> 
+        </div> 
+        <div class="col-lg-3 col-md-6 footer-links "> 
+          <h4>Top Categories</h4> 
+          <ul> 
+            <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/bedroom-furniture">Bedroom</a></li> 
+            <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/sofas">Sofas</a></li> 
+            <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/dining-room-furniture">Dining Room</a></li> 
+            <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/wardrobes">Wardrobes</a></li> 
+            <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/bookshelves">Bookshelves </a></li> 
+           
+          </ul> 
+           <div class="social-links mt-3"> 
+             <h4>Follow us-</h4> 
+            <a href="https://twitter.com/UrbanWoodin" class="twitter"><i class="bx bxl-twitter"></i></a> 
+            <a href="https://www.facebook.com/urbanwood.in" class="facebook"><i class="bx bxl-facebook"></i></a> 
+            <a href="https://www.instagram.com/urbanwood.in/" class="instagram"><i class="bx bxl-instagram"></i></a> 
+            <a href="https://www.linkedin.com/company/urbanwood-in" class="linkedin"><i class="bx bxl-linkedin"></i></a> 
+            <a href="https://www.youtube.com/channel/UCkW0cO6VRZbakl61qEnKelg?view_as=subscriber"> <i class='bx bxl-youtube'></i></a>
+            <a href="https://in.pinterest.com/urbanwoodIndia/_created/"><i class='bx bxl-pinterest-alt' ></i></a>
+          </div> 
+        </div> 
+         
+      </div> 
+    </div> 
+  </div> 
+<div class="mobifooter d-block d-md-none">
+<div class="container container-custom">
+<ul id="accordion_mob1" class="accordion-footer">
+  <li>
+    <div class="link"><i class='bx bxs-paper-plane'></i>USEFUL LINKS<i class="fa fa-chevron-down"></i></div>
+    <ul class="submenu">
+      <li><a href="https://www.urbanwood.in/about-us">About us</a></li>
+      <li><a href="https://www.urbanwood.in/contact-us">Services</a></li>
+      <li><a href="https://blog.urbanwood.in/"> Blog</a></li>
+    </ul>
+  </li>
+  <li>
+    <div class="link"><i class='bx bxs-message-square-error' ></i>CUSTOMER SERVICE<i class="fa fa-chevron-down"></i></div>
+    <ul class="submenu">
+       <li> <a href="https://www.urbanwood.in/return-and-refunds">Return & Refunds</a></li> 
+            <li> <a href="https://www.urbanwood.in/terms-of-use">Terms of Uses</a></li> 
+          <li> <a href="https://www.urbanwood.in/payment-policy">Privacy policy</a></li> 
+            <li> <a href="https://www.urbanwood.in/security-and-privacy">Security & Privacy</a></li> 
+            <li> <a href="https://www.urbanwood.in/customer-stories">Customer Stories</a></li> 
+             <li> <a href="https://www.urbanwood.in/delivery-and-shipping-policy">Delivery & Shipping Policy</a></li>
+    </ul>   
+  </li>
+  <li>
+    <div class="link"><i class='bx bxs-category-alt' ></i>TOP CATEGORIES<i class="fa fa-chevron-down"></i></div>
+    <ul class="submenu">
+       <li> <a href="https://www.urbanwood.in/bedroom-furniture">Bedroom</a></li> 
+            <li> <a href="https://www.urbanwood.in/sofas">Sofas</a></li> 
+            <li> <a href="https://www.urbanwood.in/dining-room-furniture">Dining Room</a></li> 
+            <li> <a href="https://www.urbanwood.in/wardrobes">Wardrobes</a></li> 
+            <li> <a href="https://www.urbanwood.in/bookshelves">Bookshelves </a></li> 
+           
+    </ul>
+  </li>
+  <li>
+    <div class="link"><i class='bx bxs-building-house' ></i>CONTACT INFO<i class="fa fa-chevron-down"></i></div>
+    <ul class="submenu">
+      <li><span> <i class='bx bxs-map'></i></span> URBANWOOD FURNITURE PRIVATE LIMITED
+843 , Gram Basdi , mukandpura Road , Bhankrota , 
+Ajmer road , Jaipur , Rajasthan , 302026</li>
+      <li> <span><i class='bx bxs-phone'></i></span>+91 89496 95921</li>
+<li><span> <i class='bx bx-envelope' ></i></span> support@urbanwood.in </li>
+    </ul>
+  </li>
+</ul>
+ <div class="mobisocial mt-3"> 
+           <a href="https://twitter.com/UrbanWoodin" class="twitter"><i class="bx bxl-twitter"></i></a> 
+            <a href="https://www.facebook.com/urbanwood.in" class="facebook"><i class="bx bxl-facebook"></i></a> 
+            <a href="https://www.instagram.com/urbanwood.in/" class="instagram"><i class="bx bxl-instagram"></i></a>  
+            <a href="https://www.linkedin.com/company/urbanwood-in" class="linkedin"><i class="bx bxl-linkedin"></i></a> 
+           <a href="https://www.youtube.com/channel/UCkW0cO6VRZbakl61qEnKelg?view_as=subscriber"> <i class='bx bxl-youtube'></i></a> 
+            <a href="https://in.pinterest.com/urbanwoodIndia/_created/"><i class='bx bxl-pinterest-alt' ></i></a>
+          </div> 
+ </div>
+
+ </div>
+  <div class="bottom-foot"> 
+            <div class="location-list text-center"> We Deliver in : Ahmedabad, Amritsar, Bangalore, Chandigarh, <br> Faridabad, Ghaziabad, Gurgaon, Indore, Jaipur, Jodhpur, Mumbai, Delhi, Noida, Pune, Surat, Ludhiana,
+Udaipur, Kanpur, Lucknow, Bhopal, Raipur, Ranchi, Patna & Across India.</div>
+            <div class="copyright"> &copy; Copyright <strong><span><a href="https://www.urbanwood.in/" target="_blank">urbanwood.in </a></span></strong>. All Rights Reserved </div> 
+          </div>
+</footer>
+
+<button type="button" class="SmoothmyTop"><i class='bx bx-up-arrow-alt'></i></button>
+
+</div>
+  <script src="assets.js/bootstrap-multiselect.js"></script>
+    <script src="assets/js/popper.js"></script>
+<script type="text/javascript">
+  (function($) {
+
+  "use strict";
+
+   $(document).ready(function() {
+        $('#multiple-checkboxes').multiselect({
+          includeSelectAllOption: true,
+        });
+    });
+   
+})(jQuery);
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/3.2.1-jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/main.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery1.1.1.min.js"></script>
+<script src="assets/js/owl.carousel.js"></script>
+<script src="assets/js/slick-js.js"></script>
+<script src="assets/js/swiper-bundle.min.js"></script>
+<script src="assets/js/mob-menu.js"></script>
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+</body>
+</html>

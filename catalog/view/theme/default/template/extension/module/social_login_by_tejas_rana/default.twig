@@ -1,0 +1,61 @@
+{% if setting is defined and setting.social_login_by_tejas_rana_enable %}
+    <div class="container">
+        {% if warning is defined and warning is not empty %}
+        <div class="alert alert-warning"><i class="fa fa-check-circle"></i> {{ warning }}</div>
+        {% endif %}
+        <h3>{{ text_title_login_with_social }}</h3>
+        <div class="social_login" id="social_login_by_tejas_rana">
+            {% if setting.social_login_by_tejas_rana_fbstatus %}
+                {% if setting.social_login_by_tejas_rana_button == 'image' %}
+                    <a class="social-icon"  href="{{ fblink }}">
+                        <img class="img-responsive" src="{{ fbimage }}" 
+                            data-toggle="tooltip" alt="{{ setting.social_login_by_tejas_rana_fbtitle }}" 
+                            title="{{ setting.social_login_by_tejas_rana_fbtitle }}"
+                        />
+                    </a>
+                {% else %}
+                    <a href="{{ fblink }}" class="btn btn-social-icon btn-sm btn-facebook" data-toggle="tooltip" title="{{ setting.social_login_by_tejas_rana_fbtitle }}"><i class="fa fa-facebook fa-fw" aria-hidden="true"></i></a>
+                {% endif %}
+            {% endif %}
+            
+            {% if setting.social_login_by_tejas_rana_twitstatus %}
+                {% if setting.social_login_by_tejas_rana_button == 'image' %}
+                    <a class="social-icon"  href="{{ twitlink }}">
+                        <img class="img-responsive" src="{{ twitimage }}" 
+                            data-toggle="tooltip" alt="{{ setting.social_login_by_tejas_rana_twittertitle }}" 
+                            title="{{ setting.social_login_by_tejas_rana_twittertitle }}"
+                        />
+                    </a>
+                {% else %}
+                    <a href="{{ twitlink }}" class="btn btn-social-icon btn-sm btn-twitter" data-toggle="tooltip" title="{{ setting.social_login_by_tejas_rana_twittertitle }}"><i class="fa fa-twitter fa-fw" aria-hidden="true"></i></a>
+                {% endif %}
+            {% endif %}
+            
+            {% if setting.social_login_by_tejas_rana_googlestatus %}
+                {% if setting.social_login_by_tejas_rana_button == 'image' %}
+                    <a class="social-icon"  href="{{ googlelink }}">
+                        <img class="img-responsive" src="{{ googleimage }}" 
+                            data-toggle="tooltip" alt="{{ setting.social_login_by_tejas_rana_googletitle }}" 
+                            title="{{ setting.social_login_by_tejas_rana_googletitle }}" 
+                        />
+                    </a>
+                {% else %}
+                    <a href="{{ googlelink }}" class="btn btn-social-icon btn-sm btn-google-plus" data-toggle="tooltip" title="{{ setting.social_login_by_tejas_rana_googletitle }}" ><i class="fa fa-google fa-fw" aria-hidden="true"></i></a>
+                {% endif %}
+            {% endif %}
+            
+            {% if setting.social_login_by_tejas_rana_linkstatus %}
+                {% if setting.social_login_by_tejas_rana_button == 'image' %}
+                    <a class="social-icon"  href="{{ linkdinlink }}">
+                        <img class="img-responsive" src="{{ linkdinimage }}" 
+                            data-toggle="tooltip" alt="{{ setting.social_login_by_tejas_rana_linkedintitle }}" 
+                            title="{{ setting.social_login_by_tejas_rana_linkedintitle }}"
+                        />
+                    </a>
+                {% else %}
+                    <a href="{{ linkdinlink }}" class="btn btn-social-icon btn-sm btn-linkdin" data-toggle="tooltip" title="{{ setting.social_login_by_tejas_rana_linkedintitle }}"><i class="fa fa-linkedin fa-fw" aria-hidden="true"></i></a>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

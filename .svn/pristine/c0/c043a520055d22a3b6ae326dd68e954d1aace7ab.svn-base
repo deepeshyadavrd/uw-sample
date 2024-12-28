@@ -1,0 +1,8 @@
+{{ header }}
+{{ menu }}
+{{ storehead }}
+{{ locationlist }}
+
+{{ bottomcontent }}
+
+{{ footer }}

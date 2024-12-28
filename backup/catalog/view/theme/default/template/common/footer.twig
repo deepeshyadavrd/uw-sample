@@ -1,0 +1,946 @@
+
+{% if not custom_page %}
+{{ customerstories }}
+{% endif %}
+<!-- request call back -->
+<div class="sidecall">
+        <button type="button" class=" requestcall" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            Request Call
+            <span><i class='bx bx-phone-call bx-tada'></i></span>
+        </button>
+    </div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="modal-header text-center d-block">
+                <h5 class="modal-title" id="exampleModalLabel">Request a Callback</h5>
+                <p class="text-center">We will contact you as soon as we have received your information.</p>
+            </div>
+            <div class="modal-body">
+                <form id="myform">
+                    <div class="mb-3">
+                        <label for="user-name" class="col-form-label">Name</label>
+                        <input type="text" name="name" class="form-control" id="user-name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email-address" class="col-form-label">Email Adderess</label>
+                        <input type="text" name="email" class="form-control" id="email-address">
+                    </div>
+                    <div class="mb-3">
+                        <label for="con-num" class="col-form-label">Contact No.</label>
+                        <input type="text" name="mobile" class="form-control" id="con-num">
+                    </div>
+                    <div class="mb-3">
+                      <label for="state" class="col-form-label">State</label>
+                        <select name="state" id="state" name="state" class="form-control" required>
+			                <option value="">Select state</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                            <option value="Daman and Diu">Daman and Diu</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Lakshadweep">Lakshadweep</option>
+                            <option value="Puducherry">Puducherry</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="West Bengal">West Bengal</option>
+                        </select>
+			        </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Message:</label>
+                        <textarea class="form-control" name="message" id="message-text"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer text-center">
+                <button type="button" id="subbtn" onclick="submitCallRequest('myform','subbtn')" class="send-btn">Send message</button>
+            </div>
+        </div>
+    </div>
+<!--sign in signup popup-->
+    <div id="signuppopup" class="modal fade" role="dialog">
+        <div class="modal-dialog popup_content modal-dialog-centered ">
+            <!-- Modal content-->
+            <div class="modal-content p-0">
+                <div class="modal-header">
+                    <button type="button" class="popup-close2 close" data-bs-dismiss="modal" aria-label="dismiss modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body m-0 p-0">
+                    <div class="row">
+                        <div class="col-md-7 col-sm-6 col-xs-6 width-30">
+                        <picture>
+                            <source srcset="catalog/view/javascript/assets/image/popupimg/slider1.avif" type="image/avif">
+                                <img src="catalog/view/javascript/assets/image/popupimg/slider1.webp"  class="img-responsive img-fluid" alt="x-mas offer avail now" loading="lazy"/>
+                        </picture>
+                        </div>
+                        <div class="col-md-5 col-sm-6 col-xs-6 width-70">
+
+                            <!--- sign in form-->
+                            <div class="signin-form-popup signupform1 notification-container selected">
+                                <div class="from-header">
+                                    <h6>
+                                        Welcome to 
+                                        <span>
+                                            UrbanWood</span>
+                                    </h6>
+                                    <p>Glad to See You!</p>
+                                </div>
+                                <div class="popup-signform">
+                                    <form method="post" enctype="multipart/form-data" class="loginform">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email Address" required="">
+                                            </div>
+                                            <div class="col-md-12 ">
+                                                <input type="password" name="password" class="form-control password" autocomplete="current-password" required="" id="id_password_login" placeholder="Password">
+                                                <i class="far fa-eye-slash" id="togglePassword"></i>
+                                            </div>
+                                            <div class="d-block">
+                                                <button type="submit" class="login-btn-popup" id="loginbtn">Login</button>
+                                                <a href="forgot-password" class="forget-pass text-center">Forget password?</a>
+                                                <p class="text-center dont-accont">Dont Have an Account ?
+                                                    <a href="" id="showFilePanel">Sign Up Now</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- sign up for first time form -->
+                            <div class="signin-form-popup signupform2 notification-container2 dismiss">
+                                <div class="from-header">
+                                    <h6>
+                                        Start journey with us
+                                        <br>
+                                        <span>
+                                            Create an Account
+                                        </span>
+                                    </h6>
+                                    <p class="mb-0">Welcome!</p>
+                                </div>
+                                <div class="popup-signform">
+                                    <form method="post" enctype="multipart/form-data" class="registerform">
+                                        <div class="row">
+                                            <div class="col-md-6 col-lg-6 ">
+                                                <input type="name" name="firstname" class="form-control mt-0 mb-1" id="exampleInputFirstname" placeholder="First Name" required="">
+                                            </div>
+                                            <div class="col-md-6 col-lg-6 ">
+                                                <input type="text" name="lastname" class="form-control mt-0 mb-1" id="exampleInputlastname" placeholder="Last Name" required="">
+                                            </div>
+                                            <div class="col-md-12 ">
+                                                <input type="email" name="email" class="form-control mt-0mb-1" id="giveInputEmail1" placeholder="Email Address" required="">
+                                            </div>
+                                            <div class="col-md-12 ">
+                                                <input type="text" name="telephone" class="form-control mt-0 mb-1" id="giveInputnumber" placeholder="contact Number" required="">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <input type="password" name="password" class="form-control password" autocomplete="current-password" required="" id="id_password" placeholder="Password">
+                                                <i class="far fa-eye" id="togglePassword"></i>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <input type="password" name="confirm" class="form-control password" autocomplete="current-password" required="" id="id_password1" placeholder="Confirm password">
+                                                <i class="far fa-eye" id="togglePassword"></i>
+                                            </div>
+                                            <div class="d-block">
+                                                <button type="submit" class="login-btn-popup" id="signupbtn">Sign up</button>
+                                                <p class="text-center dont-accont mb-0">Already Have an Account ?
+                                                    <a href="" id="closeFilePanel">Sign in Now</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end popup-->
+    <style>
+    
+.footer-newsletter {
+	display: flex;
+} 
+
+.footer-newsletter input[type=email] {
+	padding: 14px 5px;
+	border: 1px solid #ccc;
+	background: #f7f7f7;
+	border:none;
+	width: 100%;
+
+}
+
+.footer-newsletter button {
+    border: 0;
+    background: #ff7200;
+    font-size: 16px;
+    padding: 0 14px;
+    color: #fff;
+    transition: .3s;
+    border-radius: 0;
+}
+
+.footer-newsletter button:hover {
+	background: #e6573f
+}
+    </style>
+<footer id="footer">
+    <div class="footer-top d-md-block">
+        <div class="container container-custom">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 footer-info">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-list">
+                        <li>
+                            <span><i class='bx bxs-map'></i></span>
+                            URBANWOOD FURNITURE PRIVATE LIMITED  Ajmer road , Jaipur , Rajasthan , 302026
+                        </li>
+                        <li>
+                            <span><i class='bx bxs-phone'></i></span><a href="tel:+ 91 9599283126" class="text" style="color:white;">+91 9599283126</a>
+                        </li>
+                        <li>
+                            <span><i class='bx bx-envelope'></i></span>
+                            <a href="mailto:support@urbanwood.in" rel='nofollow' style="color:white;">support@urbanwood.in</a>
+                        </li>
+                    </ul>
+                    <div class="social-links mt-3">
+                        <a href="https://twitter.com/UrbanWoodin" class="twitter" aria-label="twitter">
+                            <i class="bx bxl-twitter"></i>
+                        </a>
+                        <a href="https://www.facebook.com/urbanwood.in" class="facebook" aria-label="facebook">
+                            <i class="bx bxl-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/urbanwoodpvtltd/" class="instagram" aria-label="instagram">
+                            <i class="bx bxl-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/urbanwood-in" class="linkedin" aria-label="linkedin">
+                            <i class="bx bxl-linkedin"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCkW0cO6VRZbakl61qEnKelg?view_as=subscriber" aria-label="youtube">
+                            <i class='bx bxl-youtube'></i>
+                        </a>
+                        <a href="https://in.pinterest.com/urbanwoodgurgaon/_created" aria-label="pinterest">
+                            <i class='bx bxl-pinterest-alt'></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3 col-md-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="about-us">About us</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="contact-us">Contact us</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="career">Career</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="bulk-order">Bulk Order</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="https://blog.urbanwood.in/">Blog</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="sitemap">Sitemap</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-3 col-md-6 footer-links ">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="https://www.urbanwood.in/return-and-refunds">Return & Refunds</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="https://www.urbanwood.in/terms">Terms of Uses</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="https://www.urbanwood.in/security-and-privacy">Security & Privacy</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="https://www.urbanwood.in/delivery-and-shipping-policy">Delivery & Shipping Policy</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="customer-stories">Customer Stories</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 d-md-block d-none footer-links ">
+                    <h4>Top Categories</h4>
+                    <ul>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="bedroom-furniture">Bedroom</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="sofas">Sofas</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="dining-room-furniture">Dining Room</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="wardrobes">Wardrobes</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="bookshelves">Bookshelves</a>
+                        </li>
+                    </ul>
+                    {# <form action="" class="footer-newsletter"> 
+            <input type="email" placeholder="Enter your email address &hellip;">
+            <button type="button"> Subscribe</button>
+          </form>  #}
+          <form class="footer-newsletter" id="newsletter-form" method="post">
+                        <input type="email" name="email" placeholder="Enter your email address &hellip;">
+                    
+                    <button type="button" onclick="newsletter('newsletter-form');">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-foot"> 
+  <div class="container container-custom d-block d-md-flex justify-content-between align-items-center">
+    <div class="copy-content"> 
+       <div class="location-list"> We Deliver in : Ahmedabad, Amritsar, Bangalore, Chandigarh, Faridabad, Ghaziabad, Gurgaon, 
+          Indore, Jaipur, Jodhpur,Mumbai, Delhi, Noida, Pune, Surat, Ludhiana,
+          Udaipur, Kanpur, Lucknow, Bhopal, Raipur, Ranchi, Patna & Across India.
+       </div>
+         <div class="copyright"> &copy;  2018 - <span id="ccright"></span> <strong><a href="https://www.urbanwood.in/" target="_blank">urbanwood.in </a></strong>. All Rights Reserved 
+          </div> 
+
+        </div>
+<script>
+document. getElementById("ccright"). innerHTML= new Date(). getFullYear() ;
+</script>
+ 
+
+          <div class="features-label">
+              <span class="img-label">
+               <picture>
+                <source media="(min-width: 1200px)" srcset="catalog/view/javascript/assets/image/icon/A+grade-sheesham-big.png" />
+                <img src="catalog/view/javascript/assets/image/icon/A+grade-sheesham.png" alt="A+ grade sheesham wood" 15vw loading="lazy"/>
+              </picture>
+             </span>
+
+             <span class="img-label">
+               <picture>
+                <source media="(min-width: 1200px)" srcset="catalog/view/javascript/assets/image/icon/free-delivery-big.png" />
+                <img src="catalog/view/javascript/assets/image/icon/free-delivery.png" alt="Free delivery all over India" 15vw loading="lazy"/>
+              </picture>
+             </span>
+             <span class="img-label">
+               <picture>
+                <source media="(min-width: 1200px)" srcset="catalog/view/javascript/assets/image/icon/36-month-warrenty-big.png" />
+                <img src="catalog/view/javascript/assets/image/icon/36-month-warrenty.png" alt="36 month warranty" 15vw loading="lazy"/>
+              </picture>
+             </span>
+
+          </div>
+
+          </div>
+          </div>
+</footer>
+<button type="button" class="SmoothmyTop" aria-label='to top'>
+    <i class='bx bx-up-arrow-alt'></i>
+</button>
+<script type="text/javascript" src="catalog/view/javascript/assets/js/main.js?v=1.3" ></script>
+<script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/bootstrap.bundle.min.js" ></script>
+                    <script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/jquery1.1.1.min.js" ></script>
+                    <script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/jquery-ui.min.js" defer></script>
+                    <!--<script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/owl.carousel.js" defer></script>-->
+                    <script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/slick-js.js" defer></script>
+                    <script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/mob-menu.js" defer></script>
+                    <script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/common.js" type="text/javascript" defer></script>
+                    <script src="catalog/view/javascript/assets/js/new-carousel-link/owl.carousel.min-new.js" type="text/javascript" defer></script>
+</div>
+
+<!-- Hotjar Tracking Code for my site -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3376034,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+<!-- ms clarity code -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "jggwwdk7bl");
+</script>
+
+<style>
+    .float {
+        position: fixed;
+        bottom: 50px;
+        z-index: 100;
+        left: 18px;
+    }
+    .whatsappOnphone {
+        width: 40px;
+    }
+</style>
+<a href="https://wa.me/919311662426" class="float" target="_blank" aria-label="whatsapp"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="48px" height="48px" clip-rule="evenodd"><path fill="#fff" d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"/><path fill="#fff" d="M4.868,43.803c-0.132,0-0.26-0.052-0.355-0.148c-0.125-0.127-0.174-0.312-0.127-0.483l2.639-9.636c-1.636-2.906-2.499-6.206-2.497-9.556C4.532,13.238,13.273,4.5,24.014,4.5c5.21,0.002,10.105,2.031,13.784,5.713c3.679,3.683,5.704,8.577,5.702,13.781c-0.004,10.741-8.746,19.48-19.486,19.48c-3.189-0.001-6.344-0.788-9.144-2.277l-9.875,2.589C4.953,43.798,4.911,43.803,4.868,43.803z"/><path fill="#cfd8dc" d="M24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,4C24.014,4,24.014,4,24.014,4C12.998,4,4.032,12.962,4.027,23.979c-0.001,3.367,0.849,6.685,2.461,9.622l-2.585,9.439c-0.094,0.345,0.002,0.713,0.254,0.967c0.19,0.192,0.447,0.297,0.711,0.297c0.085,0,0.17-0.011,0.254-0.033l9.687-2.54c2.828,1.468,5.998,2.243,9.197,2.244c11.024,0,19.99-8.963,19.995-19.98c0.002-5.339-2.075-10.359-5.848-14.135C34.378,6.083,29.357,4.002,24.014,4L24.014,4z"/><path fill="#40c351" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"/><path fill="#fff" fill-rule="evenodd" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z" clip-rule="evenodd"/></svg></a>
+
+<script>
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navbarbottom").style.bottom = "10px" ;
+  } else {
+    document.getElementById("navbarbottom").style.bottom = "-50px" ;
+  }
+  prevScrollpos = currentScrollPos;
+}
+</script>
+
+{% if logged is null %}
+<script>
+
+    $(document).ready(function () {
+        if (getCookie('modal_shown') == null) {
+            
+            setTimeout(function () {
+                setCookie('modal_shown', 'yes', 1);
+                $('#signuppopup').modal('show');
+            }, 5000);
+        }
+    });
+
+
+    function getCookie(cName) {
+      const name = cName + "=";
+      const cDecoded = decodeURIComponent(document.cookie); //to be careful
+      const cArr = cDecoded .split('; ');
+      let res;
+      cArr.forEach(val => {
+          if (val.indexOf(name) === 0) res = val.substring(name.length);
+      })
+      return res;
+    }
+
+    function setCookie(cName, cValue, expDays) {
+        let date = new Date();
+        date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + date.toUTCString();
+        document.cookie = cName + "=" + cValue + "; " + expires + "; path=/";
+    }
+    </script>
+{% endif %}
+<script>
+    $('.select-items div').click(function(){
+        
+        if($(this).text()=='Jaipur') location.href='furniture-shop-in-jaipur';
+        if($(this).text()=='Gurugram') location.href='furniture-shop-in-gurgaon';
+        if($(this).text()=='Bangalore') location.href='furniture-online-bangalore';
+    });
+    function signupmodal(){
+        $('#signuppopup').modal('show');
+        document.getElementById("showFilePanel").click();
+    }
+    function signinmodal(){
+        $('#signuppopup').modal('show');
+        
+    }
+
+    $('#showFilePanel').click(function(event) {
+  if ($('.notification-container').hasClass('selected')) {
+    $('.notification-container2').removeClass('dismiss').addClass('selected').show();
+    $('.notification-container').removeClass('selected').addClass('dismiss').hide();
+  } else {
+    $('.notification-container').removeClass('dismiss').addClass('selected').show();
+    $('.notification-container2').removeClass('selected').addClass('dismiss').hide();
+  }
+  event.preventDefault();
+});
+
+$('#closeFilePanel').click(function(event) {
+  if ($('.notification-container2').hasClass('selected')) {
+    $('.notification-container2').removeClass('selected').addClass('dismiss').hide();
+    $('.notification-container').removeClass('dismiss').addClass('selected').show();
+  } else {
+    $('.notification-container2').removeClass('dismiss').addClass('selected').show();
+    $('.notification-container').removeClass('selected').addClass('dismiss').hide();
+  }
+  event.preventDefault();
+});
+</script>
+ {# for profile and order tab  #}
+<script>
+ $(document).ready(function() {
+  var last_id = localStorage.getItem('tab_id');
+  if(last_id) {
+    $('ul.nav-pills li a').removeClass('active');
+    $('#v-pills-tabContent .tab-pane').removeClass('active show');
+	$(".nav-pills li a").eq(Number(last_id.match(/\d+/)[0])-1).addClass('active');
+    $("#" + last_id).addClass('active show');
+  }
+  $('ul.nav-pills li a').click(function() {
+    var tab_id = $(this).attr('data-tab');
+    console.log(tab_id);
+    $('ul.nav-pills li a').removeClass('active');
+    $('.tab-pane').removeClass('active show');
+
+    $(this).addClass('active');
+    $("#" + tab_id).addClass('active show');
+    localStorage.setItem('tab_id', tab_id);
+  });
+});
+</script>
+{# for feedback form #}
+<script>
+$('#feedbackform').submit(function(e) {
+ e.preventDefault();
+  var form = $(this);
+ $.ajax({
+    type: 'POST',
+    dataType: 'json',
+    url: '?route=account/account/feedback',
+    data: form.serialize(),
+    success: function (json) {
+        $('#feedback_btn').prop('disabled', true)
+        window.location = '?route=account/account';
+    }
+
+});
+});
+</script>
+
+<script>
+{# to open order page #}
+    function toOrderpage(){
+        localStorage.setItem('tab_id', 'home2');
+        window.location.href='account';
+    }
+    {# to open profile page #}
+    function toProfilepage(){
+        localStorage.setItem('tab_id', 'home1');
+        window.location.href='account';
+    }
+</script>
+<script>
+ function submitRequest(idd,btn){
+   if(!formRule(idd)) return false;
+    $('#'+btn).text('Processing...');
+   
+    $.ajax({
+      url:'?route=store/singlestorepage',
+      data:$('#'+idd + ' :input').serialize(),
+      type:'POST',
+    // dataType:'JSON',
+    success:function(res){      
+        location.href = 'thank-you';
+      
+    }
+  });
+  }
+</script>
+{# category read more button #}
+<script>
+  $(document).ready(function () {
+      $('#btAnimate').click(function () {
+
+          $('#divC').show();          // Also show the div element.
+          $('#btAnimate').hide('slow');
+      });
+
+      // Reverse animate.
+      $('#btHide').click(function () {
+          $('#divC').hide('slow');          // Now hide the div.
+          $('#btAnimate').show('slow');
+      });
+  });
+</script>
+{# for sorting #}
+<script>
+function stickyheaddsadaer(obj) {
+  if($(obj).is(":checked")){
+    $('input.form-check-input').not(obj).prop('checked', false);  
+    
+    location = $(obj).val(); 
+  }
+}
+</script>
+  <script>
+// share button of product
+
+    $('.share').click(function(){
+      $(this).siblings().toggleClass('opacity-0 opacity-1');
+
+});   
+  </script>
+
+
+<script>
+function newsletter(idd){
+    if(!formRule(idd)) return false;
+        $.ajax({
+            url:'?route=account/newsletter/subscribe',
+            data:$('#'+idd).serialize(),
+            type:'POST',
+            dataType:'JSON',
+            success:function(res){     
+                $("#"+idd)[0].reset();
+                //console.log(res);
+                if(res.success){
+                    $('body').prepend('<div class="success-popup ">	<span class="warrning-svg">	<svg id="smile"		width="35" height="35" viewBox="0 0 41 41" fill="none">	 <path d="M16.2432 29.9911L16.5968 30.3439L16.95 29.9907L30.5886 16.352L30.9422 15.9985L30.5886 15.6449L27.7128 12.7691L27.3593 12.4156L27.0057 12.7691L16.592 23.1828L12.2699 18.8682L11.9158 18.5148L11.5626 18.869L8.69086 21.7489L8.33792 22.1028L8.69174 22.4558L16.2432 29.9911ZM0.823975 20.662C0.823975 9.72375 9.72375 0.823975 20.662 0.823975C31.6002 0.823975 40.5 9.72375 40.5 20.662C40.5 31.6002 31.6002 40.5 20.662 40.5C9.72375 40.5 0.823975 31.6002 0.823975 20.662Z" stroke="#33C300"/>  </svg>	</span>	<span class="warrning-text">   <p>'+ res.success +'</p>	</span>;  </div>');
+                }else{
+                    $('body').prepend('<div class="success-popup2"> <span class="warrning-svg"> <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     </svg>  </span> <span class="warrning-text">  <p>'+ res.error +'</p> </span> </div>');
+                }
+                //$('#newsletterdiv').after('<p>Error</p>');
+            }
+        });
+    }
+</script>
+<script>
+
+
+    function minusPro(e){
+    var domse = $(e).siblings('.cart_'+$(e).data('id')).val();
+    if(domse > 1){
+      var newval = Number(domse)-1;
+      $(e).siblings('.cart_'+$(e).data('id')).val(newval);
+      $(e).parents('form:first').submit();
+    }
+  };
+  function plusPro(e){
+    var domse = $(e).siblings('.cart_'+$(e).data('id')).val();
+    if(domse < 10){
+      var newval = Number(domse)+1;
+      $(e).siblings('.cart_'+$(e).data('id')).val(newval);
+      $(e).parents('form:first').submit();
+    }
+  };
+</script>
+<script>
+$("body").on('click', '#togglePassword', function() {
+  $(this).toggleClass("fa-eye fa-eye-slash");
+  var input = $(this).siblings('.password');//$(".password");
+  if (input.attr("type") === "password") {
+    input.attr("type", "text");
+  } else {
+    input.attr("type", "password");
+  }
+
+});
+
+</script>
+{#  check pincode #}
+<script>
+  var pinCheckKey = 1;
+  function checkPincode(d){
+
+    var pinc = $('#input-pincode').val();
+    $('.pin_error').remove();
+    if(pinc==''){
+      errr = '<p style="color:red" class="pin_error">Enter Pincode to Check Delivery</p>';
+
+      $('.pincode-msg').html(errr);
+      return false;
+    }
+    if(!vp(pinc)){
+     errr = '<p style="color:red" class="pin_error">Enter Valid Pincode!</p>';
+
+     $('.pincode-msg').html(errr);
+     return false;
+   }
+   if(pinCheckKey!=1){
+    return false;
+  }
+  pinCheckKey = 0;
+  d.html('<i class="fas fa-spinner fa-spin"></i>');
+  $.ajax({
+    url: '?route=product/product/checkPincode',
+    type: 'post',
+    data: 'pincode=' + pinc,
+
+    success: function(json) {
+      pinCheckKey = 1;
+      if(json['success']){
+      $('.pincode-msg').html('<p class="green pin_error" style="color:green"> Delivery options are available , <a href="tel:+ 91 9599283126">Call:+91  9599283126</a> </p><p class="green pin_error" style="color:green"> Made to Order, Customization available! </p>');
+    }else{
+        $('.pincode-msg').html('<p class="pin_error" style="color:red"> Delivery options not available , Call:+91  9599283126 </p>');
+    }
+      d.html('<i class="bx bx-search"></i>');
+    },
+    error: function(xhr, ajaxOptions, thrownError) {
+      //alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+      $('.pincode-msg').html('<p class="pin_error" style="color:red"> Sorry, delivery not available in your area </p>');
+      //d.val('Check');
+    }
+  });
+}
+</script>
+<script>
+    $('.loginform').submit(function(e) {
+ e.preventDefault();
+  $('#loginbtn').text('Logging...');
+  var form = $(this);
+ $.ajax({
+    type: 'POST',
+    dataType: 'json',
+    url: '?route=account/loginapi',
+    data: form.serialize(),
+    success: function (json) {
+
+        if (json['success']) {
+            location = '/account';
+					
+				}else{
+					$('body').prepend('<div class="success-popup2"> <span class="warrning-svg"> <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     </svg>  </span> <span class="warrning-text">  <p>'+ json.data['error_warning'] +'</p> </span> </div>');
+				}
+    }
+
+});
+});
+
+$('.registerform').submit(function(e) {
+ e.preventDefault();
+ $('#signupbtn').text('Registering...');
+  var form = $(this);
+ $.ajax({
+    type: 'POST',
+    dataType: 'json',
+    url: '?route=account/registerapi',
+    data: form.serialize(),
+    success: function (json) {
+
+        if (json['success']) {
+            location = '/';
+					
+				}else{
+                     $('.success-popup2').remove();
+                    $('#signupbtn').text('SIGN UP');
+					if (json.data['error_warning'] == '' || json.data['error_warning'] == null) {
+                        // console.log(json.data['error_warning']);
+                        $('body').prepend('<div class="success-popup2"> <span class="warrning-svg"> <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     </svg>  </span> <span class="warrning-text">  <p>'+ json.data['error_confirm'] +'</p> </span> </div>');
+                    } else {
+                        // console.log(json.data['error_confirm']);
+                        $('body').prepend('<div class="success-popup2"> <span class="warrning-svg"> <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     </svg>  </span> <span class="warrning-text">  <p>'+ json.data['error_warning'] +'</p> </span> </div>');
+                    }
+				}
+    }
+
+});
+});
+
+/*$(window).scroll(function() {
+    $.each($('img'), function() {
+        if ( $(this).attr('data-src') && $(this).offset().top < ($(window).scrollTop() + $(window).height() + 100) ) {
+            var source = $(this).data('src');
+            $(this).attr('src', source);
+            $(this).removeAttr('data-src');
+        }
+    })
+})*/
+</script>
+<script>
+    // let hasFetched = false; // Initialize the flag
+
+
+    // $(window).on('scroll', function() {
+    //   if (hasFetched) return;
+
+    //   let h1 = $('#trending');
+    //   let h1Top = h1.offset().top;
+    //   let h1Bottom = h1Top + h1.outerHeight();
+
+    //   let scrollTop = $(window).scrollTop();
+    //   let windowHeight = $(window).height();
+    //   let windowBottom = scrollTop + windowHeight;
+
+    //   if (h1Top <= windowBottom && h1Bottom >= scrollTop) {
+    //     hasFetched = true; // Set the flag to true
+    //     $.ajax({
+    //       type: "GET",
+    //       dataType: "html",
+    //       url: "?route=common/home/gettrending",
+    //       success: function(data) {
+    //         // console.log(data);
+    //         let top_trending = JSON.parse(data);
+    //         let trendingHTML = `
+                    
+    //                    <div class="container">
+    // <div class="row">
+    //   <h2 class="pg-heading text-center">Top Trending Furnitures
+    //   </h2>
+    //   <p class="heading-para text-center ">We Have Everything You Need</p>`;
+    //         top_trending.forEach(function(item) {
+    //             nfObject = new Intl.NumberFormat('en-US'); 
+    //     price = nfObject.format(item.price); 
+    //           trendingHTML += `
+    //                     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 wdith-50-sm-top">
+    //     <div class="trending-product-box">
+    //       <div class="product_img">
+    //         <a href="${item.link}">
+              
+    //           <picture>
+    //             <source srcset="image/${item.image}">
+    //             <img src=image/${item.image} class="img-responsive img-fluid" loading="lazy" alt="${item.title}" />
+    //           </picture>
+    //         </a>
+    //       </div>
+    //       <div class="product-content">
+    //         <a href="${item.link}" class="p_item-name">${item.title}</a>
+    //         <div class="p_item-price">
+    //           <p>Starting From
+    //             <br>
+    //             <span class="tax-text">(inclusive of all taxes)</span>
+    //           </p>
+    //           <h5 class="p_item-amount_"><i class="bx bx-rupee"></i>${price}</h5>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>`;
+    //         });
+    //         trendingHTML += `
+    //                         </div>
+    //                     </div>
+    //                `;
+    //         $("#trending").empty();
+    //         $("#trending").html(trendingHTML);
+            
+    //       },
+    //       error: function(xhr, status, error) {
+    //         console.error('Error:', error);
+    //         alert('Error occurred, please check console.');
+    //       }
+    //     });
+    //   }
+    // });
+  </script>
+  <script>
+    let socialhasFetched = false;
+    $(window).on('scroll', function() {
+      if (socialhasFetched) return;
+
+      let social = $('#social');
+      if(!social) return;
+      let socialTop = social.offset().top;
+      let socialBottom = socialTop + social.outerHeight();
+
+      let scrollTop = $(window).scrollTop();
+      let windowHeight = $(window).height();
+      let windowBottom = scrollTop + windowHeight;
+
+      if (socialTop <= windowBottom && socialBottom >= scrollTop) {
+        socialhasFetched = true;
+        $.ajax({
+          type: "GET",
+          dataType: "html",
+          url: "?route=common/home/social",
+
+          success: function(data) {
+            $("#social").empty();
+            $("#social").html(data);
+            // socialhasFetched = true;
+          },
+          error: function(xhr, status, error) {
+            console.error('Error:', error);
+            alert('Error occurred, please check console.');
+          }
+        });
+      }
+    });
+  </script>
+
+{% if not homepage %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Urbanwood Furniture Pvt Ltd",
+  "alternateName": "Urbanwood",
+  "url": "https://www.urbanwood.in/",
+  "logo": "https://www.urbanwood.in/catalog/view/javascript/assets/image/urbanwoodlogo.jpg",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "9599283126",
+    "contactType": "customer service",
+    "contactOption": "TollFree",
+    "areaServed": "IN",
+    "availableLanguage": ["en","Hindi"]
+  },
+  "sameAs": [
+    "https://www.facebook.com/urbanwood.in",
+    "https://twitter.com/UrbanWoodin",
+    "https://www.youtube.com/@urbanwood",
+    "https://www.instagram.com/urbanwoodpvtltd/",
+    "https://www.linkedin.com/company/urbanwood-in",
+    "https://in.pinterest.com/urbanwoodIndia/_created/"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "WebSite",
+  "name": "Urbanwood Furniture",
+  "url": "https://www.urbanwood.in/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.urbanwood.in/search?search={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+{% endif %}
+</body>
+</html>

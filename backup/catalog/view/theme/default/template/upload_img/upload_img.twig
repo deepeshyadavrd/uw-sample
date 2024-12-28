@@ -1,0 +1,147 @@
+{{ header }}
+{{ menu }}
+<link  rel="stylesheet"  href="catalog/view/javascript/assets/css/jquery.fancybox.min.css" > 
+
+  <style>
+
+.product-box-img {
+    text-align: center;
+    position: relative;
+    padding: 0px;
+    overflow: hidden;
+}
+.img-box::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    content: "";
+}
+.product-box-img img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.product-box-img:hover img {
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3) ;
+  opacity: 0.5;
+
+}
+.product-box-img:hover *{
+opacity: 1;
+}
+.product-box-img i {
+    opacity: 0;
+    position: absolute;
+    inset: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+    font-size: 45px;
+    color: #fff;
+    -webkit-transform: scale(1.5) rotate(-15deg);
+    transform: scale(1.5) rotate(-15deg);
+}
+.product-box-img:hover i {
+    opacity: 1;
+    -webkit-transform: scale(1) rotate(0);
+    transform: scale(1) rotate(0);
+}
+
+#zoomIn {
+    display: block;
+    z-index: 99;
+    width: 100%;
+    position: relative;
+}
+.product-name-link {
+    color: #fff;
+    position: absolute;
+    top: auto;
+    bottom: 0px;
+    z-index: 99;
+    width: 100%;
+    font-size: 19px;
+    display: block;
+    background: #00000057;
+    opacity: 0;
+}
+/* .fancybox-image {
+ height: fit-content!important;
+} */
+</style>
+  <body>
+    <div class="row">
+  <div class="col-md-12 col-sm-12">
+    <nav class="breadcumb-navigation">
+      <ol class="breadcrumb m-0">
+        <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+        <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+      </ol>
+     </nav>   
+  </div>
+  </div>
+      
+
+<div class="gallery-section-outer">
+<div class="container container-custom">
+    <div class="row">
+          <div class="col-lg-12">
+            <h2 class="pg-heading text-lg-center text-center my-4"> Custom Gallery </h2>
+            <p></p>
+          </div>
+
+   {% for product in products %}
+    <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="product-box-img">
+                    <a href="{{ product.image2 }}" id="zoomIn" data-fancybox="group" data-caption="{{ product.name }}">
+                       <img src=" {{ product.image }}" />
+                      
+                        <i class='bx bx-plus'></i>
+                      </a>
+                     {% if product.href %}
+                 <a href="{{ product.href }}" class="product-name-link">{{ product.product_name }}</a>
+                 {% endif %}
+                       
+            </div>
+    </div>
+
+     {% endfor %}
+   </div>
+   </div>
+   </div>
+  </body>
+  </html>
+  
+    {{ footer }}
+    <script src="catalog/view/javascript/assets/js/jquery.fancybox.min.js"></script>
+     <script>
+    $('[data-fancybox]').fancybox({
+  // Options will go here
+  buttons : [
+    'close'
+  ],
+  wheel : false,
+  transitionEffect: "slide",
+   // thumbs          : false,
+  // hash            : false,
+  loop            : true,
+  // keyboard        : true,
+  toolbar         : false,
+  // animationEffect : false,
+  // arrows          : true,
+  clickContent    : false
+});
+</script>

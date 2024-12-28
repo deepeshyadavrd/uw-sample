@@ -1,0 +1,327 @@
+
+<footer id="footer"> 
+  
+  <div class="container container-custom"> 
+    <div class="row"> 
+      <div class="footer-newsletter"> 
+      <div class="col-lg-6 col-md-6 col-sm-12"> 
+        <h2 class="pg-heading text-lg-start">Subscribe Our Newsletter</h2>
+      <p class="heading-para text-lg-start ">Enter you email address to stay tuned with latest offers and products.</p>
+       </div>
+        <div class="col-lg-6 col-md-6 col-sm-12"> 
+          <form action="" method="post"> 
+            <input type="email" name="email" placeholder="Enter your email address &hellip;">
+            <input type="submit" value="Subscribe"> 
+          </form> 
+        </div> 
+      </div> 
+    </div> 
+  </div> 
+  <div class="footer-top d-md-block d-none"> 
+    <div class="container container-custom"> 
+      <div class="row">
+        <div class="col-lg-3 col-md-6 footer-info"> 
+          <h4>Contact Info</h4> <p>We at Urbanwood would love to hear your 
+opinion about our venture.</p> 
+<ul class="contact-list">
+  <li> <span> <i class='bx bxs-map'></i></span> URBANWOOD FURNITURE PRIVATE LIMITED
+843 , Gram Basdi , mukandpura Road , Bhankrota , 
+Ajmer road , Jaipur , Rajasthan , 302026</li>
+<li> <span><i class='bx bxs-phone'></i></span>+91 89496 95921</li>
+<li><span> <i class='bx bx-envelope' ></i></span> support@urbanwood.in </li>
+</ul>
+         
+         <div class="map"> 
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.6927478024973!2d80.2163412!3d12.991493199999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526762150b2b4d%3A0x604a15e2d0121e2f!2sHome%20Stop!5e0!3m2!1sen!2sin!4v1669466511215!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div> 
+       <div class="col-lg-3 col-md-6 footer-links"> 
+        <h4>Useful Links</h4>
+         <ul> 
+          <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/about-us">About us</a></li> 
+          <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/contact-us">Services</a></li> 
+          <li><i class="bx bx-chevron-right"></i> <a href="https://blog.urbanwood.in/"> Blog</a></li>
+          
+        </ul> 
+      </div> 
+      <div class="col-lg-3 col-md-6 footer-links "> 
+          <h4>Customer Service</h4> 
+          <ul> 
+            <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/return-and-refunds">Return & Refunds</a></li> 
+            <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/terms-of-use">Terms of Uses</a></li> 
+          <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/payment-policy">Privacy policy</a></li> 
+            <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/security-and-privacy">Security & Privacy</a></li> 
+            <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/customer-stories">Customer Stories</a></li> 
+             <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/delivery-and-shipping-policy">Delivery & Shipping Policy</a></li>
+          </ul> 
+        </div> 
+        <div class="col-lg-3 col-md-6 footer-links "> 
+          <h4>Top Categories</h4> 
+          <ul> 
+            <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/bedroom-furniture">Bedroom</a></li> 
+            <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/sofas">Sofas</a></li> 
+            <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/dining-room-furniture">Dining Room</a></li> 
+            <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/wardrobes">Wardrobes</a></li> 
+            <li><i class="bx bx-chevron-right"></i> <a href="https://www.urbanwood.in/bookshelves">Bookshelves </a></li> 
+           
+          </ul> 
+           <div class="social-links mt-3"> 
+             <h4>Follow us-</h4> 
+            <a href="https://twitter.com/UrbanWoodin" class="twitter"><i class="bx bxl-twitter"></i></a> 
+            <a href="https://www.facebook.com/urbanwood.in" class="facebook"><i class="bx bxl-facebook"></i></a> 
+            <a href="https://www.instagram.com/urbanwood.in/" class="instagram"><i class="bx bxl-instagram"></i></a> 
+            <a href="https://www.linkedin.com/company/urbanwood-in" class="linkedin"><i class="bx bxl-linkedin"></i></a> 
+            <a href="https://www.youtube.com/channel/UCkW0cO6VRZbakl61qEnKelg?view_as=subscriber"> <i class='bx bxl-youtube'></i></a>
+            <a href="https://in.pinterest.com/urbanwoodIndia/_created/"><i class='bx bxl-pinterest-alt' ></i></a>
+          </div> 
+        </div> 
+         
+      </div> 
+    </div> 
+  </div> 
+  
+<div class="mobifooter d-block d-md-none">
+  <div class="map"> 
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.6927478024973!2d80.2163412!3d12.991493199999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526762150b2b4d%3A0x604a15e2d0121e2f!2sHome%20Stop!5e0!3m2!1sen!2sin!4v1669466511215!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+<div class="container container-custom">
+<ul id="accordion_mob1" class="accordion-footer">
+  <li class="open">
+    <div class="link"><i class='bx bxs-building-house' ></i>CONTACT INFO<i class="fa fa-chevron-down"></i></div>
+    <ul class="submenu" style="
+      display: block;">
+      <li><span> <i class='bx bxs-map'></i></span> URBANWOOD FURNITURE PRIVATE LIMITED
+843 , Gram Basdi , mukandpura Road , Bhankrota , 
+Ajmer road , Jaipur , Rajasthan , 302026</li>
+      <li> <span><i class='bx bxs-phone'></i></span>+91 89496 95921</li>
+<li><span> <i class='bx bx-envelope' ></i></span> support@urbanwood.in </li>
+    </ul>
+  </li>
+  
+  <li>
+    <div class="link"><i class='bx bxs-paper-plane'></i>USEFUL LINKS<i class="fa fa-chevron-down"></i></div>
+    <ul class="submenu">
+      <li><a href="https://www.urbanwood.in/about-us">About us</a></li>
+      <li><a href="https://www.urbanwood.in/contact-us">Services</a></li>
+      <li><a href="https://blog.urbanwood.in/"> Blog</a></li>
+    </ul>
+  </li>
+  <li>
+    <div class="link"><i class='bx bxs-message-square-error' ></i>CUSTOMER SERVICE<i class="fa fa-chevron-down"></i></div>
+    <ul class="submenu">
+       <li> <a href="https://www.urbanwood.in/return-and-refunds">Return & Refunds</a></li> 
+            <li> <a href="https://www.urbanwood.in/terms-of-use">Terms of Uses</a></li> 
+          <li> <a href="https://www.urbanwood.in/payment-policy">Privacy policy</a></li> 
+            <li> <a href="https://www.urbanwood.in/security-and-privacy">Security & Privacy</a></li> 
+            <li> <a href="https://www.urbanwood.in/customer-stories">Customer Stories</a></li> 
+             <li> <a href="https://www.urbanwood.in/delivery-and-shipping-policy">Delivery & Shipping Policy</a></li>
+    </ul>   
+  </li>
+  <li>
+    <div class="link"><i class='bx bxs-category-alt' ></i>TOP CATEGORIES<i class="fa fa-chevron-down"></i></div>
+    <ul class="submenu">
+       <li> <a href="https://www.urbanwood.in/bedroom-furniture">Bedroom</a></li> 
+            <li> <a href="https://www.urbanwood.in/sofas">Sofas</a></li> 
+            <li> <a href="https://www.urbanwood.in/dining-room-furniture">Dining Room</a></li> 
+            <li> <a href="https://www.urbanwood.in/wardrobes">Wardrobes</a></li> 
+            <li> <a href="https://www.urbanwood.in/bookshelves">Bookshelves </a></li> 
+           
+    </ul>
+  </li>
+  
+</ul>
+ <div class="mobisocial mt-3"> 
+           <a href="https://twitter.com/UrbanWoodin" class="twitter"><i class="bx bxl-twitter"></i></a> 
+            <a href="https://www.facebook.com/urbanwood.in" class="facebook"><i class="bx bxl-facebook"></i></a> 
+            <a href="https://www.instagram.com/urbanwood.in/" class="instagram"><i class="bx bxl-instagram"></i></a>  
+            <a href="https://www.linkedin.com/company/urbanwood-in" class="linkedin"><i class="bx bxl-linkedin"></i></a> 
+           <a href="https://www.youtube.com/channel/UCkW0cO6VRZbakl61qEnKelg?view_as=subscriber"> <i class='bx bxl-youtube'></i></a> 
+            <a href="https://in.pinterest.com/urbanwoodIndia/_created/"><i class='bx bxl-pinterest-alt' ></i></a>
+          </div> 
+ </div>
+
+ </div>
+  <div class="bottom-foot"> 
+            <div class="location-list text-center"> We Deliver in : Ahmedabad, Amritsar, Bangalore, Chandigarh, <br> Faridabad, Ghaziabad, Gurgaon, Indore, Jaipur, Jodhpur, Mumbai, Delhi, Noida, Pune, Surat, Ludhiana,
+Udaipur, Kanpur, Lucknow, Bhopal, Raipur, Ranchi, Patna & Across India.</div>
+            <div class="copyright"> &copy; Copyright <strong><span><a href="https://www.urbanwood.in/" target="_blank">urbanwood.in </a></span></strong>. All Rights Reserved </div> 
+          </div>
+</footer>
+
+
+<button type="button" class="SmoothmyTop"><i class='bx bx-up-arrow-alt'></i></button>
+
+</div>
+
+
+<script>
+//   const ndicator = document.querySelector("[data-indicator]")
+
+// document.addEventListener("click", e => {
+//   let anchor
+//   if (e.target.matches("a")) {
+//     anchor = e.target
+//   } else {
+//     anchor = e.target.closest("a")
+//   }
+//   if (anchor != null) {
+//     const allAnchors = [...document.querySelectorAll("a")]
+//     const index = allAnchors.indexOf(anchor)
+//     indicator.style.setProperty("--position", index)
+//     document.querySelectorAll("a").forEach(elem => {
+//       elem.classList.remove("active")
+//     })
+//     anchor.classList.add("active")
+//   }
+// })
+
+</script>
+
+<script>
+  function openCart(evt, CartName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent-popup");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(CartName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  
+  // Get the element with id="defaultOpen" and click on it
+  document.getElementById("defaultOpen").click();
+  </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/3.2.1-jquery.min.js"></script>
+<script type="text/javascript" src="assets/js/main.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery1.1.1.min.js"></script>
+<script src="assets/js/owl.carousel.js"></script>
+<script src="assets/js/slick-js.js"></script>
+<script src="assets/js/swiper-bundle.min.js"></script>
+<script src="assets/js/mob-menu.js"></script>
+
+  <script>
+     $(document).ready(function(){
+            $(".btn-minus").on("click",function(){
+                var now = $(".countItem input").val();
+                if ($.isNumeric(now)){
+                    if (parseInt(now) -1> 0)
+                    { now--;}
+                    $(".countItem input").val(now);
+                }
+            })            
+            $(".btn-plus").on("click",function(){
+                var now = $(".countItem input").val();
+                if ($.isNumeric(now)){
+                    $(".countItem input").val(parseInt(now)+1);
+                }
+            })                        
+        })
+  </script>
+  <!-- <script>
+    $(document).ready(function(){
+      $(".remove-cart-btn").click(function(){
+        $(".list-of-cart").remove();
+      });
+    });
+    </script> -->
+
+
+<script>
+      const fileSelector = document.querySelector('.file-selector')
+
+    function uploadFiles() {
+        var files = document.getElementById('file_upload').files;
+        if(files.length==0){
+            alert("Please first choose or drop any file(s)...");
+            return;
+        }
+        var filenames="";
+        for(var i=0;i<files.length;i++){
+            filenames+=files[i].name+"\n";
+        }
+        alert("Selected file(s) :\n____________________\n"+filenames);
+    }
+   //upload file with browse button
+
+  fileSelector.onclick = () => fileSelectorInput.click()
+
+ 
+</script>
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+
+<script>
+     $(window).load(function(){        
+   $('#signuppopup').modal('show');
+    }); 
+</script> 
+
+  
+<script>
+//   $('#showFilePanel').click(function(event) {
+//   if ($('.notification-container').hasClass('selected')) {
+//     $('.notification-container2').removeClass('dismiss').addClass('selected').show();
+//   } else {
+//     $('.notification-container2').removeClass('dismiss').addClass('selected').show();
+//   }
+//   event.preventDefault();
+// });
+
+// $('#closeFilePanel').click(function(event) {
+//   if ($('.notification-container').hasClass('selected')) {
+//     $('.notification-container2').removeClass('selected').addClass('dismiss').hide();
+//   } else {
+//     $('.notification-container2').removeClass('selected').addClass('dismiss').hide();
+//   }
+//   event.preventDefault();
+// });
+
+$('#showFilePanel').click(function(event) {
+  if ($('.notification-container').hasClass('selected')) {
+    $('.notification-container2').removeClass('dismiss').addClass('selected').show();
+    $('.notification-container').removeClass('selected').addClass('dismiss').hide();
+  } else {
+    $('.notification-container').removeClass('dismiss').addClass('selected').show();
+    $('.notification-container2').removeClass('selected').addClass('dismiss').hide();
+  }
+  event.preventDefault();
+});
+
+$('#closeFilePanel').click(function(event) {
+  if ($('.notification-container2').hasClass('selected')) {
+    $('.notification-container2').removeClass('selected').addClass('dismiss').hide();
+    $('.notification-container').removeClass('dismiss').addClass('selected').show();
+  } else {
+    $('.notification-container2').removeClass('dismiss').addClass('selected').show();
+    $('.notification-container').removeClass('selected').addClass('dismiss').hide();
+  }
+  event.preventDefault();
+});
+
+
+  </script>
+ 

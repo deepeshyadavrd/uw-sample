@@ -1,0 +1,80 @@
+<section class="customer_stories">
+<div class="container container-custom ">
+    <div class="row">
+        <div class="col-lg-3 col-md-12">
+            <h2 class="pg-heading text-lg-start text-center mt-lg-5">Customer Stories</h2>
+            <p class="heading-para text-lg-start text-center">Crafted to Perfection, Cherished by All! Experience the Rave-Worthy Journey from Website to Doorstep. Join Us for Exquisite, Custom Furniture Experiences.
+            </p>
+            {# <a href="?route=product/allreview" type="button" class="view_all_btn mt-5">
+                View all</a> #}
+        </div>
+        <div class="col-lg-9 col-md-12">
+            <section class="owl-carousel1 owl-theme bbb_slider ">
+
+                {% for review in reviews %}
+                <div class="owl-item client-box">
+
+                    <div class="client-img">
+                        <img src="{{ review.image }}" class="img-responsive img-fluid " loading="lazy" alt="{{ review.author }}">
+                    </div>
+                    <div class="client-content">
+                        <div class="client-name">
+                            <p>
+                               {{ review.author }}
+                               
+                            </p>
+                        </div>
+                        <div class="client-comment">
+                            <p>{{review.text}}</p>
+                            <div class="rating">
+                               {{review.rating}}
+                            </div>
+                            <a href="{{review.href}}" type="button" class="see-product-btn">See product</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                {%endfor%}
+
+            </section>
+
+                            {# <div class="owl-carousel owl-theme bbb_slider bbb-slider1">
+                            {% for review in reviews %}
+                                <div class="owl-item">
+                                    <div class="bbb_item is_new">
+                                        <div class="bbb_image d-flex flex-column align-items-center justify-content-center">
+                                            <a href="l-shaped-sofas"><img src="image/home_img/livingroom/lshapesofa.avif" alt="urbanwood l-shaped fabric sofa" width="250px" height="215px" loading="lazy"></a>
+                                        </div>
+                                        <div class="bbb_content">
+                                            <div class="bbb_name">
+                                                <a href="l-shaped-sofas">L-Shaped Sofas</a>
+                                            </div>
+                                            <div class="bbb_info clearfix">
+                                                <div class="bbb_category">
+                                                    
+                                                        <small>12+ Options | Starting From</small>
+                                                    
+                                                </div>
+                                                <div class="bbb_price">₹54,545</div>
+                                            </div>
+                                        </div>
+                                        <ul class="bbb_marks">
+                                            <li class="bbb_mark bbb_discount">-25%</li>
+                                            <li class="bbb_mark bbb_new">new</li>
+                                        </ul>
+                                        <div class="bbb_fav">
+                                            <i class='bx bx-heart'></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                {%endfor%}
+                            <div> #}
+
+
+
+        </div>
+    </div>
+
+</div>
+</section>

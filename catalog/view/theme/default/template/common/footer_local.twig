@@ -1,0 +1,1065 @@
+<!--<footer> <div class="container"> <div class="row"> {% if informations %} <div class="col-sm-3"> <h5>{{ text_information }}</h5> <ul class="list-unstyled"> {% for information in informations %} <li> <a href="{{ information.href }}">{{ information.title }}</a> </li> {% endfor %} </ul> </div> {% endif %} <div class="col-sm-3"> <h5>Services</h5> <ul class="list-unstyled"> <li> <a href="{{ contact }}">{{ text_contact }}</a> </li> <li> <a href="{{ return }}">{{ text_return }}</a> </li> <li> <a href="{{ sitemap }}">{{ text_sitemap }}</a> </li> </ul> </div> <div class="col-sm-3"> <h5>{{ text_extra }}</h5> <ul class="list-unstyled"> <li> <a href="{{ manufacturer }}">{{ text_manufacturer }}</a> </li> <li> <a href="{{ voucher }}">{{ text_voucher }}</a> </li> <li> <a href="{{ affiliate }}">{{ text_affiliate }}</a> </li> <li> <a href="{{ special }}">{{ text_special }}</a> </li> </ul> </div> <div class="col-sm-3"> <h5>{{ text_account }}</h5> <ul class="list-unstyled"> <li> <a href="{{ account }}">{{ text_account }}</a> </li> <li> <a href="{{ order }}">{{ text_order }}</a> </li> <li> <a href="{{ wishlist }}">{{ text_wishlist }}</a> </li> <li> <a href="{{ newsletter }}">{{ text_newsletter }}</a> </li> </ul> </div> </div> <hr> <p>{{ powered }}</p> </div> </footer> {% for script in scripts %} <script src="{{ script }}" type="text/javascript"></script> {% endfor %} <!-- OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation. Please donate via PayPal to donate@opencart.com //- </body> </html>-->
+<!--sign in signup popup-->
+    <div id="signuppopup" class="modal fade" role="dialog">
+        <div class="modal-dialog popup_content">
+            <!-- Modal content-->
+            <div class="modal-content p-0">
+                <div class="modal-header">
+                    <button type="button" class="popup-close2 close" data-bs-dismiss="modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body m-0 p-0">
+                    <div class="row">
+                        <div class="col-md-7 col-sm-6 col-xs-6 width-30">
+                        <picture>
+                            <source srcset="catalog/view/javascript/assets/image/popupimg/slider1.avif" type="image/avif">
+                                <img src="catalog/view/javascript/assets/image/popupimg/slider1.webp"  class="img-responsive img-fluid" alt="x-mas offer avail now" loading="lazy"/>
+                        </picture>
+                        </div>
+                        <div class="col-md-5 col-sm-6 col-xs-6 width-70">
+
+                            <!--- sign in form-->
+                            <div class="signin-form-popup signupform1 notification-container selected">
+                                <div class="from-header">
+                                    <h6>
+                                        Welcome to
+                                        <br>
+                                        <span>
+                                            UrbanWood</span>
+                                    </h6>
+                                    <p>Glad to See You!</p>
+                                </div>
+                                <div class="popup-signform">
+                                    <form method="post" enctype="multipart/form-data" class="loginform">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email Address" required="">
+                                            </div>
+                                            <div class="col-md-12 ">
+                                                <input type="password" name="password" class="form-control password" autocomplete="current-password" required="" id="id_password_login" placeholder="Password">
+                                                <i class="far fa-eye-slash" id="togglePassword"></i>
+                                            </div>
+                                            <div class="d-block">
+                                                <button type="submit" class="login-btn-popup" id="loginbtn">Login</button>
+                                                <a href="?route=account/forgotten" class="forget-pass text-center">Forget password?</a>
+                                                <p class="text-center dont-accont">Dont Have an Account ?
+                                                    <a href="" id="showFilePanel">Sign Up Now</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- sign up for first time form -->
+                            <div class="signin-form-popup signupform2 notification-container2 dismiss">
+                                <div class="from-header">
+                                    <h6>
+                                        Start journey with us
+                                        <br>
+                                        <span>
+                                            Create an Account
+                                        </span>
+                                    </h6>
+                                    <p class="mb-0">Welcome!</p>
+                                </div>
+                                <div class="popup-signform">
+                                    <form method="post" enctype="multipart/form-data" class="registerform">
+                                        <div class="row">
+                                            <div class="col-md-6 col-lg-6 ">
+                                                <input type="name" name="firstname" class="form-control mt-0 mb-1" id="exampleInputFirstname" placeholder="First Name" required="">
+                                            </div>
+                                            <div class="col-md-6 col-lg-6 ">
+                                                <input type="text" name="lastname" class="form-control mt-0 mb-1" id="exampleInputlastname" placeholder="Last Name" required="">
+                                            </div>
+                                            <div class="col-md-12 ">
+                                                <input type="email" name="email" class="form-control mt-0mb-1" id="giveInputEmail1" placeholder="Email Address" required="">
+                                            </div>
+                                            <div class="col-md-12 ">
+                                                <input type="text" name="telephone" class="form-control mt-0 mb-1" id="giveInputnumber" placeholder="contact Number" required="">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <input type="password" name="password" class="form-control password" autocomplete="current-password" required="" id="id_password" placeholder="Password">
+                                                <i class="far fa-eye" id="togglePassword"></i>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <input type="password" name="confirm" class="form-control password" autocomplete="current-password" required="" id="id_password1" placeholder="Confirm password">
+                                                <i class="far fa-eye" id="togglePassword"></i>
+                                            </div>
+                                            <div class="d-block">
+                                                <button type="submit" class="login-btn-popup" id="signupbtn">Sign up</button>
+                                                <p class="text-center dont-accont mb-0">Already Have an Account ?
+                                                    <a href="" id="closeFilePanel">Sign in Now</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end popup-->
+<footer id="footer">
+
+    <div class="container container-custom">
+        <div class="row">
+            <div class="footer-newsletter">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <h2 class="pg-heading text-lg-start">Subscribe Our Newsletter</h2>
+                    <p class="heading-para text-lg-start ">Enter your email address to stay tuned with latest offers and products.</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12" id="newsletterdiv">
+                    <form id="newsletter-form" method="post">
+                        <input type="email" name="email" placeholder="Enter your email address &hellip;">
+                        
+                    </form>
+                    <button type="button" onclick="newsletter('newsletter-form');">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-top d-md-block d-none">
+        <div class="container container-custom">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 footer-info">
+                    <h4>Contact Info</h4>
+                    <p>We at Urbanwood would love to hear your opinion about our venture.</p>
+                    <ul class="contact-list">
+                        <li>
+                            <span>
+                                <i class='bx bxs-map'></i>
+                            </span>
+                            URBANWOOD FURNITURE PRIVATE LIMITED 843 , Gram Basdi , mukandpura Road , Bhankrota , Ajmer road , Jaipur , Rajasthan , 302026</li>
+                        <li>
+                            <span>
+                                <i class='bx bxs-phone'></i>
+                            </span>+91 89496 95921, +91 9079720215</li>
+                        <li>
+                            <span>
+                                <i class='bx bx-envelope'></i>
+                            </span>
+                            support@urbanwood.in
+                        </li>
+                    </ul>
+
+                    {# <div class="map"> #}
+                        {# <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.6927478024973!2d80.2163412!3d12.991493199999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526762150b2b4d%3A0x604a15e2d0121e2f!2sHome%20Stop!5e0!3m2!1sen!2sin!4v1669466511215!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> #}
+                        {# <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8464.63748094387!2d75.67557823362041!3d26.8735946658894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4b5249d22c75%3A0x75e51e084adffa67!2sUrbanwood%20-%20Wooden%20Furniture%20Store%20In%20Jaipur!5e0!3m2!1sen!2sin!4v1690533267824!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> #}
+                    {# </div> #}
+                </div>
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="{{ about }}">About us</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="contact-us">Services</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="https://blog.urbanwood.in/">
+                                Blog</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 footer-links ">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="https://www.urbanwood.in/return-and-refunds">Return & Refunds</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="https://www.urbanwood.in/terms-of-use">Terms of Uses</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="https://www.urbanwood.in/payment-policy">Privacy policy</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="https://www.urbanwood.in/security-and-privacy">Security & Privacy</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="https://www.urbanwood.in/customer-stories">Customer Stories</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="https://www.urbanwood.in/delivery-and-shipping-policy">Delivery & Shipping Policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 footer-links ">
+                    <h4>Top Categories</h4>
+                    <ul>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="https://www.urbanwood.in/bedroom-furniture">Bedroom</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="https://www.urbanwood.in/sofas">Sofas</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="https://www.urbanwood.in/dining-room-furniture">Dining Room</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="https://www.urbanwood.in/wardrobes">Wardrobes</a>
+                        </li>
+                        <li>
+                            <i class="bx bx-chevron-right"></i>
+                            <a href="https://www.urbanwood.in/bookshelves">Bookshelves</a>
+                        </li>
+
+                    </ul>
+                    <div class="social-links mt-3">
+                        <h4>Follow us-</h4>
+                        <a href="https://twitter.com/UrbanWoodin" class="twitter">
+                            <i class="bx bxl-twitter"></i>
+                        </a>
+                        <a href="https://www.facebook.com/urbanwood.in" class="facebook">
+                            <i class="bx bxl-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/urbanwood.in/" class="instagram">
+                            <i class="bx bxl-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/urbanwood-in" class="linkedin">
+                            <i class="bx bxl-linkedin"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCkW0cO6VRZbakl61qEnKelg?view_as=subscriber">
+                            <i class='bx bxl-youtube'></i>
+                        </a>
+                        <a href="https://in.pinterest.com/urbanwoodIndia/_created/">
+                            <i class='bx bxl-pinterest-alt'></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="mobifooter d-block d-md-none">
+        <div class="container container-custom">
+            <ul id="accordion_mob1" class="accordion-footer">
+                <li>
+                    <div class="link">
+                        <i class='bx bxs-paper-plane'></i>Useful Links
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenu">
+                        <li>
+                            <a href="https://www.urbanwood.in/about-us">About us</a>
+                        </li>
+                        <li>
+                            <a href="https://www.urbanwood.in/contact-us">Services</a>
+                        </li>
+                        <li>
+                            <a href="https://blog.urbanwood.in/">
+                                Blog</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="link">
+                        <i class='bx bxs-message-square-error'></i>Customer Service
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenu">
+                        <li>
+                            <a href="https://www.urbanwood.in/return-and-refunds">Return & Refunds</a>
+                        </li>
+                        <li>
+                            <a href="https://www.urbanwood.in/terms-of-use">Terms of Uses</a>
+                        </li>
+                        <li>
+                            <a href="https://www.urbanwood.in/payment-policy">Privacy policy</a>
+                        </li>
+                        <li>
+                            <a href="https://www.urbanwood.in/security-and-privacy">Security & Privacy</a>
+                        </li>
+                        <li>
+                            <a href="https://www.urbanwood.in/customer-stories">Customer Stories</a>
+                        </li>
+                        <li>
+                            <a href="https://www.urbanwood.in/delivery-and-shipping-policy">Delivery & Shipping Policy</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="link">
+                        <i class='bx bxs-category-alt'></i>Top Categories
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenu">
+                        <li>
+                            <a href="https://www.urbanwood.in/bedroom-furniture">Bedroom</a>
+                        </li>
+                        <li>
+                            <a href="https://www.urbanwood.in/sofas">Sofas</a>
+                        </li>
+                        <li>
+                            <a href="https://www.urbanwood.in/dining-room-furniture">Dining Room</a>
+                        </li>
+                        <li>
+                            <a href="https://www.urbanwood.in/wardrobes">Wardrobes</a>
+                        </li>
+                        <li>
+                            <a href="https://www.urbanwood.in/bookshelves">Bookshelves</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <div class="link">
+                        <i class='bx bxs-building-house'></i>Contact Info
+                        <i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenu">
+                        <li>
+                            <span>
+                                <i class='bx bxs-map'></i>
+                            </span>
+                            URBANWOOD FURNITURE PRIVATE LIMITED 843 , Gram Basdi , mukandpura Road , Bhankrota , Ajmer road , Jaipur , Rajasthan , 302026</li>
+                        <li>
+                            <span>
+                                <i class='bx bxs-phone'></i>
+                            </span>+91 89496 95921</li>
+                        <li>
+                            <span>
+                                <i class='bx bx-envelope'></i>
+                            </span>
+                            support@urbanwood.in
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="mobisocial mt-3">
+                <a href="https://twitter.com/UrbanWoodin" class="twitter">
+                    <i class="bx bxl-twitter"></i>
+                </a>
+                <a href="https://www.facebook.com/urbanwood.in" class="facebook">
+                    <i class="bx bxl-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/urbanwood.in/" class="instagram">
+                    <i class="bx bxl-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/urbanwood-in" class="linkedin">
+                    <i class="bx bxl-linkedin"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCkW0cO6VRZbakl61qEnKelg?view_as=subscriber">
+                    <i class='bx bxl-youtube'></i>
+                </a>
+                <a href="https://in.pinterest.com/urbanwoodIndia/_created/">
+                    <i class='bx bxl-pinterest-alt'></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="bottom-foot">
+        <div class="location-list text-center">
+            We Deliver in : Ahmedabad, Amritsar, Bangalore, Chandigarh,
+            <br>
+            Faridabad, Ghaziabad, Gurgaon, Indore, Jaipur, Jodhpur, Mumbai, Delhi, Noida, Pune, Surat, Ludhiana, Udaipur, Kanpur, Lucknow, Bhopal, Raipur, Ranchi, Patna & Across India.
+        </div>
+        <div class="copyright">
+            &copy; Copyright
+            <strong>
+                <span>
+                    <a href="https://www.urbanwood.in/" target="_blank">urbanwood.in
+                    </a>
+                </span>
+            </strong>. All Rights Reserved
+        </div>
+    </div>
+</footer>
+
+<button type="button" class="SmoothmyTop">
+    <i class='bx bx-up-arrow-alt'></i>
+</button>
+<style>
+.float {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    bottom: 50px;
+    z-index: 100;
+    left: 18px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 0px 0px inset;
+}
+.whatsappOnphone {
+    width: 40px;
+}
+</style>
+<a href="https://wa.me/919311662426" class="float" target="_blank"><img src="catalog/view/javascript/assets/image/icon/whatsapp.svg" class="whatsappOnphone"></a>
+</div>
+  <script type="text/javascript" src="catalog/view/javascript/assets/js/new-menu2.js"></script>
+
+<script>
+
+//   const ndicator = document.querySelector("[data-indicator]")
+
+// document.addEventListener("click", e => {
+//   let anchor
+//   if (e.target.matches("a")) {
+//     anchor = e.target
+//   } else {
+//     anchor = e.target.closest("a")
+//   }
+//   if (anchor != null) {
+//     const allAnchors = [...document.querySelectorAll("a")]
+//     const index = allAnchors.indexOf(anchor)
+//     indicator.style.setProperty("--position", index)
+//     document.querySelectorAll("a").forEach(elem => {
+//       elem.classList.remove("active")
+//     })
+//     anchor.classList.add("active")
+//   }
+// })
+</script>
+
+
+{% if logged is null %}
+<script>
+    // setTimeout(function () {
+                    
+    //             }, 3000);
+
+    $(document).ready(function () {
+        if (getCookie('modal_shown') == null) {
+            setCookie('modal_shown', 'yes', 1);
+            setTimeout(function () {
+                $('#signuppopup').modal('show');
+            }, 5000);
+        }
+    });
+    // $(window).load(function(){        
+   
+    // }); 
+
+    function getCookie(cName) {
+      const name = cName + "=";
+      const cDecoded = decodeURIComponent(document.cookie); //to be careful
+      const cArr = cDecoded .split('; ');
+      let res;
+      cArr.forEach(val => {
+          if (val.indexOf(name) === 0) res = val.substring(name.length);
+      })
+      return res;
+}
+
+function setCookie(cName, cValue, expDays) {
+        let date = new Date();
+        date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + date.toUTCString();
+        document.cookie = cName + "=" + cValue + "; " + expires + "; path=/";
+}
+</script>
+{% endif %}
+<script>
+    function signupmodal(){
+        
+        $('#signuppopup').modal('show');
+        document.getElementById("showFilePanel").click();
+    }
+    function signinmodal(){
+        
+        $('#signuppopup').modal('show');
+        // document.getElementById("showFilePanel").click();
+    }
+</script>
+<script>
+    $('#showFilePanel').click(function(event) {
+  if ($('.notification-container').hasClass('selected')) {
+    $('.notification-container2').removeClass('dismiss').addClass('selected').show();
+    $('.notification-container').removeClass('selected').addClass('dismiss').hide();
+  } else {
+    $('.notification-container').removeClass('dismiss').addClass('selected').show();
+    $('.notification-container2').removeClass('selected').addClass('dismiss').hide();
+  }
+  event.preventDefault();
+});
+
+$('#closeFilePanel').click(function(event) {
+  if ($('.notification-container2').hasClass('selected')) {
+    $('.notification-container2').removeClass('selected').addClass('dismiss').hide();
+    $('.notification-container').removeClass('dismiss').addClass('selected').show();
+  } else {
+    $('.notification-container2').removeClass('dismiss').addClass('selected').show();
+    $('.notification-container').removeClass('selected').addClass('dismiss').hide();
+  }
+  event.preventDefault();
+});
+</script>
+ {# for profile and order tab  #}
+<script>
+ $(document).ready(function() {
+  var last_id = localStorage.getItem('tab_id');
+  if(last_id) {
+    $('ul.nav-pills li a').removeClass('active');
+    $('#v-pills-tabContent .tab-pane').removeClass('active show');
+	$(".nav-pills li a").eq(Number(last_id.match(/\d+/)[0])-1).addClass('active');
+    $("#" + last_id).addClass('active show');
+  }
+  $('ul.nav-pills li a').click(function() {
+    var tab_id = $(this).attr('data-tab');
+    console.log(tab_id);
+    $('ul.nav-pills li a').removeClass('active');
+    $('.tab-pane').removeClass('active show');
+
+    $(this).addClass('active');
+    $("#" + tab_id).addClass('active show');
+    localStorage.setItem('tab_id', tab_id);
+  });
+});
+
+</script>
+
+{# for feedback form #}
+<script>
+$('#feedbackform').submit(function(e) {
+ e.preventDefault();
+  var form = $(this);
+ $.ajax({
+    type: 'POST',
+    dataType: 'json',
+    url: '?route=account/account/feedback',
+    data: form.serialize(),
+    success: function (json) {
+        $('#feedback_btn').prop('disabled', true)
+        window.location = '?route=account/account';
+        //console.log('add success');
+    }
+
+});
+});
+</script>
+
+<script>
+  // google reviews js
+  var myIndex = 0;
+  carousel();
+  
+  function carousel() {
+    var i;
+    var x = document.getElementsByClassName("greviews");
+    // var y = document.getElementsByClassName("mySlides2");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none"; 
+    }
+    // for (i = 0; i < y.length; i++) {
+    //   y[i].style.display = "none"; 
+    // }
+    myIndex++;
+    if (myIndex > x.length) {
+      myIndex = 1
+    }    
+    x[myIndex-1].style.display = "block";  
+    // y[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 4000); 
+  }
+  </script>
+
+
+<script>
+{# to open order page #}
+    function toOrderpage(){
+        localStorage.setItem('tab_id', 'home2');
+        window.location.href='?route=account/account';
+    }
+    {# to open profile page #}
+    function toProfilepage(){
+        localStorage.setItem('tab_id', 'home1');
+        window.location.href='?route=account/account';
+    }
+</script>
+<script>
+ function catalogRequest(idd,btn,locationid){
+   // if(!formRule(idd)) return false;
+    $('#'+btn).text('Processing...');
+
+   
+    $.ajax({
+      url:'?route=store/singlestorepage&s_id='.locationid,
+      data:$('#'+idd).serialize(),
+      type:'POST',
+    // dataType:'JSON',
+    success:function(res){      
+        if(res == 'success'){
+            var thanksHtml = '<div class="success-popup "><span><svg id="smile" width="45" height="45" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M16.2432 29.9911L16.5968 30.3439L16.95 29.9907L30.5886 16.352L30.9422 15.9985L30.5886 15.6449L27.7128 12.7691L27.3593 12.4156L27.0057 12.7691L16.592 23.1828L12.2699 18.8682L11.9158 18.5148L11.5626 18.869L8.69086 21.7489L8.33792 22.1028L8.69174 22.4558L16.2432 29.9911ZM0.823975 20.662C0.823975 9.72375 9.72375 0.823975 20.662 0.823975C31.6002 0.823975 40.5 9.72375 40.5 20.662C40.5 31.6002 31.6002 40.5 20.662 40.5C9.72375 40.5 0.823975 31.6002 0.823975 20.662Z" stroke="#33C300"/> </svg> </span> <span> <h6>Success</h6> <p>Add your success message here </p> </span></div>';
+        }else{
+            var thanksHtml = '<div class="success-popup2"><span><svg id="smile2" width="45" height="45" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/></svg></span><span><h6>Alert</h6><p>Add your error message here </p></span></div>';
+        }
+        $('#msg').html(thanksHtml);
+        $('#'+btn).text('Request Catalog');
+      
+    }
+  });
+  }
+
+  
+
+  
+</script>
+<script>
+
+    function sorting(id, key){
+        var url = '?route=product/review';
+        localStorage.setItem(key, id);
+        if (localStorage.getItem("category") === null) {
+            alert('here');
+        }else{
+            var c_value = localStorage.getItem("category")
+            url += '&category=' + c_value;
+        }
+        if (localStorage.getItem("city") === null) {
+            alert('here');
+        }else{
+            var ci_value = localStorage.getItem("city")
+            url += '&city=' + ci_value;
+        }
+        if (typeof localStorage.getItem("date") !== 'undefined' && localStorage.getItem("date") !== null) {
+            
+            var date_value = localStorage.getItem("date")
+            url += '&date=' + date_value;
+            
+        }else{
+            alert(url);
+            url += '';
+        }
+        location = url;
+    }
+
+        if(localStorage.getItem("category") != null){
+        var lastSelected = localStorage.getItem('category');
+        
+            $('#categoryselect').val(lastSelected)
+                .find("option[value='" + lastSelected +"']").attr('selected', true);
+            
+        }
+        if(localStorage.getItem("city") != null){
+        var lastCity = localStorage.getItem('city');
+        
+            $('#cityselect').val(lastCity)
+                .find("option[value='" + lastCity +"']").attr('selected', true);
+        }
+        if(localStorage.getItem("date") != null){
+        var lastDate = localStorage.getItem('date');
+        
+            $('#dateselect').val(lastDate)
+                .find("option[value='" + lastDate +"']").attr('selected', true);
+        }
+</script>
+
+{# category read more button #}
+<script>
+  $(document).ready(function () {
+      $('#btAnimate').click(function () {
+          // Animate the div element. A duration is set to 500 milliseconds.
+          // $("#divAnim").animate({height: '500px' }, 500);
+          $('#divC').show();          // Also show the div element.
+          $('#btAnimate').hide('slow');
+      });
+
+      // Reverse animate.
+      $('#btHide').click(function () {
+          // $("#divAnim").animate({ height: '27px' }, 500);
+          $('#divC').hide('slow');          // Now hide the div.
+          $('#btAnimate').show('slow');
+      });
+  });
+</script>
+{# for sorting #}
+<script>
+function stickyheaddsadaer(obj) {
+  if($(obj).is(":checked")){
+    $('input.form-check-input').not(obj).prop('checked', false);  
+    //var url = '?route=product/category';
+    
+    location = $(obj).val();
+    //alert($(obj).val()); //when checked
+    
+  }else{
+    //location = '?route=product/category';
+    
+    //alert(window.location.href); //when not checked
+  }
+  
+}
+</script>
+
+
+  <script>
+// share button of product
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+document.getElementById("share").onclick = function() {
+var share_icons = document.querySelector("#share_icons");
+check_opacity = share_icons.classList.contains('opacity-0');
+if (check_opacity) {
+share_icons.classList.remove('opacity-0');
+share_icons.classList.add('opacity-1');
+} else {
+share_icons.classList.remove('opacity-1');
+share_icons.classList.add('opacity-0');
+}
+};
+
+});
+  </script>
+  {# product like function #}
+  <script> 
+    //document.getElementById("likeheart").onclick = changeColor;
+    function likeheart(el, pid, cid) {
+        $.ajax({
+      url:'?route=product/category/like',
+      data:{'pid' : pid, 'cid': cid},
+      type:'POST',
+    // dataType:'JSON',
+    success:function(res){      
+        if(res == 'success'){
+            var thanksHtml = '<div class="success-popup "><span><svg id="smile" width="45" height="45" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M16.2432 29.9911L16.5968 30.3439L16.95 29.9907L30.5886 16.352L30.9422 15.9985L30.5886 15.6449L27.7128 12.7691L27.3593 12.4156L27.0057 12.7691L16.592 23.1828L12.2699 18.8682L11.9158 18.5148L11.5626 18.869L8.69086 21.7489L8.33792 22.1028L8.69174 22.4558L16.2432 29.9911ZM0.823975 20.662C0.823975 9.72375 9.72375 0.823975 20.662 0.823975C31.6002 0.823975 40.5 9.72375 40.5 20.662C40.5 31.6002 31.6002 40.5 20.662 40.5C9.72375 40.5 0.823975 31.6002 0.823975 20.662Z" stroke="#33C300"/> </svg> </span> <span> <h6>Success</h6> <p>You will be notified on whatsapp </p> </span></div>';
+        }else{
+            var thanksHtml = '<div class="success-popup2"><span><svg id="smile2" width="45" height="45" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/></svg></span><span><h6>Alert</h6><p>Add your error message here </p></span></div>';
+        }
+        $('#msg').html(thanksHtml);
+        $('#'+btn).text('Submit');
+      
+    }
+  });
+      if (el.style.color === 'red') {
+        el.style.color = '#e3e3e3';   
+      }
+      else el.style.color = 'red';
+    }
+    </script>
+
+    {# open wishlist #}
+    <script>
+
+        function openCart(evt, CartName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent-popup");
+            for (i = 0; i < tabcontent.length; i++) {
+              tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+              tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(CartName).style.display = "block";
+            evt.currentTarget.className += " active";
+          }
+    function openWishlist(elm){
+        openCart(event, 'mywishlist');
+        $('#wlbtn').addClass('active');
+        $.ajax({
+            url:'?route=account/wishlist/wlist',
+            type:'POST',
+            dataType:'JSON',
+            success:function(res){   
+                console.log(res);
+                var wlist = '';
+                if(res['status']){
+                    wlist += '<div class="empty-desktop-cart">  <div class="con-for-empty-order">    <h6>I Feel So Bad!</h6>    <p>Can\'t see wishlist! <b>Login</b></p>  </div>  <div class="empty-cart-img">    <img loading="lazy" src="catalog/view/javascript/assets/image/icon/notisignin.png" alt="empthy-cart"></div>   <a href="" class="cart-shop-btn">Shop Now</a></div>';
+                }else if(res['witems']){
+                    wlist += '<div class="empty-desktop-cart"><div class="con-for-empty-order"><h6>I Feel So Bad!</h6><p>Cause am <b>Empty</b></p></div><div class="empty-cart-img"><img loading="lazy" src="catalog/view/javascript/assets/image/icon/empthy-cart-desktop.png" alt="empthy-cart"></div><a href="" class="cart-shop-btn">Shop Now</a></div>';
+                }else{
+                
+                    $.each(res.data, function (i, currProgram) {
+    
+                    // console.log(currProgram); 
+                        wlist += '<div class="mb-3">   <div class="list-of-cart">    <a href="#remove-cart-drop" class="position-absolute top-0 text-black-50 fw-normal fs-6" data-bs-toggle="collapse" style="right:10px;z-index: 9;"><i class="fas fa-times"></i></a>    <!-- <button type="button" class="btn-close text-reset" aria-label="Close" style="font-size:8px;" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"></button> -->    <div class="d-flex align-items-center">      <div class="pp-img-cart">        <div class="heart-wish">          <i class="fas fa-heart"></i>        </div>        <div class="cart-img">        <img loading="lazy" src="'+ currProgram.thumb +'" class="img-fluid img-responsive">      </div>      </div>      <div class="cart-deatils">        <div class="d-flex justify-content-start my-2">          <div class="cart-p-name">'+ currProgram.name +'  <br> <span class="pp-quality-name">Premium chair </span></div>           <div class="my-cart-price">'+ currProgram.special +'</div>        </div>        <div class="d-flex justify-content-between my-2">          <ul class="btn-list-cart">           <li> <button  class="buy-now-btn" onclick="cart.add('+ currProgram.product_id +','+ undefined +',1);">Move to Cart</button> </li>           </ul>      </div>      </div>    </div>  </div>  <div id="remove-cart-drop" class="collapse">  <div class="romove cart-pop-bottom"> <div class="con-rem" >  <p>Are you sure you want to remove this item from cart? </p></div>   <div class="rem-btn-sec">  <a class="btn remove-cart-btn mx-1" href="'+ currProgram.remove +'"> remove</a>  <button class=" mx-1 move-wishlist-btn"> move to wishlist</button></div>  </div></div></div>';
+                    });
+                }
+                $('#mywishlist').html(wlist);
+                //$('#'+btn).text('Submit');
+      
+            }
+        });
+    }
+
+    function openCart2(elm){
+        openCart(event, 'mycart');
+        $('#defaultOpen').addClass('active');
+        $.ajax({
+            url:'?route=checkout/cart/cartlist',
+            type:'POST',
+            dataType:'JSON',
+            success:function(res){     
+                var cartlist = '';
+                //console.log(res);
+                if(res.data == 'Empty'){
+                    cartlist += '<div class="empty-desktop-cart"><div class="con-for-empty-order"><h6>I Feel So Bad!</h6><p>Cause am <b>Empty</b></p></div><div class="empty-cart-img"><img loading="lazy" src="catalog/view/javascript/assets/image/icon/empthy-cart-desktop.png" alt="empthy-cart"></div><a href="" class="cart-shop-btn">Shop Now</a></div>';
+                }else{
+                    cartlist += '<form action="?route=checkout/cart/edit" method="post" enctype="multipart/form-data" class="cartForm">';
+                    $.each(res.data.products, function (i, currProgram) {
+                    
+                        console.log(currProgram); 
+                        cartlist += '<div class="mb-3">   <div class="list-of-cart">    <a href="#remove-cart-drop" class="position-absolute top-0 text-black-50 fw-normal fs-6" data-bs-toggle="collapse" style="right:10px;z-index: 9;"><i class="fas fa-times"></i></a>    <div class="d-flex align-items-center">      <div class="pp-img-cart">        <div class="cart-img">        <img loading="lazy" src="' + currProgram.thumb +'" class="img-fluid img-responsive">      </div>      </div>      <div class="cart-deatils">        <div class="d-flex justify-content-start my-2">          <div class="cart-p-name">' + currProgram.name +'  <br> <span class="pp-quality-name">Premium chair </span></div>           <div class="my-cart-price">' + currProgram.price +'</div>        </div>        <div class="d-flex justify-content-between my-2">          <ul class="btn-list-cart">           <li> <a href="'+ res.data.checkout  +'" class="buy-now-btn">BUY NOW</a> </li>           <li><a href="" class="view-m-cart"> view more</a></li>          </ul>        <div class="quantity-bar">          <div class="countItem">    <span class="btn-minus minus" onclick="minusPro(this);" data-id="' + currProgram.cart_id +'"><span class="fa fa-minus"></span></span>            <input name="quantity[' + currProgram.cart_id + ']" value="' + currProgram.quantity + '" class="count quantity cart_'+ currProgram.cart_id + '">   <span class="btn-plus plus" onclick="plusPro(this);" data-id="' + currProgram.cart_id +'"><span class="fa fa-plus"></span></span>    </div>        </div>        </div>      </div>    </div>  </div>  <div id="remove-cart-drop" class="collapse">  <div class="romove cart-pop-bottom"> <div class="con-rem" >  <p>Are you sure you want to remove this item from cart? </p></div>   <div class="rem-btn-sec">  <button class="btn remove-cart-btn mx-1" onclick="cart.remove('+ currProgram.cart_id +');"> remove</button>  <button type=button class=" mx-1 move-wishlist-btn" onclick="wishlist.add('+ currProgram.product_id +','+currProgram.cart_id +');"> move to wishlist</button></div>  </div></div></div>';                    
+                    
+                    });
+                    cartlist += '</form>';
+                }
+                $('#mycart').html(cartlist);
+                //$('#'+btn).text('Submit');
+      
+            }
+        });
+    }
+    function openOrder(elm){
+        openCart(event, 'myorder');
+        $('#orderlist').addClass('active');
+        $.ajax({
+            url:'?route=account/order/orderlist',
+            type:'POST',
+            dataType:'JSON',
+            success:function(res){
+                console.log(res);  
+                var orderlist = '';
+                if(res.status){
+                    orderlist +='<div class="empty-desktop-cart">  <div class="con-for-empty-order">    <h6>I Feel So Bad!</h6>    <p>Can\'t see orders! <b>Login</b></p>  </div>  <div class="empty-cart-img">    <img loading="lazy" src="catalog/view/javascript/assets/image/icon/notisignin.png" alt="empthy-cart"></div>   <a href="" class="cart-shop-btn">Shop Now</a></div>';
+                }else if(res.orderlist){
+                    orderlist += '<div class="empty-desktop-cart"><div class="con-for-empty-order"><h6>I Feel So Bad!</h6><p>Cause am <b>Empty</b></p></div><div class="empty-cart-img"><img loading="lazy" src="catalog/view/javascript/assets/image/icon/empthy-cart-desktop.png" alt="empthy-cart"></div><a href="" class="cart-shop-btn">Shop Now</a></div>';
+                }else{
+                    $.each(res.data, function (i, currProgram) {
+                    
+                     //console.log(currProgram); 
+                        $.each(currProgram.order_products, function (i, products) {
+                            orderlist += '<div class="mb-3">  <div class="list-of-cart">    <a href="#remove-cart-drop" class="position-absolute" style="right: 7px; z-index: 9;color: #c7c7c7;font-size: 12px;font-weight: 100;top: 3px;"><i class="fas fa-chevron-right"></i></a>    <div class="d-flex align-items-center">      <div class="pp-img-cart">        <div class="cart-img">        <img loading="lazy" src="./assets/image/cart-img/mycart1.jpg" class="img-fluid img-responsive">      </div>      </div>      <div class="cart-deatils">        <div class="d-flex justify-content-between my-2">          ';
+                    
+                            orderlist += '<div class="cart-p-name">'+ products.name +' <br> <span class="pp-quality-name">Premium chair </span>            <div class="ordered-pricec">'+ products.p_total +'</div>          </div> <div class="cart-checkout">';      
+
+                            if(currProgram.status == "Processing"){
+                                orderlist +=  currProgram.status +'  <i class="fas fa-history" style="background:#6493da"></i>';
+                            }else if(currProgram.status == "Complete"){
+                                orderlist +=  currProgram.status +'  <i class="fas fa-check"></i>';
+                            }else if(currProgram.status == "Canceled" || currProgram.status == "Failed"){
+                                orderlist +=  currProgram.status +'  <i class="fas fa-times" style="background-color:#ff6a6a;"></i>';
+                            }else{
+                                orderlist +=  currProgram.status +'  <i class="fas fa-history" style="background-color:#ff6a6a;"></i>';
+                            }
+                            orderlist += '</div>        </div>      </div>    </div>    <div class="devider"> </div>    <div class="d-flex justify-content-start align-items-center my-2">    <div class="cart-order-time"><span class="month">December 14,</span> <span>2:33 PM</span></div>    <div class="dileverd-area"> Jaipur Bhakrota 302026 </div>    <div class="order-btn-sec">      <ul>        <li><a href="" class="re-order-btn remove-cart-btn">Reorder</a></li>        <li><a href="" class="rate-btn move-wishlist-btn">Rateme </a></li>      </ul>    </div>    </div>  </div> </div>';
+                        });
+                    });
+                }
+                $('#myorder').html(orderlist);
+                //$('#'+btn).text('Submit');
+      
+            }
+        });
+    }
+    </script>
+<script>
+function newsletter(idd){
+    if(!formRule(idd)) return false;
+        $.ajax({
+            url:'?route=account/newsletter/subscribe',
+            data:$('#'+idd).serialize(),
+            type:'POST',
+            dataType:'JSON',
+            success:function(res){     
+                $("#"+idd)[0].reset();
+                //console.log(res);
+                if(res.success){
+                    $('body').prepend('<div class="success-popup ">	<span class="warrning-svg">	<svg id="smile"		width="35" height="35" viewBox="0 0 41 41" fill="none">	 <path d="M16.2432 29.9911L16.5968 30.3439L16.95 29.9907L30.5886 16.352L30.9422 15.9985L30.5886 15.6449L27.7128 12.7691L27.3593 12.4156L27.0057 12.7691L16.592 23.1828L12.2699 18.8682L11.9158 18.5148L11.5626 18.869L8.69086 21.7489L8.33792 22.1028L8.69174 22.4558L16.2432 29.9911ZM0.823975 20.662C0.823975 9.72375 9.72375 0.823975 20.662 0.823975C31.6002 0.823975 40.5 9.72375 40.5 20.662C40.5 31.6002 31.6002 40.5 20.662 40.5C9.72375 40.5 0.823975 31.6002 0.823975 20.662Z" stroke="#33C300"/>  </svg>	</span>	<span class="warrning-text">   <p>'+ res.success +'</p>	</span>;  </div>');
+                }else{
+                    $('body').prepend('<div class="success-popup2"> <span class="warrning-svg"> <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     </svg>  </span> <span class="warrning-text">  <p>'+ res.error +'</p> </span> </div>');
+                }
+                //$('#newsletterdiv').after('<p>Error</p>');
+            }
+        });
+    }
+</script>
+<script>
+// $(document).on('click', '.minus',function(){
+//     var domse = $(this).siblings('.cart_'+$(this).data('id')).val();
+//     if(domse > 1){
+//       var newval = Number(domse)-1;
+//       $(this).siblings('.cart_'+$(this).data('id')).val(newval);
+//       $(this).parents('form:first').submit();
+//     }
+//   });
+//   $(document).on('click', '.plus',function(){
+//     var domse = $(this).siblings('.cart_'+$(this).data('id')).val();
+//     if(domse < 10){
+//       var newval = Number(domse)+1;
+//       $(this).siblings('.cart_'+$(this).data('id')).val(newval);
+//       $(this).parents('form:first').submit();
+//     }
+//   });
+
+function minusPro(e){
+    var domse = $(e).siblings('.cart_'+$(e).data('id')).val();
+    if(domse > 1){
+      var newval = Number(domse)-1;
+      $(e).siblings('.cart_'+$(e).data('id')).val(newval);
+      $(e).parents('form:first').submit();
+    }
+  };
+  function plusPro(e){
+    var domse = $(e).siblings('.cart_'+$(e).data('id')).val();
+    if(domse < 10){
+      var newval = Number(domse)+1;
+      $(e).siblings('.cart_'+$(e).data('id')).val(newval);
+      $(e).parents('form:first').submit();
+    }
+  };
+</script>
+<script>
+$("body").on('click', '#togglePassword', function() {
+  $(this).toggleClass("fa-eye fa-eye-slash");
+  var input = $(this).siblings('.password');//$(".password");
+  if (input.attr("type") === "password") {
+    input.attr("type", "text");
+  } else {
+    input.attr("type", "password");
+  }
+
+});
+
+</script>
+
+{#  check pincode #}
+<script>
+  var pinCheckKey = 1;
+  function checkPincode(d){
+
+    var pinc = $('#input-pincode').val();
+    $('.pin_error').remove();
+    if(pinc==''){
+      errr = '<p style="color:red" class="pin_error">Enter Pincode to Check Delivery</p>';
+
+      $('.search-form-dd').after(errr);
+      return false;
+    }
+    if(!vp(pinc)){
+     errr = '<p style="color:red" class="pin_error">Enter Valid Pincode!</p>';
+
+     $('.search-form-dd').after(errr);
+     return false;
+   }
+   if(pinCheckKey!=1){
+    return false;
+  }
+  pinCheckKey = 0;
+  d.html('<i class="fas fa-spinner fa-spin"></i>');
+  $.ajax({
+    url: '?route=product/product/checkPincode',
+    type: 'post',
+    data: 'pincode=' + pinc,
+
+    success: function(json) {
+      pinCheckKey = 1;
+      if(json['success']){
+      $('.search-form-dd').after('<p class="green pin_error" style="color:green"> Delivery options are available , Call:+91 8949695921 </p>');
+    }else{
+        $('.search-form-dd').after('<p class="pin_error" style="color:red"> Delivery options not available , Call:+91 8949695921 </p>');
+    }
+      d.html('<i class="bx bx-search"></i>');
+    },
+    error: function(xhr, ajaxOptions, thrownError) {
+      //alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+      $('.search-form-dd').after('<p class="pin_error" style="color:red"> Sorry, delivery not available in your area </p>');
+      //d.val('Check');
+    }
+  });
+}
+</script>
+<script>
+    $('.loginform').submit(function(e) {
+ e.preventDefault();
+  var form = $(this);
+ $.ajax({
+    type: 'POST',
+    dataType: 'json',
+    url: '?route=account/login',
+    data: form.serialize(),
+    success: function (json) {
+        //$('#feedback_btn').prop('disabled', true)
+        //window.location = '?route=account/account';
+         //console.log(json.data);
+        if (json['success']) {
+            location = '?route=account/account';
+					// $('#content').parent().before('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+					//$('body').prepend('<div class="success-popup ">	<span class="warrning-svg">	<svg id="smile"		width="35" height="35" viewBox="0 0 41 41" fill="none"><path d="M16.2432 29.9911L16.5968 30.3439L16.95 29.9907L30.5886 16.352L30.9422 15.9985L30.5886 15.6449L27.7128 12.7691L27.3593 12.4156L27.0057 12.7691L16.592 23.1828L12.2699 18.8682L11.9158 18.5148L11.5626 18.869L8.69086 21.7489L8.33792 22.1028L8.69174 22.4558L16.2432 29.9911ZM0.823975 20.662C0.823975 9.72375 9.72375 0.823975 20.662 0.823975C31.6002 0.823975 40.5 9.72375 40.5 20.662C40.5 31.6002 31.6002 40.5 20.662 40.5C9.72375 40.5 0.823975 31.6002 0.823975 20.662Z" stroke="#33C300"/>  </svg> </span>	<span class="warrning-text">   <p>' + json['success'] + '</p>	</span> </div>');
+				}else{
+					$('body').prepend('<div class="success-popup2"> <span class="warrning-svg"> <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     </svg>  </span> <span class="warrning-text">  <p>'+ json.data['error_warning'] +'</p> </span> </div>');
+				}
+    }
+
+});
+});
+
+    $('.registerform').submit(function(e) {
+ e.preventDefault();
+  var form = $(this);
+ $.ajax({
+    type: 'POST',
+    dataType: 'json',
+    url: '?route=account/register',
+    data: form.serialize(),
+    success: function (json) {
+        //$('#feedback_btn').prop('disabled', true)
+        //window.location = '?route=account/account';
+         //console.log(json.data);
+        if (json['success']) {
+            location = '?route=account/account';
+					// $('#content').parent().before('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+					//$('body').prepend('<div class="success-popup ">	<span class="warrning-svg">	<svg id="smile"		width="35" height="35" viewBox="0 0 41 41" fill="none"><path d="M16.2432 29.9911L16.5968 30.3439L16.95 29.9907L30.5886 16.352L30.9422 15.9985L30.5886 15.6449L27.7128 12.7691L27.3593 12.4156L27.0057 12.7691L16.592 23.1828L12.2699 18.8682L11.9158 18.5148L11.5626 18.869L8.69086 21.7489L8.33792 22.1028L8.69174 22.4558L16.2432 29.9911ZM0.823975 20.662C0.823975 9.72375 9.72375 0.823975 20.662 0.823975C31.6002 0.823975 40.5 9.72375 40.5 20.662C40.5 31.6002 31.6002 40.5 20.662 40.5C9.72375 40.5 0.823975 31.6002 0.823975 20.662Z" stroke="#33C300"/>  </svg> </span>	<span class="warrning-text">   <p>' + json['success'] + '</p>	</span> </div>');
+				}else{
+                    $('.success-popup2').remove();
+                    if (json.data['error_warning'] == '' || json.data['error_warning'] == null) {
+                        // console.log(json.data['error_warning']);
+                        $('body').prepend('<div class="success-popup2"> <span class="warrning-svg"> <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     </svg>  </span> <span class="warrning-text">  <p>'+ json.data['error_confirm'] +'</p> </span> </div>');
+                    } else {
+                        // console.log(json.data['error_confirm']);
+                        $('body').prepend('<div class="success-popup2"> <span class="warrning-svg"> <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     </svg>  </span> <span class="warrning-text">  <p>'+ json.data['error_warning'] +'</p> </span> </div>');
+                    }
+					
+				}
+    }
+
+});
+});
+
+$(function(){
+  $("#searchinput").keyup(function (e) {
+    if (e.which == 13) {
+      $('.view-all-results').trigger('click');
+    }
+  });
+});
+    function loginalert(){
+        $('.success-popup2').remove();
+    $('body').append('<div class="success-popup2"><span><svg id="smile2" width="45" height="45" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/></svg></span><span><h6>Alert</h6><p>Login to view wishlist </p></span></div>');
+}
+</script>
+<script>
+		// $(document).ready(function(){
+			// 	$('div#loading').removeAttr('id');
+		// });
+		var preloader = document.getElementById("loading");
+		// window.addEventListener('load', function(){
+		// 	preloader.style.display = 'none';
+		// 	})
+
+		function myFunction(){
+			preloader.style.display = 'none';
+		};
+	</script>
+<script src="catalog/view/javascript/assets/js/darg-n-drop.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<section class="call_to_action_sec  pt-5 pb-2">
+    <div class="container container-custom">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 px-lg-5">
+                <div class="outer-img-show">
+                    <div class="imgs-show-grid img-show-1">
+                        <img src="catalog/view/javascript/assets/image/expert-call.png" class="img-responsive img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 py-2 my-lg-5 py-md-0">
+                <h2 class="pg-heading text-lg-end text-center text-white">
+                    Talk To Our Furniture Expert Now
+                </h2>
+                <p class="heading-para text-lg-end text-center text-white">Unlimited Options. Unbelievable Prices. Free Delivery</p>
+                <ul class="list-_ul">
+                    <li class="call_source_button" type="button">
+                        <a href="">
+                            <span>
+                                <img src="catalog/view/javascript/assets/image/icon/live_chat.svg">
+                            </span>
+                            Live Chat
+                        </a>
+                    </li>
+                    <li class="call_source_button" type="button">
+                        <span>
+                            <a href="tel:+91 89496 95921">
+                                <img src="catalog/view/javascript/assets/image/icon/call-icon.svg">
+                            </a>
+                            |
+                            <a href="">
+                                <img src="catalog/view/javascript/assets/image/icon/whatsapp.svg">
+                            </a>
+                        </span>
+                        +91 89496 95921
+                    </li>
+                </ul>
+
+            </div>
+            <hr class="line_hr">
+            <h1 class="text-center text-white pg-heading">India’s Best Quality Wooden furniture in Bangalore</h1>
+            <span class="text-center text-white heading-para">The Urbanwood furniture you place in your house significantly affects the look and the solace of your home. Regardless of whether you incline toward conventional wooden furniture or customized furniture
+                <button id="show" class="show3 btn-show">Read more....</button>
+            </span>
+            <span class="text-center text-white heading-para con-text" style="display: none;">
+                online, it ought to be as indicated by your inclinations, accessible space and the inside of your home. While each piece of home furniture that you pick ought to be deliberately thought upon, you should give additional consideration while buying furniture online as these rooms are the essence of your house. Along these lines, while you are investigating the different furniture online Bangalore to locate the best wood furniture, search for the most recent plans just as strength for your living room furniture for Home.<button id="hide" class="hide3 btn-show" style="display:none">
+                    Less...</button>
+
+            </span>
+
+        </div>
+    </div>
+</section>

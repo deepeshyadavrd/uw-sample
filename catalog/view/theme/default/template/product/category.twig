@@ -1,0 +1,1270 @@
+{# {{ header }}
+<div id="product-category" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      <h2>{{ heading_title }}</h2>
+      {% if thumb or description %}
+      <div class="row"> {% if thumb %}
+        <div class="col-sm-2"><img src="{{ thumb }}" alt="{{ heading_title }}" title="{{ heading_title }}" class="img-thumbnail" /></div>
+        {% endif %}
+        {% if description %}
+        <div class="col-sm-10">{{ description }}</div>
+        {% endif %}</div>
+      <hr>
+      {% endif %}
+      {% if categories %}
+      <h3>{{ text_refine }}</h3>
+      {% if categories|length <= 5 %}
+      <div class="row">
+        <div class="col-sm-3">
+          <ul>
+            {% for category in categories %}
+            <li><a href="{{ category.href }}">{{ category.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% else %}
+      <div class="row">{% for category in categories|batch((categories|length / 4)|round(1, 'ceil')) %}
+        <div class="col-sm-3">
+          <ul>
+            {% for child in category %}
+            <li><a href="{{ child.href }}">{{ child.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}</div>
+      <br />
+      {% endif %}
+      {% endif %}
+      {% if products %}
+      <div class="row">
+        <div class="col-md-2 col-sm-6 hidden-xs">
+          <div class="btn-group btn-group-sm">
+            <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="{{ button_list }}"><i class="fa fa-th-list"></i></button>
+            <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="{{ button_grid }}"><i class="fa fa-th"></i></button>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="form-group"><a href="{{ compare }}" id="compare-total" class="btn btn-link">{{ text_compare }}</a></div>
+        </div>
+        <div class="col-md-4 col-xs-6">
+          <div class="form-group input-group input-group-sm">
+            <label class="input-group-addon" for="input-sort">{{ text_sort }}</label>
+            <select id="input-sort" class="form-control" onchange="location = this.value;">
+              
+              
+              
+              {% for sorts in sorts %}
+              {% if sorts.value == '%s-%s'|format(sort, order) %}
+              
+              
+              
+              <option value="{{ sorts.href }}" selected="selected">{{ sorts.text }}</option>
+              
+              
+              
+              {% else %}
+              
+              
+              
+              <option value="{{ sorts.href }}">{{ sorts.text }}</option>
+              
+              
+              
+              {% endif %}
+              {% endfor %}
+            
+            
+            
+            </select>
+          </div>
+        </div>
+        <div class="col-md-3 col-xs-6">
+          <div class="form-group input-group input-group-sm">
+            <label class="input-group-addon" for="input-limit">{{ text_limit }}</label>
+            <select id="input-limit" class="form-control" onchange="location = this.value;">
+              
+              
+              
+              {% for limits in limits %}
+              {% if limits.value == limit %}
+              
+              
+              
+              <option value="{{ limits.href }}" selected="selected">{{ limits.text }}</option>
+              
+              
+              
+              {% else %}
+              
+              
+              
+              <option value="{{ limits.href }}">{{ limits.text }}</option>
+              
+              
+              
+              {% endif %}
+              {% endfor %}
+            
+            
+            
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row"> {% for product in products %}
+        <div class="product-layout product-list col-xs-12">
+          <div class="product-thumb">
+            <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a></div>
+            <div>
+              <div class="caption">
+                <h4><a href="{{ product.href }}">{{ product.name }}</a></h4>
+                <p>{{ product.description }}</p>
+                {% if product.price %}
+                <p class="price"> {% if not product.special %}
+                  {{ product.price }}
+                  {% else %} <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span> {% endif %}
+                  {% if product.tax %} <span class="price-tax">{{ text_tax }} {{ product.tax }}</span> {% endif %} </p>
+                {% endif %}
+                {% if product.rating %}
+                <div class="rating"> {% for i in 1..5 %}
+                  {% if product.rating < i %} <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> {% else %} <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>{% endif %}
+                  {% endfor %} </div>
+                {% endif %} </div>
+              <div class="button-group">
+                <button type="button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></button>
+                <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
+                <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %} </div>
+      <div class="row">
+        <div class="col-sm-6 text-left">{{ pagination }}</div>
+        <div class="col-sm-6 text-right">{{ results }}</div>
+      </div>
+      {% endif %}
+      {% if not categories and not products %}
+      <p>{{ text_empty }}</p>
+      <div class="buttons">
+        <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+      </div>
+      {% endif %}
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>
+{{ footer }}  #}
+
+{{ header }}
+{{ menu }}
+{{ wishlist }}
+<style>
+.red{
+  color: red!important;
+}
+</style>
+
+<div class="wrapper">
+<!--- banner section-->
+<div class="qu-sec py-2 ">
+  <div class="container container-custom">
+    <div class="row">
+<div class="col-md-12 col-sm-12">
+  <nav class="breadcumb-navigation" >
+    <ol class="breadcrumb m-0 p-2">
+    
+    {% for breadcrumb in breadcrumbs %}
+      <li class="breadcrumb-item "> <a href="#">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+      
+      {# <li class="breadcrumb-item "> <a href="#">Bedroom Furniture </a></li>
+      <li class="breadcrumb-item "> <a href="">Bedroom Storage</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Beds</li> #}
+    </ol>
+  </nav>   
+</div>
+</div>
+    </div>
+</div>
+
+
+  <section class=" py-2">
+    <div class="container container-custom">
+      <div class="row">
+        <div class="col-lg-10 m-auto">
+          <h2 class="pg-heading text-center">{{ heading_title }}</h2>
+          <div id="divAnim">
+            <p class="heading-para text-center px-lg-5">{{ description|striptags('<b>,<span>,<a>') }}</p>
+            <input type="button" id="btAnimate" value="Read more" />
+            <div id="divC">
+               <p class="heading-para text-center "> 
+      With king size beds with storage, you can maintain organization while making the best use of your open area and reducing clutter. 
+        To get the greatest deal on a king-sized bed at a cost that works for you,
+         you can now browse the selection of beds available online at Urbanwood. King-size beds are usually quite comfortable. </p>
+         <h2 class="font-table-heading my-3" style="text-align:center;">Wardrobes Price List in India</h2>
+<table class="table table-bordered table-price-pp">
+  <thead>
+    <tr>
+      <th scope="col">Wardrobes Online in India</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for product in products|slice(0, 5) %}
+      <tr>
+      <td scope="row"><a href="{{ product.href }}" target="_blank" rel="noopener noreferrer"> {{ product.name }}</a> </td>
+      <td>{{ product.special }}</td>
+    </tr>
+            
+      {% endfor %}
+  </tbody>
+</table>
+
+                        <input type="button" id="btHide" value="Read less" />
+                
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+      </section>
+  <section>
+    <div class="container container-custom">
+      <div class="row">
+        <div class="d-flex justify-content-md-center  m-md-auto  categories-pp">
+        <div class="active2 pp-box-cat">
+          <div class="img-pp-cat"> <img src="catalog/view/javascript/assets/image/product-slider-img/img1.png" alt=""></div>
+          <div class="con-pp-cat"> 
+          <span>King Size Beds</span><span> <i class="fas fa-star"></i> (4.5)</span>
+          </div>
+          <div> <a href="" class="check-out-pp" disabled>check now</a></div>
+        </div>
+        <div class="pp-box-cat">
+          <div class="img-pp-cat"> <img src="catalog/view/javascript/assets/image/product-slider-img/img1.png" alt=""></div>
+          <div class="con-pp-cat"> 
+          <span>Queen Size Beds</span><span> <i class="fas fa-star"></i> (4.5)</span>
+          </div>
+          <div> <a href="" class="check-out-pp">check now</a></div>
+        </div>
+
+        <div class="pp-box-cat">
+          <div class="img-pp-cat"> <img src="catalog/view/javascript/assets/image/product-slider-img/img1.png" alt=""></div>
+          <div class="con-pp-cat"> 
+          <span>Single Beds</span><span> <i class="fas fa-star"></i> (4.5)</span>
+          </div>
+          <div> <a href="" class="check-out-pp">check now</a></div>
+        </div>
+
+        <div class="pp-box-cat">
+          <div class="img-pp-cat"> <img src="catalog/view/javascript/assets/image/product-slider-img/img1.png" alt=""></div>
+          <div class="con-pp-cat"> 
+          <span>Poster Beds</span><span> <i class="fas fa-star"></i> (4.5)</span>
+          </div>
+          <div> <a href="" class="check-out-pp">check now</a></div>
+        </div>
+
+        <div class="pp-box-cat">
+          <div class="img-pp-cat"> <img src="catalog/view/javascript/assets/image/product-slider-img/img1.png" alt=""></div>
+          <div class="con-pp-cat"> 
+          <span>Sofa Cum Beds</span><span> <i class="fas fa-star"></i> (4.5)</span>
+          </div>
+          <div> <a href="" class="check-out-pp">check now</a></div>
+        </div>
+
+      </div>
+        </div>
+        </div>
+  </section>    
+
+<section class="py-2">
+  <div class="container container-custom">
+    <div class="row">
+      
+{{ filter }}
+    
+   
+
+
+
+      
+      
+    
+<div class="col-md-9 col-sm-12">
+  <div class="product-img-list">
+<div class="row">
+
+{% for product in products %}
+<div class="col-lg-4 col-md-6 col-sm-12">
+<div class="product-box-img">
+  <div class="button-pd">
+  <div class="like-heart mx-2"> 
+  
+    <span ><i class="fas fa-heart" onclick="wishlist.add('{{ product.product_id }}');" id="likeheart" ></i></span> 
+  </div>  
+  <div class="sharer">
+        <button id="share" class="cursor-pointer ">
+          <i class='bx bxs-share-alt'></i></button> 
+          <div id="share_icons" class="absolute opacity-0"> 
+            <a href="" class="pd-share cursor-pointer">
+              <i class="bx bxl-twitter"></i>
+            </a> 
+            <a href="" class=" pd-share cursor-pointer">
+              <i class="bx bxl-facebook"></i>
+            </a> 
+              <a href="" class=" pd-share cursor-pointer">
+                <i class="bx bxl-linkedin"></i>
+              </a> 
+            </div> 
+
+  </div> 
+
+  </div>
+  {% if (product.stock_status == 'Out Of Stock') and (product.quantity == 0) %}
+      <h3 class="shop-nowb-btn" style="margin-top: 19px;"> Out Of Stock</h3>
+      {% else %}
+  <a href="{{ product.href }}" type="button" class="shop-nowb-btn" style="margin-top: 19px;"> Shop Now</a>
+{% endif %}
+  <div class="pd-img-in">
+    <div class="overlay-pd"></div>
+    <img src="{{ product.thumb }}" alt="" class="img-fluid">
+  </div>
+  <div class="pd-deatils-sec">
+    <div class="d-flex justify-content-between align-items-start p-2">
+      <div class="pd-heading"> 
+       <div class="pd-name"><a href="">{{ product.name }}</a></div> 
+       {% if product.finish %}
+        <div class="pd-config">({{ product.finish }}</div>
+        {% endif %}
+        <span class="pd-creater"> By UrbanWood</span>
+      </div>
+      <div class="color-feature">
+      {% if (product.stock_status == 'Out Of Stock') and (product.quantity == 0) %}
+      <span class="availibility-pd">Out of Stock</span>
+      {% else %}
+      <span class="availibility-pd">Available Finish</span>
+      <div class="color-feature-check"> 
+        {# <label class="radio-list-finish">
+          <input type="radio" name="test" value="Teak" checked> #}
+          <div class="zoom" data-toggle="tooltip" data-placement="top" title="Teak">
+            
+              <img src="catalog/view/javascript/assets/image/icon/teakfinish.jpg" alt="Option 1">
+            
+          </div>
+        {# </label> #}
+        
+        {# <label class="radio-list-finish">
+          <input type="radio" name="test" value="Walnut"> #}
+          <div class="zoom" data-toggle="tooltip" data-placement="top" title="Walnut" >
+          <img src="catalog/view/javascript/assets/image/icon/walnutfinish.jpg" alt="Option 2"></div>
+        {# </label> #}
+        {# <label class="radio-list-finish">
+          <input type="radio" name="test" value="Honey"> #}
+          <div class="zoom" data-toggle="tooltip" data-placement="top" title="Honey" >
+          <img src="catalog/view/javascript/assets/image/icon/honeyfinish.jpg" alt="Option 3"></div>
+        {# </label> #}
+      </div>
+      {% endif %}
+      </div>
+     
+    </div>
+    <hr>
+    <div class="d-flex justify-content-between align-items-start p-2">
+      <div class="pricing-pd">
+        <span class="badge badgerating">
+          {{ product.rating }}
+          <span class="starr-rate"><i class="fas fa-star"></i></span>
+        </span>
+        <span class="likes">({{ product.review_count }})</span>
+        <div class=""> 
+        <div class="pd-amount"> {{ product.special }} </div> <div class="cut-ammount">{{ product.price }} </div>  
+        <span class=" badge bridge-offer" style="font-size:10px">{{ product.discount }}% off </span>
+      </div>
+      </div>
+      <div class="pd-offers">
+      <ul>
+        <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+        <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+</div>
+{% if  loop.index0 == 5 %}
+  <div class="signup-banner-strip">
+<div class="d-md-flex d-block justify-content-around align-items-center text-center ">
+  <div class="sign-banner-con">
+    <h5>Sign Up Now </h5>
+      <p>&</p>
+      <h6>get extra <span style="color:#fc0000;font-weight: 700;"> DISCOUNT</span></h6>
+  </div>
+  <div>
+  <a href="" type="button" class="view_all_btn" style="margin-top: 19px;"> Sign Up</a>
+  </div>
+  <div class="banner-strip-img">
+    <img src="catalog/view/javascript/assets/image/red-shape-bg.png" alt="" class="img-fluid img-responsive">
+  </div>
+</div>
+</div>
+{% endif %}
+{% endfor %}
+
+{# <div class="col-lg-4 col-md-6 col-sm-12">
+<div class="product-box-img">
+  <div class="button-pd">
+  <div class="like-heart mx-2"> 
+    <span ><i class="fas fa-heart" onclick="likeheart(this)" id="likeheart" ></i></span> 
+  </div>  
+  <div class="sharer">
+        <button id="share" class="cursor-pointer ">
+          <i class='bx bxs-share-alt'></i></button> 
+          <div id="share_icons" class="absolute opacity-0"> 
+            <a href="" class="pd-share cursor-pointer">
+              <i class="bx bxl-twitter"></i>
+            </a> 
+            <a href="" class=" pd-share cursor-pointer">
+              <i class="bx bxl-facebook"></i>
+            </a> 
+              <a href="" class=" pd-share cursor-pointer">
+                <i class="bx bxl-linkedin"></i>
+              </a> 
+            </div> 
+
+  </div> 
+
+  </div>
+  <a href="" type="button" class="shop-nowb-btn" style="margin-top: 19px;"> Shop Now</a>
+
+  <div class="pd-img-in">
+    <div class="overlay-pd"></div>
+    <img src="catalog/view/javascript/assets/image/product-images/bed/img1.jpg" alt="" class="img-fluid">
+  </div>
+  <div class="pd-deatils-sec">
+    <div class="d-flex justify-content-between align-items-start p-2">
+      <div class="pd-heading"> 
+       <div class="pd-name"><a href=""> Topaz Bed Without Storage  </a></div> 
+        <div class="pd-config">( King Size, Teak Finish )</div>
+        <span class="pd-creater"> By UrbanWood</span>
+      </div>
+      <div class="color-feature">
+      <span class="availibility-pd">Available Finish</span>
+      <div class="color-feature-check"> 
+        <label class="radio-list-finish">
+          <input type="radio" name="test" value="Teak" checked>
+          <img src="catalog/view/javascript/assets/image/icon/teakfinish.jpg" alt="Option 1">
+        </label>
+        
+        <label class="radio-list-finish">
+          <input type="radio" name="test" value="Walnut">
+          <img src="catalog/view/javascript/assets/image/icon/walnutfinish.jpg" alt="Option 2">
+        </label>
+        <label class="radio-list-finish">
+          <input type="radio" name="test" value="Honey">
+          <img src="catalog/view/javascript/assets/image/icon/honeyfinish.jpg" alt="Option 3">
+        </label>
+      </div>
+      </div>
+     
+    </div>
+    <hr>
+    <div class="d-flex justify-content-between align-items-start p-2">
+      <div class="pricing-pd">
+        <span class="badge badgerating">
+          4.2 
+          <span class="starr-rate"><i class="fas fa-star"></i></span>
+        </span>
+        <span class="likes"> ( 10054 )</span>
+        <div class=""> 
+        <div class="pd-amount"> ₹47,535 </div> <div class="cut-ammount">₹47,535 </div>  
+        <span class=" badge bridge-offer" style="font-size:10px">38% off </span>
+      </div>
+      </div>
+      <div class="pd-offers">
+      <ul>
+        <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+        <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-6 col-sm-12">
+  <div class="product-box-img">
+    <div class="button-pd">
+    <div class="like-heart mx-2"> 
+      <span ><i class="fas fa-heart" onclick="likeheart(this)" id="likeheart" ></i></span> 
+    </div>  
+    <div class="sharer">
+          <button id="share" class="cursor-pointer ">
+            <i class='bx bxs-share-alt'></i></button> 
+            <div id="share_icons" class="absolute opacity-0"> 
+              <a href="" class="pd-share cursor-pointer">
+                <i class="bx bxl-twitter"></i>
+              </a> 
+              <a href="" class=" pd-share cursor-pointer">
+                <i class="bx bxl-facebook"></i>
+              </a> 
+                <a href="" class=" pd-share cursor-pointer">
+                  <i class="bx bxl-linkedin"></i>
+                </a> 
+              </div> 
+  
+  
+    </div>
+    </div>
+    <a href="" type="button" class="shop-nowb-btn" style="margin-top: 19px;"> Shop Now</a>
+
+    <div class="pd-img-in">
+      <div class="overlay-pd"></div>
+      <img src="catalog/view/javascript/assets/image/product-images/bed/img1.jpg" alt="" class="img-fluid">
+    </div>
+    <div class="pd-deatils-sec">
+      <div class="d-flex justify-content-between align-items-start p-2">
+        <div class="pd-heading"> 
+         <div class="pd-name"><a href=""> Topaz Bed Without Storage  </a></div> 
+          <div class="pd-config">( King Size, Teak Finish )</div>
+          <span class="pd-creater"> By UrbanWood</span>
+        </div>
+        <div class="color-feature">
+        <span class="availibility-pd">Available Finish</span>
+        <div class="color-feature-check"> 
+          <label class="radio-list-finish">
+            <input type="radio" name="test" value="Teak" checked>
+            <img src="catalog/view/javascript/assets/image/icon/teakfinish.jpg" alt="Option 1">
+          </label>
+          
+          <label class="radio-list-finish">
+            <input type="radio" name="test" value="Walnut">
+            <img src="catalog/view/javascript/assets/image/icon/walnutfinish.jpg" alt="Option 2">
+          </label>
+          <label class="radio-list-finish">
+            <input type="radio" name="test" value="Honey">
+            <img src="catalog/view/javascript/assets/image/icon/honeyfinish.jpg" alt="Option 3">
+          </label>
+        </div>
+        </div>
+       
+      </div>
+      <hr>
+      <div class="d-flex justify-content-between align-items-start p-2">
+        <div class="pricing-pd">
+          <span class="badge badgerating">
+            4.2 
+            <span class="starr-rate"><i class="fas fa-star"></i></span>
+          </span>
+          <span class="likes"> ( 10054 )</span>
+          <div class=""> 
+          <div class="pd-amount"> ₹47,535 </div> <div class="cut-ammount">₹47,535 </div>  
+          <span class=" badge bridge-offer">38% off </span>
+        </div>
+        </div>
+        <div class="pd-offers">
+        <ul>
+          <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+          <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+        </ul>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="product-box-img">
+      <div class="button-pd">
+      <div class="like-heart mx-2"> 
+        <span ><i class="fas fa-heart" onclick="likeheart(this)" id="likeheart" ></i></span> 
+      </div>  
+      <div class="sharer">
+            <button id="share" class="cursor-pointer ">
+              <i class='bx bxs-share-alt'></i></button> 
+              <div id="share_icons" class="absolute opacity-0"> 
+                <a href="" class="pd-share cursor-pointer">
+                  <i class="bx bxl-twitter"></i>
+                </a> 
+                <a href="" class=" pd-share cursor-pointer">
+                  <i class="bx bxl-facebook"></i>
+                </a> 
+                  <a href="" class=" pd-share cursor-pointer">
+                    <i class="bx bxl-linkedin"></i>
+                  </a> 
+                </div> 
+    
+    
+      </div>
+      </div>
+      <a href="" type="button" class="shop-nowb-btn" style="margin-top: 19px;"> Shop Now</a>
+      <div class="pd-img-in">
+        <div class="overlay-pd"></div>
+        <img src="catalog/view/javascript/assets/image/product-images/bed/img1.jpg" alt="" class="img-fluid">
+      </div>
+      <div class="pd-deatils-sec">
+        <div class="d-flex justify-content-between align-items-start p-2">
+          <div class="pd-heading"> 
+           <div class="pd-name"><a href=""> Topaz Bed Without Storage  </a></div> 
+            <div class="pd-config">( King Size, Teak Finish )</div>
+            <span class="pd-creater"> By UrbanWood</span>
+          </div>
+          <div class="color-feature">
+          <span class="availibility-pd">Available Finish</span>
+          <div class="color-feature-check"> 
+            <label class="radio-list-finish">
+              <input type="radio" name="test" value="Teak" checked>
+              <img src="catalog/view/javascript/assets/image/icon/teakfinish.jpg" alt="Option 1">
+            </label>
+            
+            <label class="radio-list-finish">
+              <input type="radio" name="test" value="Walnut">
+              <img src="catalog/view/javascript/assets/image/icon/walnutfinish.jpg" alt="Option 2">
+            </label>
+            <label class="radio-list-finish">
+              <input type="radio" name="test" value="Honey">
+              <img src="catalog/view/javascript/assets/image/icon/honeyfinish.jpg" alt="Option 3">
+            </label>
+          </div>
+          </div>
+         
+        </div>
+        <hr>
+        <div class="d-flex justify-content-between align-items-start p-2">
+          <div class="pricing-pd">
+            <span class="badge badgerating">
+              4.2 
+              <span class="starr-rate"><i class="fas fa-star"></i></span>
+            </span>
+            <span class="likes"> ( 10054 )</span>
+            <div class=""> 
+            <div class="pd-amount"> ₹47,535 </div> <div class="cut-ammount">₹47,535 </div>  
+            <span class=" badge bridge-offer">38% off </span>
+          </div>
+          </div>
+          <div class="pd-offers">
+          <ul>
+            <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+            <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+          </ul>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="product-box-img">
+        <div class="button-pd">
+        <div class="like-heart mx-2"> 
+          <span ><i class="fas fa-heart" onclick="likeheart(this)" id="likeheart" ></i></span> 
+        </div>  
+        <div class="sharer">
+              <button id="share" class="cursor-pointer ">
+                <i class='bx bxs-share-alt'></i></button> 
+                <div id="share_icons" class="absolute opacity-0"> 
+                  <a href="" class="pd-share cursor-pointer">
+                    <i class="bx bxl-twitter"></i>
+                  </a> 
+                  <a href="" class=" pd-share cursor-pointer">
+                    <i class="bx bxl-facebook"></i>
+                  </a> 
+                    <a href="" class=" pd-share cursor-pointer">
+                      <i class="bx bxl-linkedin"></i>
+                    </a> 
+                  </div> 
+      
+      
+        </div>
+        </div>
+        <a href="" type="button" class="shop-nowb-btn" style="margin-top: 19px;"> Shop Now</a>
+        <div class="pd-img-in">
+          <div class="overlay-pd"></div>
+          <img src="catalog/view/javascript/assets/image/product-images/bed/img1.jpg" alt="" class="img-fluid">
+        </div>
+        <div class="pd-deatils-sec">
+          <div class="d-flex justify-content-between align-items-start p-2">
+            <div class="pd-heading"> 
+             <div class="pd-name"><a href=""> Topaz Bed Without Storage  </a></div> 
+              <div class="pd-config">( King Size, Teak Finish )</div>
+              <span class="pd-creater"> By UrbanWood</span>
+            </div>
+            <div class="color-feature">
+            <span class="availibility-pd">Available Finish</span>
+            <div class="color-feature-check"> 
+              <label class="radio-list-finish">
+                <input type="radio" name="test" value="Teak" checked>
+                <img src="catalog/view/javascript/assets/image/icon/teakfinish.jpg" alt="Option 1">
+              </label>
+              
+              <label class="radio-list-finish">
+                <input type="radio" name="test" value="Walnut">
+                <img src="catalog/view/javascript/assets/image/icon/walnutfinish.jpg" alt="Option 2">
+              </label>
+              <label class="radio-list-finish">
+                <input type="radio" name="test" value="Honey">
+                <img src="catalog/view/javascript/assets/image/icon/honeyfinish.jpg" alt="Option 3">
+              </label>
+            </div>
+            </div>
+           
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between align-items-start p-2">
+            <div class="pricing-pd">
+              <span class="badge badgerating">
+                4.2 
+                <span class="starr-rate"><i class="fas fa-star"></i></span>
+              </span>
+              <span class="likes"> ( 10054 )</span>
+              <div class=""> 
+              <div class="pd-amount"> ₹47,535 </div> <div class="cut-ammount">₹47,535 </div>  
+              <span class=" badge bridge-offer">38% off </span>
+            </div>
+            </div>
+            <div class="pd-offers">
+            <ul>
+              <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+              <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+            </ul>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="product-box-img">
+          <div class="button-pd">
+          <div class="like-heart mx-2"> 
+            <span ><i class="fas fa-heart" onclick="likeheart(this)" id="likeheart" ></i></span> 
+          </div>  
+          <div class="sharer">
+                <button id="share" class="cursor-pointer ">
+                  <i class='bx bxs-share-alt'></i></button> 
+                  <div id="share_icons" class="absolute opacity-0"> 
+                    <a href="" class="pd-share cursor-pointer">
+                      <i class="bx bxl-twitter"></i>
+                    </a> 
+                    <a href="" class=" pd-share cursor-pointer">
+                      <i class="bx bxl-facebook"></i>
+                    </a> 
+                      <a href="" class=" pd-share cursor-pointer">
+                        <i class="bx bxl-linkedin"></i>
+                      </a> 
+                    </div> 
+        
+        
+          </div>
+          </div>
+          <a href="" type="button" class="shop-nowb-btn" style="margin-top: 19px;"> Shop Now</a>
+          <div class="pd-img-in">
+            <div class="overlay-pd"></div>
+            <img src="catalog/view/javascript/assets/image/product-images/bed/img1.jpg" alt="" class="img-fluid">
+          </div>
+          <div class="pd-deatils-sec">
+            <div class="d-flex justify-content-between align-items-start p-2">
+              <div class="pd-heading"> 
+               <div class="pd-name"><a href=""> Topaz Bed Without Storage  </a></div> 
+                <div class="pd-config">( King Size, Teak Finish )</div>
+                <span class="pd-creater"> By UrbanWood</span>
+              </div>
+              <div class="color-feature">
+              <span class="availibility-pd">Available Finish</span>
+              <div class="color-feature-check"> 
+                <label class="radio-list-finish">
+                  <input type="radio" name="test" value="Teak" checked>
+                  <img src="catalog/view/javascript/assets/image/icon/teakfinish.jpg" alt="Option 1">
+                </label>
+                
+                <label class="radio-list-finish">
+                  <input type="radio" name="test" value="Walnut">
+                  <img src="catalog/view/javascript/assets/image/icon/walnutfinish.jpg" alt="Option 2">
+                </label>
+                <label class="radio-list-finish">
+                  <input type="radio" name="test" value="Honey">
+                  <img src="catalog/view/javascript/assets/image/icon/honeyfinish.jpg" alt="Option 3">
+                </label>
+              </div>
+              </div>
+             
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between align-items-start p-2">
+              <div class="pricing-pd">
+                <span class="badge badgerating">
+                  4.2 
+                  <span class="starr-rate"><i class="fas fa-star"></i></span>
+                </span>
+                <span class="likes"> ( 10054 )</span>
+                <div class=""> 
+                <div class="pd-amount"> ₹47,535 </div> <div class="cut-ammount">₹47,535 </div>  
+                <span class=" badge bridge-offer">38% off </span>
+              </div>
+              </div>
+              <div class="pd-offers">
+              <ul>
+                <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+                <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+              </ul>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        </div>
+      
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="product-box-img">
+            <div class="button-pd">
+            <div class="like-heart mx-2"> 
+              <span ><i class="fas fa-heart" onclick="likeheart(this)" id="likeheart" ></i></span> 
+            </div>  
+            <div class="sharer">
+                  <button id="share" class="cursor-pointer ">
+                    <i class='bx bxs-share-alt'></i></button> 
+                    <div id="share_icons" class="absolute opacity-0"> 
+                      <a href="" class="pd-share cursor-pointer">
+                        <i class="bx bxl-twitter"></i>
+                      </a> 
+                      <a href="" class=" pd-share cursor-pointer">
+                        <i class="bx bxl-facebook"></i>
+                      </a> 
+                        <a href="" class=" pd-share cursor-pointer">
+                          <i class="bx bxl-linkedin"></i>
+                        </a> 
+                      </div> 
+          
+          
+            </div>
+            </div>
+            <a href="" type="button" class="shop-nowb-btn" style="margin-top: 19px;"> Shop Now</a>
+            <div class="pd-img-in">
+              <div class="overlay-pd"></div>
+              <img src="catalog/view/javascript/assets/image/product-images/bed/img1.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="pd-deatils-sec">
+              <div class="d-flex justify-content-between align-items-start p-2">
+                <div class="pd-heading"> 
+                 <div class="pd-name"><a href=""> Topaz Bed Without Storage  </a></div> 
+                  <div class="pd-config">( King Size, Teak Finish )</div>
+                  <span class="pd-creater"> By UrbanWood</span>
+                </div>
+                <div class="color-feature">
+                <span class="availibility-pd">Available Finish</span>
+                <div class="color-feature-check"> 
+                  <label class="radio-list-finish">
+                    <input type="radio" name="test" value="Teak" checked>
+                    <img src="catalog/view/javascript/assets/image/icon/teakfinish.jpg" alt="Option 1">
+                  </label>
+                  
+                  <label class="radio-list-finish">
+                    <input type="radio" name="test" value="Walnut">
+                    <img src="catalog/view/javascript/assets/image/icon/walnutfinish.jpg" alt="Option 2">
+                  </label>
+                  <label class="radio-list-finish">
+                    <input type="radio" name="test" value="Honey">
+                    <img src="catalog/view/javascript/assets/image/icon/honeyfinish.jpg" alt="Option 3">
+                  </label>
+                </div>
+                </div>
+               
+              </div>
+              <hr>
+              <div class="d-flex justify-content-between align-items-start p-2">
+                <div class="pricing-pd">
+                  <span class="badge badgerating">
+                    4.2 
+                    <span class="starr-rate"><i class="fas fa-star"></i></span>
+                  </span>
+                  <span class="likes"> ( 10054 )</span>
+                  <div class=""> 
+                  <div class="pd-amount"> ₹47,535 </div> <div class="cut-ammount">₹47,535 </div>  
+                  <span class=" badge bridge-offer">38% off </span>
+                </div>
+                </div>
+                <div class="pd-offers">
+                <ul>
+                  <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+                  <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+                </ul>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          </div> #}
+
+
+
+</div> 
+
+{# <div class="signup-banner-strip">
+<div class="d-md-flex d-block justify-content-around align-items-center text-center ">
+  <div class="sign-banner-con">
+    <h5>Sign Up Now </h5>
+      <p>&</p>
+      <h6>get extra <span style="color:#fc0000;font-weight: 700;"> DISCOUNT</span></h6>
+  </div>
+  <div>
+  <a href="" type="button" class="view_all_btn" style="margin-top: 19px;"> Sign Up</a>
+  </div>
+  <div class="banner-strip-img">
+    <img src="catalog/view/javascript/assets/image/red-shape-bg.png" alt="" class="img-fluid img-responsive">
+  </div>
+</div>
+</div> #}
+
+<div class="row">
+  <div class="col-lg-4 col-md-6 col-sm-12">
+  <div class="product-box-img">
+    <div class="button-pd">
+    <div class="like-heart mx-2"> 
+      <span ><i class="fas fa-heart" onclick="likeheart(this)" id="likeheart" ></i></span> 
+    </div>  
+    <div class="sharer">
+          <button id="share" class="cursor-pointer ">
+            <i class='bx bxs-share-alt'></i></button> 
+            <div id="share_icons" class="absolute opacity-0"> 
+              <a href="" class="pd-share cursor-pointer">
+                <i class="bx bxl-twitter"></i>
+              </a> 
+              <a href="" class=" pd-share cursor-pointer">
+                <i class="bx bxl-facebook"></i>
+              </a> 
+                <a href="" class=" pd-share cursor-pointer">
+                  <i class="bx bxl-linkedin"></i>
+                </a> 
+              </div> 
+  
+  
+    </div>
+    </div>
+    <a href="" type="button" class="shop-nowb-btn" style="margin-top: 19px;"> Shop Now</a>
+    <div class="pd-img-in">
+      <div class="overlay-pd"></div>
+      <img src="catalog/view/javascript/assets/image/product-images/bed/img1.jpg" alt="" class="img-fluid">
+    </div>
+    <div class="pd-deatils-sec">
+      <div class="d-flex justify-content-between align-items-start p-2">
+        <div class="pd-heading"> 
+         <div class="pd-name"><a href=""> Topaz Bed Without Storage  </a></div> 
+          <div class="pd-config">( King Size, Teak Finish )</div>
+          <span class="pd-creater"> By UrbanWood</span>
+        </div>
+        <div class="color-feature">
+        <span class="availibility-pd">Available Finish</span>
+        <div class="color-feature-check"> 
+          <label class="radio-list-finish">
+            <input type="radio" name="test" value="Teak" checked>
+            <img src="catalog/view/javascript/assets/image/icon/teakfinish.jpg" alt="Option 1">
+          </label>
+          
+          <label class="radio-list-finish">
+            <input type="radio" name="test" value="Walnut">
+            <img src="catalog/view/javascript/assets/image/icon/walnutfinish.jpg" alt="Option 2">
+          </label>
+          <label class="radio-list-finish">
+            <input type="radio" name="test" value="Honey">
+            <img src="catalog/view/javascript/assets/image/icon/honeyfinish.jpg" alt="Option 3">
+          </label>
+        </div>
+        </div>
+       
+      </div>
+      <hr>
+      <div class="d-flex justify-content-between align-items-start p-2">
+        <div class="pricing-pd">
+          <span class="badge badgerating">
+            4.2 
+            <span class="starr-rate"><i class="fas fa-star"></i></span>
+          </span>
+          <span class="likes"> ( 10054 )</span>
+          <div class=""> 
+          <div class="pd-amount"> ₹47,535 </div> <div class="cut-ammount">₹47,535 </div>  
+          <span class=" badge bridge-offer">38% off </span>
+        </div>
+        </div>
+        <div class="pd-offers">
+        <ul>
+          <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+          <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+        </ul>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="product-box-img">
+      <div class="button-pd">
+      <div class="like-heart mx-2"> 
+        <span ><i class="fas fa-heart" onclick="likeheart(this)" id="likeheart" ></i></span> 
+      </div>  
+      <div class="sharer">
+            <button id="share" class="cursor-pointer ">
+              <i class='bx bxs-share-alt'></i></button> 
+              <div id="share_icons" class="absolute opacity-0"> 
+                <a href="" class="pd-share cursor-pointer">
+                  <i class="bx bxl-twitter"></i>
+                </a> 
+                <a href="" class=" pd-share cursor-pointer">
+                  <i class="bx bxl-facebook"></i>
+                </a> 
+                  <a href="" class=" pd-share cursor-pointer">
+                    <i class="bx bxl-linkedin"></i>
+                  </a> 
+                </div> 
+    
+    
+      </div>
+      </div>
+      <a href="" type="button" class="shop-nowb-btn" style="margin-top: 19px;"> Shop Now</a>
+      <a href="" type="button" class="shop-nowb-btn" style="margin-top: 19px;"> Shop Now</a>
+      <div class="pd-img-in">
+        <div class="overlay-pd"></div>
+        <img src="catalog/view/javascript/assets/image/product-images/bed/img1.jpg" alt="" class="img-fluid">
+      </div>
+      <div class="pd-deatils-sec">
+        <div class="d-flex justify-content-between align-items-start p-2">
+          <div class="pd-heading"> 
+           <div class="pd-name"><a href=""> Topaz Bed Without Storage  </a></div> 
+            <div class="pd-config">( King Size, Teak Finish )</div>
+            <span class="pd-creater"> By UrbanWood</span>
+          </div>
+          <div class="color-feature">
+          <span class="availibility-pd">Available Finish</span>
+          <div class="color-feature-check"> 
+            <label class="radio-list-finish">
+              <input type="radio" name="test" value="Teak" checked>
+              <img src="catalog/view/javascript/assets/image/icon/teakfinish.jpg" alt="Option 1">
+            </label>
+            
+            <label class="radio-list-finish">
+              <input type="radio" name="test" value="Walnut">
+              <img src="catalog/view/javascript/assets/image/icon/walnutfinish.jpg" alt="Option 2">
+            </label>
+            <label class="radio-list-finish">
+              <input type="radio" name="test" value="Honey">
+              <img src="catalog/view/javascript/assets/image/icon/honeyfinish.jpg" alt="Option 3">
+            </label>
+          </div>
+          </div>
+         
+        </div>
+        <hr>
+        <div class="d-flex justify-content-between align-items-start p-2">
+          <div class="pricing-pd">
+            <span class="badge badgerating">
+              4.2 
+              <span class="starr-rate"><i class="fas fa-star"></i></span>
+            </span>
+            <span class="likes"> ( 10054 )</span>
+            <div class=""> 
+            <div class="pd-amount"> ₹47,535 </div> <div class="cut-ammount">₹47,535 </div>  
+            <span class=" badge bridge-offer">38% off </span>
+          </div>
+          </div>
+          <div class="pd-offers">
+          <ul>
+            <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+            <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+          </ul>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="product-box-img">
+        <div class="button-pd">
+        <div class="like-heart mx-2"> 
+          <span ><i class="fas fa-heart" onclick="likeheart(this)" id="likeheart" ></i></span> 
+        </div>  
+        <div class="sharer">
+              <button id="share" class="cursor-pointer ">
+                <i class='bx bxs-share-alt'></i></button> 
+                <div id="share_icons" class="absolute opacity-0"> 
+                  <a href="" class="pd-share cursor-pointer">
+                    <i class="bx bxl-twitter"></i>
+                  </a> 
+                  <a href="" class=" pd-share cursor-pointer">
+                    <i class="bx bxl-facebook"></i>
+                  </a> 
+                    <a href="" class=" pd-share cursor-pointer">
+                      <i class="bx bxl-linkedin"></i>
+                    </a> 
+                  </div> 
+      
+      
+        </div>
+        </div>
+        <a href="" type="button" class="shop-nowb-btn" style="margin-top: 19px;"> Shop Now</a>
+        <div class="pd-img-in">
+          <div class="overlay-pd"></div>
+          <img src="catalog/view/javascript/assets/image/product-images/bed/img1.jpg" alt="" class="img-fluid">
+        </div>
+        <div class="pd-deatils-sec">
+          <div class="d-flex justify-content-between align-items-start p-2">
+            <div class="pd-heading"> 
+             <div class="pd-name"><a href=""> Topaz Bed Without Storage  </a></div> 
+              <div class="pd-config">( King Size, Teak Finish )</div>
+              <span class="pd-creater"> By UrbanWood</span>
+            </div>
+            <div class="color-feature">
+            <span class="availibility-pd">Available Finish</span>
+            <div class="color-feature-check"> 
+              <label class="radio-list-finish">
+                <input type="radio" name="test" value="Teak" checked>
+                <img src="catalog/view/javascript/assets/image/icon/teakfinish.jpg" alt="Option 1">
+              </label>
+              
+              <label class="radio-list-finish">
+                <input type="radio" name="test" value="Walnut">
+                <img src="catalog/view/javascript/assets/image/icon/walnutfinish.jpg" alt="Option 2">
+              </label>
+              <label class="radio-list-finish">
+                <input type="radio" name="test" value="Honey">
+                <img src="catalog/view/javascript/assets/image/icon/honeyfinish.jpg" alt="Option 3">
+              </label>
+            </div>
+            </div>
+           
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between align-items-start p-2">
+            <div class="pricing-pd">
+              <span class="badge badgerating">
+                4.2 
+                <span class="starr-rate"><i class="fas fa-star"></i></span>
+              </span>
+              <span class="likes"> ( 10054 )</span>
+              <div class=""> 
+              <div class="pd-amount"> ₹47,535 </div> <div class="cut-ammount">₹47,535 </div>  
+              <span class=" badge bridge-offer">38% off </span>
+            </div>
+            </div>
+            <div class="pd-offers">
+            <ul>
+              <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+              <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
+            </ul>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      </div>
+  </div>
+<div>{{ pagination }}</div>
+ <div class="banner-strip-location">
+  <div class="sign-banner-con text-lg-start text-cente">
+    <h5 class="r text-white">VISIT OUR NEAREST STORE</h5>
+      <p class="text-white">&</p>
+      <h6 class=" text-white">get extra <span style="color:#fc0000; font-weight: 700;"> DISCOUNT</span></h6>
+      <br>
+      <a href="" class="shop-find-btn">Find Shop</a>
+  </div>
+
+<div class="image-forloaction">
+    <div class="img-location-ceative">
+      <img src="catalog/view/javascript/assets/image/location-strip.png" class="img-responsive img-fluid">
+    </div>
+
+</div>
+ </div> 
+
+</div>
+</div>
+
+
+</div>
+</div>
+
+</section> 
+
+<section class="py-2">
+<div class="container container-custom">
+  <div class="row">
+    <h2 class="pg-heading text-center">Popular Categories</h2>
+    <p class="heading-para text-center">Unlimited Choices. Unbeatable Prices. Free Shipping</p>
+    <div class="d-sm-flex d-block justify-content-center categories">
+    <div class="item-box3">
+    <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
+     <h6>Beds</h6> 
+     <p>883+ Options Available</p>
+    </div>
+    <div class="item-box3">
+      <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
+       <h6>Sofas</h6> 
+       <p>883+ Options Available</p>
+      </div>
+
+      <div class="item-box3">
+        <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
+         <h6>Dining</h6> 
+         <p>883+ Options Available</p>
+        </div>
+
+        <div class="item-box3">
+          <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
+           <h6>Shoe Rack</h6> 
+           <p>883+ Options Available</p>
+          </div>
+
+          <div class="item-box3">
+            <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
+             <h6>Study Table</h6> 
+             <p>883+ Options Available</p>
+            </div>
+
+            <div class="item-box3">
+              <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
+               <h6>bookcase</h6> 
+               <p>883+ Options Available</p>
+              </div>
+
+              <div class="item-box3">
+                <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
+                 <h6>Wardrobes</h6> 
+                 <p>883+ Options Available</p>
+                </div>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="bottom-content py-4"> 
+<div class="container container-custom"> 
+<div class="row">
+  <div class="col-lg-12">
+  {{ long_description }}
+   </div>
+</div>
+</div>
+
+
+</section>
+</div>
+{{ footer }}

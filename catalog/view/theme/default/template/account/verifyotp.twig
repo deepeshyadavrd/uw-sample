@@ -1,0 +1,103 @@
+{{ header }}
+{% if success %}
+{# <div class="success-popup-outer">   #}
+<div class="success-popup ">
+  <span class="warrning-svg">
+  <svg 
+  id="smile"
+  width="35" height="35" viewBox="0 0 41 41" fill="none">
+    <path d="M16.2432 29.9911L16.5968 30.3439L16.95 29.9907L30.5886 16.352L30.9422 15.9985L30.5886 15.6449L27.7128 12.7691L27.3593 12.4156L27.0057 12.7691L16.592 23.1828L12.2699 18.8682L11.9158 18.5148L11.5626 18.869L8.69086 21.7489L8.33792 22.1028L8.69174 22.4558L16.2432 29.9911ZM0.823975 20.662C0.823975 9.72375 9.72375 0.823975 20.662 0.823975C31.6002 0.823975 40.5 9.72375 40.5 20.662C40.5 31.6002 31.6002 40.5 20.662 40.5C9.72375 40.5 0.823975 31.6002 0.823975 20.662Z" stroke="#33C300"/>
+    </svg>
+  </span>
+    <span class="warrning-text"> 
+      
+    <p>{{ success }}</p>
+  </span>
+    
+</div>
+{# </div> #}
+  {% endif %}
+<div class="wrapper">
+
+ <section class="forget-pass-sec">
+  <div class="container container-custom">
+    <div class="row">
+  <div class="col-lg-6 col-lg-6 col-sm-12">
+<h2 class="forgot-heading">
+    We have sent<br>
+<span>  OTP </span>
+</h2>
+<p> Enter the 6 digit OTP sent on <span>{{ email }}</span></p>
+</div>
+<div class="col-lg-6 col-lg-6 col-sm-12">
+<div class="fotgot-form">
+    <form action="{{ action }}" class="forgot-form-in" method="post">
+        <div class="mb-3">
+            <label for="useremailforgot" class="form-label">Enter code</label>
+            <div class="otp-input">
+                <input type="text" name="otp1" oninput='digitValidate(this)' onkeyup='tabChange(1)' class="otp-text" maxlength="1">
+                <input type="text" name="otp2" oninput='digitValidate(this)' onkeyup='tabChange(2)' class="otp-text" maxlength="1">
+                <input type="text" name="otp3" oninput='digitValidate(this)' onkeyup='tabChange(3)' class="otp-text" maxlength="1">
+                <input type="text" name="otp4" oninput='digitValidate(this)' onkeyup='tabChange(4)' class="otp-text" maxlength="1">
+                <input type="text" name="otp5" oninput='digitValidate(this)' onkeyup='tabChange(5)' class="otp-text" maxlength="1">
+                <input type="text" name="otp6" oninput='digitValidate(this)' onkeyup='tabChange(6)' class="otp-text" maxlength="1">
+             </div>
+          </div>
+          
+        <div class="d-flex justify-content-between align-items-center mt-lg-5 mt-0">
+            <span class="step-button">Verify Code</span>
+            <button type="submit"  class="submit-forgot-btn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </form>
+
+    <div class="mail-sent-box d-none">
+        <i class='bx bxs-badge-check bx-flashing' ></i>
+        <p>The link to Reset your password is sent on your@mail.</p>
+    </div>
+</div>
+</div>
+  </div>
+    </div>
+
+ </section> 
+</div>
+<script>
+  const smile = document.querySelectorAll("#smile path");
+
+for(let i = 0; i<smile.length; i++){
+    console.log(`Smile ${i} is ${smile[i].getTotalLength()}`);
+}
+</script>
+<script>
+const smile2 = document.querySelectorAll("#smile2 path2");
+
+for(let i = 0; i<smile2.length; i++){
+    console.log(`Smile2 ${i} is ${smile2[i].getTotalLength()}`);
+}
+</script>
+<script>
+	let digitValidate = function(ele){
+  console.log(ele.value);
+  ele.value = ele.value.replace(/[^0-9]/g,'');
+}
+let tabChange = function(val){
+    let ele = document.querySelectorAll('input.otp-text');
+    
+    if(ele[val-1].value != ''){
+      ele[val].focus()
+    }else if(ele[val-1].value == ''){
+      ele[val-2].focus()
+    }   
+ }
+
+//  read form
+
+function verifyotp(){
+    var str = "";
+    $("input.otp-text").each(function(index) {
+    str = str + $(this).val()
+  });
+//   alert(str);
+  //location = {{ action }} + "otp=" + str;
+}
+</script>

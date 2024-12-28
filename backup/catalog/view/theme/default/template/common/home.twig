@@ -1,0 +1,1211 @@
+{{ header }}
+{{ menu }}
+</div>
+<style>
+.slider-outer {
+	display: flex;
+    position: relative;
+	width: 100%;
+	flex-direction: column;
+	background: #fff
+}
+.cp-with {
+	right: 0 !important;
+    /*height: 490px;*/
+	width: 100%;
+	text-align: center;
+	bottom: auto;
+	float: left;
+	left: 0 !important;
+	position: relative !important;
+	padding: 0;
+	/*background: #f5f5f5*/
+}
+
+.cp-with img {
+	height: 100%;
+	width: 100%;
+	background: #f5f5f5;
+}
+.slider-img {
+	background: linear-gradient(45deg, #fff1d4, #ffd5ac);
+}
+
+@media screen and (min-device-width:1600px) and (max-device-width:1700px) and (-webkit-min-device-pixel-ratio:1) {
+	.cp-with {
+		/*height: 415px*/
+	}
+}
+
+@media screen and (min-device-width:1200px) and (max-device-width:1600px) and (-webkit-min-device-pixel-ratio:1) {
+    #demo .carousel-inner,
+	.cp-with {
+		/*height: 367px*/
+	}
+}
+@media only screen and (min-device-width:768px) and (max-device-width:1024px) and (-webkit-min-device-pixel-ratio:1) {
+
+    .cp-with {
+		/*height: 301px*/
+	}
+
+}
+@media (min-device-width:800px) and (max-device-width:1280px) {
+    .cp-with {
+		/*height: 290px!important;*/
+	}
+}
+@media screen and (max-width:1150px) {
+    .cp-with {
+		/*height: 290px!important;*/
+	}
+}
+@media only screen and (max-width:1024px) {
+    .cp-with {
+		/*height: 280px*/
+	}
+
+}
+
+@media only screen and (max-width:768px) {
+    .cp-with {
+		display: none
+	}
+
+}
+@media only screen and (max-width:450px) {
+
+
+	.slider-img img {
+		float: none;
+		height: 330px;
+	}
+}
+</style>
+<div class="wrapper">
+    <div class="sidecall">
+        <button type="button" class=" requestcall" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            Request Call
+            <span><i class='bx bx-phone-call bx-tada'></i></span>
+        </button>
+    </div>
+
+    <div class="slider-outer text-white">
+        <!-- Carousel -->
+        <div class="container container-custom" style="width: 100%;">
+            <div class="row ">
+                <div class="col-lg-3 d-lg-block d-none" style="padding-right:0;">
+                    <div class=" cp-with">
+                        <!--<a href="sofa-cum-beds">-->
+                            <img src="assets/image/web-side-image.jpg"  class="img-responsive img-fluid"  loading="lazy" alt="sofa cum bed in action"/>
+                        <!--</a>-->
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div id="demo" class="carousel slide d-none d-sm-block" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active" aria-label="0"></button>
+                          <button type="button" data-bs-target="#demo" data-bs-slide-to="1" aria-label="1"></button>
+                          <button type="button" data-bs-target="#demo" data-bs-slide-to="2" aria-label="2"></button>
+                          <button type="button" data-bs-target="#demo" data-bs-slide-to="3" aria-label="3"></button>
+                        </div>
+                        <!-- The slideshow/carousel -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="slider-img">
+                                    <a href="temples">
+                                        <picture class="picture-image-cls-container">
+                                            <source srcset="image/catalog/monsoon-offer/monsoon-sale-1.avif" media="(min-width:768px)" data-type="picture">
+                                            <img class="d-block img-responsive img-fluid" src="image/catalog/monsoon-offer/monsoon-sale-1.webp" loading="eager" width="100%" height="100%" alt="tv units Ganesh Chaturthi sale">
+                                        </picture>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="slider-img">
+                                    <a href="wardrobes">
+                                        <img src="image/catalog/monsoon-offer/monsoon-sale-2.avif" alt="wardrobes at urbanwood this Ganesh Chaturthi" class="d-block img-responsive img-fluid" width="100%" height="100%"  loading="lazy">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="slider-img">
+                                    <a href="trundle-bed">
+                                        <img src="image/catalog/monsoon-offer/monsoon-sale-3.avif" alt="trundle bed urbanwood" class="d-block img-responsive img-fluid" width="100%" height="100%"  loading="lazy">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="slider-img">
+                                    <a href="cabinet-and-sideboards">
+                                        <img src="image/catalog/monsoon-offer/monsoon-sale-5.avif" alt="beautiful cabinet and sideboards" class="d-block img-responsive img-fluid" width="100%" height="100%" loading="lazy">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Left and right controls/icons -->
+                        <button class="carousel-control-prev home-slider-control-prev d-lg-block d-none" type="button" data-bs-target="#demo" data-bs-slide="prev" aria-label="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next home-slider-control-next d-lg-block d-none" type="button" data-bs-target="#demo" data-bs-slide="next" aria-label="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                    <div id="demo2" class="carousel slide d-block d-sm-none pt-2" >
+                        <div class="slider-img">
+                            <picture>
+                                <source srcset="image/catalog/monsoon-offer/mobile-banner.avif" data-type="picture">
+                                <img src="image/catalog/monsoon-offer/mobile-banner.webp" alt="urbanwood monsoon sale" class="d-block img-fluid img-responsive" fetchpriority="high">
+                            </picture>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- -slider end -->
+<!-- quality section-->
+
+<div class="qu-sec">
+  <div class="container" style="max-width:100%">
+    <div class="row"> 
+      <div class="col-lg-12" style='padding:0'>
+        <picture>
+            
+            <source srcset="catalog/view/javascript/assets/image/big-strip.jpg" type="image/avif" alt="no cost emi small banner" class=" img-fluid mobile-offer-baner d-md-none d-sm-block"  media="(min-width:768px)">
+            <img loading="eager" src="catalog/view/javascript/assets/image/big-strip-mobile.jpg" type="image/avif" height="100" alt="no cost emi small banner" class="img-fluid mobile-offer-baner  d-sm-block"  loading="lazy"/>
+        </picture>
+      </div>
+</div>
+</div>
+</div>
+    <!-- end quality section-->
+
+    
+<style>
+
+    .popular-catagories {
+        background: none;
+    }
+
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        /*padding: 10px;*/
+    }
+
+    .gallery-item {
+        flex: 1 1 calc(16% - 20px);
+        margin: 5px;
+        overflow: hidden;
+        border-radius: 0.3rem;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 0.3rem;
+        image-rendering: crisp-edges;
+    }
+    .new-text-name {
+        color: #1a1a1a;
+        font-size: 14px;
+        width: 100%;
+        font-weight: 400;
+        text-align: center;
+        margin: 10px 0;
+        text-transform: capitalize;
+        display: block;
+    }
+    .new-pp-item-box {
+        margin: 0.5rem;
+    }
+
+    @media screen and (max-width: 1024px) {
+        .gallery {
+            width: 100%;
+            margin: auto !important;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+            scroll-snap-type: x mandatory;
+            scroll-padding-inline: 20px;
+            height: fit-content;
+            display: block;
+        }
+
+        .gallery-item {
+            width: 37% !important;
+            display: inline-block;
+            /* padding: 0px !important;
+        margin: 0px !important; */
+        }
+    }
+    @media screen and (max-width:425px) {
+        .new-text-name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow:ellipsis -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+    }
+</style>
+
+<section class="popular-catagories d-flex py-lg-2 py-3" aria-label="Popular Categories" >
+    <div class="container-lg container-md">
+        <div class="row">
+            <h2 class="pg-heading text-center">Popular Categories</h2>
+            <p class="heading-para text-center ">Unlimited Options. Unbelievable Prices. Free Delivery</p>
+        </div>
+        <div class="gallery">
+            <div class="gallery-item ">
+                <a href="sofas" target="_blank">
+                    <img data-src="assets/image/popular-items/sofa-set.jpg" class="lazy-load img-fluid" alt="wooden sofa set" loading="lazy">
+                    <span class="new-text-name">Sofa Sets</span>
+                </a>
+            </div>
+            <div class="gallery-item ">
+                <a href="beds" target="_blank">
+                    <img data-src="assets/image/popular-items/bed.jpg" class="lazy-load img-fluid" alt="wooden beds" loading="lazy">
+                    <span class="new-text-name">Beds</span>
+                </a>
+            </div>
+            <div class="gallery-item ">
+                <a href="dining-table-sets" target="_blank">
+                    <img data-src="assets/image/popular-items/dining-set.jpg" class="lazy-load img-fluid" alt="dining set" loading="lazy">
+                    <span class="new-text-name">Dining Sets</span>
+                </a>
+            </div>
+            <div class="gallery-item ">
+                <a href="tv-units" target="_blank">
+                    <img data-src="assets/image/popular-items/tvunit.jpg" class="lazy-load img-fluid" alt="tv units" loading="lazy">
+                    <span class="new-text-name">TV Units</span>
+                </a>
+            </div>
+
+            <div class="gallery-item ">
+                <a href="study-tables" target="_blank">
+                    <img data-src="assets/image/popular-items/studytables.jpg" class="lazy-load img-fluid" alt="study tables" loading="lazy">
+                    <span class="new-text-name">Study Tables</span>
+                </a>
+            </div>
+            <div class="gallery-item ">
+                <a href="shoe-racks" target="_blank">
+                    <img data-src="assets/image/popular-items/shoerack.jpg" class="lazy-load img-fluid" alt="shoe racks" loading="lazy">
+                    <span class="new-text-name">Shoe Racks</span>
+                </a>
+            </div>
+            <div class="gallery-item ">
+                <a href="console-tables" target="_blank">
+                    <img data-src="assets/image/popular-items/console-table.jpg" class="lazy-load img-fluid" alt="consloe tables" loading="lazy">
+                    <span class="new-text-name">console Table</span>
+                </a>
+            </div>
+            <div class="gallery-item ">
+                <a href="cane-furniture" target="_blank">
+                    <img data-src="assets/image/popular-items/canebed.jpg" class="lazy-load img-fluid" alt="cane furniture" loading="lazy">
+                    <span class="new-text-name">Cane Furniture</span>
+                </a>
+            </div>
+            <div class="gallery-item ">
+                <a href="sofa-cum-beds" target="_blank">
+                    <img data-src="assets/image/popular-items/sofacumbed.jpg" class="lazy-load img-fluid" alt="sofa cum bed" loading="lazy">
+                    <span class="new-text-name">Sofa Cum Bed</span>
+                </a>
+            </div>
+            <div class="gallery-item ">
+                <a href="chest-of-drawers" target="_blank">
+                    <img data-src="assets/image/popular-items/chestofdrawer.jpg" class="lazy-load img-fluid" alt="chest of drawers" loading="lazy">
+                    <span class="new-text-name">Chest of Drawers</span>
+                </a>
+            </div>
+            <div class="gallery-item ">
+                <a href="cabinet-and-sideboards" target="_blank">
+                    <img data-src="assets/image/popular-items/sideboard.jpg" class="lazy-load img-fluid" alt="cabinets and sideboard" loading="lazy">
+                    <span class="new-text-name">Sideboard & Cabinets</span>
+                </a>
+            </div>
+            <div class="gallery-item ">
+                <a href="bar-cabinets" target="_blank">
+                    <img data-src="assets/image/popular-items/barcabinet.jpg" class="lazy-load img-fluid" alt="bar cabinets" loading="lazy">
+                    <span class="new-text-name">Bar Cabinets</span>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</section>
+
+<section class="py-lg-4 py-3">
+<div class="container ">
+    <div class="row">
+        <div class="col-lg-6 col-6">
+            <a href="temples"><img data-src="assets/image/extra-off-banner/festive-offer-banner.jpg" tabincdex="0" alt="urbanwood-temple" class="lazy-load img-fluid"></a>
+        </div>
+        <div class="col-lg-6 col-6">
+            <a href="sofa-sets">
+                <img data-src="assets/image/extra-off-banner/sofaset-banner.jpg" tabincdex="0" alt="urbanwood-temple" class="lazy-load img-fluid"></a>
+        </div>
+
+    </div>
+</div>
+</section>
+<script>
+//JavaScript for Lazy Loading
+
+document.addEventListener("DOMContentLoaded", function () {
+    const lazyImages = document.querySelectorAll('.lazy-load');
+
+    const loadImage = (image) => {
+        image.src = image.getAttribute('data-src');
+        image.onload = () => {
+            image.classList.remove('lazy-load'); // Optionally remove the class after loading
+        };
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                loadImage(entry.target);
+                observer.unobserve(entry.target); // Stop observing once the image is loaded
+            }
+        });
+    });
+
+    lazyImages.forEach(image => {
+        observer.observe(image); // Start observing each lazy image
+    });
+});
+</script>
+    <!-- end Popular Categories-->
+
+
+<style>
+.new-call-to-act {
+    background: url(catalog/view/javascript/assets/image/call-to-actionbg-2.svg) #4d4d4d;
+    padding: 26px 0;
+    text-align: center;
+    background-size: contain;
+    background-origin: border-box;
+    background-position: bottom;
+}
+.list_ul{
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.call_source_btn {
+    background: #fff;
+    border-radius: 21px;
+    padding: 9px 2rem;
+    margin: 10px 0 10px 18px;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    color: #000;
+    font-size:16px;
+}
+.call_source_btn a {
+    color: #000;
+    font-size: 16px;
+    text-decoration: none;
+}
+.call_source_btn svg {
+    margin: 0 15px 0 0;
+}
+.line_hr {
+    border-bottom: 1px dashed #787878;
+    margin: 1rem auto;
+    padding: 0;
+    border-top: none;
+    opacity: .25;
+}
+@media screen and (max-width:425px) {
+    .call_source_btn {
+        margin: 5px 0 0px 7px;
+        font-size: 15px;
+        padding: 9px 1rem;
+    }
+}
+@media screen and (max-width:320px) {
+  .list_ul {
+    display: block;
+}
+.call_source_btn {
+        padding: 5px 1rem;
+        width: max-content;
+        margin: 9px auto;
+    }
+
+}
+
+</style>
+<section class="new-call-to-act">
+    <div class="container container-custom">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pg-heading text-white">Talk To Our Furniture <br> Expert Now</h2>
+                <p class="heading-para" style="color:#b1b0b0;">We will help you in selecting best furniture fot your home.</p>
+                <ul class="list_ul">
+                    <li class="call_source_btn" type="button">
+                        <a href="tel:+91 9599283126"> 
+                            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.5152 12.0128L12.7964 10.419C12.6375 10.3513 12.461 10.3371 12.2933 10.3784C12.1256 10.4197 11.9759 10.5144 11.8667 10.6481L10.2198 12.6603C7.63511 11.4416 5.55505 9.36157 4.3364 6.77691L6.34855 5.13C6.48258 5.02099 6.57745 4.87127 6.61879 4.70352C6.66013 4.53577 6.64569 4.35911 6.57765 4.2003L4.98388 0.481485C4.90921 0.310289 4.77714 0.170514 4.61045 0.0862606C4.44376 0.00200721 4.2529 -0.0214431 4.07077 0.0199532L0.617589 0.816842C0.441997 0.85739 0.285334 0.956258 0.173169 1.09731C0.0610036 1.23836 -4.04491e-05 1.41326 2.01088e-08 1.59348C2.01088e-08 10.1102 6.90305 17 15.4065 17C15.5868 17.0001 15.7618 16.9391 15.9029 16.8269C16.044 16.7148 16.1429 16.5581 16.1835 16.3824L16.9804 12.9292C17.0215 12.7462 16.9976 12.5546 16.9127 12.3873C16.8277 12.2201 16.6872 12.0876 16.5152 12.0128V12.0128Z" fill="#183153"/>
+                            </svg>
+                            +91 9599283126 
+                        </a>
+                    </li>
+                    <li class="call_source_btn" type="button"  style="background:#13dc68;">
+                        <a href="https://wa.me/919311662426" target="_blank">
+                            <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_146_2)">
+                                <path d="M17.8547 3.05156C15.8906 1.08281 13.275 0 10.4953 0C4.75781 0 0.0890625 4.66875 0.0890625 10.4062C0.0890625 12.2391 0.567188 14.0297 1.47656 15.6094L0 21L5.51719 19.5516C7.03594 20.3813 8.74688 20.8172 10.4906 20.8172H10.4953C16.2281 20.8172 21 16.1484 21 10.4109C21 7.63125 19.8187 5.02031 17.8547 3.05156ZM10.4953 19.0641C8.93906 19.0641 7.41562 18.6469 6.08906 17.8594L5.775 17.6719L2.50313 18.5297L3.375 15.3375L3.16875 15.0094C2.30156 13.6313 1.84688 12.0422 1.84688 10.4062C1.84688 5.63906 5.72812 1.75781 10.5 1.75781C12.8109 1.75781 14.9812 2.65781 16.6125 4.29375C18.2437 5.92969 19.2469 8.1 19.2422 10.4109C19.2422 15.1828 15.2625 19.0641 10.4953 19.0641ZM15.2391 12.5859C14.9813 12.4547 13.7016 11.8266 13.4625 11.7422C13.2234 11.6531 13.05 11.6109 12.8766 11.8734C12.7031 12.1359 12.2063 12.7172 12.0516 12.8953C11.9016 13.0688 11.7469 13.0922 11.4891 12.9609C9.96094 12.1969 8.95781 11.5969 7.95 9.86719C7.68281 9.40781 8.21719 9.44062 8.71406 8.44687C8.79844 8.27344 8.75625 8.12344 8.69062 7.99219C8.625 7.86094 8.10469 6.58125 7.88906 6.06094C7.67813 5.55469 7.4625 5.625 7.30313 5.61563C7.15313 5.60625 6.97969 5.60625 6.80625 5.60625C6.63281 5.60625 6.35156 5.67188 6.1125 5.92969C5.87344 6.19219 5.20312 6.82031 5.20312 8.1C5.20312 9.37969 6.13594 10.6172 6.2625 10.7906C6.39375 10.9641 8.09531 13.5891 10.7062 14.7188C12.3562 15.4312 13.0031 15.4922 13.8281 15.3703C14.3297 15.2953 15.3656 14.7422 15.5812 14.1328C15.7969 13.5234 15.7969 13.0031 15.7313 12.8953C15.6703 12.7781 15.4969 12.7125 15.2391 12.5859Z" fill="black"/>
+                                    </g>
+                                <defs>
+                                    <clipPath id="clip0_146_2">
+                                        <rect width="21" height="21" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            Live Chat 
+                        </a> 
+                    </li>
+                </ul>
+                <hr class="line_hr">
+                <h1 class="text-center text-white pg-heading">India’s finest Quality Wooden Furniture Brand</h1>
+                <span class="text-center heading-para"  style="color:#b1b0b0;">The Urbanwood furniture that you set in your home is one of the handpicked items that are difficult to come by. We have expert designers who modify their designs for all types of furniture, whether traditional or modern. <button id="show" class="show3 btn-show text-white fw-light">Read more....</button> </span>
+                <span class="text-center heading-para con-text" style="display: none; color:#b1b0b0;">We happen to be the best at customizing furniture to your specifications. Just provide us with the necessary details, and we'll be on our way to making your dream furniture a reality. We exclusively deal with Sheesham Wood in order to provide you with high-quality products. We have everything from home furniture to workplace furniture to meet your needs. Call our furniture expert now for any queries or concerns. We will be happy to help!<button id="hide" class="hide3 btn-show text-white fw-light" style="display:none;"> Less...</button> </span>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+.custom-carousel2 .owl-nav i {
+    position: relative;
+    top: 12%;
+}
+</style>
+    <section class="game-section py-lg-4 py-3">
+ <div class="container">
+  <div class="row"> 
+  <h2 class="pg-heading text-center"> Most Loved Items</h2>
+    <p class="heading-para text-center">Your Go-To Collection</p>
+
+  <div class="owl-carousel owl-carousel2 custom-carousel custom-carousel2 owl-theme">
+  <div class="item _item2">
+       <div class="uw_prduct_box_">
+          <div class="offer_tag">
+            <span class="best_tag">Bestseller</span>
+            </div>
+          <div class="uw_p_img">
+            <img src="assets/image/most-loved-items/coffee-table-most-loved.jpg" alt="coffee-table" class="img-fluid" loading="lazy">
+            </div>
+          <div class="product_content">
+            <a href="falcon-coffee-table-honey-finish" class="p_item_name">Coffee Table</a>
+            <div class="uw_price">
+              <span class="giving_p">₹21,129</span><span class="real_p">₹31,155</span> <span class="offer_dis">32%</span>
+            </div>
+           </div>
+        </div>
+  </div>
+  <div class="item _item2">
+       <div class="uw_prduct_box_">
+          <div class="offer_tag">
+            <span class="best_tag">Bestseller</span>
+            </div>
+          <div class="uw_p_img">
+            <img src="assets/image/most-loved-items/dressing-most-loved.jpg" alt="dressing table" class="img-fluid" loading="lazy">
+            </div>
+          <div class="product_content">
+            <a href="falcon-dressing-table-honey-finish" class="p_item_name">Dressing Table</a>
+            <div class="uw_price">
+              <span class="giving_p">₹40,999</span><span class="real_p">₹65,189</span> <span class="offer_dis">37%</span>
+            </div>
+           </div>
+        </div>
+  </div>
+  <div class="item _item2">
+       <div class="uw_prduct_box_">
+          <div class="offer_tag">
+            <span class="best_tag">Bestseller</span>
+            </div>
+          <div class="uw_p_img">
+            <img src="assets/image/most-loved-items/wardrobe-most-loved.jpg" alt="coffee-table" class="img-fluid" loading="lazy">
+            </div>
+          <div class="product_content">
+            <a href="mace-sheesham-wood-wardrobe-teak-finish" class="p_item_name">Wardrobe</a>
+            <div class="uw_price">
+              <span class="giving_p">₹41,145</span><span class="real_p">₹64,550</span> <span class="offer_dis">36%</span>
+            </div>
+           </div>
+        </div>
+  </div>
+  <div class="item _item2">
+       <div class="uw_prduct_box_">
+       <div class="offer_tag"> <span class="new_arrival">New</span></div>
+          <div class="uw_p_img">
+            <img src="assets/image/most-loved-items/king-bed-most-loved.jpg" alt="coffee-table" class="img-fluid" loading="lazy">
+            </div>
+          <div class="product_content">
+            <a href="urban-flora-bed-king-size-natural-finish" class="p_item_name">King size bed</a>
+            <div class="uw_price">
+              <span class="giving_p">₹35,155</span><span class="real_p">₹55,155</span> <span class="offer_dis">36%</span>
+            </div>
+           </div>
+        </div>
+  </div>
+  <div class="item _item2">
+       <div class="uw_prduct_box_">
+          <div class="offer_tag">
+            <span class="best_tag">Bestseller</span>
+            </div>
+          <div class="uw_p_img">
+            <img src="assets/image/most-loved-items/dining-set-most-loved.jpg" alt="coffee-table" class="img-fluid" loading="lazy">
+            </div>
+          <div class="product_content">
+            <a href="gloria-6-seater-dining-table-set-teak-finish" class="p_item_name">Dining Table Set</a>
+            <div class="uw_price">
+              <span class="giving_p">₹78,129</span><span class="real_p">₹111,590</span> <span class="offer_dis">50%</span>
+            </div>
+           </div>
+        </div>
+  </div>
+  <div class="item _item2">
+       <div class="uw_prduct_box_">
+       <div class="offer_tag"> <span class="new_arrival">New</span></div>
+          <div class="uw_p_img">
+            <img src="assets/image/most-loved-items/shoe-rack-most-loved.jpg" alt="coffee-table" class="img-fluid" loading="lazy">
+            </div>
+          <div class="product_content">
+            <a href="lysa-wooden-shoe-rack-honey-finish" class="p_item_name">Shoe rack</a>
+            <div class="uw_price">
+              <span class="giving_p">₹20,500</span><span class="real_p">₹30,500</span> <span class="offer_dis">33%</span>
+            </div>
+           </div>
+        </div>
+  </div>
+
+  </div>
+
+  </div>
+  </div> 
+</section>
+    {#<section class="trending_sec py-2" id="trending"><i class="fa fa-spinner" aria-hidden="true"></i></section>#}
+    
+    <section class="game-section py-lg-4 py-3" aria-labelledby="room-collections">
+ <div class="container">
+  <div class="row"> 
+  <h3 class="pg-heading text-center"> Shop By Room</h3>
+    <p class="heading-para text-center">Curated Furniture and Decor for Every Room</p>
+  </div>
+ </div>
+  <div class="owl-carousel custom-carousel owl-theme">
+    <div class="item " style="background-image: url(assets/image/shopby-room/bed-img.jpg);">
+      <div class="item-desc">
+        <h3>Bedroom</h3>
+        <p>Furniture</p>
+        <a href="bedroom-furniture" class="v_all_btn" traget="_blank" type="button"> view all &nbsp; <i class='bx bx-arrow-back bx-rotate-180' ></i></a>
+        <span class="sr-only">Bedroom furniture collection</span>
+      </div>
+    </div>
+    <div class="item" style="background-image: url(assets/image/shopby-room/living.jpg);">
+    <div class="item-desc">
+        <h3>Living Room</h3>
+        <p>Furniture</p>
+        <a href="living-room-furniture" class="v_all_btn" traget="_blank" type="button"> view all &nbsp; <i class='bx bx-arrow-back bx-rotate-180' ></i></a>
+        <span class="sr-only">Living Room furniture collection</span>
+      </div>
+    </div> 
+    <div class="item active" style="background-image: url(assets/image/shopby-room/dining.jpg);">
+    <div class="item-desc">
+        <h3>Dining Room</h3>
+        <p>Furniture</p>
+        <a href="dining-room-furniture" class="v_all_btn" traget="_blank" type="button"> view all &nbsp; <i class='bx bx-arrow-back bx-rotate-180' ></i></a>
+        <span class="sr-only">Dining furniture collection</span>
+      </div>
+    </div>
+    <div class="item " style="background-image: url(assets/image/shopby-room/storage2.jpg);">
+      <div class="item-desc">
+        <h3>Storage Room</h3>
+        <p>Furniture</p>
+        <a href="storage-furniture" class="v_all_btn" traget="_blank" type="button"> view all &nbsp; <i class='bx bx-arrow-back bx-rotate-180' ></i></a>
+        <span class="sr-only">Storage Room furniture collection</span>
+      </div>
+    </div>
+    <div class="item" style="background-image: url(assets/image/shopby-room/study.jpg);">
+    <div class="item-desc">
+        <h3>Study Room</h3>
+        <p>Furniture</p>
+        <a href="study-room-furniture" class="v_all_btn" traget="_blank" type="button"> view all &nbsp; <i class='bx bx-arrow-back bx-rotate-180' ></i></a>
+        <span class="sr-only">Study Room furniture collection</span>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+    <!--new arrival furniture  -->
+
+<section class="game-section py-lg-4 py-3" aria-label="Latest Arrials">
+  <div class="container">
+   <div class="row"> 
+   <h3 class="pg-heading text-center">Latest Arrivals</h3>
+     <p class="heading-para text-center">Fresh Looks for Your Space</p>
+ 
+   <div class="owl-carousel owl-carousel2 custom-carousel custom-carousel2 owl-theme">
+   <div class="item _item2">
+        <div class="uw_prduct_box_">
+           <div class="offer_tag">
+             <span class="new_arrival">New</span>
+             </div>
+           <div class="uw_p_img">
+             <img src="assets/image/new-arrival/sideboard-new.jpg" alt="sideboard" class="img-fluid" loading="lazy">
+             </div>
+           <div class="product_content">
+             <a href="martin-side-cabinet-honey-finish" class="p_item_name">Martin Side Cabinet</a>
+             <div class="uw_price">
+               <span class="giving_p">₹42,199</span><span class="real_p">₹62,199</span> <span class="offer_dis">32%</span>
+             </div>
+            </div>
+         </div>
+   </div>
+   <div class="item _item2">
+        <div class="uw_prduct_box_">
+           <div class="offer_tag">
+             <span class="new_arrival">New</span>
+             </div>
+           <div class="uw_p_img">
+             <img src="assets/image/new-arrival/bed-new.jpg" alt="king size bed" class="img-fluid" loading="lazy">
+             </div>
+           <div class="product_content">
+             <a href="ashoka-without-storage-bed-king-size-teak-finish" class="p_item_name">Ashoka Without Storage Bed</a>
+             <div class="uw_price">
+               <span class="giving_p">₹46,555</span><span class="real_p">₹66,555</span> <span class="offer_dis">30%</span>
+             </div>
+            </div>
+         </div>
+   </div>
+   <div class="item _item2">
+        <div class="uw_prduct_box_">
+           <div class="offer_tag">
+             <span class="new_arrival">New</span>
+             </div>
+           <div class="uw_p_img">
+             <img src="assets/image/new-arrival/study-new.jpg" alt="study table" class="img-fluid" loading="lazy">
+             </div>
+           <div class="product_content">
+             <a href="crispin-wooden-study-table-natural-finish" class="p_item_name">Crispin Wooden Study Table</a>
+             <div class="uw_price">
+               <span class="giving_p">₹29,844</span><span class="real_p">₹45,159</span> <span class="offer_dis">34%</span>
+             </div>
+            </div>
+         </div>
+   </div>
+   <div class="item _item2">
+        <div class="uw_prduct_box_">
+        <div class="offer_tag"> <span class="new_arrival">New</span></div>
+           <div class="uw_p_img">
+             <img src="assets/image/new-arrival/sofa-new.jpg" alt="sofa set" class="img-fluid" loading="lazy">
+             </div>
+           <div class="product_content">
+             <a href="falcon-3-1-1-seater-wooden-sofa-set-honey-finish" class="p_item_name">Falcon Wooden Sofa Set</a>
+             <div class="uw_price">
+               <span class="giving_p">₹70,444</span><span class="real_p">₹99,999</span> <span class="offer_dis">30%</span>
+             </div>
+            </div>
+         </div>
+   </div>
+   <div class="item _item2">
+        <div class="uw_prduct_box_">
+           <div class="offer_tag">
+             <span class="new_arrival">New</span>
+             </div>
+           <div class="uw_p_img">
+             <img src="assets/image/new-arrival/wardrobe-new.jpg" alt="wardrobe" class="img-fluid" loading="lazy">
+             </div>
+           <div class="product_content">
+             <a href="mace-solid-wood-wardrobe-french-blue" class="p_item_name">Mace Solid Wood Wardrobe</a>
+             <div class="uw_price">
+               <span class="giving_p">₹37,199</span><span class="real_p">₹55,099</span> <span class="offer_dis">32%</span>
+             </div>
+            </div>
+         </div>
+   </div>
+   <div class="item _item2">
+        <div class="uw_prduct_box_">
+        <div class="offer_tag"> <span class="new_arrival">New</span></div>
+           <div class="uw_p_img">
+             <img src="assets/image/new-arrival/bookshelf-new.jpg" alt="Wooden Bookshelf" class="img-fluid" loading="lazy">
+             </div>
+           <div class="product_content">
+             <a href="gloria-wooden-bookshelf-honey-finish" class="p_item_name">Gloria Wooden Bookshelf</a>
+             <div class="uw_price">
+               <span class="giving_p">₹31,159</span><span class="real_p">₹47,189</span> <span class="offer_dis">34%</span>
+             </div>
+            </div>
+         </div>
+   </div>
+ 
+   </div>
+ 
+   </div>
+   </div> 
+ </section>
+    <style>
+  .trending_product_box {
+    padding: 0;
+    margin: 6px auto;
+    border:1px solid #ededed;
+    transition: .5s ease-out;
+    border-radius: 0.3rem;
+
+}
+.product_img_ img {
+    border-radius: 0.3rem 0.3rem 0 0;
+    image-rendering: smooth;
+}
+.sale_badge {
+    position: absolute;
+    left: auto;
+    right: 0px;
+    background: #eee;
+    padding: 4px 4px;
+    top: 0px;
+    display: inline-flex;
+    width: 70px;
+}
+.sale_badge img {
+    width: 60px;
+}
+.product_content {
+    padding: .5rem;
+    text-align: left;
+}
+.p_item_name {
+    font-size: 15px;
+    color: #2c2c2c;
+    font-weight: 500;
+    line-height: 2.3;
+}
+
+.p_item_amount {
+    color: #7d7d7d;
+    font-size: 14px;
+    font-weight: 400;
+}
+.tag_start_from{
+  font-size:14px;
+  font-weight:400;
+  color:#767676;
+}
+
+.owner-tag {
+    color: #ff8000d4;
+    font-size: 0.8em;
+    line-height: 1;
+    position: absolute;
+    right: .8em;
+    top: 1em;
+}
+</style>
+<section class="trending_sec py-lg-4 py-3" aria-label="Bulk Buying Options">
+ <div class="container-lg container-md">
+  <div class="row ">
+      <h4 class="pg-heading text-center">Go Big with Bulk Buying</h4>
+    <p class="heading-para text-center ">Buy More, Save More</p>
+
+     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 wdith-50-sm-top">
+
+      <div class="trending_product_box">
+      <div class="product_img_"> 
+          <img data-src="assets/image/home-bulk/hotel-img.jpg" class="img-fluid lazy-load" loading="lazy"  alt="Hotel Furniture">
+      </div>
+          <div class="product_content">
+            <a href="bulk-order" class="p_item_name">Hotel Furniture</a>
+         </div>
+      </div>
+      </div>
+
+     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 wdith-50-sm-top">
+
+  <div class="trending_product_box">
+      <div class="product_img_"> 
+          <img data-src="assets/image/home-bulk/work-space-img.jpg" class="img-fluid lazy-load" loading="lazy" alt="hotel-img">
+      </div>
+          <div class="product_content">
+            <a href="bulk-order" class="p_item_name">Work Space Furniture </a>
+         </div>
+  </div>
+     </div>
+
+
+
+     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 wdith-50-sm-top">
+
+  <div class="trending_product_box">
+      <div class="product_img_"> 
+          <img data-src="assets/image/home-bulk/whole-sellers-img.jpg" class="img-fluid lazy-load" loading="lazy" alt="hotel-img">
+      </div>
+          <div class="product_content">
+            <a href="bulk-order" class="p_item_name">Retailers and Wholesalers</a>
+         </div>
+  </div>
+     </div>
+
+
+
+     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 wdith-50-sm-top">
+
+  <div class="trending_product_box">
+      <div class="product_img_"> 
+          <img data-src="assets/image/home-bulk/institute-img.jpg" class="img-fluid lazy-load" loading="lazy" alt="hotel-img">
+      </div>
+          <div class="product_content">
+            <a href="bulk-order" class="p_item_name">Educational Institutions</a>
+         </div>
+  </div>
+     </div>
+
+
+
+  </div>
+</div>
+</section>
+
+<style>
+.customise-now {
+    background: #f7f7f7;
+    text-align:center;
+}
+.custom_btn_n {
+    border: 1px solid #434342;
+    padding: 4px 15px;
+    font-size: 16px;
+    color: #fff;
+    margin: 10px auto;
+    background: #434342;
+    width: max-content;
+}
+/* .custom_btn_n:hover{
+    color: #fc7e00;
+    background: white
+} */
+.list-for-custom {
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.list-for-custom li {
+    border: 1px dashed #1a366c1f;
+    border-radius:10px;
+    width: max-content;
+    margin: 1em;
+    padding: .5em 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:#fff;
+}
+.text-size {
+    font-size: 45px;
+    font-weight: bolder;
+}
+.list-for-custom li img{
+  width: 75px;
+}
+
+@media screen and (max-width:992px) {
+  .text-size {
+    font-size: 30px;
+}
+.list-for-custom li img {
+    width: 57px;
+}
+}
+@media screen and (max-width:576px) {
+  .list-for-custom li {
+    margin: 0.3em;
+}
+.text-size {
+    font-size: 14px;
+}
+.list-for-custom li img {
+    width: 20px;
+}
+.custom_btn_n {
+    padding: 4px 10px;
+    font-size: 12px;
+
+}
+}
+</style>
+<section class="customise-now py-4">
+    <div class="container container-custom">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pg-heading text-center"> <span> Product Customization </span></h2>
+                <p class="heading-para text-center"> Got a dream furniture in mind we will make it for you</p>
+                <ul class="list-for-custom">
+                  <li><img src="catalog/view/javascript/assets/image/icon/sofa-custom.svg" alt="sofa-custom"><span class="text-size" style="color:#1a366c">SIZE</span></li>
+                  <li style="border: 1px dashed #23ff8d3d;"><img src="catalog/view/javascript/assets/image/icon/color-palette.svg" alt="color-palette"><span class="text-size" style="color:#4ad78e;">COLOR</span></li>
+                  <li style="border: 1px dashed #ff676738;"><img src="catalog/view/javascript/assets/image/icon/design-custom.svg" alt="design-custom"><span class="text-size" style="color:#ff6767;">DESIGN</span></li>
+                </ul>
+                <a href="custom-furniture" type="button" class="custom_btn_n">Customize now</a>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    
+{# family collection #}
+<section class="family-collection py-lg-4 py-3">
+  <div class="container">
+    <div class="row">
+    <h4 class="pg-heading  text-center">Family Collections </h4>
+    <p class="heading-para text-center">Handcrafted furniture from same family for your family</p>
+
+    <div class="col-lg-6 col-sm-12"><div class="fam_box_coll"><img src="assets/image/family-collection/family-1.jpg" alt="hover-family-collection" class="img-fluid " loading="lazy"><a href="beds" class="famil-link p_item_name">Wooden Bed</a></div></div>
+    <div class="col-lg-6 col-sm-12">
+    <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12"><div class="fam_box_coll"><img src="assets/image/family-collection/family-2.jpg" alt="sofa set family collection" class="img-fluid " loading="lazy"><a href="wooden-sofas" class="famil-link p_item_name">Sofa Set</a></div></div>
+    <div class="col-lg-6 col-md-6 col-sm-12"><div class="fam_box_coll"><img src="assets/image/family-collection/family-3.jpg" alt="family-collection" class="img-fluid"><a href="wardrobes" class="famil-link p_item_name">Wooden Wardrobe</a></div></div>
+    <div class="col-lg-6 col-md-6 col-sm-12"><div class="fam_box_coll"><img src="assets/image/family-collection/family-4.jpg" alt="family-collection" class="img-fluid" loading="lazy"><a href="dining-table-sets" class="famil-link p_item_name">Dining Table Set</a></div></div>
+    <div class="col-lg-6 col-md-6 col-sm-12"><div class="fam_box_coll"><img src="assets/image/family-collection/family-5.jpg" alt="family-collection" class="img-fluid" loading="lazy"><a href="dressing-tables" class="famil-link p_item_name">Dressing Table</a></div></div>
+    </div>
+    </div>
+    
+    </div>
+  </div>
+</section>
+{# store section #}
+    <!--branch -->
+
+<section class="game-section py-lg-4 py-3">
+  <div class="container">
+   <div class="row"> 
+   <h6 class="pg-heading text-center">Urbanwood Furniture</h6>
+     <p class="heading-para text-center ">Offline Furniture Experience Store</p>  
+   <div class="owl-carousel owl-carousel2 custom-carousel custom-carousel2 owl-theme">
+   <div class="item _item2">
+   <div class="uw_prduct_box_"><a href="https://www.urbanwood.in/furniture-online-bangalore" target="_blank"><img src="assets/image/branch/banglore.jpg" class="img-fluid" loading="lazy" alt="banglore_store"></a></div>
+   </div>
+   <div class="item _item2">
+   <div class="uw_prduct_box_"><a href="https://www.urbanwood.in/furniture-shop-in-jaipur" target="_blank"><img src="assets/image/branch/jaipur.jpg" class="img-fluid" loading="lazy" alt="jaipur_store"></a></div>
+   </div>
+ 
+   <div class="item _item2">
+   <div class="uw_prduct_box_"><a href="https://www.urbanwood.in/furniture-in-chennai" target="_blank"><img src="assets/image/branch/chennai.jpg" class="img-fluid" loading="lazy" alt="chennai_store"></a></div>
+   </div>
+ 
+   <div class="item _item2">
+   <div class="uw_prduct_box_"><a href="https://www.urbanwood.in/furniture-in-mumbai" target="_blank"><img src="assets/image/branch/mumbai.jpg" class="img-fluid" loading="lazy" alt="mumbai_store"> </a></div>
+   </div>
+ 
+   <div class="item _item2">
+   <div class="uw_prduct_box_"><a href="#" target="_blank"> <img src="assets/image/branch/gurgaon.jpg" class="img-fluid" loading="lazy" alt="gurgaon_store"></a></div>
+   </div>
+ 
+   </div>
+ 
+   </div>
+   </div> 
+ </section>
+    {# insta section #}
+     <style>
+.row-1 {
+    padding: 0 ;
+    margin: 0;
+    z-index:1;
+}
+.column-2 {
+    display: flex;
+    padding: 0px;
+}
+.img-box i {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  font-size: 45px;
+  color: #fff;
+  -webkit-transform: scale(1.5) rotate(-15deg);
+  transform: scale(1.5) rotate(-15deg);
+
+}
+
+.img-box {
+  text-align: center;
+  width: calc(100%/7);
+  position: relative;
+  padding: 0px;
+  overflow: hidden;
+}
+#zoomIn {
+  display: block;
+  z-index: 99;
+  width: 100%;
+  position: relative;
+}
+figure {
+	overflow: hidden;
+}
+.img-box img {
+	display: block;
+	width: 100%;
+	transition: .3s ease-in-out;
+}
+.img-box:hover img {
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3) ;
+  opacity: 0.5;
+
+}
+.img-box:hover i{
+  opacity: 1;
+  -webkit-transform: scale(1) rotate(0);
+  transform: scale(1) rotate(0);
+}
+
+@media (max-width: 768px) {
+
+  .column-2 {
+        -ms-flex: 25% !important;
+        flex: 100%;
+        max-width: 100%;
+        padding: 0 0px;
+        width: 100%;
+        margin: 0px;
+        display: flex;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 20px;
+    }
+    .img-box img {
+        height: 100%;
+        width: 279px;
+    }
+.img-box {
+  overflow: unset;
+  width: 100%;
+}
+.img-box i {
+  font-size: 28px;
+  -webkit-transform: scale(1) rotate(360deg);
+  transform: scale(1) rotate(360deg);
+}
+}
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+    </style>
+    <section class="py-4" id="social"><i class="fa fa-spinner" aria-hidden="true"></i></section>
+
+    <section class="bottom-content py-4">
+        <div class="container container-custom">
+            <div class="row">
+                <div class="col-lg-12">
+                    <button id="show2" class="show2 btn-show">Read more....</button>
+                    <button id="hide2" class="hide2 btn-show" style="display:none">
+                        Less...</button>
+                    <h2>Home Furniture (फर्नीचर) Online: Renovate Your Home With Our Wide Collection </h2>
+                    <p>Urbanwood is one of the premiers and leading <b> <a href="online-furniture-store">online furniture store</a>&nbsp;</b>of fine and customized home furnishings in India. Get an unbeatable selection of furniture design, housewares, storage furnituresolutions,&nbsp;<b> <a href="decor">decor</a> </b>, and much more that you need to convert a house into a dream home. We offer modern furniture of  <b>  <a href="solid-wood-furniture">solid wood furniture</a> </b> products that suit your uniquechoice and budget. For all styles including rustic, shabby chic, contemporary, classic, or traditional, we cover all your  <b>customized furniture online</b>  and personal choices. When it's time to moderate your home or give a boost toyour spaces with it's time to visit a leading <b>furniture online India</b> store at Urbanwood furniture.
+                    </p>
+                    <div class="con-text" style="display: none;">
+                        <p>Urbanwood has wood furniture designs and great finishing suitable for the Indian home. From our hospitality and outdoor rated <b>
+                                <a href="sofas">sofas</a>,
+                                <a href="wooden-sofas">wooden sofa</a>,
+                                <a href="fabric-sofas">fabric sofa</a>,
+                                <a href="king-size-beds">king size beds</a>,
+                                <a href="lounge-chairs">lounge chairs</a>,
+                                <a href="arm-chairs">Arm chairs</a>,
+                                <a href="wardrobes">wardrobes</a>,
+                                <a href="tv-units">t.v units</a>,
+                                <a href="bookshelves">bookshelves</a>&nbsp;</b>andvarious seating options to planters and gardens and accessories that are designed and state themselves. Take a look at our amazing <b>designer furniture</b> range on our online furniture store. </p>
+                        <p>Give a new life to your home with online furniture shopping. Whether you want to add a single accent and useful piece of <b>furniture design</b> or update the entire room furniture, we have an amazing eye-catchy collection of <b> <a href="sheesham-wood-furniture">sheesham wood furniture</a>&nbsp;</b>withvarious unique styles, designs, and colours that fit your personality, choice, and colour preferences.</p>
+                        
+                        <p>So sit back, relax, and check through the best online furniture store and select from our diverse collection of categories including <b>  <a href="dining-room-furniture">dining room furniture</a> </b>, <b> <a href="bedroom-furniture">bedroom furniture</a> </b>,kids furniture, <b> <a href="study-room-furniture">study room furniture</a> </b>, halls, tableware, and a lot more. You are the one to discover new fresh ideas and inspiration for moderating every room of your home with your great ideasand dreams. Find something to complement your taste and home with our beautiful collection of stunning, contemporary, tradition everything in one place. </p>
+                        
+                        <h2>The Best Online Furniture Store (फर्नीचर स्टोर): Fill Your Home With Beauty</h2>
+                        
+                        <p>At Urbanwood furniture, we carry a vast collection of&nbsp;<b>wooden furniture design</b> of departments that allows you to select from many different options as per your <b>home Interior</b> needs and structure. Our online furniture storecarries the best wooden furniture products, so you can find the one that is just your choice and preferences. We also offer <b>customized furniture online</b> as per your needs. With our wide collection of home and office furniture, you'relikely to find something that you'll love the most. If you're looking for where to <b> <a href="buying-furniture-online">buying furniture online</a>&nbsp;</b>in India, then you'll have no trouble finding the best option on <b>Urbanwood furniture online store</b>.</p>
+                        
+                        <p>We Respect our customers’ choice and need our end-users and update our furniture designs, products with our experienced engineering teams to serve more efficiently, affordably, and with amazing attractive furniture products in mind. Checkour large collection of <b> <a href="wooden-furniture-online">wooden furniture online</a>&nbsp;</b>today to get your preferred furniture! </p>
+                        
+                        <p>Urbanwood furniture is a one-stop store selling furniture online at competitive prices with a unique collection of wooden furniture. Match your <b>interior designs</b> and cover your spaces with our wide range of optimum furniture. Choosingthe best suitable furniture for your home adds functionality to your interior designs with a cost-effective and long-lasting selection. </p>
+                        
+                        <p>Looking for home furniture online? Now, order<b>furniture online in India</b>from UrbanWood and get amazing discounts on furniture online and sales on online purchases. Online furniture shopping is quite easy and hassle-free. We at UrbanWoodensure the highest-quality designed with comfort and functionality. With minimal shipping dates and the fastest delivery with top-notch quality, we satisfy each and every need of our customers. We offer Free Delivery on all orders of&nbsp;<b>furniture in Jaipur</b>,<b>furniture in Jodhpur</b>,<b>furniture in Delhi</b>,<b> <a href="furniture-online-bangalore">furniture online Bangalore</a> </b>,<b>furniture in Mumbai</b> and all over India. </p>
+                        
+                        <h2>Buy Wooden Furniture Online From Our Wide Categories </h2>
+
+                        <h3> <b>Living Room Furniture</b> </h3>
+                        <p>The heart of the house, Living Room needs to be highly appealing and welcoming to keep your guests engaged. Modify your living room with our online <b> <a href="living-room-furniture">living room furniture</a>&nbsp;</b>store to check our vastcollection of <b> <a href="l-shaped-sofas">l-shaped sofa</a> </b>,&nbsp;<b> <a href="coffee-tables">coffee table</a> </b>, <b> <a href="console-tables">console tables</a> </b> &amp; more the living room to satisfy the pickiest shopper. </p>
+                        
+                        <h3><b>Bedroom Furniture</b> </h3>
+                        <p>Boost your bedroom décor with Urbanwood bedroom furniture store and wake up the beauty. Our wide variety of colours, patterns, designs, styles, structures, and materials will provide you with a perfect fit for your bedroom as per your choice.Our bedroom furniture range includes <b> <a href="sofa-cum-beds">sofa cum bed</a> </b>, <b> <a href="poster-beds">poster bed</a> </b>, <b> <a href="diwan-beds">diwan bed</a> </b>, <b> <a href="queen-size-beds">queen size bed</a> </b>, mattresses,cabinets, side tables, storage, décor, lamps &amp; lighting, and much more. Visit our online bedroom furniture store now! </p>
+                        
+                        <h3><b>Dining Room </b> </h3>
+                        <p>Your dining room is calling you for renovation. Renovate the complete look of your dining room with our vast range of dining room furniture with us including <b> <a href="dining-tables">dining table</a> </b>, <b> <a href="dining-chairs">dining chairs</a> </b>,<b> <a href="round-dining-table-sets">round dining table set</a>&nbsp;</b>and a lot more with solid wood furniture style that meets everyone’s taste. Check our online dining room furniture store now and avail the amazing discounted price</p>
+                        
+                        <h3><b>Home Décor</b></h3>
+                        <p>Enjoy all comforts of the home with our appealing home décor services. We offer a wide range of <b>home furniture</b> for each and everyspace of the home from the bedroom, dining, living room, to washrooms, kitchens, balconies, etc. Check our online home décor furniture and avail attractive discounts. </p>
+                        
+                        <h3> <b>Kids room furniture</b> </h3>
+                        <p>Kids are the heart and soul of the house. Now, design your kids’ room with Urbanwood and add functionalities with fun in your kids’ room. Our wide range of kids’ room furniture includes kids’ bed, kids’ <b> <a href="study-table-online">study table</a> </b>,kids’ wardrobes, and much more at competitive prices. </p>
+                        
+                        <h3> <b>Kitchen room furniture </b> </h3>
+                        <p>Design your kitchen in a modern and flexible way with our vast collection and varieties of <b>kitchen cabinets</b> for different functions available with different sizes to fit your kitchen needs at our <b>online modular kitchen furniture</b> store. </p>
+                        
+                        <h3> <b>Restaurant Furniture</b> </h3>
+                        <p>Get restaurant furniture form an online furniture supplier. From modern to industrial restaurant furniture styles we meet all the furniture needs of your restaurant from seating and tables, booths, bar stools and tables, dining tables to thesofa, bench, and counters. </p>
+                        
+                        <h4> <b>Never Compromise With Quality</b> </h4>
+                        <p> <b>Fabrics:</b> We have a vast range of top-notch quality fabrics all provided by the leading textile suppliers of India. </p>
+                        <p> <b>Designs:</b> UrbanWood has a philosophy to introduce new designs that meet the needs of this furniture industry competing and changing every day. </p>
+                        <p> <b>Quality:</b> Our furniture is manufactured with high-quality fabric and wooden materials. Our modern and trending designs are suitable for both commercial and domestic use. </p>
+                        <h2> <b> Here’s how we make it feel like your dream home</b> </h2>
+                        <h4><b>Moderate, Classic Style </b></h4>
+                        <p>We always refine our customized collection of wooden furniture of amazing styles to bring you a fresh take on timeless. </p>
+                        <h4><b>Livable, Lasting Quality </b></h4>
+                        <p>We offer a thoughtfully designed collection of furniture made from the best and long-lasting woods that keep up with your everyday. </p>
+                        <h4><b>Reliable Value </b></h4>
+                        <p>Our quick, satisfying, and amazing customer service makes it easy for <b>furniture online India</b>&nbsp;to moderate the home that you love. </p>
+                        <span class="HomeMore"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    {% if success %}
+    <div class="success-popup ">	<span class="warrning-svg">	<svg id="smile"		width="35" height="35" viewBox="0 0 41 41" fill="none">	 <path d="M16.2432 29.9911L16.5968 30.3439L16.95 29.9907L30.5886 16.352L30.9422 15.9985L30.5886 15.6449L27.7128 12.7691L27.3593 12.4156L27.0057 12.7691L16.592 23.1828L12.2699 18.8682L11.9158 18.5148L11.5626 18.869L8.69086 21.7489L8.33792 22.1028L8.69174 22.4558L16.2432 29.9911ZM0.823975 20.662C0.823975 9.72375 9.72375 0.823975 20.662 0.823975C31.6002 0.823975 40.5 9.72375 40.5 20.662C40.5 31.6002 31.6002 40.5 20.662 40.5C9.72375 40.5 0.823975 31.6002 0.823975 20.662Z" stroke="#33C300"/>  </svg>	</span>	<span class="warrning-text">   <p>{{ success }}</p>	</span>  </div>
+    {% endif %}
+    <script>
+        fbq('track', 'ViewContent', { content_name: 'Urbanwood Home' });
+    </script>
+    {{ footer }}

@@ -1,0 +1,84 @@
+<!-- Top Selling Product section -->
+
+<section class="py-2 most_popular_sec">
+    <div class="container container-custom">
+        <div class="row">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h2 class="pg-heading text-lg-start text-start">Top Selling Product</h2>
+                    <p class="heading-para text-lg-start text-start">Awe-Inspiring Bed Designs</p>
+
+                </div>
+                <a href="" type="button" class="view_all_btn float-right-btn">
+                    View all</a>
+            </div>
+
+            <div class="bbb_slider_container" >
+                <!-- <div class="bbb_slider_nav"> <div class="bbb_prev4 bbb_nav"><i class='bx bx-chevron-left' ></i></div> <div class="bbb_next4 bbb_nav"><i class='bx bx-chevron-right'></i></div> </div> -->
+                <div class="owl-carousel owl-theme bbb_slider bbb_slider4">
+
+                    {%for keysss,product in products%}
+        <div class="owl-item owl-item4">
+            <div class="bbb_item bbb_item4 is_new">
+
+              <div class="pp2-item-box">
+                <div class="item-img">
+                  <img src="{{product.thumb}}" class="img-responsive img-fluid" loading="lazy" alt="{{ product.name }}">
+              </div>
+              <a href="{{product.href}}" class="pp-name-title">{{product.name}}</a>
+              <div class="item-content">
+                  
+                <div class="_pp_content clearfix">
+                    <div class="pp-price">
+
+                      {{product.special}}
+                      <strike style="color:grey;">₹{{ product.priceR}}</strike>
+                  </div>
+              </div>
+          </div>
+          <span class="off_badge">
+              {{product.discount}}% <br>OFF
+          </span>
+      </div>
+
+  </div>
+</div>
+{%endfor%}
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+{# <section class="py-2 most_popular_sec">
+    <div class="container container-custom">
+        <div class="row">
+
+
+<div class="swiffy-slider slider-item-show3 slider-nav-round slider-nav-page slider-item-reveal">
+    <ul class="slider-container">
+        {% for keysss,product in products %}
+        <li>
+            <div class="card border-0">
+                <div class="slider-item-ratio-16x9">
+                    <img src="{{product.thumb}}" class="card-img-top" loading="lazy" alt="{{ product.name }}">
+                </div>
+                <div class="ard-body p-0 pt-2">
+                    <div class="d-flex">
+                        <h3 class="flex-grow-1 h5">{{product.name}}</h3>
+                        {# <p class="card-text">Basketball Shoes</p> #
+                    </div>
+                    <div class="px-md-2">{{product.special}}</div>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <button type="button" class="slider-nav" aria-label="Go left"></button>
+    <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+</div>
+</div>
+</div>
+</section> #}
