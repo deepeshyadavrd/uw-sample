@@ -21,4 +21,3 @@ storage/
 system/
 template/
 .svn/
-admin/controller/extension/payment/bluepay_redirect.php
