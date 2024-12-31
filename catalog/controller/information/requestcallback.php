@@ -7,50 +7,65 @@ class ControllerInformationRequestcallback extends Controller {
         $json = array();
         if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
             // Restricted words
-        $restrictedWords = ['example', 'test', 'xxx'];
+        $restrictedWords = ['example', 'test', 'xxx', 'sperm', 'sex'];
 
-            if (strpos(strtolower($_POST['name']), 'test') !== false || strpos(strtolower($_POST['email']), 'test') !== false) {
-            $json['error'] ="Invalid input detected. Please avoid using restricted words.";
-            }else{
-        $result = $this->model_information_requestcallback->addRequestcallback($this->request->post);
-        
+        // Sanitize input
+        $fieldsToCheck = ['name', 'email', 'message']; // Add more fields as needed
+        $errors = [];
 
-        $to="deepeshurbanwood@gmail.com";
-    $subject="Request Callback enquiry";
-    $senderName = 'Urbanwood Furniture';
-    $senderEmail = 'support@urbanwood.in';
+        foreach ($fieldsToCheck as $field) {
+            if (isset($_POST[$field])) {
+                $input = htmlspecialchars($_POST[$field]);
 
-    $from = stripslashes($senderName)."<".stripslashes($senderEmail).">";
+                // Check for restricted words
+                foreach ($restrictedWords as $word) {
+                    if (strpos(strtolower($input), $word) !== false) {
+                        $errors[] = "Invalid input detected in field '$field': Avoid using '$word'.";
+                    }
+                }
+            }
+        }
+        if (!empty($errors)) {
+            $json['error'] = implode("\n", $errors);
+        } else {
+            $result = $this->model_information_requestcallback->addRequestcallback($this->request->post);
+
+            $to="deepeshurbanwood@gmail.com";
+            $subject="Request Callback enquiry";
+            $senderName = 'Urbanwood Furniture';
+            $senderEmail = 'support@urbanwood.in';
+
+            $from = stripslashes($senderName)."<".stripslashes($senderEmail).">";
             
-    $mime_boundary="==Multipart_Boundary_x".md5(mt_rand())."x";
+            $mime_boundary="==Multipart_Boundary_x".md5(mt_rand())."x";
 
-    $headers = "From: $from\r\n" . 
-    // "Cc: urbanwood.in@gmail.com\r\n".
-    "MIME-Version: 1.0\r\n" .
-    "Content-Type: multipart/mixed;\r\n" .
-    " boundary=\"{$mime_boundary}\"";
-	if(isset($_POST["time_slot"]) || isset($_POST["date"])){
-		$message="Enquiry For Furniture (Request Callback)\n\n";
-		$message .= "Name:".$_POST["name"]."\n"."EMail:".$_POST['email']."\nMobile:".$_POST['mobile']."\nTime Slot:".$_POST["time_slot"]."\nDate:".$_POST["date"]."\nLooking For:".$_POST["message"];
-	}else{
-		$message="Enquiry For Furniture (Contact Form)\n\n";
-		$message .= "Name:".$_POST["name"]."\n"."EMail:".$_POST['email']."\nMobile:".$_POST['mobile']."\nLooking For:".$_POST["message"];
-	}
-    $message = "This is a multi-part message in MIME format.\n\n" .
-    "--{$mime_boundary}\n" .
-    "Content-Type: text/plain; charset=\"iso-8859-1\"\n" .
-    "Content-Transfer-Encoding: 7bit\n\n" .
-     $message . "\n\n";
-
-    $i=0;
-    $message.="--{$mime_boundary}--\n";
-     if (@mail($to, $subject, $message, $headers)){
-    	 $json['success'] = 'Service Working';//exit;
-     }else{
-       $json['error'] =  'error -> '.error_get_last()['message'];//'Service Error';//exit;
-     }
-           //$json['data'] = $this->request->post;
-    }
+            $headers = "From: $from\r\n" . 
+            // "Cc: urbanwood.in@gmail.com\r\n".
+            "MIME-Version: 1.0\r\n" .
+            "Content-Type: multipart/mixed;\r\n" .
+            " boundary=\"{$mime_boundary}\"";
+	        if(isset($_POST["time_slot"]) || isset($_POST["date"])){
+	        	$message="Enquiry For Furniture (Request Callback)\n\n";
+	        	$message .= "Name:".$_POST["name"]."\n"."EMail:".$_POST['email']."\nMobile:".$_POST['mobile']."\nTime Slot:".$_POST["time_slot"]."\nDate:".$_POST["date"]."\nLooking For:".$_POST["message"];
+	        }else{
+	        	$message="Enquiry For Furniture (Contact Form)\n\n";
+	        	$message .= "Name:".$_POST["name"]."\n"."EMail:".$_POST['email']."\nMobile:".$_POST['mobile']."\nLooking For:".$_POST["message"];
+	        }
+            $message = "This is a multi-part message in MIME format.\n\n" .
+            "--{$mime_boundary}\n" .
+            "Content-Type: text/plain; charset=\"iso-8859-1\"\n" .
+            "Content-Transfer-Encoding: 7bit\n\n" .
+             $message . "\n\n";
+        
+            $i=0;
+            $message.="--{$mime_boundary}--\n";
+             if (@mail($to, $subject, $message, $headers)){
+            	 $json['success'] = 'Service Working';//exit;
+             }else{
+               $json['error'] =  'error -> '.error_get_last()['message'];//'Service Error';//exit;
+             }
+                   //$json['data'] = $this->request->post;
+        }
     }else{
        if (isset($this->error['name'])) {
            $json['error_name'] = $this->error['name'];

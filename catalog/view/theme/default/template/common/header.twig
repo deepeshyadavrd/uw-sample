@@ -419,10 +419,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         const formData = $("#" +idd).serializeArray();
             let hasInvalidInput = false;
             // Check for specific invalid values
-            alert(formData);
+            // alert(formData);
             formData.forEach(field => {
                 if (field.value.toLowerCase().includes('test') || field.value.toLowerCase().includes('example')) {
-                    alert(`Invalid input detected in ${field.name}. Please remove 'spam'.`);
+                    $('body').prepend(`<div class="success-popup2"> <span class="warrning-svg"> <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     </svg>  </span> <span class="warrning-text">  <p>Invalid input detected in ${field.name}</p> </span> </div>`);
+                    // alert(`Invalid input detected in ${field.name}. Please remove 'spam'.`);
                     hasInvalidInput = true;
                 }
             });
@@ -433,10 +434,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     url: '?route=information/requestcallback',
                     data: $('#'+idd).serialize(),
                     success: function(response) {
-                        alert(response);
+                        var thanksHtml = '<div class="ThankuMsgx" style="text-align:center;">\n\
+                        <img src="catalog/view/javascript/assets/image/check-sml.gif" style="width: 136px;" loading="lazy"><br>\n\
+                        <h2 style="color: gray;">Success!</h2><br>\n\
+                        <p>Our team will contact you shortly.</p><br>';
+                        $('#'+idd).html('');
+                        $('#'+idd).html(thanksHtml);
+                        $('#'+btn).remove();
                     },
                     error: function() {
                         alert('An error occurred while submitting the form.');
+                        $('body').prepend('<div class="success-popup2"> <span class="warrning-svg"> <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     </svg>  </span> <span class="warrning-text">  <p>'+ res.error +'</p> </span> </div>');
                     }
                 });
             }
