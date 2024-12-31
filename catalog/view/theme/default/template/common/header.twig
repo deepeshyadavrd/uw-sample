@@ -308,6 +308,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div class="modal-body">
                 <form id="myform">
+                        <input type="hidden" name="source" class="form-control" id="source-sorm" value="request callback form">
                     <div class="mb-3">
                         <label for="user-name" class="col-form-label">Name</label>
                         <input type="text" name="name" class="form-control" id="user-name">
@@ -414,25 +415,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </style>
     <script>
      function submitCallRequest(idd,btn){
-    if(!formRule(idd)) return false;
-    $('#'+btn).text('Processing...');
-    $.ajax({
-      url:'?route=information/requestcallback',
-      data:$('#'+idd).serialize(),
-      type:'POST',
-    // dataType:'JSON',
-    success:function(res){      
-      console.log(res);
-        var thanksHtml = '<div class="ThankuMsgx" style="text-align:center;">\n\
-        <img src="catalog/view/javascript/assets/image/check-sml.gif" style="width: 136px;" loading="lazy"><br>\n\
-        <h2 style="color: gray;">Success!</h2><br>\n\
-        <p>Our team will contact you shortly.</p><br>';
-        $('#'+idd).html('');
-        $('#'+idd).html(thanksHtml);
-        $('#'+btn).remove();
+
+        const formData = $("#" +idd).serializeArray();
+            let hasInvalidInput = false;
+            // Check for specific invalid values
+            alert(formData);
+            formData.forEach(field => {
+                if (field.value.toLowerCase().includes('test') || field.value.toLowerCase().includes('example')) {
+                    alert(`Invalid input detected in ${field.name}. Please remove 'spam'.`);
+                    hasInvalidInput = true;
+                }
+            });
+            // If no invalid input, submit the form
+            if (!hasInvalidInput) {
+                $.ajax({
+                    type: 'POST',
+                    url: '?route=information/requestcallback',
+                    data: $('#'+idd).serialize(),
+                    success: function(response) {
+                        alert(response);
+                    },
+                    error: function() {
+                        alert('An error occurred while submitting the form.');
+                    }
+                });
+            }
+//     if(!formRule(idd)) return false;
+//     $('#'+btn).text('Processing...');
+//     $.ajax({
+//       url:'?route=information/requestcallback',
+//       data:$('#'+idd).serialize(),
+//       type:'POST',
+//     // dataType:'JSON',
+//     success:function(res){      
+//       console.log(res);
+//         var thanksHtml = '<div class="ThankuMsgx" style="text-align:center;">\n\
+//         <img src="catalog/view/javascript/assets/image/check-sml.gif" style="width: 136px;" loading="lazy"><br>\n\
+//         <h2 style="color: gray;">Success!</h2><br>\n\
+//         <p>Our team will contact you shortly.</p><br>';
+//         $('#'+idd).html('');
+//         $('#'+idd).html(thanksHtml);
+//         $('#'+btn).remove();
       
-    }
-  });
+//     }
+//   });
   }
 
     function withJquery(){

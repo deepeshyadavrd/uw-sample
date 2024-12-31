@@ -1059,6 +1059,7 @@ $(document).ready(function() {
           dataType: "html",
           url: "?route=common/home/social",
           success: function(data) {
+            console.log(data);
             $("#social").html(data);
           },
           error: function(xhr, status, error) {
