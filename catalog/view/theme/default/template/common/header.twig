@@ -72,6 +72,9 @@
     onload="this.onload=null;this.rel='stylesheet'"
 /> #}
                     {# <link rel="stylesheet" type="text/css" href="catalog/view/javascript/assets/css/main2.css?v=7.7" > #}
+                    {% if route == 'common/home' %}
+                    <link rel="preload" as="image" href="image/catalog/monsoon-offer/mobile-banner.avif"  media="(max-width: 768px)"/>
+                    {% endif %}
                     <link rel="preload" type="text/css" href="catalog/view/javascript/assets/css/main.css?v=1.7" as="style" onload="this.rel='stylesheet'">
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/css/owl.carousel.min.css" media="print" onload="this.media='all'">
                     
