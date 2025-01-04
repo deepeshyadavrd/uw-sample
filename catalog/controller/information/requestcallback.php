@@ -26,6 +26,7 @@ class ControllerInformationRequestcallback extends Controller {
             }
         }
         if (!empty($errors)) {
+            http_response_code(400);
             $json['error'] = implode("\n", $errors);
         } else {
             $result = $this->model_information_requestcallback->addRequestcallback($this->request->post);
@@ -62,11 +63,13 @@ class ControllerInformationRequestcallback extends Controller {
              if (@mail($to, $subject, $message, $headers)){
             	 $json['success'] = 'Service Working';//exit;
              }else{
+                http_response_code(400);
                $json['error'] =  'error -> '.error_get_last()['message'];//'Service Error';//exit;
              }
                    //$json['data'] = $this->request->post;
         }
     }else{
+        http_response_code(400);
        if (isset($this->error['name'])) {
            $json['error_name'] = $this->error['name'];
        } else {
