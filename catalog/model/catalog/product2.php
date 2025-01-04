@@ -197,23 +197,23 @@ class ModelCatalogProduct2 extends Model {
 			'p.date_added'
 		);
 
-		if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
+print_r($data['sort']);		if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
 			if ($data['sort'] == 'pd.name' || $data['sort'] == 'p.model') {
 				$sql .= " ORDER BY LCASE(" . $data['sort'] . ")";
 			} elseif ($data['sort'] == 'p.price') {
-				$sql .= " ORDER BY (CASE WHEN special IS NOT NULL THEN special WHEN discount IS NOT NULL THEN discount ELSE p.price END)";
+				$sql .= " ORDER BY  special";
 			} else {
-				$sql .= " ORDER BY p.viewed DESC";// . $data['sort'];
+				$sql .= " ORDER BY ". $data['sort'];
 			}
 		} else {
 			$sql .= " ORDER BY p.viewed";
 		}
 
-		// if (isset($data['order']) && ($data['order'] == 'DESC')) {
-		// 	$sql .= " DESC, LCASE(pd.name) DESC";
-		// } else {
-		// 	$sql .= " ASC, LCASE(pd.name) ASC";
-		// }
+		if (isset($data['order']) && ($data['order'] == 'DESC')) {
+			$sql .= " DESC, LCASE(pd.name) DESC";
+		} else {
+			$sql .= " ASC, LCASE(pd.name) ASC";
+		}
 
 			if (isset($data['start']) || isset($data['limit'])) {
 				if ($data['start'] < 0) {
