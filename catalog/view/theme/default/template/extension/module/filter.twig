@@ -162,7 +162,7 @@
           </div>
           </div>
       </div>
-{# <div class="col-md-3 col-sm-3 position-relative">
+<div class="col-md-3 col-sm-3 position-relative">
 <div class="filter-box d-md-block d-none">
   <div class="short-by-sec">
     <div class="accordion" id="accordionPanelsStayOpen1">
@@ -228,11 +228,11 @@
     <div class="accordion-item accordion-item-filter">
     
         <h2 class="accordion-header" id="headingTwo">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo{{ filter_group.filter_group_id }}" aria-expanded="false" aria-controls="collapseTwo">
+          <button class="accordion-button show" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo{{ filter_group.filter_group_id }}" aria-expanded="true" aria-controls="collapseTwo">
             {{ filter_group.name }}
           </button>
         </h2>
-        <div id="collapseTwo{{ filter_group.filter_group_id }}" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div id="collapseTwo{{ filter_group.filter_group_id }}" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
           <div class="accordion-body">
            
             <ul>
@@ -259,7 +259,7 @@
       </div>
       </div>
     </div>
-    </div> #}
+    </div> 
       <script type="text/javascript">
 $('.ifilter').on('click', function() {
 	filter = [];

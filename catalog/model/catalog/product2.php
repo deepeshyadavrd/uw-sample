@@ -197,23 +197,45 @@ class ModelCatalogProduct2 extends Model {
 			'p.date_added'
 		);
 
-print_r($data['sort']);		if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
+// print_r($data['sort']);		
+		// if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
+		// 	if ($data['sort'] == 'pd.name' || $data['sort'] == 'p.model') {
+		// 		$sql .= " ORDER BY LCASE(" . $data['sort'] . ")";
+		// 	} elseif ($data['sort'] == 'p.price') {
+		// 		$sql .= " ORDER BY  special";
+		// 	} else {
+		// 		$sql .= " ORDER BY ". $data['sort'];
+		// 	}
+		// } else {
+		// 	$sql .= " ORDER BY p.viewed";
+		// }
+		if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
 			if ($data['sort'] == 'pd.name' || $data['sort'] == 'p.model') {
 				$sql .= " ORDER BY LCASE(" . $data['sort'] . ")";
 			} elseif ($data['sort'] == 'p.price') {
-				$sql .= " ORDER BY  special";
+				if (!empty($data['order']) && $data['order'] == 'DESC') {
+					$sql .= " ORDER BY special DESC";
+				} else {
+					$sql .= " ORDER BY special ASC";
+				}
+			} elseif ($data['sort'] == 'p.viewed') {
+				$sql .= " ORDER BY p.viewed DESC"; // Most viewed first
+			} elseif ($data['sort'] == 'p.date_added') {
+				$sql .= " ORDER BY p.date_added DESC"; // Latest products first
 			} else {
-				$sql .= " ORDER BY ". $data['sort'];
+				// Default sorting if no valid sort is provided
+				$sql .= " ORDER BY p.viewed DESC"; // Default to most viewed
 			}
 		} else {
-			$sql .= " ORDER BY p.viewed";
+			// Default sorting if no sort parameter is provided
+			$sql .= " ORDER BY p.viewed DESC"; // Default to most viewed
 		}
 
-		if (isset($data['order']) && ($data['order'] == 'DESC')) {
-			$sql .= " DESC, LCASE(pd.name) DESC";
-		} else {
-			$sql .= " ASC, LCASE(pd.name) ASC";
-		}
+		// if (isset($data['order']) && ($data['order'] == 'DESC')) {
+		// 	$sql .= " DESC, LCASE(pd.name) DESC";
+		// } else {
+		// 	$sql .= " ASC, LCASE(pd.name) ASC";
+		// }
 
 			if (isset($data['start']) || isset($data['limit'])) {
 				if ($data['start'] < 0) {
@@ -227,7 +249,7 @@ print_r($data['sort']);		if (isset($data['sort']) && in_array($data['sort'], $so
 				$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
 			}
 			$product_data = array();
-print_r($sql);
+// print_r($sql);
 		$query = $this->db->query($sql);
 
 		

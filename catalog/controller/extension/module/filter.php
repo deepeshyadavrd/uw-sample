@@ -24,7 +24,7 @@ class ControllerExtensionModuleFilter extends Controller {
 			$data['sorts'][] = array(
 				'text'  => 'Recommended', //$this->language->get('text_default'),
 				'value' => 'p.sort_order-ASC',
-				'href'  => '?route=product/category&path='.$this->request->get['path'].'&sort=p.sort_order&order=ASC'//$this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.sort_order&order=ASC' . $url)
+				'href'  => '?route=product/category2&path='.$this->request->get['path'].'&sort=p.sort_order&order=ASC'//$this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.sort_order&order=ASC' . $url)
 			);
 
 			// $data['sorts'][] = array(
@@ -42,13 +42,13 @@ class ControllerExtensionModuleFilter extends Controller {
 			$data['sorts'][] = array(
 				'text'  => 'Price (Low to High)', //$this->language->get('text_price_asc'),
 				'value' => 'p.price-ASC',
-				'href'  => '?route=product/category&path='.$this->request->get['path'].'&sort=p.price&order=ASC' //$this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.price&order=ASC' . $url)
+				'href'  => '?route=product/category2&path='.$this->request->get['path'].'&sort=p.price&order=ASC' //$this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.price&order=ASC' . $url)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => 'Price (High to Low)', //$this->language->get('text_price_desc'),
 				'value' => 'p.price-DESC',
-				'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.price&order=DESC' . $url)
+				'href'  => '?route=product/category2&path='.$this->request->get['path'].'&sort=p.price&order=DESC' //$this->url->link('product/category2', 'path=' . $this->request->get['path'] . '&sort=p.price&order=DESC' . $url)
 			);
 
 			// if ($this->config->get('config_review_status')) {
@@ -68,13 +68,14 @@ class ControllerExtensionModuleFilter extends Controller {
 			$data['sorts'][] = array(
 				'text'  => 'Latest', //$this->language->get('text_model_asc'),
 				'value' => 'p.date_added-ASC',
-				'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.date_added&order=ASC' . $url)
+				'href'  => '?route=product/category2&path='.$this->request->get['path'].'&sort=p.date_added&order=ASC'
+				// $this->url->link('product/category2', 'path=' . $this->request->get['path'] . '&sort=p.date_added&order=ASC' . $url)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => 'Fast Shipping', //$this->language->get('text_model_desc'),
 				'value' => 'p.Fast_shipping',
-				'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.fast_shipping&order=DESC' . $url)
+				'href'  => $this->url->link('product/category2', 'path=' . $this->request->get['path'] . '&sort=p.fast_shipping&order=DESC' . $url)
 			);
 			$data['sort'] = $sort;
 			$data['order'] = $order;
@@ -104,7 +105,7 @@ class ControllerExtensionModuleFilter extends Controller {
 			}
 
 			//$data['action'] = str_replace('&amp;', '&', $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url));
-			$data['action'] = str_replace('&amp;', '&', '?route=product/category&path=' . $this->request->get['path'] . $url);
+			$data['action'] = str_replace('&amp;', '&', '?route=product/category2&path=' . $this->request->get['path'] . $url);
 
 			if (isset($this->request->get['filter'])) {
 				$data['filter_category'] = explode(',', $this->request->get['filter']);
@@ -258,7 +259,7 @@ class ControllerExtensionModuleFilter extends Controller {
 					}
 		//echo $url;
 					//$data['action'] = str_replace('&amp;', '&', $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url));
-					$data['action2'] = str_replace('&amp;', '&', '?route=product/category&path=' . $this->request->get['path'] . $url);
+					$data['action2'] = str_replace('&amp;', '&', '?route=product/category2&path=' . $this->request->get['path'] . $url);
 
 					if (!$min_max) {
 						$range = explode('-', '0-0');
