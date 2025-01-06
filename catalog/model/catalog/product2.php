@@ -219,16 +219,14 @@ class ModelCatalogProduct2 extends Model {
 					$sql .= " ORDER BY special ASC";
 				}
 			} elseif ($data['sort'] == 'p.viewed') {
-				$sql .= " ORDER BY p.viewed DESC"; // Most viewed first
+				$sql .= " ORDER BY p.viewed DESC";
 			} elseif ($data['sort'] == 'p.date_added') {
-				$sql .= " ORDER BY p.date_added DESC"; // Latest products first
+				$sql .= " ORDER BY p.date_added DESC";
 			} else {
-				// Default sorting if no valid sort is provided
-				$sql .= " ORDER BY p.viewed DESC"; // Default to most viewed
+				$sql .= " ORDER BY p.viewed DESC";
 			}
 		} else {
-			// Default sorting if no sort parameter is provided
-			$sql .= " ORDER BY p.viewed DESC"; // Default to most viewed
+			$sql .= " ORDER BY p.viewed DESC";
 		}
 
 		// if (isset($data['order']) && ($data['order'] == 'DESC')) {
@@ -249,7 +247,7 @@ class ModelCatalogProduct2 extends Model {
 				$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
 			}
 			$product_data = array();
-// print_r($sql);
+print_r($sql);
 		$query = $this->db->query($sql);
 
 		
