@@ -25,14 +25,9 @@ class ControllerCommonHome extends Controller {
 		}
 		
 		$data['menu'] = $this->load->controller('common/menu');
-
 		$data['register'] = $this->url->link('account/register');
-
-
 		$data['footer'] = $this->load->controller('common/footer');
-
 		$data['header'] = $this->load->controller('common/header');
-		
 
 		$this->load->model('tool/image');
 
