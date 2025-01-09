@@ -402,9 +402,10 @@ print_r($sql);
 		} else {
 			$sql .= " ORDER BY p.viewed";
 		}
+		
 
 		if (isset($data['order']) && ($data['order'] == 'DESC')) {
-			$sql .= " DESC, LCASE(pd.name) DESC";
+			$sql .= " DESC, p.sort_order ASC";
 		} else {
 			$sql .= " ASC, LCASE(pd.name) ASC";
 		}
