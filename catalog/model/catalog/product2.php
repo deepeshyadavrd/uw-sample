@@ -402,7 +402,6 @@ print_r($sql);
 		} else {
 			$sql .= " ORDER BY p.viewed";
 		}
-		
 
 		if (isset($data['order']) && ($data['order'] == 'DESC')) {
 			$sql .= " DESC, p.sort_order ASC";
