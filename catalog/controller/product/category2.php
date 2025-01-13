@@ -635,4 +635,33 @@ class ControllerProductCategory2 extends Controller {
 	  }
 	
 	  }
+
+	  public function categoryFilter(){
+
+		$this->load->model('catalog/category');
+		$this->load->model('tool/image');
+		if (isset($this->request->post['catids'])) {
+			$main_category_id = (int)$this->request->post['main_category_id'];
+			$catss = explode(',',$this->request->post['catids']);
+			$data['categories'] = array();
+			if (!empty($catss)) {
+
+				foreach ($catss as $key => $category_id) {
+					$category_info = $this->model_catalog_category->getCategory($category_id);
+					$liclass = '';
+					if($category_id == $main_category_id){
+						$liclass = 'active';
+					}
+					$data['categories'][] = array(
+						'name' => $category_info['name'],
+						'href' => $this->url->link('product/category', '&path='.$category_info['category_id'], true),
+						'image'=> $this->model_tool_image->resize($category_info['image'],160,75),
+						'liclass' => $liclass
+					);
+				}
+			}
+			$this->response->setOutput($this->load->view('product/custom_filter', $data));
+
+		}
+	}
 }
