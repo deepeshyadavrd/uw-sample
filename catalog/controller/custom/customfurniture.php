@@ -97,7 +97,7 @@ class ControllerCustomCustomfurniture extends Controller{
 		
 		$json = array();
 
-foreach($img['customImages']['name'] as $i => $value){
+	foreach($img['customImages']['name'] as $i => $value){
 	$name = $img['customImages']['name'][$i];
 	$tmp_name = $img['customImages']['tmp_name'][$i];
     $error = $img['customImages']['error'][$i];
