@@ -12,4 +12,5 @@ class ModelCustomCustomfurniture extends Model {
 		$walist_id = $this->db->getLastId();
 		return $walist_id;
     }
+	
 }
