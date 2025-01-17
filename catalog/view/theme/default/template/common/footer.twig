@@ -183,10 +183,10 @@ label{
                             support@urbanwood.in
                         </li>
                     </ul>
-                    <div class="map">
-                        {# <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.6927478024973!2d80.2163412!3d12.991493199999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526762150b2b4d%3A0x604a15e2d0121e2f!2sHome%20Stop!5e0!3m2!1sen!2sin!4v1669466511215!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> #}
+                    {# <div class="map">
+                        {# <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.6927478024973!2d80.2163412!3d12.991493199999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526762150b2b4d%3A0x604a15e2d0121e2f!2sHome%20Stop!5e0!3m2!1sen!2sin!4v1669466511215!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> #
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8464.63748094388!2d75.67557823362041!3d26.8735946658894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4b5249d22c75%3A0x75e51e084adffa67!2sUrbanwood%20-%20Wooden%20Furniture%20Store%20In%20Jaipur!5e0!3m2!1sen!2sin!4v1690533267824!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
+                    </div> #}
                 </div>
                 <div class="col-lg-3 col-md-6 footer-links">
                     <h4>Useful Links</h4>
@@ -397,7 +397,7 @@ label{
 <script type="text/javascript" src="catalog/view/javascript/assets/js/main.js?v=1.3" defer></script>
 <script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/bootstrap.bundle.min.js" ></script>
                     {# <script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/jquery1.1.1.min.js" ></script> #}
-                    <script src="catalog/view/javascript/assets/js/jquery-ui.min.js" ></script>
+                    {# <script src="catalog/view/javascript/assets/js/jquery-ui.min.js" ></script> #}
                     <script src="catalog/view/javascript/assets/js/owl.carousel.js" defer></script>
                     <script src="catalog/view/javascript/assets/js/slick-js.js"defer></script>
                     {#<script src="catalog/view/javascript/assets/js/swiper-bundle.min.js"></script>#}
@@ -1117,33 +1117,33 @@ function runScripts() {
     });
 }
   </script>
-<script src="https://unpkg.com/blaze-slider@latest/dist/blaze-slider.min.js"></script>
+{# <script src="https://unpkg.com/blaze-slider@latest/dist/blaze-slider.min.js"></script> #}
 
-<script>
-document.querySelectorAll('.blaze-slider').forEach(el => {
-new BlazeSlider(el, {
-  all: {
-    enableAutoplay: true,
-    autoplayInterval: 2000,
-    transitionDuration: 300,
-    slidesToShow: 3,
-    loop: true,
-  },
-  '(max-width: 1200px)': {
-    slidesToShow: 3,
-  },
-  '(max-width: 900px)': {
-    slidesToShow: 2,
-  },
-  '(max-width: 500px)': {
-    slidesToShow: 1,
-  },
-})
-})
+// <script>
+// document.querySelectorAll('.blaze-slider').forEach(el => {
+// new BlazeSlider(el, {
+//   all: {
+//     enableAutoplay: true,
+//     autoplayInterval: 2000,
+//     transitionDuration: 300,
+//     slidesToShow: 3,
+//     loop: true,
+//   },
+//   '(max-width: 1200px)': {
+//     slidesToShow: 3,
+//   },
+//   '(max-width: 900px)': {
+//     slidesToShow: 2,
+//   },
+//   '(max-width: 500px)': {
+//     slidesToShow: 1,
+//   },
+// })
+// })
 
-const el = document.querySelector('.blaze-slider2')
-new BlazeSlider(el)
-</script>
+// const el = document.querySelector('.blaze-slider2')
+// new BlazeSlider(el)
+// </script>
 <script>
     $(window).scroll(function(e){ 
   var $el = $('.header-top'); 
