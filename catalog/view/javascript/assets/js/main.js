@@ -1,18 +1,18 @@
-$(document).ready(function() {
-  $(".custom-carousel").owlCarousel({
-    autoWidth: true,
-    loop: true,
-    lazyLoad: true,
-    autoplay: true,
-    dots: false, // This disables the dots
-    autoplayHoverPause: true
-  });
+// $(document).ready(function() {
+//   $(".custom-carousel").owlCarousel({
+//     autoWidth: true,
+//     loop: true,
+//     lazyLoad: true,
+//     autoplay: true,
+//     dots: false, // This disables the dots
+//     autoplayHoverPause: true
+//   });
 
-  $(".custom-carousel .item").click(function() {
-    $(".custom-carousel .item").not($(this)).removeClass("active");
-    $(this).toggleClass("active");
-  });
-});
+//   $(".custom-carousel .item").click(function() {
+//     $(".custom-carousel .item").not($(this)).removeClass("active");
+//     $(this).toggleClass("active");
+//   });
+// });
 
 // $(document).ready(function() {
 //   $(".custom-carousel2").owlCarousel({
