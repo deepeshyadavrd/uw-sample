@@ -395,7 +395,7 @@ label{
 </button>
 
 {# <script type="text/javascript" src="catalog/view/javascript/assets/js/3.2.1-jquery.min.js"></script> #}
-<script type="text/javascript" src="catalog/view/javascript/assets/js/main.js?v=1.3" defer></script>
+<script type="text/javascript" src="catalog/view/javascript/assets/js/main.js?v=1.4" defer></script>
 <script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/bootstrap.bundle.min.js" ></script>
                     {# <script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/jquery1.1.1.min.js" ></script> #}
                     {# <script src="catalog/view/javascript/assets/js/jquery-ui.min.js" ></script> #}
@@ -1253,5 +1253,18 @@ function applySticky() {
   }
 }
   </script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Create a new <link> element
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css'; // Replace with the actual path to your CSS file
+    link.type = 'text/css';
+    link.onload = () => console.log('Boxicon CSS loaded successfully.');
+
+    // Append the <link> element to the <head>
+    document.head.appendChild(link);
+  });
+</script>
 </body>
 </html>

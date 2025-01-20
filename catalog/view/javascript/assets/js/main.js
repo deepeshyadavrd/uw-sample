@@ -2,6 +2,7 @@ $(document).ready(function() {
   $(".custom-carousel").owlCarousel({
     autoWidth: true,
     loop: true,
+    lazyLoad: true,
     autoplay: true,
     dots: false, // This disables the dots
     autoplayHoverPause: true
@@ -13,22 +14,51 @@ $(document).ready(function() {
   });
 });
 
-$(document).ready(function() {
-  $(".custom-carousel2").owlCarousel({
-    autoWidth: false,
-    loop: true,
-    autoplay: true,
-    nav:true,
-    navText: ['<i class="bx bx-chevron-left"></i>','<i class="bx bx-chevron-right"></i>'],
-    dots: false, // This disables the dots
-    autoplayHoverPause: true
-  });
+// $(document).ready(function() {
+//   $(".custom-carousel2").owlCarousel({
+//     autoWidth: false,
+//     loop: true,
+//     autoplay: true,
+//     lazyLoad: true,
+//     nav:true,
+//     navText: ['<i class="bx bx-chevron-left"></i>','<i class="bx bx-chevron-right"></i>'],
+//     dots: false, // This disables the dots
+//     autoplayHoverPause: true
+//   });
 
-  $(".custom-carousel2 ._item2").click(function() {
-    $(".custom-carousel2 ._item2").not($(this)).removeClass("active");
-    $(this).toggleClass("active");
+//   $(".custom-carousel2 ._item2").click(function() {
+//     $(".custom-carousel2 ._item2").not($(this)).removeClass("active");
+//     $(this).toggleClass("active");
+//   });
+// });
+  document.addEventListener('DOMContentLoaded', function () {
+    const carouselContainers = document.querySelectorAll('.game-section');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const carousel = $(entry.target).find('.owl-carousel2');
+
+          // Initialize Owl Carousel
+          carousel.owlCarousel({
+            autoWidth: false,
+            loop: true,
+            autoplay: true,
+            lazyLoad: true,
+            nav:true,
+            navText: ['<i class="bx bx-chevron-left"></i>','<i class="bx bx-chevron-right"></i>'],
+            dots: false, // This disables the dots
+            autoplayHoverPause: true
+          });
+
+          // Unobserve after initialization
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    carouselContainers.forEach(container => observer.observe(container));
   });
-});
 // $(document).ready(function()
 // {
 //     $(".owl-carousel").each(function(){

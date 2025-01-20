@@ -5442,7 +5442,7 @@ p #registerbtn {
 	position: relative
 }
 
-.glad-msg-us::after {
+/* .glad-msg-us::after {
 	position: absolute;
 	content: '\f10d';
 	width: 30px;
@@ -5453,7 +5453,7 @@ p #registerbtn {
 	font-weight: 900;
 	font-size: 69px;
 	color: #ff8000
-}
+} */
 
 .glad-msg-us p {
 	font-size: 16px;
