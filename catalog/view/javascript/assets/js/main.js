@@ -38,14 +38,14 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const carousel = $(entry.target).find('.owl-carousel2');
-
+          const navEnabled = entry.target.getAttribute('data-nav') === 'true';
           // Initialize Owl Carousel
           carousel.owlCarousel({
             autoWidth: false,
             loop: true,
             autoplay: true,
             lazyLoad: true,
-            nav:true,
+            nav:navEnabled,
             navText: ['<i class="bx bx-chevron-left"></i>','<i class="bx bx-chevron-right"></i>'],
             dots: false, // This disables the dots
             autoplayHoverPause: true
