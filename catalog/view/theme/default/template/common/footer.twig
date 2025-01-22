@@ -1265,6 +1265,21 @@ function applySticky() {
     // Append the <link> element to the <head>
     document.head.appendChild(link);
   });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Dynamically show the modal when needed
+          $('#signuppopup').modal('show');
+          observer.unobserve(entry.target); // Stop observing
+        }
+      });
+    });
+
+    const modalTrigger = document.getElementById('signuppopup');
+    observer.observe(modalTrigger);
+  });
 </script>
 </body>
 </html>
