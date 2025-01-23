@@ -128,8 +128,151 @@
 </div>
 </div>
     <!-- end quality section-->
+{# New sec #}
+<style>
+.bed-storage-section {
+  padding: 30px 20px;
+  /* background-color: #f9f9f9; */
+  text-align: center;
+}
 
-    
+.bed-storage-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.storage-types {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Default: 2 columns for small screens */
+  gap: 10px;
+}
+
+.storage-image {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* Card Styling */
+.card {
+  padding: 0 5px; /* Smaller padding by default */
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.card-img {
+  width: 100%;
+  border-radius: 0.5rem;
+  transition: 0.3s ease;
+}
+
+.card-info {
+  padding-top: 10%;
+}
+
+/* Text */
+.text-title {
+  font-weight: 900;
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+.text-body {
+  font-size: 0.9em;
+  margin: 0;
+  display: none; /* Hide text-body by default on smaller screens */
+}
+
+/* Hover Effect */
+.card:hover .card-img {
+  transform: translateY(-4%);
+  box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
+}
+@media (min-width: 576px) {
+  .storage-types {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for medium screens */
+  }
+}
+/* Medium Screens */
+@media (min-width: 768px) {
+  .storage-types {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for medium screens */
+  }
+
+  .card {
+    padding: 0 5px;
+  }
+
+  .card:hover .card-img {
+    transform: translateY(-6%);
+  }
+}
+
+/* Large Screens */
+@media (min-width: 1024px) {
+  .storage-types {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for large screens */
+  }
+
+  .card:hover .card-img {
+    transform: translateY(-7%);
+  }
+
+  .text-body {
+    display: block; /* Show text-body for larger screens */
+    padding-bottom: 10px;
+  }
+}
+
+
+</style>
+<section class="bed-storage-section">
+  <div class="container">
+    <h2 class="pg-heading text-center">Discover Storage Solutions for Your Bedroom</h2>
+    <p class="heading-para text-center ">Choose the perfect bed with storage options to suit your needs and style.</p>
+
+    <div class="storage-types">
+    <div class="card">
+      <div class="card-img"><a href=""><img src="image\bed-storage\box.jpg" alt="Box Storage Bed" class="storage-image" /></a></div>
+      <div class="card-info">
+        <a href="">
+          <p class="text-title">Box Storage</p>
+          <p class="text-body">Spacious and versatile, ideal for storing your essentials neatly.</p>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img"><a href=""><img src="image\bed-storage\drawer.jpg" alt="Drawer Storage Bed" class="storage-image" /></a></div>
+      <div class="card-info">
+        <a href="">
+          <p class="text-title">Drawer Storage</p>
+          <p class="text-body">Convenient sliding drawers for easy access to your belongings.</p>
+        </a>  
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img"><a href=""><img src="image\bed-storage\hy.jpg" alt="Hydraulic Storage Bed" class="storage-image" /></a></div>
+      <div class="card-info">
+        <a href="">
+          <p class="text-title">Hydraulic Storage</p>
+          <p class="text-body">Effortless lift-up storage with hydraulic mechanisms for maximum space.</p>
+        </a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img"><a href=""><img src="image\bed-storage\ws.jpg" alt="Without Storage Bed" class="storage-image" /></a></div>
+      <div class="card-info">
+        <a href="">
+          <p class="text-title">Without Storage</p>
+          <p class="text-body">Minimalistic and lightweight, perfect for simple, clutter-free living.</p>
+        </a>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+{# new sec end #}
 <style>
 
     .popular-catagories {
