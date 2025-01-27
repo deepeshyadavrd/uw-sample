@@ -495,7 +495,7 @@ background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ecec
 }
 
 .pd-img-in {
-	/* height: 296px; */
+	height: 296px;
 	width: 100%;
 	position: relative;
 	background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ececec 80px);
