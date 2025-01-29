@@ -1563,10 +1563,10 @@ span.pp-quality-name {
 }
 
 .bottom-content p {
-	font-size: 14px;
+	/* font-size: 14px;
 	line-height: 1.7;
 	font-weight: 400;
-	color: #828282;
+	color: #828282; */
 	text-align: justify;
     text-transform: none;
 }
