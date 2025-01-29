@@ -614,7 +614,10 @@ span.pp-quality-name {
     padding: 0.6em 0;
 }
 
-.bottom-content, .pg-heading,
+.bottom-content{
+	text-transform: uppercase;
+}
+.pg-heading,
 .custom-heading-whts {
 	color: #434342;
 	font-size: 22px;
