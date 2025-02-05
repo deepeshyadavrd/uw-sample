@@ -1,32 +1,33 @@
 <?php
 class ModelExtensionFeedSitemaps extends Model {
-    private function generateSitemapFile($filename, $products) {
+    private function generateSitemapFile($filename, $urls) {
         $sitemapContent = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
         $sitemapContent .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
 
-        foreach ($products as $product) {
+        foreach ($urls as $url) {
             $sitemapContent .= "    <url>\n";
-            $sitemapContent .= "        <loc>" . $this->url->link('product/product', 'product_id=' . $product['product_id']) . "</loc>\n";
-            $sitemapContent .= "        <lastmod>" . date('Y-m-d') . "</lastmod>\n";
+            $sitemapContent .= "        <loc>" . $this->url->link('product/product', 'product_id=' . $url) . "</loc>\n";
+            // $sitemapContent .= "        <lastmod>" . date('Y-m-d') . "</lastmod>\n";
             $sitemapContent .= "        <changefreq>weekly</changefreq>\n";
             $sitemapContent .= "        <priority>0.8</priority>\n";
             $sitemapContent .= "    </url>\n";
         }
 
         $sitemapContent .= '</urlset>';
+        // print_r($sitemapContent);
         file_put_contents(DIR_APPLICATION . '../' . $filename, $sitemapContent);
     }
 
     public function generateProductsSitemap() {
         $baseUrl = $this->config->get('config_url');
-        $query = $this->db->query("SELECT CONCAT('$baseUrl', 'index.php?route=product/product&product_id=', p.product_id) AS url FROM " . DB_PREFIX . "product p WHERE p.status = 1");
+        $query = $this->db->query("SELECT  p.product_id AS url FROM " . DB_PREFIX . "product p WHERE p.status = 1");
 
         $urls = [];
         foreach ($query->rows as $row) {
             $urls[] = $row['url'];
         }
-print_r($urls);
-        // $this->generateSitemapFile('sitemap-products.xml', $urls);
+
+        $this->generateSitemapFile('sitemap-products.xml', $urls);
     }
 
     public function generateCategoriesSitemap() {
