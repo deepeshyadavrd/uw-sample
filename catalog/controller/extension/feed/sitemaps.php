@@ -33,12 +33,12 @@ class ControllerExtensionFeedSitemaps extends Controller {
     }
 
     public function generate() {
-        $this->load->model('extension/feed/sitemap');
+        $this->load->model('extension/feed/sitemaps');
 
         // Generate different sitemap sections
-        $this->model_extension_feed_sitemap->generateProductsSitemap();
-        $this->model_extension_feed_sitemap->generateCategoriesSitemap();
-        $this->model_extension_feed_sitemap->generateInfoPagesSitemap();
+        $this->model_extension_feed_sitemaps->generateProductsSitemap();
+        $this->model_extension_feed_sitemaps->generateCategoriesSitemap();
+        $this->model_extension_feed_sitemaps->generateInfoPagesSitemap();
 
         echo "✅ Sitemaps Generated Successfully!";
     }

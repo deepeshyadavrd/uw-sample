@@ -1,12 +1,12 @@
 <?php
 class ModelExtensionFeedSitemaps extends Model {
-    private function generateSitemapFile($filename, $urls) {
+    private function generateSitemapFile($filename, $products) {
         $sitemapContent = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
         $sitemapContent .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
 
-        foreach ($urls as $url) {
+        foreach ($products as $product) {
             $sitemapContent .= "    <url>\n";
-            $sitemapContent .= "        <loc>" . htmlspecialchars($url) . "</loc>\n";
+            $sitemapContent .= "        <loc>" . $this->url->link('product/product', 'product_id=' . $product['product_id']) . "</loc>\n";
             $sitemapContent .= "        <lastmod>" . date('Y-m-d') . "</lastmod>\n";
             $sitemapContent .= "        <changefreq>weekly</changefreq>\n";
             $sitemapContent .= "        <priority>0.8</priority>\n";
@@ -25,8 +25,8 @@ class ModelExtensionFeedSitemaps extends Model {
         foreach ($query->rows as $row) {
             $urls[] = $row['url'];
         }
-
-        $this->generateSitemapFile('sitemap-products.xml', $urls);
+print_r($urls);
+        // $this->generateSitemapFile('sitemap-products.xml', $urls);
     }
 
     public function generateCategoriesSitemap() {
