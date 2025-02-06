@@ -12,7 +12,7 @@ class ModelExtensionModuleSitemap extends Model {
 
         $xml .= "</urlset>";
 
-        file_put_contents(DIR_CATALOG . '../product_sitemap.xml.gz', gzencode($xml));
+        file_put_contents(DIR_ROOT . 'product_sitemap.xml.gz', gzencode($xml));
     }
 
     public function generateCategorySitemap() {
@@ -27,7 +27,7 @@ class ModelExtensionModuleSitemap extends Model {
 
         $xml .= "</urlset>";
 
-        file_put_contents(DIR_CATALOG . '../category_sitemap.xml', $xml);
+        file_put_contents(DIR_ROOT . 'category_sitemap.xml', $xml);
     }
 
     public function generateInfoSitemap() {
@@ -42,10 +42,10 @@ class ModelExtensionModuleSitemap extends Model {
 
         $xml .= "</urlset>";
 
-        file_put_contents(DIR_CATALOG . '../info_sitemap.xml', $xml);
+        file_put_contents(DIR_ROOT . 'info_sitemap.xml', $xml);
     }
 
     public function saveMainSitemap($content) {
-        file_put_contents(DIR_CATALOG . '../main_sitemap.xml', $content);
+        file_put_contents(DIR_ROOT . 'sitemap.xml', $content);
     }
 }
