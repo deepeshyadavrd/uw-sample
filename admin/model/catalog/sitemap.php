@@ -1,51 +1,50 @@
 <?php
-class ModelExtensionModuleSitemap extends Model {
+class ModelModuleSitemapGenerator extends Model {
     public function generateProductSitemap() {
-        $products = $this->db->query("SELECT product_id FROM " . DB_PREFIX . "product WHERE status = 1");
-        
-        $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-        $xml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
+        $file = DIR_ROOT . 'product_sitemap.xml';
+        $xml = new SimpleXMLElement('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>');
 
-        foreach ($products->rows as $product) {
-            $xml .= "<url><loc>" . HTTPS_CATALOG . "index.php?route=product/product&product_id=" . $product['product_id'] . "</loc></url>\n";
+        // Query to get all products
+        $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product");
+
+        foreach ($query->rows as $row) {
+            $url = $xml->addChild('url');
+            $url->addChild('loc', $this->url->link('product/product', 'product_id=' . $row['product_id']));
+            $url->addChild('priority', '0.8');
+            $url->addChild('changefreq', 'daily');
         }
 
-        $xml .= "</urlset>";
-
-        file_put_contents(DIR_ROOT . 'product_sitemap.xml.gz', gzencode($xml));
+        // Save the product sitemap
+        $xml->asXML($file);
     }
 
     public function generateCategorySitemap() {
-        $categories = $this->db->query("SELECT category_id FROM " . DB_PREFIX . "category WHERE status = 1");
+        $file = DIR_ROOT . 'category_sitemap.xml';
+        $xml = new SimpleXMLElement('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>');
 
-        $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-        $xml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
+        // Query to get all categories
+        $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "category");
 
-        foreach ($categories->rows as $category) {
-            $xml .= "<url><loc>" . HTTPS_CATALOG . "index.php?route=product/category&category_id=" . $category['category_id'] . "</loc></url>\n";
+        foreach ($query->rows as $row) {
+            $url = $xml->addChild('url');
+            $url->addChild('loc', $this->url->link('product/category', 'path=' . $row['category_id']));
+            $url->addChild('priority', '0.7');
+            $url->addChild('changefreq', 'weekly');
         }
 
-        $xml .= "</urlset>";
-
-        file_put_contents(DIR_ROOT . 'category_sitemap.xml', $xml);
+        // Save the category sitemap
+        $xml->asXML($file);
     }
 
-    public function generateInfoSitemap() {
-        $infoPages = $this->db->query("SELECT information_id FROM " . DB_PREFIX . "information WHERE status = 1");
+    public function generateMainSitemap() {
+        $file = DIR_ROOT . 'sitemap.xml';
+        $xml = new SimpleXMLElement('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>');
 
-        $xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-        $xml .= "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n";
+        // Links to other sitemaps
+        $xml->addChild('url')->addChild('loc', HTTP_SERVER . 'product_sitemap.xml');
+        $xml->addChild('url')->addChild('loc', HTTP_SERVER . 'category_sitemap.xml');
 
-        foreach ($infoPages->rows as $info) {
-            $xml .= "<url><loc>" . HTTPS_CATALOG . "index.php?route=information/information&information_id=" . $info['information_id'] . "</loc></url>\n";
-        }
-
-        $xml .= "</urlset>";
-
-        file_put_contents(DIR_ROOT . 'info_sitemap.xml', $xml);
-    }
-
-    public function saveMainSitemap($content) {
-        file_put_contents(DIR_ROOT . 'sitemap.xml', $content);
+        // Save the main sitemap
+        $xml->asXML($file);
     }
 }
