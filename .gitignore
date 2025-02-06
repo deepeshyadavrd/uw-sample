@@ -12,6 +12,7 @@ floating-wpp.min.css
 floating-wpp.min.js
 Tickets.php
 admin/config.php
+admin/view/stylesheet/
 assets/
 backup/
 dbfiles/
