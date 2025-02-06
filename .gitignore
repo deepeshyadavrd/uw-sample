@@ -12,6 +12,7 @@ floating-wpp.min.css
 floating-wpp.min.js
 Tickets.php
 admin/config.php
+admin/index.php
 admin/view/stylesheet/
 assets/
 backup/
@@ -36,6 +37,6 @@ lead_list.php
 main2-og.css
 php.ini
 placetovisit.php
-result.xml
+
 
 catalog/controller/extension/payment/
