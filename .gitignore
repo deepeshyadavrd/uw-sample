@@ -11,7 +11,8 @@ catalog/view/theme/default/image
 floating-wpp.min.css
 floating-wpp.min.js
 Tickets.php
-admin/
+admin/config.php
+admin/language
 assets/
 backup/
 dbfiles/
