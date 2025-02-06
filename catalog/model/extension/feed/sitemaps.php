@@ -6,7 +6,7 @@ class ModelExtensionFeedSitemaps extends Model {
 
         foreach ($urls as $url) {
             $sitemapContent .= "    <url>\n";
-            $sitemapContent .= "        <loc>" . $this->url->link('product/product', 'product_id=' . $url) . "</loc>\n";
+            $sitemapContent .= "        <loc>" .  $url . "</loc>\n";
             // $sitemapContent .= "        <lastmod>" . date('Y-m-d') . "</lastmod>\n";
             $sitemapContent .= "        <changefreq>weekly</changefreq>\n";
             $sitemapContent .= "        <priority>0.8</priority>\n";
@@ -24,7 +24,7 @@ class ModelExtensionFeedSitemaps extends Model {
 
         $urls = [];
         foreach ($query->rows as $row) {
-            $urls[] = $row['url'];
+            $urls[] = $this->url->link('product/product', 'product_id=' . $row['url']);
         }
 
         $this->generateSitemapFile('sitemap-products.xml', $urls);
@@ -32,11 +32,11 @@ class ModelExtensionFeedSitemaps extends Model {
 
     public function generateCategoriesSitemap() {
         $baseUrl = $this->config->get('config_url');
-        $query = $this->db->query("SELECT CONCAT('$baseUrl', 'index.php?route=product/category&category_id=', c.category_id) AS url FROM " . DB_PREFIX . "category c WHERE c.status = 1");
+        $query = $this->db->query("SELECT  c.category_id AS url FROM " . DB_PREFIX . "category c WHERE c.status = 1");
 
         $urls = [];
         foreach ($query->rows as $row) {
-            $urls[] = $row['url'];
+            $urls[] = $this->url->link('product/category', 'path=' . $row['url']);
         }
 
         $this->generateSitemapFile('sitemap-categories.xml', $urls);
@@ -44,11 +44,11 @@ class ModelExtensionFeedSitemaps extends Model {
 
     public function generateInfoPagesSitemap() {
         $baseUrl = $this->config->get('config_url');
-        $query = $this->db->query("SELECT CONCAT('$baseUrl', 'index.php?route=information/information&information_id=', i.information_id) AS url FROM " . DB_PREFIX . "information i WHERE i.status = 1");
+        $query = $this->db->query("SELECT i.information_id AS url FROM " . DB_PREFIX . "information i WHERE i.status = 1");
 
         $urls = [];
         foreach ($query->rows as $row) {
-            $urls[] = $row['url'];
+            $urls[] = $this->url->link('information/information', 'information_id=' . $row['url']);
         }
 
         $this->generateSitemapFile('sitemap-info.xml', $urls);
