@@ -1,5 +1,5 @@
 <?php
-class ModelModuleSitemapGenerator extends Model {
+class ModelcatalogSitemap extends Model {
     public function generateProductSitemap() {
         $file = DIR_ROOT . 'product_sitemap.xml';
         $xml = new SimpleXMLElement('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>');
