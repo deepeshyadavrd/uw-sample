@@ -421,7 +421,7 @@ class ModelCatalogProduct2 extends Model {
 				$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
 			}
 			$product_data = array();
-print_r($sql);
+// print_r($sql);
 		$query = $this->db->query($sql);
 
 		
@@ -429,7 +429,7 @@ print_r($sql);
 		foreach ($query->rows as $result) {
 			$product_data[] = $this->getProduct($result['product_id']);
 		}
-
+print_r($product_data);
 		return $product_data;
 	}
 	public function getGroupedProduct($product_id){
