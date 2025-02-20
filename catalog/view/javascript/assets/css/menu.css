@@ -117,7 +117,7 @@ header .item-right .bx-search{
 	line-height: 44px;
 	cursor: pointer;
 }
-.header .menu > ul > li > span{
+.header .menu > ul > li > .uw-nut{
 	font-size: 15px;
 	color:#434342;
 	position: relative;
@@ -217,7 +217,7 @@ header .item-right .bx-search{
 .header .menu > ul > li .sub-menu.mega-menu > .list-item > ul > li > a:hover,
 .header .menu > ul > li .sub-menu > ul > li > a:hover,
 .header .item-right a:hover,
-.header .menu > ul > li:hover > span, header .item-right i:hover{
+.header .menu > ul > li:hover > .uw-nut, header .item-right i:hover{
 	color:#fc7e00;
 }
 /* banner section */
@@ -334,7 +334,7 @@ header .item-right .bx-search{
 		margin:0;
 		display: block;
 	}
-	.header .menu > ul > li > span{
+	.header .menu > ul > li > .uw-nut{
 		line-height: 50px;
 		height: 50px;
 		padding:0 50px 0 15px;
@@ -342,7 +342,7 @@ header .item-right .bx-search{
 		border-bottom: 1px solid rgba(0,0,0,0.1);
 	}
 	
-	.header .menu > ul > li > span i{
+	.header .menu > ul > li > .uw-nut i{
 		position: absolute;
 		height: 50px;
 		width: 50px;
@@ -603,7 +603,7 @@ header .item-right .bx-search{
 	.sticky {
         padding: 0 2rem;
     }	
-	.header .menu > ul > li > span{
+	.header .menu > ul > li > .uw-nut{
 	 font-size: 13px;
 	 }
 	 .header-content-top .content span {
@@ -680,7 +680,7 @@ header .item-right .bx-search{
 	.container .search .button-search .bx-search {
 		font-size: 16px;
 	}
-	.header .menu > ul > li > span{
+	.header .menu > ul > li > .uw-nut{
 		font-size: 14px;
 	}
 	.header-content-top .content{
