@@ -217,7 +217,7 @@ header .item-right .bx-search{
 .header .menu > ul > li .sub-menu.mega-menu > .list-item > ul > li > a:hover,
 .header .menu > ul > li .sub-menu > ul > li > a:hover,
 .header .item-right a:hover,
-.header .menu > ul > li:hover > a, header .item-right i:hover{
+.header .menu > ul > li:hover > span, header .item-right i:hover{
 	color:#fc7e00;
 }
 /* banner section */
