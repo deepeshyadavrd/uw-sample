@@ -229,7 +229,11 @@ background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ecec
   </div> 
 
   </div>
-  
+  <style>
+.swap img:last-child{display:none}
+.swap:hover img:first-child{display:none}
+.swap:hover img:last-child{display:inline-block}
+</style>
   <div class="pd-img-in">
   {% if (product.stock_status == 'Out Of Stock') and (product.quantity == 0) %}
       <h3 class="shop-nowb-btn" style="margin-top: 19px;"> Out Of Stock</h3>
@@ -242,12 +246,15 @@ background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ecec
 {% endif %}
 {# {{ product.product_id }} #}
 {# <a href="{{ product.href }}" type="button" class="shop-nowb-btn" style="margin-top: 19px;"> Shop Now</a> #}
-    <a href="{{ product.href }}"><div class="overlay-pd"></div></a>
+
+    <a href="{{ product.href }}" class="swap">
+    {# <div class="overlay-pd"></div></a> #}
     {% if loop.first %}
                     {% if (product.stock_status == 'Out Of Stock') %}
                       <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid out-of-stock" fetchpriority="high" loading="eager">
                     {% else %}
                       <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid" fetchpriority="high" loading="eager">
+                      <img src="{{ product.thumb2 }}" alt="{{ product.name }}" class="img-fluid first" >
                     {% endif %}
 
                   {% else %}
@@ -257,6 +264,7 @@ background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ecec
                       <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid" loading="lazy">
                     {% endif %}
                   {% endif %}
+                  </a>
   </div>
   <div class="pd-deatils-sec">
     <div class="d-flex justify-content-between align-items-start p-2">
