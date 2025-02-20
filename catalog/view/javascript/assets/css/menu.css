@@ -642,9 +642,7 @@ header .item-right .bx-search{
     }
  }
 @media (max-width: 768px) {
-	.item-right .dropdown-content-pp {
-		/* top: 5.5rem; */
-	}
+
 	.container .open-search {
 		margin: 0;
 		position: static;
