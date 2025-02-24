@@ -217,7 +217,7 @@ class ControllerProductCategory2 extends Controller {
 					$rating = (int)$result['rating'];
 				} else {
 					$rating = false;
-				}
+				} 
 				$product_group = $this->model_catalog_product2->getGroupedProduct($result['product_id']);
 				print_r($product_group);
 				$pro_gro = array();
