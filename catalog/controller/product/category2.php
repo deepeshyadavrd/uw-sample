@@ -219,7 +219,7 @@ class ControllerProductCategory2 extends Controller {
 					$rating = false;
 				}
 				$product_group = $this->model_catalog_product2->getGroupedProduct($result['product_id']);
-				// print_r($product_group);
+				print_r($product_group);
 				$pro_gro = array();
 				foreach($product_group as  $value){
 					$pro_gro[] = array(
