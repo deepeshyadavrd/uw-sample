@@ -113,23 +113,23 @@ class ControllerStartupStartup extends Controller {
 		$this->registry->set('customer', $customer);
 		
 		// Customer Group
-		if (isset($this->session->data['customer']) && isset($this->session->data['customer']['customer_group_id'])) {
-			// For API calls
-			$this->config->set('config_customer_group_id', $this->session->data['customer']['customer_group_id']);
-		} elseif ($this->customer->isLogged()) {
-			// Logged in customers
-			$this->config->set('config_customer_group_id', $this->customer->getGroupId());
-		} elseif (isset($this->session->data['guest']) && isset($this->session->data['guest']['customer_group_id'])) {
-			$this->config->set('config_customer_group_id', $this->session->data['guest']['customer_group_id']);
-		}
+		// if (isset($this->session->data['customer']) && isset($this->session->data['customer']['customer_group_id'])) {
+		// 	// For API calls
+		// 	$this->config->set('config_customer_group_id', $this->session->data['customer']['customer_group_id']);
+		// } elseif ($this->customer->isLogged()) {
+		// 	// Logged in customers
+		// 	$this->config->set('config_customer_group_id', $this->customer->getGroupId());
+		// } elseif (isset($this->session->data['guest']) && isset($this->session->data['guest']['customer_group_id'])) {
+		// 	$this->config->set('config_customer_group_id', $this->session->data['guest']['customer_group_id']);
+		// }
 		
 		// Tracking Code
-		if (isset($this->request->get['utm_source'])) {
-			setcookie('utm_source', $this->request->get['utm_source'], time() + 3600 * 24 * 1000, '/');
-			if(!isset($_COOKIE['utm_source'])) {
-			$this->db->query("UPDATE `" . DB_PREFIX . "campaign` SET clicks = (clicks + 1) WHERE utm_source = '" . $this->db->escape($this->request->get['utm_source']) . "'");
-			}
-		}		
+		// if (isset($this->request->get['utm_source'])) {
+		// 	setcookie('utm_source', $this->request->get['utm_source'], time() + 3600 * 24 * 1000, '/');
+		// 	if(!isset($_COOKIE['utm_source'])) {
+		// 	$this->db->query("UPDATE `" . DB_PREFIX . "campaign` SET clicks = (clicks + 1) WHERE utm_source = '" . $this->db->escape($this->request->get['utm_source']) . "'");
+		// 	}
+		// }		
 		
 		// Currency
 		$code = '';
@@ -161,19 +161,19 @@ class ControllerStartupStartup extends Controller {
 		$this->registry->set('currency', new Cart\Currency($this->registry));
 		
 		// Tax
-		// $this->registry->set('tax', new Cart\Tax($this->registry));
+		$this->registry->set('tax', new Cart\Tax($this->registry));
 		
-		// if (isset($this->session->data['shipping_address'])) {
-		// 	$this->tax->setShippingAddress($this->session->data['shipping_address']['country_id'], $this->session->data['shipping_address']['zone_id']);
-		// } elseif ($this->config->get('config_tax_default') == 'shipping') {
-		// 	$this->tax->setShippingAddress($this->config->get('config_country_id'), $this->config->get('config_zone_id'));
-		// }
+		if (isset($this->session->data['shipping_address'])) {
+			$this->tax->setShippingAddress($this->session->data['shipping_address']['country_id'], $this->session->data['shipping_address']['zone_id']);
+		} elseif ($this->config->get('config_tax_default') == 'shipping') {
+			$this->tax->setShippingAddress($this->config->get('config_country_id'), $this->config->get('config_zone_id'));
+		}
 
-		// if (isset($this->session->data['payment_address'])) {
-		// 	$this->tax->setPaymentAddress($this->session->data['payment_address']['country_id'], $this->session->data['payment_address']['zone_id']);
-		// } elseif ($this->config->get('config_tax_default') == 'payment') {
-		// 	$this->tax->setPaymentAddress($this->config->get('config_country_id'), $this->config->get('config_zone_id'));
-		// }
+		if (isset($this->session->data['payment_address'])) {
+			$this->tax->setPaymentAddress($this->session->data['payment_address']['country_id'], $this->session->data['payment_address']['zone_id']);
+		} elseif ($this->config->get('config_tax_default') == 'payment') {
+			$this->tax->setPaymentAddress($this->config->get('config_country_id'), $this->config->get('config_zone_id'));
+		}
 
 		// $this->tax->setStoreAddress($this->config->get('config_country_id'), $this->config->get('config_zone_id'));
 		
