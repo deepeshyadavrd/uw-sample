@@ -37,7 +37,7 @@ class ControllerCommonHeader extends Controller {
 		$data['direction'] = $this->language->get('direction');
 
 		$data['name'] = $this->config->get('config_name');
-		$data['cart_items'] = sprintf($this->cart->countProducts());
+		// $data['cart_items'] = sprintf($this->cart->countProducts());
 	
 		
 		// $data['customer_name'] = $this->customer->getFirstName();
