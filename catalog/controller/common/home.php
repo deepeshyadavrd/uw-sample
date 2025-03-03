@@ -58,8 +58,8 @@ class ControllerCommonHome extends Controller {
 
 	}
 	public function gettrending(){
-		$this->load->model('catalog/product');
-		$trending = $this->model_catalog_product->gettrending();
+		// $this->load->model('catalog/product');
+		// $trending = $this->model_catalog_product->gettrending();
 
     // print_r($trending);
     // $data['banners'] = array();
@@ -72,11 +72,11 @@ class ControllerCommonHome extends Controller {
 		// 		);
 		// 	}
 		// }
-    foreach ($trending as $result) {
-			$product_data[] = $result;
-		}
+    // foreach ($trending as $result) {
+		// 	$product_data[] = $result;
+		// }
 		
-		echo json_encode($product_data);
+		// echo json_encode($product_data);
 	}
 
 	public function social(){
