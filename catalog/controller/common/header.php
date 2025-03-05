@@ -93,7 +93,7 @@ class ControllerCommonHeader extends Controller {
 			
 		$data['coupon_code'] = $coupon_info[0]['code'];
 		// print_r($coupon_info);
-		
+		// print_r($data);
 
 		return $this->load->view('common/header', $data);
 	}
