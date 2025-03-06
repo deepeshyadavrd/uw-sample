@@ -81,6 +81,13 @@ class ControllerCommonHeader extends Controller {
 		// $data['telephone'] = $this->config->get('config_telephone');
 
 		
+		$req_uri = end(explode('/',$_SERVER[REQUEST_URI]));
+			$req_uri = strtok($req_uri, '?');
+
+		$data['canonical'] = '';
+		if($data['title']!='The page you requested cannot be found!'){
+			$data['canonical'] = $server.strtolower($req_uri);
+		}
 		
 		$data['language'] = $this->load->controller('common/language');
 		$data['currency'] = $this->load->controller('common/currency');
