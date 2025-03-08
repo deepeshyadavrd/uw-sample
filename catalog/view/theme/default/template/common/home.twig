@@ -919,8 +919,96 @@ document.addEventListener("DOMContentLoaded", function () {
   </div>
 </section>
     <!--new arrival furniture  -->
+{% set products = [
+    {"name": "Winston Sofa Cum Bed", "LINK":"winston-sofa-cum-bed-honey-finish","image": "https://www.urbanwood.in//image/cache/catalog/sofa-cum-bed/winston/honey/honey1-1920x1340.jpg", "price": "₹ 40,700"},
+    {"name": "Morkis Console Table", "LINK":"morkis-console-table-walnut-finish","image": "https://www.urbanwood.in//image/cache/catalog/console-tables/morkis/walnut/walnut1-1920x1340.jpg", "price": "₹ 27,344"},
+    {"name": "Breeze Bedside Table", "LINK":"breeze-bedside-table-honey-finish","image": "https://www.urbanwood.in//image/cache/catalog/bedside-table/breeze/honey/honey1-1920x1340.jpg", "price": "₹ 8,122"},
+    {"name": "Evana Dressing Table", "LINK":"evana-dressing-table-honey-finish","image": "https://www.urbanwood.in//image/cache/catalog/dressing/evana/honey/honey1-1920x1340.jpg", "price": "₹ 30,000"}
+] %}
+<style>
+.new-arrivals {
+    text-align: center;
+    padding: 10px;
+}
 
-<section class="game-section py-lg-4 py-3" aria-label="Latest Arrials" data-nav="true">
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: repeat(2, auto); /* 2 rows */
+    gap: 10px;
+    justify-content: center;
+    /* max-width: 600px; */
+    margin: auto;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    /* max-height: 150px; */
+    object-fit: cover;
+    border-radius: 5px;
+}
+.grid h3 {
+  font-size: 14px;
+}
+.nw-content {
+  margin-top:10px;
+}
+.grid h3 {
+  margin: 0;
+}
+.grid p {
+  margin: 0;
+}
+/* Larger screens: 4 products in a single row */
+@media (min-width: 600px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    .card:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* Large Screens: 4 columns in a row */
+@media (min-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .grid h3 {
+    font-size: 18px;
+  }
+  .card:hover {
+    transform: scale(1.05);
+  }
+}
+
+</style>
+<section class="new-arrivals">
+    <h2 class="pg-heading text-center">Latest Arrivals</h2>
+    <p class="heading-para text-center">Fresh Looks for Your Space</p>
+    <div class="grid">
+        {% for item in products %}
+            <div class="card">
+            <a href={{ item.link }}
+                <img src="{{ item.image }}" alt="{{ item.name }}">
+                <div class="nw-content">
+                  <h3>{{ item.name }}</h3>
+                  <p>{{ item.price }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{# <section class="game-section py-lg-4 py-3" aria-label="Latest Arrials" data-nav="true">
   <div class="container">
    <div class="row"> 
    <h3 class="pg-heading text-center">Latest Arrivals</h3>
@@ -1024,7 +1112,7 @@ document.addEventListener("DOMContentLoaded", function () {
  
    </div>
    </div> 
- </section>
+ </section> #}
     <style>
   .trending_product_box {
     padding: 0;
