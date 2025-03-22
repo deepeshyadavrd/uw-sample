@@ -124,6 +124,13 @@ class ControllerCatalogBlog extends Controller {
 			$order = 'ASC';
 		}
 
+		if (isset($this->request->get['filter_category_id'])) {
+			$filter_category_id = $this->request->get['filter_category_id'];
+		} else {
+			$filter_category_id = 0;
+
+		}
+
 		if (isset($this->request->get['page'])) {
 			$page = $this->request->get['page'];
 		} else {
@@ -138,6 +145,10 @@ class ControllerCatalogBlog extends Controller {
 
 		if (isset($this->request->get['order'])) {
 			$url .= '&order=' . $this->request->get['order'];
+		}
+
+		if (isset($this->request->get['filter_category_id'])) {
+			$url .= '&filter_category_id=' . $this->request->get['filter_category_id'];
 		}
 
 		if (isset($this->request->get['page'])) {
@@ -165,10 +176,19 @@ class ControllerCatalogBlog extends Controller {
 			'sort'  => $sort,
 			'order' => $order,
 			'start' => ($page - 1) * $this->config->get('config_limit_admin'),
-			'limit' => $this->config->get('config_limit_admin')
+			'limit' => $this->config->get('config_limit_admin'),
+			'filter_category_id' => $filter_category_id
+
 		);
 
-		$information_total = $this->getTotalInformations();
+if($filter_data['filter_category_id'] == 0){
+	$information_total = $this->getTotalInformations();
+	
+}else{
+//print_r($filter_data);
+$information_total = 1;
+}
+		
 
 		$results = $this->getInformations($filter_data);
 // print_r($results);
