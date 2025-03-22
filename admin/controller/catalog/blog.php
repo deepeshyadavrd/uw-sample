@@ -117,7 +117,7 @@ class ControllerCatalogBlog extends Controller {
 		} else {
 			$sort = 'id.title';
 		}
-
+		$data['user_token'] = $this->session->data['user_token'];
 		if (isset($this->request->get['order'])) {
 			$order = $this->request->get['order'];
 		} else {
@@ -572,6 +572,10 @@ $information_total = 1;
 		if ($data) {
 			$sql = "SELECT * FROM " . DB_PREFIX . "blog i LEFT JOIN " . DB_PREFIX . "blog_description id ON (i.information_id = id.information_id) WHERE id.language_id = '" . (int)$this->config->get('config_language_id') . "'";
 
+			if (!empty($data['filter_name'])) {
+
+				$sql .= " AND id.title LIKE '%" . $this->db->escape($data['filter_name']) . "%'";
+			}
 			$sort_data = array(
 				'id.title',
 				'i.sort_order'
@@ -661,5 +665,73 @@ $information_total = 1;
 		return $query->row['total'];
 	}
 
-	
+	public function autocomplete() {
+
+		$json = array();
+
+
+
+		if (isset($this->request->get['filter_name'])) {
+
+			$this->load->model('catalog/blog');
+
+
+
+			$filter_data = array(
+
+				'filter_name' => $this->request->get['filter_name'],
+
+				'sort'        => 'name',
+
+				'order'       => 'ASC',
+
+				'start'       => 0,
+
+				'limit'       => 15
+
+			);
+
+
+
+			$results = $this->getinformations($filter_data);
+
+
+
+			foreach ($results as $result) {
+
+				$json[] = array(
+
+					'category_id' => $result['information_id'],
+
+					'name'        => strip_tags(html_entity_decode($result['title'], ENT_QUOTES, 'UTF-8'))
+
+				);
+
+			}
+
+		}
+
+
+
+		$sort_order = array();
+
+
+
+		foreach ($json as $key => $value) {
+
+			$sort_order[$key] = $value['name'];
+
+		}
+
+
+
+		array_multisort($sort_order, SORT_ASC, $json);
+
+
+
+		$this->response->addHeader('Content-Type: application/json');
+
+		$this->response->setOutput(json_encode($json));
+
+	}
 }
