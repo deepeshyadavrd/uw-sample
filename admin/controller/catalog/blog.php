@@ -576,6 +576,9 @@ $information_total = 1;
 
 				$sql .= " AND id.title LIKE '%" . $this->db->escape($data['filter_name']) . "%'";
 			}
+			if (!empty($data['filter_category_id'])) {
+				$sql .= " AND i.information_id = '" . $this->db->escape($data['filter_category_id']) . "'";
+			}
 			$sort_data = array(
 				'id.title',
 				'i.sort_order'
