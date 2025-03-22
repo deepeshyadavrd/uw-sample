@@ -147,7 +147,7 @@ $('#button-filter').on('click', function() {
     url += '&filter_status=' + encodeURIComponent(filter_status);
   }
 
-  location = '?route=catalog/category&user_token={{ user_token }}' + url;
+  location = '?route=catalog/blog&user_token={{ user_token }}' + url;
 });
     $('input[name=\'filter_name\']').autocomplete({
   'source': function(request, response) {
