@@ -317,7 +317,7 @@ class ModelCatalogProduct2 extends Model {
 
 	public function getProductsNewArrival($data = array()) {
 		$validimi = false; $filter_groups = array();
-		$sql = "SELECT SUBSTRING_INDEX(pd.name, ' ', 1) AS base_name, p.product_id, (SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id AND r1.status = '1' GROUP BY r1.product_id) AS rating, (SELECT price FROM " . DB_PREFIX . "product_special ps WHERE ps.product_id = p.product_id ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special";
+		$sql = "SELECT SUBSTRING_INDEX(pd.name, ' ', 2) AS base_name, p.product_id, (SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review r1 WHERE r1.product_id = p.product_id AND r1.status = '1' GROUP BY r1.product_id) AS rating, (SELECT price FROM " . DB_PREFIX . "product_special ps WHERE ps.product_id = p.product_id ORDER BY ps.priority ASC, ps.price ASC LIMIT 1) AS special";
 
 		if (!empty($data['filter_category_id'])) {
 			if (!empty($data['filter_sub_category'])) {
@@ -477,7 +477,7 @@ class ModelCatalogProduct2 extends Model {
 				$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
 			}
 			$product_data = array();
-// print_r($sql);
+print_r($sql);
 		$query = $this->db->query($sql);
 
 		
