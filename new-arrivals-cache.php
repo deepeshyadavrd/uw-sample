@@ -7,7 +7,7 @@ $registry = $this;
 $db = $registry->get('db');
 
 // Fetch products marked as New Arrivals
-$query = $db->query("SELECT product_id, image, pd.name 
+$query = $db->query("SELECT p.product_id, p.image, pd.name 
                      FROM " . DB_PREFIX . "product p 
                      LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id)
                      WHERE p.status = 1 
