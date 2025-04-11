@@ -20,7 +20,6 @@ dbfiles/
 eos/
 install/
 storage/
-system/
 template/
 .svn/
 .index.nitropack-backup.php
