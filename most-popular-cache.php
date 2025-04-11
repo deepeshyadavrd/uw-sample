@@ -26,14 +26,11 @@ $language->load('default');
 $registry->set('language', $language);
 
 // Load most recent products (customize as needed)
-$query = $db->query("
-    SELECT p.product_id, pd.name, p.image, p.price 
-    FROM " . DB_PREFIX . "product p 
-    LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) 
-    WHERE p.status = 1 
-    ORDER BY p.date_added DESC 
-    LIMIT 10
-");
+$query = $db->query("SELECT p.product_id, p.image, pd.name, p.price
+                     FROM " . DB_PREFIX . "product p 
+                     LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id)
+                     ORDER BY p.viewed DESC 
+                     LIMIT 10");
 
 $data = [];
 
@@ -47,6 +44,6 @@ foreach ($query->rows as $row) {
 }
 
 // Save to JSON file
-file_put_contents('new-arrivals.json', json_encode($data, JSON_PRETTY_PRINT));
+file_put_contents('most-popular.json', json_encode($data, JSON_PRETTY_PRINT));
 
-echo "✅ new-arrivals.json generated!";
+echo "✅ most-popular.json generated!";
