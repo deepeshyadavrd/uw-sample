@@ -1,32 +1,52 @@
 <?php
-// Load OpenCart framework
-require_once('../../index.php');
+// Load OpenCart config
+require_once('config.php');
 
-// Get the registry instance
-$registry = $this;
-$db = $registry->get('db');
+// Startup
+require_once(DIR_SYSTEM . 'startup.php');
 
-// Fetch products marked as New Arrivals
-$query = $db->query("SELECT p.product_id, p.image, pd.name 
-                     FROM " . DB_PREFIX . "product p 
-                     LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id)
-                     WHERE p.status = 1 
-                     AND p.date_available <= NOW()
-                     ORDER BY p.date_added DESC 
-                     LIMIT 10");
+// Registry setup
+$registry = new Registry();
 
-$products = [];
+// Config
+$config = new Config();
+$registry->set('config', $config);
+
+// Loader
+$loader = new Loader($registry);
+$registry->set('load', $loader);
+
+// Database
+$db = new DB(DB_DRIVER, DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE, DB_PORT);
+$registry->set('db', $db);
+
+// Language
+$language = new Language('en-gb');
+$language->load('default');
+$registry->set('language', $language);
+
+// Load most recent products (customize as needed)
+$query = $db->query("
+    SELECT p.product_id, pd.name, p.image, p.price 
+    FROM " . DB_PREFIX . "product p 
+    LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) 
+    WHERE p.status = 1 
+    ORDER BY p.date_added DESC 
+    LIMIT 10
+");
+
+$data = [];
 
 foreach ($query->rows as $row) {
-    $products[] = [
-        'title' => $row['name'],
-        'link' => '/index.php?route=product/product&product_id=' . $row['product_id'],
-        'image' => 'image/' . $row['image']
+    $data[] = [
+        'id'    => $row['product_id'],
+        'name'  => $row['name'],
+        'image' => $row['image'],
+        'price' => $row['price'],
     ];
 }
 
-// Save to JSON
-file_put_contents(__DIR__ . '/new-arrivals.json', json_encode($products));
+// Save to JSON file
+file_put_contents('new-arrivals.json', json_encode($data, JSON_PRETTY_PRINT));
 
-echo "New Arrivals JSON cached successfully!";
-?>
+echo "✅ new-arrivals.json generated!";
