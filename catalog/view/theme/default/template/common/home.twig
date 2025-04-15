@@ -1323,6 +1323,69 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     </div>
 </section>
+<h2>New Arrivals</h2>
+<div id="new-arrivals-section">
+  <div id="new-arrivals-carousel" class="owl-carousel owl-theme"></div>
+</div>
+
+<h2>Popular Products</h2>
+<div id="popular-products-section">
+  <div id="popular-products-carousel" class="owl-carousel owl-theme"></div>
+</div>
+<script>
+function loadCarousel(jsonFile, containerId) {
+  fetch(jsonFile)
+    .then((res) => res.json())
+    .then((data) => {
+      const container = document.getElementById(containerId);
+      data.forEach((product) => {
+        const item = document.createElement("div");
+        item.className = "item";
+        item.innerHTML = `
+          <a href="${product.link}">
+            <img src="${product.image}" alt="${product.name}" loading="lazy" />
+            <h4>${product.name}</h4>
+            <p>₹${product.price}</p>
+          </a>
+        `;
+        container.appendChild(item);
+      });
+
+      $(`#${containerId}`).owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        responsive: {
+          0: { items: 1 },
+          600: { items: 2 },
+          1000: { items: 4 }
+        }
+      });
+    })
+    .catch((err) => console.error(`Error loading ${jsonFile}:`, err));
+}
+
+function setupLazyCarousel(sectionId, jsonFile, containerId) {
+  let loaded = false;
+  function checkPosition() {
+    const section = document.getElementById(sectionId);
+    const rect = section.getBoundingClientRect();
+    if (!loaded && rect.top - 100 <= window.innerHeight) {
+      loadCarousel(jsonFile, containerId);
+      loaded = true;
+      window.removeEventListener("scroll", checkPosition);
+    }
+  }
+  window.addEventListener("scroll", checkPosition);
+  checkPosition(); // in case it's already in view
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  setupLazyCarousel("new-arrivals-section", "new-arrivals.json", "new-arrivals-carousel");
+  setupLazyCarousel("popular-products-section", "most-popular.json", "popular-products-carousel");
+});
+</script>
+
     
     
 {# family collection #}
