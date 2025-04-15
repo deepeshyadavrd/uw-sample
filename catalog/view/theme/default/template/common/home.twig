@@ -1324,103 +1324,114 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
 </section>
 <style>
-.owl-carousel .item {
-  background: #fff;
-  border-radius: 8px;
-  padding: 12px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
-  margin: 10px;
-}
-
-.owl-carousel .item:hover {
-  transform: translateY(-5px);
-}
-
-.owl-carousel .item img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 10px;
-}
-
-.owl-carousel .item h4 {
-  font-size: 16px;
-  margin: 0;
-  color: #333;
-  font-weight: 600;
-}
-
-.owl-carousel .item p {
-  font-size: 14px;
-  color: #777;
-  margin-top: 4px;
-}
-
+.product-card {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    text-align: center;
+  }
+  .product-image img {
+    max-width: 100%;
+    border-radius: 4px;
+  }
+  .product-info h4 {
+    margin: 8px 0 4px;
+    font-size: 16px;
+  }
+  .product-info p {
+    color: #555;
+    font-size: 14px;
+  }
 </style>
-<h2>New Arrivals</h2>
-<div id="new-arrivals-section">
-  <div id="new-arrivals-carousel" class="owl-carousel owl-theme"></div>
+<h2>New arrival</h2>
+<div id="new-arrivals" class="carousel-section">
+  <div class="owl-carousel new-arrivals-carousel"></div>
 </div>
 
-<h2>Popular Products</h2>
-<div id="popular-products-section">
-  <div id="popular-products-carousel" class="owl-carousel owl-theme"></div>
+<h2>Most Popular</h2>
+<div id="popular-products" class="carousel-section">
+  <div class="owl-carousel popular-products-carousel"></div>
 </div>
 <script>
-function loadCarousel(jsonFile, containerId) {
-  fetch(jsonFile)
-    .then((res) => res.json())
-    .then((data) => {
-      const container = document.getElementById(containerId);
-      data.forEach((product) => {
-        const item = document.createElement("div");
-        item.className = "item";
-        item.innerHTML = `
-          <a href="${product.link}">
-            <img src="${product.image}" alt="${product.name}" loading="lazy" />
-            <h4>${product.name}</h4>
-            <p>₹${product.price}</p>
-          </a>
-        `;
-        container.appendChild(item);
-      });
-
-      $(`#${containerId}`).owlCarousel({
-        loop: true,
-        margin: 10,
-        // nav: true,
-        responsive: {
-          0: { items: 1 },
-          600: { items: 2 },
-          1000: { items: 4 }
-        }
-      });
-    })
-    .catch((err) => console.error(`Error loading ${jsonFile}:`, err));
-}
-
-function setupLazyCarousel(sectionId, jsonFile, containerId) {
-  let loaded = false;
-  function checkPosition() {
-    const section = document.getElementById(sectionId);
-    const rect = section.getBoundingClientRect();
-    if (!loaded && rect.top - 100 <= window.innerHeight) {
-      loadCarousel(jsonFile, containerId);
-      loaded = true;
-      window.removeEventListener("scroll", checkPosition);
-    }
+  function resizeImageTemporarily(url, width, height, callback) {
+    const img = new Image();
+    img.crossOrigin = 'Anonymous';
+    img.onload = function () {
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, width, height);
+      callback(canvas.toDataURL('image/jpeg'));
+    };
+    img.src = url;
   }
-  window.addEventListener("scroll", checkPosition);
-  checkPosition(); // in case it's already in view
-}
 
-document.addEventListener("DOMContentLoaded", function () {
-  setupLazyCarousel("new-arrivals-section", "new-arrivals.json", "new-arrivals-carousel");
-  setupLazyCarousel("popular-products-section", "most-popular.json", "popular-products-carousel");
-});
+  function loadCarousel(jsonFile, targetSelector) {
+    fetch(jsonFile)
+      .then(res => res.json())
+      .then(data => {
+        const container = document.querySelector(`${targetSelector}`);
+        data.forEach(product => {
+          resizeImageTemporarily(product.image, 300, 200, resizedImage => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+              <div class="product-image">
+                <img src="${resizedImage}" alt="${product.name}">
+              </div>
+              <div class="product-info">
+                <h4>${product.name}</h4>
+                <p>${product.price}</p>
+              </div>
+            `;
+            container.appendChild(card);
+            // Initialize carousel after all items are added
+            if (container.children.length === data.length) {
+              $(targetSelector).owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                responsive: {
+                  0: { items: 1 },
+                  600: { items: 2 },
+                  1000: { items: 3 }
+                }
+              });
+            }
+          });
+        });
+      });
+  }
+
+  function handleScrollLazyLoad() {
+    const newArrivalSection = document.getElementById('new-arrivals');
+    const popularProductSection = document.getElementById('popular-products');
+    let newArrivalLoaded = false;
+    let popularLoaded = false;
+
+    function isNearViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return rect.top <= window.innerHeight - 100;
+    }
+
+    function checkLoad() {
+      if (!newArrivalLoaded && isNearViewport(newArrivalSection)) {
+        loadCarousel('new-arrivals.json', '.new-arrivals-carousel');
+        newArrivalLoaded = true;
+      }
+      if (!popularLoaded && isNearViewport(popularProductSection)) {
+        loadCarousel('most-popular.json', '.popular-products-carousel');
+        popularLoaded = true;
+      }
+    }
+
+    window.addEventListener('scroll', checkLoad);
+    checkLoad(); // Initial check on load
+  }
+
+  document.addEventListener('DOMContentLoaded', handleScrollLazyLoad);
 </script>
 
     
