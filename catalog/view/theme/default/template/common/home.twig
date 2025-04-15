@@ -1323,6 +1323,43 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     </div>
 </section>
+<style>
+.owl-carousel .item {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  margin: 10px;
+}
+
+.owl-carousel .item:hover {
+  transform: translateY(-5px);
+}
+
+.owl-carousel .item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.owl-carousel .item h4 {
+  font-size: 16px;
+  margin: 0;
+  color: #333;
+  font-weight: 600;
+}
+
+.owl-carousel .item p {
+  font-size: 14px;
+  color: #777;
+  margin-top: 4px;
+}
+
+</style>
 <h2>New Arrivals</h2>
 <div id="new-arrivals-section">
   <div id="new-arrivals-carousel" class="owl-carousel owl-theme"></div>
@@ -1354,7 +1391,7 @@ function loadCarousel(jsonFile, containerId) {
       $(`#${containerId}`).owlCarousel({
         loop: true,
         margin: 10,
-        nav: true,
+        // nav: true,
         responsive: {
           0: { items: 1 },
           600: { items: 2 },
