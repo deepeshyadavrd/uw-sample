@@ -1325,17 +1325,20 @@ document.addEventListener("DOMContentLoaded", function () {
 </section>
 <style>
 .product-card {
-    padding: 10px;
+    padding: 0px;
     border: none;
     border-radius: 6px;
     background: #fff;
     text-align: center;
     transition: all 0.3s ease;
     box-shadow: none;
+    
+    z-index: 99999;
   }
 
   .product-card:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 99999;
   }
 
   .product-card img {
@@ -1345,13 +1348,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   .product-card h5 {
     margin: 6px 0 4px;
-    font-size: 16px;
+    font-size: 12px;
     color: #333;
+    height: 15px;
+    overflow: hidden
   }
 
   .product-card p {
     color: #777;
     font-size: 14px;
+    margin: 0;
   }
 
   /* Owl carousel nav button custom styles */
@@ -1394,15 +1400,24 @@ document.addEventListener("DOMContentLoaded", function () {
     position: relative;
   }
 </style>
+<section class=" py-4">
 <h2>New Arrivals</h2>
 <div id="new-arrivals-section">
   <div id="new-arrivals-carousel" class="owl-carousel owl-theme"></div>
 </div>
-
-<h2>Popular Products</h2>
-<div id="popular-products-section">
-  <div id="popular-products-carousel" class="owl-carousel owl-theme"></div>
-</div>
+</section>
+<section class=" py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2>Popular Products</h2>
+        <div id="popular-products-section">
+          <div id="popular-products-carousel" class="owl-carousel owl-theme"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <script>
 function loadCarousel(jsonFile, containerId) {
   fetch(jsonFile)
