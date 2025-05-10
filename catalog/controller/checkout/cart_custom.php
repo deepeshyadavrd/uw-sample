@@ -47,7 +47,7 @@ $this->load->model('tool/image');
             );
         }
 
-        $data['checkout'] = $this->url->link('checkout/address', '', true); // link to next page
+        $data['checkout'] = $this->url->link('checkout/auth_custom', '', true); // link to next page
 
         $data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
