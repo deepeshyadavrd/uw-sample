@@ -8,10 +8,11 @@ class ControllerCheckoutPaymentAddressCustom extends Controller {
         if ($this->request->server['REQUEST_METHOD'] == 'POST') {
     if ($this->customer->isLogged()) {
         if ($this->request->post['address_option'] == 'new') {
+            $customer_id = $this->customer->getId();
             // Save new address
             $this->load->model('account/address');
             $this->session->data['payment_address'] = $this->request->post;
-            $this->session->data['payment_address']['address_id'] = $this->model_account_address->addAddress($this->request->post);
+            $this->session->data['payment_address']['address_id'] = $this->model_account_address->addAddress($customer_id,$this->request->post);
         } else {
             // Use existing address
             $this->session->data['payment_address'] = $this->model_account_address->getAddress($this->request->post['address_id']);

@@ -1,18 +1,287 @@
 {{ header }}
+{{ menu }}
+<style>
+.trackorder-banner {
+	background: url(catalog/view/javascript/assets/image/trackorder-banner.jpg) top center/100% 100% no-repeat
+}
+.track-order-breadcrumb {
+	padding: 2rem 0;
+	width: 36%
+}
+
+.track-order-breadcrumb p {
+	color: #434342;
+	font-size: 14px;
+	font-weight: 400;
+	padding: 0;
+	margin: 0;
+	list-style: outside
+}
+.track-order-search {
+	border-radius: 100px !important;
+	border: none;
+	box-shadow: 0 5px 20px #8241004f;
+	padding: 10px !important
+}
+
+.track-order-search::placeholder {
+	font-size: 14px;
+	color: #8f8f8f
+}
+
+.track-order-search-btn {
+	background: #fc7e00;
+	border-radius: 100px;
+	padding: 9px 10px;
+	font-size: 12px;
+	border: none;
+	color: #fff;
+	position: absolute;
+	right: 0
+}
+.download-btn,
+.view-pdf,
+.box-details .track-heading .order-id {
+	font-weight: 600
+}
+.download-btn {
+	color: #ff8000;
+	border: 2px dashed #ff8000;
+	border-radius: 100px;
+	padding: 10px 20px;
+	font-size: 16px
+}
+.view-pdf {
+	color: #434342;
+	font-size: 14px;
+	text-decoration: underline
+}
+.box-details {
+	/* background: #fff;
+	width: 70%;
+	max-width: 70%; */
+	height: fit-content;
+	margin: 5em auto;
+	border-radius: 25px;
+	padding-bottom: 45px;
+	box-shadow: 0 5px 20px #cccccc40
+}
+.box-details .track-heading {
+	background: #ff8000;
+	border-radius: 25px 25px 0 0;
+	padding: 1em 0;
+	color: #fff;
+	text-align: center;
+	font-size: 20px
+}
+.steps li:last-child .cirlce-step:after {
+	display: none
+}
+.steps {
+	list-style: none
+}
+.steps {
+	display: block;
+	margin: 0 auto;
+	padding: 0;
+	width: 300px
+}
+
+.steps li {
+	display: flex;
+	align-items: center;
+	justify-content: start
+}
+.cirlce-step {
+	background: #cfcccc;
+	width: 46px;
+	height: 46px;
+	border-radius: 100px;
+	border: 6px solid #efefef;
+	margin: 1em;
+	position: relative
+}
+
+.cirlce-step:after {
+	position: absolute;
+	content: '';
+	bottom: -84px;
+	margin: 0 auto;
+	right: 0;
+	left: 0;
+	background: #f1f1f1;
+	width: 3px;
+	height: 77px
+}
+
+.cirlce-step i {
+	color: #fbfafa;
+	font-size: 14px;
+	padding: 5px 0 0;
+	display: block;
+	margin: 0 auto;
+	text-align: center
+}
+
+.cirlce-step.active.step-1 {
+	background: red;
+	border-color: #fdd
+}
+
+.cirlce-step.active.step-2 {
+	background: #ffc000;
+	border-color: #ffeebc
+}
+
+.cirlce-step.active.step-3 {
+	background: #ff6000;
+	border-color: #ffdeca
+}
+
+.cirlce-step.active.step-4 {
+	background: #0dcaf0;
+	border-color: #d3f8ff
+}
+
+.cirlce-step.active.step-5 {
+	background: #ea78ff;
+	border-color: #fbe5ff
+}
+
+.cirlce-step.active.step-6 {
+	background: #2dcd03;
+	border-color: #d3ffc7
+}
+.dd-time-box2 ul {
+	margin: 0;
+	padding: 0;
+	list-style: none
+}
+.dd-time-box,
+.dd-time-box2 {
+	margin: 2em 1em;
+	background: #fff7ec
+}
+.dd-time-box {
+	width: 30%;
+	padding: 1em;
+	border: 1px solid #ff8000;
+	text-align: center;
+	border-radius: 11px
+}
+
+.dd-time-box .shipp-date,
+.dd-time-box p {
+	font-size: 13px;
+	color: #686868;
+	margin: 9px 0;
+	line-height: 1;
+	font-weight: 600
+}
+
+.dd-time-box2 {
+	width: 50%;
+	padding: 1em;
+	border: 1px solid #ff8000;
+	text-align: left;
+	border-radius: 11px;
+	min-height: 213px
+}
+
+.dd-time-box2 ul li {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	color: #41464b;
+	font-size: 12px;
+	text-align: left;
+	line-height: 2
+}
+@media screen and (min-device-width:1200px) and (max-device-width:1600px) and (-webkit-min-device-pixel-ratio:1) {
+  .track-order-breadcrumb {
+		width: 56%
+	}
+  .box-details {
+		/* background: #fff;
+		width: 90%;
+		max-width: 90%; */
+		margin: 2em auto
+	}
+}
+@media only screen and (min-device-width:768px) and (max-device-width:1024px) and (-webkit-min-device-pixel-ratio:1) {
+  .track-order-breadcrumb {
+		padding: 2rem 0;
+		width: 60%
+	}
+  .box-details {
+		width: 100%;
+		max-width: 100%
+	}
+}
+@media (min-device-width:800px) and (max-device-width:1280px) {
+  .track-order-breadcrumb {
+		padding: 0
+	}
+}
+@media only screen and (max-width:1024px) {
+	.track-order-breadcrumb {
+		padding: 0;
+		width: 60%
+	}
+  .dd-time-box2 {
+		width: 100%;
+		margin: 2em 0;
+	}
+}
+@media screen and (max-device-width:992px) {
+  .trackorder-banner {
+		margin-top: 3em
+	}
+  .track-order-breadcrumb {
+		padding: 1rem 0
+	}
+}
+@media only screen and (max-width:768px) {
+  .box-details {
+		width: 100%;
+		max-width: 100%;
+		margin: 2em auto
+	}
+  .dd-time-box {
+		width: 100%;
+		margin: 2em 0;
+	}
+}
+@media only screen and (max-width:576px) {
+  .track-order-breadcrumb p{
+		display: none
+	}
+}
+@media only screen and (max-width:450px) {
+  .track-order-search {
+		padding: 6px !important
+	}
+
+	.track-order-search-btn {
+		padding: 9px 13px;
+		font-size: 12px
+	}
+}
+</style>
 {% if error %}
 <div class="success-popup2"> <span class="warrning-svg"> <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     </svg>  </span> <span class="warrning-text">  <p>{{ error }}</p> </span> </div>
 {% endif %}
 <div class="wrapper">
 
-<div class="breadcrumb-sec trackorder-banner">
-  <div class="container container-custom">
-    <div class="customfurniture-breadcrumb px-md-5">
-      <h6> <span style="color:#fc7f03"><strong style="font-weight: 700;">Track your Order</strong></h6>
+<div class="trackorder-banner">
+  <div class="container">
+    <div class="track-order-breadcrumb px-md-5">
+      <h1> <span style="color:#fc7f03"><strong style="font-weight: 700;">Track your Order</strong></h1>
       <p class="text-lg-start d-sm-block d-none"> Track your Order or Shipment. Enter your <span style="color:#fc7f03; font-weight: 700;"> Order ID</span> to track the status of your order.</p>
      <div>
-        <form class="d-flex my-lg-5 my-md-3 " action="{{ action }}" method="POST">
+        <form class="d-flex my-lg-5 my-md-3 " action="?route=account/trackorder" method="POST">
             <input class="form-control me-1 track-order-search" type="text" name="order_id" placeholder="Your Order ID" aria-label="Search" required>
-            <button class="track-order-search-btn" type="submit"><i class="fas fa-search"></i></button>
+            <button class="track-order-search-btn" type="submit"><i class='bx bx-search bx-sm'></i></button>
           </form>
      </div>
     </div>
@@ -31,64 +300,52 @@
     steps[currentStep].classList.add('active');
   }
 </script>
-{# Processing
-Shipped
-Canceled
-Complete
-Denied
-Canceled Reversal
-Failed
-Refunded
-Reversed
-Chargeback
-Pending
-Voided
-Processed
-Expired #}
+
 <div class="track-detail-box"> 
-<div class="container container-custom">
+<div class="container">
 <div class="box-details">
     <div class="track-heading">Order Tracking &nbsp; <span class="order-id">{{ order_id }}</span></div>
-    {% if histories|last.status == 'Processing' %}
+    {# {{ histories|last.status }} #}
+    
+    {% if histories|last.status == 'Pending' %}
     <div class="row">
     <div class="col-md-4"> 
    <ul class="steps" id="steps">
     <li>
-    <div class="step-1 cirlce-step active"> <i class="fas fa-shopping-bag"></i></div>
+    <div class="step-1 cirlce-step active"> <i class='bx bx-shopping-bag bx-sm'></i></div>
     <div class="step-detail"> Order Placed</div>
     
   </li>
    <li>
    
-    <div class="step-2 cirlce-step active"> <i class="fas fa-tasks"></i></div>
+    <div class="step-2 cirlce-step"> <i class='bx bx-list-ul bx-sm'></i></div>
     <div class="step-detail"> Processing Order</div>
     
   </li>
   <li>
-    <div class="step-3 cirlce-step"><i class="fas fa-tools"></i></div>
+    <div class="step-3 cirlce-step"><i class='bx bxs-wrench bx-sm'></i></div>
     <div class="step-detail"> Under Manfacturing</div>
   </li>
   <li>
-    <div class="step-4 cirlce-step"> <i class="fas fa-tools"></i></div>
+    <div class="step-4 cirlce-step"><i class='bx bxs-user-check bx-sm'></i></div>
     <div class="step-detail"> Quality Check & Packing</div>
   </li>
   <li>
-    <div class="step-5 cirlce-step"><i class="fas fa-shipping-fast"></i></div>
+    <div class="step-5 cirlce-step"><i class='bx bx-package bx-sm'></i></div>
     <div class="step-detail"> Dispacthed Item</div>
   </li>
   <li>
-    <div class="step-6 cirlce-step"><i class="fas fa-people-carry"></i></div>
+    <div class="step-6 cirlce-step"><i class='bx bx-home bx-sm'></i></div>
     <div class="step-detail"> Product Delivered</div>
   </li>
    </ul>
     </div>   
     <div class="col-md-8"> 
-        <div class="d-md-flex d-block"> 
+        <div class="d-md-flex d-block px-3 justify-content-around"> 
         <div class="dd-time-box"> 
-            <span class="tick-icon2"><i class="fas fa-check"></i></span>
+            <span class="tick-icon2"><i class='bx bx-check-circle bx-lg' ></i></span>
             <div class=""> <p>Order Placed </p>
-             <div class="shipp-date">{{ date_added }}</div>
-             {# <p class="ready-btn">Ready For PickUp</p> #}
+             <div class="shipp-date">{{ date_added|date() }}</div>
             </div>
         </div>
         <div class="dd-time-box2"> 
@@ -104,53 +361,47 @@ Expired #}
     </div>
         <div class="invoice-box d-block">
             <div class="d-flex align-items-center justify-content-evenly">
-       <div><img src="../10-1-23/assets/image/download-vetor-img.jpg" alt=""></div>
-       {# <button type="button" class="download-btn"> DOWNLOAD INVOICE</button>
-       <a href="" class="view-pdf">View Details</a> #}
+       <div><img src="catalog/view/javascript/assets/image/download-vetor-img.jpg" alt=""></div>
     </div>
         </div>
     </div> 
     </div>
-    {% elseif histories|last.status == 'Pending' %}
+    {% elseif histories|last.status == 'Confirmed' %}
     <div class="row">
     <div class="col-md-4"> 
    <ul class="steps" id="steps">
     <li>
-    <div class="step-1 cirlce-step active"> <i class="fas fa-shopping-bag"></i></div>
-    <div class="step-detail"> Order Placed</div>
-    
-  </li>
-   <li>
-   
-    <div class="step-2 cirlce-step active"> <i class="fas fa-tasks"></i></div>
-    <div class="step-detail"> Processing Order</div>
-    
-  </li>
-  <li>
-    <div class="step-3 cirlce-step active"><i class="fas fa-tools"></i></div>
-    <div class="step-detail"> Under Manfacturing</div>
-  </li>
-  <li>
-    <div class="step-4 cirlce-step"> <i class="fas fa-tools"></i></div>
-    <div class="step-detail"> Quality Check & Packing</div>
-  </li>
-  <li>
-    <div class="step-5 cirlce-step"><i class="fas fa-shipping-fast"></i></div>
-    <div class="step-detail"> Dispacthed Item</div>
-  </li>
-  <li>
-    <div class="step-6 cirlce-step"><i class="fas fa-people-carry"></i></div>
-    <div class="step-detail"> Product Delivered</div>
-  </li>
+      <div class="step-1 cirlce-step active"><i class='bx bx-shopping-bag bx-sm'></i></div>
+      <div class="step-detail"> Order Placed</div>
+    </li>
+    <li>
+      <div class="step-2 cirlce-step active"><i class='bx bx-list-ul bx-sm'></i></div>
+      <div class="step-detail"> Processing Order</div>
+    </li>
+    <li>
+      <div class="step-3 cirlce-step"><i class='bx bxs-wrench bx-sm'></i></div>
+      <div class="step-detail"> Under Manfacturing</div>
+    </li>
+    <li>
+      <div class="step-4 cirlce-step"><i class='bx bxs-user-check bx-sm'></i></div>
+      <div class="step-detail"> Quality Check & Packing</div>
+    </li>
+    <li>
+      <div class="step-5 cirlce-step"><i class='bx bx-package bx-sm'></i></div>
+      <div class="step-detail"> Dispacthed Item</div>
+    </li>
+    <li>
+      <div class="step-6 cirlce-step"><i class='bx bx-home bx-sm'></i></div>
+      <div class="step-detail"> Product Delivered</div>
+    </li>
    </ul>
     </div>   
     <div class="col-md-8"> 
-        <div class="d-md-flex d-block"> 
+        <div class="d-md-flex d-block px-3 justify-content-around"> 
         <div class="dd-time-box"> 
-            <span class="tick-icon2"><i class="fas fa-check"></i></span>
+            <span class="tick-icon2"><i class='bx bx-check-circle bx-lg' ></i></span>
             <div class=""> <p>Order Placed </p>
              <div class="shipp-date">{{ date_added|date_modify("+2 day")|date() }}</div>
-             {# <p class="ready-btn">Ready For PickUp</p> #}
             </div>
         </div>
         <div class="dd-time-box2"> 
@@ -167,59 +418,86 @@ Expired #}
     </div>
         <div class="invoice-box d-block">
             <div class="d-flex align-items-center justify-content-evenly">
-       <div><img src="../10-1-23/assets/image/download-vetor-img.jpg" alt=""></div>
-       {# <button type="button" class="download-btn"> DOWNLOAD INVOICE</button>
-       <a href="" class="view-pdf">View Details</a> #}
+       <div><img src="catalog/view/javascript/assets/image/download-vetor-img.jpg" alt=""></div>
     </div>
         </div>
     </div> 
     </div>
-    {% elseif histories|last.status == 'Shipped' %}
+    {% elseif histories|last.status == 'Denied' %}
+    <div class="row">
+     
+    <div class="col-md-12"> 
+      <div class="d-md-flex d-block px-3 justify-content-around"> 
+        <div class="dd-time-box"> 
+            <span class="tick-icon2"><i class='bx bx-stop-circle bx-lg'></i></span>
+            <div class=""> <p>{{ histories|last.status }} </p>
+             <div class="shipp-date">{{ date_added|date_modify("+2 day")|date() }}</div>
+            </div>
+        </div>
+        <div class="dd-time-box2"> 
+            <div class=""> <p>Shipment  Details</p></div>
+            
+            <ul>
+                <li><div class=" list-title"> <b> Name</b></div> <div class="list-detail"> {{ name }}</div></li>
+                <li><div class="list-title"> <b> Address</b></div> <div class="list-detail"> {{ address_1 }}, &nbsp;{{address_2}}</div></li>
+                <li><div class="list-title"> <b> City</b></div> <div class="list-detail">{{ city }}</div></li>
+                <li><div class="list-title"> <b> State</b></div> <div class="list-detail"> {{ zone }}</div></li>
+        
+            </ul>
+        </div>
+    </div>
+        <div class="invoice-box d-block">
+            <div class="d-flex align-items-center justify-content-evenly">
+       <div><img src="catalog/view/javascript/assets/image/download-vetor-img.jpg" alt=""></div>
+
+    </div>
+        </div>
+    </div> 
+    </div>
+    {% elseif histories|last.status == 'Under Manufacturing' %}
     <div class="row">
     <div class="col-md-4"> 
    <ul class="steps" id="steps">
     <li>
-    <div class="step-1 cirlce-step active"> <i class="fas fa-shopping-bag"></i></div>
+    <div class="step-1 cirlce-step active"><i class='bx bx-shopping-bag bx-sm'></i></div>
     <div class="step-detail"> Order Placed</div>
     
   </li>
    <li>
    
-    <div class="step-2 cirlce-step active"> <i class="fas fa-tasks"></i></div>
+    <div class="step-2 cirlce-step active"><i class='bx bx-list-ul bx-sm'></i></div>
     <div class="step-detail"> Processing Order</div>
     
   </li>
   <li>
-    <div class="step-3 cirlce-step active"><i class="fas fa-tools"></i></div>
+    <div class="step-3 cirlce-step active"><i class='bx bxs-wrench bx-sm'></i></div>
     <div class="step-detail"> Under Manfacturing</div>
   </li>
   <li>
-    <div class="step-4 cirlce-step active"> <i class="fas fa-tools"></i></div>
+    <div class="step-4 cirlce-step"><i class='bx bxs-user-check bx-sm'></i></div>
     <div class="step-detail"> Quality Check & Packing</div>
   </li>
   <li>
-    <div class="step-5 cirlce-step active"><i class="fas fa-shipping-fast"></i></div>
+    <div class="step-5 cirlce-step"><i class='bx bx-package bx-sm'></i></div>
     <div class="step-detail"> Dispacthed Item</div>
   </li>
   <li>
-    <div class="step-6 cirlce-step"><i class="fas fa-people-carry"></i></div>
+    <div class="step-6 cirlce-step"><i class='bx bx-home bx-sm'></i></div>
     <div class="step-detail"> Product Delivered</div>
   </li>
    </ul>
     </div>   
     <div class="col-md-8"> 
-        <div class="d-md-flex d-block"> 
+        <div class="d-md-flex d-block px-3 justify-content-around"> 
         <div class="dd-time-box"> 
-            <span class="tick-icon2"><i class="fas fa-check"></i></span>
+            <span class="tick-icon2"><i class='bx bx-check-circle bx-lg' ></i></span>
             <div class=""> <p>Order Placed </p>
              <div class="shipp-date">{{ date_added }}</div>
-             {# <p class="ready-btn">Ready For PickUp</p> #}
             </div>
         </div>
         <div class="dd-time-box2"> 
             <div class=""> <p>Shipment  Details</p></div>
             <ul>
-            {# {{ shipment_address }} #}
                 <li><div class=" list-title"> <b> Name</b></div> <div class="list-detail"> {{ name }}</div></li>
                 <li><div class="list-title"> <b> Address</b></div> <div class="list-detail"> {{ address_1 }}, &nbsp;{{address_2}}</div></li>
                 <li><div class="list-title"> <b> City</b></div> <div class="list-detail">{{ city }}</div></li>
@@ -237,52 +515,50 @@ Expired #}
         </div>
     </div> 
     </div>
-    {% elseif histories|last.status == 'Processed' %}
+    {% elseif histories|last.status == 'Under Quality Check' %}
     <div class="row">
     <div class="col-md-4"> 
    <ul class="steps" id="steps">
     <li>
-    <div class="step-1 cirlce-step active"> <i class="fas fa-shopping-bag"></i></div>
+    <div class="step-1 cirlce-step active"><i class='bx bx-shopping-bag bx-sm'></i></div>
     <div class="step-detail"> Order Placed</div>
     
   </li>
    <li>
    
-    <div class="step-2 cirlce-step active"> <i class="fas fa-tasks"></i></div>
+    <div class="step-2 cirlce-step active"><i class='bx bx-list-ul bx-sm'></i></div>
     <div class="step-detail"> Processing Order</div>
     
   </li>
   <li>
-    <div class="step-3 cirlce-step active"><i class="fas fa-tools"></i></div>
+    <div class="step-3 cirlce-step active"><i class='bx bxs-wrench bx-sm'></i></div>
     <div class="step-detail"> Under Manfacturing</div>
   </li>
   <li>
-    <div class="step-4 cirlce-step active"> <i class="fas fa-tools"></i></div>
+    <div class="step-4 cirlce-step active"><i class='bx bxs-user-check bx-sm'></i></div>
     <div class="step-detail"> Quality Check & Packing</div>
   </li>
   <li>
-    <div class="step-5 cirlce-step"><i class="fas fa-shipping-fast"></i></div>
+    <div class="step-5 cirlce-step"><i class='bx bx-package bx-sm'></i></div>
     <div class="step-detail"> Dispacthed Item</div>
   </li>
   <li>
-    <div class="step-6 cirlce-step"><i class="fas fa-people-carry"></i></div>
+    <div class="step-6 cirlce-step"><i class='bx bx-home bx-sm'></i></div>
     <div class="step-detail"> Product Delivered</div>
   </li>
    </ul>
     </div>   
     <div class="col-md-8"> 
-        <div class="d-md-flex d-block"> 
+        <div class="d-md-flex d-block px-3 justify-content-around"> 
         <div class="dd-time-box"> 
-            <span class="tick-icon2"><i class="fas fa-check"></i></span>
+            <span class="tick-icon2"><i class='bx bx-check-circle bx-lg' ></i></span>
             <div class=""> <p>Order Placed </p>
              <div class="shipp-date">{{ date_added }}</div>
-             {# <p class="ready-btn">Ready For PickUp</p> #}
             </div>
         </div>
         <div class="dd-time-box2"> 
             <div class=""> <p>Shipment  Details</p></div>
             <ul>
-            {# {{ shipment_address }} #}
                 <li><div class=" list-title"> <b> Name</b></div> <div class="list-detail"> {{ name }}</div></li>
                 <li><div class="list-title"> <b> Address</b></div> <div class="list-detail"> {{ address_1 }}, &nbsp;{{address_2}}</div></li>
                 <li><div class="list-title"> <b> City</b></div> <div class="list-detail">{{ city }}</div></li>
@@ -294,52 +570,108 @@ Expired #}
         <div class="invoice-box d-block">
             <div class="d-flex align-items-center justify-content-evenly">
        <div><img src="catalofg/view/javascript/assets/image/download-vetor-img.jpg" alt=""></div>
-       {# <button type="button" class="download-btn"> DOWNLOAD INVOICE</button>
-       <a href="" class="view-pdf">View Details</a> #}
     </div>
         </div>
     </div> 
     </div>
-    {% elseif histories|last.status == 'Complete' %}
+    {% elseif histories|last.status == 'Shipped' %}
     <div class="row">
     <div class="col-md-4"> 
    <ul class="steps" id="steps">
     <li>
-    <div class="step-1 cirlce-step active"> <i class="fas fa-shopping-bag"></i></div>
+    <div class="step-1 cirlce-step active"><i class='bx bx-shopping-bag bx-sm'></i></div>
     <div class="step-detail"> Order Placed</div>
     
   </li>
    <li>
    
-    <div class="step-2 cirlce-step active"> <i class="fas fa-tasks"></i></div>
+    <div class="step-2 cirlce-step active"><i class='bx bx-list-ul bx-sm'></i></div>
     <div class="step-detail"> Processing Order</div>
     
   </li>
   <li>
-    <div class="step-3 cirlce-step active"><i class="fas fa-tools"></i></div>
+    <div class="step-3 cirlce-step active"><i class='bx bxs-wrench bx-sm'></i></div>
     <div class="step-detail"> Under Manfacturing</div>
   </li>
   <li>
-    <div class="step-4 cirlce-step active"> <i class="fas fa-tools"></i></div>
+    <div class="step-4 cirlce-step active"><i class='bx bxs-user-check bx-sm'></i></div>
     <div class="step-detail"> Quality Check & Packing</div>
   </li>
   <li>
-    <div class="step-5 cirlce-step active"><i class="fas fa-shipping-fast"></i></div>
+    <div class="step-5 cirlce-step active"><i class='bx bx-package bx-sm'></i></div>
     <div class="step-detail"> Dispacthed Item</div>
   </li>
   <li>
-    <div class="step-6 cirlce-step active"><i class="fas fa-people-carry"></i></div>
+    <div class="step-6 cirlce-step"><i class='bx bx-home bx-sm'></i></div>
     <div class="step-detail"> Product Delivered</div>
   </li>
    </ul>
     </div>   
     <div class="col-md-8"> 
-        <div class="d-md-flex d-block"> 
+        <div class="d-md-flex d-block px-3 justify-content-around"> 
         <div class="dd-time-box"> 
-            <span class="tick-icon2"><i class="fas fa-check"></i></span>
+            <span class="tick-icon2"><i class='bx bx-check-circle bx-lg' ></i></span>
             <div class=""> <p>Order Placed </p>
              <div class="shipp-date">{{ date_added }}</div>
-             {# <p class="ready-btn">Ready For PickUp</p> #}
+            </div>
+        </div>
+        <div class="dd-time-box2"> 
+            <div class=""> <p>Shipment  Details</p></div>
+            <ul>
+                <li><div class=" list-title"> <b> Name</b></div> <div class="list-detail"> {{ name }}</div></li>
+                <li><div class="list-title"> <b> Address</b></div> <div class="list-detail"> {{ address_1 }}, &nbsp;{{address_2}}</div></li>
+                <li><div class="list-title"> <b> City</b></div> <div class="list-detail">{{ city }}</div></li>
+                <li><div class="list-title"> <b> State</b></div> <div class="list-detail"> {{ zone }}</div></li>
+        
+            </ul>
+        </div>
+    </div>
+        <div class="invoice-box d-block">
+            <div class="d-flex align-items-center justify-content-evenly">
+       <div><img src="catalofg/view/javascript/assets/image/download-vetor-img.jpg" alt=""></div>
+    </div>
+        </div>
+    </div> 
+    </div>
+    {% elseif histories|last.status == 'Delivered' %}
+    <div class="row">
+    <div class="col-md-4"> 
+   <ul class="steps" id="steps">
+    <li>
+    <div class="step-1 cirlce-step active"><i class='bx bx-shopping-bag bx-sm'></i></div>
+    <div class="step-detail"> Order Placed</div>
+    
+  </li>
+   <li>
+   
+    <div class="step-2 cirlce-step active"><i class='bx bx-list-ul bx-sm'></i></div>
+    <div class="step-detail"> Processing Order</div>
+    
+  </li>
+  <li>
+    <div class="step-3 cirlce-step active"><i class='bx bxs-wrench bx-sm'></i></div>
+    <div class="step-detail"> Under Manfacturing</div>
+  </li>
+  <li>
+    <div class="step-4 cirlce-step active"><i class='bx bxs-user-check bx-sm'></i></div>
+    <div class="step-detail"> Quality Check & Packing</div>
+  </li>
+  <li>
+    <div class="step-5 cirlce-step active"><i class='bx bx-package bx-sm'></i></div>
+    <div class="step-detail"> Dispacthed Item</div>
+  </li>
+  <li>
+    <div class="step-6 cirlce-step active"><i class='bx bx-home bx-sm'></i></div>
+    <div class="step-detail"> Product Delivered</div>
+  </li>
+   </ul>
+    </div>   
+    <div class="col-md-8"> 
+        <div class="d-md-flex d-block px-3 justify-content-around"> 
+        <div class="dd-time-box"> 
+            <span class="tick-icon2"><i class='bx bx-check-circle bx-lg' ></i></span>
+            <div class=""> <p>Order Placed </p>
+             <div class="shipp-date">{{ date_added }}</div>
             </div>
         </div>
         <div class="dd-time-box2"> 
@@ -358,11 +690,11 @@ Expired #}
             <div class="d-flex align-items-center justify-content-evenly">
        <div><img src="catalog/view/javascript/assets/image/download-vetor-img.jpg" alt=""></div>
        <button type="button" class="download-btn"> Give review</button>
-       {# <a href="" class="view-pdf">View Details</a> #}
     </div>
         </div>
     </div> 
     </div>
+    
     {% else %}
     {% endif %}
 </div>
@@ -370,7 +702,7 @@ Expired #}
 </div>
 {% endif %}
 <section class="bottom-content py-4"> 
-<div class="container container-custom"> 
+<div class="container"> 
 <div class="row">
   <div class="col-lg-12">
    <h5>Buy Wooden Furniture (फर्नीचर) Online in Bangalore For Your Dream Home</h5> 

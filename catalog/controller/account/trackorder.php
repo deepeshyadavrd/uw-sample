@@ -2,10 +2,11 @@
 class ControllerAccountTrackorder extends Controller {
 	public function index() {
         $this->load->language('account/order');
-
+		$this->document->setTitle('Track Order | Urbanwood');
+		$this->document->setDescription('Track your order easily with our real-time tracking system. Enter your order details to check the status, expected delivery date, and updates.');
 		if (isset($this->request->post['order_id'])) {
 			$order_id = $this->request->post['order_id'];
-
+			
 		    $this->load->model('account/order');
 
 		    $order_info = $this->model_account_order->getOrder($order_id);
@@ -245,6 +246,7 @@ class ControllerAccountTrackorder extends Controller {
 			    
 			    $data['footer'] = $this->load->controller('common/footer');
 			    $data['header'] = $this->load->controller('common/header');
+			    $data['menu'] = $this->load->controller('common/menu');
 
 			    $this->response->setOutput($this->load->view('account/trackorder', $data));
             }else{
@@ -252,12 +254,14 @@ class ControllerAccountTrackorder extends Controller {
                 $data['action'] = $this->url->link('account/trackorder');
 			    $data['footer'] = $this->load->controller('common/footer');
 			    $data['header'] = $this->load->controller('common/header');
+			    $data['menu'] = $this->load->controller('common/menu');
                 $this->response->setOutput($this->load->view('account/trackorder', $data));
             }
         } else {
             $data['action'] = $this->url->link('account/trackorder');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
+			$data['menu'] = $this->load->controller('common/menu');
             $this->response->setOutput($this->load->view('account/trackorder', $data));
 		}
 	}
