@@ -475,4 +475,17 @@ class ModelSaleOrder extends Model {
 
 		return $query->row['total'];
 	}
+	public function addOrderHistory($order_id, $order_status_id, $comment = '', $notify = false, $tracking_id = '') {
+        // Modified query
+        $query = $this->db->query("INSERT INTO " . DB_PREFIX . "order_history SET 
+            order_id = '" . (int)$order_id . "', 
+            order_status_id = '" . (int)$order_status_id . "', 
+            notify = '" . (int)$notify . "', 
+            comment = '" . $this->db->escape($comment) . "', 
+            tracking_id = '" . $this->db->escape($tracking_id) . "', 
+            date_added = NOW()");
+        $this->db->query("UPDATE `" . DB_PREFIX . "order` SET order_status_id = '" . (int)$order_status_id . "', date_modified = NOW() WHERE order_id = '" . (int)$order_id . "'");
+        // Rest of original method code...
+		return $query->rows;
+    }
 }
