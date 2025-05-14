@@ -627,11 +627,27 @@
             </ul>
         </div>
     </div>
-        <div class="invoice-box d-block">
-            <p>This is new shipment id</p>
-            <p>{{ histories.tracking_id }}</p>
+    <style>
+      .dd-time-box3{
+        width: 100%;
+        padding: 1em;
+        border: 1px solid #ff8000;
+        text-align: center;
+        border-radius: 11px;
+        margin: 2em 1em;
+        background: #fff7ec;
+      }
+      .dd-time-box3 a {
+        text-decoration: underline;
+      }
+    </style>
+        <div class="d-md-flex d-block px-3 justify-content-around">
+          <div class="dd-time-box3 d-block">
+            <p><b>This is new shipment id (Track your order on <a href="https://dtdc.in/trace.asp" target="_blank">DTDC.com</a>)</b></p>
+            <p>{{ histories|last.tracking_id }}</p>
+          </div>
         </div>
-    </div> 
+      </div> 
     </div>
     {% elseif histories|last.status == 'Delivered' %}
     <div class="row">
