@@ -25,7 +25,7 @@ private $shipped_status_id;
             $this->load->model('sale/order'); // Use custom model
             $this->model_sale_order->addOrderHistory(
             $this->request->post['order_id'],
-            $this->request->post['order_status_id'],
+            $this->request->post['order_status_id'],'','',
             isset($this->request->post['tracking_id']) ? trim($this->request->post['tracking_id']) : '',true);
             
             $this->session->data['success'] = $this->language->get('text_success');
