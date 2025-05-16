@@ -3,7 +3,7 @@
 $_['text_success']           = 'Success: You have modified orders!';
 
 // Error
-$_['error_permission']       = 'Warning: You do not have permission to access the API!';
+$_['error_permission']       = 'Warning: You do not have permission to access the API! order';
 $_['error_customer']         = 'Warning: Customer details needs to be set!';
 $_['error_payment_address']  = 'Warning: Payment address required!';
 $_['error_payment_method']   = 'Warning: Payment method required!';
