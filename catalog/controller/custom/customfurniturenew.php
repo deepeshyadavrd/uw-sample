@@ -28,7 +28,7 @@ class ControllerCustomCustomfurniturenew extends Controller{
 				$this->load->model('information/requestcallback');
 
 				$rcId = $this->model_information_requestcallback->addRequestcallback($this->request->post);
-
+// print_r($rcId);
 				$this->uploadCustomImage($this->request->files, $rcId);
 				$json['success'] = $this->language->get('text_success');
 			}
