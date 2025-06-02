@@ -117,6 +117,8 @@ class ModelCatalogProduct2 extends Model {
 		$validimi = false; $filter_groups = array();
 		if((int)$data['filter_category_id']== 96){
 			$basenamecount = 6;
+		}elseif($data['sp'] == 'search_page'){
+			$basenamecount = 4;
 		}else{
 			$basenamecount = 3;
 		}
@@ -773,8 +775,14 @@ print_r($sql);
 		if($data['filter_category_id'] != 71 AND $data['filter_category_id'] != 72 AND $data['filter_category_id'] != 190 AND $data['sp'] != 'search_page'){
 			$sql = "SELECT p.product_id";
 		}else{
-			
-			$sql = "SELECT COUNT(DISTINCT SUBSTRING_INDEX(name, ' ', 1)) AS total";
+			if((int)$data['filter_category_id']== 96){
+			$basenamecount = 6;
+		}elseif($data['sp'] == 'search_page'){
+			$basenamecount = 4;
+		}else{
+			$basenamecount = 3;
+		}
+			$sql = "SELECT COUNT(DISTINCT SUBSTRING_INDEX(name, ' ', $basenamecount)) AS total";
 		}
 
 		if (!empty($data['filter_category_id'])) {
@@ -886,7 +894,7 @@ print_r($sql);
 			$query = $this->db->query($sql1);
 		}else{
 			$query = $this->db->query($sql);
-			// echo $sql;
+			echo $sql;
 		}
 		return $query->row['total'];
 	}

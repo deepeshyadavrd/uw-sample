@@ -279,7 +279,7 @@ class ControllerProductSearch extends Controller {
 // print_r($filter_data);
 
 			$product_total = $this->model_catalog_product2->getTotalProducts($filter_data);
-
+print_r($product_total);
 			$results = $this->model_catalog_product2->getProducts($filter_data);
 
 // print_r($results);
