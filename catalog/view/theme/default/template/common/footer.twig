@@ -694,49 +694,49 @@ $("body").on('click', '#togglePassword', function() {
 </script>
 {#  check pincode #}
 <script>
-  var pinCheckKey = 1;
-  function checkPincode(d){
+//   var pinCheckKey = 1;
+//   function checkPincode(d){
 
-    var pinc = $('#input-pincode').val();
-    $('.pin_error').remove();
-    if(pinc==''){
-      errr = '<p style="color:red" class="pin_error">Enter Pincode to Check Delivery</p>';
+//     var pinc = $('#input-pincode').val();
+//     $('.pin_error').remove();
+//     if(pinc==''){
+//       errr = '<p style="color:red" class="pin_error">Enter Pincode to Check Delivery</p>';
 
-      $('.pincode-msg').html(errr);
-      return false;
-    }
-    if(!vp(pinc)){
-     errr = '<p style="color:red" class="pin_error">Enter Valid Pincode!</p>';
+//       $('.pincode-msg').html(errr);
+//       return false;
+//     }
+//     if(!vp(pinc)){
+//      errr = '<p style="color:red" class="pin_error">Enter Valid Pincode!</p>';
 
-     $('.pincode-msg').html(errr);
-     return false;
-   }
-   if(pinCheckKey!=1){
-    return false;
-  }
-  pinCheckKey = 0;
-  d.html('<i class="fas fa-spinner fa-spin"></i>');
-  $.ajax({
-    url: '?route=product/product/checkPincode',
-    type: 'post',
-    data: 'pincode=' + pinc,
+//      $('.pincode-msg').html(errr);
+//      return false;
+//    }
+//    if(pinCheckKey!=1){
+//     return false;
+//   }
+//   pinCheckKey = 0;
+//   d.html('<i class="fas fa-spinner fa-spin"></i>');
+//   $.ajax({
+//     url: '?route=product/product/checkPincode',
+//     type: 'post',
+//     data: 'pincode=' + pinc,
 
-    success: function(json) {
-      pinCheckKey = 1;
-      if(json['success']){
-      $('.pincode-msg').html('<p class="green pin_error" style="color:green"> Delivery options are available , <a href="tel:+ 91 9599283126">Call:+91  9599283126</a> </p><p class="green pin_error" style="color:green"> Made to Order, Customization available! </p>');
-    }else{
-        $('.pincode-msg').html('<p class="pin_error" style="color:red"> Delivery options not available , Call:+91  9599283126 </p>');
-    }
-      d.html('<i class="bx bx-search"></i>');
-    },
-    error: function(xhr, ajaxOptions, thrownError) {
-      //alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-      $('.pincode-msg').html('<p class="pin_error" style="color:red"> Sorry, delivery not available in your area </p>');
-      //d.val('Check');
-    }
-  });
-}
+//     success: function(json) {
+//       pinCheckKey = 1;
+//       if(json['success']){
+//       $('.pincode-msg').html('<p class="green pin_error" style="color:green"> Delivery options are available , <a href="tel:+ 91 9599283126">Call:+91  9599283126</a> </p><p class="green pin_error" style="color:green"> Made to Order, Customization available! </p>');
+//     }else{
+//         $('.pincode-msg').html('<p class="pin_error" style="color:red"> Delivery options not available , Call:+91  9599283126 </p>');
+//     }
+//       d.html('<i class="bx bx-search"></i>');
+//     },
+//     error: function(xhr, ajaxOptions, thrownError) {
+//       //alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+//       $('.pincode-msg').html('<p class="pin_error" style="color:red"> Sorry, delivery not available in your area </p>');
+//       //d.val('Check');
+//     }
+//   });
+// }
 </script>
 <script>
 
