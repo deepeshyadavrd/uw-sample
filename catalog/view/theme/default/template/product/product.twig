@@ -462,7 +462,7 @@ jQuery(document).ready(function($) {
 <h6>Delivery : <span class="pp-about">( Check Delivery availabilty in your area ) </span></h6>
 <div class="d-flex search-form-dd">
   <input class="search-form-delivery" id="pincode" type="search" placeholder="Entetr Pincode" aria-label="Search">
-  <button class="search-devlivery-btn" type="button" onclick="checkPincode($(this))"><i class="bx bx-search"></i></button>
+  <button class="search-devlivery-btn" type="button" onclick="checkPincode()"><i class="bx bx-search"></i></button>
   
 </div>
 <div id="pincode-result"></div>
@@ -2556,7 +2556,7 @@ $('#reviewSubmit').on('click', function(e) {
     const cached = localStorage.getItem(`pincode-${input}`);
     if (cached) {
       const found = JSON.parse(cached);
-      resultDiv.innerHTML = `✅ We deliver to ${found.district}, ${found.state}! (cached)`;
+      resultDiv.innerHTML = `✅ We deliver to ${found.district}, ${found.state}! Call:+91 9311662218 for more details`;
       resultDiv.style.color = 'green';
       return;
     }
@@ -2565,7 +2565,7 @@ $('#reviewSubmit').on('click', function(e) {
     loadPincodeData(() => {
       const found = pincodeData.find(p => p.pincode === input);
       if (found) {
-        resultDiv.innerHTML = `✅ We deliver to ${found.district}, ${found.state}!`;
+        resultDiv.innerHTML = `✅ We deliver to ${found.district}, ${found.state}! Call:+91 9311662218 for more details`;
         resultDiv.style.color = 'green';
         localStorage.setItem(`pincode-${input}`, JSON.stringify(found));
       } else {
@@ -2574,7 +2574,7 @@ $('#reviewSubmit').on('click', function(e) {
       }
     });
   }
-
+// <p class="pin_error" style="color:#ff8000">We deliver through multiple courier partners. If DTDC or Gati serves your pincode, your order will be delivered, Call:+91 9311662218 </p>
   // Trigger on input
   window.addEventListener('DOMContentLoaded', () => {
     const inputEl = document.getElementById('pincode');
