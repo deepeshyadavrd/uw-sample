@@ -45,6 +45,7 @@
             loop: true,
             autoplay: true,
             lazyLoad: true,
+            lazyLoadEager: 1,
             nav:navEnabled,
             navText: ['<i class="bx bx-chevron-left"></i>','<i class="bx bx-chevron-right"></i>'],
             dots: false, // This disables the dots
