@@ -5,6 +5,7 @@ const ASSETS = [
   "./catalog/view/javascript/assets/css/bootstrap.min.css",
   "./catalog/view/javascript/assets/js/3.2.1-jquery.min.js",
   "./catalog/view/javascript/assets/image/urbanwoodlogo.png",
+  "./image/catalog/monsoon-offer/summer sale banner 1 uw.jpg"
   // Add more static assets here (CSS, JS, images)
 ];
 
@@ -19,17 +20,20 @@ self.addEventListener("install", event => {
 });
 
 // Activate and clean old cache
-self.addEventListener("activate", event => {
+self.addEventListener('activate', function (event) {
+  const cacheWhitelist = ['precache-v1', 'image-cache-v1'];
+
   event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(
-        keys.map(key => {
-          if (key !== CACHE_NAME) return caches.delete(key);
+    caches.keys().then(function (cacheNames) {
+      return Promise.all(
+        cacheNames.map(function (cacheName) {
+          if (!cacheWhitelist.includes(cacheName)) {
+            return caches.delete(cacheName);
+          }
         })
-      )
-    )
+      );
+    })
   );
-  self.clients.claim();
 });
 
 // Serve from cache first
