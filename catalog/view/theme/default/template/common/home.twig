@@ -1,7 +1,6 @@
 {{ header }}
 {{ menu }}
 </div>
-
 <style>
 .slider-outer {
 	display: flex;
@@ -29,44 +28,6 @@
 }
 </style>
 <div class="wrapper">
-<style>
-/* Base: show all for desktop */
-.hero-slider .owl-item {
-  display: block;
-}
-.hero-slider img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  display: block;
-}
-
-/* Mobile only: show only first image statically */
-@media (max-width: 768px) {
-  .hero-slider.owl-carousel .owl-stage-outer {
-    overflow: hidden;
-  }
-
-  .hero-slider.owl-carousel .item {
-    display: none;
-  }
-
-  .hero-slider.owl-carousel .item:first-child {
-    display: block;
-  }
-
-  .owl-nav,
-  .owl-dots {
-    display: none !important;
-  }
-}
-</style>
-<div class="hero-slider owl-carousel owl-theme">
-  <div class="item"><img src="image/catalog/monsoon-offer/monsoon-sale-2.avif" alt="Slide 1"></div>
-  <div class="item"><img src="image/catalog/monsoon-offer/monsoon-sale-3.avif" alt="Slide 2"></div>
-  <div class="item"><img src="image/catalog/monsoon-offer/monsoon-sale-5.avif" alt="Slide 3"></div>
-</div>
-
     {# <div class="sidecall">
         <button type="button" class=" requestcall" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
             Request Call
@@ -74,7 +35,7 @@
         </button>
     </div> #}
 
-    {# <div class="slider-outer text-white">
+    <div class="slider-outer text-white">
 <!-- Carousel -->
    <div class="container" style="width: 100%;">
     <div class="row">
@@ -82,7 +43,7 @@
       <div class="col-lg-3 d-lg-block d-none" style="padding-right:0;">
         <div class="cp-with">
           <a href="new-arrivals">
-            <img src="assets/image/summer sale uw 4.jpg" class="img-responsive img-fluid" loading="lazy" width="300" height="450" alt="Celebrate Diwali with Huge Discounts and Special Offers"/>
+            <img src="assets/image/summer sale uw 4.jpg" class="img-responsive img-fluid" loading="lazy" width="300" height="500" alt="Celebrate Diwali with Huge Discounts and Special Offers"/>
           </a>
         </div>
       </div>
@@ -103,13 +64,13 @@
                 <a href="king-size-beds">
                   {# <picture>
                     <source srcset="image/catalog/monsoon-offer/monsoon-sale-1.avif" type="image/avif">
-                    <source srcset="image/catalog/monsoon-offer/monsoon-sale-1.webp" type="image/webp"> #
+                    <source srcset="image/catalog/monsoon-offer/monsoon-sale-1.webp" type="image/webp"> #}
                     <img src="image/catalog/monsoon-offer/summer sale banner 1 uw.jpg"
                          class="d-block img-fluid owl-lazy"
                          width="1200" height="450"
                          loading="eager"
                          alt="beds at urbanwood new year sale">
-                  {# </picture> #
+                  {# </picture> #}
                 </a>
               </div>
             </div>
@@ -155,19 +116,19 @@
         <div id="mobile-image" class="d-block d-md-none pt-2">
           {# <picture>
             <source srcset="image/catalog/monsoon-offer/mobile-banner.avif" type="image/avif">
-            <source srcset="image/catalog/monsoon-offer/mobile-banner.webp" type="image/webp"> #
+            <source srcset="image/catalog/monsoon-offer/mobile-banner.webp" type="image/webp"> #}
             <img src="image/catalog/monsoon-offer/summer sale banner 2 (1).jpg"
                  class="d-block img-fluid"
                  width="600" height="400"
                  fetchpriority="high"
                  loading="eager"
                  alt="urbanwood furniture sale">
-          {# </picture> #
+          {# </picture> #}
         </div>
       </div>
     </div>
   </div>
-</div> #}
+</div>
     <!-- -slider end -->
 <!-- quality section-->
 
@@ -1779,5 +1740,4 @@ figure {
     {% if success %}
     <div class="success-popup ">	<span class="warrning-svg">	<svg id="smile"		width="35" height="35" viewBox="0 0 41 41" fill="none">	 <path d="M16.2432 29.9911L16.5968 30.3439L16.95 29.9907L30.5886 16.352L30.9422 15.9985L30.5886 15.6449L27.7128 12.7691L27.3593 12.4156L27.0057 12.7691L16.592 23.1828L12.2699 18.8682L11.9158 18.5148L11.5626 18.869L8.69086 21.7489L8.33792 22.1028L8.69174 22.4558L16.2432 29.9911ZM0.823975 20.662C0.823975 9.72375 9.72375 0.823975 20.662 0.823975C31.6002 0.823975 40.5 9.72375 40.5 20.662C40.5 31.6002 31.6002 40.5 20.662 40.5C9.72375 40.5 0.823975 31.6002 0.823975 20.662Z" stroke="#33C300"/>  </svg>	</span>	<span class="warrning-text">   <p>{{ success }}</p>	</span>  </div>
     {% endif %}
-    
     {{ footer }}
