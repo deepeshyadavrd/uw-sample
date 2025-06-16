@@ -1,6 +1,6 @@
 const CACHE_NAME = "urbanwood-static-v1";
 const ASSETS = [
-  "./", // homepage
+  // "./", // homepage
   "./catalog/view/javascript/assets/css/main2.css",
   "./catalog/view/javascript/assets/css/bootstrap.min.css",
   "./catalog/view/javascript/assets/js/3.2.1-jquery.min.js",
@@ -40,3 +40,23 @@ self.addEventListener("fetch", event => {
     })
   );
 });
+
+// self.addEventListener('fetch', event => {
+//   // Bypass CSS cache on development
+//   if (event.request.url.includes('.css') && 
+//       event.request.url.includes('localhost')) {
+//     event.respondWith(
+//       fetch(event.request) // Always fetch fresh CSS
+//         .catch(() => caches.match(event.request))
+//     );
+//     return;
+//   }
+
+//   // For images: Cache with network fallback
+//   if (event.request.destination === 'image') {
+//     event.respondWith(
+//       caches.match(event.request)
+//         .then(cached => cached || fetch(event.request))
+//     );
+//   }
+// });

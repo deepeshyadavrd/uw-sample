@@ -68,8 +68,8 @@ a{
 	font-size: 14px;
 }
 .header {
-    display: inline-block;
-    width: 100%;
+    /* display: inline-block;
+    width: 100%; */
     position: relative;
     z-index: 99;
 }
