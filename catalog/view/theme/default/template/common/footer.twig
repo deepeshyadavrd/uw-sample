@@ -1309,5 +1309,19 @@ function initLandbot() {
   }
 }
 </script>
+<script>
+  $(document).ready(function () {
+    if (window.innerWidth > 768) {
+      $('.hero-slider').owlCarousel({
+        items: 1,
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        nav: true,
+        dots: true
+      });
+    }
+  });
+</script>
 </body>
 </html>
