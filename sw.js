@@ -33,12 +33,34 @@ self.addEventListener("activate", event => {
 });
 
 // Serve from cache first
-self.addEventListener("fetch", event => {
-  event.respondWith(
-    caches.match(event.request).then(res => {
-      return res || fetch(event.request);
-    })
-  );
+// self.addEventListener("fetch", event => {
+//   event.respondWith(
+//     caches.match(event.request).then(res => {
+//       return res || fetch(event.request);
+//     })
+//   );
+// });
+
+self.addEventListener('fetch', function (event) {
+  const request = event.request;
+
+  // Only cache GET requests for images
+  if (request.method === 'GET' && request.destination === 'image') {
+    event.respondWith(
+      caches.open('image-cache-v1').then(function (cache) {
+        return cache.match(request).then(function (cachedResponse) {
+          if (cachedResponse) {
+            return cachedResponse;
+          }
+
+          return fetch(request).then(function (networkResponse) {
+            cache.put(request, networkResponse.clone());
+            return networkResponse;
+          });
+        });
+      })
+    );
+  }
 });
 
 // self.addEventListener('fetch', event => {
