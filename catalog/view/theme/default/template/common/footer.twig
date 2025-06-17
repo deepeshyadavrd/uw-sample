@@ -371,11 +371,18 @@
 </div>
 {# {% if route == '/' %} #}
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    let sliderInitialized = false;
+
+    const loadSliderData = () => {
+      if (sliderInitialized) return;
+      sliderInitialized = true;
+
       fetch('catalog/view/theme/default/new-arrivals.json')
-        .then(response => response.json())
+        .then(res => res.json())
         .then(products => {
           const track = document.getElementById('product-track');
+
           products.forEach(p => {
             const slide = document.createElement('div');
             slide.className = 'blaze-slide';
@@ -388,26 +395,80 @@
             `;
             track.appendChild(slide);
           });
+            if (typeof BlazeSlider !== "undefined") {
+                new BlazeSlider(document.querySelector('#json-product-slider'), {
+                  all: {
+                      slidesToShow: 4,
+                      slideGap: '10px',
+                      loop: true,
+                      autoplay: true,
+                      transitionSpeed: 400,
+                      enablePagination: false,
 
-if (typeof BlazeSlider !== "undefined") {
-          new BlazeSlider(document.querySelector('#json-product-slider'), {
-            all: {
-              slidesToShow: 4,
-              loop: true,
-              autoplay: true,
-              transitionSpeed: 400,
-              enablePagination: false,
-              slideGap: '10px'
-            },
-            '(max-width: 500px)': {
-    slidesToShow: 2,
-  },
-          });
-          } else {
-        console.warn("BlazeSlider not loaded.");
-      }
+                    },
+                    '(max-width: 500px)': {
+                        slidesToShow: 2.2,
+                    }
+                });
+            } else{
+                console.warn("BlazeSlider not loaded.");
+            }
         });
+    };
+
+    // Observe when the slider container enters the viewport
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          loadSliderData();
+          observer.disconnect(); // Only load once
+        }
+      });
+    }, {
+      rootMargin: "200px" // preload ~200px before visible
     });
+
+    const slider = document.getElementById("json-product-slider");
+    if (slider) observer.observe(slider);
+  });
+    // document.addEventListener("DOMContentLoaded", function () {
+    //   fetch('catalog/view/theme/default/new-arrivals.json')
+    //     .then(response => response.json())
+    //     .then(products => {
+    //       const track = document.getElementById('product-track');
+    //       products.forEach(p => {
+    //         const slide = document.createElement('div');
+    //         slide.className = 'blaze-slide';
+    //         slide.innerHTML = `
+    //           <a href="${p.link}">
+    //             <img src="${p.image}" alt="${p.name}" loading="lazy">
+    //             <p>${p.name}</p>
+    //             <strong>${p.price}</strong>
+    //           </a>
+    //         `;
+    //         track.appendChild(slide);
+    //       });
+
+    //         if (typeof BlazeSlider !== "undefined") {
+    //             new BlazeSlider(document.querySelector('#json-product-slider'), {
+    //                 all: {
+    //                   slidesToShow: 4,
+    //                   slideGap: '10px',
+    //                   loop: true,
+    //                   autoplay: true,
+    //                   transitionSpeed: 400,
+    //                   enablePagination: false,
+
+    //                 },
+    //                 '(max-width: 500px)': {
+    //                     slidesToShow: 2.2,
+    //                 },
+    //             });
+    //         } else {
+    //             console.warn("BlazeSlider not loaded.");
+    //         }
+    //     });
+    // });
   </script>
 {# {% endif %} #}
 <style>
