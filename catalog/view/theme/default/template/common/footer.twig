@@ -369,22 +369,47 @@
                     <script src="catalog/view/javascript/common.js?v=1.5" type="text/javascript" defer></script>
                     <script src="https://unpkg.com/blaze-slider@1.9.3/dist/blaze-slider.min.js" defer></script>
 </div>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-      if (typeof BlazeSlider !== "undefined") {
-        new BlazeSlider(document.querySelector('.blaze-slider'), {
-          all: {
-            slidesToShow: 1,
-            loop: true,
-            autoplay: true,
-            transitionSpeed: 500
-          }
-        });
-      } else {
+{# {% if route == '/' %} #}
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch('catalog/view/theme/default/new-arrivals.json')
+        .then(response => response.json())
+        .then(products => {
+          const track = document.getElementById('product-track');
+          products.forEach(p => {
+            const slide = document.createElement('div');
+            slide.className = 'blaze-slide';
+            slide.innerHTML = `
+              <a href="${p.link}">
+                <img src="${p.image}" alt="${p.name}" loading="lazy">
+                <p>${p.name}</p>
+                <strong>${p.price}</strong>
+              </a>
+            `;
+            track.appendChild(slide);
+          });
+
+if (typeof BlazeSlider !== "undefined") {
+          new BlazeSlider(document.querySelector('#json-product-slider'), {
+            all: {
+              slidesToShow: 4,
+              loop: true,
+              autoplay: true,
+              transitionSpeed: 400,
+              enablePagination: false,
+              slideGap: '10px'
+            },
+            '(max-width: 500px)': {
+    slidesToShow: 2,
+  },
+          });
+          } else {
         console.warn("BlazeSlider not loaded.");
       }
+        });
     });
-</script>
+  </script>
+{# {% endif %} #}
 <style>
     .float {
         position: fixed;
