@@ -1015,7 +1015,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {% for item in products %}
             <div class="card">
             <a href="{{ item.link }}">
-                <img src="{{ item.image }}" alt="{{ item.name }}">
+                <img src="{{ item.image }}" alt="{{ item.name }}" loading="lazy">
                 <div class="nw-content">
                   <h3>{{ item.name }}</h3>
                   <p>{{ item.price }}</p>
