@@ -391,6 +391,7 @@
                 <img src="${p.image}" alt="${p.name}" loading="lazy">
                 <p>${p.name}</p>
                 <strong>${p.price}</strong>
+                <strike>${p.price}</strike>
               </a>
             `;
             track.appendChild(slide);
@@ -406,8 +407,14 @@
                       enablePagination: false,
 
                     },
-                    '(max-width: 500px)': {
+                    '(max-width: 1024px)': {
+                        slidesToShow: 3.4,
+                    },
+                    '(max-width: 768px)': {
                         slidesToShow: 2.2,
+                    },
+                    '(max-width: 500px)': {
+                        slidesToShow: 1.4,
                     }
                 });
             } else{
