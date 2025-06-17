@@ -85,6 +85,15 @@ class ControllerCommonHeader extends Controller {
 			$req_uri = strtok($req_uri, '?');
 			$req_uri = strtok($req_uri, '&');
 // print_r($req_uri);
+$user_agent = $_SERVER['HTTP_USER_AGENT'];
+
+$is_mobile = preg_match('/Mobile|Android|iPhone|iPad/i', $user_agent);
+
+if ($is_mobile) {
+    $data['preload_hero'] = 'image/catalog/monsoon-offer/summer sale banner 2 (1).jpg';
+} else {
+    $data['preload_hero'] = 'image/catalog/monsoon-offer/summer sale banner 1 uw.jpg';
+}
 		$data['canonical'] = '';
 		if($data['title']!='The page you requested cannot be found!'){
 			$data['canonical'] = $server.strtolower($req_uri);
