@@ -996,7 +996,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <section class="new-arrivals">
     <h2 class="pg-heading text-center">Latest Arrivals</h2>
     <p class="heading-para text-center">Fresh Looks for Your Space</p>
-    <div class="grid">
+    {# <div class="grid">
         {% for item in products %}
             <div class="card">
             <a href={{ item.link }}
@@ -1007,7 +1007,37 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             </div>
         {% endfor %}
+    </div> #}
+    <div class="blaze-slider">
+  <div class="blaze-container">
+    <div class="blaze-track-container">
+      <div class="blaze-track">
+        {% for item in products %}
+            <div class="card">
+            <a href="{{ item.link }}">
+                <img src="{{ item.image }}" alt="{{ item.name }}">
+                <div class="nw-content">
+                  <h3>{{ item.name }}</h3>
+                  <p>{{ item.price }}</p>
+                </div>
+                </a>
+            </div>
+        {% endfor %}
+      </div>
+
+      <!-- pagination container -->
+      <div class="my-pagination-container">
+        <div class="blaze-pagination"></div>
+      </div>
     </div>
+
+    <!-- navigation buttons -->
+    <div class="my-nav-container">
+      <button class="blaze-prev">previous</button>
+      <button class="blaze-next">next</button>
+    </div>
+  </div>
+</div>
 </section>
 {# <section class="game-section py-lg-4 py-3" aria-label="Latest Arrials" data-nav="true">
   <div class="container">
