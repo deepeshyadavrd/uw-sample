@@ -866,15 +866,92 @@ document.addEventListener("DOMContentLoaded", function () {
 //     carouselContainers.forEach(container => observer.observe(container));
 //   });
 </script>
-    
-    <section class="game-section py-lg-4 py-3" aria-labelledby="room-collections" data-nav="false">
- <div class="container">
+    <style>
+    .shop-by-room {
+  padding: 20px;
+}
+
+.shop-by-room h2 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.room-scroll-wrapper {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+}
+
+.room-box {
+  flex: 0 0 auto;
+  width: 180px;
+  height: 120px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  scroll-snap-align: start;
+  text-decoration: none;
+  color: white;
+}
+
+.room-box span {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  padding: 6px 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+@media (min-width: 768px) {
+  .room-scroll-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    overflow: visible;
+  }
+
+  .room-box {
+    width: 100%;
+  }
+}
+    </style>
+    {# <section class="game-section py-lg-4 py-3" aria-labelledby="room-collections" data-nav="false"> #}
+ 
+ <section class="shop-by-room">
+  <div class="container">
   <div class="row"> 
   <h3 class="pg-heading text-center"> Shop By Room</h3>
     <p class="heading-para text-center">Curated Furniture and Decor for Every Room</p>
   </div>
  </div>
-  <div class="owl-carousel owl-carousel2 custom-carousel owl-theme">
+  <div class="room-scroll-wrapper">
+    <a href="/bedroom" class="room-box" style="background-image: url('assets/image/shopby-room/bed-img.jpg');">
+      <span>BedRoom</span>
+    </a>
+    <a href="/living-room" class="room-box" style="background-image: url('assets/image/shopby-room/living.jpg');">
+      <span>Living Room</span>
+    </a>
+    <a href="/dining" class="room-box" style="background-image: url('assets/image/shopby-room/dining.jpg');">
+      <span>Dining Room</span>
+    </a>
+    <a href="/storage" class="room-box" style="background-image: url('assets/image/shopby-room/storage2.jpg');">
+      <span>Storage Room</span>
+    </a>
+    <a href="/study" class="room-box" style="background-image: url('assets/image/shopby-room/study.jpg');">
+      <span>Study Room</span>
+    </a>
+  </div>
+</section>
+  {# <div class="owl-carousel owl-carousel2 custom-carousel owl-theme">
     <div class="item " style="background-image:url(assets/image/shopby-room/bed-img.jpg);">
       <div class="item-desc">
         <h3>Bedroom</h3>
@@ -917,8 +994,8 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
 
 
-  </div>
-</section>
+  </div> #}
+{# </section> #}
 
 <style>
 .new-arrivals {

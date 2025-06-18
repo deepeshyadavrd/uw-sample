@@ -389,6 +389,7 @@
             slide.innerHTML = `
               <a href="${p.link}">
                 <img src="${p.image}" alt="${p.name}" loading="lazy">
+                 ${p.discount ? `<span class="discount-badge">${p.discount}% OFF</span>` : ''}
                 <p>${p.name}</p>
                 <strong>${p.price}</strong>
                 <strike>${p.price}</strike>
