@@ -3,34 +3,40 @@
     "name": "Ananda Temple",
     "image": "./image/new-arr/ananda.jpg",
     "price": "₹43,544",
-    "link": "/ananda-wooden-temple-teak-finish"
+    "mrp": "₹68,210",
+    "link": "/ananda-wooden-temple-teak-finish",
+    "discount": "36"
   },
   {
     "name": "Gregor Sofa Cum Bed",
     "image": "./image/new-arr/gregor.jpg",
     "price": "₹48,200",
+    "mrp": "₹78,522",
     "link": "/gregor-sofa-cum-bed-honey-finish",
-    "discount": "20"
+    "discount": "39"
   },
   {
     "name": "Relay Poster Bed",
     "image": "./image/new-arr/relay-poster.jpg",
     "price": "₹68,500",
+    "mrp": "₹1,10,000",
     "link": "/relay-poster-bed-with-box-storage-king-size-honey-finish",
-    "discount": "20"
+    "discount": "38"
   },
   {
     "name": "Specter Wardrobe",
     "image": "./image/new-arr/specter.jpg",
     "price": "₹41,300",
+    "mrp": "₹62,450",
     "link": "/specter-2-door-wooden-wardrobe-honey-finish",
-    "discount": "20"
+    "discount": "34"
   },
   {
     "name": "Royce Diwan",
     "image": "./image/new-arr/royce.jpg",
     "price": "₹27,199",
+    "mrp": "₹42,109",
     "link": "/royce-diwan-teak-finish",
-    "discount": "20"
+    "discount": "35"
   }
 ]
