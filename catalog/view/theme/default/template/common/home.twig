@@ -1131,7 +1131,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 }
     </style>
-    <div class="blaze-slider" id="json-product-slider">
+    {# <div class="blaze-slider" id="json-product-slider">
   <div class="blaze-container">
     <div class="blaze-track-container">
       <div class="blaze-track" id="product-track">
@@ -1140,6 +1140,33 @@ document.addEventListener("DOMContentLoaded", function () {
       <button class="blaze-prev">‹</button>
 <button class="blaze-next">›</button>
     </div>
+  </div>
+</div> #}
+<div class="lazy-slider" data-json="new-arrivals.json" id="slider1">
+  <div class="blaze-slider">
+    <div class="blaze-container">
+    <div class="blaze-track-container">
+      <div class="blaze-track" id="product-track">
+        <!-- Slides will be inserted here -->
+      </div>
+      <button class="blaze-prev">‹</button>
+      <button class="blaze-next">›</button>
+    </div>
+    </div>
+  </div>
+</div>
+
+</section>
+<section class="new-arrivals">
+    <h2 class="pg-heading text-center">Popular</h2>
+    <p class="heading-para text-center">Fresh Looks for Your Space</p>
+
+
+<div class="lazy-slider" data-json="popular.json" id="slider2">
+  <div class="blaze-slider">
+    <div class="blaze-container"></div>
+    <button class="blaze-prev">‹</button>
+    <button class="blaze-next">›</button>
   </div>
 </div>
 

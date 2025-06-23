@@ -371,75 +371,49 @@
 </div>
 {# {% if route == 'common/home' %} #}
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    let sliderInitialized = false;
+   // Function to create slide HTML
+  function createSlideHTML(item) {
+    return `<div class="blaze-slide">
+              <img src="${item.image}" alt="${item.title}">
+              <h3>${item.title}</h3>
+            </div>`;
+  }
 
-    const loadSliderData = () => {
-      if (sliderInitialized) return;
-      sliderInitialized = true;
+  // Function to initialize a slider
+  function initBlazeSlider(container, jsonUrl) {
+    fetch(jsonUrl)
+      .then(res => res.json())
+      .then(data => {
+        const sliderContainer = container.querySelector('.blaze-container');
+        const slidesHTML = data.map(createSlideHTML).join('');
+        sliderContainer.innerHTML = slidesHTML;
 
-      fetch('catalog/view/theme/default/new-arrivals.json')
-        .then(res => res.json())
-        .then(products => {
-          const track = document.getElementById('product-track');
-
-          products.forEach(p => {
-            const slide = document.createElement('div');
-            slide.className = 'blaze-slide';
-            slide.innerHTML = `
-              <a href="${p.link}">
-                <img src="${p.image}" alt="${p.name}" loading="lazy">
-                 ${p.discount ? `<span class="discount-badge">${p.discount}% OFF</span>` : ''}
-                <h6>${p.name}</h6>
-                <strong>${p.price}</strong>
-                <strike>${p.price}</strike>
-              </a>
-            `;
-            track.appendChild(slide);
-          });
-            if (typeof BlazeSlider !== "undefined") {
-                new BlazeSlider(document.querySelector('#json-product-slider'), {
-                  all: {
-                      slidesToShow: 4,
-                      slideGap: '10px',
-                      loop: true,
-                      autoplay: true,
-                      transitionSpeed: 400,
-                      enablePagination: false,
-                       enableArrows: true,
-
-                    },
-                    '(max-width: 1024px)': {
-                        slidesToShow: 3.4,
-                    },
-                    '(max-width: 768px)': {
-                        slidesToShow: 2.2,
-                    },
-                    '(max-width: 500px)': {
-                        slidesToShow: 1.4,
-                    }
-                });
-            } else{
-                console.warn("BlazeSlider not loaded.");
-            }
+        new BlazeSlider(container.querySelector('.blaze-slider'), {
+          all: {
+            enableArrows: true,
+            slidesToShow: 1,
+            transitionDuration: 300,
+          }
         });
-    };
+      })
+      .catch(err => console.error("Slider JSON load failed", err));
+  }
 
-    // Observe when the slider container enters the viewport
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          loadSliderData();
-          observer.disconnect(); // Only load once
-        }
-      });
-    }, {
-      rootMargin: "200px" // preload ~200px before visible
+  // Lazy load all sliders using IntersectionObserver
+  const sliders = document.querySelectorAll('.lazy-slider');
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const slider = entry.target;
+        const jsonUrl = slider.dataset.json;
+        initBlazeSlider(slider, jsonUrl);
+        obs.unobserve(slider); // Only load once
+      }
     });
+  }, { rootMargin: "200px" });
 
-    const slider = document.getElementById("json-product-slider");
-    if (slider) observer.observe(slider);
-  });
+  sliders.forEach(slider => observer.observe(slider));
 
   </script>
 {# {% endif %} #}
