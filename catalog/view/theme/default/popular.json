@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Stack Bed Drawer Storage",
+    "image": "./image/popular/bed.jpg",
+    "price": "₹55,310",
+    "mrp": "₹89,600",
+    "link": "/stack-bed-with-storage-king-size-honey-finish",
+    "discount": "38"
+  },
+  {
+    "name": "Trace Bar Cabinet",
+    "image": "./image/popular/bar-cabinet.jpg",
+    "price": "₹42,000",
+    "mrp": "₹70,300",
+    "link": "/trace-bar-cabinet-teak-finish",
+    "discount": "40"
+  },
+  {
+    "name": "Joe Diwan Bed",
+    "image": "./image/popular/diwan.jpg",
+    "price": "₹20,450",
+    "mrp": "₹33,601",
+    "link": "/joe-diwan-bed-walnut-finish",
+    "discount": "39"
+  },
+  {
+    "name": "Freshlyn Sofa Set",
+    "image": "./image/popular/sofa-set.jpg",
+    "price": "₹65,000",
+    "mrp": "₹94,683",
+    "link": "/freshlyn-wooden-sofa-sets-teak-finish",
+    "discount": "31"
+  },
+  {
+    "name": "Aper Sofa Cum Bed",
+    "image": "./image/popular/sofa-cum-bed.jpg",
+    "price": "₹32,369",
+    "mrp": "₹59,848",
+    "link": "/aper-wooden-sofa-cum-bed-teak-finish",
+    "discount": "46"
+  },
+  {
+    "name": "Tubular File Cabinet",
+    "image": "./image/popular/bookshelf.jpg",
+    "price": "₹32,155",
+    "mrp": "₹65,170",
+    "link": "/royce-diwan-teak-finish",
+    "discount": "51"
+  }
+]
