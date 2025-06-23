@@ -1082,14 +1082,11 @@ document.addEventListener("DOMContentLoaded", function () {
     <style>
     .blaze-slide img {
   width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
 }
-.image-wrapper {
+/* .image-wrapper {
   position: relative;
   display: inline-block;
-}
+} */
 
 .discount-badge {
   position: absolute;
@@ -1104,6 +1101,35 @@ document.addEventListener("DOMContentLoaded", function () {
   z-index: 2;
   box-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
+/* Default - hide arrows */
+.blaze-prev,
+.blaze-next {
+  display: none !important;
+}
+
+/* Show arrows only on desktop */
+@media (min-width: 768px) {
+  .blaze-prev,
+  .blaze-next {
+    display: block !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 0.5rem;
+  }
+
+  .blaze-prev {
+    left: 10px;
+  }
+
+  .blaze-next {
+    right: 10px;
+  }
+}
     </style>
     <div class="blaze-slider" id="json-product-slider">
   <div class="blaze-container">
@@ -1111,9 +1137,12 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="blaze-track" id="product-track">
         <!-- Slides will be inserted here -->
       </div>
+      <button class="blaze-prev">‹</button>
+<button class="blaze-next">›</button>
     </div>
   </div>
 </div>
+
 </section>
 {# <section class="game-section py-lg-4 py-3" aria-label="Latest Arrials" data-nav="true">
   <div class="container">

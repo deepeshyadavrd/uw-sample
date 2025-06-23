@@ -369,7 +369,7 @@
                     <script src="catalog/view/javascript/common.js?v=1.5" type="text/javascript" defer></script>
                     <script src="https://unpkg.com/blaze-slider@1.9.3/dist/blaze-slider.min.js" defer></script>
 </div>
-{# {% if route == '/' %} #}
+{# {% if route == 'common/home' %} #}
   <script>
   document.addEventListener("DOMContentLoaded", function () {
     let sliderInitialized = false;
@@ -390,7 +390,7 @@
               <a href="${p.link}">
                 <img src="${p.image}" alt="${p.name}" loading="lazy">
                  ${p.discount ? `<span class="discount-badge">${p.discount}% OFF</span>` : ''}
-                <p>${p.name}</p>
+                <h6>${p.name}</h6>
                 <strong>${p.price}</strong>
                 <strike>${p.price}</strike>
               </a>
@@ -406,6 +406,7 @@
                       autoplay: true,
                       transitionSpeed: 400,
                       enablePagination: false,
+                       enableArrows: true,
 
                     },
                     '(max-width: 1024px)': {
@@ -439,44 +440,7 @@
     const slider = document.getElementById("json-product-slider");
     if (slider) observer.observe(slider);
   });
-    // document.addEventListener("DOMContentLoaded", function () {
-    //   fetch('catalog/view/theme/default/new-arrivals.json')
-    //     .then(response => response.json())
-    //     .then(products => {
-    //       const track = document.getElementById('product-track');
-    //       products.forEach(p => {
-    //         const slide = document.createElement('div');
-    //         slide.className = 'blaze-slide';
-    //         slide.innerHTML = `
-    //           <a href="${p.link}">
-    //             <img src="${p.image}" alt="${p.name}" loading="lazy">
-    //             <p>${p.name}</p>
-    //             <strong>${p.price}</strong>
-    //           </a>
-    //         `;
-    //         track.appendChild(slide);
-    //       });
 
-    //         if (typeof BlazeSlider !== "undefined") {
-    //             new BlazeSlider(document.querySelector('#json-product-slider'), {
-    //                 all: {
-    //                   slidesToShow: 4,
-    //                   slideGap: '10px',
-    //                   loop: true,
-    //                   autoplay: true,
-    //                   transitionSpeed: 400,
-    //                   enablePagination: false,
-
-    //                 },
-    //                 '(max-width: 500px)': {
-    //                     slidesToShow: 2.2,
-    //                 },
-    //             });
-    //         } else {
-    //             console.warn("BlazeSlider not loaded.");
-    //         }
-    //     });
-    // });
   </script>
 {# {% endif %} #}
 <style>
