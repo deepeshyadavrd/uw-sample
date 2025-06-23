@@ -1142,32 +1142,89 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   </div>
 </div> #}
-<div class="lazy-slider" data-json="new-arrivals.json" id="slider1">
+<div class="lazy-slider" data-json="catalog/view/theme/default/new-arrivals.json" id="slider1">
   <div class="blaze-slider">
     <div class="blaze-container">
     <div class="blaze-track-container">
       <div class="blaze-track" id="product-track">
         <!-- Slides will be inserted here -->
       </div>
-      <button class="blaze-prev">‹</button>
-      <button class="blaze-next">›</button>
-    </div>
+    <button class="blaze-prev">‹</button>
+    <button class="blaze-next">›</button>
     </div>
   </div>
 </div>
+<div>
 
 </section>
 <section class="new-arrivals">
     <h2 class="pg-heading text-center">Popular</h2>
     <p class="heading-para text-center">Fresh Looks for Your Space</p>
+  <style>
+    .blaze-slide img {
+  width: 100%;
+}
+/* .image-wrapper {
+  position: relative;
+  display: inline-block;
+} */
 
+.discount-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: #e63946;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+  z-index: 2;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+/* Default - hide arrows */
+.blaze-prev,
+.blaze-next {
+  display: none !important;
+}
 
-<div class="lazy-slider" data-json="popular.json" id="slider2">
+/* Show arrows only on desktop */
+@media (min-width: 768px) {
+  .blaze-prev,
+  .blaze-next {
+    display: block !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 0.5rem;
+  }
+
+  .blaze-prev {
+    left: 10px;
+  }
+
+  .blaze-next {
+    right: 10px;
+  }
+}
+    </style>
+
+<div class="lazy-slider" data-json="catalog/view/theme/default/popular.json" id="slider2">
   <div class="blaze-slider">
-    <div class="blaze-container"></div>
+    <div class="blaze-container">
+    <div class="blaze-track-container">
+      <div class="blaze-track">
+        <!-- Slides will be inserted here -->
+      </div>
     <button class="blaze-prev">‹</button>
     <button class="blaze-next">›</button>
+    </div>
   </div>
+</div>
 </div>
 
 </section>

@@ -375,7 +375,7 @@
   function createSlideHTML(item) {
     return `<div class="blaze-slide">
               <img src="${item.image}" alt="${item.title}">
-              <h3>${item.title}</h3>
+              <h6>${item.name}</h6>
             </div>`;
   }
 
@@ -384,17 +384,35 @@
     fetch(jsonUrl)
       .then(res => res.json())
       .then(data => {
-        const sliderContainer = container.querySelector('.blaze-container');
+        const sliderContainer = container.querySelector('.blaze-track');
         const slidesHTML = data.map(createSlideHTML).join('');
         sliderContainer.innerHTML = slidesHTML;
 
-        new BlazeSlider(container.querySelector('.blaze-slider'), {
-          all: {
-            enableArrows: true,
-            slidesToShow: 1,
-            transitionDuration: 300,
-          }
-        });
+       if (typeof BlazeSlider !== "undefined") {
+                new BlazeSlider(document.querySelector('.blaze-slider'), {
+                  all: {
+                      slidesToShow: 4,
+                      slideGap: '10px',
+                      loop: true,
+                      autoplay: true,
+                      transitionSpeed: 400,
+                      enablePagination: false,
+                       enableArrows: true,
+
+                    },
+                    '(max-width: 1024px)': {
+                        slidesToShow: 3.4,
+                    },
+                    '(max-width: 768px)': {
+                        slidesToShow: 2.2,
+                    },
+                    '(max-width: 500px)': {
+                        slidesToShow: 1.4,
+                    }
+                });
+            } else{
+                console.warn("BlazeSlider not loaded.");
+            }
       })
       .catch(err => console.error("Slider JSON load failed", err));
   }
