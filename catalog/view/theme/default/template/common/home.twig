@@ -1065,28 +1065,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </style>
 <section class="new-arrivals">
+  <div class="container-xl">
     <h2 class="pg-heading text-center">Latest Arrivals</h2>
     <p class="heading-para text-center">Fresh Looks for Your Space</p>
-    {# <div class="grid">
-        {% for item in products %}
-            <div class="card">
-            <a href={{ item.link }}
-                <img src="{{ item.image }}" alt="{{ item.name }}">
-                <div class="nw-content">
-                  <h3>{{ item.name }}</h3>
-                  <p>{{ item.price }}</p>
-                </div>
-            </div>
-        {% endfor %}
-    </div> #}
+
     <style>
     .blaze-slide img {
   width: 100%;
 }
-/* .image-wrapper {
-  position: relative;
-  display: inline-block;
-} */
+
 
 .discount-badge {
   position: absolute;
@@ -1131,102 +1118,40 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 }
     </style>
-    {# <div class="blaze-slider" id="json-product-slider">
-  <div class="blaze-container">
-    <div class="blaze-track-container">
-      <div class="blaze-track" id="product-track">
-        <!-- Slides will be inserted here -->
+    <div class="lazy-slider" data-json="catalog/view/theme/default/new-arrivals.json">
+      <div class="blaze-slider">
+        <div class="blaze-container">
+          <div class="blaze-track-container">
+            <div class="blaze-track" id="product-track">
+              <!-- Slides will be inserted here -->
+            </div>
+            <button class="blaze-prev">‹</button>
+            <button class="blaze-next">›</button>
+          </div>
+        </div>
       </div>
-      <button class="blaze-prev">‹</button>
-<button class="blaze-next">›</button>
     </div>
   </div>
-</div> #}
-<div class="lazy-slider" data-json="catalog/view/theme/default/new-arrivals.json">
-  <div class="blaze-slider">
-    <div class="blaze-container">
-    <div class="blaze-track-container">
-      <div class="blaze-track" id="product-track">
-        <!-- Slides will be inserted here -->
-      </div>
-    <button class="blaze-prev">‹</button>
-    <button class="blaze-next">›</button>
-    </div>
-  </div>
-</div>
-</div>
-
 </section>
 <section class="new-arrivals">
+  <div class="container-xl">
     <h2 class="pg-heading text-center">Popular</h2>
     <p class="heading-para text-center">Fresh Looks for Your Space</p>
-  <style>
-    .blaze-slide img {
-  width: 100%;
-}
-/* .image-wrapper {
-  position: relative;
-  display: inline-block;
-} */
 
-.discount-badge {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  background-color: #e63946;
-  color: #fff;
-  font-size: 12px;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-weight: bold;
-  z-index: 2;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-}
-/* Default - hide arrows */
-.blaze-prev,
-.blaze-next {
-  display: none !important;
-}
-
-/* Show arrows only on desktop */
-@media (min-width: 768px) {
-  .blaze-prev,
-  .blaze-next {
-    display: block !important;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
-    color: white;
-    border: none;
-    font-size: 24px;
-    padding: 0.5rem;
-  }
-
-  .blaze-prev {
-    left: 10px;
-  }
-
-  .blaze-next {
-    right: 10px;
-  }
-}
-    </style>
-
-<div class="lazy-slider" data-json="catalog/view/theme/default/popular.json" >
-  <div class="blaze-slider">
-    <div class="blaze-container">
-    <div class="blaze-track-container">
-      <div class="blaze-track">
-        <!-- Slides will be inserted here -->
+    <div class="lazy-slider" data-json="catalog/view/theme/default/popular.json" >
+      <div class="blaze-slider">
+        <div class="blaze-container">
+          <div class="blaze-track-container">
+            <div class="blaze-track">
+            <!-- Slides will be inserted here -->
+            </div>
+            <button class="blaze-prev">‹</button>
+            <button class="blaze-next">›</button>
+          </div>
+        </div>
       </div>
-    <button class="blaze-prev">‹</button>
-    <button class="blaze-next">›</button>
     </div>
   </div>
-</div>
-</div>
-
 </section>
 {# <section class="game-section py-lg-4 py-3" aria-label="Latest Arrials" data-nav="true">
   <div class="container">

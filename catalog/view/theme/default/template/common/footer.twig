@@ -374,8 +374,10 @@
    // Function to create slide HTML
   function createSlideHTML(item) {
     return `<div class="blaze-slide">
-              <img src="${item.image}" alt="${item.title}">
+              <img src="${item.image}" alt="${item.name}">
               <h6>${item.name}</h6>
+              <strong>${item.price}</strong>
+              <strike>${item.mrp}</strike>
             </div>`;
   }
 
@@ -391,7 +393,7 @@
         // sliderContainer.innerHTML = slidesHTML;
 
        if (typeof BlazeSlider !== "undefined") {
-                new BlazeSlider(document.querySelector('.blaze-slider'), {
+                new BlazeSlider(container.querySelector('.blaze-slider'), {
                   all: {
                       slidesToShow: 4,
                       slideGap: '10px',
@@ -403,7 +405,7 @@
 
                     },
                     '(max-width: 1024px)': {
-                        slidesToShow: 3.4,
+                        slidesToShow: 3.2,
                     },
                     '(max-width: 768px)': {
                         slidesToShow: 2.2,
