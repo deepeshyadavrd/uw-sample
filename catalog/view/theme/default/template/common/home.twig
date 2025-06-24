@@ -204,7 +204,7 @@
 
 /* Hover Effect */
 .card:hover .card-img {
-  transform: translateY(-4%);
+  /* transform: translateY(-4%); */
   box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
 }
 @media (min-width: 576px) {
@@ -222,9 +222,9 @@
     padding: 0 5px;
   }
 
-  .card:hover .card-img {
+  /* .card:hover .card-img {
     transform: translateY(-6%);
-  }
+  } */
 }
 
 /* Large Screens */
@@ -233,9 +233,9 @@
     grid-template-columns: repeat(4, 1fr); /* 4 columns for large screens */
   }
 
-  .card:hover .card-img {
+  /* .card:hover .card-img {
     transform: translateY(-7%);
-  }
+  } */
 
   .text-body {
     display: block; /* Show text-body for larger screens */
@@ -252,7 +252,7 @@
 
     <div class="storage-types">
     <div class="card">
-      <div class="card-img"><a href=""><img src="image\bed-storage\box.jpg" alt="Box Storage Bed" class="storage-image" /></a></div>
+      <div class="card-img"><a href=""><img src="image\bed-s\box.png" alt="Box Storage Bed" class="storage-image" /></a></div>
       <div class="card-info">
         <a href="">
           <p class="text-title">Box Storage</p>
@@ -261,7 +261,7 @@
       </div>
     </div>
     <div class="card">
-      <div class="card-img"><a href=""><img src="image\bed-storage\drawer.jpg" alt="Drawer Storage Bed" class="storage-image" /></a></div>
+      <div class="card-img"><a href=""><img src="image\bed-s\drawer.png" alt="Drawer Storage Bed" class="storage-image" /></a></div>
       <div class="card-info">
         <a href="">
           <p class="text-title">Drawer Storage</p>
@@ -270,7 +270,7 @@
       </div>
     </div>
     <div class="card">
-      <div class="card-img"><a href=""><img src="image\bed-storage\hy.jpg" alt="Hydraulic Storage Bed" class="storage-image" /></a></div>
+      <div class="card-img"><a href=""><img src="image\bed-s\hy.png" alt="Hydraulic Storage Bed" class="storage-image" /></a></div>
       <div class="card-info">
         <a href="">
           <p class="text-title">Hydraulic Storage</p>
@@ -279,7 +279,7 @@
       </div>
     </div>
     <div class="card">
-      <div class="card-img"><a href=""><img src="image\bed-storage\ws.jpg" alt="Without Storage Bed" class="storage-image" /></a></div>
+      <div class="card-img"><a href=""><img src="image\bed-s\ws.png" alt="Without Storage Bed" class="storage-image" /></a></div>
       <div class="card-info">
         <a href="">
           <p class="text-title">Without Storage</p>
@@ -290,6 +290,79 @@
     </div>
   </div>
 </section>
+<!-- Bed Storage Options Section -->
+<section class="storage-options lazy-storage" data-json="catalog/view/theme/default/storage-option.json">
+  <h2>Explore Storage Options</h2>
+  <div class="storage-grid">
+    <!-- Cards will be loaded here via JS -->
+  </div>
+</section>
+
+<style>
+.storage-options {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.storage-options h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.storage-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  box-sizing: border-box;
+}
+
+/* Medium screens */
+@media (max-width: 1200px) {
+  .storage-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+  .storage-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.storage-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.storage-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.storage-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.storage-card h3 {
+  margin: 15px 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+}
+
+</style>
 {# new sec end #}
 <style>
 
@@ -1045,9 +1118,9 @@ document.addEventListener("DOMContentLoaded", function () {
         grid-template-columns: repeat(4, 1fr);
         gap: 20px;
     }
-    .card:hover {
+    /* .card:hover {
     transform: scale(1.05);
-  }
+  } */
 }
 
 /* Large Screens: 4 columns in a row */
@@ -1058,9 +1131,9 @@ document.addEventListener("DOMContentLoaded", function () {
   .grid h3 {
     font-size: 18px;
   }
-  .card:hover {
+  /* .card:hover {
     transform: scale(1.05);
-  }
+  } */
 }
 
 </style>
