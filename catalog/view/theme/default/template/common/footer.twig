@@ -381,12 +381,14 @@
 
   // Function to initialize a slider
   function initBlazeSlider(container, jsonUrl) {
+    const track = container.querySelector('.blaze-track');
+    if (!track) return;
+
     fetch(jsonUrl)
       .then(res => res.json())
       .then(data => {
-        const sliderContainer = container.querySelector('.blaze-track');
-        const slidesHTML = data.map(createSlideHTML).join('');
-        sliderContainer.innerHTML = slidesHTML;
+        track.innerHTML = data.map(createSlideHTML).join('');
+        // sliderContainer.innerHTML = slidesHTML;
 
        if (typeof BlazeSlider !== "undefined") {
                 new BlazeSlider(document.querySelector('.blaze-slider'), {
