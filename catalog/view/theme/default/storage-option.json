@@ -5,14 +5,14 @@
     "image": "image/bed-s/box.webp"
   },
   {
-    "name": "Hydraulic Storage",
-    "link": "hudraulic-storage-beds",
-    "image": "image/bed-s/hy.webp"
-  },
-  {
     "name": "Drawer Storage",
     "link": "drawer-storage-beds",
     "image": "image/bed-s/drawer.webp"
+  },
+  {
+    "name": "Hydraulic Storage",
+    "link": "hudraulic-storage-beds",
+    "image": "image/bed-s/hy.webp"
   },
   {
     "name": "No Storage",
