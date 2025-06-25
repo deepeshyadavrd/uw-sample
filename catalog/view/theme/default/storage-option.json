@@ -2,21 +2,21 @@
   {
     "name": "Box Storage",
     "link": "box-storage-beds",
-    "image": "image/bed-s/box.png"
+    "image": "image/bed-s/box.jpg"
   },
   {
     "name": "Hydraulic Storage",
     "link": "hudraulic-storage-beds",
-    "image": "image/bed-s/hy.png"
+    "image": "image/bed-s/hy.jpg"
   },
   {
     "name": "Drawer Storage",
     "link": "drawer-storage-beds",
-    "image": "image/bed-s/drawer.png"
+    "image": "image/bed-s/drawer.jpg"
   },
   {
     "name": "No Storage",
     "link": "beds-without-storage",
-    "image": "image/bed-s/ws.png"
+    "image": "image/bed-s/ws.jpg"
   }
 ]
