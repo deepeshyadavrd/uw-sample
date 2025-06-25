@@ -429,8 +429,10 @@ function loadStorageOptions(section, jsonUrl) {
     .then(data => {
       grid.innerHTML = data.map(item => `
         <div class="storage-card">
-          <img src="${item.image}" alt="${item.name}">
-          <h3>${item.name}</h3>
+            <a href="${item.link}">
+                <img src="${item.image}" alt="${item.name}">
+                <h3>${item.name}</h3>
+            </a>
         </div>
       `).join('');
     })
