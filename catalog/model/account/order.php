@@ -168,4 +168,9 @@ class ModelAccountOrder extends Model {
 
 		return $query->row['total'];
 	}
+	public function getOrderStageImages($order_id) {
+    	$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_status_images WHERE order_id = '" . (int)$order_id . "' ORDER BY date_added ASC");
+
+    	return $query->rows;
+	}
 }
