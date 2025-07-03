@@ -508,11 +508,16 @@
         </div>
     </div>
         <div class="invoice-box d-block">
-            <div class="d-flex align-items-center justify-content-evenly">
-       <div><img src="catalog/view/javascript/assets/image/download-vetor-img.jpg" alt=""></div>
-       <button type="button" class="download-btn"> DOWNLOAD INVOICE</button>
-       <a href="" class="view-pdf">View Details</a>
-    </div>
+                        {% if order_stage_images %}
+  <h3>Order Progress Images</h3>
+  <div class="order-stage-images">
+    {% for image in order_stage_images %}
+      <div class="order-stage-image">
+        <img src="http://localhost/crm/uploads/order_stage_images/{{ image.filename }}" alt="Stage Image" style="max-width:200px;">
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
         </div>
     </div> 
     </div>
