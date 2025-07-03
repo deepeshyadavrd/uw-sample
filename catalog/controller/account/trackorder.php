@@ -243,7 +243,9 @@ class ControllerAccountTrackorder extends Controller {
                 // print_r($data['histories']);
                 $data['action'] = $this->url->link('account/trackorder');
 			    $data['continue'] = $this->url->link('account/order', '', true);
-
+				// Fetch images
+        		$order_stage_images = $this->model_account_order->getOrderStageImages($order_id);
+        		$data['order_stage_images'] = $order_stage_images;
 			    
 			    $data['footer'] = $this->load->controller('common/footer');
 			    $data['header'] = $this->load->controller('common/header');
