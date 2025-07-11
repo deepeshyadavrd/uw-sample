@@ -442,7 +442,7 @@
   // Lazy load all sliders using IntersectionObserver
 const lazySections1 = document.querySelectorAll('[data-json]');
 
-const observer = new IntersectionObserver((entries, obs) => {
+const observer1 = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
 
@@ -459,7 +459,7 @@ const observer = new IntersectionObserver((entries, obs) => {
   });
 }, { rootMargin: "200px" });
 
-lazySections1.forEach(section => observer.observe(section));
+lazySections1.forEach(section => observer1.observe(section));
   </script>
 {# {% endif %} #}
 <style>
