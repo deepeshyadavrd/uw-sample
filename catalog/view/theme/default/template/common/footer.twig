@@ -420,27 +420,27 @@
       })
       .catch(err => console.error("Slider JSON load failed", err));
   }
-function loadStorageOptions(section, jsonUrl) {
-  const grid = section.querySelector('.storage-grid');
-  if (!grid) return;
+// function loadStorageOptions(section, jsonUrl) {
+//   const grid = section.querySelector('.storage-grid');
+//   if (!grid) return;
 
-  fetch(jsonUrl)
-    .then(res => res.json())
-    .then(data => {
-      grid.innerHTML = data.map(item => `
-        <div class="storage-card">
-            <a href="${item.link}">
-                <img src="${item.image}" alt="${item.name}">
-                <h3>${item.name}</h3>
-            </a>
-        </div>
-      `).join('');
-    })
-    .catch(err => console.error("Storage options load failed", err));
-}
+//   fetch(jsonUrl)
+//     .then(res => res.json())
+//     .then(data => {
+//       grid.innerHTML = data.map(item => `
+//         <div class="storage-card">
+//             <a href="${item.link}">
+//                 <img src="${item.image}" alt="${item.name}">
+//                 <h3>${item.name}</h3>
+//             </a>
+//         </div>
+//       `).join('');
+//     })
+//     .catch(err => console.error("Storage options load failed", err));
+// }
 
   // Lazy load all sliders using IntersectionObserver
-const lazySections = document.querySelectorAll('[data-json]');
+const lazySections1 = document.querySelectorAll('[data-json]');
 
 const observer = new IntersectionObserver((entries, obs) => {
   entries.forEach(entry => {
@@ -449,17 +449,17 @@ const observer = new IntersectionObserver((entries, obs) => {
     const el = entry.target;
     const jsonUrl = el.dataset.json;
 
-    if (el.classList.contains('lazy-slider')) {
+    // if (el.classList.contains('lazy-slider')) {
       initBlazeSlider(el, jsonUrl);
-    } else if (el.classList.contains('lazy-storage')) {
-      loadStorageOptions(el, jsonUrl);
-    }
+    // } else if (el.classList.contains('lazy-storage')) {
+    //   loadStorageOptions(el, jsonUrl);
+    // }
 
     obs.unobserve(el);
   });
 }, { rootMargin: "200px" });
 
-lazySections.forEach(section => observer.observe(section));
+lazySections1.forEach(section => observer.observe(section));
   </script>
 {# {% endif %} #}
 <style>
