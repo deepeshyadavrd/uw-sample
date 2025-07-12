@@ -156,7 +156,6 @@ class ModelAccountOrder extends Model {
 
 		return $query->row['total'];
 	}
-
 	public function getTotalOrderProductsByOrderId($order_id) {
 		$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "order_product WHERE order_id = '" . (int)$order_id . "'");
 
