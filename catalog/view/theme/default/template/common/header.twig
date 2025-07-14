@@ -96,7 +96,7 @@
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/css/jquery-ui.min.css" media="print" onload="this.media='all'">
                     
                     <link rel="stylesheet" type="text/css" href="catalog/view/javascript/assets/css/new-css.css" media="print" onload="this.media='all'">
-                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css"" media="print" onload="this.media='all'">
+                    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css" media="print" onload="this.media='all'">
                     
                     <link
   rel="stylesheet"
@@ -140,6 +140,119 @@
   -o-animation-play-state: paused;
   animation-play-state: paused;
 }
+
+/* glider.js css */
+.glider-contain {
+      max-width: 1200px;
+      margin: 40px auto; /* Adds spacing above & below */
+      margin: auto;
+      position: relative;
+      padding: 0 10px;
+    }
+
+    .glider {
+      margin-bottom: 1rem;
+      padding: 0 5px;
+
+    }
+.slide-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  margin: 16px 16px 32px 0; /* spacing between slides */
+}
+
+    .glider .slide-img {
+      border-radius: 8px;
+  overflow: hidden;
+  margin-right: 16px;
+  background: #fff;
+  /*box-shadow: 0 0 0 transparent;*/
+       transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+      box-shadow: inset -1px 1px 13px 5px rgba(0, 0, 0, 0.06);
+    }
+    .glider .slide-img:last-child {
+      margin-right: 0;
+    }
+.glider .slide-img:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}.glider .slide-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 1px solid #eee;
+}
+/* Image Zoom on Hover */
+.slide-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.slide-img:hover img {
+  transform: scale(1.01);
+}
+
+.slide-caption {
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.slide-caption h4 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.slide-caption p {
+  font-size: 0.875rem;
+  color: #777;
+  margin: 0;
+}
+
+    .glider .slide-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    [class^="glider-prev"], [class^="glider-next"] {
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      font-size: 1.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      position: absolute;
+      top: 45%;
+      transform: translateY(-50%);
+      z-index: 10;
+    }
+
+    [class^="glider-prev"] { left: -40px; }
+    [class^="glider-next"] { right: -40px; }
+
+    .dots {
+      text-align: center;
+    }
+
+    .dots button {
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      border-radius: 50%;
+      background: #ccc;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dots .glider-dot.active {
+      background: #333;
+    }
     </style>
     
                 </head>
