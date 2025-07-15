@@ -380,10 +380,11 @@ document.querySelectorAll('.glider').forEach((el, i) => {
       draggable: true,
       scrollLock: true,
       duration: 0.5,
-      dots: `.dots-${i+1}`,
+      rewind: true,
+      dots: `.dots`,
       arrows: {
-        prev: `.glider-prev-${i+1}`,
-        next: `.glider-next-${i+1}`
+        prev: `.glider-prev`,
+        next: `.glider-next`
       },
       responsive: [
   {
