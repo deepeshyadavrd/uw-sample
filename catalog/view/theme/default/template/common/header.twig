@@ -142,7 +142,13 @@
 }
 
 /* glider.js css */
-.glider-contain {
+body {
+      font-family: sans-serif;
+      background: #ffffff;
+      padding: 2rem;
+    }
+
+    .glider-contain {
       max-width: 1200px;
       margin: 40px auto; /* Adds spacing above & below */
       margin: auto;
@@ -219,22 +225,23 @@
       display: block;
     }
 
-    [class^="glider-prev"], [class^="glider-next"] {
-      background: rgba(0, 0, 0, 0.5);
-      color: #fff;
-      border: none;
-      font-size: 1.5rem;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      cursor: pointer;
+    .nav-arrow {
       position: absolute;
-      top: 45%;
+      top: 50%;
       transform: translateY(-50%);
       z-index: 10;
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      font-size: 20px;
+      border-radius: 4%;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
 
-    [class^="glider-prev"] { left: -40px; }
-    [class^="glider-next"] { right: -40px; }
+    [class^="glider-prev"] { left: 0; }
+    [class^="glider-next"] { right: 0; }
 
     .dots {
       text-align: center;
