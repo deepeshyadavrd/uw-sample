@@ -243,7 +243,7 @@ body {
     .nav-arrow:hover {
       background: rgba(0, 0, 0, 0.6);
     }
-    
+
     [class^="glider-prev"] { left: 0; }
     [class^="glider-next"] { right: 0; }
 
@@ -264,6 +264,11 @@ body {
     .dots .glider-dot.active {
       background: #333;
     }
+    @media (max-width: 768px) {
+  .nav-arrow {
+    display: none;
+  }
+}
     </style>
     
                 </head>
