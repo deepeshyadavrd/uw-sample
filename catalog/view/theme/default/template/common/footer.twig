@@ -372,9 +372,86 @@
 {# {% if route == 'common/home' %} #}
   <script>
 //   glider.js js
- window.addEventListener('DOMContentLoaded', function () {
-document.querySelectorAll('.glider').forEach((el, i) => {
-    new Glider(el, {
+//  window.addEventListener('DOMContentLoaded', function () {
+// document.querySelectorAll('.glider').forEach((el, i) => {
+//     new Glider(el, {
+//       slidesToShow: 4,
+//       slidesToScroll: 1,
+//       draggable: true,
+//       scrollLock: true,
+//       duration: 0.5,
+//       rewind: true,
+//       dots: `.dots`,
+//       arrows: {
+//         prev: `.glider-prev`,
+//         next: `.glider-next`
+//       },
+//       responsive: [
+//   {
+//     breakpoint: 1440,
+//     settings: { slidesToShow: 4.1 }
+//   },
+//   {
+//     breakpoint: 1200,
+//     settings: { slidesToShow: 3.2 }
+//   },
+//   {
+//     breakpoint: 1024,
+//     settings: { slidesToShow: 3.2 }
+//   },
+//   {
+//     breakpoint: 768,
+//     settings: { slidesToShow: 2.1 }
+//   },
+//   {
+//     breakpoint: 600,
+//     settings: { slidesToShow: 1.5 }
+//   },
+//   {
+//     breakpoint: 480,
+//     settings: { slidesToShow: 1.2 }
+//   },
+//   {
+//     breakpoint: 320,
+//     settings: { slidesToShow: 1.2 }
+//   }
+// ]
+//     });
+//   });
+//   });
+   // Function to create slide HTML
+  function createSlideHTML(item) {
+    // return `<div class="blaze-slide">
+    //           <img src="${item.image}" alt="${item.name}">
+    //           <h6>${item.name}</h6>
+    //           <strong>${item.price}</strong>
+    //           <strike>${item.mrp}</strike>
+    //         </div>`;
+            return `<a href="#" class="slide-card">
+      <div class="slide-img">
+        <img src="${item.image}" alt="Slide 1" />
+        <div class="slide-caption">
+          <h4>${item.name}</h4>
+          <strong>${item.price}</strong>
+              <strike>${item.mrp}</strike>
+        </div>
+      </div>
+    </a>`;
+  }
+
+  // Function to initialize a slider
+  function initGliderSlider(container, jsonUrl) {
+    const track = container.querySelector('.glider');
+    if (!track) return;
+
+    fetch(jsonUrl)
+      .then(res => res.json())
+      .then(data => {
+        track.innerHTML = data.map(createSlideHTML).join('');
+        // sliderContainer.innerHTML = slidesHTML;
+
+       if (typeof GliderSlider !== "undefined") {
+                new Glider(el, {
       slidesToShow: 4,
       slidesToScroll: 1,
       draggable: true,
@@ -389,7 +466,7 @@ document.querySelectorAll('.glider').forEach((el, i) => {
       responsive: [
   {
     breakpoint: 1440,
-    settings: { slidesToShow: 4.1 }
+    settings: { slidesToShow: 3.1 }
   },
   {
     breakpoint: 1200,
@@ -417,51 +494,6 @@ document.querySelectorAll('.glider').forEach((el, i) => {
   }
 ]
     });
-  });
-  });
-   // Function to create slide HTML
-  function createSlideHTML(item) {
-    return `<div class="blaze-slide">
-              <img src="${item.image}" alt="${item.name}">
-              <h6>${item.name}</h6>
-              <strong>${item.price}</strong>
-              <strike>${item.mrp}</strike>
-            </div>`;
-  }
-
-  // Function to initialize a slider
-  function initBlazeSlider(container, jsonUrl) {
-    const track = container.querySelector('.blaze-track');
-    if (!track) return;
-
-    fetch(jsonUrl)
-      .then(res => res.json())
-      .then(data => {
-        track.innerHTML = data.map(createSlideHTML).join('');
-        // sliderContainer.innerHTML = slidesHTML;
-
-       if (typeof BlazeSlider !== "undefined") {
-                new BlazeSlider(container.querySelector('.blaze-slider'), {
-                  all: {
-                      slidesToShow: 4,
-                      slideGap: '10px',
-                      loop: true,
-                      autoplay: true,
-                      transitionSpeed: 400,
-                      enablePagination: false,
-                       enableArrows: true,
-
-                    },
-                    '(max-width: 1024px)': {
-                        slidesToShow: 3.2,
-                    },
-                    '(max-width: 768px)': {
-                        slidesToShow: 2.2,
-                    },
-                    '(max-width: 500px)': {
-                        slidesToShow: 1.4,
-                    }
-                });
             } else{
                 console.warn("BlazeSlider not loaded.");
             }
@@ -498,7 +530,7 @@ const observer1 = new IntersectionObserver((entries, obs) => {
     const jsonUrl = el.dataset.json;
 
     // if (el.classList.contains('lazy-slider')) {
-      initBlazeSlider(el, jsonUrl);
+      initGliderSlider(el, jsonUrl);
     // } else if (el.classList.contains('lazy-storage')) {
     //   loadStorageOptions(el, jsonUrl);
     // }
