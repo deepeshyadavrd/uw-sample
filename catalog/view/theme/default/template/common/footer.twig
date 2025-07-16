@@ -442,6 +442,9 @@
   // Function to initialize a slider
   function initGliderSlider(container, jsonUrl) {
     const track = container.querySelector('.glider');
+  const prev = container.querySelector('.glider-prev');
+  const next = container.querySelector('.glider-next');
+  const dots = container.querySelector('.dots');
     if (!track) return;
 
     fetch(jsonUrl)
@@ -450,8 +453,8 @@
         track.innerHTML = data.map(createSlideHTML).join('');
         // sliderContainer.innerHTML = slidesHTML;
 
-       if (typeof GliderSlider !== "undefined") {
-                new Glider(el, {
+       if (typeof Glider !== "undefined") {
+                new Glider(track, {
       slidesToShow: 4,
       slidesToScroll: 1,
       draggable: true,

@@ -38,5 +38,13 @@
     "mrp": "₹42,109",
     "link": "/royce-diwan-teak-finish",
     "discount": "35"
+  },
+  {
+    "name": "Royce Diwan",
+    "image": "./image/new-arr/royce.jpg",
+    "price": "₹27,199",
+    "mrp": "₹42,109",
+    "link": "/royce-diwan-teak-finish",
+    "discount": "35"
   }
 ]
