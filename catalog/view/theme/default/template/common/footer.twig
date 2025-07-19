@@ -3,320 +3,318 @@
 {{ customerstories }}
 {% endif %}
 <!--sign in signup popup-->
-    <div id="signuppopup" class="modal" role="dialog">
-        <div class="modal-dialog popup_content">
-            <!-- Modal content-->
-            <div class="modal-content p-0">
-                <div class="modal-header">
-                    <button type="button" class="popup-close2 close" data-bs-dismiss="modal" id="closemo">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <div class="modal-body m-0 p-0">
-                    <div class="row">
-                        <div class="col-md-7 col-sm-6 col-xs-6 width-30">
-
-                        <img src="catalog/view/javascript/assets/image/popupimg/slider1.PNG"  class="img-responsive img-fluid" alt="x-mas offer avail now" loading="lazy"/>
-                        </div>
-                        <div class="col-md-5 col-sm-6 col-xs-6 width-70">
-
-                            <!--- sign in form-->
-                            <div class="signin-form-popup signupform1 notification-container " id="loginform" >
-                                <div class="from-header">
-                                    <h6>
-                                        Welcome to
-                                        <br>
-                                        <span>
-                                            UrbanWood</span>
-                                    </h6>
-                                    <p>Glad to See You!</p>
-                                </div>
-                                <div class="popup-signform">
-                                    <form method="post" enctype="multipart/form-data" class="loginform">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email Address" required="">
-                                            </div>
-                                            <div class="col-md-12 ">
-                                                <input type="password" name="password" class="form-control password" autocomplete="current-password" required="" id="id_password_login" placeholder="Password">
-                                                <i class="far fa-eye-slash" id="togglePassword"></i>
-                                            </div>
-                                            <div class="d-block">
-                                                <button type="submit" class="login-btn-popup" id="loginbtn">Login</button>
-                                                <a href="forgot-password" class="forget-pass text-center">Forget password?</a>
-                                                <p class="text-center dont-accont">Dont Have an Account ?
-                                                    <a href="" id="tosignup">Sign Up Now</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- sign up for first time form -->
-                            <div class="signin-form-popup signupform2 notification-container2 " id="signupform" style="display: none;">
-                                <div class="from-header">
-                                    <h6>
-                                        <span>
-                                            Join us now
-                                        </span>
-                                    </h6>
-                                </div>
-                                <div class="popup-signform">
-                                    <form method="post" enctype="multipart/form-data" class="registerform">
-                                        <div class="row">
-                                            <div class="col-md-6 col-lg-6 ">
-                                                <input type="name" name="firstname" class="form-control mt-0 mb-1" id="firstname" placeholder="First Name" required="">
-                                                <span id="firstnameError" class="error"></span>
-                                            </div>
-                                            <div class="col-md-6 col-lg-6 ">
-                                                <input type="text" name="lastname" class="form-control mt-0 mb-1" id="lastname" placeholder="Last Name" required="">
-                                                <span id="lastnameError" class="error"></span>
-                                            </div>
-                                            <div class="col-md-12 ">
-                                                <input type="email" name="email" class="form-control mt-0mb-1" id="email" placeholder="Email Address" required="">
-                                                <span id="emailError" class="error"></span>
-                                            </div>
-                                            <div class="col-md-12 ">
-                                                <input type="text" name="telephone" class="form-control mt-0 mb-1" id="phone" placeholder="contact Number" required="" onkeypress="if(this.value.length==10) return false;">
-                                                <span id="phoneError" class="error"></span>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <input type="password" name="password" class="form-control password" autocomplete="current-password" required="" id="password" placeholder="Password">
-                                                <i class="far fa-eye" id="togglePassword"></i>
-                                                <span id="passwordError" class="error"></span>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <input type="password" name="confirm" class="form-control password" autocomplete="current-password" required="" id="confirmPassword" placeholder="Confirm password">
-                                                <i class="far fa-eye" id="togglePassword"></i>
-                                                <span id="confirmPasswordError" class="error"></span>
-                                            </div>
-                                            <div id="message"></div>
-                                            <div class="d-block">
-                                                <button type="submit" class="login-btn-popup" id="signupbtn">Sign up</button>
-                                                <p class="text-center dont-accont mb-0">Already Have an Account ?
-                                                    <a href="" id="tosignin">Sign in Now</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <div id="message"></div>
-                                    <style>
-    .error {
-        color: red;
-        font-size: 0.9em;
-        display: block;
-        margin-top: 5px;
-    }
-</style>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div id="signuppopup" class="modal" role="dialog">
+    <div class="modal-dialog popup_content">
+      <!-- Modal content-->
+      <div class="modal-content p-0">
+        <div class="modal-header">
+            <button type="button" class="popup-close2 close" data-bs-dismiss="modal" id="closemo">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
+        <div class="modal-body m-0 p-0">
+          <div class="row">
+            <div class="col-md-7 col-sm-6 col-xs-6 width-30">
+              <img src="catalog/view/javascript/assets/image/popupimg/slider1.PNG"  class="img-responsive img-fluid" alt="x-mas offer avail now" loading="lazy"/>
+            </div>
+            <div class="col-md-5 col-sm-6 col-xs-6 width-70">
+              <!--- sign in form-->
+              <div class="signin-form-popup signupform1 notification-container " id="loginform" >
+                <div class="from-header">
+                  <h6>
+                      Welcome to
+                      <br>
+                      <span>
+                          UrbanWood</span>
+                  </h6>
+                  <p>Glad to See You!</p>
+                </div>
+                <div class="popup-signform">
+                  <form method="post" enctype="multipart/form-data" class="loginform">
+                      <div class="row">
+                          <div class="col-md-12">
+                              <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email Address" required="">
+                          </div>
+                          <div class="col-md-12 ">
+                              <input type="password" name="password" class="form-control password" autocomplete="current-password" required="" id="id_password_login" placeholder="Password">
+                              <i class="far fa-eye-slash" id="togglePassword"></i>
+                          </div>
+                          <div class="d-block">
+                              <button type="submit" class="login-btn-popup" id="loginbtn">Login</button>
+                              <a href="forgot-password" class="forget-pass text-center">Forget password?</a>
+                              <p class="text-center dont-accont">Dont Have an Account ?
+                                  <a href="" id="tosignup">Sign Up Now</a>
+                              </p>
+                          </div>
+                      </div>
+                  </form>
+                </div>
+              </div>
+              <!-- sign up for first time form -->
+              <div class="signin-form-popup signupform2 notification-container2 " id="signupform" style="display: none;">
+                <div class="from-header">
+                  <h6>
+                      <span>
+                          Join us now
+                      </span>
+                  </h6>
+                </div>
+                <div class="popup-signform">
+                  <form method="post" enctype="multipart/form-data" class="registerform">
+                    <div class="row">
+                      <div class="col-md-6 col-lg-6 ">
+                          <input type="name" name="firstname" class="form-control mt-0 mb-1" id="firstname" placeholder="First Name" required="">
+                          <span id="firstnameError" class="error"></span>
+                      </div>
+                      <div class="col-md-6 col-lg-6 ">
+                          <input type="text" name="lastname" class="form-control mt-0 mb-1" id="lastname" placeholder="Last Name" required="">
+                          <span id="lastnameError" class="error"></span>
+                      </div>
+                      <div class="col-md-12 ">
+                          <input type="email" name="email" class="form-control mt-0mb-1" id="email" placeholder="Email Address" required="">
+                          <span id="emailError" class="error"></span>
+                      </div>
+                      <div class="col-md-12 ">
+                          <input type="text" name="telephone" class="form-control mt-0 mb-1" id="phone" placeholder="contact Number" required="" onkeypress="if(this.value.length==10) return false;">
+                          <span id="phoneError" class="error"></span>
+                      </div>
+                      <div class="col-md-12">
+                          <input type="password" name="password" class="form-control password" autocomplete="current-password" required="" id="password" placeholder="Password">
+                          <i class="far fa-eye" id="togglePassword"></i>
+                          <span id="passwordError" class="error"></span>
+                      </div>
+                      <div class="col-md-12">
+                          <input type="password" name="confirm" class="form-control password" autocomplete="current-password" required="" id="confirmPassword" placeholder="Confirm password">
+                          <i class="far fa-eye" id="togglePassword"></i>
+                          <span id="confirmPasswordError" class="error"></span>
+                      </div>
+                      <div id="message"></div>
+                      <div class="d-block">
+                          <button type="submit" class="login-btn-popup" id="signupbtn">Sign up</button>
+                          <p class="text-center dont-accont mb-0">Already Have an Account ?
+                              <a href="" id="tosignin">Sign in Now</a>
+                          </p>
+                      </div>
+                    </div>
+                  </form>
+                  <div id="message"></div>
+                  <style>
+                    .error {
+                        color: red;
+                        font-size: 0.9em;
+                        display: block;
+                        margin-top: 5px;
+                    }
+                  </style>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
     <!--end popup-->
 <footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="footer-newsletter">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <h2 class="pg-heading text-lg-start">Subscribe Our Newsletter</h2>
+          <p class="heading-para text-lg-start ">Enter your email address to stay tuned with latest offers and products.</p>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12" id="newsletterdiv">
+          <form id="newsletter-form" method="post">
+              <input type="email" name="email" placeholder="Enter your email address &hellip;">
+          </form>
+          <button type="button" onclick="newsletter('newsletter-form');">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-top d-md-block d-none">
     <div class="container">
-        <div class="row">
-            <div class="footer-newsletter">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <h2 class="pg-heading text-lg-start">Subscribe Our Newsletter</h2>
-                    <p class="heading-para text-lg-start ">Enter your email address to stay tuned with latest offers and products.</p>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12" id="newsletterdiv">
-                    <form id="newsletter-form" method="post">
-                        <input type="email" name="email" placeholder="Enter your email address &hellip;">
-                    </form>
-                    <button type="button" onclick="newsletter('newsletter-form');">Subscribe</button>
-                </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-6 footer-info">
+          <h4>Contact Info</h4>
+          <p>We at Urbanwood would love to hear your opinion about our venture.</p>
+          <ul class="contact-list">
+            <li>
+              <span><i class='bx bxs-map'></i></span>
+              URBANWOOD FURNITURE PRIVATE LIMITED 843 , Gram Basdi , mukandpura Road , Bhankrota , Ajmer road , Jaipur , Rajasthan , 302026
+            </li>
+            <li>
+              <span><i class='bx bxs-phone'></i></span>+91 9599283126
+            </li>
+            <li>
+              <span><i class='bx bx-envelope'></i></span>
+              support@urbanwood.in
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="about-us">About us</a>
+            </li>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="contact-us">Contact us</a>
+            </li>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="career">Career</a>
+            </li>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="bulk-order">Bulk Order</a>
+            </li>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="https://blog.urbanwood.in/">Blog</a>
+            </li>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="sitemap">Sitemap</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 footer-links ">
+          <h4>Customer Service</h4>
+          <ul>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="https://www.urbanwood.in/return-and-refunds">Return & Refunds</a>
+            </li>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="https://www.urbanwood.in/terms">Terms of Uses</a>
+            </li>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="https://www.urbanwood.in/security-and-privacy">Security & Privacy</a>
+            </li>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="https://www.urbanwood.in/delivery-and-shipping-policy">Delivery & Shipping Policy</a>
+            </li>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="customer-stories">Customer Stories</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 footer-links ">
+          <h4>Top Categories</h4>
+          <ul>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="bedroom-furniture">Bedroom</a>
+            </li>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="sofas">Sofas</a>
+            </li>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="dining-room-furniture">Dining Room</a>
+            </li>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="wardrobes">Wardrobes</a>
+            </li>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="bookshelves">Bookshelves</a>
+            </li>
+          </ul>
+            <div class="social-links mt-3">
+                <h4>Follow us-</h4>
+                <a href="https://twitter.com/UrbanWoodin" class="twitter">
+                    <i class="bx bxl-twitter"></i>
+                </a>
+                <a href="https://www.facebook.com/urbanwood.in" class="facebook">
+                    <i class="bx bxl-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/urbanwoodpvtltd/" class="instagram">
+                    <i class="bx bxl-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/urbanwood-in" class="linkedin">
+                    <i class="bx bxl-linkedin"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCkW0cO6VRZbakl61qEnKelg?view_as=subscriber">
+                    <i class='bx bxl-youtube'></i>
+                </a>
+                <a href="https://in.pinterest.com/urbanwoodIndia/_created/">
+                    <i class='bx bxl-pinterest-alt'></i>
+                </a>
             </div>
         </div>
+      </div>
     </div>
-    <div class="footer-top d-md-block d-none">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 footer-info">
-                    <h4>Contact Info</h4>
-                    <p>We at Urbanwood would love to hear your opinion about our venture.</p>
-                    <ul class="contact-list">
-                        <li>
-                            <span><i class='bx bxs-map'></i></span>
-                            URBANWOOD FURNITURE PRIVATE LIMITED 843 , Gram Basdi , mukandpura Road , Bhankrota , Ajmer road , Jaipur , Rajasthan , 302026
-                        </li>
-                        <li>
-                            <span><i class='bx bxs-phone'></i></span>+91 9599283126
-                        </li>
-                        <li>
-                            <span><i class='bx bx-envelope'></i></span>
-                            support@urbanwood.in
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Useful Links</h4>
-                    <ul>
-                        <li>
-                            <i class="bx bx-chevron-right"></i>
-                            <a href="about-us">About us</a>
-                        </li>
-                        <li>
-                            <i class="bx bx-chevron-right"></i>
-                            <a href="contact-us">Contact us</a>
-                        </li>
-                        <li>
-                            <i class="bx bx-chevron-right"></i>
-                            <a href="career">Career</a>
-                        </li>
-                        <li>
-                            <i class="bx bx-chevron-right"></i>
-                            <a href="bulk-order">Bulk Order</a>
-                        </li>
-                        <li>
-                            <i class="bx bx-chevron-right"></i>
-                            <a href="https://blog.urbanwood.in/">Blog</a>
-                        </li>
-                        <li>
-                            <i class="bx bx-chevron-right"></i>
-                            <a href="sitemap">Sitemap</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 footer-links ">
-                    <h4>Customer Service</h4>
-                    <ul>
-                        <li>
-                            <i class="bx bx-chevron-right"></i>
-                            <a href="https://www.urbanwood.in/return-and-refunds">Return & Refunds</a>
-                        </li>
-                        <li>
-                            <i class="bx bx-chevron-right"></i>
-                            <a href="https://www.urbanwood.in/terms">Terms of Uses</a>
-                        </li>
-                        <li>
-                            <i class="bx bx-chevron-right"></i>
-                            <a href="https://www.urbanwood.in/security-and-privacy">Security & Privacy</a>
-                        </li>
-                        <li>
-                            <i class="bx bx-chevron-right"></i>
-                            <a href="https://www.urbanwood.in/delivery-and-shipping-policy">Delivery & Shipping Policy</a>
-                        </li>
-                        <li>
-                            <i class="bx bx-chevron-right"></i>
-                            <a href="customer-stories">Customer Stories</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 footer-links ">
-                    <h4>Top Categories</h4>
-                    <ul>
-                        <li>
-                            <i class="bx bx-chevron-right"></i>
-                            <a href="bedroom-furniture">Bedroom</a>
-                        </li>
-                        <li>
-                            <i class="bx bx-chevron-right"></i>
-                            <a href="sofas">Sofas</a>
-                        </li>
-                        <li>
-                            <i class="bx bx-chevron-right"></i>
-                            <a href="dining-room-furniture">Dining Room</a>
-                        </li>
-                        <li>
-                            <i class="bx bx-chevron-right"></i>
-                            <a href="wardrobes">Wardrobes</a>
-                        </li>
-                        <li>
-                            <i class="bx bx-chevron-right"></i>
-                            <a href="bookshelves">Bookshelves</a>
-                        </li>
-                    </ul>
-                    <div class="social-links mt-3">
-                        <h4>Follow us-</h4>
-                        <a href="https://twitter.com/UrbanWoodin" class="twitter">
-                            <i class="bx bxl-twitter"></i>
-                        </a>
-                        <a href="https://www.facebook.com/urbanwood.in" class="facebook">
-                            <i class="bx bxl-facebook"></i>
-                        </a>
-                        <a href="https://www.instagram.com/urbanwoodpvtltd/" class="instagram">
-                            <i class="bx bxl-instagram"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/company/urbanwood-in" class="linkedin">
-                            <i class="bx bxl-linkedin"></i>
-                        </a>
-                        <a href="https://www.youtube.com/channel/UCkW0cO6VRZbakl61qEnKelg?view_as=subscriber">
-                            <i class='bx bxl-youtube'></i>
-                        </a>
-                        <a href="https://in.pinterest.com/urbanwoodIndia/_created/">
-                            <i class='bx bxl-pinterest-alt'></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="mobifooter d-block d-md-none">
-        <div class="map"> 
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.6927478024973!2d80.2163412!3d12.991493199999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526762150b2b4d%3A0x604a15e2d0121e2f!2sHome%20Stop!5e0!3m2!1sen!2sin!4v1669466511215!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <div class="container">
-            <ul id="accordion_mob1" class="accordion-footer">
-                <li class="open">
-                    <div class="link"><i class='bx bxs-building-house' ></i>CONTACT INFO<i class="fa fa-chevron-down"></i></div>
-                    <ul class="submenu" style="display: block;">
-                        <li><span> <i class='bx bxs-map'></i></span> URBANWOOD FURNITURE PRIVATE LIMITED
-                            843 , Gram Basdi , mukandpura Road , Bhankrota , 
-                            Ajmer road , Jaipur , Rajasthan , 302026</li>
-                        <li> <span><i class='bx bxs-phone'></i></span>+91 9599283126</li>
-                        <li><span> <i class='bx bx-envelope' ></i></span> support@urbanwood.in </li>
-                    </ul>
-                </li>
-                <li>
-                  <div class="link"><i class='bx bxs-paper-plane'></i>USEFUL LINKS<i class="fa fa-chevron-down"></i></div>
-                  <ul class="submenu">
-                    <li><a href="about-us">About us</a></li>
-                    <li><a href="contact-us">Contact us</a></li>
-                    <li><a href="career">Career</a></li>
-                    <li><a href="bulk-order">Bulk Order</a></li>
-                    <li><a href="https://blog.urbanwood.in/"> Blog</a></li>
-                    <li><a href="sitemap"> Sitemap</a></li>
+  </div>
+  <div class="mobifooter d-block d-md-none">
+      <div class="map"> 
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.6927478024973!2d80.2163412!3d12.991493199999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526762150b2b4d%3A0x604a15e2d0121e2f!2sHome%20Stop!5e0!3m2!1sen!2sin!4v1669466511215!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="container">
+          <ul id="accordion_mob1" class="accordion-footer">
+              <li class="open">
+                  <div class="link"><i class='bx bxs-building-house' ></i>CONTACT INFO<i class="fa fa-chevron-down"></i></div>
+                  <ul class="submenu" style="display: block;">
+                      <li><span> <i class='bx bxs-map'></i></span> URBANWOOD FURNITURE PRIVATE LIMITED
+                          843 , Gram Basdi , mukandpura Road , Bhankrota , 
+                          Ajmer road , Jaipur , Rajasthan , 302026</li>
+                      <li> <span><i class='bx bxs-phone'></i></span>+91 9599283126</li>
+                      <li><span> <i class='bx bx-envelope' ></i></span> support@urbanwood.in </li>
                   </ul>
-                </li>
-                <li>
-                  <div class="link"><i class='bx bxs-message-square-error' ></i>CUSTOMER SERVICE<i class="fa fa-chevron-down"></i></div>
-                  <ul class="submenu">
-                    <li> <a href="https://www.urbanwood.in/return-and-refunds">Return & Refunds</a></li> 
-                    <li> <a href="https://www.urbanwood.in/terms-of-use">Terms of Uses</a></li> 
-                    <li> <a href="https://www.urbanwood.in/payment-policy">Privacy policy</a></li> 
-                    <li> <a href="https://www.urbanwood.in/security-and-privacy">Security & Privacy</a></li> 
-                    <li> <a href="https://www.urbanwood.in/customer-stories">Customer Stories</a></li> 
-                    <li> <a href="https://www.urbanwood.in/delivery-and-shipping-policy">Delivery & Shipping Policy</a></            li>
-                  </ul>   
-                </li>
-                <li>
-                  <div class="link"><i class='bx bxs-category-alt' ></i>TOP CATEGORIES<i class="fa fa-chevron-down"></i></div>
-                  <ul class="submenu">
-                    <li> <a href="bedroom-furniture">Bedroom</a></li> 
-                    <li> <a href="sofas">Sofas</a></li> 
-                    <li> <a href="dining-room-furniture">Dining Room</a></li> 
-                    <li> <a href="wardrobes">Wardrobes</a></li> 
-                    <li> <a href="bookshelves">Bookshelves </a></li>     
-                  </ul>
-                </li>
-            </ul>
-            <div class="mobisocial mt-3">
-                <a href="https://twitter.com/UrbanWoodin" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="https://www.facebook.com/urbanwood.in" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="https://www.instagram.com/urbanwoodpvtltd/" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="https://www.linkedin.com/company/urbanwood-in" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-                <a href="https://www.youtube.com/channel/UCkW0cO6VRZbakl61qEnKelg?view_as=subscriber"><i class='bx bxl-youtube'></i></a>
-                <a href="https://in.pinterest.com/urbanwoodIndia/_created/"><i class='bx bxl-pinterest-alt'></i></a>
-            </div>
-        </div>
-    </div>
-    <div class="bottom-foot"> 
+              </li>
+              <li>
+                <div class="link"><i class='bx bxs-paper-plane'></i>USEFUL LINKS<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu">
+                  <li><a href="about-us">About us</a></li>
+                  <li><a href="contact-us">Contact us</a></li>
+                  <li><a href="career">Career</a></li>
+                  <li><a href="bulk-order">Bulk Order</a></li>
+                  <li><a href="https://blog.urbanwood.in/"> Blog</a></li>
+                  <li><a href="sitemap"> Sitemap</a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="link"><i class='bx bxs-message-square-error' ></i>CUSTOMER SERVICE<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu">
+                  <li> <a href="https://www.urbanwood.in/return-and-refunds">Return & Refunds</a></li> 
+                  <li> <a href="https://www.urbanwood.in/terms-of-use">Terms of Uses</a></li> 
+                  <li> <a href="https://www.urbanwood.in/payment-policy">Privacy policy</a></li> 
+                  <li> <a href="https://www.urbanwood.in/security-and-privacy">Security & Privacy</a></li> 
+                  <li> <a href="https://www.urbanwood.in/customer-stories">Customer Stories</a></li> 
+                  <li> <a href="https://www.urbanwood.in/delivery-and-shipping-policy">Delivery & Shipping Policy</a></            li>
+                </ul>   
+              </li>
+              <li>
+                <div class="link"><i class='bx bxs-category-alt' ></i>TOP CATEGORIES<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu">
+                  <li> <a href="bedroom-furniture">Bedroom</a></li> 
+                  <li> <a href="sofas">Sofas</a></li> 
+                  <li> <a href="dining-room-furniture">Dining Room</a></li> 
+                  <li> <a href="wardrobes">Wardrobes</a></li> 
+                  <li> <a href="bookshelves">Bookshelves </a></li>     
+                </ul>
+              </li>
+          </ul>
+          <div class="mobisocial mt-3">
+              <a href="https://twitter.com/UrbanWoodin" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="https://www.facebook.com/urbanwood.in" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.instagram.com/urbanwoodpvtltd/" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="https://www.linkedin.com/company/urbanwood-in" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              <a href="https://www.youtube.com/channel/UCkW0cO6VRZbakl61qEnKelg?view_as=subscriber"><i class='bx bxl-youtube'></i></a>
+              <a href="https://in.pinterest.com/urbanwoodIndia/_created/"><i class='bx bxl-pinterest-alt'></i></a>
+          </div>
+      </div>
+  </div>
+  <div class="bottom-foot"> 
   <div class="container d-block d-md-flex justify-content-between align-items-center">
     <div class="copy-content"> 
        <div class="location-list"> We Deliver in : Ahmedabad, Amritsar, Bangalore, Chandigarh, Faridabad, Ghaziabad, Gurgaon, 
