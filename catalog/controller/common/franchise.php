@@ -34,7 +34,7 @@ class ControllerCommonFranchise extends Controller {
 		$this->response->setOutput($this->load->view('common/franchise', $data));
 
 	}
-    private function sendtodb(){
+    public function sendtodb(){
                 $this->load->model('information/requestcallback');
         $json = array();
         if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
@@ -61,7 +61,7 @@ class ControllerCommonFranchise extends Controller {
             http_response_code(400);
             $json['error'] = implode("\n", $errors);
         } else {
-            $result = $this->model_information_requestcallback->addRequestcallback($this->request->post);
+            $result = $this->model_information_requestcallback->addFrachiseRequest($this->request->post);
 
             $to="deepeshurbanwood@gmail.com";
             $subject="Request Callback enquiry";
@@ -128,6 +128,25 @@ class ControllerCommonFranchise extends Controller {
     // print_r($this->request->post['name']);
         $this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
+    }
+
+    protected function validate() {
+        if ((utf8_strlen($this->request->post['name']) < 3) || (utf8_strlen($this->request->post['name']) > 32)) {
+            $this->error['name'] = 'Name must be between 3 to 32 charaters';//$this->language->get('error_name');
+        }
+
+        if (!filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL)) {
+            $this->error['email'] = 'Email should be valid';//$this->language->get('error_email');
+        }
+
+        if ((utf8_strlen($this->request->post['mobile']) < 10) || (utf8_strlen($this->request->post['mobile']) > 10)) {
+            $this->error['mobile'] = 'Mobile number must be of 10 digits';//$this->language->get('error_enquiry');
+        }
+        if ((utf8_strlen($this->request->post['message']) < 10) || (utf8_strlen($this->request->post['message']) > 3000)) {
+            $this->error['message'] = 'Message must be between 10 to 3000 charaters';//$this->language->get('error_enquiry');
+        }
+
+        return !$this->error;
     }
 	
 
