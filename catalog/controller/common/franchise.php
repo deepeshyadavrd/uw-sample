@@ -61,7 +61,7 @@ class ControllerCommonFranchise extends Controller {
             http_response_code(400);
             $json['error'] = implode("\n", $errors);
         } else {
-            $result = $this->model_information_requestcallback->addFrachiseRequest($this->request->post);
+            $result = $this->model_information_requestcallback->addFranchiseRequest($this->request->post);
 
             $to="deepeshurbanwood@gmail.com";
             $subject="Request Callback enquiry";
@@ -79,10 +79,10 @@ class ControllerCommonFranchise extends Controller {
             " boundary=\"{$mime_boundary}\"";
 	        if(isset($_POST["time_slot"]) || isset($_POST["date"])){
 	        	$message="Enquiry For Furniture (Request Callback)\n\n";
-	        	$message .= "Name:".$_POST["name"]."\n"."EMail:".$_POST['email']."\nMobile:".$_POST['mobile']."\nTime Slot:".$_POST["time_slot"]."\nDate:".$_POST["date"]."\nLooking For:".$_POST["message"];
+	        	$message .= "Name:".$_POST["fullname"]."\n"."EMail:".$_POST['email']."\nMobile:".$_POST['mobile']."\nTime Slot:".$_POST["time_slot"]."\nDate:".$_POST["date"]."\nLooking For:".$_POST["message"];
 	        }else{
 	        	$message="Enquiry For Furniture (Contact Form)\n\n";
-	        	$message .= "Name:".$_POST["name"]."\n"."EMail:".$_POST['email']."\nMobile:".$_POST['mobile']."\nLooking For:".$_POST["message"];
+	        	$message .= "Name:".$_POST["fullname"]."\n"."EMail:".$_POST['email']."\nMobile:".$_POST['mobile']."\nLooking For:".$_POST["msg"];
 	        }
             $message = "This is a multi-part message in MIME format.\n\n" .
             "--{$mime_boundary}\n" .
@@ -131,7 +131,7 @@ class ControllerCommonFranchise extends Controller {
     }
 
     protected function validate() {
-        if ((utf8_strlen($this->request->post['fullname']) < 3) || (utf8_strlen($this->request->post['name']) > 32)) {
+        if ((utf8_strlen($this->request->post['fullname']) < 3) || (utf8_strlen($this->request->post['fullname']) > 32)) {
             $this->error['name'] = 'Name must be between 3 to 32 charaters';//$this->language->get('error_name');
         }
 
