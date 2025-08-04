@@ -42,7 +42,7 @@ class ControllerCommonFranchise extends Controller {
         $restrictedWords = ['example', 'test', 'xxx', 'sperm', 'sex'];
 
         // Sanitize input
-        $fieldsToCheck = ['name', 'email', 'message']; // Add more fields as needed
+        $fieldsToCheck = ['fullname', 'email', 'message']; // Add more fields as needed
         $errors = [];
 
         foreach ($fieldsToCheck as $field) {
@@ -131,7 +131,7 @@ class ControllerCommonFranchise extends Controller {
     }
 
     protected function validate() {
-        if ((utf8_strlen($this->request->post['name']) < 3) || (utf8_strlen($this->request->post['name']) > 32)) {
+        if ((utf8_strlen($this->request->post['fullname']) < 3) || (utf8_strlen($this->request->post['name']) > 32)) {
             $this->error['name'] = 'Name must be between 3 to 32 charaters';//$this->language->get('error_name');
         }
 
@@ -142,7 +142,7 @@ class ControllerCommonFranchise extends Controller {
         if ((utf8_strlen($this->request->post['mobile']) < 10) || (utf8_strlen($this->request->post['mobile']) > 10)) {
             $this->error['mobile'] = 'Mobile number must be of 10 digits';//$this->language->get('error_enquiry');
         }
-        if ((utf8_strlen($this->request->post['message']) < 10) || (utf8_strlen($this->request->post['message']) > 3000)) {
+        if ((utf8_strlen($this->request->post['msg']) < 10) || (utf8_strlen($this->request->post['message']) > 3000)) {
             $this->error['message'] = 'Message must be between 10 to 3000 charaters';//$this->language->get('error_enquiry');
         }
 
