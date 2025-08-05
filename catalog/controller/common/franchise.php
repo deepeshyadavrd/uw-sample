@@ -1,7 +1,7 @@
 <?php
 
 class ControllerCommonFranchise extends Controller {
-
+private $error = [];
 	public function index() {
 
 		// $this->document->setTitle($this->config->get('config_meta_title'));
@@ -36,8 +36,18 @@ class ControllerCommonFranchise extends Controller {
 	}
     public function sendtodb(){
                 $this->load->model('information/requestcallback');
-        $json = array();
-        if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
+                // print_r($this->request->post);
+        $json = [];
+        $existing = $this->model_information_requestcallback->getFranchiseByEmailOrMobile($_POST['email'], $_POST['mobile']);
+
+        if ($existing) {
+            http_response_code(400);
+            $json['errors'] = ['duplicate' => 'You have already submitted a request with this email or phone number.'];
+            $this->response->addHeader('Content-Type: application/json');
+            $this->response->setOutput(json_encode($json));
+            return;
+        }
+        elseif (($this->request->server['REQUEST_METHOD'] === 'POST') && $this->validate()) {
             // Restricted words
             $restrictedWords = ['example', 'test', 'xxx', 'sperm', 'sex'];
             $fieldsToCheck = ['fullname', 'email', 'msg'];
@@ -131,26 +141,29 @@ class ControllerCommonFranchise extends Controller {
     }
 
     protected function validate() {
-        $this->error = [];
-        $msg = isset($this->request->post['msg']) ? $this->request->post['msg'] : null;
-        if ((utf8_strlen($this->request->post['fullname']) < 3) || (utf8_strlen($this->request->post['fullname']) > 32)) {
-            $this->error['fullname'] = 'Name must be between 3 to 32 charaters';//$this->language->get('error_name');
-        }
+         $this->error = array();
 
-        if (!filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL)) {
-            $this->error['email'] = 'Email should be valid';//$this->language->get('error_email');
-        }
-
-        if ((utf8_strlen($this->request->post['mobile']) < 10) || (utf8_strlen($this->request->post['mobile']) > 10)) {
-            $this->error['mobile'] = 'Mobile number must be of 10 digits';//$this->language->get('error_enquiry');
-        }
-         if ($msg === null) {
-        $this->error['msg'] = 'Message field is missing.';
-    } elseif (utf8_strlen(trim($msg)) < 10 || utf8_strlen(trim($msg)) > 3000) {
-        $this->error['msg'] = 'Message must be between 10 and 3000 characters.';
+    if ((utf8_strlen($this->request->post['fullname']) < 3) || (utf8_strlen($this->request->post['fullname']) > 32)) {
+        $this->error['name'] = 'Name must be between 3 to 32 characters';
+        // print_r($this->error['name']);
     }
 
-        return !$this->error;
+    if (!filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL)) {
+        $this->error['email'] = 'Email should be valid';
+    }
+
+    if ((utf8_strlen($this->request->post['mobile']) < 10) || (utf8_strlen($this->request->post['mobile']) > 10)) {
+        $this->error['mobile'] = 'Mobile number must be exactly 10 digits';
+    }
+
+    if (!isset($this->request->post['msg']) || utf8_strlen($this->request->post['msg']) < 10 || utf8_strlen($this->request->post['msg']) > 3000) {
+        $this->error['msg'] = 'Message must be between 10 to 3000 characters';
+// print_r($this->error['msg']);
+    }
+
+    // error_log("Validation Errors: " . print_r($this->error, true));
+// print_r($this->error);
+    return !$this->error;
     }
 	
 

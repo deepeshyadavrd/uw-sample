@@ -15,4 +15,9 @@ class ModelInformationRequestcallback extends Model {
 		
 		return $rc_id;
 	}
+	public function getFranchiseByEmailOrMobile($email, $mobile) {
+    	$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "franchise_request WHERE email = '" . $this->db->escape($email) . "' OR mobile = '" . $this->db->escape($mobile) . "'");
+
+    	return $query->row; // will return false if not found
+	}
 }
