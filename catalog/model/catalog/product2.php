@@ -894,7 +894,7 @@ print_r($sql);
 			$query = $this->db->query($sql1);
 		}else{
 			$query = $this->db->query($sql);
-			echo $sql;
+			// echo $sql;
 		}
 		return $query->row['total'];
 	}

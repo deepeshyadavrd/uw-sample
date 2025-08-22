@@ -1,8 +1,10 @@
+.env
 urbanwood-website/
 jaipurlocationlandingpage/
 customfurnituewebpage/
 gurgaon-furniture-store/
 image/
+catalog/controller/account/google.php
 catalog/view/javascript/assets/addto-zoom-cart/
 catalog/view/javascript/assets/image/custommade
 catalog/view/javascript/assets/image/g-review-user
