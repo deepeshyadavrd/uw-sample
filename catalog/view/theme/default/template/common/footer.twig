@@ -373,62 +373,9 @@
 </div>
 {# {% if route == 'common/home' %} #}
   <script>
-//   glider.js js
-//  window.addEventListener('DOMContentLoaded', function () {
-// document.querySelectorAll('.glider').forEach((el, i) => {
-//     new Glider(el, {
-//       slidesToShow: 4,
-//       slidesToScroll: 1,
-//       draggable: true,
-//       scrollLock: true,
-//       duration: 0.5,
-//       rewind: true,
-//       dots: `.dots`,
-//       arrows: {
-//         prev: `.glider-prev`,
-//         next: `.glider-next`
-//       },
-//       responsive: [
-//   {
-//     breakpoint: 1440,
-//     settings: { slidesToShow: 4.1 }
-//   },
-//   {
-//     breakpoint: 1200,
-//     settings: { slidesToShow: 3.2 }
-//   },
-//   {
-//     breakpoint: 1024,
-//     settings: { slidesToShow: 3.2 }
-//   },
-//   {
-//     breakpoint: 768,
-//     settings: { slidesToShow: 2.1 }
-//   },
-//   {
-//     breakpoint: 600,
-//     settings: { slidesToShow: 1.5 }
-//   },
-//   {
-//     breakpoint: 480,
-//     settings: { slidesToShow: 1.2 }
-//   },
-//   {
-//     breakpoint: 320,
-//     settings: { slidesToShow: 1.2 }
-//   }
-// ]
-//     });
-//   });
-//   });
    // Function to create slide HTML
   function createSlideHTML(item) {
-    // return `<div class="blaze-slide">
-    //           <img src="${item.image}" alt="${item.name}">
-    //           <h6>${item.name}</h6>
-    //           <strong>${item.price}</strong>
-    //           <strike>${item.mrp}</strike>
-    //         </div>`;
+
             return `<a href="#" class="slide-card">
       <div class="slide-img">
         <img src="${item.image}" alt="Slide 1" />
@@ -505,24 +452,6 @@
       })
       .catch(err => console.error("Slider JSON load failed", err));
   }
-// function loadStorageOptions(section, jsonUrl) {
-//   const grid = section.querySelector('.storage-grid');
-//   if (!grid) return;
-
-//   fetch(jsonUrl)
-//     .then(res => res.json())
-//     .then(data => {
-//       grid.innerHTML = data.map(item => `
-//         <div class="storage-card">
-//             <a href="${item.link}">
-//                 <img src="${item.image}" alt="${item.name}">
-//                 <h3>${item.name}</h3>
-//             </a>
-//         </div>
-//       `).join('');
-//     })
-//     .catch(err => console.error("Storage options load failed", err));
-// }
 
   // Lazy load all sliders using IntersectionObserver
 const lazySections1 = document.querySelectorAll('[data-json]');
@@ -1217,25 +1146,5 @@ function applySticky() {
       .catch(err => console.error("❌ SW Registration Failed", err));
   }
 </script>
-{# // <script>
-// window.addEventListener('mouseover', initLandbot, { once: true });
-// window.addEventListener('touchstart', initLandbot, { once: true });
-// var myLandbot;
-// function initLandbot() {
-//   if (!myLandbot) {
-//     var s = document.createElement('script');
-//     s.type = "module"
-//     s.async = true;
-//     s.addEventListener('load', function() {
-//       var myLandbot = new Landbot.Livechat({
-//         configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-2988182-11MM0R8ZARF7QL6R/index.json',
-//       });
-//     });
-//     s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs';
-//     var x = document.getElementsByTagName('script')[0];
-//     x.parentNode.insertBefore(s, x);
-//   }
-// }
-// </script> #}
 </body>
 </html>
