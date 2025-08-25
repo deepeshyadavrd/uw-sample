@@ -508,43 +508,42 @@ var currentScrollPos = window.pageYOffset;
 {% if logged is null %}
 <script>
 
-    window.addEventListener('load', function () {
-  if (getCookie('modal_shown') == null) {
-            
-            setTimeout(function () {
-                setCookie('modal_shown', 'yes', 1);
-                $('#signuppopup').modal('show');
-            }, 15000);
-        }
-})
-
-
-    function getCookie(cName) {
-      const name = cName + "=";
-      const cDecoded = decodeURIComponent(document.cookie); //to be careful
-      const cArr = cDecoded .split('; ');
-      let res;
-      cArr.forEach(val => {
-          if (val.indexOf(name) === 0) res = val.substring(name.length);
-      })
-      return res;
+  window.addEventListener('load', function () {
+    if (getCookie('modal_shown') == null) {
+          
+      setTimeout(function () {
+        setCookie('modal_shown', 'yes', 1);
+        $('#signuppopup').modal('show');
+      }, 15000);
     }
+  })
 
-    function setCookie(cName, cValue, expDays) {
-        let date = new Date();
-        date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
-        const expires = "expires=" + date.toUTCString();
-        document.cookie = cName + "=" + cValue + "; " + expires + "; path=/";
-    }
+  function getCookie(cName) {
+    const name = cName + "=";
+    const cDecoded = decodeURIComponent(document.cookie); //to be careful
+    const cArr = cDecoded .split('; ');
+    let res;
+    cArr.forEach(val => {
+        if (val.indexOf(name) === 0) res = val.substring(name.length);
+    })
+    return res;
+  }
+
+  function setCookie(cName, cValue, expDays) {
+      let date = new Date();
+      date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
+      const expires = "expires=" + date.toUTCString();
+      document.cookie = cName + "=" + cValue + "; " + expires + "; path=/";
+  }
     </script>
 {% endif %}
 <script>
-    $('.select-items div').click(function(){
-        
-        if($(this).text()=='Jaipur') location.href='furniture-shop-in-jaipur';
-        if($(this).text()=='Gurugram') location.href='furniture-shop-in-gurgaon';
-        if($(this).text()=='Bangalore') location.href='furniture-online-bangalore';
-    });
+  $('.select-items div').click(function(){
+      
+    if($(this).text()=='Jaipur') location.href='furniture-shop-in-jaipur';
+    if($(this).text()=='Gurugram') location.href='furniture-shop-in-gurgaon';
+    if($(this).text()=='Bangalore') location.href='furniture-online-bangalore';
+  });
 
 $(document).ready(function () {
   // Reusable function to toggle forms
@@ -605,9 +604,7 @@ $(document).ready(function () {
     localStorage.setItem('tab_id', tab_id);
   });
 });
-</script>
-{# for feedback form #}
-<script>
+
 $('#feedbackform').submit(function(e) {
  e.preventDefault();
   var form = $(this);
