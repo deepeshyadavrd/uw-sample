@@ -606,9 +606,9 @@ $(document).ready(function () {
 });
 
 $('#feedbackform').submit(function(e) {
- e.preventDefault();
+  e.preventDefault();
   var form = $(this);
- $.ajax({
+  $.ajax({
     type: 'POST',
     dataType: 'json',
     url: '?route=account/account/feedback',
@@ -618,24 +618,20 @@ $('#feedbackform').submit(function(e) {
         window.location = '?route=account/account';
         //console.log('add success');
     }
-
+  });
 });
-});
-</script>
 
-<script>
 {# to open order page #}
-    function toOrderpage(){
-        localStorage.setItem('tab_id', 'home2');
-        window.location.href='account';
-    }
-    {# to open profile page #}
-    function toProfilepage(){
-        localStorage.setItem('tab_id', 'home1');
-        window.location.href='account';
-    }
-</script>
-<script>
+  function toOrderpage(){
+    localStorage.setItem('tab_id', 'home2');
+    window.location.href='account';
+  }
+  {# to open profile page #}
+  function toProfilepage(){
+    localStorage.setItem('tab_id', 'home1');
+    window.location.href='account';
+  }
+
  function submitRequest(idd,btn){
    if(!formRule(idd)) return false;
     $('#'+btn).text('Processing...');
