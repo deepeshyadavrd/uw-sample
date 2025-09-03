@@ -54,6 +54,33 @@
     .uw-btn-outline { background:#fff; color:#d70909; border:1px solid #d70909; border-radius:999px; padding:8px 14px; text-decoration:none; }
     .uw-btn-ghost { background:#fff; color:#333; border:1px solid #ddd; border-radius:999px; padding:8px 14px; text-decoration:none; }
     .uw-btn-danger { background:#fff; color:#b91c1c; border:1px solid #b91c1c; border-radius:999px; padding:8px 14px; text-decoration:none; }
+    .user-panel-list {
+	margin: 16px auto;
+	padding: 0
+}
+
+.user-panel-list li {
+	margin: 15px auto 0;
+	padding: 0;
+	width: 100%
+}
+
+.user-panel-list li a {
+	background: #fff9f4;
+	color: #ff8000;
+	font-size: 15px;
+	margin: auto;
+	padding: 10px 18px;
+	width: 100%;
+	display: block;
+	border-radius: 10px
+}
+
+/* .add-to-cart-btn:hover, */
+.user-panel-list li .active {
+	background: #ff8000;
+	color: #fff
+}
     .user-panel-box {
     /* background: #fff; */
     border-radius: 14px;
@@ -67,8 +94,8 @@
     <div class="user-panel ">
 
       <ul class="nav flex-column nav-pills user-panel-list me-3" id="v-pills-tab" role="tablist">
-        <li><a href="" class="active" data-tab="home1" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">My Profile</a></li>
-        <li><a href="" class="" data-tab="home2" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false" tabindex="-1">My Orders</a></li>
+        <li><a href="" class="active">My Profile</a></li>
+        <li><a href="" >My Orders</a></li>
       </ul>
 
       <div class="log-out-btn">
@@ -113,45 +140,6 @@
           </div>
         </div>
         {% endfor %}
-        {# <div class="col-md-6 col-lg-4">
-          <div class="uw-card h-100">
-            <div class="d-flex justify-content-between mb-2">
-              <strong>John Doe</strong>
-              <span class="uw-badge-default">Default</span>
-            </div>
-            <div class="mb-3">
-              <div>123 MG Road</div>
-              <div>Apartment 202</div>
-              <div>Jaipur, Rajasthan - 302001</div>
-              <div>India</div>
-            </div>
-            <div class="d-flex flex-wrap gap-2">
-              <a href="#" class="uw-btn-outline"><i class="fa fa-star"></i> Set Default</a>
-              <a href="address-add.html" class="uw-btn-ghost"><i class="fa fa-edit"></i> Edit</a>
-              <a href="#" class="uw-btn-danger"><i class="fa fa-trash"></i> Delete</a>
-            </div>
-          </div>
-        </div>
-    
-        <!-- Another Address Card -->
-        <div class="col-md-6 col-lg-4">
-          <div class="uw-card h-100">
-            <div class="d-flex justify-content-between mb-2">
-              <strong>Jane Smith</strong>
-            </div>
-            <div class="mb-3">
-              <div>456 Park Avenue</div>
-              <div>Near Central Mall</div>
-              <div>Delhi - 110001</div>
-              <div>India</div>
-            </div>
-            <div class="d-flex flex-wrap gap-2">
-              <a href="#" class="uw-btn-outline"><i class="fa fa-star"></i> Set Default</a>
-              <a href="address-add.html" class="uw-btn-ghost"><i class="fa fa-edit"></i> Edit</a>
-              <a href="#" class="uw-btn-danger"><i class="fa fa-trash"></i> Delete</a>
-            </div>
-          </div>
-        </div> #}
       </div>
   {% else %}
       <p>{{ text_empty }}</p>
