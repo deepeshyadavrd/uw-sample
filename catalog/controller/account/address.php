@@ -196,17 +196,22 @@ class ControllerAccountAddress extends Controller {
 				'zone_code' => $result['zone_code'],
 				'country'   => $result['country']
 			);
-
+			if (isset($result['address_id'])) {
+				$data['default'] = $this->customer->getAddressId() == $result['address_id'];
+			} else {
+				$data['default'] = false;
+			}
 			$data['addresses'][] = array(
 				'address_id' => $result['address_id'],
 				'name' => $result['firstname'] .' ' . $result['lastname'],
 				'address'    => str_replace(array("\r\n", "\r", "\n"), '<br />', preg_replace(array("/\s\s+/", "/\r\r+/", "/\n\n+/"), '<br />', trim(str_replace($find, $replace, $format)))),
 				'update'     => $this->url->link('account/address/edit', 'address_id=' . $result['address_id'], true),
-				'delete'     => $this->url->link('account/address/delete', 'address_id=' . $result['address_id'], true)
+				'delete'     => $this->url->link('account/address/delete', 'address_id=' . $result['address_id'], true),
+				'default'    => ($this->customer->getAddressId() == $result['address_id']) ? true : false
 			);
 			
 		}
-		// print_r($data['addresses']);
+		print_r($data['addresses']);
 
 		$data['add'] = $this->url->link('account/address/add', '', true);
 		$data['back'] = $this->url->link('account/account', '', true);
