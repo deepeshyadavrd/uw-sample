@@ -207,6 +207,7 @@ class ControllerAccountAddress extends Controller {
 				'address'    => str_replace(array("\r\n", "\r", "\n"), '<br />', preg_replace(array("/\s\s+/", "/\r\r+/", "/\n\n+/"), '<br />', trim(str_replace($find, $replace, $format)))),
 				'update'     => $this->url->link('account/address/edit', 'address_id=' . $result['address_id'], true),
 				'delete'     => $this->url->link('account/address/delete', 'address_id=' . $result['address_id'], true),
+				'set_default'=> $this->url->link('account/address/setDefault', 'address_id=' . $result['address_id'], true),
 				'default'    => ($this->customer->getAddressId() == $result['address_id']) ? true : false
 			);
 			
@@ -434,6 +435,21 @@ class ControllerAccountAddress extends Controller {
 
 		$this->response->setOutput($this->load->view('account/address_form', $data));
 	}
+
+	public function setDefault() {
+    if (!$this->customer->isLogged()) {
+        $this->response->redirect($this->url->link('account/login', '', true));
+    }
+
+    if (isset($this->request->get['address_id'])) {
+        $this->load->model('account/customer');
+
+        // Update customer's default address_id
+        $this->model_account_customer->editAddressId($this->customer->getId(), (int)$this->request->get['address_id']);
+    }
+
+    $this->response->redirect($this->url->link('account/address', '', true));
+}
 
 	protected function validateForm() {
 		if ((utf8_strlen(trim($this->request->post['firstname'])) < 1) || (utf8_strlen(trim($this->request->post['firstname'])) > 32)) {

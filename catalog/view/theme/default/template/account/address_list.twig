@@ -99,10 +99,14 @@
               {% endif %}
             </div>
             <div class="mb-3">
-              {{ result.address }}
+              {{ result.address|raw }}
             </div>
             <div class="d-flex flex-wrap gap-2">
-              {# <a href="#" class="uw-btn-outline"><i class="fa fa-star"></i> Set Default</a> #}
+              {% if not result.default %}
+                <a href="{{ result.set_default }}" class="uw-btn-outline">
+                  <i class="fa fa-star"></i> Set Default
+                </a>
+              {% endif %}
               <a href="{{ result.update }}" class="uw-btn-ghost"><i class="fa fa-edit"></i> Edit</a>
               <a href="{{ result.delete }}" class="uw-btn-danger"><i class="fa fa-trash"></i> Delete</a>
             </div>
