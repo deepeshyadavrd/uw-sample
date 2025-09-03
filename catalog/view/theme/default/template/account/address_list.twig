@@ -1,6 +1,6 @@
 {{ header }}
 {{ menu }}
-<div id="account-address" class="container">
+{# <div id="account-address" class="container">
   <ul class="breadcrumb">
     {% for breadcrumb in breadcrumbs %}
     <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
@@ -42,9 +42,8 @@
       </div>
       {{ content_bottom }}</div>
     {{ column_right }}</div>
-</div>
+</div> #}
   <style>
-    body { background:#f6f6f6; font-family: Arial, sans-serif; }
     .uw-title { font-weight:700; font-size:24px; margin:0; position:relative; }
     .uw-title:after { content:""; display:block; width:60px; height:3px; background:#d70909; margin-top:8px; border-radius:3px; }
     .uw-card { background:#fff; border:1px solid #eee; border-radius:14px; padding:16px; box-shadow:0 8px 24px rgba(0,0,0,.04); transition:all .2s; }
@@ -55,81 +54,106 @@
     .uw-btn-outline { background:#fff; color:#d70909; border:1px solid #d70909; border-radius:999px; padding:8px 14px; text-decoration:none; }
     .uw-btn-ghost { background:#fff; color:#333; border:1px solid #ddd; border-radius:999px; padding:8px 14px; text-decoration:none; }
     .uw-btn-danger { background:#fff; color:#b91c1c; border:1px solid #b91c1c; border-radius:999px; padding:8px 14px; text-decoration:none; }
+    .user-panel-box {
+    /* background: #fff; */
+    border-radius: 14px;
+    box-shadow: 0px 0px 13px #0000001c;
+    padding: 20px;
+    }
   </style>
 <div class="container py-4">
-  <!-- Header with Add Button -->
-  <div class="d-flex justify-content-between align-items-center mb-3">
-    <h1 class="uw-title">My Addresses</h1>
-    <a href="address-add.html" class="uw-btn-primary">
-      <i class="fa fa-plus"></i> Add New Address
-    </a>
-  </div>
-{% if addresses %}
-  <!-- Address Cards Grid -->
-  <div class="row g-3">
-    <!-- Address Card Example -->
-    {% for result in addresses %}
-    <div class="col-md-6 col-lg-4">
-      <div class="uw-card h-100">
-        <div class="d-flex justify-content-between mb-2">
-          <strong>{{ result.name }}</strong>
-          {% if result.default %}
-            <span class="uw-badge-default">Default</span>
-          {% endif %}
-        </div>
-        <div class="mb-3">
-          {{ result.address }}
-        </div>
-        <div class="d-flex flex-wrap gap-2">
-          {# <a href="#" class="uw-btn-outline"><i class="fa fa-star"></i> Set Default</a> #}
-          <a href="{{ result.update }}" class="uw-btn-ghost"><i class="fa fa-edit"></i> Edit</a>
-          <a href="{{ result.delete }}" class="uw-btn-danger"><i class="fa fa-trash"></i> Delete</a>
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-    {# <div class="col-md-6 col-lg-4">
-      <div class="uw-card h-100">
-        <div class="d-flex justify-content-between mb-2">
-          <strong>John Doe</strong>
-          <span class="uw-badge-default">Default</span>
-        </div>
-        <div class="mb-3">
-          <div>123 MG Road</div>
-          <div>Apartment 202</div>
-          <div>Jaipur, Rajasthan - 302001</div>
-          <div>India</div>
-        </div>
-        <div class="d-flex flex-wrap gap-2">
-          <a href="#" class="uw-btn-outline"><i class="fa fa-star"></i> Set Default</a>
-          <a href="address-add.html" class="uw-btn-ghost"><i class="fa fa-edit"></i> Edit</a>
-          <a href="#" class="uw-btn-danger"><i class="fa fa-trash"></i> Delete</a>
-        </div>
-      </div>
-    </div>
+  <div class="row">
+  <div class="col-lg-2 col-md-4 col-sm-12 pt-lg-0 pt-sm-5">
+    <div class="user-panel ">
 
-    <!-- Another Address Card -->
-    <div class="col-md-6 col-lg-4">
-      <div class="uw-card h-100">
-        <div class="d-flex justify-content-between mb-2">
-          <strong>Jane Smith</strong>
-        </div>
-        <div class="mb-3">
-          <div>456 Park Avenue</div>
-          <div>Near Central Mall</div>
-          <div>Delhi - 110001</div>
-          <div>India</div>
-        </div>
-        <div class="d-flex flex-wrap gap-2">
-          <a href="#" class="uw-btn-outline"><i class="fa fa-star"></i> Set Default</a>
-          <a href="address-add.html" class="uw-btn-ghost"><i class="fa fa-edit"></i> Edit</a>
-          <a href="#" class="uw-btn-danger"><i class="fa fa-trash"></i> Delete</a>
-        </div>
+      <ul class="nav flex-column nav-pills user-panel-list me-3" id="v-pills-tab" role="tablist">
+        <li><a href="" class="active" data-tab="home1" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">My Profile</a></li>
+        <li><a href="" class="" data-tab="home2" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false" tabindex="-1">My Orders</a></li>
+      </ul>
+
+      <div class="log-out-btn">
+        <a href=""> LOGOUT </a>
       </div>
-    </div> #}
+    </div>
   </div>
+  <div class="col-lg-10 col-md-8 col-sm-12 ">
+  <div class="user-panel-box">
+    <!-- Header with Add Button -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1 class="uw-title">My Addresses</h1>
+      <a href="address-add.html" class="uw-btn-primary">
+        <i class="fa fa-plus"></i> Add New Address
+      </a>
+    </div>
+    {% if addresses %}
+      <!-- Address Cards Grid -->
+      <div class="row g-3">
+        <!-- Address Card Example -->
+        {% for result in addresses %}
+        <div class="col-md-6 col-lg-4">
+          <div class="uw-card h-100">
+            <div class="d-flex justify-content-between mb-2">
+              <strong>{{ result.name }}</strong>
+              {% if result.default %}
+                <span class="uw-badge-default">Default</span>
+              {% endif %}
+            </div>
+            <div class="mb-3">
+              {{ result.address }}
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              {# <a href="#" class="uw-btn-outline"><i class="fa fa-star"></i> Set Default</a> #}
+              <a href="{{ result.update }}" class="uw-btn-ghost"><i class="fa fa-edit"></i> Edit</a>
+              <a href="{{ result.delete }}" class="uw-btn-danger"><i class="fa fa-trash"></i> Delete</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        {# <div class="col-md-6 col-lg-4">
+          <div class="uw-card h-100">
+            <div class="d-flex justify-content-between mb-2">
+              <strong>John Doe</strong>
+              <span class="uw-badge-default">Default</span>
+            </div>
+            <div class="mb-3">
+              <div>123 MG Road</div>
+              <div>Apartment 202</div>
+              <div>Jaipur, Rajasthan - 302001</div>
+              <div>India</div>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="#" class="uw-btn-outline"><i class="fa fa-star"></i> Set Default</a>
+              <a href="address-add.html" class="uw-btn-ghost"><i class="fa fa-edit"></i> Edit</a>
+              <a href="#" class="uw-btn-danger"><i class="fa fa-trash"></i> Delete</a>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Another Address Card -->
+        <div class="col-md-6 col-lg-4">
+          <div class="uw-card h-100">
+            <div class="d-flex justify-content-between mb-2">
+              <strong>Jane Smith</strong>
+            </div>
+            <div class="mb-3">
+              <div>456 Park Avenue</div>
+              <div>Near Central Mall</div>
+              <div>Delhi - 110001</div>
+              <div>India</div>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="#" class="uw-btn-outline"><i class="fa fa-star"></i> Set Default</a>
+              <a href="address-add.html" class="uw-btn-ghost"><i class="fa fa-edit"></i> Edit</a>
+              <a href="#" class="uw-btn-danger"><i class="fa fa-trash"></i> Delete</a>
+            </div>
+          </div>
+        </div> #}
+      </div>
   {% else %}
       <p>{{ text_empty }}</p>
       {% endif %}
+      </div>
+      </div>
+</div>
 </div>
 {{ footer }}

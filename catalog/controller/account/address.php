@@ -211,7 +211,7 @@ class ControllerAccountAddress extends Controller {
 			);
 			
 		}
-		print_r($data['addresses']);
+		// print_r($data['addresses']);
 
 		$data['add'] = $this->url->link('account/address/add', '', true);
 		$data['back'] = $this->url->link('account/account', '', true);
