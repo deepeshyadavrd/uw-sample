@@ -281,6 +281,104 @@
       {{ content_bottom }}</div>
     {{ column_right }}</div>
 </div>
+<style>
+    body { background:#f6f6f6; font-family: Arial, sans-serif; }
+    .uw-title { font-weight:700; font-size:24px; margin:0; position:relative; }
+    .uw-title:after { content:""; display:block; width:60px; height:3px; background:#d70909; margin-top:8px; border-radius:3px; }
+    .uw-card { background:#fff; border:1px solid #eee; border-radius:14px; padding:20px; box-shadow:0 8px 24px rgba(0,0,0,.04); }
+    .form-control, .form-select { border-radius:10px; border:1px solid #ddd; padding:10px 12px; }
+    .form-control:focus, .form-select:focus { border-color:#d70909; box-shadow:0 0 0 3px rgba(215,9,9,.08); }
+    .uw-btn-primary { background:#d70909; color:#fff; border-radius:999px; padding:10px 18px; font-weight:600; border:1px solid #d70909; }
+    .uw-btn-ghost { background:#fff; color:#333; border-radius:999px; padding:10px 18px; border:1px solid #ddd; font-weight:600; }
+  </style>
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="uw-title">Add Address</h1>
+    <a href="?route=account/address" class="text-decoration-none"><i class="fa fa-angle-left"></i> Back to Addresses</a>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <form>
+        <div class="uw-card mb-3">
+          <h5 class="mb-3">Contact</h5>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">First Name</label>
+              <input type="text" class="form-control" placeholder="John">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Last Name</label>
+              <input type="text" class="form-control" placeholder="Doe">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Company (optional)</label>
+              <input type="text" class="form-control" placeholder="Acme Pvt Ltd">
+            </div>
+          </div>
+        </div>
+
+        <div class="uw-card mb-3">
+          <h5 class="mb-3">Address</h5>
+          <div class="row g-3">
+            <div class="col-12">
+              <label class="form-label">Address Line 1</label>
+              <input type="text" class="form-control" placeholder="House no, Street">
+            </div>
+            <div class="col-12">
+              <label class="form-label">Address Line 2 (optional)</label>
+              <input type="text" class="form-control" placeholder="Apartment, Landmark">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Country</label>
+              <select class="form-select">
+                <option>— Select Country —</option>
+                <option selected>India</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">State</label>
+              <select class="form-select">
+                <option>— Select State —</option>
+                <option>Rajasthan</option>
+                <option>Delhi</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">City</label>
+              <input type="text" class="form-control" placeholder="Jaipur">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Pincode</label>
+              <input type="text" class="form-control" placeholder="302001">
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center uw-card">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="set-default">
+            <label for="set-default" class="form-check-label">Set as my default address</label>
+          </div>
+          <div class="d-flex gap-2">
+            <a href="address-list.html" class="uw-btn-ghost">Cancel</a>
+            <button type="submit" class="uw-btn-primary">Save Address</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-lg-4">
+      <div class="uw-card">
+        <h5>Tips</h5>
+        <ul>
+          <li>Use delivery address where someone is available.</li>
+          <li>Set one default to speed up checkout.</li>
+          <li>Add a landmark in Address Line 2.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 <script type="text/javascript"><!--
 // Sort the custom fields
 $('.form-group[data-sort]').detach().each(function() {
