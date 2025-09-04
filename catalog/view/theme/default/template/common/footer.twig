@@ -510,7 +510,7 @@ var currentScrollPos = window.pageYOffset;
 
   window.addEventListener('load', function () {
     if (getCookie('modal_shown') == null) {
-          
+          console.log('trigger');
       setTimeout(function () {
         setCookie('modal_shown', 'yes', 1);
         $('#signuppopup').modal('show');
