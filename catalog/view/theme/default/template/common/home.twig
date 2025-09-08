@@ -933,7 +933,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //     carouselContainers.forEach(container => observer.observe(container));
 //   });
 </script>
-    <style>
+    {# /* <style>
     .shop-by-room {
   padding: 20px;
 }
@@ -990,10 +990,10 @@ document.addEventListener("DOMContentLoaded", function () {
     width: 100%;
   }
 }
-    </style>
+    </style> */ #}
     {# <section class="game-section py-lg-4 py-3" aria-labelledby="room-collections" data-nav="false"> #}
  
- <section class="shop-by-room">
+ {# <section class="shop-by-room">
   <div class="container">
   <div class="row"> 
   <h3 class="pg-heading text-center"> Shop By Room</h3>
@@ -1017,7 +1017,84 @@ document.addEventListener("DOMContentLoaded", function () {
       <span>Study Room</span>
     </a>
   </div>
+</section> #}
+<style>
+.room-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.room-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.room-card h5 {
+  margin-top: 0.75rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.room-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+
+</style>
+<section class="shop-by-room py-5">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold">Shop by Room</h2>
+      <p class="text-muted">Find furniture designed for every corner of your home</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="room-card text-center">
+          <img src="assets/image/shopby-room/living.jpg" alt="Living Room" class="img-fluid rounded">
+          <h5>Living Room</h5>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="room-card text-center">
+          <img src="assets/image/shopby-room/bed-img.jpg" alt="Bedroom" class="img-fluid rounded">
+          <h5>Bedroom</h5>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="room-card text-center">
+          <img src="assets/image/shopby-room/dining.jpg" alt="Dining Room" class="img-fluid rounded">
+          <h5>Dining Room</h5>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="room-card text-center">
+          <img src="assets/image/shopby-room/storage2.jpg" alt="Office" class="img-fluid rounded">
+          <h5>Office</h5>
+        </div>
+      </div>
+      {# <div class="col-6 col-lg-2">
+        <div class="room-card text-center">
+          <img src="images/kids-room.jpg" alt="Kids Room" class="img-fluid rounded">
+          <h5>Kids Room</h5>
+        </div>
+      </div> #}
+      <div class="col-6 col-lg-2">
+        <div class="room-card text-center">
+          <img src="assets/image/shopby-room/study.jpg" alt="Study Room" class="img-fluid rounded">
+          <h5>Study Room</h5>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
   {# <div class="owl-carousel owl-carousel2 custom-carousel owl-theme">
     <div class="item " style="background-image:url(assets/image/shopby-room/bed-img.jpg);">
       <div class="item-desc">
