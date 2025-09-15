@@ -247,6 +247,7 @@ p a:hover::after {
 	border-color: var(--bs-btn-active-border-color);
 	border: none
 }
+
 .content{
 	width: 100%
   }
