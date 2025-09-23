@@ -47,11 +47,9 @@ class ControllerCheckoutPaymentMethod extends Controller {
 			$recurring = $this->cart->hasRecurringProducts();
 
 			foreach ($results as $result) {
-				// echo  $result['code']." - ";
-				
-				if ($this->config->get($result['code'] . '_status') || $this->config->get('payment_' . $result['code'] . '_status')) {
-				// if ($this->config->get('payment_' . $result['code'] . '_status')) {
+				if ($this->config->get('payment_' . $result['code'] . '_status')) {
 					$this->load->model('extension/payment/' . $result['code']);
+					
 					$method = $this->{'model_extension_payment_' . $result['code']}->getMethod($this->session->data['payment_address'], $total);
 
 					if ($method) {
@@ -65,7 +63,7 @@ class ControllerCheckoutPaymentMethod extends Controller {
 					}
 				}
 			}
-
+			
 			$sort_order = array();
 
 			foreach ($method_data as $key => $value) {
@@ -109,7 +107,7 @@ class ControllerCheckoutPaymentMethod extends Controller {
 			$information_info = $this->model_catalog_information->getInformation($this->config->get('config_checkout_id'));
 
 			if ($information_info) {
-				$data['text_agree'] = sprintf($this->language->get('text_agree'), $this->url->link('information/information/agree', 'information_id=' . $this->config->get('config_checkout_id'), true), $information_info['title']);
+				$data['text_agree'] = sprintf($this->language->get('text_agree'), $this->url->link('information/information/agree', 'information_id=' . $this->config->get('config_checkout_id'), true), $information_info['title'], $information_info['title']);
 			} else {
 				$data['text_agree'] = '';
 			}
@@ -121,11 +119,6 @@ class ControllerCheckoutPaymentMethod extends Controller {
 			$data['agree'] = $this->session->data['agree'];
 		} else {
 			$data['agree'] = '';
-		}
-// 		print_R($data);
-// echo "sa"; exit;
-		if(isset($data['payment_methods']['airpay'])){
-			$data['payment_methods']['airpay']['title'] = 'Airpay';
 		}
 
 		$this->response->setOutput($this->load->view('checkout/payment_method', $data));
