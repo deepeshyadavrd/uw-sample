@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WoodCraft Gurugram - Premium Furniture Store | Living Room, Bedroom & Dining Furniture</title>
+    <meta name="description" content="Discover premium furniture in Gurugram. Shop living room, bedroom, dining & office furniture. Quality craftsmanship, modern designs. Store opening soon in Sector 29.">
+    <meta name="author" content="WoodCraft Gurugram">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary fs-3" href="#">WoodCraft</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#categories">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#store">Store</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold text-white mb-4">Transform Your Home with Premium Furniture</h1>
+                    <p class="lead text-light mb-4">Discover handcrafted furniture pieces that blend style, comfort, and quality. Serving Gurugram with exceptional home furnishing solutions.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#categories" class="btn btn-primary btn-lg">Explore Collection</a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">Get Quote</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="images/hero-furniture.jpg" alt="Premium Furniture Collection" class="img-fluid rounded shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-primary mb-3">Shop by Category</h2>
+                <p class="lead text-muted">Discover our carefully curated collection of furniture for every room in your home</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 border-0 shadow category-card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="images/category-living.jpg" class="card-img-top" alt="Living Room Furniture">
+                            <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
+                            <div class="position-absolute bottom-0 start-0 p-3">
+                                <span class="badge bg-light text-dark">25+ Items</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Living Room</h5>
+                            <p class="card-text text-muted">Comfortable sofas, coffee tables & entertainment units</p>
+                            <div class="d-flex align-items-center text-warning">
+                                <span>View Collection</span>
+                                <i class="fas fa-arrow-right ms-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 border-0 shadow category-card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="images/category-bedroom.jpg" class="card-img-top" alt="Bedroom Furniture">
+                            <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
+                            <div class="position-absolute bottom-0 start-0 p-3">
+                                <span class="badge bg-light text-dark">30+ Items</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Bedroom</h5>
+                            <p class="card-text text-muted">Beds, wardrobes, nightstands & dressers</p>
+                            <div class="d-flex align-items-center text-warning">
+                                <span>View Collection</span>
+                                <i class="fas fa-arrow-right ms-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 border-0 shadow category-card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="images/category-dining.jpg" class="card-img-top" alt="Dining Room Furniture">
+                            <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
+                            <div class="position-absolute bottom-0 start-0 p-3">
+                                <span class="badge bg-light text-dark">20+ Items</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Dining Room</h5>
+                            <p class="card-text text-muted">Dining tables, chairs & storage solutions</p>
+                            <div class="d-flex align-items-center text-warning">
+                                <span>View Collection</span>
+                                <i class="fas fa-arrow-right ms-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card h-100 border-0 shadow category-card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="images/category-office.jpg" class="card-img-top" alt="Home Office Furniture">
+                            <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
+                            <div class="position-absolute bottom-0 start-0 p-3">
+                                <span class="badge bg-light text-dark">15+ Items</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Home Office</h5>
+                            <p class="card-text text-muted">Desks, chairs & organizational furniture</p>
+                            <div class="d-flex align-items-center text-warning">
+                                <span>View Collection</span>
+                                <i class="fas fa-arrow-right ms-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section id="products" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-primary mb-3">Featured Products</h2>
+                <p class="lead text-muted">Handpicked furniture pieces that combine style, comfort, and quality craftsmanship</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow product-card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="images/product-sofa.jpg" class="card-img-top" alt="Contemporary 3-Seater Sofa">
+                            <span class="badge bg-danger position-absolute top-0 start-0 m-3">Bestseller</span>
+                            <button class="btn btn-light position-absolute top-0 end-0 m-3 wishlist-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Contemporary 3-Seater Sofa</h5>
+                            <p class="card-text text-muted">Premium fabric upholstery with solid wood frame</p>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div>
+                                    <span class="h4 text-primary fw-bold">₹45,999</span>
+                                    <span class="text-muted text-decoration-line-through ms-2">₹52,999</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary w-100">
+                                <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow product-card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="images/product-dining-set.jpg" class="card-img-top" alt="6-Seater Dining Set">
+                            <span class="badge bg-success position-absolute top-0 start-0 m-3">New Arrival</span>
+                            <button class="btn btn-light position-absolute top-0 end-0 m-3 wishlist-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">6-Seater Dining Set</h5>
+                            <p class="card-text text-muted">Solid wood table with comfortable padded chairs</p>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div>
+                                    <span class="h4 text-primary fw-bold">₹38,999</span>
+                                    <span class="text-muted text-decoration-line-through ms-2">₹44,999</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary w-100">
+                                <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow product-card">
+                        <div class="position-relative overflow-hidden">
+                            <img src="images/product-coffee-table.jpg" class="card-img-top" alt="Modern Coffee Table">
+                            <span class="badge bg-warning position-absolute top-0 start-0 m-3">Limited Edition</span>
+                            <button class="btn btn-light position-absolute top-0 end-0 m-3 wishlist-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">Modern Coffee Table</h5>
+                            <p class="card-text text-muted">Multi-functional design with hidden storage</p>
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div>
+                                    <span class="h4 text-primary fw-bold">₹12,999</span>
+                                    <span class="text-muted text-decoration-line-through ms-2">₹15,999</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary w-100">
+                                <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <button class="btn btn-outline-primary btn-lg">View All Products</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Coming Soon Section -->
+    <section id="store" class="py-5 store-section">
+        <div class="container">
+            <div class="text-center text-white mb-5">
+                <h2 class="display-5 fw-bold mb-3">Physical Store Coming Soon!</h2>
+                <p class="lead mb-5">We're excited to announce our flagship store opening in the heart of Gurugram. Get ready for an immersive furniture shopping experience.</p>
+            </div>
+            <div class="row g-4 mb-5">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card bg-transparent border-light text-white h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-map-marker-alt fa-3x text-warning mb-3"></i>
+                            <h5 class="card-title">Location</h5>
+                            <p class="card-text">Sector 29, Gurugram<br>Haryana 122001</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card bg-transparent border-light text-white h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-calendar-alt fa-3x text-warning mb-3"></i>
+                            <h5 class="card-title">Opening Date</h5>
+                            <p class="card-text">December 2024<br>Stay Tuned!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card bg-transparent border-light text-white h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-clock fa-3x text-warning mb-3"></i>
+                            <h5 class="card-title">Store Hours</h5>
+                            <p class="card-text">Mon-Sun<br>10 AM - 9 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card bg-transparent border-light text-white h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-phone fa-3x text-warning mb-3"></i>
+                            <h5 class="card-title">Pre-Orders</h5>
+                            <p class="card-text">Call us for<br>special discounts</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-light btn-lg me-3 mb-3">Get Store Updates</button>
+                <button class="btn btn-outline-light btn-lg mb-3">Schedule Visit</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-primary mb-3">Get in Touch</h2>
+                <p class="lead text-muted">Have questions about our furniture or want to place a custom order? We'd love to hear from you.</p>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
+                                            <i class="fas fa-map-marker-alt text-primary fa-lg"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-bold text-primary mb-1">Address</h6>
+                                            <p class="text-muted mb-0">Sector 29, Gurugram<br>Haryana 122001</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
+                                            <i class="fas fa-phone text-primary fa-lg"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-bold text-primary mb-1">Phone</h6>
+                                            <p class="text-muted mb-0">+91 98765 43210<br>+91 87654 32109</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
+                                            <i class="fas fa-envelope text-primary fa-lg"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-bold text-primary mb-1">Email</h6>
+                                            <p class="text-muted mb-0">info@woodcraft-ggm.com<br>orders@woodcraft-ggm.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
+                                            <i class="fas fa-clock text-primary fa-lg"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="fw-bold text-primary mb-1">Business Hours</h6>
+                                            <p class="text-muted mb-0">Mon-Sat: 10 AM - 8 PM<br>Sun: 12 PM - 6 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-header bg-white">
+                            <h4 class="card-title text-primary mb-0">Send us a Message</h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="contactForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="name" class="form-label">Full Name *</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Email Address *</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phone">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="category" class="form-label">Interested In</label>
+                                        <select class="form-select" id="category">
+                                            <option value="">Select category</option>
+                                            <option value="living-room">Living Room Furniture</option>
+                                            <option value="bedroom">Bedroom Furniture</option>
+                                            <option value="dining">Dining Room Furniture</option>
+                                            <option value="office">Office Furniture</option>
+                                            <option value="custom">Custom Design</option>
+                                            <option value="consultation">Design Consultation</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="message" class="form-label">Message *</label>
+                                        <textarea class="form-control" id="message" rows="5" required></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-3">WoodCraft</h5>
+                    <p class="text-light-emphasis mb-3">Premium furniture crafted with passion and precision. Transforming homes in Gurugram with quality, style, and comfort.</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-sm rounded-circle">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#categories" class="text-light-emphasis text-decoration-none">Categories</a></li>
+                        <li class="mb-2"><a href="#products" class="text-light-emphasis text-decoration-none">Featured Products</a></li>
+                        <li class="mb-2"><a href="#store" class="text-light-emphasis text-decoration-none">Store Location</a></li>
+                        <li class="mb-2"><a href="#contact" class="text-light-emphasis text-decoration-none">Contact Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-light-emphasis text-decoration-none">Custom Orders</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-3">Categories</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-light-emphasis text-decoration-none">Living Room</a></li>
+                        <li class="mb-2"><a href="#" class="text-light-emphasis text-decoration-none">Bedroom</a></li>
+                        <li class="mb-2"><a href="#" class="text-light-emphasis text-decoration-none">Dining Room</a></li>
+                        <li class="mb-2"><a href="#" class="text-light-emphasis text-decoration-none">Home Office</a></li>
+                        <li class="mb-2"><a href="#" class="text-light-emphasis text-decoration-none">Storage Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-3">Contact Info</h6>
+                    <div class="mb-2">
+                        <i class="fas fa-map-marker-alt me-2"></i>
+                        <span class="text-light-emphasis">Sector 29, Gurugram, Haryana 122001</span>
+                    </div>
+                    <div class="mb-2">
+                        <i class="fas fa-phone me-2"></i>
+                        <span class="text-light-emphasis">+91 98765 43210</span>
+                    </div>
+                    <div class="mb-2">
+                        <i class="fas fa-envelope me-2"></i>
+                        <span class="text-light-emphasis">info@woodcraft-ggm.com</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-light-emphasis">&copy; 2024 WoodCraft Gurugram. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-light-emphasis text-decoration-none me-3">Privacy Policy</a>
+                    <a href="#" class="text-light-emphasis text-decoration-none me-3">Terms & Conditions</a>
+                    <a href="#" class="text-light-emphasis text-decoration-none">Return Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+
+    <!-- Toast Container -->
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto" id="toastTitle">WoodCraft</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body" id="toastMessage">
+                Message sent successfully!
+            </div>
+        </div>
+    </div>
+</body>
+</html>
