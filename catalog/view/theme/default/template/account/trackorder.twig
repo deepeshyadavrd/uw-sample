@@ -455,7 +455,7 @@
         </div>
     </div> 
     </div>
-    {% elseif histories|last.status == 'Under Manufacturing' %}
+    {% elseif histories|last.status == 'Under Manufacturing' or histories|last.status == 'Under Polishing'%}
     <div class="row">
     <div class="col-md-4"> 
    <ul class="steps" id="steps">
@@ -512,9 +512,9 @@
             <h3>Order Progress Images</h3>
             <div class="order-stage-images">
               {% for image in order_stage_images %}
-                <div class="order-stage-image">
+                {# <div class="order-stage-image"> #}
                   <img src="http://localhost/crm/uploads/order_stage_images/{{ image.filename }}" alt="Stage Image" style="max-width:200px;">
-                </div>
+                {# </div> #}
               {% endfor %}
             </div>
           {% endif %}
