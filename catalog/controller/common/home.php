@@ -29,7 +29,7 @@ class ControllerCommonHome extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-		$this->load->model('tool/image');
+		// $this->load->model('tool/image');
 
     //   $homeBanner = $this->db->query('SELECT * FROM oc_banner_image WHERE banner_id=7 ORDER BY sort_order ASC');
     //   if(!empty($homeBanner)){
