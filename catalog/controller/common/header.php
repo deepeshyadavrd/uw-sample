@@ -13,7 +13,6 @@ class ControllerCommonHeader extends Controller {
 		// 		$data['analytics'][] = $this->load->controller('extension/analytics/' . $analytic['code'], $this->config->get('analytics_' . $analytic['code'] . '_status'));
 		// 	}
 		// }
-
 		if ($this->request->server['HTTPS']) {
 			$server = $this->config->get('config_ssl');
 		} else {
