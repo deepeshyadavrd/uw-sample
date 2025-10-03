@@ -1138,5 +1138,23 @@ function applySticky() {
       .catch(err => console.error("❌ SW Registration Failed", err));
   }
 </script>
+<script>
+// Firework spark effect on card click
+document.querySelectorAll('.offer-card').forEach(card => {
+card.addEventListener('click', e => {
+const rect = card.getBoundingClientRect();
+for(let i=0;i<12;i++){
+const spark=document.createElement('div');
+spark.className='spark';
+spark.style.left=(e.clientX-rect.left)+'px';
+spark.style.top=(e.clientY-rect.top)+'px';
+spark.style.setProperty('--x', (Math.random()*100-50)+'px');
+spark.style.setProperty('--y', (Math.random()*100-50)+'px');
+card.appendChild(spark);
+setTimeout(()=>spark.remove(),600);
+}
+});
+});
+</script>
 </body>
 </html>

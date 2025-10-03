@@ -187,54 +187,147 @@ background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ecec
         </div>
   </section>    
   <style>
+<style>
+:root{
+--gap:16px;
+--bg:#0b0b0b;
+--card-bg:#1a1a1a;
+--text:#ffffff;
+--accent:#ff9800;
+--glow:#ffcc66;
+}
 
-/* Hide grid by default (mobile) */
+
+
+/* Diwali sparkle background */
+.cont::before{
+content:"";
+position:fixed;
+top:0; left:0;
+width:100%; height:100%;
+background:url('https://www.transparenttextures.com/patterns/stardust.png');
+opacity:0.2;
+pointer-events:none;
+}
+
+
 .offer-grid{ display:none; }
 
 
-/* Desktop only */
 @media (min-width:1024px){
 .cont{
 max-width:1800px;
 margin:40px auto;
 padding:20px;
-background: #0b0b0b;
-color: white;
+position:relative;
+background: radial-gradient(circle at top, #1a1a1a, #0b0b0b);
 }
+
+
+/* Floating diyas - changed to working PNG */
+.diya{
+position:absolute;
+width:50px; height:50px;
+background:url('https://cdn-icons-png.flaticon.com/512/3917/3917374.png') no-repeat center/contain;
+animation: float 6s ease-in-out infinite;
+pointer-events:none;
+opacity:0.9;
+z-index:2;
+}
+
+
+.diya:nth-child(1){ top:10%; left:5%; animation-delay:0s; }
+.diya:nth-child(2){ top:20%; right:10%; animation-delay:1.5s; }
+.diya:nth-child(3){ bottom:15%; left:15%; animation-delay:3s; }
+.diya:nth-child(4){ bottom:20%; right:8%; animation-delay:4.5s; }
+
+
+@keyframes float {
+0%,100%{ transform:translateY(0px); }
+50%{ transform:translateY(-12px); }
+}
+
+
 .offer-grid{
 display:grid;
 grid-template-columns:repeat(6, 1fr);
 gap:10px;
+position:relative;
+z-index:3;
 }
 
 
 .offer-card{
-background:linear-gradient(182deg, #880f8096, rgba(255, 255, 255, 0.01));
-border-radius:10px;
+background:linear-gradient(160deg, #880f80, rgba(255,152,0,0.05));
+border-radius:12px;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-padding:12px;
-box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-border:1px solid rgba(255,255,255,60%);
-transition:transform .18s ease, box-shadow .18s ease;
+padding:14px;
+box-shadow:0 4px 12px rgba(0,0,0,0.6);
+border:1px solid rgba(255,255,255,0.1);
+transition:transform .25s ease, box-shadow .25s ease, filter .3s ease;
+text-decoration:none;
+color:#ffffff;
+}
+
+.offer-card::after{
+content:"";
+position:absolute;
+top:0; left:-100%;
+width:100%; height:100%;
+background:linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+transition: all 0.6s ease;
+}
+
+
+.offer-card:hover::after{
+left:100%;
 }
 
 
 .offer-card:hover{
-transform:translateY(-4px);
-box-shadow:0 12px 30px rgba(0,0,0,0.6);
+transform:scale(1.07) rotate(-1deg);
+box-shadow:0 0 25px #ffcc66;
+filter: drop-shadow(0 0 10px orange);
 }
 
 
-.line1 { font-size:13px; font-weight:400; }
-.line2 { font-size:16px; font-weight:700; color:#ff6a00; }
+.offer-card:active{
+transform:scale(0.97);
+}
+
+
+/* Firework spark on click */
+.spark{
+position:absolute;
+width:6px; height:6px;
+background:#ff9800;
+border-radius:50%;
+pointer-events:none;
+animation: explode 0.6s ease forwards;
+}
+
+
+@keyframes explode {
+0%{ transform:scale(1) translate(0,0); opacity:1; }
+100%{ transform:scale(0.2) translate(var(--x), var(--y)); opacity:0; }
+}
+
+
+.line1 { font-size:13px; font-weight:400; color:rgba(255,255,255,0.8); }
+.line2 { font-size:18px; font-weight:700; color:#ff9800; text-shadow:0 0 6px rgba(255,152,0,0.6); }
 .line3 { font-size:13px; font-weight:400; margin-top:4px; }
-.line4 { font-size:14px; font-weight:700; margin-top:2px; }
+.line4 { font-size:15px; font-weight:700; margin-top:2px; color:#fff5d7; text-shadow:0 0 8px rgba(255,204,102,0.8); }
 }
 </style>
+</style>
 <div class="container-fluid cont">
+  <div class="diya"></div>
+  <div class="diya"></div>
+  <div class="diya"></div>
+  <div class="diya"></div>
   <div class="offer-grid">
     <div class="offer-card"><div><div class="line1">Spend</div><div class="line2">Above 50k</div><div class="line3">and Get</div><div class="line4">Bed Side Table</div></div></div>
     <div class="offer-card"><div><div class="line1">Spend</div><div class="line2">Above 80k</div><div class="line3">and Get</div><div class="line4">Corner Shelf</div></div></div>
@@ -253,6 +346,7 @@ box-shadow:0 12px 30px rgba(0,0,0,0.6);
     <div class="offer-card"><div><div class="line1">Spend</div><div class="line2">Above 5L</div><div class="line3">and Get</div><div class="line4">Aper SofaCumBed</div></div></div> #}
   </div>
 </div>
+
 <section class="py-2">
   <div class="container container-custom">
     <div class="row">
