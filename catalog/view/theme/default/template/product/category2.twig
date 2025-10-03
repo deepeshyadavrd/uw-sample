@@ -72,6 +72,7 @@
         </div>
         </div>
       </section>
+
   <section>
   <style>
   .pbc{
@@ -185,7 +186,80 @@ background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ecec
         </div>
         </div>
   </section>    
+  <style>
 
+/* Hide grid by default (mobile) */
+.offer-grid{ display:none; }
+
+
+/* Desktop only */
+@media (min-width:1024px){
+.cont{
+max-width:1800px;
+margin:40px auto;
+padding:20px;
+background: #0b0b0b;
+}
+.offer-grid{
+display:grid;
+grid-template-columns:repeat(9, 1fr);
+gap:10px;
+}
+
+
+.offer-card{
+background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:12px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+border:1px solid rgba(255,255,255,0.05);
+transition:transform .18s ease, box-shadow .18s ease;
+}
+
+
+.offer-card:hover{
+transform:translateY(-4px);
+box-shadow:0 12px 30px rgba(0,0,0,0.6);
+}
+
+
+.offer-text{
+font-weight:700;
+font-size:16px;
+line-height:1.2;
+}
+
+
+.offer-sub{
+display:block;
+font-weight:400;
+font-size:12px;
+color:rgba(255,255,255,0.85);
+margin-top:4px;
+}
+}
+
+
+.mobile-note{ display:block; text-align:center; padding:24px; color:rgba(255,255,255,0.9); }
+@media(min-width:1024px){ .mobile-note{ display:none; } }
+</style>
+<div class="container-fluid cont">
+  <div class="offer-grid">
+    <div class="offer-card"><div class="offer-text">Above 50k<span class="offer-sub">Bed Side Table</span></div></div>
+    <div class="offer-card"><div class="offer-text">Above 80k<span class="offer-sub">Corner Shelf</span></div></div>
+    <div class="offer-card"><div class="offer-text">Above 1.15L<span class="offer-sub">Small Coffee Table</span></div></div>
+    <div class="offer-card"><div class="offer-text">Above 1.5L<span class="offer-sub">Large Coffee Table</span></div></div>
+    <div class="offer-card"><div class="offer-text">Above 2L<span class="offer-sub">Console Table</span></div></div>
+    <div class="offer-card"><div class="offer-text">Above 2.5L<span class="offer-sub">Side & Console Table</span></div></div>
+    <div class="offer-card"><div class="offer-text">Above 3L<span class="offer-sub">Bliss Coffee Table Set with Puffies</span></div></div>
+    <div class="offer-card"><div class="offer-text">Above 4L<span class="offer-sub">TV Unit</span></div></div>
+    <div class="offer-card"><div class="offer-text">Above 5L<span class="offer-sub">Aper SofaCumBed</span></div></div>
+  </div>
+</div>
 <section class="py-2">
   <div class="container container-custom">
     <div class="row">
