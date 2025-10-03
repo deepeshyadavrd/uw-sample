@@ -199,10 +199,11 @@ max-width:1800px;
 margin:40px auto;
 padding:20px;
 background: #0b0b0b;
+color: white;
 }
 .offer-grid{
 display:grid;
-grid-template-columns:repeat(9, 1fr);
+grid-template-columns:repeat(6, 1fr);
 gap:10px;
 }
 
@@ -216,7 +217,7 @@ justify-content:center;
 text-align:center;
 padding:12px;
 box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-border:1px solid rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,60%);
 transition:transform .18s ease, box-shadow .18s ease;
 }
 
@@ -227,37 +228,23 @@ box-shadow:0 12px 30px rgba(0,0,0,0.6);
 }
 
 
-.offer-text{
-font-weight:700;
-font-size:16px;
-line-height:1.2;
+.line1 { font-size:13px; font-weight:400; }
+.line2 { font-size:16px; font-weight:700; color:#ff6a00; }
+.line3 { font-size:13px; font-weight:400; margin-top:4px; }
+.line4 { font-size:14px; font-weight:700; margin-top:2px; }
 }
-
-
-.offer-sub{
-display:block;
-font-weight:400;
-font-size:12px;
-color:rgba(255,255,255,0.85);
-margin-top:4px;
-}
-}
-
-
-.mobile-note{ display:block; text-align:center; padding:24px; color:rgba(255,255,255,0.9); }
-@media(min-width:1024px){ .mobile-note{ display:none; } }
 </style>
 <div class="container-fluid cont">
   <div class="offer-grid">
-    <div class="offer-card"><div class="offer-text">Above 50k<span class="offer-sub">Bed Side Table</span></div></div>
-    <div class="offer-card"><div class="offer-text">Above 80k<span class="offer-sub">Corner Shelf</span></div></div>
-    <div class="offer-card"><div class="offer-text">Above 1.15L<span class="offer-sub">Small Coffee Table</span></div></div>
-    <div class="offer-card"><div class="offer-text">Above 1.5L<span class="offer-sub">Large Coffee Table</span></div></div>
-    <div class="offer-card"><div class="offer-text">Above 2L<span class="offer-sub">Console Table</span></div></div>
-    <div class="offer-card"><div class="offer-text">Above 2.5L<span class="offer-sub">Side & Console Table</span></div></div>
-    <div class="offer-card"><div class="offer-text">Above 3L<span class="offer-sub">Bliss Coffee Table Set with Puffies</span></div></div>
-    <div class="offer-card"><div class="offer-text">Above 4L<span class="offer-sub">TV Unit</span></div></div>
-    <div class="offer-card"><div class="offer-text">Above 5L<span class="offer-sub">Aper SofaCumBed</span></div></div>
+    <div class="offer-card"><div><div class="line1">Spend</div><div class="line2">Above 50k</div><div class="line3">and Get</div><div class="line4">Bed Side Table</div></div></div>
+    <div class="offer-card"><div><div class="line1">Spend</div><div class="line2">Above 80k</div><div class="line3">and Get</div><div class="line4">Corner Shelf</div></div></div>
+    <div class="offer-card"><div><div class="line1">Spend</div><div class="line2">Above 1,15,000</div><div class="line3">and Get</div><div class="line4">Small Coffee Table</div></div></div>
+    <div class="offer-card"><div><div class="line1">Spend</div><div class="line2">Above 1,50,000</div><div class="line3">and Get</div><div class="line4">Large Coffee Table</div></div></div>
+    <div class="offer-card"><div><div class="line1">Spend</div><div class="line2">Above 2L</div><div class="line3">and Get</div><div class="line4">Console Table</div></div></div>
+    <div class="offer-card"><div><div class="line1">Spend</div><div class="line2">Above 2.5L</div><div class="line3">and Get</div><div class="line4">Side & Console Table</div></div></div>
+    {# <div class="offer-card"><div><div class="line1">Spend</div><div class="line2">Above 3L</div><div class="line3">and Get</div><div class="line4">Bliss Coffee Table Set</div></div></div>
+    <div class="offer-card"><div><div class="line1">Spend</div><div class="line2">Above 4L</div><div class="line3">and Get</div><div class="line4">TV Unit</div></div></div>
+    <div class="offer-card"><div><div class="line1">Spend</div><div class="line2">Above 5L</div><div class="line3">and Get</div><div class="line4">Aper SofaCumBed</div></div></div> #}
   </div>
 </div>
 <section class="py-2">
