@@ -236,7 +236,6 @@ p a:hover {
 p a:hover::after {
 	opacity: .2
 }
-
 .btn-check:checked+.btn,
 .btn.active,
 .btn.show,
