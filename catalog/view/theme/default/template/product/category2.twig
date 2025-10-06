@@ -187,7 +187,6 @@ background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ecec
         </div>
   </section>    
   <style>
-<style>
 :root{
 --gap:16px;
 --bg:#0b0b0b;
@@ -197,18 +196,6 @@ background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ecec
 --glow:#ffcc66;
 }
 
-
-
-/* Diwali sparkle background */
-/* .cont::before{
-content:"";
-position:fixed;
-top:0; left:0;
-width:100%; height:100%;
-background:url('https://www.transparenttextures.com/patterns/stardust.png');
-opacity:0.2;
-pointer-events:none;
-} */
 
 
 .offer-grid{ display:none; }
@@ -322,13 +309,94 @@ animation: explode 0.6s ease forwards;
 .line3 { font-size:13px; font-weight:400; margin-top:4px; }
 .line4 { font-size:15px; font-weight:700; margin-top:2px; color:#fff5d7; text-shadow:0 0 8px rgba(255,204,102,0.8); }
 }
+
+.deep-space-section {
+  position: relative;
+  background: #000;
+  /* min-height: 100vh; */
+  overflow: hidden;
+}
+
+#fireworks-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* .content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+} */
+
+/* Firework particle styles */
+.firework-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+}
+.rocket-trail {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(to top, rgba(255, 255, 200, 0.8), transparent);
+}
+/* Add glow effects for better visibility */
+.firework-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.rocket-trail {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(to top, rgba(255, 255, 200, 0.9), transparent);
+}
+.burst-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  filter: blur(0.5px);
+  box-shadow: 0 0 6px rgba(255, 230, 100, 0.6);
+}
+/* Optional: Add twinkling stars in background */
+.deep-space-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 20% 30%, rgba(255, 255, 255, 0.3) 50%, transparent 50%),
+    radial-gradient(1px 1px at 40% 70%, rgba(255, 255, 255, 0.3) 50%, transparent 50%),
+    radial-gradient(1px 1px at 60% 20%, rgba(255, 255, 255, 0.3) 50%, transparent 50%),
+    radial-gradient(1px 1px at 80% 50%, rgba(255, 255, 255, 0.3) 50%, transparent 50%);
+  background-size: 200px 200px;
+  z-index: 0;
+  animation: twinkle 8s infinite alternate;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
 </style>
-</style>
+<section class="deep-space-section">
+  <div id="fireworks-container"></div>
 <div class="container-fluid cont">
-  <div class="diya"></div>
-  <div class="diya"></div>
-  <div class="diya"></div>
-  <div class="diya"></div>
   <div class="offer-grid">
     <div class="offer-card"><div><div class="line1">Spend</div><div class="line2">Above 50k</div><div class="line3">and Get</div><div class="line4">Bed Side Table</div></div></div>
     <div class="offer-card"><div><div class="line1">Spend</div><div class="line2">Above 80k</div><div class="line3">and Get</div><div class="line4">Corner Shelf</div></div></div>
@@ -341,13 +409,372 @@ animation: explode 0.6s ease forwards;
         {# <div class="line3">and Get</div><div class="line4">Side & Console Table</div> #}
       </div>
     </div>
-    {# <div class="offer-card"><div><div class="line1">Spend</div><div class="line2">Above 2.5L</div><div class="line3">and Get</div><div class="line4">Side & Console Table</div></div></div> #}
-    {# <div class="offer-card"><div><div class="line1">Spend</div><div class="line2">Above 3L</div><div class="line3">and Get</div><div class="line4">Bliss Coffee Table Set</div></div></div>
-    <div class="offer-card"><div><div class="line1">Spend</div><div class="line2">Above 4L</div><div class="line3">and Get</div><div class="line4">TV Unit</div></div></div>
-    <div class="offer-card"><div><div class="line1">Spend</div><div class="line2">Above 5L</div><div class="line3">and Get</div><div class="line4">Aper SofaCumBed</div></div></div> #}
+    
   </div>
 </div>
+</section>
+<script>
+class RocketFireworks {
+  constructor(containerId) {
+    this.container = document.getElementById(containerId);
+    this.particles = [];
+    this.isRunning = false;
+    
+    // Configuration for distant rocket feel
+    this.config = {
+      minDelay: 4000,        // 4 seconds between rockets
+      maxDelay: 10000,       // 10 seconds max
+      rocketSpeed: 0.8,      // Slow rocket ascent
+      burstParticleCount: 60, // More particles for round burst
+      maxParticleSize: 2.5,  // Small particles
+      minParticleSize: 1,
+      burstRadius: 100,      // Circular burst radius
+      colors: {
+        rocket: [
+          'rgba(255, 255, 220, 0.9)',   // Bright rocket
+          'rgba(255, 245, 180, 0.8)',   // Warm rocket
+          'rgba(255, 235, 150, 0.7)'    // Golden rocket
+        ],
+        burst: [
+          'rgba(255, 255, 200, 0.7)',   // Soft yellow burst
+          'rgba(255, 240, 160, 0.6)',   // Warm yellow
+          'rgba(255, 230, 120, 0.5)',   // Golden yellow
+          'rgba(255, 220, 100, 0.4)'    // Dim yellow
+        ]
+      },
+      rocketDuration: 2000,  // Slow rocket flight
+      burstDuration: 4000,   // Slow burst expansion
+      trailParticles: 5,     // Number of trail particles
+      trailSpacing: 15       // Space between trail particles
+    };
+  }
 
+  start() {
+    this.isRunning = true;
+    this.launchRocket();
+  }
+
+  stop() {
+    this.isRunning = false;
+  }
+
+  launchRocket() {
+    if (!this.isRunning) return;
+
+    // Random starting position at bottom
+    const startX = Math.random() * (this.container.offsetWidth - 100) + 50;
+    const startY = this.container.offsetHeight + 10; // Start from bottom
+    const targetY = 50 + Math.random() * (this.container.offsetHeight * 0.4); // Random height
+
+    // Create rocket
+    this.createRocket(startX, startY, targetY);
+
+    // Schedule next rocket with random delay
+    const nextDelay = Math.random() * 
+      (this.config.maxDelay - this.config.minDelay) + 
+      this.config.minDelay;
+    
+    setTimeout(() => this.launchRocket(), nextDelay);
+  }
+
+  createRocket(startX, startY, targetY) {
+    const rocket = document.createElement('div');
+    rocket.className = 'firework-particle';
+    
+    // Rocket styling - small and bright
+    const size = 2;
+    const color = this.config.colors.rocket[
+      Math.floor(Math.random() * this.config.colors.rocket.length)
+    ];
+
+    rocket.style.width = `${size}px`;
+    rocket.style.height = `${size}px`;
+    rocket.style.background = color;
+    rocket.style.left = `${startX}px`;
+    rocket.style.top = `${startY}px`;
+    rocket.style.boxShadow = '0 0 8px rgba(255, 255, 200, 0.8)';
+
+    this.container.appendChild(rocket);
+
+    // Animate rocket ascent with trail
+    this.animateRocket(rocket, startX, targetY);
+  }
+
+  animateRocket(rocket, startX, targetY) {
+    const startY = parseFloat(rocket.style.top);
+    const distance = targetY - startY;
+    const trailCount = this.config.trailParticles;
+
+    // Rocket ascent animation
+    const rocketKeyframes = [
+      { 
+        transform: 'translateY(0) scale(1)',
+        opacity: 1
+      },
+      { 
+        transform: `translateY(${distance}px) scale(1.2)`,
+        opacity: 1,
+        offset: 0.8
+      },
+      { 
+        transform: `translateY(${distance}px) scale(0.1)`,
+        opacity: 0
+      }
+    ];
+
+    const rocketAnimation = rocket.animate(rocketKeyframes, {
+      duration: this.config.rocketDuration,
+      easing: 'cubic-bezier(0.1, 0.8, 0.2, 1)',
+      fill: 'forwards'
+    });
+
+    // Create trail particles during ascent
+    for (let i = 0; i < trailCount; i++) {
+      setTimeout(() => {
+        this.createTrailParticle(startX, startY + (i * this.config.trailSpacing));
+      }, i * (this.config.rocketDuration / trailCount));
+    }
+
+    // When rocket reaches target, create burst
+    rocketAnimation.onfinish = () => {
+      this.createCircularBurst(startX, targetY);
+      if (rocket.parentNode) {
+        rocket.parentNode.removeChild(rocket);
+      }
+    };
+  }
+
+  createTrailParticle(x, y) {
+    const trail = document.createElement('div');
+    trail.className = 'rocket-trail';
+    
+    const size = Math.random() * 3 + 1;
+    trail.style.width = `${size}px`;
+    trail.style.height = `${size}px`;
+    trail.style.left = `${x}px`;
+    trail.style.top = `${y}px`;
+    trail.style.background = 'rgba(255, 255, 200, 0.4)';
+
+    this.container.appendChild(trail);
+
+    // Trail fade animation
+    const trailKeyframes = [
+      { 
+        transform: 'scale(1)',
+        opacity: 0.6
+      },
+      { 
+        transform: 'scale(0.1)',
+        opacity: 0
+      }
+    ];
+
+    const trailAnimation = trail.animate(trailKeyframes, {
+      duration: 1000,
+      easing: 'ease-out',
+      fill: 'forwards'
+    });
+
+    trailAnimation.onfinish = () => {
+      if (trail.parentNode) {
+        trail.parentNode.removeChild(trail);
+      }
+    };
+  }
+
+  createCircularBurst(x, y) {
+    // Create perfect circular burst
+    for (let i = 0; i < this.config.burstParticleCount; i++) {
+      this.createBurstParticle(x, y, i);
+    }
+  }
+
+  createBurstParticle(centerX, centerY, index) {
+    const particle = document.createElement('div');
+    particle.className = 'firework-particle';
+    
+    // Random size
+    const size = Math.random() * 
+      (this.config.maxParticleSize - this.config.minParticleSize) + 
+      this.config.minParticleSize;
+    
+    // Random burst color
+    const color = this.config.colors.burst[
+      Math.floor(Math.random() * this.config.colors.burst.length)
+    ];
+
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    particle.style.background = color;
+    particle.style.left = `${centerX}px`;
+    particle.style.top = `${centerY}px`;
+
+    // Perfect circular distribution
+    const angle = (index / this.config.burstParticleCount) * Math.PI * 2;
+    const distance = Math.random() * this.config.burstRadius;
+    
+    // Calculate final position in perfect circle
+    const targetX = centerX + Math.cos(angle) * distance;
+    const targetY = centerY + Math.sin(angle) * distance;
+
+    this.container.appendChild(particle);
+    this.animateBurstParticle(particle, targetX, targetY, angle, index);
+  }
+
+  animateBurstParticle(particle, targetX, targetY, angle, index) {
+    const startX = parseFloat(particle.style.left);
+    const startY = parseFloat(particle.style.top);
+    
+    // Stagger start times for more natural circular burst
+    const startDelay = index * 15;
+    
+    // Random variations for organic feel
+    const randomFactor = 0.7 + Math.random() * 0.6;
+
+    // Circular burst animation
+    const keyframes = [
+      { 
+        transform: 'translate(0, 0) scale(0.1)',
+        opacity: 0 
+      },
+      { 
+        transform: 'translate(0, 0) scale(1)',
+        opacity: 0.9,
+        offset: 0.1 
+      },
+      { 
+        transform: `translate(${targetX - startX}px, ${targetY - startY}px) scale(0.8)`,
+        opacity: 0.5,
+        offset: 0.6 
+      },
+      { 
+        transform: `translate(${(targetX - startX) * 1.1}px, ${(targetY - startY) * 1.1}px) scale(0.1)`,
+        opacity: 0 
+      }
+    ];
+
+    const animationOptions = {
+      duration: this.config.burstDuration * randomFactor,
+      delay: startDelay,
+      easing: 'cubic-bezier(0.2, 0.8, 0.4, 1)',
+      fill: 'forwards'
+    };
+
+    const animation = particle.animate(keyframes, animationOptions);
+
+    animation.onfinish = () => {
+      if (particle.parentNode) {
+        particle.parentNode.removeChild(particle);
+      }
+    };
+  }
+}
+
+// Enhanced version with multiple rocket types
+class AdvancedRocketFireworks extends RocketFireworks {
+  createRocket(startX, startY, targetY) {
+    const rocketType = Math.random();
+    
+    if (rocketType < 0.3) {
+      this.createSpiralRocket(startX, startY, targetY);
+    } else if (rocketType < 0.6) {
+      this.createDoubleRocket(startX, startY, targetY);
+    } else {
+      super.createRocket(startX, startY, targetY);
+    }
+  }
+
+  createSpiralRocket(startX, startY, targetY) {
+    const rocket = document.createElement('div');
+    rocket.className = 'firework-particle';
+    
+    const size = 2;
+    const color = this.config.colors.rocket[0];
+
+    rocket.style.width = `${size}px`;
+    rocket.style.height = `${size}px`;
+    rocket.style.background = color;
+    rocket.style.left = `${startX}px`;
+    rocket.style.top = `${startY}px`;
+    rocket.style.boxShadow = '0 0 8px rgba(255, 255, 200, 0.8)';
+
+    this.container.appendChild(rocket);
+
+    // Spiral ascent animation
+    const spiralKeyframes = [
+      { 
+        transform: 'translate(0, 0) rotate(0deg) scale(1)',
+        opacity: 1
+      },
+      { 
+        transform: `translate(30px, ${targetY - startY}px) rotate(180deg) scale(1.2)`,
+        opacity: 1,
+        offset: 0.8
+      },
+      { 
+        transform: `translate(30px, ${targetY - startY}px) rotate(180deg) scale(0.1)`,
+        opacity: 0
+      }
+    ];
+
+    const spiralAnimation = rocket.animate(spiralKeyframes, {
+      duration: this.config.rocketDuration * 1.2,
+      easing: 'cubic-bezier(0.1, 0.8, 0.2, 1)',
+      fill: 'forwards'
+    });
+
+    // Create spiral trail
+    this.createSpiralTrail(startX, startY, targetY);
+
+    spiralAnimation.onfinish = () => {
+      this.createCircularBurst(startX + 30, targetY);
+      if (rocket.parentNode) {
+        rocket.parentNode.removeChild(rocket);
+      }
+    };
+  }
+
+  createSpiralTrail(startX, startY, targetY) {
+    const trailPoints = 8;
+    for (let i = 0; i < trailPoints; i++) {
+      setTimeout(() => {
+        const progress = i / trailPoints;
+        const angle = progress * Math.PI;
+        const trailX = startX + Math.sin(angle) * 30;
+        const trailY = startY + (targetY - startY) * progress;
+        
+        this.createTrailParticle(trailX, trailY);
+      }, i * (this.config.rocketDuration / trailPoints));
+    }
+  }
+
+  createDoubleRocket(startX, startY, targetY) {
+    // Create main rocket
+    super.createRocket(startX, startY, targetY);
+    
+    // Create secondary rocket with slight delay
+    setTimeout(() => {
+      const secondaryX = startX + (Math.random() * 40 - 20);
+      super.createRocket(secondaryX, startY, targetY - 30);
+    }, 300);
+  }
+}
+
+// Initialize and start the rocket fireworks
+document.addEventListener('DOMContentLoaded', function() {
+  const fireworks = new AdvancedRocketFireworks('fireworks-container');
+  fireworks.start();
+  
+  // Optional: Stop fireworks when tab is not visible
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      fireworks.stop();
+    } else {
+      setTimeout(() => fireworks.start(), 1000);
+    }
+  });
+});
+</script>
 <section class="py-2">
   <div class="container container-custom">
     <div class="row">
