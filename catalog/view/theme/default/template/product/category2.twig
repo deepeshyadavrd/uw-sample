@@ -322,7 +322,7 @@ animation: explode 0.6s ease forwards;
 .line4 { font-size:15px; font-weight:700; margin-top:2px; color:#fff5d7; text-shadow:0 0 8px rgba(255,204,102,0.8); }
 }
 
-fireworks-section {
+.fireworks-section {
   position: relative;
   background: #111;     /* fallback for deep black sky */
   overflow: hidden;
@@ -354,7 +354,161 @@ fireworks-section {
   </div>
 </div>
 </section>
+<script>
+const section = document.querySelector('.fireworks-section');
+const canvas = document.getElementById('fireworks-bg');
+const ctx = canvas.getContext('2d');
 
+function resizeCanvas() {
+  // Maintain crisp appearance
+  canvas.width = section.offsetWidth * window.devicePixelRatio;
+  canvas.height = section.offsetHeight * window.devicePixelRatio;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+// Utility functions
+function randomBetween(min, max) { return min + Math.random() * (max - min); }
+
+// Store active fireworks and particles
+let fireworks = [];
+let particles = [];
+
+class Firework {
+  constructor() {
+    // Randomize depth
+    this.depth = randomBetween(0.4, 1); // 1 = close, 0.4 = far
+    const sectionW = canvas.width;
+    const sectionH = canvas.height;
+
+    // Launch position and burst target
+    this.x = randomBetween(sectionW * 0.1, sectionW * 0.9);
+    this.y = sectionH; // off-screen bottom
+    this.targetX = randomBetween(sectionW * 0.15, sectionW * 0.85);
+    this.targetY = randomBetween(sectionH * 0.10, sectionH * 0.5);
+    this.color = `hsl(${randomBetween(0, 360)},100%,${randomBetween(40, 70)}%)`;
+    this.burstTimeout = randomBetween(700, 1400) * this.depth;
+    this.spawned = false;
+
+    // Slightly curve some launches
+    this.arc = (Math.random() > 0.7) ? randomBetween(-0.3, 0.3) : 0;
+    this.trail = [];
+    this.speed = randomBetween(7, 12) * this.depth;
+  }
+  update(dt) {
+    // Animate upwards with arc
+    let dx = (this.targetX - this.x) * 0.1 + this.arc * dt;
+    let dy = (this.targetY - this.y) * 0.1;
+    this.x += dx * this.speed * dt;
+    this.y += dy * this.speed * dt;
+
+    this.trail.push({x: this.x, y: this.y});
+    if (this.trail.length > 8) this.trail.shift();
+
+    // Burst when near target
+    if (!this.spawned && Math.abs(this.x - this.targetX) < 8 && Math.abs(this.y - this.targetY) < 8) {
+      this.spawned = true;
+      spawnParticles(this.x, this.y, this.color, this.depth);
+      // Flash
+      for (let i = 0; i < 4; i++) {
+        particles.push(new Particle(this.x, this.y, this.color, this.depth, true));
+      }
+    }
+  }
+  draw(ctx) {
+    // Draw launch trail with blur
+    ctx.save();
+    ctx.strokeStyle = this.color;
+    ctx.shadowColor = this.color;
+    ctx.shadowBlur = 8 * this.depth;
+    ctx.lineWidth = 2 * this.depth;
+    ctx.beginPath();
+    for (let i = 0; i < this.trail.length; i++) {
+      if (i === 0) ctx.moveTo(this.trail[i].x, this.trail[i].y);
+      else ctx.lineTo(this.trail[i].x, this.trail[i].y);
+    }
+    ctx.stroke();
+    ctx.restore();
+
+    // Main firework dot
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, 4 * this.depth, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.shadowBlur = 14 * this.depth;
+    ctx.shadowColor = this.color;
+    ctx.globalAlpha = 0.8;
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+class Particle {
+  constructor(x, y, color, depth, isFlash=false) {
+    const angle = randomBetween(0, Math.PI * 2);
+    const speed = isFlash ? randomBetween(1, 8) : randomBetween(2, 12) * depth;
+    this.x = x;
+    this.y = y;
+    this.vx = Math.cos(angle) * speed;
+    this.vy = Math.sin(angle) * speed;
+    this.alpha = 1;
+    this.lifetime = isFlash ? 40 : randomBetween(30, 80);
+    this.color = color;
+    this.radius = isFlash ? 8 * depth : randomBetween(2, 5) * depth;
+    this.isFlash = isFlash;
+  }
+  update() {
+    this.x += this.vx;
+    this.y += this.vy += 0.13; // gravity
+    this.vx *= 0.96; // air resistance
+    this.vy *= 0.96;
+    this.alpha -= 1 / this.lifetime;
+  }
+  draw(ctx) {
+    ctx.save();
+    ctx.globalAlpha = this.alpha;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.shadowColor = this.color;
+    ctx.shadowBlur = this.isFlash ? 30 : 10;
+    ctx.fill();
+    ctx.restore();
+  }
+}
+
+// Spawn fireworks at intervals
+setInterval(() => {
+  fireworks.push(new Firework());
+}, 700);
+
+function spawnParticles(x, y, color, depth) {
+  const count = Math.round(randomBetween(20, 50) * depth);
+  for (let i = 0; i < count; i++) {
+    particles.push(new Particle(x, y, color, depth));
+  }
+}
+
+function animationLoop() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Optionally draw skyline at bottom
+  // Draw fireworks and particles
+  for (let i = fireworks.length - 1; i >= 0; i--) {
+    fireworks[i].update(0.016);
+    fireworks[i].draw(ctx);
+    if (fireworks[i].spawned) fireworks.splice(i, 1);
+  }
+  for (let i = particles.length - 1; i >= 0; i--) {
+    particles[i].update();
+    particles[i].draw(ctx);
+    if (particles[i].alpha <= 0) particles.splice(i, 1);
+  }
+  requestAnimationFrame(animationLoop);
+}
+animationLoop();
+
+</script>
 <section class="py-2">
   <div class="container container-custom">
     <div class="row">
