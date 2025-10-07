@@ -258,7 +258,7 @@ class ControllerProductCategory2 extends Controller {
 	//print_r($data['products']);
 			}
 				$url = '';
-	// print_r($data['products']);
+	print_r($data['products']);
 			if (isset($this->request->get['filter'])) {
 				$url .= '&filter=' . $this->request->get['filter'];
 			}

@@ -53,7 +53,11 @@ class ModelToolImage extends Model {
             $image->save_webp(DIR_IMAGE . $webp_image, 90);
         }
         
-        return $webp_image;
+		if ($this->request->server['HTTPS']) {
+			return $this->config->get('config_ssl') . 'image/' . $webp_image;
+		} else {
+			return $this->config->get('config_url') . 'image/' . $webp_image;
+		}
     }
 		
 		$image_new = str_replace(' ', '%20', $image_new);  // fix bug when attach image on email (gmail.com). it is automatic changing space " " to +
