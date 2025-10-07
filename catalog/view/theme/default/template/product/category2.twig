@@ -219,7 +219,7 @@ pointer-events:none;
 margin:40px auto;
 padding:20px;
 position:relative;
-background: radial-gradient(circle at top, #1a1a1a, #0b0b0b);
+/* background: radial-gradient(circle at top, #1a1a1a, #0b0b0b); */
 }
 
 
@@ -380,13 +380,20 @@ class Firework {
     this.depth = randomBetween(0.4, 1); // 1 = close, 0.4 = far
     const sectionW = canvas.width;
     const sectionH = canvas.height;
-
+    const realisticColors = [
+  'rgba(255,245,230,1)',   // white (flash)
+  'rgba(255,210,100,1)',   // gold
+  //'rgba(220,0,0,1)',       // deep red
+  //'rgba(0,60,255,1)',      // blue
+  'rgba(255,255,0,0.9)',   // yellow
+  'rgba(180,180,180,1)'    // silver
+];
     // Launch position and burst target
     this.x = randomBetween(sectionW * 0.1, sectionW * 0.9);
     this.y = sectionH; // off-screen bottom
     this.targetX = randomBetween(sectionW * 0.15, sectionW * 0.85);
     this.targetY = randomBetween(sectionH * 0.10, sectionH * 0.5);
-    this.color = `hsl(${randomBetween(0, 360)},100%,${randomBetween(40, 70)}%)`;
+    this.color = realisticColors[Math.floor(Math.random()*realisticColors.length)];//`hsl(${randomBetween(0, 360)},100%,${randomBetween(40, 70)}%)`;
     this.burstTimeout = randomBetween(700, 1400) * this.depth;
     this.spawned = false;
 
@@ -418,9 +425,9 @@ class Firework {
   draw(ctx) {
     // Draw launch trail with blur
     ctx.save();
-    ctx.strokeStyle = this.color;
-    ctx.shadowColor = this.color;
-    ctx.shadowBlur = 8 * this.depth;
+    ctx.strokeStyle = 'rgba(255, 220, 170, 0.8)'; // bright gold-white;
+    ctx.shadowColor = 'rgba(255, 230, 180, 0.7)';
+    ctx.shadowBlur = 10 * this.depth;
     ctx.lineWidth = 2 * this.depth;
     ctx.beginPath();
     for (let i = 0; i < this.trail.length; i++) {
