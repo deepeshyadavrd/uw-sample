@@ -40,7 +40,6 @@ class ModelToolImage extends Model {
 		// Create WebP version if browser supports it
     if (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') !== false) {
         $webp_cache_dir = str_replace('cache/', 'cachewebp/', dirname($new_image));
-        
         if (!is_dir($webp_cache_dir)) {
             mkdir($webp_cache_dir, 0777, true);
         }
