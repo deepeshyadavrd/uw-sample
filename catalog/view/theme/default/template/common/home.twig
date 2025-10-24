@@ -34,6 +34,7 @@
    <div class="container" style="width: 100%;">
     <div class="row">
       <!-- Side Image (Only on Desktop) -->
+      {% if is_mobile == null %}
       <div class="col-lg-3 d-lg-block d-none" style="padding-right:0;">
         <div class="cp-with">
           <a href="new-arrivals">
@@ -41,8 +42,10 @@
           </a>
         </div>
       </div>
+      {% endif %}
 
       <div class="col-lg-9">
+        {% if is_mobile == null %}
         <!-- Desktop Carousel -->
         <div id="desktop-carousel" class="carousel slide d-none d-md-block" data-bs-ride="carousel">
           <div class="carousel-indicators">
@@ -105,7 +108,7 @@
             <span class="carousel-control-next-icon"></span>
           </button>
         </div>
-
+      {% else %}
         <!-- Mobile Static Image (Only for Mobile) -->
         <div id="mobile-image" class="d-block d-md-none pt-2">
           {# <picture>
@@ -119,6 +122,7 @@
                  alt="urbanwood furniture sale">
           {# </picture> #}
         </div>
+        {% endif %}
       </div>
     </div>
   </div>

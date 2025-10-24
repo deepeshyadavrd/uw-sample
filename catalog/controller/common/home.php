@@ -54,6 +54,17 @@ class ControllerCommonHome extends Controller {
     //         );
     //      }
     //   }
+$userAgent = $_SERVER['HTTP_USER_AGENT']; // get browser user agent string
+// print_r($userAgent);
+$is_mobile = false; // default
+
+$is_tablet = preg_match('/iPad|Tablet|Nexus 7|Nexus 10/i', $userAgent);
+
+if (!$is_tablet && preg_match('/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Opera Mini/i', $userAgent)) {
+    $is_mobile = true;
+}
+
+$data['is_mobile'] = $is_mobile; // pass to Twig
 		$this->response->setOutput($this->load->view('common/home', $data));
 
 	}
