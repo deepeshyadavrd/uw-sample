@@ -30,41 +30,34 @@ class ControllerCommonHome extends Controller {
 		$data['header'] = $this->load->controller('common/header');
 
 		// $this->load->model('tool/image');
-
     //   $homeBanner = $this->db->query('SELECT * FROM oc_banner_image WHERE banner_id=7 ORDER BY sort_order ASC');
     //   if(!empty($homeBanner)){
     //      foreach ($homeBanner->rows as $key => $banner) {
-
-
-
     //         if ($banner['image']) {
     //            $image = $this->model_tool_image->resize($banner['image'],1303,488);
     //         } else {
     //            $image = '';
     //         }
     //         $active = ($key==0)?'active':'';
-
-
     //         $data['banners'][] = array(
     //            'active'=>$active,
     //            'image' =>$image,
     //            'link'=>$banner['link'],
     //            'title'=>$banner['title']
-
     //         );
     //      }
     //   }
-$userAgent = $_SERVER['HTTP_USER_AGENT']; // get browser user agent string
-// print_r($userAgent);
-$is_mobile = false; // default
+      $userAgent = $_SERVER['HTTP_USER_AGENT']; // get browser user agent string
+      // print_r($userAgent);
+      $is_mobile = false; // default
 
-$is_tablet = preg_match('/iPad|Tablet|Nexus 7|Nexus 10/i', $userAgent);
+      $is_tablet = preg_match('/iPad|Tablet|Nexus 7|Nexus 10/i', $userAgent);
 
-if (!$is_tablet && preg_match('/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Opera Mini/i', $userAgent)) {
-    $is_mobile = true;
-}
+      if (!$is_tablet && preg_match('/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Opera Mini/i', $userAgent)) {
+      $is_mobile = true;
+    }
 
-$data['is_mobile'] = $is_mobile; // pass to Twig
+    $data['is_mobile'] = $is_mobile; // pass to Twig
 		$this->response->setOutput($this->load->view('common/home', $data));
 
 	}
