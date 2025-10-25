@@ -144,7 +144,7 @@ span.offer_dis {
   .game-section .item.active {
     width: 500px;
   }
-  .game-section .item-desc {
+  /* .game-section .item-desc {
       padding: 0 31px 0px;
       color: #000;
       position: relative;
@@ -167,8 +167,8 @@ span.offer_dis {
       font-size: 1.2rem;
       color: #000;
       line-height: 1.5;
-  }
-  .v_all_btn {
+  } */
+  /* .v_all_btn {
       font-size: 12px;
       padding: .3rem .8rem;
       border-radius: 1.5rem;
@@ -177,7 +177,7 @@ span.offer_dis {
       text-align: left;
       text-transform: capitalize;
       color: black;
-  }
+  } */
   .owl-carousel2 .owl-nav {
       display: block;
       width: 100%;
@@ -227,13 +227,13 @@ span.offer_dis {
     .game-section .item.active {
       width: 400px;
     }
-    .game-section .item-desc {
+    /* .game-section .item-desc {
       transform: translateY(calc(100% - 343px));
       -webkit-transform:translateY(calc(100% - 343px));
     }
     .game-section .item-desc h3 {
       font-size: 20px;
-  }
+  } */
   }
   @media (min-width: 768px) and (max-width: 991px) {
     .game-section .item {
@@ -249,13 +249,13 @@ span.offer_dis {
     .game-section .item.active {
       width: 360px;
     }
-    .game-section .item-desc {
+    /* .game-section .item-desc {
       transform: translateY(calc(100% - 314px));
       -webkit-transform:translateY(calc(100% - 314px));
     }
     .game-section .item-desc h3 {
       font-size: 20px;
-  }
+  } */
   }
   @media (max-width: 767px) {
     .uw_price {
@@ -277,7 +277,7 @@ span.offer_dis {
     .game-section .item.active {
       width: 270px;
     }
-    .game-section .item-desc {
+    /* .game-section .item-desc {
       padding: 0 14px 5px;
       transform: translateY(calc(100% - 271px));
       -webkit-transform: translateY(calc(100% - 271px));
@@ -287,7 +287,7 @@ span.offer_dis {
     }
     .game-section .item-desc p {
       font-size: .8rem;
-    }
+    } */
   }
 
   .fam_box_coll{
