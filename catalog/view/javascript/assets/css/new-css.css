@@ -15,37 +15,35 @@
     display: inline-flex;
     width: 70px;
 }
-.sale_badge img {
+/* .sale_badge img {
     width: 60px;
-}
+} */
 .product_content {
     padding: .5rem;
     text-align: left;
 }
 .p_item_name {
-    font-size: 15px;
-    color: #2c2c2c;
     font-weight: 500;
-    line-height: 2.3;
+    line-height: 2;
 }
 .p_item_amount {
     color: #7d7d7d;
     font-size: 14px;
     font-weight: 400;
 }
-.tag_start_from{
+/* .tag_start_from{
   font-size:14px;
   font-weight:400;
   color:#767676;
-}
-.owner-tag {
+} */
+/* .owner-tag {
     color: #ff8000d4;
     font-size: 0.8em;
     line-height: 1;
     position: absolute;
     right: .8em;
     top: 1em;
-}
+} */
 .offer_tag{
     position: relative;
   }
@@ -111,11 +109,11 @@
 span.offer_dis {
     color: #006d10;
 }
-.new-item{
+/* .new-item{
   height:auto !important;
   background:none !important; 
   border:2px solid red;
-}
+} */
   .game-section .item {
     margin: 0 8px 23px;
     width: 320px;
@@ -203,7 +201,7 @@ span.offer_dis {
       left: auto !important;
       right: 6px !important;
   }
-  .sr-only {
+  /* .sr-only {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -212,7 +210,7 @@ span.offer_dis {
     border: 0;
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
-  }
+  } */
   @media (min-width: 992px) and (max-width: 1199px) {
     .game-section .item {
       margin: 0 12px 30px;
@@ -263,7 +261,7 @@ span.offer_dis {
     }
     .p_item_name {
       font-size: 14px;
-      line-height: 2;
+      /* line-height: 2; */
     }
     .game-section .item {
       margin: 0 8px 15px;
@@ -289,12 +287,3 @@ span.offer_dis {
       font-size: .8rem;
     } */
   }
-
-  .fam_box_coll{
-    width:100%;
-    height:100%;
-  }
-  .fam_box_coll img{
-    width: 100%;
-  }
-  
