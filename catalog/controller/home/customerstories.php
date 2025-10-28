@@ -13,7 +13,8 @@ class ControllerHomeCustomerstories extends Controller{
                      
                  </div>
                  <div class="col-lg-9 col-md-12">
-                     <section class="owl-carousel owl-theme owl-loaded owl-drag">';
+                     <div class="swiffy-slider slider-item-show2 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-first-visible ">
+    <ul class="slider-container py-4">';
                 foreach ($result->rows as $row) {
         
                    if($row['rating']){
@@ -24,30 +25,31 @@ class ControllerHomeCustomerstories extends Controller{
                    }
                    $image = $this->model_tool_image->resize($row['image'], 244,233); 
                 //  echo $row['image'];
-                   $html .= '<div class="owl-item"><div class=" client-box">
-
-                            <div class="client-img d-flex flex-column align-items-center justify-content-center">
-                                <img src="http://localhost/opencartpro/image/'. $row['image'] . '" class="img-responsive img-fluid " loading="lazy" alt="'.ucfirst($row['author']).'">
+                   $html .= '<li class="slide-visible">
+        <div class="card shadow h-100">
+                <div class="ratio ratio-16x9">
+                    <img src="http://localhost/opencartpro/image/'. $row['image'] . '" class="card-img-top" loading="lazy" alt="'. ucfirst($row['author']) . '">
+                </div>
+                <div class="card-body p-3 p-xl-5">
+                    <h3 class="card-title h5">'. ucfirst($row['author']) . '</h3>
+                    <p class="card-text">'. ucfirst($row['text']) . '</p>
+                    <div class="rating">
+                               '. $ratstr . '
                             </div>
-                            <div class="client-content">
-                                <div class="client-name">
-                                    <p>'.ucfirst($row['author']).'</p>
-                                </div>
-                                <div class="client-comment">
-                                    <p>'.ucfirst($row['text']).'</p>
-                                    <div class="rating">'.$ratstr.'</div>
-                                    <a href="'.$this->url->link('product/product',  '&product_id=' . $row['product_id'],true).'" type="button" class="see-product-btn">See product</a>
-                                </div>
-                            </div>
-        
-                        </div></div>';
-                }
-               }
-                    $html .= '</section>
+                    <div><a href="{{review.href}}" class="btn btn-primary">Go somewhere</a>
+                    </div>
                 </div>
             </div>
-        
-        </div>';
+    </li>';
+                }
+               }
+                    $html .= '</ul>
+
+    <button type="button" class="slider-nav" aria-label="Go to previous"></button>
+    <button type="button" class="slider-nav slider-nav-next" aria-label="Go to next"></button>
+
+</div></div>
+</div></div>';
         echo $html;
 
      }

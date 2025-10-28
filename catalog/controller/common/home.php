@@ -24,10 +24,12 @@ class ControllerCommonHome extends Controller {
 			$data['success'] = '';
 		}
 		
+
 		$data['menu'] = $this->load->controller('common/menu');
 		// $data['register'] = $this->url->link('account/register');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
+    		$data['cs'] = $this->load->controller('home/customerstories');
 
 		// $this->load->model('tool/image');
     //   $homeBanner = $this->db->query('SELECT * FROM oc_banner_image WHERE banner_id=7 ORDER BY sort_order ASC');

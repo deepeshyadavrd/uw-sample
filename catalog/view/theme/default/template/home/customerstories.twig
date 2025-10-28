@@ -9,7 +9,34 @@
                 View all</a> #}
         </div>
         <div class="col-lg-9 col-md-12">
-            <section class="owl-carousel1 owl-theme bbb_slider ">
+        <div class="swiffy-slider slider-item-show2 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-first-visible">
+    <ul class="slider-container py-4">
+    {% for review in reviews %}
+    <li class="slide-visible">
+        <div class="card shadow h-100">
+                <div class="ratio ratio-16x9">
+                    <img src="{{ review.image }}" class="card-img-top" loading="lazy" alt="{{ review.author }}">
+                </div>
+                <div class="card-body p-3 p-xl-5">
+                    <h3 class="card-title h5">{{ review.author }}</h3>
+                    <p class="card-text">{{review.text}}</p>
+                    <div class="rating">
+                               {{review.rating}}
+                            </div>
+                    <div><a href="{{review.href}}" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+    </li>
+    {% endfor %}
+        
+    </ul>
+
+    <button type="button" class="slider-nav" aria-label="Go to previous"></button>
+    <button type="button" class="slider-nav slider-nav-next" aria-label="Go to next"></button>
+
+</div>
+            {# <section class="owl-carousel1 owl-theme bbb_slider ">
 
                 {% for review in reviews %}
                 <div class="owl-item client-box">
@@ -35,9 +62,9 @@
 
                 </div>
 
-                {%endfor%}
+                {% endfor %}
 
-            </section>
+            </section> #}
 
                             {# <div class="owl-carousel owl-theme bbb_slider bbb-slider1">
                             {% for review in reviews %}
