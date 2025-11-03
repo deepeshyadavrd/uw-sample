@@ -1081,15 +1081,116 @@ color: #fff;
         </div>
     </div>
 </section>
-<section class="how-we-do page-globel py-0 my-0">
-    <div class="container-fluid">
+<style>
+/* Wrapper */
+        .marquee-wrapper {
+            padding: 2rem 0 4rem;
+            background: #050505;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        .marquee-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Card */
+        .card {
+            width: 200px;
+            background: linear-gradient(145deg, #111111, #0a0a0a);
+            transition: all .25s ease;
+
+        }
+
+        .card:hover {
+            border-color: #3a3a3a;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        .card img {
+            border-radius: 10px
+        }
+
+        @media (min-width: 640px) {
+            .card {
+                width: 400px;
+            }
+
+            .card h6 {
+                font-size: 17px;
+            }
+
+            .card p {
+                font-size: 15px;
+            }
+        }
+
+        /* Marquee */
+        .marquee {
+            overflow: hidden;
+            mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+        }
+
+        .marquee > div {
+            display: inline-flex;
+            gap: 1rem;
+            will-change: transform;
+        }
+
+        /* Animations */
+        .row1 > div {
+            animation: marqueeLeft 62s linear infinite;
+        }
+
+        .mq-row2 > div {
+            animation: marqueeRight 54s linear infinite;
+        }
+
+        @media (max-width: 639px) {
+            .row1 > div {
+                animation-duration: 50s;
+            }
+
+            .mq-row2 > div {
+                animation-duration: 42s;
+            }
+        }
+
+        @keyframes marqueeLeft {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes marqueeRight {
+            from {
+                transform: translateX(-50%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        /* Pause on hover */
+        .marquee:hover > div {
+            animation-play-state: paused;
+        }           
+</style>
+<section class="marquee-wrapper how-we-do ">
+    <div class="container-fluid ">
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <h3 class="heading-all">Already customized
+            <div class="col-lg-12 text-center" style="margin-bottom:20px">
+                <h3>Already customized
                 </h3>
             
             </div>
-            <div class="popularitems slider" dir="rtl">
+            {# <div class="popularitems slider" dir="rtl">
                 <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-1.jpg"></div>
                 <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-2.jpg"></div>
                 <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-3.jpg"></div>
@@ -1110,7 +1211,90 @@ color: #fff;
               <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-16.jpg"></div>
               <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-17.jpg"></div>
               <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-18.jpg"></div>
-             </div>
+             </div> #}
+             {# <div class="marquee-wrapper"> #}
+    <div class="marquee-container">
+        <!-- ROW 1 – left to right -->
+        <div class="marquee row1">
+            <div>
+                <!-- set 1 -->
+                <div class="card">
+                    <img src="catalog/view/javascript/assets/image/img/top-sell/img-1.webp"></div>
+                <div class="card">
+                    <img src="catalog/view/javascript/assets/image/img/top-sell/img-2.webp"></div>
+                <div class="card">
+                    <img src="catalog/view/javascript/assets/image/img/top-sell/img-3.webp"></div>
+                <div class="card">
+                    <img src="catalog/view/javascript/assets/image/img/top-sell/img-4.webp"></div>
+                <div class="card">
+                    <img src="catalog/view/javascript/assets/image/img/top-sell/img-5.webp"></div>
+                <div class="card">
+                    <img src="catalog/view/javascript/assets/image/img/top-sell/img-6.webp"></div>
+                <div class="card">
+                    <img src="catalog/view/javascript/assets/image/img/top-sell/img-7.webp"></div>
+                <div class="card">
+                    <img src="catalog/view/javascript/assets/image/img/top-sell/img-8.webp"></div>
+                <div class="card">
+                    <img src="catalog/view/javascript/assets/image/img/top-sell/img-9.webp"></div>
+                <div class="card">
+                    <img src="catalog/view/javascript/assets/image/img/top-sell/img-10.webp"></div>
+
+                <!-- set 2 (duplicate) -->
+                {# <div class="card"><h6>Insight One</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies rutrum ante non varius.
+                        Etiam nec ligula sed lorem rutrum aliquam.</p></div>
+                <div class="card"><h6>Insight Two</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies rutrum ante non varius.
+                        Etiam nec ligula sed lorem rutrum aliquam.</p></div>
+                <div class="card"><h6>Insight Three</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies rutrum ante non varius.
+                        Etiam nec ligula sed lorem rutrum aliquam.</p></div>
+                <div class="card"><h6>Insight Four</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies rutrum ante non varius.
+                        Etiam nec ligula sed lorem rutrum aliquam.</p></div>
+                <div class="card"><h6>Insight Five</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies rutrum ante non varius.
+                        Etiam nec ligula sed lorem rutrum aliquam.</p></div>
+                <div class="card"><h6>Insight Six</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies rutrum ante non varius.
+                        Etiam nec ligula sed lorem rutrum aliquam.</p></div>
+                <div class="card"><h6>Insight Seven</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies rutrum ante non varius.
+                        Etiam nec ligula sed lorem rutrum aliquam.</p></div>
+                <div class="card"><h6>Insight Eight</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies rutrum ante non varius.
+                        Etiam nec ligula sed lorem rutrum aliquam.</p></div> #}
+            </div>
+        </div>
+
+        <!-- ROW 2 – right to left -->
+        <div class="marquee mq-row2" style="margin-top:3rem;">
+            <div>
+                <!-- set 1 -->
+                <div class="card">
+                    <img src="catalog/view/javascript/assets/image/img/top-sell/img-11.webp"></div>
+                <div class="card">
+                    <img src="catalog/view/javascript/assets/image/img/top-sell/img-12.webp"></div>
+                <div class="card">
+                    <img src="catalog/view/javascript/assets/image/img/top-sell/img-13.webp"></div>
+                <div class="card">
+                    <img src="catalog/view/javascript/assets/image/img/top-sell/img-14.webp"></div>
+                <div class="card">
+                    <img src="catalog/view/javascript/assets/image/img/top-sell/img-15.webp"></div>
+                <div class="card">
+                    <img src="catalog/view/javascript/assets/image/img/top-sell/img-16.webp"></div>
+                <div class="card">
+                    <img src="catalog/view/javascript/assets/image/img/top-sell/img-17.webp"></div>
+                <div class="card">
+                    <img src="catalog/view/javascript/assets/image/img/top-sell/img-18.webp"></div>
+                <div class="card">
+                    <img src="catalog/view/javascript/assets/image/img/top-sell/img-19.webp"></div>
+                <div class="card">
+                    <img src="catalog/view/javascript/assets/image/img/top-sell/img-20.webp"></div>
+            </div>
+        </div>
+     </div>
+{#</div>            #}
         </div>
     
 </section>
