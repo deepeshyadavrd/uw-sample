@@ -1,8 +1,6 @@
-
-
 {{ header }}
 {{ menu }}
-{{ wishlist }}
+{# {{ wishlist }} #}
 <link  rel="stylesheet"  href="catalog/view/javascript/assets/css/category.css" > 
 <style>
   .red{
@@ -18,18 +16,15 @@
         <div class="col-md-12 col-sm-12">
           <nav class="breadcumb-navigation" >
             <ol class="breadcrumb m-0 p-2">
-
               {% for breadcrumb in breadcrumbs %}
               <li class="breadcrumb-item "> <a href="#">{{ breadcrumb.text }}</a></li>
               {% endfor %}
-
             </ol>
           </nav>   
         </div>
       </div>
     </div>
   </div>
-
   <section class=" py-2">
     <div class="container container-custom">
       <div class="row">
@@ -46,14 +41,10 @@
     <div class="container container-custom">
       <div class="row">
         <div class="d-flex justify-content-md-center  m-md-auto  categories-pp" id="custom_filter_div">
-         
-          
-
         </div>
       </div>
     </div>
   </section>    
-
   <section class="py-2">
     <div class="container container-custom">
       <div class="row">
@@ -115,7 +106,6 @@
                         </div>
                       </div>
                     </div>
-
                     <div class="accordion-item accordion-item-filter">
                       <h2 class="accordion-header" id="headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -124,7 +114,6 @@
                       </h2>
                       <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-
                           <ul>
                             <li>
                               <div class="form-check filter-switch">
@@ -132,14 +121,11 @@
                                 <label class="form-check-label" for="flexSwitchCheckChecked">Sheesham Wood</label>
                               </div>
                             </li>
-
                           </ul>
                         </div>
                       </div>
                     </div>
-
                   </div>
-
                   <div class="filter-sec-heading"> Filter</div>
                   <div class="accordion" id="accordionPanelsStayOpen2">
                     <div class="accordion-item accordion-item-filter">
@@ -212,7 +198,6 @@
                                 <label class="form-check-label" for="flexSwitchCheckDefault">Single Size (75)</label>
                               </div>
                             </li>
-
                           </ul>
                         </div>
                       </div>
@@ -248,7 +233,6 @@
                         </div>
                       </div>
                     </div>
-
                     <div class="accordion-item accordion-item-filter">
                       <h2 class="accordion-header" id="panelsStayOpen-headingFour">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
@@ -270,13 +254,10 @@
                                 <label class="form-check-label" for="flexSwitchCheckDefault">Without Storage</label>
                               </div>
                             </li>
-
                           </ul> 
                         </div>
                       </div>
                     </div>
-
-
                     <div class="accordion-item accordion-item-filter">
                       <h2 class="accordion-header" id="panelsStayOpen-headingFive">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
@@ -304,17 +285,11 @@
                                 <label class="form-check-label" for="flexSwitchCheckDefault">Hydraulic Storage1</label>
                               </div>
                             </li>
-
                           </ul> 
                         </div>
                       </div>
                     </div>
                   </div>
-
-
-
-
-
                 </div>
               </div>
             </div>
@@ -351,21 +326,15 @@
                     </li>
                     {% endif %}
                     {% endfor %}
-                    
                   </ul>
                 </div>
               </div>
             </div>
-
-
-
           </div>
           {{ filter }}
-          
         </div>
       </div>
     </div>
-    
     <div class="col-md-9 col-sm-12">
       <div class="product-img-list">
         <div class="row">
@@ -374,7 +343,6 @@
             <div class="product-box-img">
               <div class="button-pd">
                 <div class="like-heart mx-2"> 
-
                   <span ><i class="fas fa-heart" onclick="wishlist.add('{{ product.product_id }}');" id="likeheart" ></i></span> 
                 </div>  
                 <div class="sharer">
@@ -391,12 +359,8 @@
                         <i class="bx bxl-linkedin"></i>
                       </a> 
                     </div> 
-
                   </div> 
-
                 </div>
-                {# <a href="{{ product.href }}" type="button" class="shop-nowb-btn" style="margin-top: 19px;"> Shop Now</a> #}
-
                 <div class="pd-img-in">
                  {% if (product.stock_status == 'Out Of Stock') and (product.quantity == 0) %}
                   <h3 class="shop-nowb-btn" style="margin-top: 19px;"> Out Of Stock</h3>
@@ -434,7 +398,6 @@
                     {% endif %}
                     {% endif %}
                   </div>
-
                 </div>
                 <hr>
                 <div class="d-flex justify-content-between align-items-start p-2">
@@ -444,12 +407,11 @@
                       <span class=" badge bridge-offer" style="font-size:10px">{{ product.discount }}% off </span>
                     </div>
                   </div>
-                  <div class="pd-offers">
+                  {# <div class="pd-offers">
                     <ul>
                       <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
                     </ul>
-                  </div>
-
+                  </div> #}
                 </div>
               </div>
             </div>
@@ -473,9 +435,6 @@
           {% endif %}
           {% endfor %}
         </div> 
-
-
-        
         <div>{{ pagination }}</div>
         <div class="banner-strip-location">
           <div class="sign-banner-con text-lg-start text-cente">
@@ -485,7 +444,6 @@
             <br>
             <a href="" class="shop-find-btn">Find Shop</a>
           </div>
-
           <div class="image-forloaction">
             <div class="img-location-ceative">
               <img src="catalog/view/javascript/assets/image/location-strip.png" class="img-responsive img-fluid">
@@ -496,9 +454,7 @@
     </div>
   </div>
 </div>
-
 </section> 
-
 <section class="py-2">
   <div class="container container-custom">
     <div class="row">
@@ -519,7 +475,6 @@
             <p>883+ Options Available</p>
           </a>
         </div>
-
         <div class="item-box3">
           <a href="dining-room-furniture">
             <img src="catalog/view/javascript/assets/image/icon/diningtable-pp-icons1.png" alt="">
@@ -527,7 +482,6 @@
             <p>883+ Options Available</p>
           </a>
         </div>
-
         <div class="item-box3">
           <a href="shoe-racks">
             <img src="catalog/view/javascript/assets/image/icon/shoerack-pp-icon1.png" alt="">
@@ -535,7 +489,6 @@
             <p>883+ Options Available</p>
           </a>
         </div>
-
         <div class="item-box3">
           <a href="study-tables">
             <img src="catalog/view/javascript/assets/image/icon/studytable-pp-icon1.png" alt="">
@@ -543,7 +496,6 @@
             <p>883+ Options Available</p>
           </a>
         </div>
-
         <div class="item-box3">
           <a href="bookcase">
             <img src="catalog/view/javascript/assets/image/icon/bookcase-pp-icon1.png" alt="">
@@ -551,7 +503,6 @@
             <p>883+ Options Available</p>
           </a>
         </div>
-
         <div class="item-box3">
           <a href="wardrobes">
             <img src="catalog/view/javascript/assets/image/icon/wardrobe-pp-icon1.png" alt="">
@@ -563,7 +514,6 @@
     </div>
   </div>
 </section>
-
 <section class="bottom-content py-4"> 
   <div class="container container-custom"> 
     <div class="row">
@@ -576,26 +526,19 @@
        <h5>India's Best Online Furniture Shop in Bangalore: Check Furniture Ranges at Urbanwood</h5>
 
        <p>Urbanwood has a wide scope of home furniture <a href="https://www.urbanwood.in/l-shaped-sofas"> l shaped sofas </a>, Dining table, <strong> Cupboards, Dressing table </strong>, <a href="https://www.urbanwood.in/study-room-furniture"> study room furniture </a>, <strong> mattresses and wall paintings </strong>. Our furnitures is a comprehensive inventory of what you would in our stores. You could say that our online furniture store in Bangalore is an unobtrusive impression of the reach that we have in our <a href="https://www.urbanwood.in/online-furniture-store"> online furniture store </a>. Every class ventures into a sub-classification assisting you with picking among the different models and plans accessible. We have multi-purpose wooden furniture and all the most recent styles and plans.</p>
-
        <p> <a href="https://www.urbanwood.in/bedroom-furniture"> <strong> Bedroom Furniture: </strong></a> A spot to return home and crash following a difficult day. Settle on the most ideal selection of wooden beds to cause you to feel loose and comfortable.</p>
        <p><a href="https://www.urbanwood.in/fabric-sofas"> <strong> Fabric Sofas: </strong></a>A Sofa is the most pursued spot at home, where everybody likes to crash in the wake of a difficult day's worth of effort so it should a comfortable spot to crash. Your sofa set would discuss your style to visitors that you engage and furthermore give solace to those family parties. Idiosyncratic or tasteful what's your decision. Buy sofas online from our wide scope of premium contributions at furniture online Bangalore.
        </p>
-
        <p><a href="https://www.urbanwood.in/wardrobes"><strong>Wardrobes:</strong> </a>An exceptionally planned wardrobe can possibly raise the style of generally basic bedroom furniture. Urbanwood presents to you a one of a kind assortment of almirahs. A decent wardrobe ought to permit you to store and arrange your own things as per your comfort. At our furniture present to you a collection of wardrobes that are customized for differed capacity needs. Pick a wardrobe that is in a state of harmony with the style of your room just as obliges all the capacity and practical necessities.</p>
-
        <p><a href="https://www.urbanwood.in/dining-room-furniture"><strong>Dining room furniture:  </strong></a>A dining table is a place of food, fun, and discussions. From showing your cooking abilities to holding over food and recollections, where household work completes, investigate the enormous assortment of wooden dining tables and pick the one that is ideal for your family. Investigate the new scope of dining sets for your dining region and ensure you pick the best arrangement for your family to appreciate an incredible supper consistently. Get an individual dining table and pick your own dining chairs or go for a complete set, we have it both.</p>
-
        <p><strong> Study and Office:</strong> For our home office and different purposes, a <a href="https://www.urbanwood.in/study-table-online">study table online </a> can be valuable and can help you work gainfully. Study tables have now become an essential need for homes. A decent table makes the errand of perusing and composing significantly more comfortable, so let the inventive brain in you be more profitable.</p>
-
        <p><a href="https://www.urbanwood.in/D%C3%A9cor"> <strong >Decor: </strong></a>  Gone are the days where individuals favoured a plain wall with paint or only a couple of photograph edges to make it look outwardly great. Today individuals are continually searching for something new and imaginative that can get their walls decorated. With the assistance of <strong> wall hangings, wall paintings, wall arts </strong>, and gorgeously created mirrors, your wall won't ever look plain. You may get the best furniture online Bangalore that will change the appearance of your home, yet in the event that you overlook to decorate your walls, at that point you may lose the equilibrium. You may even paint the walls with a stylish tone, however, without wall decors, your wall will, in any case, continue as before. There's no motivation behind why your utility room or clothing space can't coordinate the polish of the remainder of rooms. Come look at the assortment of utility stylistic layout things just made for your home.</p>
        <p><a href="https://www.urbanwood.in/Coffee-Tables"><strong>Coffee Tables:</strong> </a>  Look over the most recent <strong> wooden centre table for living room  </strong> at the best costs. The coffee table is probably going to be one of the normal furniture tables in any house. It is the point of convergence of your living room, which is encircled by originator sofa sets. No living room is finished without a coffee table that visitors and guests will see when they show up in your living room. It is the thing that gets the attention of everybody first; in this manner, it ought to be picked with the most extreme consideration from the furniture. Discover a totally modern, straightforward and exquisite focal point that will finish the vibe of your living room. Make a mark look in your living room with beautiful Coffee and end tables from Urbanwood. Shop furniture online in Bangalore at Urbanwood or shop in stores across Bangalore. In each home, the coffee table offers a new territory where you can share drinks and games with friends and family and visitors. Investigate coffee and end table sets with mathematical components and a straightforward allure.</p>
        <p>Choose Different Looks Furniture for Each Room</p>
        <p>You can give an alternate search for every one of your rooms in the house. For instance, the furniture utilized in your living room ought to be wonderful, exquisite just as the originator. Regardless of whether it is a sofa set or an originator plan of conventional furniture, it should upgrade the search for your living room. Essentially, your bedroom furniture ought to be comfortable, durable just as strong. It should very much fit inside the accessible space in your room without jumbling or clogging it. The furniture should coordinate the general subject of your house, which could be grave or peculiar.</p>
        <p>Further, for a modern look, you can utilize a modular kitchen that embellishes the house right away. Urbanwood offers a wide scope of furniture plans to assist you with getting the best pick. You can likewise try different things with various materials for each room separately for furniture online Bangalore. For instance, you can utilize <a href="https://www.urbanwood.in/sheesham-wood-furniture"> Sheesham wood furniture </a> for your living room and utilize a wooden bed in the bedroom. At Urbanwood you can likewise investigate outdoor furniture like <a href="https://www.urbanwood.in/hanging-chairs"> hanging chairs, ottomans and pouffes </a>, <a href="https://www.urbanwood.in/bean-bags"> bean bags</a>, etc. to have a private space for yourself.</p>
        <p> Urbanwood furniture in Bangalore</p>
-
        <p> The best thing about buying furniture online is, you can get the best arrangements for furniture sale, all-round the year. While investigating furniture available to be purchased with Urbanwood, you can get the best furniture online Bangalore for your home at a profoundly limited cost with alluring looks and solidness. With Urbanwood, you can likewise get diverse furniture pieces as an unconditional present with your purchases. While buying furniture, you can utilize various channels to limit your choices. At Urbanwood, you can utilize channels like material, value, shading, markdown, class, and so on to pick the furniture that best suits your need and taste. While it would make your shopping simpler, it would likewise help you save time and endeavours.</p>
-
        <p>The Leading Online Furniture Store Serving All Over India
         Urbanwood has a wide range of home furniture to accentuate the beauty and elegance of your house. Buy <strong> furniture online in Bangalore, Hyderabad, Jaipur, Pune, Mumbai, Delhi </strong> and various other major cities of India including </p>
         <p> Find the most stylish & luxury furniture sofas, beds, wardrobes, study tables and coffee tables made from high-quality Sheesham wood at Urbanwood. Stay comfortable and classy with our modern and amazing furniture for your home at competitive prices. Complete your home interiors with the best wooden furniture of your choice. Urbanwood offers a wide range of <strong> customized wooden furniture </strong> to match your interiors and styles.</p>
@@ -603,20 +546,14 @@
       </div>
     </div>
   </div>
-
-
 </section>
 </div>
-
 <script type="text/javascript">
-
  var custom_filter = '{{custom_filter}}';
  var custom_filter_cat_id = '{{category_id}}';
  if(custom_filter){
   categoryFilter(custom_filter,custom_filter_cat_id);
 }
-
-
 
 function categoryFilter(custom_filter_ids,custom_f_cat_id){
 

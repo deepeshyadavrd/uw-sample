@@ -4,172 +4,16 @@
 <meta charset="UTF-8" />
 <title>{{ title }}</title>
 <base href="{{ base }}" />
-<link href="../catalog/view/javascript/assets/css/bootstrap.min.css" rel="stylesheet" media="all" />
-<script type="text/javascript" src="../catalog/view/javascript/assets/js/3.2.1-jquery.min.js"></script>
-<script type="text/javascript" src="../catalog/view/javascript/assets/js/bootstrap.min.js"></script>
-<link href="../catalog/view/javascript/assets/fontawesome/css/fontawesome.min.css" type="text/css" rel="stylesheet" />
-{# <link type="text/css" href="view/stylesheet/stylesheet.css" rel="stylesheet" media="all" /> #}
-<style>
-  .invoiceheading {
-      font-size: 18px;
-      color: #fc7e00;
-      font-weight: 700;
-      text-transform: uppercase;
-      line-height: 0.5;
-  }
-  .dd-office {
-      margin-bottom: 1.7px;
-  }
-  .client-name {
-      font-weight: 600;
-      text-transform: uppercase;
-      font-size: 15px;
-      margin-bottom: 4.7px;
-  }
-  
-  </style>
+<link href="view/javascript/bootstrap/css/bootstrap.css" rel="stylesheet" media="all" />
+<script type="text/javascript" src="view/javascript/jquery/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="view/javascript/bootstrap/js/bootstrap.min.js"></script>
+<link href="view/javascript/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+<link type="text/css" href="view/stylesheet/stylesheet.css" rel="stylesheet" media="all" />
 </head>
 <body>
 <div class="container">
   {% for order in orders %}
-
-
-  <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-body p-0">
-                        <div class="row px-4 py-2">
-                            <div class="col-md-6">
-                                <img src="../catalog/view/javascript/assets/image/urbanwoodlogo.png">
-                                <p class="text-muted dd-office ">{{ order.store_address }}</p>
-                            </div>
-    
-                            <div class="col-md-6 text-end">
-                                <p class="font-weight-bold invoiceheading ">proforma invoice</p>
-                                <p class="text-muted dd-office "> {{ order.store_url }}</p>
-                                
-                                <p class="text-muted dd-office "><span style="font-weight: bold; text-align: left;">GST NO</span>: 08AACCU7000M1Z9</p>
-                                <p class="text-muted dd-office "> {{ order.store_email }}</p>
-                                <p class="text-muted dd-office "> {{ order.store_telephone }}</p>
-                               
-                            </div>
-                        </div>
-    
-                        <hr class="my-2">
-                        <div class="row px-4">
-                          <div class="d-flex align-content-center justify-content-center" style="background-color: #f3f3f3; padding:4px 10px">
-                          <div class="col-md-6">
-                          {% if order.invoice_no %}
-                            <p class=" text-muted mb-0">INVOICE NO : </p>
-                            {% endif %}
-                            <p class="text-muted mb-0">DATE ADDED : </p>
-                              <p class="text-muted mb-0">ORDER NO :</p>
-                                <p class="text-muted mb-0">PAYMENT MODE : </p>
-                          </div>
-                          <div class="col-md-6"> 
-                            <p class=" mb-0"> {{ order.invoice_no }}</p>
-                          <p class=" mb-0">{{ order.date_added }}</p>
-                          <p class=" mb-0">{{ order.order_id }} </p>
-                          <p class=" mb-0"> {{ order.payment_method }}</p>
-                          </div>
-                      </div>
-                      </div>
-
-                        <div class="row pb-0 px-4 py-2">
-                            <div class="col-md-6">
-                                <p class="font-weight-bold ">Billing Address </p>
-                                {{ order.payment_address }}
-                                {# <p class="client-name">John Doe, Mrs Emma Downson</p>
-                                <p class="text-muted mb-1"><span style="font-weight: bold;text-align: left;">ADDRESS</span>: gbd,hjh,ksfgjhkghgfgvbmnbnbjf</p>
-                                <p class="text-muted mb-1"><span style="font-weight: bold;text-align: left;">PHONE NO</span>: 90000000000</p>
-                                <p class="text-muted mb-1"><span style="font-weight: bold;text-align: left;">EMAIL ID</span>: text@gmail.com</p>
-                                <p class="text-muted mb-1"><span style="font-weight: bold;text-align: left;">GST</span>: 576586</p> #}
-                            </div>
-    
-                            <div class="col-md-6 text-right">
-                              <p class="font-weight-bold ">Shipping Address </p>
-                              {{ order.payment_address }}
-                              {# <p class="client-name">John Doe, Mrs Emma Downson</p>
-                              <p class="text-muted mb-1"><span style="font-weight: bold;text-align: left;">ADDRESS</span>: gbd,hjh,ksfgjhkghgfgvbmnbnbjf</p>
-                              <p class="text-muted mb-1"><span style="font-weight: bold;text-align: left;">PHONE NO</span>: 90000000000</p>
-                              <p class="text-muted mb-1"><span style="font-weight: bold;text-align: left;">EMAIL ID</span>: text@gmail.com</p> #}
-                            </div>
-                        </div>
-                        
-                        <div class="row p-4">
-                            <div class="col-md-12">
-                                <table class="table table-responsive table-bordered">
-                                    <thead class="table-dark">
-                                        <tr>
-                                            <th class="text-uppercase small font-weight-bold">Product</th>
-                                            <th class="text-uppercase small font-weight-bold">Model</th>
-                                            <th class="text-uppercase small font-weight-bold">Quantity</th>
-                                            <th class="text-uppercase small font-weight-bold">Unit Cost</th>
-                                            <th class="text-uppercase small font-weight-bold">Total</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    {% for product in order.product %}
-        <tr>
-          <td>{{ product.name }}
-            {% for option in product.option %}
-            <br />
-            &nbsp;<small> - {{ option.name }}: {{ option.value }}</small>
-            {% endfor %}</td>
-          <td>{{ product.model }}</td>
-          <td class="text-right">{{ product.quantity }}</td>
-          <td class="text-right">{{ product.price }}</td>
-          <td class="text-right">{{ product.total }}</td>
-        </tr>
-        {% endfor %}
-        {% for total in order.total %}
-        <tr>
-        <td></td>
-          <td></td>
-          <td></td>
-          <td class="text-right"><b>{{ total.title }}</b></td>
-          <td class="text-right">{{ total.text }}</td>
-        </tr>
-        {% endfor %}
-                                        {# <tr>
-                                            <td>Hover Bed with Box Storage ( King Size, Walnut Finish )</td>
-                                            <td>11</td>
-                                            <td>1</td>
-                                            <td>Rs 321</td>
-                                            <td>Rs 3452</td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td style="font-weight: 600;">IGST(18%)</td>
-                                            <td>$23423</td>
-                                        </tr>
-                                        <tr>
-                                          <td></td>
-                                          <td></td>
-                                          <td></td>
-                                          <td style="font-weight: 600;">Coupon(DIWALI23)</td>
-                                          <td>$23434</td>
-                                      </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td style="font-weight: 600;">Total</td>
-                                            <td>$23434</td>
-                                        </tr> #}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-  {# <div style="page-break-after: always;">
+  <div style="page-break-after: always;">
     <h1>{{ text_invoice }} #{{ order.order_id }}</h1>
     <table class="table table-bordered">
       <thead>
@@ -274,8 +118,8 @@
       </tbody>
     </table>
     {% endif %}
-  </div> #}
-  {% endfor %} 
+  </div>
+  {% endfor %}
 </div>
 </body>
 </html>

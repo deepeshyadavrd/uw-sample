@@ -60,7 +60,7 @@ class ControllerAccountNewsletter extends Controller {
 		$json = array();
 
 		if($this->model_account_newsletter->checkExisting($this->request->post)){
-			$json['error'] = 'you have already subscribed to our newsletter.';
+			$json['error'] = 'You have already subscribed to our newsletter.';
 		}else{
 			$this->model_account_newsletter->addToNewsletter($this->request->post);
 			$json['success'] = 'Thank you, for subscribing to our newsletter';

@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="images/favicon.png" rel="icon" />
+	<title>Invoice</title>
+	<meta name="author" content="harnishdesign.net">
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="https://demo.harnishdesign.net/html/koice/vendor/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://demo.harnishdesign.net/html/koice/vendor/font-awesome/css/all.min.css" />
+	<style type="text/css">    
+		tr{line-height: 13px;}
+		body{background:#e7e9ed;color:#535b61;font-family:Poppins,sans-serif;font-size:14px;line-height:22px}form{padding:0;margin:0;display:inline}img{vertical-align:inherit}a,a:focus{color:#0071cc;-webkit-transition:all .2s ease;transition:all .2s ease}a:active,a:hover{color:#0c2f55;text-decoration:none;-webkit-transition:all .2s ease;transition:all .2s ease}.btn.active.focus,.btn.active:focus,.btn.focus,.btn:active.focus,.btn:active:focus,.btn:focus,a:active,a:focus,button:active,button:focus{outline:0}p{line-height:1.9}blockquote{border-left:5px solid #eee;padding:10px 20px}iframe{border:0!important}h1,h2,h3,h4,h5,h6{color:#0c2f54;font-family:Poppins,sans-serif}.table{color:#535b61}.table-hover tbody tr:hover{background-color:#f6f7f8}.rounded-top-0{border-top-left-radius:0!important;border-top-right-radius:0!important}.rounded-bottom-0{border-bottom-left-radius:0!important;border-bottom-right-radius:0!important}.rounded-left-0{border-top-left-radius:0!important;border-bottom-left-radius:0!important}.rounded-right-0{border-top-right-radius:0!important;border-bottom-right-radius:0!important}.text-0{font-size:11px!important;font-size:.6875rem!important}.text-1{font-size:12px!important;font-size:.75rem!important}.text-2{font-size:14px!important;font-size:.875rem!important}.text-3{font-size:16px!important;font-size:1rem!important}.text-4{font-size:18px!important;font-size:1.125rem!important}.text-5{font-size:21px!important;font-size:1.3125rem!important}.text-6{font-size:24px!important;font-size:1.5rem!important}.text-7{font-size:28px!important;font-size:1.75rem!important}.text-8{font-size:32px!important;font-size:2rem!important}.text-9{font-size:36px!important;font-size:2.25rem!important}.text-10{font-size:40px!important;font-size:2.5rem!important}.text-11{font-size:44px!important;font-size:2.75rem!important}.text-12{font-size:48px!important;font-size:3rem!important}.text-13{font-size:52px!important;font-size:3.25rem!important}.text-14{font-size:56px!important;font-size:3.5rem!important}.text-15{font-size:60px!important;font-size:3.75rem!important}.text-16{font-size:64px!important;font-size:4rem!important}.text-17{font-size:72px!important;font-size:4.5rem!important}.text-18{font-size:80px!important;font-size:5rem!important}.text-19{font-size:84px!important;font-size:5.25rem!important}.text-20{font-size:92px!important;font-size:5.75rem!important}.line-height-07{line-height:.7!important}.line-height-1{line-height:1!important}.line-height-2{line-height:1.2!important}.line-height-3{line-height:1.4!important}.line-height-4{line-height:1.6!important}.line-height-5{line-height:1.8!important}.font-weight-100{font-weight:100!important}.font-weight-200{font-weight:200!important}.font-weight-300{font-weight:300!important}.font-weight-400{font-weight:400!important}.font-weight-500{font-weight:500!important}.font-weight-600{font-weight:600!important}.font-weight-700{font-weight:700!important}.font-weight-800{font-weight:800!important}.font-weight-900{font-weight:900!important}.opacity-0{opacity:0}.opacity-1{opacity:.1}.opacity-2{opacity:.2}.opacity-3{opacity:.3}.opacity-4{opacity:.4}.opacity-5{opacity:.5}.opacity-6{opacity:.6}.opacity-7{opacity:.7}.opacity-8{opacity:.8}.opacity-9{opacity:.9}.opacity-10{opacity:1}.bg-light{background-color:#fff!important}.bg-light-1{background-color:#f9f9fb!important}.bg-light-2{background-color:#f8f8fa!important}.bg-light-3{background-color:#f5f5f5!important}.bg-light-4{background-color:#eff0f2!important}.bg-light-5{background-color:#ececec!important}@media print{.table td,.table th{background-color:transparent!important}.table td.bg-light,.table th.bg-light{background-color:#fff!important}.table td.bg-light-1,.table th.bg-light-1{background-color:#f9f9fb!important}.table td.bg-light-2,.table th.bg-light-2{background-color:#f8f8fa!important}.table td.bg-light-3,.table th.bg-light-3{background-color:#f5f5f5!important}.table td.bg-light-4,.table th.bg-light-4{background-color:#eff0f2!important}.table td.bg-light-5,.table th.bg-light-5{background-color:#ececec!important}}.invoice-container{margin:15px auto;padding:70px;max-width:850px;background-color:#fff;border:1px solid #ccc;-moz-border-radius:6px;-webkit-border-radius:6px;-o-border-radius:6px;border-radius:6px}@media (max-width:767px){.invoice-container{padding:35px 20px 70px 20px;margin-top:0;border:none;border-radius:0}}.badge-primary,.bg-primary{background-color:#0071cc!important}.bg-secondary{background-color:#0c2f55!important}.text-secondary{color:#0c2f55!important}.text-primary{color:#0071cc!important}.btn-link{color:#0071cc}.btn-link:hover{color:#0e7fd9!important}.border-primary{border-color:#0071cc!important}.border-secondary{border-color:#0c2f55!important}.btn-primary{background-color:#0071cc;border-color:#0071cc}.btn-primary:hover{background-color:#0e7fd9;border-color:#0e7fd9}.btn-secondary{background-color:#0c2f55;border-color:#0c2f55}.btn-outline-primary{color:#0071cc;border-color:#0071cc}.btn-outline-primary:hover{background-color:#0071cc;border-color:#0071cc;color:#fff}.btn-outline-secondary{color:#0c2f55;border-color:#0c2f55}.btn-outline-secondary:hover{background-color:#0c2f55;border-color:#0c2f55;color:#fff}.nav-pills .nav-link.active,.nav-pills .show>.nav-link,.progress-bar{background-color:#0071cc}.custom-checkbox .custom-control-input:checked~.custom-control-label:before,.custom-control-input:checked~.custom-control-label::before,.custom-control-input:checked~.custom-control-label:before,.custom-radio .custom-control-input:checked~.custom-control-label:before,.page-item.active .page-link{background-color:#0071cc;border-color:#0071cc}.list-group-item.active{background-color:#0071cc;border-color:#0071cc}.page-link{color:#0071cc}.page-link:hover{color:#0e7fd9}.page-link{border-color:#f4f4f4;border-radius:.25rem;margin:0 .3rem}.page-item.disabled .page-link{border-color:#f4f4f4}
+	</style>
+</head>
+<body>
+	<div class="container-fluid invoice-container">
+		<header>
+			<div class="row align-items-center">
+				<div class="col-sm-7 text-sm-left mb-3 mb-sm-0">
+					<address>
+						<strong>URBANWOOD FURNITURE PRIVATE LIMITED</strong><br />
+						843 , Gram Basdi , mukandpura Road<br>Bhankrota , Ajmer road<br>Jaipur , Rajasthan , 302026<br>
+						<b>GST No .</b> 08AACCU7000M1Z9<br />
+						<b>PAN No .</b> AACCU7000M<br />
+						<b>Email id .</b> info@urbanwood.in , <b>Mob No.</b> 9311964772<br />
+						<b>Web Site : </b> <a href="https://www.urbanwood.in">https://www.urbanwood.in</a>
+					</address>
+				</div>
+				<div class="col-sm-5" style="text-align: right;position: absolute;">
+					<img id="logo" src="https://www.urbanwood.in/images/common/logo.png" title="Koice" alt="Koice" />
+				</div>
+			</div>
+			<hr>
+		</header>
+		<main>
+			<h3 style="text-align: center;">TAX INVOICE</h3>
+			<div class="row">
+				<div class="col-sm-6"><strong>Date:</strong>06/05/2022</div>
+				<div class="col-sm-6 text-sm-right " style="text-align: right;position: absolute;">INVOICE NUMBER: <strong>#SSL/22-23/002</strong></div>
+
+			</div>
+			<div class="row">
+				<div class="col-sm-12 text-sm-right ">
+				<span>PO NUMBER: <strong>4700013062</strong><br></div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-sm-8 order-sm-0"> <strong>Billing Address:</strong>
+					<address>
+						Shopper Stop Ltd<br>
+						5th Floor Umang Tower Mindspace Off Link Road Malad(West)<br>
+						Mumbai 400064 ,Maharashtra INDIA<br><br>
+					
+						GSTN: <strong>27AABCS4383A1ZL</strong><br>
+						Email: <strong>RBI_114Malad@shoppersstop.com</strong><br>
+						Mobile : <strong>022 42492500 </strong>
+					</address>
+				</div>
+				<hr>
+				<div class="col-sm-8 order-sm-0"> <strong>Shipping Address:</strong>
+					<address>
+						HOME STOP-BENGALURU HOME STOP-BENGALURU<br>
+						00,DIVISION OF SHOPPERS' STOP LTD<br>
+					RAHEJA POINT # 17/0, ASHOK NAGAR, MAGRATH ROAD.</br>
+						BENGALURU BENGALURU 560025 Karanataka IN<br><br>
+						
+						GSTN: <strong>29AABCS4383A1ZH</strong><br>
+						Email: <strong>FCC_HSBLR@SHOPPERSSTOP.COM</strong><br>
+						Mobile : <strong>080 43401500 </strong>
+					</address>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-body px-2">
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr>
+									<td class="col-1 text-center border-1"><strong>Srn</strong></td>
+									<td class="col-4 text-center border-1"><strong>Description Of Goods</strong></td>
+									<td class="col-2 text-center border-1"><strong>Hsn Code</strong></td>
+									<td class="col-2 text-center border-1"><strong>Unit Price</strong></td>
+									<td class="col-1 text-center border-1"><strong>Qty</strong></td>
+									<td class="col-1 text-center border-1"><strong>IGST/CGST Tax Rate</strong></td>
+									<td class="col-1 text-center border-1"><strong>Tax Value</strong></td>
+									
+									<td class="col-2 text-right border-1"><strong>Amount</strong></td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="col-1  text-center border-1">1</td>
+									<td class="col-4 text-1">Diamond bed</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹66,272</td>
+									<td class="col-2 text-center  border-1">1</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹11,928</td>
+									<td class="col-2 text-center  border-1">₹78,200</td>
+								</tr>
+
+								<tr>
+									<td class="col-1  text-center border-1">2</td>
+									<td class="col-4 text-1">Niwar Bed</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹67,373</td>
+									<td class="col-2 text-center  border-1">1</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹12,127</td>
+									<td class="col-2 text-center  border-1">₹79,500</td>
+								</tr>
+
+
+								<tr>
+									<td class="col-1  text-center border-1">3</td>
+									<td class="col-4 text-1">Diamond Bed Side Table</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹9,237</td>
+									<td class="col-2 text-center  border-1">2</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹3,324</td>
+									<td class="col-2 text-center  border-1">₹21,798</td>
+								</tr>
+
+								<tr>
+									<td class="col-1  text-center border-1">4</td>
+									<td class="col-4 text-1">Niwar Bed Side Table</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹9,585
+</td>
+									<td class="col-2 text-center  border-1">2</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹3,450</td>
+									<td class="col-2 text-center  border-1">₹22,620</td>
+								</tr>
+
+								<tr>
+									<td class="col-1  text-center border-1">5</td>
+									<td class="col-4 text-1">Diamond Tv Cabinet</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹32,924</td>
+									<td class="col-2 text-center  border-1">1</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹5,926</td>
+									<td class="col-2 text-center  border-1">₹38,850</td>
+								</tr>
+
+								<tr>
+									<td class="col-1  text-center border-1">6</td>
+									<td class="col-4 text-1">Niwar Tv Cabinet</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹32,924</td>
+									<td class="col-2 text-center  border-1">1</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹5,926</td>
+									<td class="col-2 text-center  border-1">₹38,850</td>
+								</tr>
+
+								<tr>
+									<td class="col-1  text-center border-1">7</td>
+									<td class="col-4 text-1">Mandir</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹16,007</td>
+									<td class="col-2 text-center  border-1">1</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹2,881</td>
+									<td class="col-2 text-center  border-1">₹18,888</td>
+								</tr>
+
+								<tr>
+									<td class="col-1  text-center border-1">8</td>
+									<td class="col-4 text-1">Niwar Bar</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹41,441</td>
+									<td class="col-2 text-center  border-1">1</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹7,459</td>
+									<td class="col-2 text-center  border-1">₹48,900</td>
+								</tr>
+
+								<tr>
+									<td class="col-1  text-center border-1">9</td>
+									<td class="col-4 text-1">Niwar Bar Mini</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹26,695</td>
+									<td class="col-2 text-center  border-1">1</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹4,805</td>
+									<td class="col-2 text-center  border-1">₹31,500</td>
+								</tr>
+
+								<tr>
+									<td class="col-1  text-center border-1">10</td>
+									<td class="col-4 text-1">Double Top Center Table</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹25251</td>
+									<td class="col-2 text-center  border-1">1</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹4,545</td>
+									<td class="col-2 text-center  border-1">₹29,796</td>
+								</tr>
+
+								<tr>
+									<td class="col-1  text-center border-1">11</td>
+									<td class="col-4 text-1">Dressing Table </td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹47,161</td>
+									<td class="col-2 text-center  border-1">1</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹8,489</td>
+									<td class="col-2 text-center  border-1">₹55,650</td>
+								</tr>
+
+								<tr>
+									<td class="col-1  text-center border-1">12</td>
+									<td class="col-4 text-1">Dining Table Set 4 Seater</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹40,220</td>
+									<td class="col-2 text-center  border-1">1</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹7,240</td>
+									<td class="col-2 text-center  border-1">₹47,460</td>
+								</tr>
+								<tr>
+									<td class="col-1  text-center border-1">13</td>
+									<td class="col-4 text-1">Stool Set</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹8,364</td>
+									<td class="col-2 text-center  border-1">1</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹1,506</td>
+									<td class="col-2 text-center  border-1">₹9,870</td>
+								</tr>
+								<tr>
+									<td class="col-1  text-center border-1">14</td>
+									<td class="col-4 text-1">Relay Bar Cabinet</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹41,516</td>
+									<td class="col-2 text-center  border-1">1</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹7,473</td>
+									<td class="col-2 text-center  border-1">₹48,989</td>
+								</tr>
+								<tr>
+									<td class="col-1  text-center border-1">15</td>
+									<td class="col-4 text-1">Aiden Sofa Cum Bed</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹63,051</td>
+									<td class="col-2 text-center  border-1">1</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹11,349</td>
+									<td class="col-2 text-center  border-1">₹74,400</td>
+								</tr>
+								<tr>
+									<td class="col-1  text-center border-1">16</td>
+									<td class="col-4 text-1">Relay Ceramic Diwan</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹29,068</td>
+									<td class="col-2 text-center  border-1">1</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹5,232</td>
+									<td class="col-2 text-center  border-1">₹34,300</td>
+								</tr>
+								<tr>
+									<td class="col-1  text-center border-1">17</td>
+									<td class="col-4 text-1">Anrich Study Table</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹24,559</td>
+									<td class="col-2 text-center  border-1">1</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹4,421</td>
+									<td class="col-2 text-center  border-1">₹28,980</td>
+								</tr>
+								<tr>
+									<td class="col-1  text-center border-1">18</td>
+									<td class="col-4 text-1">Driftwood Shoe Rack</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹20,932</td>
+									<td class="col-2 text-center  border-1">1</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹3,768</td>
+									<td class="col-2 text-center  border-1">₹24,700</td>
+								</tr>
+								<tr>
+									<td class="col-1  text-center border-1">19</td>
+									<td class="col-4 text-1">Berlin Hydraulic Bed</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹76,186</td>
+									<td class="col-2 text-center  border-1">1</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹13,714</td>
+									<td class="col-2 text-center  border-1">₹89,900</td>
+								</tr>
+								<tr>
+									<td class="col-1  text-center border-1">20</td>
+									<td class="col-4 text-1">Stack bed With Storage</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹75,339</td>
+									<td class="col-2 text-center  border-1">1</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹13,561</td>
+									<td class="col-2 text-center  border-1">₹88,900</td>
+								</tr>
+								<tr>
+									<td class="col-1  text-center border-1">21</td>
+									<td class="col-4 text-1">Bliss Coffee Table</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹20,254</td>
+									<td class="col-2 text-center  border-1">1</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹3,646</td>
+									<td class="col-2 text-center  border-1">₹23,900</td>
+								</tr>
+								<tr>
+									<td class="col-1  text-center border-1">22</td>
+									<td class="col-4 text-1">Crew Coffee Table</td>
+									<td class="col-2 text-center  border-1">94032090</td>
+									<td class="col-2 text-center  border-1">₹17,085</td>
+									<td class="col-2 text-center  border-1">1</td>
+									<td class="col-2 text-center  border-1">18%</td>
+									<td class="col-2 text-center  border-1">₹3,075</td>
+									<td class="col-2 text-center  border-1">₹20,160</td>
+								</tr>
+								
+
+								
+								
+								<tr>
+								    <td></td>
+								    <td></td>
+								    <td></td>
+                                    <td class="bg-light-2 text-right">₹8,10,264</td>
+                                    <td class="bg-light-2 text-right border-1" style="text-align:center">24</td>
+                                    <td></td>
+                                    <td class="bg-light-2 text-right border-1">₹1,45,847</td>
+                                    <td class="bg-light-2 text-right">₹9,56,111</td>
+
+                                </tr>
+                                <tr> <td></td></tr>
+                                 <tr> <td></td></tr>
+                                  <tr> <td></td></tr>
+                                <tr>
+                                    <td colspan="7" class="bg-light-2 text-right border-1" style="text-align: right;"><strong>Sub-Total</strong>:</td>
+                                    <td class="bg-light-2 text-right">₹8,10,264</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="7" class="bg-light-2 text-right border-1" style="text-align: right;"><strong>Total GST</strong>:</td>
+                                    <td class="bg-light-2 text-right">₹1,45,847</td>
+                                </tr>
+
+                                 <tr>
+                                    <td colspan="7" class="bg-light-2 text-right border-1" style="text-align: right;"><strong>Grand Total</strong>:</td>
+                                    <td class="bg-light-2 text-right">₹9,56,111</td>
+                                </tr>
+                                								
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="text-center mt-4">
+			<p class="text-1"><strong>NOTE :</strong> This is computer generated receipt and does not require physical signature.</p>
+			<div class="btn-group btn-group-sm d-print-none"> <a href="javascript:window.print()" class="btn btn-light border text-black-50 shadow-none"><i clas="fa fa-print"></i> Print</a> <a href="" class="btn btn-light border text-black-50 shadow-none"><i class="fa fa-download"></i> Download</a> </div>
+		</footer>
+	</div>
+	<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"67a68c9a7d04de21","version":"2021.7.0","r":1,"token":"6e8126d2dfab44bf87a530175c43976b","si":10}' type="4636c74f864e9eb81cc93c4e-text/javascript"></script>
+	<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="4636c74f864e9eb81cc93c4e-|49" defer=""></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"6e2e771f2c6484c2","version":"2021.12.0","r":1,"token":"6e8126d2dfab44bf87a530175c43976b","si":100}' crossorigin="anonymous"></script>
+</body>
+</html>

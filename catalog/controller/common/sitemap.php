@@ -6,6 +6,8 @@ class ControllerCommonSitemap extends Controller {
         $categories = $this->model_catalog_category->getCategories(0);
         $data['categories'] = array();
         //print_r($categories);
+		$this->document->setTitle('Sitemap | Urbanwood');
+		$this->document->setDescription('Explore our sitemap for easy navigation to all pages, including furniture collections, home decor ideas, and exclusive Urbanwood designs. Find what you need fast!');
         foreach ($categories as $category) {
 			//if ($category['top']) {
 				// Level 2
@@ -21,7 +23,7 @@ class ControllerCommonSitemap extends Controller {
 
 					$children_data[] = array(
 						'name'  => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
-						'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])
+						'href'  => $this->url->link('product/category', 'path=' .  $child['category_id'])
 					);
 				}
 //print_r($children);
@@ -34,11 +36,8 @@ class ControllerCommonSitemap extends Controller {
 				);
 			//}
 		}
-		function sort_by_children_length($a, $b) {
-			return count($a['children']) - count($b['children']);
-		}
 		$this->load->model('catalog/information');
-		$informations = $this->model_catalog_information->getInformationSM();
+		$informations = $this->model_catalog_information->getInformations();
 		//print_r($informations);
 		foreach ($informations as $result) {
 			
@@ -50,10 +49,13 @@ class ControllerCommonSitemap extends Controller {
 				);
 			
 		}
-		echo $key = array_search('About Us', $data['categories']);
+	
+		function sort_by_children_length($a, $b) {
+			return count($a['children']) - count($b['children']);
+		}
+		
 		usort($data['categories'], 'sort_by_children_length');
-        print_r($data);
-        
+        //print_r($data);
 
         $data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');

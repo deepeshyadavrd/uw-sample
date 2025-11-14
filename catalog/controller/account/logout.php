@@ -2,8 +2,8 @@
 class ControllerAccountLogout extends Controller {
 	public function index() {
 		if ($this->customer->isLogged()) {
-			$this->customer->logout();
 
+			$this->customer->logout();
 			unset($this->session->data['shipping_address']);
 			unset($this->session->data['shipping_method']);
 			unset($this->session->data['shipping_methods']);
@@ -16,14 +16,13 @@ class ControllerAccountLogout extends Controller {
 			unset($this->session->data['reward']);
 			unset($this->session->data['voucher']);
 			unset($this->session->data['vouchers']);
+			session_destroy();
 
-			$this->response->redirect($this->url->link('common/home', '', true));
+			$this->response->redirect('/');//$this->url->link('/', '', true));
 		}
 
 		$this->load->language('account/logout');
-
 		$this->document->setTitle($this->language->get('heading_title'));
-
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
@@ -42,14 +41,14 @@ class ControllerAccountLogout extends Controller {
 		);
 
 		$data['continue'] = $this->url->link('common/home');
-
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
 		$data['content_top'] = $this->load->controller('common/content_top');
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
-
 		$this->response->setOutput($this->load->view('common/success', $data));
 	}
+
 }
+

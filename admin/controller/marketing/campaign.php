@@ -249,9 +249,11 @@ class ControllerMarketingCampaign extends Controller {
 				'campaign_id' => $result['campaign_id'],
 				'campaign_name'         => $result['campaign_name'],
 				'utm_source'         => $result['utm_source'],
+				'utm_medium'         => $result['utm_medium'],
+				'utm_term'         => $result['utm_term'],
 				'clicks'       => $result['clicks'],
-				'orders'       => $result['orders'],
 				'total_orders'       => $result['total_orders'],
+				'orders'       => $result['orders'],
 				'date_added'   => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
 				'edit'         => $this->url->link('marketing/campaign/edit', 'user_token=' . $this->session->data['user_token'] . '&campaign_id=' . $result['campaign_id'] . $url, true)
 			);
@@ -436,12 +438,19 @@ class ControllerMarketingCampaign extends Controller {
 			$data['campaign_name'] = '';
 		}
 
-		if (isset($this->request->post['description'])) {
-			$data['description'] = $this->request->post['description'];
+		if (isset($this->request->post['utm_medium'])) {
+			$data['utm_medium'] = $this->request->post['utm_medium'];
 		} elseif (!empty($marketing_info)) {
-			$data['description'] = $marketing_info['description'];
+			$data['utm_medium'] = $marketing_info['utm_medium'];
 		} else {
-			$data['description'] = '';
+			$data['utm_medium'] = '';
+		}
+		if (isset($this->request->post['utm_term'])) {
+			$data['utm_term'] = $this->request->post['utm_term'];
+		} elseif (!empty($marketing_info)) {
+			$data['utm_term'] = $marketing_info['utm_term'];
+		} else {
+			$data['utm_term'] = '';
 		}
 
 		if (isset($this->request->post['utm_source'])) {

@@ -1,260 +1,120 @@
+
+
 {{ header }}
 {{ menu }}
+</div>
 {{ wishlist }}
 <link  rel="stylesheet"  href="catalog/view/javascript/assets/css/category.css" > 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/css/jquery-ui.min.css" media="print" onload="this.media='all'">
 <style>
-.red{
-  color: red!important;
-}
+  .red{
+    color: red!important;
+  }
 </style>
-
 <div class="wrapper">
-<!--- banner section-->
-<div class="qu-sec py-2 ">
-  <div class="container container-custom">
-    <div class="row">
-<div class="col-md-12 col-sm-12">
-  <nav class="breadcumb-navigation" >
-    <ol class="breadcrumb m-0 p-2">
-    
-    {% for breadcrumb in breadcrumbs %}
-      <li class="breadcrumb-item "> <a href="#">{{ breadcrumb.text }}</a></li>
-    {% endfor %}
-      
-      {# <li class="breadcrumb-item "> <a href="#">Bedroom Furniture </a></li>
-      <li class="breadcrumb-item "> <a href="">Bedroom Storage</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Beds</li> #}
-    </ol>
-  </nav>   
-</div>
-</div>
+  <!--- banner section-->
+  <div class="qu-sec py-2 ">
+    <div class="container container-custom">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <nav class="breadcumb-navigation" >
+            <ol class="breadcrumb m-0">
+
+              {% for breadcrumb in breadcrumbs %}
+              <li class="breadcrumb-item "> <a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+              {% endfor %}
+
+            </ol>
+          </nav>   
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
-
+<style>
+ 
+</style>
   <section class=" py-2">
     <div class="container container-custom">
       <div class="row">
         <div class="col-lg-10 m-auto">
-          <h2 class="pg-heading text-center">{{ heading_title }}</h2>
+          <h1 class="pg-heading text-center">{{ heading_title }}</h1>
           <div class="ViewContent">
-            <p class="heading-para text-center px-lg-5">{{ description|striptags('<b>,<span>,<a>') }}</p>
-            <span type="button" class="btAnimate" value="Read more"></span>
-            <div id="divC">
-               <p class="heading-para text-center "> 
-      With king size beds with storage, you can maintain organization while making the best use of your open area and reducing clutter. 
-        To get the greatest deal on a king-sized bed at a cost that works for you,
-         you can now browse the selection of beds available online at Urbanwood. King-size beds are usually quite comfortable. </p>
-         <h2 class="font-table-heading my-3" style="text-align:center;">Wardrobes Price List in India</h2>
-<table class="table table-bordered table-price-pp">
-  <thead>
-    <tr>
-      <th scope="col">Wardrobes Online in India</th>
-      <th scope="col">Price</th>
-    </tr>
-  </thead>
-  <tbody>
-      {% for product in products|slice(0, 5) %}
-      <tr>
-      <td scope="row"><a href="{{ product.href }}" target="_blank" rel="noopener noreferrer"> {{ product.name }}</a> </td>
-      <td>{{ product.special }}</td>
-    </tr>
-            
-      {% endfor %}
-  </tbody>
-</table>
-
-                        <input type="button" id="btHide" value="Read less" />
-                
-            </div>
+            The Space-Efficient New Furniture For Your Home : Discovering space-efficient new furniture that does not take up much area, physically and visually, is not that challenging these days. Two ways to get this completed; to allow you to do more than one item with the same part. You may either purchase it from the furniture shop or demand it as per your need from the customized furniture store. They not only help to employ the space but are also good advisers in the matter of saving money. Positioning the new multifunctional furniture; suitable for your 'Hearth'!
+              <span type="button" class="btAnimate" > </span>
+          </div>
         </div>
-        </div>
-        </div>
-        </div>
-      </section>
-  <section>
-  <style>
-  .pbc{
-    background: white;
-    width:155px;
-  }
-
-  .ipc{
-background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ececec 80px);
-  background-image: -o-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ececec 80px);
-  background-image: linear-gradient(90deg, #ececec 0px, #f4f4f4 40px, #ececec 80px);
-  background-size: 250px;
-  -webkit-animation: shine-loading-image 2s infinite ease-out;
-          animation: shine-loading-image 2s infinite ease-out;
-    width: 98%;
-    height: 94px;
-  }
-
-  .cat-txt{
-background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ececec 80px);
-  background-image: -o-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ececec 80px);
-  background-image: linear-gradient(90deg, #ececec 0px, #f4f4f4 40px, #ececec 80px);
-  background-size: 250px;
-  -webkit-animation: shine-loading-image 2s infinite ease-out;
-          animation: shine-loading-image 2s infinite ease-out;
-    width: 85%;
-    height: 14px;
-  }
-  .buttoncn{
-background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ececec 80px);
-  background-image: -o-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ececec 80px);
-  background-image: linear-gradient(90deg, #ececec 0px, #f4f4f4 40px, #ececec 80px);
-  background-size: 250px;
-  -webkit-animation: shine-loading-image 2s infinite ease-out;
-          animation: shine-loading-image 2s infinite ease-out;
-    height: 18px;
-  }
-@-webkit-keyframes shine-loading-image {
-  0% {
-    background-position: -32px;
-  }
-  40%, 100% {
-    background-position: 208px;
-  }
-}
-
-
-@keyframes shine-loading-image {
-  0% {
-    background-position: -32px;
-  }
-  40% {
-    background-position: 180px;
-  }
-  100% {
-    background-position: 250px;
-  }
-}
-  
-  </style>
+      </div>
+    </div>
+  </section>
+   
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+  <section class="py-2">
     <div class="container container-custom">
       <div class="row">
-        <div class="d-flex justify-content-md-center  m-md-auto  categories-pp">
-        <div class=" pp-box-cat pbc">
-            <div class="img-pp-cat ipc "></div>
-              <div class="con-pp-cat"> 
-                <span class="cat-txt "></span>
-              </div>
-            <div class="buttoncn check-out-pp "> </div>
-          </div>
-        <div class="active2 pp-box-cat">
-          <div class="img-pp-cat"> <img src="catalog/view/javascript/assets/image/product-slider-img/img1.png" alt=""></div>
-          <div class="con-pp-cat"> 
-          <span>King Size Beds</span><span> <i class="fas fa-star"></i> (4.5)</span>
-          </div>
-          <div> <a href="" class="check-out-pp" disabled>check now</a></div>
-        </div>
-        <div class="pp-box-cat">
-          <div class="img-pp-cat"> <img src="catalog/view/javascript/assets/image/product-slider-img/img1.png" alt=""></div>
-          <div class="con-pp-cat"> 
-          <span>Queen Size Beds</span><span> <i class="fas fa-star"></i> (4.5)</span>
-          </div>
-          <div> <a href="" class="check-out-pp">check now</a></div>
-        </div>
+        {{ filter }}
+    <div class="col-md-12 col-sm-12">
+      <div class="product-img-list">
+        <div class="row"  id="product_box">
+        <script>
+        
 
-        <div class="pp-box-cat">
-          <div class="img-pp-cat"> <img src="catalog/view/javascript/assets/image/product-slider-img/img1.png" alt=""></div>
-          <div class="con-pp-cat"> 
-          <span>Single Beds</span><span> <i class="fas fa-star"></i> (4.5)</span>
-          </div>
-          <div> <a href="" class="check-out-pp">check now</a></div>
-        </div>
+        const filters = {{ products | json_encode | raw }};
+          
+var itemsList = [];
 
-        <div class="pp-box-cat">
-          <div class="img-pp-cat"> <img src="catalog/view/javascript/assets/image/product-slider-img/img1.png" alt=""></div>
-          <div class="con-pp-cat"> 
-          <span>Poster Beds</span><span> <i class="fas fa-star"></i> (4.5)</span>
-          </div>
-          <div> <a href="" class="check-out-pp">check now</a></div>
-        </div>
+for(var i = 0; i < filters.length; i++) {
+    var obj = {};
+    obj['id'] = filters[i]['product_id'];
+    obj['name'] = filters[i]['name'];
+    obj['price'] = filters[i]['special_number'];
+    obj['image'] = filters[i]['thumb'];
+    obj['link'] = filters[i]['href'];
+    obj['category'] = filters[i]['p_cat'];
+    obj['brand'] = 'Urbanwood';
+    itemsList.push(obj);
+}
 
-        <div class="pp-box-cat">
-          <div class="img-pp-cat"> <img src="catalog/view/javascript/assets/image/product-slider-img/img1.png" alt=""></div>
-          <div class="con-pp-cat"> 
-          <span>Sofa Cum Beds</span><span> <i class="fas fa-star"></i> (4.5)</span>
-          </div>
-          <div> <a href="" class="check-out-pp">check now</a></div>
-        </div>
+          </script>
+          {% for product in products %}
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="product-box-img">
+              <div class="button-pd">
+                <div class="like-heart mx-2"> 
 
-      </div>
-        </div>
-        </div>
-  </section>    
+                  <span ><i class="bx bx-heart" onclick="wishlist.add('{{ product.product_id }}');" id="likeheart" ></i></span> 
+                </div>  
+                <div class="sharer">
+                  <button id="share" class="cursor-pointer share">
+                    <i class='bx bxs-share-alt'></i></button> 
+                    <div id="share_icons" class="absolute opacity-0 share_icons"> 
+                      <a href="https://twitter.com/intent/tweet?text=Im Sharing on Twitter&url=https://www.urbanwood.in&hashtags=urbanwood,custom furniture,furniture" target="_blank" class="pd-share cursor-pointer">
+                        <i class="bx bxl-twitter"></i>
+                      </a> 
+                      <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.urbanwood.in" target="_blank" class=" pd-share cursor-pointer">
+                        <i class="bx bxl-facebook"></i>
+                      </a> 
+                      
+                    </div> 
+                  </div> 
+                </div>
 
-<section class="py-2">
-  <div class="container container-custom">
-    <div class="row">
-      
-{{ filter }}
-    
-   
-
-
-
-      
-      
-    
-<div class="col-12">
-  <div class="product-img-list">
-<div class="row" id="product_box">
-
-{% for product in products %}
-<div class="col-lg-3 col-md-6 col-sm-12">
-<div class="product-box-img">
-  <div class="button-pd">
-  <div class="like-heart mx-2"> 
-  
-    <span ><i class="fas fa-heart" onclick="wishlist.add('{{ product.product_id }}');" id="likeheart" ></i></span> 
-  </div>  
-  <div class="sharer">
-        <button id="share" class="cursor-pointer ">
-          <i class='bx bxs-share-alt'></i></button> 
-          <div id="share_icons" class="absolute opacity-0"> 
-            <a href="" class="pd-share cursor-pointer">
-              <i class="bx bxl-twitter"></i>
-            </a> 
-            <a href="" class=" pd-share cursor-pointer">
-              <i class="bx bxl-facebook"></i>
-            </a> 
-              <a href="" class=" pd-share cursor-pointer">
-                <i class="bx bxl-linkedin"></i>
-              </a> 
-            </div> 
-
-  </div> 
-
-  </div>
-  <style>
-.swap img:last-child{display:none}
-.swap:hover img:first-child{display:none}
-.swap:hover img:last-child{display:inline-block}
-</style>
-  <div class="pd-img-in">
-  {% if (product.stock_status == 'Out Of Stock') and (product.quantity == 0) %}
-      <h3 class="shop-nowb-btn" style="margin-top: 19px;"> Out Of Stock</h3>
-      {% else %}
-      
-      {# <input name="product_id" type="hidden" id="addtocart_p_id" value="{{ product.product_id }}">
-      <input name="quantity" type="hidden" id="addtocart_p_qnty" value="1"> #}
-  <button class="shop-nowb-btn" onclick="addtocart(1,{{ product.product_id }})"> Shop Now</button>
-  
-{% endif %}
-{# {{ product.product_id }} #}
-{# <a href="{{ product.href }}" type="button" class="shop-nowb-btn" style="margin-top: 19px;"> Shop Now</a> #}
-
-    <a href="{{ product.href }}" class="swap">
-    {# <div class="overlay-pd"></div></a> #}
-    {% if loop.first %}
+                <div class="pd-img-in">
+                {% if badge %}
+                  <div class="item-name" style="top:4px !important; font-size:12px;">Big Deal Flat 55% Off<span> </span></div>
+                {% endif %}
+                {% if (product.stock_status == 'Out Of Stock') %}
+                  <h3 class="shop-nowb-btn" style="margin-top: 19px;"> Out Of Stock</h3>
+                {% else %}
+                  <button class="shop-nowb-btn" onclick="addtocart(1,{{ product.product_id }}); productTocart{{ product.product_id }}();"> ADD TO CART</button>
+                {% endif %}
+                  <a onclick="productObj{{ product.product_id }}();" target="_blank"><div class="overlay-pd" style="cursor: pointer"></div></a>
+                  {% if loop.first %}
                     {% if (product.stock_status == 'Out Of Stock') %}
                       <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid out-of-stock" fetchpriority="high" loading="eager">
                     {% else %}
                       <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid" fetchpriority="high" loading="eager">
-                      <img src="{{ product.thumb2 }}" alt="{{ product.name }}" class="img-fluid first" >
                     {% endif %}
 
                   {% else %}
@@ -264,177 +124,259 @@ background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ecec
                       <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid" loading="lazy">
                     {% endif %}
                   {% endif %}
-                  </a>
-  </div>
-  <div class="pd-deatils-sec">
-    <div class="d-flex justify-content-between align-items-start p-2">
-      <div class="pd-heading"> 
-       <div class="pd-name"><a href="">{{ product.name }}</a></div> 
-       {% if product.finish %}
-        <div class="pd-config">({{ product.finish }}</div>
-        {% endif %}
-        <span class="pd-creater"> By {{ product.brand }}</span>
-      </div>
-      <div class="color-feature">
-      {% if (product.stock_status == 'Out Of Stock') and (product.quantity == 0) %}
-        <span class="availibility-pd">Out of Stock</span>
-      {% else %}
-      
+                </div>
+                <div class="pd-deatils-sec">
+                  <div class="d-flex justify-content-between align-items-start p-2" style="    padding-left: 0!important;    padding-right: 0!important;">
+                    <div class="pd-heading"> 
+                     <div class="pd-name"><a  onclick="productObj{{ product.product_id }}();" target="_blank" style="cursor: pointer">{{ product.name }}</a></div> 
+                      {% if product.finish %}
+                        <div class="pd-config">{{ product.finish }}</div>
+                      {% endif %}
+                     <span class="pd-creater"> By&nbsp;{{ product.brand }}</span>
+                   </div>
+                   <div class="color-feature">
+                    {% if (product.stock_status == 'Out Of Stock') %}
+                      <span class="availibility-pd">Out of Stock</span>
+                    {% else %}
+                    {% if product.pro_gro is not empty %}
+                      <span class="availibility-pd">More Finish</span>
+                      <div class="color-feature-check"> 
+                        {% for progro in product.pro_gro %}
+                          <div class="zoom" data-toggle="tooltip" data-placement="top" title="{{progro.text }}">
+                            <a href="{{ progro.link }}"><img src="catalog/view/javascript/assets/image/icon/{{ progro.text|lower }}.jpg" alt="{{progro.text }}"></a>
+            
+                          </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endif %}
+                  </div>
 
-      <span class="availibility-pd">Available Finish</span>
-      <div class="color-feature-check"> 
-      {% for progro in product.pro_gro %}
-        <div class="zoom" data-toggle="tooltip" data-placement="top" title="{{progro.text }}">  
-          <a href="{{ progro.link }}"><img src="catalog/view/javascript/assets/image/icon/{{progro.text|lower }}.jpg" alt="{{progro.text }}"></a>      
-        </div>
-      {% endfor %}
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between align-items-start p-2">
+                  <div class="pricing-pd">
+                    <div class=""> 
+                      <div class="pd-amount"> {{ product.special }} </div> <div class="cut-ammount">{{ product.price }} </div>  
+                      <span class=" badge bridge-offer" style="font-size:10px">{{ product.discount }}% off </span>
+                    </div>
+                  </div>
+                  <div class="pd-offers">
+                    <ul>
+                      <li class="offer-list"> <i class="bx bx-check"></i> No Cost EMI </li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          {# {% if  loop.index0 == 5 %}
+          <div class="signup-banner-strip">
+            <div class="d-md-flex d-block justify-content-around align-items-center text-center ">
+              <div class="sign-banner-con">
+                <h5>Empower Your Choices</h5>
+                {# <p>&</p> #
+                <h6>EMI Options Now <span style="color:#fc0000;font-weight: 700;"> Unlocked!</span></h6>
+              </div>
+              <div>
+                <a href="/" type="button" class="view_all_btn" style="margin-top: 19px;"> Shop Now</a>
+              </div>
+              <div class="banner-strip-img">
+                <img src="catalog/view/javascript/assets/image/red-shape-bg.png" alt="background shape to highlight our sofa" class="img-fluid img-responsive" loading="lazy">
+              </div>
+            </div>
+          </div>
+          {% endif %} #}
+          <script> /**  
+		* Call this function when a user clicks on a product link. This function uses the event  
+		* callback datalayer variable to handle navigation after the ecommerce data has been sent  
+		* to Google Analytics.  * @param {Object} productObj An object representing a product.  
+		*/ 
+		function productObj{{ product.product_id }}() {
+    dataLayer.push({ ecommerce: null });   
+		dataLayer.push({      
+		'event': 'productClick',   
+		'ecommerce': {        
+		'click': {         
+		// 'actionField': {'list': 'Home products'},       // Optional list property.         
+		'products':  [{            
+		'name': '{{ product.name }}',                      // Name or ID is required.           
+		'id': {{ product.product_id }},           
+		'price': {{ product.special_number }},                        
+		'brand': 'Urbanwood',                        
+		}]        
+		}      
+		},       
+		'eventCallback': function() {        
+		window.open('{{ product.href }}', '_blank');    
+		}    
+		}); 
+		}
+
+    function productTocart{{ product.product_id }}() {
+      gtag("event", "add_to_cart", {
+          currency: "INR",
+          value: {{ product.special_number }},
+          items: [
+            {
+              item_id: "{{ product.product_id }}",
+              item_name: "{{ product.name }}",
+              item_brand: "Urbanwood",
+              item_category: "Furniture",
+              price: {{ product.special_number }},
+              quantity: 1
+            }
+          ]
+        });
+
+        fbq('track', 'AddToCart', {
+          currency: 'INR',
+          value:{{ product.special_number }},
+          content_ids: '{{ product.product_id }}',
+          content_type: 'product'
+        });
+		}
+		</script>
+          {% endfor %}
+          <div id="newslr"></div>
+        </div> 
+
+
         
+        {# <div>{{ pagination }}</div> #}
+        <div class="banner-strip-location">
+          <div class="sign-banner-con text-cente">
+            <h5 class="r text-white">VISIT OUR NEAREST STORE</h5>
+            <p class="text-white">&</p>
+            <h6 class=" text-white">get extra <span style="color:#fc0000; font-weight: 700;"> DISCOUNT</span></h6>
+            <br>
+            <a href="our-stores" class="shop-find-btn">Find Store</a>
+          </div>
+
+          <div class="image-forloaction">
+            <div class="img-location-ceative">
+              <img src="catalog/view/javascript/assets/image/location-strip.png" class="img-responsive img-fluid" alt="location where urbanwood have presence in India" loading="lazy">
+            </div>
+
+          </div>
+        </div> 
+
       </div>
-      {% endif %}
-      </div>
-     
-    </div>
-    <hr>
-    <div class="d-flex justify-content-between align-items-start p-2">
-      <div class="pricing-pd">
-        {# <span class="badge badgerating">
-          {{ product.rating }}
-          <span class="starr-rate"><i class="fas fa-star"></i></span>
-        </span> #}
-        {# <span class="likes">({{ product.review_count }})</span> #}
-        <div class=""> 
-        <div class="pd-amount"> {{ product.special }} </div> <div class="cut-ammount">{{ product.price }} </div>  
-        <span class=" badge bridge-offer" style="font-size:10px">{{ product.discount }}% off </span>
-      </div>
-      </div>
-      <div class="pd-offers">
-      <ul>
-        <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
-        <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
-      </ul>
-      </div>
-      
-    </div>
-  </div>
-</div>
-</div>
-{% if  loop.index0 == 7 %}
-  <div class="signup-banner-strip">
-<div class="d-md-flex d-block justify-content-around align-items-center text-center ">
-  <div class="sign-banner-con">
-    <h5>Sign Up Now </h5>
-      <p>&</p>
-      <h6>get extra <span style="color:#fc0000;font-weight: 700;"> DISCOUNT</span></h6>
-  </div>
-  <div>
-  <a href="" type="button" class="view_all_btn" style="margin-top: 19px;"> Sign Up</a>
-  </div>
-  <div class="banner-strip-img">
-    <img src="catalog/view/javascript/assets/image/red-shape-bg.png" alt="" class="img-fluid img-responsive">
-  </div>
-</div>
-</div>
-{% endif %}
-{% endfor %}
-
-
-
-
-</div> 
-
-
- <div class="banner-strip-location">
-  <div class="sign-banner-con text-lg-start text-cente">
-    <h5 class="r text-white">VISIT OUR NEAREST STORE</h5>
-      <p class="text-white">&</p>
-      <h6 class=" text-white">get extra <span style="color:#fc0000; font-weight: 700;"> DISCOUNT</span></h6>
-      <br>
-      <a href="" class="shop-find-btn">Find Shop</a>
-  </div>
-
-<div class="image-forloaction">
-    <div class="img-location-ceative">
-      <img src="catalog/view/javascript/assets/image/location-strip.png" class="img-responsive img-fluid">
     </div>
 
-</div>
- </div> 
 
-</div>
-</div>
-
-
-</div>
+  </div>
 </div>
 
 </section> 
 
 <section class="py-2">
-<div class="container container-custom">
-  <div class="row">
-    <h2 class="pg-heading text-center">Popular Categories</h2>
-    <p class="heading-para text-center">Unlimited Choices. Unbeatable Prices. Free Shipping</p>
-    <div class="d-sm-flex d-block justify-content-center categories">
-    <div class="item-box3">
-    <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
-     <h6>Beds</h6> 
-     <p>883+ Options Available</p>
-    </div>
-    <div class="item-box3">
-    <a href="beds">
-      <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
-       <h6>Sofas</h6> 
-       <p>883+ Options Available</p>
-       </a>
-      </div>
-
-      <div class="item-box3">
-        <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
-         <h6>Dining</h6> 
-         <p>883+ Options Available</p>
+  <div class="container container-custom">
+    <div class="row">
+      <h2 class="pg-heading text-center">Popular Categories</h2>
+      <div class="d-sm-flex d-block justify-content-center categories">
+        <div class="item-box3">
+          <a href="beds">
+            <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="urbanwood beds icon" loading="lazy">
+            <h6>Beds</h6> 
+            <p>883+ Options Available</p>
+          </a>
+        </div>
+        <div class="item-box3">
+          <a href="sofas">
+            <img src="catalog/view/javascript/assets/image/icon/sofa-pp-icon1.png" alt="wooden sofas" loading="lazy">
+            <h6>Sofas</h6> 
+            <p>883+ Options Available</p>
+          </a>
         </div>
 
         <div class="item-box3">
-          <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
-           <h6>Shoe Rack</h6> 
-           <p>883+ Options Available</p>
-          </div>
+          <a href="dining-room-furniture">
+            <img src="catalog/view/javascript/assets/image/icon/diningtable-pp-icons1.png" alt="complete dining room furniture at urbanwood" loading="lazy">
+            <h6>Dining</h6> 
+            <p>883+ Options Available</p>
+          </a>
+        </div>
 
-          <div class="item-box3">
-            <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
-             <h6>Study Table</h6> 
-             <p>883+ Options Available</p>
-            </div>
+        <div class="item-box3">
+          <a href="shoe-racks">
+            <img src="catalog/view/javascript/assets/image/icon/shoerack-pp-icon1.png" alt="stylish and solid shoe racks" loading="lazy">
+            <h6>Shoe Rack</h6> 
+            <p>883+ Options Available</p>
+            </a>
+        </div>
 
-            <div class="item-box3">
-              <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
-               <h6>bookcase</h6> 
-               <p>883+ Options Available</p>
-              </div>
+        <div class="item-box3">
+          <a href="study-tables">
+            <img src="catalog/view/javascript/assets/image/icon/studytable-pp-icon1.png" alt="study tables made of pure sheesham wood" loading="lazy">
+            <h6>Study Table</h6> 
+            <p>883+ Options Available</p>
+            </a>
+        </div>
 
-              <div class="item-box3">
-                <img src="catalog/view/javascript/assets/image/icon/bed-pp-icon1.png" alt="">
-                 <h6>Wardrobes</h6> 
-                 <p>883+ Options Available</p>
-                </div>
+        <div class="item-box3">
+          <a href="bookcase">
+            <img src="catalog/view/javascript/assets/image/icon/bookcase-pp-icon1.png" alt="bookcase urbanwood wooden" loading="lazy">
+            <h6>Bookcase</h6> 
+            <p>883+ Options Available</p>
+          </a>
+        </div>
+
+        <div class="item-box3">
+          <a href="wardrobes">
+            <img src="catalog/view/javascript/assets/image/icon/wardrobe-pp-icon1.png" alt="wardrobes made by urbanwood" loading="lazy">
+            <h6>Wardrobes</h6> 
+            <p>883+ Options Available</p>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-</div>
 </section>
 
 <section class="bottom-content py-4"> 
-<div class="container container-custom"> 
-<div class="row">
-  <div class="col-lg-12">
-  {{ long_description }}
-   </div>
-</div>
-</div>
+  <div class="container container-custom"> 
+    <div class="row">
+      <div class="col-lg-12">
+      {{ long_description }}
+      </div>
+    </div>
+  </div>
 
 
 </section>
 </div>
-{{ footer }}
+
+<script type="text/javascript">
+
+ var custom_filter = '{{custom_filter}}';
+ var custom_filter_cat_id = '{{category_id}}';
+ if(custom_filter){
+  categoryFilter(custom_filter,custom_filter_cat_id);
+}
+
+function categoryFilter(custom_filter_ids,custom_f_cat_id){
+
+  $.ajax({
+    url: '?route=product/category/categoryFilter',
+    type: 'post',
+    data: {'catids':custom_filter_ids,'main_category_id':custom_f_cat_id},
+
+    success: function(httml) {
+
+      $('#custom_filter_div').html(httml);
+
+    },
+    error: function(xhr, ajaxOptions, thrownError) {
+      alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+    }
+  });
+}
+$(".btAnimate").click(function(){
+    $(".ViewContent").toggleClass("show");
+  });
+</script>
 <script>
   var plock = 1;
   var page = 2;
@@ -446,16 +388,15 @@ background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ecec
   $(window).scroll(function() {
 
     var scrollTop     = $(window).scrollTop();
-    var elementOffset = $('#product_box').offset().bottom;
+    var elementOffset = $('#newslr').offset().top;
     var diffr = elementOffset-scrollTop;
     
     if($(window).scrollTop() >= $(
               '#product_box').offset().top + $('#product_box').
-                outerHeight() - window.innerHeight -500){  
+                outerHeight() - window.innerHeight){  
 
       if(plock==1){
-        plock++;
-        
+        plock=0;
         productLoading(); 
       }
     }
@@ -466,10 +407,11 @@ background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ecec
 var psort = '{{sort}}';
 var pfilter = '{{filters_data}}';
 var porder = '{{order}}';
+var pr = '{{pr}}';
 var ajaxUrl = '';
 function productLoading(){    
 
-   ajaxUrl = '?route=product/category2/productLoading&limit='+limitp+'&page='+page+'&category_id='+categoryloadmore;
+   ajaxUrl = '?route=product/category/productLoading&limit='+limitp+'&page='+page+'&category_id='+categoryloadmore;
 
    if(typeof(psort)!='undefined'){
      ajaxUrl += '&sort='+psort;
@@ -484,44 +426,35 @@ function productLoading(){
      ajaxUrl += '&order='+porder;
    }
     
+  if(typeof(pr)!='undefined'){
+     ajaxUrl += '&pr='+pr;
+   }
+
    $.ajax({
       url: ajaxUrl,
       dataType: 'html',
-      beforeSend: function() {
-        var loader_img = '<img src="catalog/view/javascript/assets/image/load-sofa.gif" alt="Loading" id="loadicn" style="width:70px;height:70px;"/>';
-  
-   $("#product_box").append(loader_img);
-      },
       success: function(html) {
         if(html.length != 0){
         page = page+1
-        $("#loadicn").remove();
         $('#product_box').append(html);
         plock=1;
         }else{
-          $("#loadicn").remove();
           plock=0;
         }
 
       },
       error: function(xhr, ajaxOptions, thrownError) {
-       alert('Loading....');
+      //  alert('Loading....');
+      console.log('no more product');
      }
    });
   }
-
-  $(".btAnimate").click(function(){
-    $(".ViewContent").toggleClass("show");
-  });
   </script>
   <script>
- function addtocart(quantity, product_id) {
-  // var formdata = new FormData();
-  // formData.append("quantity", quantity);
-  // formData.append("product_id", product_id);
+  function addtocart(quantity, product_id) {
 
 	$.ajax({
-		url: 'index.php?route=checkout/cart/add',
+		url: '?route=checkout/cart/add',
 		type: 'post',
 		data: {"quantity":quantity,"product_id":product_id},
 		dataType: 'json',
@@ -560,7 +493,7 @@ function productLoading(){
 				//$('.breadcrumb').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
         $('body').prepend('<div class="success-popup ">	<span class="warrning-svg">	<svg id="smile"		width="35" height="35" viewBox="0 0 41 41" fill="none">					  <path d="M16.2432 29.9911L16.5968 30.3439L16.95 29.9907L30.5886 16.352L30.9422 15.9985L30.5886 15.6449L27.7128 12.7691L27.3593 12.4156L27.0057 12.7691L16.592 23.1828L12.2699 18.8682L11.9158 18.5148L11.5626 18.869L8.69086 21.7489L8.33792 22.1028L8.69174 22.4558L16.2432 29.9911ZM0.823975 20.662C0.823975 9.72375 9.72375 0.823975 20.662 0.823975C31.6002 0.823975 40.5 9.72375 40.5 20.662C40.5 31.6002 31.6002 40.5 20.662 40.5C9.72375 40.5 0.823975 31.6002 0.823975 20.662Z" stroke="#33C300"/>  </svg>					</span>	<span class="warrning-text">   <p>' + json['success'] + '</p>	</span>				  </div>');
 				$('#cartli .badge_pp').text(json['total']);
-				$('html, body').animate({ scrollTop: 0 }, 'slow');
+				// $('html, body').animate({ scrollTop: 0 }, 'slow');
 
 				$('#cart > ul').load('index.php?route=common/cart/info ul li');
 			}
@@ -571,3 +504,24 @@ function productLoading(){
 	});
 }
 </script>
+<script>
+// Measures product impressions and also tracks a standard
+// pageview for the tag configuration.
+// Product impressions are sent by pushing an impressions object
+// containing one or more impressionFieldObjects.
+  // Clear the previous ecommerce object.
+
+dataLayer.push({
+  'event': 'view_item_list', 
+  'ecommerce': {
+    'currencyCode': 'INR',                       // Local currency is optional.
+    'impressions': itemsList
+  }
+});
+
+
+</script>
+<script>
+        fbq('track', 'ViewContent', { content_name: '{{ heading_title }}' });
+    </script>
+{{ footer }}

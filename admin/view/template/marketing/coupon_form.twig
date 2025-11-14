@@ -136,7 +136,6 @@
                     {% endfor %} </div>
                 </div>
               </div>
-
               {# ex_product html #}
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-ex-product"><span data-toggle="tooltip" title="{{ help_product }}">{{ 'exclude - ' ~ entry_product }}</span></label>
@@ -160,6 +159,7 @@
                     {% endfor %} </div>
                 </div>
               </div>
+              {# exclude category #}
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-ex-category"><span data-toggle="tooltip" title="{{ help_category }}">{{ 'exclude - ' ~ entry_category }}</span></label>
                 <div class="col-sm-10">
@@ -320,7 +320,6 @@ $('input[name=\'category\']').autocomplete({
 $('#coupon-category').delegate('.fa-minus-circle', 'click', function() {
 	$(this).parent().remove();
 });
-
 //ex-category
 $('input[name=\'ex_category\']').autocomplete({
 	'source': function(request, response) {

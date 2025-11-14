@@ -16,7 +16,7 @@ class ModelMarketingCampaign extends Model {
 
 	public function getMarketing($marketing_id) {
 		$query = $this->db->query("SELECT DISTINCT * FROM " . DB_PREFIX . "campaign WHERE campaign_id = '" . (int)$marketing_id . "'");
-
+// print_r("SELECT DISTINCT * FROM " . DB_PREFIX . "campaign WHERE campaign_id = '" . (int)$marketing_id . "'");
 		return $query->row;
 	}
 
@@ -136,7 +136,7 @@ class ModelMarketingCampaign extends Model {
 		}
 
 		if ($implode) {
-			$sql .= " WHERE o.order_status_id=2 AND " . implode(" AND ", $implode);
+			$sql .= " WHERE (o.order_status_id=2 OR o.order_status_id=3 OR o.order_status_id=5) AND " . implode(" AND ", $implode);
 		}
 		
 		// echo $sql;
@@ -156,4 +156,5 @@ class ModelMarketingCampaign extends Model {
 			return $query->rows;
 		}
 	}
+
 }

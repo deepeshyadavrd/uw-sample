@@ -20,7 +20,7 @@ class ControllerProductLiveSearch extends Controller {
 		$sort          = 'p.sort_order';
 		$order         = 'ASC';
 		$page          = 1;
-		$limit         = 10;//$this->config->get('module_live_search_limit');
+		$limit         = $this->config->get('module_live_search_limit');
 		$search_result = 0;
 		$error         = false;
 		if( version_compare(VERSION, '3.0.0.0', '>=') ){
@@ -42,7 +42,7 @@ class ControllerProductLiveSearch extends Controller {
 
 		if(!$error){
 			if (isset($this->request->get['filter_name'])) {
-				$this->load->model('catalog/product2');
+				$this->load->model('catalog/product');
 				$this->load->model('catalog/category');
 				$this->load->model('tool/image');
 				$filter_data = array(
@@ -56,8 +56,9 @@ class ControllerProductLiveSearch extends Controller {
 					'start'               => ($page - 1) * $limit,
 					'limit'               => $limit
 				);
+				// $results = $this->model_catalog_product->getProducts($filter_data);
 				$results = $this->model_catalog_category->getCategoryByName($filter_data);
-				$search_result = $this->model_catalog_product2->getTotalProducts($filter_data);
+				$search_result = $this->model_catalog_product->getTotalProducts($filter_data);
 				$image_width        = $this->config->get('module_live_search_image_width') ? $this->config->get('module_live_search_image_width') : 0;
 				$image_height       = $this->config->get('module_live_search_image_height') ? $this->config->get('module_live_search_image_height') : 0;
 				$title_length       = $this->config->get('module_live_search_title_length');
@@ -98,11 +99,11 @@ class ControllerProductLiveSearch extends Controller {
 						'product_id' => $result['category_id'],
 						'minimum'    => $result['minimum'],
 						'image'      => $image,
-						'name'       => utf8_substr(strip_tags(html_entity_decode($result['name'], ENT_QUOTES, 'UTF-8')), 0, $title_length),
+						'name'       => utf8_substr(strip_tags(html_entity_decode($result['name'], ENT_QUOTES, 'UTF-8')), 0, $title_length) . '..',
 						'extra_info' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $description_length) . '..',
 						'price'      => $price,
 						'special'    => $special,
-						'url'        => $this->url->link('product/category2', 'path=' . $result['category_id'])
+						'url'        => $this->url->link('product/category', 'path=' . $result['category_id'])
 					);
 				}
 			}

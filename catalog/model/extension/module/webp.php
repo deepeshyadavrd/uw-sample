@@ -8,6 +8,7 @@
  * $date: 11 JULY 2020
 *******************************************************/
 class ModelExtensionModuleWebp extends Model {
+	
 	public function webp_image($filename) {
 		file_put_contents(DIR_IMAGE . 'webp_debug.log', "Extension is running\n", FILE_APPEND);
 		$module_status = $this->config->get('module_webpimages_status');

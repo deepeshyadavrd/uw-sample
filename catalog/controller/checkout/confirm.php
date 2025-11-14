@@ -2,7 +2,7 @@
 class ControllerCheckoutConfirm extends Controller {
 	public function index() {
 		$redirect = '';
-		print_r($this->session->data);
+
 		if ($this->cart->hasShipping()) {
 			// Validate if shipping address has been set.
 			if (!isset($this->session->data['shipping_address'])) {
@@ -97,7 +97,7 @@ class ControllerCheckoutConfirm extends Controller {
 			array_multisort($sort_order, SORT_ASC, $totals);
 
 			$order_data['totals'] = $totals;
-			
+
 			$this->load->language('checkout/checkout');
 
 			$order_data['invoice_prefix'] = $this->config->get('config_invoice_prefix');
@@ -222,7 +222,7 @@ class ControllerCheckoutConfirm extends Controller {
 						'type'                    => $option['type']
 					);
 				}
-				
+
 				$order_data['products'][] = array(
 					'product_id' => $product['product_id'],
 					'name'       => $product['name'],
@@ -259,7 +259,7 @@ class ControllerCheckoutConfirm extends Controller {
 
 			$order_data['comment'] = $this->session->data['comment'];
 			$order_data['total'] = round($total_data['total']);
-			$this->session->data['totals'] = $order_data['total'];
+
 			if (isset($this->request->cookie['utm_source'])) {
 				$order_data['utm_source'] = $this->request->cookie['utm_source'];
 

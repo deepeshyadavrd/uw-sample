@@ -1,9 +1,9 @@
-<?php
-class ControllerHomeBottomcontent extends Controller{
-     public function index(){
-
-        
-        return $this->load->view('home/bottomcontent', $data);
-     }
-}
+<?php
+class ControllerHomeBottomcontent extends Controller{
+     public function index(){
+
+        
+        return $this->load->view('home/bottomcontent', $data);
+     }
+}
 ?>

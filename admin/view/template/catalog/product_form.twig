@@ -56,7 +56,15 @@
                       <div class="text-danger">{{ error_name[language.language_id] }}</div>
                       {% endif %} </div>
                   </div>
-
+                  <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-name{{ language.language_id }}">Main Category</label>
+                    <div class="col-sm-10">
+                      <input type="text" placeholder="Select Main category" id="input-name{{ language.language_id }}" class="form-control selectmain" value={{main_category_name}} />
+                      {% if error_name[language.language_id] %}
+                      <div class="text-danger">{{ error_name[language.language_id] }}</div>
+                      {% endif %} </div>
+                  </div>
+                  <input type="hidden" name="product_description[{{ language.language_id }}][main_category]" value="{{ product_description[language.language_id] ? product_description[language.language_id].main_category }}" placeholder="Select Main category"  class="form-control selectmainvalue" />
                   <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-description{{ language.language_id }}">{{ entry_description }}</label>
                     <div class="col-sm-10">
@@ -93,16 +101,6 @@
                 {% endfor %}</div>
             </div>
             <div class="tab-pane" id="tab-data">
-            {# parent product html #}
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" for="input-parent_id">Parent ID</label>
-                    <div class="col-sm-10">
-                      <input type="text" name="parent_product" value="{{ parent_product }}" placeholder="Parent Product" id="input-parent_id" class="form-control" />
-                      <input type="hidden" name="parent_product_id" value="{{ parent_product_id }}" />
-                      {% if error_name[language.language_id] %}
-                      <div class="text-danger">{{ error_name[language.language_id] }}</div>
-                      {% endif %} </div>
-                  </div>
               <div class="form-group required">
                 <label class="col-sm-2 control-label" for="input-model">{{ entry_model }}</label>
                 <div class="col-sm-10">
@@ -110,6 +108,30 @@
                   {% if error_model %}
                   <div class="text-danger">{{ error_model }}</div>
                   {% endif %}</div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-model">Bestseller</label>
+                <div class="col-sm-10">
+                {% if bestseller==1 %}
+                  <input type="checkbox" name="bestseller" class="form-control" checked value="1">
+                {%else%}
+                  <input type="checkbox" name="bestseller" class="form-control" value="1">
+                {%endif%}
+                  {% if error_bestseller %}
+                  <div class="text-danger">{{ error_bestseller }}</div>
+                  {% endif %}</div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-model">Fast Shipping </label>
+                <div class="col-sm-10">
+                {% if fast_shipping==1 %}
+                  <input type="checkbox" name="fast_shipping" class="form-control" checked value="1">
+                {% else %}
+                  <input type="checkbox" name="fast_shipping" class="form-control" value="1">
+                {% endif %}
+                 
+                  </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-sku"><span data-toggle="tooltip" title="{{ help_sku }}">{{ entry_sku }}</span></label>
@@ -519,9 +541,7 @@
                   <tbody>
                   
                   {% set attribute_row = 0 %}
-                  
                   {% for product_attribute in product_attributes %}
-                  
                   <tr id="attribute-row{{ attribute_row }}">
                     <td class="text-left" style="width: 40%;"><input type="text" name="product_attribute[{{ attribute_row }}][name]" value="{{ product_attribute.name }}" placeholder="{{ entry_attribute }}" class="form-control" />
                       <input type="hidden" name="product_attribute[{{ attribute_row }}][attribute_id]" value="{{ product_attribute.attribute_id }}" /></td>
@@ -1209,27 +1229,6 @@
   <script type="text/javascript" src="view/javascript/summernote/summernote-image-attributes.js"></script> 
   <script type="text/javascript" src="view/javascript/summernote/opencart.js"></script> 
   <script type="text/javascript"><!--
-  //parent product
-  $('input[name=\'parent_product\']').autocomplete({
-	'source': function(request, response) {
-		$.ajax({
-			url: 'index.php?route=catalog/product/autocomplete&user_token={{ user_token }}&filter_name=' +  encodeURIComponent(request),
-			dataType: 'json',
-			success: function(json) {
-				response($.map(json, function(item) {
-					return {
-						label: item['name'],
-						value: item['product_id']
-					}
-				}));
-			}
-		});
-	},
-	'select': function(item) {
-		$('input[name=\'parent_product\']').val(item['label']);
-		$('input[name=\'parent_product_id\']').val(item['value']);
-	}
-});
 // Manufacturer
 $('input[name=\'manufacturer\']').autocomplete({
 	'source': function(request, response) {
@@ -1279,6 +1278,31 @@ $('input[name=\'category\']').autocomplete({
 		$('#product-category' + item['value']).remove();
 
 		$('#product-category').append('<div id="product-category' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="product_category[]" value="' + item['value'] + '" /></div>');
+	}
+});
+
+// Category
+$('.selectmain').autocomplete({
+	'source': function(request, response) {
+		$.ajax({
+			url: '?route=catalog/category/autocomplete&user_token={{ user_token }}&filter_name=' +  encodeURIComponent(request),
+			dataType: 'json',
+			success: function(json) {
+				response($.map(json, function(item) {
+					return {
+						label: item['name'],
+						value: item['category_id']
+					}
+				}));
+			}
+		});
+	},
+	'select': function(item) {
+	     $('.selectmain').val(item['label']);
+	     $('.selectmainvalue').val(item['value']);
+
+
+        
 	}
 });
 
@@ -1402,7 +1426,7 @@ $('input[name=\'bundle\']').autocomplete({
 $('#product-bundle').delegate('.fa-minus-circle', 'click', function() {
 	$(this).parent().remove();
 });
-</script>    
+</script>
 {# group start #}
 <script type="text/javascript"><!--
 var group_row = {{ group_row }};

@@ -42,12 +42,6 @@ class ControllerAccountRegisterapi extends Controller {
 		} else {
 			$data['error_email'] = '';
 		}
-		
-		if (isset($this->error['telephone'])) {
-			$data['error_telephone'] = $this->error['telephone'];
-		} else {
-			$data['error_telephone'] = '';
-		}
 
 		if (isset($this->error['password'])) {
 			$data['error_password'] = $this->error['password'];
@@ -94,7 +88,7 @@ class ControllerAccountRegisterapi extends Controller {
 			$this->error['warning'] = $this->language->get('error_exists');
 		}
 
-		if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 11)) {
+		if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
 			$this->error['telephone'] = $this->language->get('error_telephone');
 		}
 

@@ -6,7 +6,6 @@
 <div class="col-md-12 col-sm-12">
   <nav class="breadcumb-navigation">
     <ol class="breadcrumb m-0 p-2">
-      {# <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li> #}
       {% for breadcrumb in breadcrumbs %}
       <li class="breadcrumb-item active" aria-current="page">{{ breadcrumb.text }}</li>
       {% endfor %}
@@ -17,71 +16,43 @@
     </div>
 </div>
 
-{#<div id="account-order" class="container">
-  <ul class="breadcrumb">
-    {% for breadcrumb in breadcrumbs %}
-    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
-    {% endfor %}
-  </ul>
-  <div class="row">{{ column_left }}
-    {% if column_left and column_right %}
-    {% set class = 'col-sm-6' %}
-    {% elseif column_left or column_right %}
-    {% set class = 'col-sm-9' %}
-    {% else %}
-    {% set class = 'col-sm-12' %}
-    {% endif %}
-    <div id="content" class="{{ class }}">{{ content_top }}
-      <h1>{{ heading_title }}</h1>
-      {% if orders %}
-      <div class="table-responsive">
-        <table class="table table-bordered table-hover">
-          <thead>
-            <tr>
-              <td class="text-right">{{ column_order_id }}</td>
-              <td class="text-left">{{ column_customer }}</td>
-              <td class="text-right">{{ column_product }}</td>
-              <td class="text-left">{{ column_status }}</td>
-              <td class="text-right">{{ column_total }}</td>
-              <td class="text-left">{{ column_date_added }}</td>
-              <td></td>
-            </tr>
-          </thead>
-          <tbody>
-           {% for order in orders %}
-            <tr>
-              <td class="text-right">#{{ order.order_id }}</td>
-              <td class="text-left">{{ order.name }}</td>
-              <td class="text-right">{{ order.products }}</td>
-              <td class="text-left">{{ order.status }}</td>
-              <td class="text-right">{{ order.total }}</td>
-              <td class="text-left">{{ order.date_added }}</td>
-              <td class="text-right"><a href="{{ order.view }}" data-toggle="tooltip" title="{{ button_view }}" class="btn btn-info"><i class="fa fa-eye"></i></a></td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-      <div class="row">
-        <div class="col-sm-6 text-left">{{ pagination }}</div>
-        <div class="col-sm-6 text-right">{{ results }}</div>
-      </div>
-      {% else %}
-      <p>{{ text_empty }}</p>
-      {% endif %}
-      <div class="buttons clearfix">
-        <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
-      </div>
-      {{ content_bottom }}</div>
-    {{ column_right }}</div>
-</div> #}
 <style>
-    .user-panel-box {
+/* common with account */
+.user-panel-list {
+	margin: 16px auto;
+	padding: 0
+}
+
+.user-panel-list li {
+	margin: 15px auto 0;
+	padding: 0;
+	width: 100%
+}
+
+.user-panel-list li a {
+	background: #fff9f4;
+	color: #ff8000;
+	font-size: 15px;
+	margin: auto;
+	padding: 10px 18px;
+	width: 100%;
+	display: block;
+	border-radius: 10px
+}
+
+/* .add-to-cart-btn:hover, */
+.user-panel-list li .active {
+	background: #ff8000;
+	color: #fff
+}
+.user-panel-box {
         background: #fff;
         border-radius: 14px;
         box-shadow: 0px 0px 13px #0000001c;
         padding: 20px;
     }
+/* common with account */
+    
     .tab-name {
         width: 100%;
         background: #fff5f0;
@@ -147,35 +118,7 @@
         text-align: center;
         margin-bottom: 13px;
     }
-    .nav-page {
-  padding: 10px;
-  margin: 0 auto;
-  display: block;
-  width: 100%;
-}
-.pagination-order {
-  margin: 0px;
-  padding: 0px;
-}
-.pagination-order .page-item {
-  float: left;
-  margin: 0px 1px;
-  color: #9f9f9f;
-  padding: 4px 11px;
-  border-radius: 100px;
-  transition-delay: .5s;
-  font-size: 14px;
-}
-.pagination-order .page-item:hover{
-  background: #ff8000;
-  color: #fff;
-
-}
-.pagination-order .page-item.active {
-    background: #ff8000;
-    color: #fff;
-    border-radius: 100px;
-}
+ 
 .btn.btn-check-bill {
   border-radius: 100px;
   border: 1px solid #fc7e007a;
@@ -302,19 +245,16 @@ box-shadow:none;
         <div class="col-lg-2 col-md-12 col-sm-12 pt-lg-0 pt-sm-5">
           <div class="user-panel ">
             <ul class="nav flex-column nav-pills user-panel-list" id="v-pills-tab" role="tablist">
-              <li><a href="userprofile.html" class=" " id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">My Profile</a></li>
-              <li><a href="" class="active" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">My Orders</a></li>
+              <li><a href="account" class="" >Profile</a></li>
+              <li><a href="address" class="" >Address</a></li>
+              <li><a href="" class="active">Orders</a></li>
             </ul>
           </div>
         </div>
         <div class="col-lg-10 col-md-12 col-sm-12 ">
-          {# <div class="user-panel-box"> #}
-            {# <div class="tab-content" id="v-pills-tabContent"> #}
-              {# <div class="" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab"> #}
+
                 <div class="row">
-                  {# <div class="col-lg-12"> 
-                    <div class="tab-name">Your Order Details</div>
-                  </div> #}
+
                   {% for order in orders %}
 
 
@@ -344,10 +284,6 @@ box-shadow:none;
         <div class="col-sm-6 text-left">{{ pagination }}</div>
         <div class="col-sm-6 text-right">{{ results }}</div>
       </div>
-
-              {# </div> #}
-            {# </div> #}
-          {# </div> #}
         </div>
       </div>
     </div>

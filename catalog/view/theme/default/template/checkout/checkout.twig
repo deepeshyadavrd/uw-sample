@@ -1,110 +1,51 @@
-{# {{ header }}
-<div id="checkout-checkout" class="container">
-  <ul class="breadcrumb">
-    {% for breadcrumb in breadcrumbs %}
-    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
-    {% endfor %}
-  </ul>
-  {% if error_warning %}
-  <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-  </div>
-  {% endif %}
-  <div class="row">{{ column_left }}
-    {% if column_left and column_right %}
-    {% set class = 'col-sm-6' %}
-    {% elseif column_left or column_right %}
-    {% set class = 'col-sm-9' %}
-    {% else %}
-    {% set class = 'col-sm-12' %}
-    {% endif %}
-    <div id="content" class="{{ class }}">{{ content_top }}
-      <h1>{{ heading_title }}</h1>
-      <div class="panel-group" id="accordion">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">{{ text_checkout_option }}</h4>
-          </div>
-          <div class="panel-collapse collapse" id="collapse-checkout-option">
-            <div class="panel-body"></div>
-          </div>
-        </div>
-        {% if not logged and account != 'guest' %}
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">{{ text_checkout_account }}</h4>
-          </div>
-          <div class="panel-collapse collapse" id="collapse-payment-address">
-            <div class="panel-body"></div>
-          </div>
-        </div>
-        {% else %}
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">{{ text_checkout_payment_address }}</h4>
-          </div>
-          <div class="panel-collapse collapse" id="collapse-payment-address">
-            <div class="panel-body"></div>
-          </div>
-        </div>
-        {% endif %}
-        {% if shipping_required %}
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">{{ text_checkout_shipping_address }}</h4>
-          </div>
-          <div class="panel-collapse collapse" id="collapse-shipping-address">
-            <div class="panel-body"></div>
-          </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">{{ text_checkout_shipping_method }}</h4>
-          </div>
-          <div class="panel-collapse collapse" id="collapse-shipping-method">
-            <div class="panel-body"></div>
-          </div>
-        </div>
-        {% endif %}
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">{{ text_checkout_payment_method }}</h4>
-          </div>
-          <div class="panel-collapse collapse" id="collapse-payment-method">
-            <div class="panel-body"></div>
-          </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">{{ text_checkout_confirm }}</h4>
-          </div>
-          <div class="panel-collapse collapse" id="collapse-checkout-confirm">
-            <div class="panel-body"></div>
-          </div>
-        </div>
-      </div>
-      {{ content_bottom }}</div>
-    {{ column_right }}</div>
-</div> #}
-
 {{ header }}
+{{ menu }}
+</div>
+<script>
+        
 
+        const filters = {{ products | json_encode | raw }};
+          
+var itemsList = [];
+
+for(var i = 0; i < filters.length; i++) {
+    var obj = {};
+    obj['item_id'] = filters[i]['product_id'];
+    obj['item_name'] = filters[i]['name'];
+    obj['price'] = filters[i]['special_number'];
+    obj['item_category'] = filters[i]['p_cat'];
+    obj['quantity'] = filters[i]['quantity'];
+    obj['item_brand'] = 'Urbanwood';
+    itemsList.push(obj);
+}
+
+          </script>
+          <style>
+          .real-amm {
+    font-size: 31px;
+    font-weight: bold;
+    color:#ff8000;
+    margin-right: 10px;
+}
+
+.off-amm {
+    color: #1ecb09;
+    font-weight: 600;
+}
+          </style>
 <div class="wrapper">
 <div class="wizard-sec"> 
   <div class="stepwizard-outer">
     <div class="stepwizard">
       <div class="stepwizard-row setup-panel">
           <div class="stepwizard-step col-xs-3"> 
-              <a href="#step-1" type="button" class="step-for-checkout step-for-checkout-scuss"><i class="fas fa-chair"></i></a>
-              <!-- <p><small>Shipper</small></p> -->
+              <a href="#step-1" type="button" class="step-for-checkout step-for-checkout-scuss"><i class='bx bx-chair' ></i></a>
           </div>
           <div class="stepwizard-step col-xs-3"> 
-              <a href="#step-2" type="button" class="step-for-checkout" disabled="disabled"><i class="fas fa-street-view"></i></a>
-              <!-- <p><small>Destination</small></p> -->
+              <a href="#step-2" type="button" class="step-for-checkout" disabled="disabled"><i class='bx bx-street-view' ></i></a>
           </div>
           <div class="stepwizard-step col-xs-3"> 
-              <a href="#step-3" type="button" class="step-for-checkout" disabled="disabled"><i class="fas fa-shopping-bag"></i></a>
-              <!-- <p><small>Schedule</small></p> -->
+              <a href="#step-3" type="button" class="step-for-checkout" disabled="disabled"><i class='bx bxs-shopping-bag' ></i></a>
           </div>
         
       </div>
@@ -113,13 +54,6 @@
     <div class="container container-custom">
         <div class="row">
             <div class="col-lg-12">
-              
-                
-                
-
-
-
-
                 <div class="panel panel-primary setup-content" id="step-2" style="display:block;">
                   <div class="row ">
                     <div class="col-lg-8">
@@ -133,7 +67,6 @@
 <label for="test-1" id="label-test-1" class="label-00">Personal</label>
 <input type="radio" name="test" id="test-2" class="radio-test form-check-input form-check-finish">
 <label for="test-2" id="label-test-2" class="label-00">Business</label>
-
 
 <div class="content content-test-1" id="content-test-1">
   <form class="billing-from needs-validation" novalidate="">
@@ -181,8 +114,6 @@
               <option value="2">Two</option>
               <option value="3">Three</option>
             </select>
-        
-
     </div>
 </div>
     <div class="col-lg-6">
@@ -490,84 +421,51 @@
       <table class="table table-borderless">
         
         <tbody>
+        <tr>
+            <td>MRP</td>
+            <td>{{ total_mrp }}</td>
+          </tr>
           <tr>
-                              <td>MRP</td>
-                              <td>{{ total_mrp }}</td>
-                            </tr>
-                            <tr>
-                              <td>Delivery</td>
-                              <td style="color:#48ca1a;font-weight:800;">Free</td>
-                            </tr>
-                            {# <tr style="color:#48ca1a;font-weight:600;">
-                              <td>Discount</td>
-                              <td>{{ discount_amt }}</td>
-                            </tr> #}
-                          {% for total in totals %}
+            <td>Delivery</td>
+            <td style="color:#48ca1a;font-weight:800;">Free</td>
+          </tr>
+          <script>
+          const filters2 = {{ totals | json_encode | raw }};
+            {% if filters2[1]['title'] == 'total' %}
+            var itemsList2 = filters2[1]['text'].substring(1);
+            {% else %}
+            var itemsList2 = filters2[2]['text'].substring(1);
+            {% endif %}
 
-                          {% if loop.last %}  
-                            
-                            <tr class="bill-total-sub">
-                              <td>{{ total.title }}</td>
-                              <td>{{ total.text }}</td>
-                            </tr>
-                            {% else %}
+</script>
+          {% for total in totals %}
 
-                              {% if 'Coupon' in total.title %}
-                                <tr style="color:#48ca1a;font-weight:600;">
-                                  <td>{{ total.title }}</td>
-                                  <td>{{ total.text }}</td>
-                                </tr>
-                              {% else %}
-                                <tr>
-                                  <td>{{ total.title }}</td>
-                                  <td>{{ total.text }}</td>
-                                </tr>
-                              {% endif %}
-                              
+            {% if loop.last %}
+
+              <tr class="bill-total-sub">
+                <td>{{ total.title }}</td>
+                <td>{{ total.text }}</td>
+              </tr>
+            {% else %}
+            
+                {% if 'Coupon' in total.title %}
+                  <tr style="color:#48ca1a;font-weight:600;">
+                    <td>{{ total.title }}</td>
+                    <td>{{ total.text }}</td>
+                  </tr>
+                {% else %}
+              <tr>
+                <td>{{ total.title }}</td>
+                <td>{{ total.text }}</td>
+              </tr>
+            {% endif %}
+             
                             {% endif %}
-                          {% endfor %}
-          {# <tr class="even">
-            <td class="bill-sec">Item No</td>
-            <td>1</td>
-    
-          </tr>
-          <tr class="odd">
-            <td class="bill-sec">Item  Total</td>
-            <td>₹24,332</td>
-         
-          </tr>
-          <tr class="even">
-            <td class="bill-sec">Coupon Discount :</td>
-            <td> <span class="free-tag"> ₹-3,131 </span></td>
-         
-          </tr>
-          <tr class="odd">
-            <td class="bill-sec">Order Packing Charges <span><small>( Per Item )</small></span></td>
-            <td>₹332</td>
-            
-      
-          </tr>
-          <tr class="even">
-            <td class="bill-sec">Order Packing Charges <span><small>( Per Item )</small></span></td>
-            <td> <span class="free-tag"> FREE	</span></td>
-            
-      
-          </tr>
-          
-          <tr class="odd">
-            <td class="bill-sec">Taxes <span><small>( Per Item )</small></span></td>
-            <td><span class="free-tag">FREE	</span></td>
-      
-          </tr>
-          <tr class="bill-total-sub even">
-            <td>Bill Total</td>
-            <td>₹50,000</td>
-          </tr> #}
+          {% endfor %}
           
         </tbody>
       </table>
       <div class="save-ammt-con">You will save &nbsp;{{ total_save }} on this order</div>
-      <!-- <button class="procced-next-button" type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop"> Procced </button> -->
 
       <div class="we-accpt-pay">
         <div class="heading-acpt">We Accept</div>
@@ -589,7 +487,6 @@
         <div class="mb-3"> 
           
           <div class="list-of-cart">
-            {# <a href="#remove-cart-drop" class="position-absolute top-0 text-black-50 fw-normal fs-6" data-bs-toggle="collapse" style="right:10px;z-index: 9;"><i class="fas fa-times" style="color:#ff8000"></i></a> #}
             <div class="d-flex align-items-center">
               <div class="pp-img-cart">
                 <div class="cart-img">
@@ -600,60 +497,29 @@
                 <div class="d-sm-flex d-block justify-content-start  align-items-start my-2">
                   <div class="cart-p-name mx-lg-2 m-0">
                     {{ product.name }}  <br> 
-                    {# <span class="pp-quality-name">Premium chair </span> #}
                   </div> 
                   <div class="price--order price--order-checkout">
-                    <div class="real-amm">{{ product.total }}</div>
-                    {# <div class="dis-amm">₹35,035</div> #}
+                    <div class="real-amm">{{ product.price }}</div>
                     <div class="off-amm">{{ product.discount }}% OFF</div>
                   </div>
                 </div>
-                {# <div class="d-md-flex justify-content-between my-2">
-                <div class="quantity-bar">
-                  <div class="countItem">                    
-                    <span class="btn-minus"><span class="fa fa-minus"></span></span>
-                    <input value="1" class="count">
-                    <span class="btn-plus"><span class="fa fa-plus"></span></span>
-            </div>
-                </div>
-                </div> #}
+                
               </div>
             </div>
           </div>
-          {# <div id="remove-cart-drop" class="collapse">
-          <div class="romove cart-pop-bottom">
-         <div class="con-rem">
-          <p>Are you sure you want to remove this item from cart? </p></div>
-           <div class="rem-btn-sec">
-          <button class="btn remove-cart-btn mx-1"> remove</button>
-          <button class=" mx-1 move-wishlist-btn"> move to wishlist</button>
+          
         </div>
-          </div>
-        </div> #}
-        </div>
-        {% endfor %}
-       
+        {% endfor %}       
         
         </div>
     </div>
   </div>
-
-
-
-
-                      </div>
-                </div>
-         
-
-            </div>
-        </div>
-    </div>
+  </div>
+ </div>
+ </div>
 </div>
-
-
-
-
-
+</div>
+</div>
 
 <div class="offcanvas offcanvas-end" tabindex="-1" id="canvasapplycoupon" aria-labelledby="canvasapplycouponLabel" style="background-color: #fff5f0;">
   <div class="offcanvas-header">
@@ -726,11 +592,7 @@
         </ul>
       </div>
     </div>
-    
-
-    
-
-
+  
   </div>
 </div>
 
@@ -756,14 +618,10 @@ $(document).on('change', 'input[name=\'account\']', function() {
 {% if not logged %}
 $(document).ready(function() {
     $.ajax({
-        url: 'index.php?route=checkout/login',
+        url: '?route=checkout/login',
         dataType: 'html',
         success: function(html) {
            $('#staticBackdrop').html(html).modal('show');
-
-			// $('#collapse-checkout-option').parent().find('.panel-heading .panel-title').html('<a href="#collapse-checkout-option" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_option }} <i class="fa fa-caret-down"></i></a>');
-
-			// $('a[href=\'#collapse-checkout-option\']').trigger('click');
         },
         error: function(xhr, ajaxOptions, thrownError) {
             alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
@@ -773,7 +631,7 @@ $(document).ready(function() {
 {% else %}
 $(document).ready(function() {
     $.ajax({
-        url: 'index.php?route=checkout/payment_address',
+        url: '?route=checkout/payment_address',
         dataType: 'html',
         success: function(html) {
             $('#addressform').html(html);
@@ -793,7 +651,7 @@ $(document).ready(function() {
 $(document).delegate('.guestlogin', 'click', function() {
   var whereto = $(this).attr('data-value');
     $.ajax({
-        url: 'index.php?route=checkout/'+whereto,// + $('input[name=\'account\']:checked').val(),
+        url: '?route=checkout/'+whereto,// + $('input[name=\'account\']:checked').val(),
         dataType: 'html',
         beforeSend: function() {
         	$('.guestlogin').button('loading');
@@ -803,11 +661,17 @@ $(document).delegate('.guestlogin', 'click', function() {
         },
         success: function(html) {
           $('#staticBackdrop').modal('hide');
-        //    $('.alert-dismissible, .text-danger').remove();
-			//$('.form-group').removeClass('has-error');
 
             $('#addressform').html(html);
-
+gtag("event", "add_shipping_info", {
+  currency: "INR",
+  value: {{ alltimetotal }},
+  items: [
+    {
+      itemsList
+    }
+  ]
+});
 			if ($('input[name=\'account\']:checked').val() == 'register') {
 				$('#collapse-payment-address').parent().find('.panel-heading .panel-title').html('<a href="#collapse-payment-address" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_account }} <i class="fa fa-caret-down"></i></a>');
 			} else {
@@ -825,7 +689,7 @@ $(document).delegate('.guestlogin', 'click', function() {
 // Login
 $(document).delegate('#button-login', 'click', function() {
     $.ajax({
-        url: 'index.php?route=checkout/login/save',
+        url: '?route=checkout/login/save',
         type: 'post',
         data: $('#loginform :input'),
         dataType: 'json',
@@ -858,7 +722,7 @@ $(document).delegate('#button-login', 'click', function() {
 // Register
 $(document).delegate('#button-register', 'click', function() {
     $.ajax({
-        url: 'index.php?route=checkout/register/save',
+        url: '?route=checkout/register/save',
         type: 'post',
         data: $('#registerform input[type=\'text\'], #registerform input[type=\'email\'], #registerform input[type=\'password\'], #registerform input[type=\'hidden\'], #registerform input[type=\'checkbox\']:checked, #registerform input[type=\'radio\']:checked, #registerform textarea, #registerform select'),
         dataType: 'json',
@@ -896,12 +760,12 @@ $(document).delegate('#button-register', 'click', function() {
 
                 if (shipping_address) {
                     $.ajax({
-                        url: 'index.php?route=checkout/shipping_method',
+                        url: '?route=checkout/shipping_method',
                         dataType: 'html',
                         success: function(html) {
 							// Add the shipping address
                             $.ajax({
-                                url: 'index.php?route=checkout/shipping_address',
+                                url: '?route=checkout/shipping_address',
                                 dataType: 'html',
                                 success: function(html) {
                                     $('#collapse-shipping-address .panel-body').html(html);
@@ -929,7 +793,7 @@ $(document).delegate('#button-register', 'click', function() {
                     });
                 } else {
                     $.ajax({
-                        url: 'index.php?route=checkout/shipping_address',
+                        url: '?route=checkout/shipping_address',
                         dataType: 'html',
                         success: function(html) {
                             $('#collapse-shipping-address .panel-body').html(html);
@@ -949,7 +813,7 @@ $(document).delegate('#button-register', 'click', function() {
                 }
                 {% else %}
                 $.ajax({
-                    url: 'index.php?route=checkout/payment_method',
+                    url: '?route=checkout/payment_method',
                     dataType: 'html',
                     success: function(html) {
                         $('#addressform').html(html);
@@ -967,7 +831,7 @@ $(document).delegate('#button-register', 'click', function() {
                 {% endif %}
 
                 $.ajax({
-                    url: 'index.php?route=checkout/payment_address',
+                    url: '?route=checkout/payment_address',
                     dataType: 'html',
                     complete: function() {
                         $('#button-register').button('reset');
@@ -992,7 +856,7 @@ $(document).delegate('#button-register', 'click', function() {
 // Payment Address
 $(document).delegate('#button-payment-address', 'click', function() {
     $.ajax({
-        url: 'index.php?route=checkout/payment_address/save',
+        url: '?route=checkout/payment_address/save',
         type: 'post',
         data: $('#newaddressform input[type=\'text\'], #newaddressform input[type=\'date\'], #newaddressform input[type=\'datetime-local\'], #newaddressform input[type=\'time\'], #newaddressform input[type=\'password\'], #newaddressform input[type=\'checkbox\']:checked, #newaddressform input[type=\'radio\']:checked, #newaddressform input[type=\'hidden\'], #newaddressform textarea, #newaddressform select'),
         dataType: 'json',
@@ -1015,7 +879,6 @@ $(document).delegate('#button-payment-address', 'click', function() {
                 }
 
 				for (i in json['error']) {
-          
 					var element = $('#input-payment-' + i.replace('_', '-'));
 
 					if ($(element).parent().hasClass('input-group')) {
@@ -1030,7 +893,7 @@ $(document).delegate('#button-payment-address', 'click', function() {
             } else {
                 {% if shipping_required %}
                 $.ajax({
-                    url: 'index.php?route=checkout/shipping_address',
+                    url: '?route=checkout/shipping_address',
                     dataType: 'html',
                     success: function(html) {
                         $('#collapse-shipping-address .panel-body').html(html);
@@ -1048,7 +911,7 @@ $(document).delegate('#button-payment-address', 'click', function() {
                     }
                 }).done(function() {
 					$.ajax({
-						url: 'index.php?route=checkout/payment_address',
+						url: '?route=checkout/payment_address',
 						dataType: 'html',
 						success: function(html) {
 							$('#addressform').html(html);
@@ -1060,7 +923,7 @@ $(document).delegate('#button-payment-address', 'click', function() {
 				});
                 {% else %}
                 $.ajax({
-                    url: 'index.php?route=checkout/payment_method',
+                    url: '?route=checkout/payment_method',
                     dataType: 'html',
                     success: function(html) {
                         $('#addressform').html(html);
@@ -1076,7 +939,7 @@ $(document).delegate('#button-payment-address', 'click', function() {
                     }
                 }).done(function() {
 					$.ajax({
-						url: 'index.php?route=checkout/payment_address',
+						url: '?route=checkout/payment_address',
 						dataType: 'html',
 						success: function(html) {
 							$('#addressform').html(html);
@@ -1098,7 +961,7 @@ $(document).delegate('#button-payment-address', 'click', function() {
 // Shipping Address
 $(document).delegate('#button-shipping-address', 'click', function() {
     $.ajax({
-        url: 'index.php?route=checkout/shipping_address/save',
+        url: '?route=checkout/shipping_address/save',
         type: 'post',
         data: $('#collapse-shipping-address input[type=\'text\'], #collapse-shipping-address input[type=\'date\'], #collapse-shipping-address input[type=\'datetime-local\'], #collapse-shipping-address input[type=\'time\'], #collapse-shipping-address input[type=\'password\'], #collapse-shipping-address input[type=\'checkbox\']:checked, #collapse-shipping-address input[type=\'radio\']:checked, #collapse-shipping-address textarea, #collapse-shipping-address select'),
         dataType: 'json',
@@ -1132,7 +995,7 @@ $(document).delegate('#button-shipping-address', 'click', function() {
 				$('.text-danger').parent().parent().addClass('has-error');
             } else {
                 $.ajax({
-                    url: 'index.php?route=checkout/shipping_method',
+                    url: '?route=checkout/shipping_method',
                     dataType: 'html',
                     complete: function() {
                         $('#button-shipping-address').button('reset');
@@ -1148,7 +1011,7 @@ $(document).delegate('#button-shipping-address', 'click', function() {
 						$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('{{ text_checkout_confirm }}');
 						
                         $.ajax({
-                            url: 'index.php?route=checkout/shipping_address',
+                            url: '?route=checkout/shipping_address',
                             dataType: 'html',
                             success: function(html) {
                                 $('#collapse-shipping-address .panel-body').html(html);
@@ -1163,7 +1026,7 @@ $(document).delegate('#button-shipping-address', 'click', function() {
                     }
                 }).done(function() {
 					$.ajax({
-						url: 'index.php?route=checkout/payment_address',
+						url: '?route=checkout/payment_address',
 						dataType: 'html',
 						success: function(html) {
 							$('#addressform').html(html);
@@ -1184,7 +1047,7 @@ $(document).delegate('#button-shipping-address', 'click', function() {
 // Guest
 $(document).delegate('#button-guest', 'click', function() {
     $.ajax({
-        url: 'index.php?route=checkout/guest/save',
+        url: '?route=checkout/guest/save',
         type: 'post',
         data: $('#addform input[type=\'text\'],#addform input[type=\'email\'], #addform input[type=\'checkbox\']:checked, #addform input[type=\'radio\']:checked, #addform input[type=\'hidden\'], #addressform textarea, #addform select'),
         dataType: 'json',
@@ -1224,7 +1087,7 @@ $(document).delegate('#button-guest', 'click', function() {
 
                 if (shipping_address) {
                     $.ajax({
-                        url: 'index.php?route=checkout/shipping_method',
+                        url: '?route=checkout/shipping_method',
                         dataType: 'html',
                         complete: function() {
                             $('#button-guest').button('reset');
@@ -1232,7 +1095,7 @@ $(document).delegate('#button-guest', 'click', function() {
                         success: function(html) {
 							// Add the shipping address
                             $.ajax({
-                                url: 'index.php?route=checkout/guest_shipping',
+                                url: '?route=checkout/guest_shipping',
                                 dataType: 'html',
                                 success: function(html) {
                                     $('#collapse-shipping-address .panel-body').html(html);
@@ -1259,7 +1122,7 @@ $(document).delegate('#button-guest', 'click', function() {
                     });
                 } else {
                     $.ajax({
-                        url: 'index.php?route=checkout/guest_shipping',
+                        url: '?route=checkout/guest_shipping',
                         dataType: 'html',
                         complete: function() {
                             $('#button-guest').button('reset');
@@ -1282,7 +1145,7 @@ $(document).delegate('#button-guest', 'click', function() {
                 }
                 {% else %}
                 $.ajax({
-                    url: 'index.php?route=checkout/payment_method',
+                    url: '?route=checkout/payment_method',
                     dataType: 'html',
                     complete: function() {
                         $('#button-guest').button('reset');
@@ -1312,7 +1175,7 @@ $(document).delegate('#button-guest', 'click', function() {
 // Guest Shipping
 $(document).delegate('#button-guest-shipping', 'click', function() {
     $.ajax({
-        url: 'index.php?route=checkout/guest_shipping/save',
+        url: '?route=checkout/guest_shipping/save',
         type: 'post',
         data: $('#collapse-shipping-address input[type=\'text\'], #collapse-shipping-address input[type=\'date\'], #collapse-shipping-address input[type=\'datetime-local\'], #collapse-shipping-address input[type=\'time\'], #collapse-shipping-address input[type=\'password\'], #collapse-shipping-address input[type=\'checkbox\']:checked, #collapse-shipping-address input[type=\'radio\']:checked, #collapse-shipping-address textarea, #collapse-shipping-address select'),
         dataType: 'json',
@@ -1346,7 +1209,7 @@ $(document).delegate('#button-guest-shipping', 'click', function() {
 				$('.text-danger').parent().addClass('has-error');
             } else {
                 $.ajax({
-                    url: 'index.php?route=checkout/shipping_method',
+                    url: '?route=checkout/shipping_method',
                     dataType: 'html',
                     complete: function() {
                         $('#button-guest-shipping').button('reset');
@@ -1375,7 +1238,7 @@ $(document).delegate('#button-guest-shipping', 'click', function() {
 
 $(document).delegate('#button-shipping-method', 'click', function() {
     $.ajax({
-        url: 'index.php?route=checkout/shipping_method/save',
+        url: '?route=checkout/shipping_method/save',
         type: 'post',
         data: $('#collapse-shipping-method input[type=\'radio\']:checked, #collapse-shipping-method textarea'),
         dataType: 'json',
@@ -1395,7 +1258,7 @@ $(document).delegate('#button-shipping-method', 'click', function() {
                 }
             } else {
                 $.ajax({
-                    url: 'index.php?route=checkout/payment_method',
+                    url: '?route=checkout/payment_method',
                     dataType: 'html',
                     complete: function() {
                         $('#button-shipping-method').button('reset');
@@ -1423,7 +1286,7 @@ $(document).delegate('#button-shipping-method', 'click', function() {
 
 $(document).delegate('#button-payment-methods', 'click', function() {
   $.ajax({
-                    url: 'index.php?route=checkout/payment_method',
+                    url: '?route=checkout/payment_method',
                     dataType: 'html',
                     complete: function() {
                         $('#button-shipping-method').button('reset');
@@ -1444,7 +1307,7 @@ $(document).delegate('#button-payment-methods', 'click', function() {
 });
 $(document).delegate('#button-payment-method', 'click', function() {
     $.ajax({
-        url: 'index.php?route=checkout/payment_method/save',
+        url: '?route=checkout/payment_method/save',
         type: 'post',
         data: $('#addressform input[type=\'radio\']:checked, #addressform input[type=\'checkbox\']:checked, #addressform textarea'),
         dataType: 'json',
@@ -1453,26 +1316,46 @@ $(document).delegate('#button-payment-method', 'click', function() {
 		},
         success: function(json) {
             $('.alert-dismissible, .text-danger').remove();
-//console.log(json);
             if (json['redirect']) {
                 location = json['redirect'];
             } else if (json['error']) {
                 $('#button-payment-method').button('reset');
                 
                 if (json['error']['warning']) {
-                  $('html, body').animate({ scrollTop: 0 }, 'slow');
-          $('body').prepend('<div class="success-popup2"> <span class="warrning-svg"> <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     </svg>  </span> <span class="warrning-text">  <p>'+ json['error']['warning'] +'</p> </span> </div>');
-                    $('#collapse-payment-method .panel-body').prepend('<div class="alert alert-danger alert-dismissible">' + json['error']['warning'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+                    $('html, body').animate({ scrollTop: 0 }, 'slow');
+                    $('body').prepend('<div class="success-popup2"> <span class="warrning-svg"> <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     </svg>  </span> <span class="warrning-text">  <p>'+ json['error']['warning'] +'</p> </span> </div>');
+
                 }
             } else {
                 $.ajax({
-                    url: 'index.php?route=checkout/confirm',
+                    url: '?route=checkout/confirm',
                     dataType: 'html',
                     complete: function() {
                         $('#button-payment-method').button('reset');
                     },
                     success: function(html) {
                         $('#addressform').html(html);
+                        console.log({{ paym }});
+                        
+                        gtag("event", "add_payment_info", {
+                          currency: "INR",
+                          value: {{ alltimetotal }},
+                          payment_type: 'ccavenue',
+                          items: [
+                            {
+                              itemsList
+                            }
+                          ]
+                        });
+
+                        fbq('track', 'AddPaymentInfo', {
+                        value:{{ alltimetotal }},
+                          currency: 'INR',
+                          contents: [
+                            itemsList
+                          ],
+                          content_type: 'product'
+                        });
 
 						$('#collapse-checkout-confirm').parent().find('.panel-heading .panel-title').html('<a href="#collapse-checkout-confirm" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle">{{ text_checkout_confirm }} <i class="fa fa-caret-down"></i></a>');
 
@@ -1490,4 +1373,20 @@ $(document).delegate('#button-payment-method', 'click', function() {
     });
 });
 //--></script>
+ <script>
+// Measure a view of product details. This example assumes the detail view occurs on pageload,
+// and also tracks a standard pageview of the details page.
+ // Clear the previous ecommerce object.
+dataLayer.push({
+  'event': 'checkout', 
+  'ecommerce': {
+    'currencyCode': 'INR',
+    "value": {{ alltimetotal }},
+    'checkout': {           
+      'actionField': {'step': 1},                     // 'add' actionFieldObject measures.
+      'products': itemsList
+    }
+   }
+});
+</script>
 {{ footer }}

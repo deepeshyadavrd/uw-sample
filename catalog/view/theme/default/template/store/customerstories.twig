@@ -4,42 +4,14 @@
         <div class="row">
             <div class="col-lg-3 col-md-12">
                 <h2 class="pg-heading text-lg-start text-start mt-lg-5">Customer Stories</h2>
-                <p class="heading-para text-lg-start text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse
+                <p class="heading-para text-lg-start text-center">Crafted to Perfection, Cherished by All! Experience the Rave-Worthy Journey from Website to Doorstep. Join Us for Exquisite, Custom Furniture Experiences.
                 </p>
-                <a href="?route=product/review" type="button" class="view_all_btn mt-5">
+                <a href="" type="button" class="view_all_btn mt-5">
                     View all</a>
             </div>
             <div class="col-lg-9 col-md-12">
                 <section class="customer-logos slider">
-                    {% for cs in customer_stories %}
                     <div class="slide client-box">
-
-                        <div class="client-img">
-                            <img src="{{ cs.image }}" class="img-responsive img-fluid ">
-                        </div>
-                        <div class="client-content">
-                            <div class="client-name">
-                                <p>
-                                    {{ cs.author }}
-                                    <span>( {{ cs.city }} )
-                                    </span>
-                                </p>
-                            </div>
-                            <div class="client-comment">
-                                <p>{{ cs.text }}</p>
-                                <div class="rating">
-                                {% for i in 1..cs.rating %}
-                                    <span><i class='bx bxs-star rst'></i></span>
-                                {% endfor %}
-                                    
-                                </div>
-                                <a href="{{ cs.href }}" type="button" class="see-product-btn">See product</a>
-                            </div>
-                        </div>
-
-                    </div>
-                    {% endfor %}
-                    {# <div class="slide client-box">
 
                         <div class="client-img">
                             <img src="catalog/view/javascript/assets/image/review-img/client-1-img.png" class="img-responsive img-fluid ">
@@ -147,7 +119,7 @@
                                 <a href="" type="button" class="see-product-btn">See product</a>
                             </div>
                         </div>
-                    </div> #}
+                    </div>
 
                 </section>
             </div>

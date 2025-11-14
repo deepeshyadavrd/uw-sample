@@ -22,7 +22,7 @@ var LiveSearchJs = function () {
                 }
                 else{
                     var live_search_href = '?route=product/live_search&filter_name=';
-                    var all_search_href = '?route=product/search&search=';
+                    var all_search_href = 'search&search=';
                     if(cat_id > 0){
                         live_search_href = live_search_href + encodeURIComponent(filter_name) + '&cat_id=' + Math.abs(cat_id);
                         all_search_href = all_search_href + encodeURIComponent(filter_name) + '&category_id=' + Math.abs(cat_id);
@@ -42,8 +42,6 @@ var LiveSearchJs = function () {
                         url: live_search_href,
                         dataType: 'json',
                         success: function(result) {
-                            
-                            // console.log(JSON.parse(result));
                             var products = result.products;
                             $('.live-search ul li').remove();
                             $('.result-text').html('');
@@ -67,9 +65,9 @@ var LiveSearchJs = function () {
                                         html += '<div>';
                                         html += '<a href="' + product.url + '" title="' + product.name + '">';
                                     // show image
-                                    // if(product.image && show_image){
-                                    //     html += '<div class="product-image"><img alt="' + product.name + '" src="' + product.image + '"></div>';
-                                    // }
+                                    if(product.image && show_image){
+                                        html += '<div class="product-image"><img alt="' + product.name + '" src="' + product.image + '"></div>';
+                                    }
                                     // show name & extra_info
                                     html += '<div class="product-name">' + product.name ;
                                     // if(show_description){

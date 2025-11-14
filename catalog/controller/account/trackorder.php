@@ -66,7 +66,7 @@ class ControllerAccountTrackorder extends Controller {
 			    }
 
 			    $data['order_id'] = $this->request->post['order_id'];
-			    $data['date_added'] = $order_info['date_added'];//date('m/d/Y', strtotime($order_info['date_added']));
+			    $data['date_added'] = $order_info['date_modified'];//date('m/d/Y', strtotime($order_info['date_added']));
 
 			    if ($order_info['payment_address_format']) {
 			    	$format = $order_info['payment_address_format'];
@@ -243,9 +243,7 @@ class ControllerAccountTrackorder extends Controller {
                 // print_r($data['histories']);
                 $data['action'] = $this->url->link('account/trackorder');
 			    $data['continue'] = $this->url->link('account/order', '', true);
-				// Fetch images
-        		$order_stage_images = $this->model_account_order->getOrderStageImages($order_id);
-        		$data['order_stage_images'] = $order_stage_images;
+
 			    
 			    $data['footer'] = $this->load->controller('common/footer');
 			    $data['header'] = $this->load->controller('common/header');

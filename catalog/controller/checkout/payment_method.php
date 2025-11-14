@@ -45,15 +45,13 @@ class ControllerCheckoutPaymentMethod extends Controller {
 			$results = $this->model_setting_extension->getExtensions('payment');
 
 			$recurring = $this->cart->hasRecurringProducts();
-
+            
 			foreach ($results as $result) {
-				// echo  $result['code']." - ";
-				
-				if ($this->config->get($result['code'] . '_status') || $this->config->get('payment_' . $result['code'] . '_status')) {
-				// if ($this->config->get('payment_' . $result['code'] . '_status')) {
+				if ($this->config->get('payment_' . $result['code'] . '_status')  && $result['code'] != 'CCAvenue') {
 					$this->load->model('extension/payment/' . $result['code']);
+				// 	echo 'model_extension_payment_' . $result['code'];
 					$method = $this->{'model_extension_payment_' . $result['code']}->getMethod($this->session->data['payment_address'], $total);
-
+                // print_r($method);
 					if ($method) {
 						if ($recurring) {
 							if (property_exists($this->{'model_extension_payment_' . $result['code']}, 'recurringPayments') && $this->{'model_extension_payment_' . $result['code']}->recurringPayments()) {
@@ -65,7 +63,7 @@ class ControllerCheckoutPaymentMethod extends Controller {
 					}
 				}
 			}
-
+// 			exit;
 			$sort_order = array();
 
 			foreach ($method_data as $key => $value) {
@@ -109,7 +107,7 @@ class ControllerCheckoutPaymentMethod extends Controller {
 			$information_info = $this->model_catalog_information->getInformation($this->config->get('config_checkout_id'));
 
 			if ($information_info) {
-				$data['text_agree'] = sprintf($this->language->get('text_agree'), $this->url->link('information/information/agree', 'information_id=' . $this->config->get('config_checkout_id'), true), $information_info['title']);
+				$data['text_agree'] = sprintf($this->language->get('text_agree'), $this->url->link('information/information/agree', 'information_id=' . $this->config->get('config_checkout_id'), true), $information_info['title'], $information_info['title']);
 			} else {
 				$data['text_agree'] = '';
 			}
@@ -122,12 +120,7 @@ class ControllerCheckoutPaymentMethod extends Controller {
 		} else {
 			$data['agree'] = '';
 		}
-// 		print_R($data);
-// echo "sa"; exit;
-		if(isset($data['payment_methods']['airpay'])){
-			$data['payment_methods']['airpay']['title'] = 'Airpay';
-		}
-
+// print_r($data);exit;
 		$this->response->setOutput($this->load->view('checkout/payment_method', $data));
 	}
 

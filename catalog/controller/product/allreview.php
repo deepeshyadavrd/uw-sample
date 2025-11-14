@@ -2,10 +2,11 @@
 class ControllerProductAllreview extends Controller {
 	public function index() {
 		$this->load->model('catalog/category');
-
+		$this->load->model('tool/image');
 		$category_total = $this->model_catalog_category->getCategories();
 		// print_r($category_total);
-
+		$this->document->setTitle('Our Customer Stories about Urbanwood Services');
+		$this->document->setDescription('Discover how our customers elevated their homes with our furniture. Read real experiences, see stunning setups, and find inspiration for your space');
 		$data['categories'] = array();
 
 		foreach($category_total as $category){
@@ -59,11 +60,12 @@ class ControllerProductAllreview extends Controller {
 		$review_total = $this->model_catalog_review->getTotalReviews($sorting_review);
 
 		$results = $this->model_catalog_review->getReviews($sorting_review,($page - 1) * 10, 10);
-// print_r($review_total);
+
 		foreach ($results as $result) {
 			$data['reviews'][] = array(
 				'author'     => $result['author'],
 				'text'       => nl2br($result['text']),
+				'image'       => $this->model_tool_image->resize($result['image'], 425, 300),
 				'rating'     => (int)$result['rating'],
 				'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
                 'city'       => $result['city'],
@@ -76,21 +78,21 @@ class ControllerProductAllreview extends Controller {
 		$pagination->page = $page;
 		$pagination->limit = 10;
 		if(isset($current_category) && isset($current_city) && isset($current_date)){
-			$pagination->url = $this->url->link('product/allreview&category='.$current_category.'&city='.$current_city.'&date='.$current_date, 'page={page}', true);
+			$pagination->url = 'customer-stories&category='.$current_category.'&city='.$current_city.'&date='.$current_date.'&page={page}';
 		}elseif(isset($current_category) && isset($current_city)){
-			$pagination->url = $this->url->link('product/allreview&category='.$current_category.'&city='.$current_city, 'page={page}', true);
+			$pagination->url = 'customer-stories&category='.$current_category.'&city='.$current_city.'&page={page}';
 		}elseif(isset($current_city) && isset($current_date)){
-			$pagination->url = $this->url->link('product/allreview&city='.$current_city.'&date='.$current_date, 'page={page}', true);
+			$pagination->url = 'customer-stories&city='.$current_city.'&date='.$current_date. '&page={page}';
 		}elseif(isset($current_category) && isset($current_date)){
-			$pagination->url = $this->url->link('product/allreview&category='.$current_category.'&date='.$current_date, 'page={page}', true);
+			$pagination->url = 'customer-stories&category='.$current_category.'&date='.$current_date.'&page={page}';
 		}elseif(isset($current_category)){
-			$pagination->url = $this->url->link('product/allreview&category='.$current_category, 'page={page}', true);
+			$pagination->url = 'customer-stories&category='.$current_category. '&page={page}';
 		}elseif(isset($current_city)){
-			$pagination->url = $this->url->link('product/allreview&city='.$current_city, 'page={page}', true);
+			$pagination->url = 'customer-stories&city='.$current_city.'&page={page}';
 		}elseif(isset($current_date)){
-			$pagination->url = $this->url->link('product/allreview&date='.$current_date, 'page={page}', true);
+			$pagination->url = 'customer-stories&date='.$current_date.'&page={page}';
 		}else{
-			$pagination->url = $this->url->link('product/allreview', 'page={page}', true);
+			$pagination->url = 'customer-stories&page={page}';
 		}
 		$data['pagination'] = $pagination->render();
 

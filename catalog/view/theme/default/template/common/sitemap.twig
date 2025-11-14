@@ -1,5 +1,6 @@
 {{ header }}
 {{ menu }}
+</div>
 <div class="wrapper">
 
 <div class="qu-sec py-2 ">
@@ -7,8 +8,8 @@
       <div class="row">
   <div class="col-md-12 col-sm-12">
     <nav class="breadcumb-navigation">
-      <ol class="breadcrumb m-0 p-2">
-        <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+      <ol class="breadcrumb m-0 ">
+        <li class="breadcrumb-item"><a href="#"><i class="bx bxs-home bx-xs"></i></a></li>
         <li class="breadcrumb-item active" aria-current="page">Sitemap</li>
       </ol>
     </nav>   
@@ -20,26 +21,16 @@
 <section class="py-3">
 <div class="container  container-custom">
     <div class="row">
-        <h2 class="pg-heading text-lg-start">Site Map</h2>
+        <h1 class="text-lg-start">Site Map</h1>
     {% for category in categories %}
-    <div class="col-lg-3 col-md-6 col-sm-12">
+    <div class="col-lg-4 col-md-6 col-sm-12">
     <div class="sitemap-box">
     <div class="heading-forpage">{{ category.name }}</div>
           <div class="list-page">
           <ul>
           <li> 
         {% if category.children %}
-        {# <li class="dropdown"><a href="{{ category.href }}" class="dropdown-toggle" data-toggle="dropdown">{{ category.name }}</a>
-          <div class="dropdown-menu">
-            <div class="dropdown-inner"> {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
-              <ul class="list-unstyled">
-                {% for child in children %}
-                <li><a href="{{ child.href }}">{{ child.name }}</a></li>
-                {% endfor %}
-              </ul>
-              {% endfor %}</div>
-            <a href="{{ category.href }}" class="see-all">{{ text_all }} {{ category.name }}</a> </div>
-        </li> #}
+        
         
         <li  class="d-block"> <span>
                       <div class="count-badge">1 </div>

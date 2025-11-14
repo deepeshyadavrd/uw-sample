@@ -1,85 +1,156 @@
+<script>
+        
+
+ filters = {{ products | json_encode | raw }};
+          
+
+
+for(var i = 0; i < filters.length; i++) {
+    var obj = {};
+    obj['name'] = filters[i]['name'];
+    obj['id'] = filters[i]['product_id'];
+    obj['image'] = filters[i]['thumb'];
+    obj['price'] = filters[i]['special'];
+    obj['link'] = filters[i]['href'];
+    itemsList.push(obj);
+}
+
+          </script>
 {% for product in products %}
-     <div class="col-lg-4 col-md-6 col-sm-12">
+     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
 <div class="product-box-img">
   <div class="button-pd">
   <div class="like-heart mx-2"> 
   
-    <span ><i class="fas fa-heart" onclick="wishlist.add('{{ product.product_id }}');" id="likeheart" ></i></span> 
+    <span ><i class="bx bx-heart" onclick="wishlist.add('{{ product.product_id }}');" id="likeheart" ></i></span> 
   </div>  
   <div class="sharer">
         <button id="share" class="cursor-pointer ">
           <i class='bx bxs-share-alt'></i></button> 
           <div id="share_icons" class="absolute opacity-0"> 
-            <a href="" class="pd-share cursor-pointer">
+            <a href="https://twitter.com/intent/tweet?text=Im Sharing on Twitter&url=https://www.urbanwood.in&hashtags=urbanwood,custom furniture,furniture" class="pd-share cursor-pointer">
               <i class="bx bxl-twitter"></i>
             </a> 
-            <a href="" class=" pd-share cursor-pointer">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.urbanwood.in" class=" pd-share cursor-pointer">
               <i class="bx bxl-facebook"></i>
             </a> 
-              <a href="" class=" pd-share cursor-pointer">
-                <i class="bx bxl-linkedin"></i>
-              </a> 
+               
             </div> 
 
   </div> 
 
   </div>
-  
+
   <div class="pd-img-in">
-  {% if (product.stock_status == 'Out Of Stock') and (product.quantity == 0) %}
+    {% if (product.stock_status == 'Out Of Stock') and (product.quantity == 0) %}
       <h3 class="shop-nowb-btn" style="margin-top: 19px;"> Out Of Stock</h3>
       {% else %}
-      
-      {# <input name="product_id" type="hidden" id="addtocart_p_id" value="{{ product.product_id }}">
-      <input name="quantity" type="hidden" id="addtocart_p_qnty" value="1"> #}
-  <button class="shop-nowb-btn" onclick="addtocart(1,{{ product.product_id }})"> Shop Now</button>
+      <button class="shop-nowb-btn" onclick="addtocart(1,{{ product.product_id }}); productTocart{{ product.product_id }}();"> ADD TO CART</button>
   
-{% endif %}
-    <a href="{{ product.href }}"><div class="overlay-pd"></div></a>
-    <img src="{{ product.thumb }}" alt="" class="img-fluid">
+    {% endif %}
+    <a href="{{ product.href }}" onclick="productObj{{ product.product_id }}();" target="_blank"><div class="overlay-pd"  style="cursor: pointer"></div></a>
+    {% if (product.stock_status == 'Out Of Stock') %}
+      <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid out-of-stock" loading="lazy">
+    {% else %}
+      <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid" loading="lazy">
+    {% endif %}
   </div>
   <div class="pd-deatils-sec">
-    <div class="d-flex justify-content-between align-items-start p-2">
+    <div class="d-flex justify-content-between align-items-start p-2" style="    padding-left: 0!important;    padding-right: 0!important;">
       <div class="pd-heading"> 
-       <div class="pd-name"><a href="">{{ product.name }}</a></div> 
+       <div class="pd-name"><a href="{{ product.href }}" onclick="productObj{{ product.product_id }}();" target="_blank"  style="cursor: pointer">{{ product.name }}</a></div> 
        {% if product.finish %}
-        <div class="pd-config">({{ product.finish }}</div>
+        <div class="pd-config">{{ product.finish }}</div>
         {% endif %}
-        <span class="pd-creater"> By UrbanWood</span>
+        <span class="pd-creater"> By&nbsp;{{ product.brand }}</span>
       </div>
       <div class="color-feature">
       {% if (product.stock_status == 'Out Of Stock') and (product.quantity == 0) %}
       <span class="availibility-pd">Out of Stock</span>
       {% else %}
       
-
-      <span class="availibility-pd">Available Finish</span>
+    {% if product.pro_gro is not empty %}
+      <span class="availibility-pd">More Finish</span>
+      <div class="color-feature-check"> 
+      {% for progro in product.pro_gro %}
+      <div class="zoom" data-toggle="tooltip" data-placement="top" title="{{progro.text }}">
+            
+              <a href="{{ progro.link }}"><img src="catalog/view/javascript/assets/image/icon/{{ progro.text|lower }}.jpg" alt="{{progro.text }}" loading="lazy"></a>
+            
+          </div>
+          {% endfor %}
+        
+                    </div>
+                    {% endif %}
       {% endif %}
       </div>
      
     </div>
     <hr>
-    <div class="d-flex justify-content-between align-items-start p-2">
-      <div class="pricing-pd">
-        {# <span class="badge badgerating">
-          {{ product.rating }}
-          <span class="starr-rate"><i class="fas fa-star"></i></span>
-        </span>
-        <span class="likes">({{ product.review_count }})</span> #}
-        <div class=""> 
-        <div class="pd-amount"> {{ product.special }} </div> <div class="cut-ammount">{{ product.price }} </div>  
-        <span class=" badge bridge-offer" style="font-size:10px">{{ product.discount }}% off </span>
-      </div>
-      </div>
-      <div class="pd-offers">
-      <ul>
-        {# <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li> #}
-        <li class="offer-list"> <i class="fas fa-check"></i> No Cost EMI </li>
-      </ul>
-      </div>
-      
-    </div>
+    <div class="d-flex justify-content-between align-items-start">
+                  <div class="pricing-pd">
+                    <div class=""> 
+                      <div class="pd-amount"> {{ product.special }} </div> <div class="cut-ammount">{{ product.price }} </div>  
+                      <span class=" badge bridge-offer" style="font-size:10px">{{ product.discount }} </span>
+                    </div>
+                  </div>
+                  {# <div class="pd-offers">
+                    <ul>
+                      <li class="offer-list"> <i class="bx bx-check"></i> No Cost EMI </li>
+                    </ul>
+                  </div> #}
+
+                </div>
   </div>
 </div>
 </div>
+<script> /**  
+		* Call this function when a user clicks on a product link. This function uses the event  
+		* callback datalayer variable to handle navigation after the ecommerce data has been sent  
+		* to Google Analytics.  * @param {Object} productObj An object representing a product.  
+		*/ 
+		function productObj{{ product.product_id }}() {   
+      event.preventDefault(); // Prevent default navigation
+		dataLayer.push({      
+		'event': 'productClick',   
+		'ecommerce': {        
+		'click': {         
+		// 'actionField': {'list': 'Home products'},       // Optional list property.         
+		'products':  [{            
+		'name': '{{ product.name }}',                      // Name or ID is required.           
+		'id': {{ product.product_id }},           
+		'price': {{ product.special_number }}                              
+		}]        
+		}      
+		},       
+		'eventCallback': function() {        
+		window.open('{{ product.href }}', '_blank');
+		}    
+		}); 
+		}
+
+    function productTocart{{ product.product_id }}() {
+      gtag("event", "add_to_cart", {
+          currency: "INR",
+          value: {{ product.special_number }},
+          items: [
+            {
+              item_id: "{{ product.product_id }}",
+              item_name: "{{ product.name }}",
+              item_brand: "Urbanwood",
+              item_category: "Furniture",
+              price: {{ product.special_number }},
+              quantity: 1
+            }
+          ]
+        });
+
+        fbq('track', 'AddToCart', {
+          currency: 'INR',
+          value:{{ product.special_number }},
+          content_ids: '{{ product.product_id }}',
+          content_type: 'product'
+        });
+		}
+		</script>
    {% endfor %}

@@ -6,7 +6,6 @@ $(document).ready(function(){
         var html = '<div class="live-searchmob"><ul></ul><div class="result-text"></div></div>';
         if (!$('.mob-search-content').find(".live-searchmob").length) {
             $("#searchmob").after(html);
-            // alert('here');
         }
 
         $("#searchinputmob").autocomplete({
@@ -18,8 +17,8 @@ $(document).ready(function(){
                     $('.live-searchmob').css('display','none');
                 }
                 else{
-                    var live_search_href = 'index.php?route=product/live_search&filter_name=';
-                    var all_search_href = 'index.php?route=product/search&search=';
+                    var live_search_href = '?route=product/live_search&filter_name=';
+                    var all_search_href = '?route=product/search&search=';
                     if(cat_id > 0){
                         live_search_href = live_search_href + encodeURIComponent(filter_name) + '&cat_id=' + Math.abs(cat_id);
                         all_search_href = all_search_href + encodeURIComponent(filter_name) + '&category_id=' + Math.abs(cat_id);
@@ -48,17 +47,17 @@ $(document).ready(function(){
                                 var show_description = 0;
                                 var show_add_button  = 1;
 
-                                // $('.result-text').html('<a href="'+all_search_href+'" class="view-all-results">View all products ('+result.total+')</a>');
+                                $('.result-text').html('<a href="'+all_search_href+'" class="view-all-results">View all products ('+result.total+')</a>');
                                 $.each(products, function(index,product) {
                                     var html = '<li>';
                                         // show_add_button
-                                    // if(show_add_button){
-                                    //     html += '<div class="product-add-cart">';
-                                    //     html += '<a href="javascript:;" onclick="cart.add('+product.product_id+', '+product.minimum+');" class="btn btn-primary">';
-                                    //     html += '<i class="fa fa-shopping-cart"></i>';
-                                    //     html += '</a>';
-                                    //     html += '</div>';
-                                    // }
+                                    if(show_add_button){
+                                        html += '<div class="product-add-cart">';
+                                        html += '<a href="javascript:;" onclick="cart.add('+product.product_id+', '+product.minimum+');" class="btn btn-primary">';
+                                        html += '<i class="fa fa-shopping-cart"></i>';
+                                        html += '</a>';
+                                        html += '</div>';
+                                    }
                                         html += '<div>';
                                         html += '<a href="' + product.url + '" title="' + product.name + '">';
                                     // show image
@@ -72,13 +71,13 @@ $(document).ready(function(){
                                     // }
                                     html += '</div>';
                                     // show price & special price
-                                    // if(show_price){
-                                    //     if (product.special) {
-                                    //         html += '<div class="product-price"><span class="special">' + product.price + '</span><span class="price">' + product.special + '</span></div>';
-                                    //     } else {
-                                    //         html += '<div class="product-price"><span class="price">' + product.price + '</span></div>';
-                                    //     }
-                                    // }
+                                    if(show_price){
+                                        if (product.special) {
+                                            html += '<div class="product-price"><span class="special">' + product.price + '</span><span class="price">' + product.special + '</span></div>';
+                                        } else {
+                                            html += '<div class="product-price"><span class="price">' + product.price + '</span></div>';
+                                        }
+                                    }
                                     html += '</a>';
                                     html += '</div>';
 

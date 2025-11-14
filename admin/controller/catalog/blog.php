@@ -178,25 +178,24 @@ class ControllerCatalogBlog extends Controller {
 			'start' => ($page - 1) * $this->config->get('config_limit_admin'),
 			'limit' => $this->config->get('config_limit_admin'),
 			'filter_category_id' => $filter_category_id
-
 		);
 
-if($filter_data['filter_category_id'] == 0){
-	$information_total = $this->getTotalInformations();
-	
-}else{
-//print_r($filter_data);
-$information_total = 1;
-}
-		
+		if($filter_data['filter_category_id'] == 0){
+			$information_total = $this->getTotalInformations();
+			
+		}else{
+		//print_r($filter_data);
+		$information_total = 1;
+		}
 
 		$results = $this->getInformations($filter_data);
-// print_r($results);
+
 		foreach ($results as $result) {
 			$data['informations'][] = array(
 				'information_id' => $result['information_id'],
 				'title'          => $result['title'],
 				'views'     	 => $result['viewed'],
+				'date'			 => substr($result['date_added'], 0, 10),
 				'edit'           => $this->url->link('catalog/blog/edit', 'user_token=' . $this->session->data['user_token'] . '&information_id=' . $result['information_id'] . $url, true)
 			);
 		}
@@ -234,7 +233,8 @@ $information_total = 1;
 		}
 
 		$data['sort_title'] = $this->url->link('catalog/blog', 'user_token=' . $this->session->data['user_token'] . '&sort=id.title' . $url, true);
-		$data['sort_sort_order'] = $this->url->link('catalog/blog', 'user_token=' . $this->session->data['user_token'] . '&sort=i.sort_order' . $url, true);
+		$data['sort_sort_order'] = $this->url->link('catalog/blog', 'user_token=' . $this->session->data['user_token'] . '&sort=i.viewed' . $url, true);
+		$data['sort_date'] = $this->url->link('catalog/blog', 'user_token=' . $this->session->data['user_token'] . '&sort=i.date_added' . $url, true);
 
 		$url = '';
 
@@ -434,7 +434,7 @@ $information_total = 1;
 		}
 
 		foreach ($this->request->post['information_description'] as $language_id => $value) {
-			if ((utf8_strlen($value['title']) < 1) || (utf8_strlen($value['title']) > 64)) {
+			if ((utf8_strlen($value['title']) < 1) || (utf8_strlen($value['title']) > 100)) {
 				$this->error['title'][$language_id] = $this->language->get('error_title');
 			}
 
@@ -500,7 +500,7 @@ $information_total = 1;
 		$information_id = $this->db->getLastId();
 
 		foreach ($data['information_description'] as $language_id => $value) {
-			$this->db->query("INSERT INTO " . DB_PREFIX . "blog_description SET information_id = '" . (int)$information_id . "', language_id = '" . (int)$language_id . "', title = '" . $this->db->escape($value['title']) . "', short_description = '" . $this->db->escape($value['short_description']) . "', description = '" . $this->db->escape($value['description']) . "', mobile_description = '" . $this->db->escape($value['mobile_description']) . "', meta_title = '" . $this->db->escape($value['meta_title']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "blog_description SET information_id = '" . (int)$information_id . "', language_id = '" . (int)$language_id . "', title = '" . $this->db->escape($value['title']) . "', short_description = '" . $this->db->escape($value['short_description']) . "', description = '" . $this->db->escape($value['description']) . "', meta_title = '" . $this->db->escape($value['meta_title']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'");
 		}
 
 		
@@ -526,12 +526,13 @@ $information_total = 1;
 
 		// print_r($data);exit;
 	   //echo date('Y-m-d H:i:s');exit;
-		$this->db->query("UPDATE " . DB_PREFIX . "blog SET category_id='".$data['category_id']."',date_added='".date('Y-m-d H:i:s')."',image = '".$data['image']."',sort_order = '" . (int)$data['sort_order'] . "', bottom = '" . (isset($data['bottom']) ? (int)$data['bottom'] : 0) . "', status = '" . (int)$data['status'] . "' WHERE information_id = '" . (int)$information_id . "'");
+		//$this->db->query("UPDATE " . DB_PREFIX . "blog SET category_id='".$data['category_id']."',date_added='".date('Y-m-d H:i:s')."',image = '".$data['image']."',sort_order = '" . (int)$data['sort_order'] . "', bottom = '" . (isset($data['bottom']) ? (int)$data['bottom'] : 0) . "', status = '" . (int)$data['status'] . "' WHERE information_id = '" . (int)$information_id . "'");
+		$this->db->query("UPDATE " . DB_PREFIX . "blog SET category_id='".$data['category_id']."',date_modified='".date('Y-m-d H:i:s')."',image = '".$data['image']."',sort_order = '" . (int)$data['sort_order'] . "', bottom = '" . (isset($data['bottom']) ? (int)$data['bottom'] : 0) . "', status = '" . (int)$data['status'] . "' WHERE information_id = '" . (int)$information_id . "'");
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "blog_description WHERE information_id = '" . (int)$information_id . "'");
 
 		foreach ($data['information_description'] as $language_id => $value) {
-			$this->db->query("INSERT INTO " . DB_PREFIX . "blog_description SET information_id = '" . (int)$information_id . "', language_id = '" . (int)$language_id . "', title = '" . $this->db->escape($value['title']) . "', short_description = '" . $this->db->escape($value['short_description']) . "', description = '" . $this->db->escape($value['description']) . "', mobile_description = '" . $this->db->escape($value['mobile_description']) . "', meta_title = '" . $this->db->escape($value['meta_title']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "blog_description SET information_id = '" . (int)$information_id . "', language_id = '" . (int)$language_id . "', title = '" . $this->db->escape($value['title']) . "', short_description = '" . $this->db->escape($value['short_description']) . "', description = '" . $this->db->escape($value['description']) . "', meta_title = '" . $this->db->escape($value['meta_title']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'");
 		}
 
 		
@@ -572,6 +573,11 @@ $information_total = 1;
 		if ($data) {
 			$sql = "SELECT * FROM " . DB_PREFIX . "blog i LEFT JOIN " . DB_PREFIX . "blog_description id ON (i.information_id = id.information_id) WHERE id.language_id = '" . (int)$this->config->get('config_language_id') . "'";
 
+			$sort_data = array(
+				'id.title',
+				'i.viewed',
+				'i.date_added'
+			);
 			if (!empty($data['filter_name'])) {
 
 				$sql .= " AND id.title LIKE '%" . $this->db->escape($data['filter_name']) . "%'";
@@ -579,11 +585,6 @@ $information_total = 1;
 			if (!empty($data['filter_category_id'])) {
 				$sql .= " AND i.information_id = '" . $this->db->escape($data['filter_category_id']) . "'";
 			}
-			$sort_data = array(
-				'id.title',
-				'i.sort_order'
-			);
-
 			if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
 				$sql .= " ORDER BY " . $data['sort'];
 			} else {
@@ -607,7 +608,6 @@ $information_total = 1;
 
 				$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
 			}
-// echo $sql;
 			$query = $this->db->query($sql);
 
 			return $query->rows;
@@ -636,7 +636,6 @@ $information_total = 1;
 				'title'            => $result['title'],
 				'short_description'      => $result['short_description'],
 				'description'      => $result['description'],
-				'mobile_description'      => $result['mobile_description'],
 				'meta_title'       => $result['meta_title'],
 				'meta_description' => $result['meta_description'],
 				'meta_keyword'     => $result['meta_keyword']
@@ -667,7 +666,6 @@ $information_total = 1;
 
 		return $query->row['total'];
 	}
-
 	public function autocomplete() {
 
 		$json = array();
@@ -737,4 +735,5 @@ $information_total = 1;
 		$this->response->setOutput(json_encode($json));
 
 	}
+	
 }

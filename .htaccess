@@ -1,64 +1,204 @@
-# 1.To use URL Alias you need to be running apache with mod_rewrite enabled.
+AddType image/webp .webp
+RewriteEngine On
+RewriteBase /
 
-# 2. In your opencart directory rename htaccess.txt to .htaccess.
+<IfModule mod_deflate.c>
+  # Compress HTML, CSS, JavaScript, Text, XML and fonts
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+  AddOutputFilterByType DEFLATE application/x-font
+  AddOutputFilterByType DEFLATE application/x-font-opentype
+  AddOutputFilterByType DEFLATE application/x-font-otf
+  AddOutputFilterByType DEFLATE application/x-font-truetype
+  AddOutputFilterByType DEFLATE application/x-font-ttf
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE font/opentype
+  AddOutputFilterByType DEFLATE font/otf
+  AddOutputFilterByType DEFLATE font/ttf
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE image/x-icon
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/xml
+ 
+  # Remove browser bugs (only needed for really old browsers)
+  BrowserMatch ^Mozilla/4 gzip-only-text/html
+  BrowserMatch ^Mozilla/4\.0[678] no-gzip
+  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+  Header append Vary User-Agent
+</IfModule>
 
-# For any support issues please visit: http://www.opencart.com
+# --- EXPIRES CACHING ---
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+#  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+  ExpiresByType application/pdf "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresDefault "access plus 1 month"
+</IfModule>
 
-#Options +FollowSymlinks
-
-# Prevent Directoy listing
-#Options -Indexes
-
-# Prevent Direct Access to files
-#<FilesMatch "(?i)((\.tpl|.twig|\.ini|\.log|(?<!robots)\.txt))">
-## Require all denied
-### For apache 2.2 and older, replace "Require all denied" with these two lines :
-# Order deny,allow
-# Deny from all
-#</FilesMatch>
-
-# SEO URL Settings
-#RewriteEngine On
-# If your opencart installation does not run on the main web folder make sure you folder it does run in ie. / becomes /shop/
-
-#RewriteBase /
-#RewriteRule ^sitemap.xml$ index.php?route=extension/feed/google_sitemap [L]
-#RewriteRule ^googlebase.xml$ index.php?route=extension/feed/google_base [L]
-#RewriteRule ^system/storage/(.*) index.php?route=error/not_found [L]
-#RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteCond %{REQUEST_FILENAME} !-d
-#RewriteCond %{REQUEST_URI} !.*\.(ico|gif|jpg|jpeg|png|js|css)
-## RewriteRule ^([^?]*) index.php?_route_=$1 [L,QSA]
-#RewriteRule ^index\.php$ - [L]
-#RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteCond %{REQUEST_FILENAME} !-d
-#RewriteRule ^ %1 [L,R=301,NE]
-#RewriteCond %{THE_REQUEST} /index\.php [NC]
-#RewriteCond %{REQUEST_URI} ^(.*/)index\.php$ [NC]
-#RewriteRule ^ %1 [L,R=307,NE]
+# RewriteRule ^googlebase.xml$ index.php?route=feed/google_base [L]
+# RewriteRule ^download/(.*) /index.php?route=error/not_found [L]
 
 
-### Additional Settings that may need to be enabled for some servers
-### Uncomment the commands by removing the # sign in front of it.
-### If you get an "Internal Server Error 500" after enabling any of the following settings, restore the # as this means your host doesn't allow that.
+# RewriteRule furniture-in-pune(.*) https://www.urbanwood.in/furniture-store-in-pune [L,R=301]
+# RewriteRule living-room-furniture/new-arrivals(.*) https://www.urbanwood.in/living-room-furniture [L,R=301]
+# RewriteRule living-room-furniture/tables(.*) https://www.urbanwood.in/living-room-furniture [L,R=301]
+# RewriteRule living-room-furniture/sofas(.*) https://www.urbanwood.in/living-room-furniture [L,R=301]
+# RewriteRule wooden-furniture-online-jaipur(.*) https://www.urbanwood.in/furniture-shop-in-jaipur [L,R=301]
+# RewriteRule wooden-furniture-online-gurugram(.*) https://www.urbanwood.in/furniture-shop-in-gurgaon [L,R=301]
+# RewriteRule diwan-set(.*) https://www.urbanwood.in/diwan-beds [L,R=301]
 
-# 1. If your cart only allows you to add one item at a time, it is possible register_globals is on. This may work to disable it:
-# php_flag register_globals off
+# RewriteRule storage-furniture/dining-storage(.*) https://www.urbanwood.in/storage-furniture [L,R=301]
+# RewriteRule study-room-furniture/anrich-study-tables-honey-finish(.*) https://www.urbanwood.in/study-room-furniture [L,R=301]
+# RewriteRule study-room-furniture/kagiso-study-tables-teak-finish(.*) https://www.urbanwood.in/study-room-furniture [L,R=301]
+# RewriteRule study-room-furniture/anrich-study-tables-teak-finish(.*) https://www.urbanwood.in/study-room-furniture [L,R=301]
+# RewriteRule storage-furniture/bedroom-storage(.*) https://www.urbanwood.in/storage-furniture [L,R=301]
+# RewriteRule bedroom-furniture/thoms-bed-with-storage-king-size-teak-finish(.*) https://www.urbanwood.in/bedroom-furniture [L,R=301]
+# RewriteRule study-room-furniture/anrich-study-tables-walnut-finish(.*) https://www.urbanwood.in/study-room-furniture [L,R=301]
+# RewriteRule Solid-wood-furniture(.*) https://www.urbanwood.in/solid-wood-furniture [L,R=301]
+# RewriteRule Bookshelves(.*) https://www.urbanwood.in/bookshelves [L,R=301]
+# RewriteRule contact-us/(.*) https://www.urbanwood.in/contact-us [L,R=301]
 
-# 2. If your cart has magic quotes enabled, This may work to disable it:
-# php_flag magic_quotes_gpc Off
 
-# 3. Set max upload file size. Most hosts will limit this and not allow it to be overridden but you can try
-# php_value upload_max_filesize 999M
+# RewriteRule bedroom-furnitures/poster-beds(.*) https://www.urbanwood.in/bedroom-furniture [L,R=301]
+# RewriteRule bedroom-furnitures/queen-size-beds(.*) https://www.urbanwood.in/bedroom-furniture [L,R=301]
+# RewriteRule bedroom-furniture/babson-bed-with-storage-king-size-honey-finish(.*) https://www.urbanwood.in/bedroom-furniture [L,R=301]
+# RewriteRule bedroom-furniture/beds(.*) https://www.urbanwood.in/bedroom-furniture [L,R=301]
+# RewriteRule ^custom-payment(.*) index.php?route=checkout/custompayment&res=$1 [L]
+# RewriteRule ^bedroom-furniture$ index.php?route=information/information&information_id=32 [L]
+# RewriteRule ^storage-furniture$ index.php?route=information/information&information_id=42 [L]
+# RewriteRule ^study-room-furniture$ index.php?route=information/information&information_id=40 [L]
+# RewriteRule ^living-room-furniture$ index.php?route=information/information&information_id=27 [L]
 
-# 4. set max post size. uncomment this line if you have a lot of product options or are getting errors where forms are not saving all fields
-# php_value post_max_size 999M
+# RewriteRule custom-furnitures(.*) https://www.urbanwood.in/custom-furniture [L,R=301]
+# RewriteRule modular-furniture(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule office-sofas(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule office-cabinets(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule wall-clock(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule modway-wooden-sofa-sets-walnut-finish(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule coffee-tables-sets(.*) https://www.urbanwood.in/coffee-table-sets [L,R=301]
+# RewriteRule chasterfield-sofas(.*) https://www.urbanwood.in [L,R=301]
 
-# 5. set max time script can take. uncomment this line if you have a lot of product options or are getting errors where forms are not saving all fields
-# php_value max_execution_time 200
+# RewriteRule buy-king-size-bed-online(.*) https://www.urbanwood.in/king-size-beds [L,R=301]
+# RewriteRule latest-double-bed-design(.*) https://www.urbanwood.in/beds [L,R=301]
+# RewriteRule modular-beds(.*) https://www.urbanwood.in/beds [L,R=301]
+# RewriteRule beds-in-delhi(.*) https://www.urbanwood.in/beds [L,R=301]
+# RewriteRule wooden-furniture-online-chennai(.*) https://www.urbanwood.in/furniture-in-chennai [L,R=301]
+# RewriteRule wooden-furniture-online-mumbai(.*) https://www.urbanwood.in/furniture-in-mumbai [L,R=301]
+# RewriteRule wooden-furniture-online-bangalore(.*) https://www.urbanwood.in/furniture-in-bangalore [L,R=301]
 
-# 6. set max time for input to be recieved. Uncomment this line if you have a lot of product options or are getting errors where forms are not saving all fields
-# php_value max_input_time 200
+# RewriteRule Wooden-furniture-online-chennai(.*) https://www.urbanwood.in/furniture-in-chennai [L,R=301]
+# RewriteRule Wooden-furniture-online-mumbai(.*) https://www.urbanwood.in/furniture-in-mumbai [L,R=301]
+# RewriteRule Wooden-furniture-online-bangalore(.*) https://www.urbanwood.in/furniture-in-bangalore [L,R=301]
 
-# 7. disable open_basedir limitations
-# php_admin_value open_basedir none
+# RewriteRule custommade-furniture(.*) https://www.urbanwood.in/custom-furniture [L,R=301]
+# RewriteRule custom-furniture-back(.*) https://www.urbanwood.in/custom-furniture [L,R=301]
+# RewriteRule popular-beds(.*) https://www.urbanwood.in/beds [L,R=301]
+# RewriteRule privacy-policy(.*) https://www.urbanwood.in/security-and-privacy [L,R=301]
+# RewriteRule payment-policy(.*) https://www.urbanwood.in/security-and-privacy [L,R=301]
+# RewriteRule fluid-abstract-painting(.*) https://www.urbanwood.in/decor [L,R=301]
+# RewriteRule laptop-tables(.*) https://www.urbanwood.in/tables [L,R=301]
+# RewriteRule "laptop tables" https://www.urbanwood.in/tables [L,R=301]
+# RewriteRule "dining tables" https://www.urbanwood.in/dining-tables [L,R=301]
+# RewriteRule "new arrivals" https://www.urbanwood.in/new-arrivals [L,R=301]
+# RewriteRule trace-bed-without-storage-king-size-walnnut-finish(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule amazing-buddha-painting(.*) https://www.urbanwood.in [L,R=301]
+
+# RewriteRule grey-space-wooden-sofa-sets-walnut-finish-navy-blue(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule radhakrishna(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule dewor-lounge-chair-velvet-stone-grey(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule modway-wooden-sofa-set-3-2-1-1-seater-teak-finish(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule adoring-angel-statue-in-brass(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule modern-abstract-painting(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule elan-wooden-wall-shelf-walnut-finish(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule oby-end-table-black-and-golden-finish(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule decor/amazing-buddha-painting(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule jave-wooden-wall-shelf-walnut-finish(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule sofas/homebregg-wooden-sofa-sets-honey-finish-sepia-cream(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule babson-bed-with-storage-single-size-honey-finish(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule decor/eifel-tower-oil-painting(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule dining%20tables(.*) https://www.urbanwood.in/dining-tables [L,R=301]
+# RewriteRule solid-wood-furnitureWhen(.*) https://www.urbanwood.in/solid-wood-furniture [L,R=301]
+# RewriteRule solid-wood-furnitureWhen(.*) https://www.urbanwood.in/solid-wood-furniture [L,R=301]
+# RewriteRule decor/white-deer-painting(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule pori-wooden-wall-shelf-walnut-finish(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule barista-center-coffee-table-glass-metal(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule Custom-Tv-Unit-Sanchita(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule babson-bed-with-storage-single-size-teak-finish(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule Fitbit-wooden-sofa-set-3-2-1-1-seater-walnut-finish(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule radhakrishna-painting(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule round-dining-tables(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule contemporary-painting(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule fabric-sofas/hamper-3-seater-sofa-fabric-sepia-cream(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule sofas/modway-wooden-sofa-sets-walnut-finish(.*) https://www.urbanwood.in [L,R=301]
+
+
+# RewriteRule medrick-office-chair-Black(.*) https://www.urbanwood.in/medrick-office-chair-black [L,R=301]
+# RewriteRule 6-Seater-Dining-Tables(.*) https://www.urbanwood.in/6-seater-dining-tables [L,R=301]
+# RewriteRule modular-tv-units(.*) https://www.urbanwood.in/tv-units [L,R=301]
+# RewriteRule newon-two-Door-multi-utility-wardrobe-honey-finish(.*) https://www.urbanwood.in/newon-two-door-multi-utility-wardrobe-honey-finish [L,R=301]
+# RewriteRule drawer-side-table/(.*) https://www.urbanwood.in/drawer-side-table [L,R=301]
+
+
+# RewriteRule Sofa-cum-beds(.*) https://www.urbanwood.in/sofa-cum-beds [L,R=301]
+# RewriteRule Solid-wood-furniture(.*) https://www.urbanwood.in/solid-wood-furniture [L,R=301]
+# RewriteRule Bookshelves(.*) https://www.urbanwood.in/bookshelves [L,R=301]
+# RewriteRule furniture-online-Bangalore(.*) https://www.urbanwood.in/furniture-online-bangalore [L,R=301]
+# RewriteRule Wardrobes(.*) https://www.urbanwood.in/wardrobes [L,R=301]
+# RewriteRule adam-two-Door-multi-utility-wardrobe-honey-finish(.*) https://www.urbanwood.in/adam-two-door-multi-utility-wardrobe-honey-finish [L,R=301]
+
+# RewriteRule beds-in-Jaipur(.*) https://www.urbanwood.in/beds-in-jaipur [L,R=301]
+# RewriteRule contact-us/(.*) https://www.urbanwood.in/contact-us [L,R=301]
+# RewriteRule about-us/(.*) https://www.urbanwood.in/about-us [L,R=301]
+# RewriteRule terms-of-use(.*) https://www.urbanwood.in/terms [L,R=301]
+
+# RewriteRule sofa-cum-bed-with-storage$ sofa-cum-beds [L,R=301]
+
+
+# RewriteRule sofas/grey-space-wooden-sofa-sets-walnut-finish-sepia-cream(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule fitbit-wooden-sofa-sets-walnut-finish(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule fitbit-wooden-sofa-sets-honey-finish(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule wardrobes/wardrobarc-two-Door-multi-utility-wardrobe-walnut-finish(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule fitbit-wooden-sofa-sets-honey-finish(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule wardrobes/wardrobarc-two-Door-multi-utility-wardrobe-walnut-finish(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule sofas/fitbit-wooden-sofa-sets-honey-finish(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule modway-wooden-sofa-set-3-2-1-1-seater-walnut-finish(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule Fitbit-wooden-sofa-set-3-2-1-1-seater-walnut-finish(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule homebregg-wooden-sofa-sets-honey-finish-sepia-cream(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule elan-wooden-wall-shelf-honey-finish(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule wardrobish-two-Door-multi-utility-wardrobe-teak-finish(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule sofas/homebregg-wooden-sofa-sets-walnut-finish-navy-blue(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule grey-space-wooden-sofa-sets-teak-finish-sepia-cream(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule anvil-wall-mount-tv-unit-honey-Finish(.*) https://www.urbanwood.in/anvil-tv-unit-honey-finish [L,R=301]
+# RewriteRule kaya-wooden-wall-shelf-walnut-finish(.*) https://www.urbanwood.in/kaya-wooden-wall-shelves-walnut-finish [L,R=301]
+# RewriteRule circular-print-painting(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule relay-creamic-tile-coffee-table-teak-finish(.*) https://www.urbanwood.in/relay-ceramic-tile-coffee-table-teak-finish [L,R=301]
+
+# RewriteRule office-furniture(.*) https://www.urbanwood.in [L,R=301]
+# RewriteRule fabric-sofas/curio-3-seater-sofa-fabric-navy-blue(.*) https://www.urbanwood.in [L,R=301]
+
+RewriteCond %{REQUEST_URI} !/admin/
+RewriteCond %{THE_REQUEST} ^.*/index\.php 
+RewriteRule ^(.*)index.php$ /$1 [R=301,L] 
+RewriteRule ^index.php/(admin|user)($|/) - [L]
+
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+# RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !.*\.(ico|gif|jpg|jpeg|png|js|css)
+
+RewriteRule ^([^?]*) index.php?_route_=$1 [L,QSA]

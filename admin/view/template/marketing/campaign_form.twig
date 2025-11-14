@@ -59,6 +59,15 @@
             </div>
           </div>
           <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-utm_term"><span data-toggle="tooltip" title="{{ help_code }}">UTM Medium</span></label>
+            <div class="col-sm-10">
+              <input type="text" name="utm_term" value="{{ utm_term }}" placeholder="utm term" id="input-utm_term" class="form-control" />
+              {% if error_code %}
+              <div class="text-danger">{{ error_code }}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group">
             <label class="col-sm-2 control-label" for="input-example"><span data-toggle="tooltip" title="{{ help_example }}">{{ entry_example }}</span></label>
             <div class="col-sm-10">
               <input type="text" placeholder="{{ entry_example }}" id="input-example1" class="form-control" />
@@ -72,17 +81,24 @@
   </div>
   <script type="text/javascript"><!--
 $('#input-utm_source').on('keyup', function() {
-	$('#input-example1').val('{{ store }}?utm_source=' + $('#input-utm_source').val()+'&utm_medium='+ $('#input-utm_medium').val());
-	$('#input-example2').val('{{ store }}index.php?route=common/home&utm_source=' + $('#input-utm_source').val()+'&utm_medium='+ $('#input-utm_medium').val());
+	$('#input-example1').val('{{ store }}?utm_source=' + $('#input-utm_source').val()+'&utm_medium='+ $('#input-utm_medium').val()+'&utm_term='+ $('#input-utm_term').val());
+	$('#input-example2').val('{{ store }}index.php?route=common/home&utm_source=' + $('#input-utm_source').val()+'&utm_medium='+ $('#input-utm_medium').val()+'&utm_term='+ $('#input-utm_term').val());
 });
 
 $('#input-utm_source').trigger('keyup');
 
 $('#input-utm_medium').on('keyup', function() {
-	$('#input-example1').val('{{ store }}?utm_source=' + $('#input-utm_source').val()+'&utm_medium='+ $('#input-utm_medium').val());
-	$('#input-example2').val('{{ store }}index.php?route=common/home&utm_source=' + $('#input-utm_source').val()+'&utm_medium='+ $('#input-utm_medium').val());
+	$('#input-example1').val('{{ store }}?utm_source=' + $('#input-utm_source').val()+'&utm_medium='+ $('#input-utm_medium').val()+'&utm_term='+ $('#input-utm_term').val());
+	$('#input-example2').val('{{ store }}index.php?route=common/home&utm_source=' + $('#input-utm_source').val()+'&utm_medium='+ $('#input-utm_medium').val()+'&utm_term='+ $('#input-utm_term').val());
 });
 
-$('#input-utm_medium').trigger('keyup');
+$('#input-utm_term').trigger('keyup');
+
+$('#input-utm_term').on('keyup', function() {
+	$('#input-example1').val('{{ store }}?utm_source=' + $('#input-utm_source').val()+'&utm_medium='+ $('#input-utm_medium').val()+'&utm_term='+ $('#input-utm_term').val());
+	$('#input-example2').val('{{ store }}index.php?route=common/home&utm_source=' + $('#input-utm_source').val()+'&utm_medium='+ $('#input-utm_medium').val()+'&utm_term='+ $('#input-utm_term').val());
+});
+
+$('#input-utm_term').trigger('keyup');
 //--></script></div>
 {{ footer }}

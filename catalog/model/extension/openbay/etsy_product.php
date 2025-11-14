@@ -1,6 +1,6 @@
-<?php
-class ModelExtensionOpenBayEtsyProduct extends Model {
-	public function inbound($data) {
-
-	}
+<?php
+class ModelExtensionOpenBayEtsyProduct extends Model {
+	public function inbound($data) {
+
+	}
 }

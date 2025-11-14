@@ -44,11 +44,11 @@ class ControllerCheckoutCart extends Controller {
 
 			$data['action'] = $this->url->link('checkout/cart/edit', '', true);
 
-			// if ($this->config->get('config_cart_weight')) {
-			// 	$data['weight'] = $this->weight->format($this->cart->getWeight(), $this->config->get('config_weight_class_id'), $this->language->get('decimal_point'), $this->language->get('thousand_point'));
-			// } else {
-			// 	$data['weight'] = '';
-			// }
+			if ($this->config->get('config_cart_weight')) {
+				$data['weight'] = $this->weight->format($this->cart->getWeight(), $this->config->get('config_weight_class_id'), $this->language->get('decimal_point'), $this->language->get('thousand_point'));
+			} else {
+				$data['weight'] = '';
+			}
 
 			$this->load->model('tool/image');
 			$this->load->model('tool/upload');
@@ -75,7 +75,7 @@ class ControllerCheckoutCart extends Controller {
 				}
 
 				if ($product['image']) {
-					$image = $this->model_tool_image->resize($product['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_cart_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_cart_height'));
+					$image = $this->model_tool_image->resize($product['image'], 200, 139);
 				} else {
 					$image = '';
 				}
@@ -142,8 +142,9 @@ class ControllerCheckoutCart extends Controller {
 						$recurring .= sprintf($this->language->get('text_payment_cancel'), $this->currency->format($this->tax->calculate($product['recurring']['price'] * $product['quantity'], $product['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']), $product['recurring']['cycle'], $frequencies[$product['recurring']['frequency']], $product['recurring']['duration']);
 					}
 				}
+				//print_r($product);
 				// $discount_amt += ($product['mrp'] * $product['quantity'] )- ($inc_price2 * $product['quantity']);
-				$percentage_off = round((($product['mrp'] - $product['price']) / $product['mrp'])* 100);
+				$percentage_off = round(((round($product['mrp']) - $product['price']) / (round($product['mrp'])))* 100);
 				//echo $percentage_off;
 				$data['products'][] = array(
 					'cart_id'   => $product['cart_id'],
@@ -158,6 +159,7 @@ class ControllerCheckoutCart extends Controller {
 					'reward'    => ($product['reward'] ? sprintf($this->language->get('text_points'), $product['reward']) : ''),
 					'price'     => $price,
 					'total'     => $total,
+					'special_number' => $product['price'],
 					'discount'	=> $percentage_off,
 					'href'      => $this->url->link('product/product', 'product_id=' . $product['product_id'])
 				);
@@ -170,7 +172,6 @@ class ControllerCheckoutCart extends Controller {
 			$data['coupon_info'] = $coupon_info;
 			//print_r($coupon_info);
 			$data['applied_coupon'] = $this->session->data['coupon'];
-			// print_r($data['applied_coupon']);
 			// Gift Voucher
 			$data['vouchers'] = array();
 
@@ -210,9 +211,8 @@ class ControllerCheckoutCart extends Controller {
 				}
 
 				array_multisort($sort_order, SORT_ASC, $results);
-				
+
 				foreach ($results as $result) {
-					// print_r($total_data);
 					if ($this->config->get('total_' . $result['code'] . '_status')) {
 						$this->load->model('extension/total/' . $result['code']);
 						
@@ -233,7 +233,7 @@ class ControllerCheckoutCart extends Controller {
 			$data['totals'] = array();
 
 			$total_price = 0;
-			
+
 			foreach ($totals as $total) {
 				$data['totals'][] = array(
 					'title' => $total['title'],
@@ -264,28 +264,19 @@ class ControllerCheckoutCart extends Controller {
 			$data['total_mrp'] = $this->currency->format($total_mrp,$this->session->data['currency']);//$total_mrp;
 			$total_save = $total_mrp - $total_price;
 			$data['total_save'] = $this->currency->format($total_save,$this->session->data['currency']);
-			
-			// print_r($data);
-			$data['column_left'] = $this->load->controller('common/column_left');
-			$data['column_right'] = $this->load->controller('common/column_right');
-			$data['content_top'] = $this->load->controller('common/content_top');
-			$data['content_bottom'] = $this->load->controller('common/content_bottom');
+			$data['alltimetotal'] = round($total_price);
+
 			$data['footer'] = $this->load->controller('common/footer');
+			$data['menu'] = $this->load->controller('common/menu');
 			$data['header'] = $this->load->controller('common/header');
 
 			$this->response->setOutput($this->load->view('checkout/cart', $data));
 		} else {
 			$data['text_error1'] = 'Your cart is Empty!';
-			$data['text_error'] = 'Add something to make me happy';//$this->language->get('text_empty');
-			$data['page_text'] = 'shoppingcart';
-			$data['continue'] = $this->url->link('common/home');
-
+			$data['text_error'] = 'Add something to make me happy';
+		
 			unset($this->session->data['success']);
 
-			$data['column_left'] = $this->load->controller('common/column_left');
-			$data['column_right'] = $this->load->controller('common/column_right');
-			$data['content_top'] = $this->load->controller('common/content_top');
-			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 			$data['menu'] = $this->load->controller('common/menu');
@@ -406,6 +397,7 @@ class ControllerCheckoutCart extends Controller {
 				}
 
 				$json['total'] = sprintf($this->cart->countProducts());
+				//sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total, $this->session->data['currency']));
 			} else {
 				$json['redirect'] = str_replace('&amp;', '&', $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']));
 			}
@@ -425,7 +417,7 @@ class ControllerCheckoutCart extends Controller {
 			foreach ($this->request->post['quantity'] as $key => $value) {
 				$this->cart->update($key, $value);
 			}
-			
+
 			$this->session->data['success'] = $this->language->get('text_remove');
 
 			unset($this->session->data['shipping_method']);
@@ -712,7 +704,7 @@ class ControllerCheckoutCart extends Controller {
 
 			$data['continue'] = $this->url->link('common/home');
 
-			$data['checkout'] = $this->url->link('checkout/checkout', '', true);
+			$data['checkout'] = $this->url->link('checkout/cart', '', true);
 
 			$this->load->model('setting/extension');
 
@@ -749,6 +741,7 @@ class ControllerCheckoutCart extends Controller {
 		$product_info = $this->model_catalog_product->getProduct($product_id);
 		$cart_quantity = $this->model_catalog_product->getcartquantity($cart_id);
 		$product_info['total_value'] = round($product_info['special']) * $cart_quantity;
+		$product_info['special'] = round($product_info['special']);
 		$product_info['cart_quantity'] = $cart_quantity;
 		// print_r(json_encode($product_info));
 		$this->response->addHeader('Content-Type: application/json');

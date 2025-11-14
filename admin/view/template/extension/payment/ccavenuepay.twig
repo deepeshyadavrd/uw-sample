@@ -1,0 +1,208 @@
+{{ header }}{{ column_left }}
+<div id="content">
+<div class="page-header">
+<div class="container-fluid">
+<div class="pull-right">
+<button type="submit" form="form-payment" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+<a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a>
+</div>
+<h1>{{ heading_title }}</h1>
+<ul class="breadcrumb">
+{% for breadcrumb in breadcrumbs %}
+<li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+{% endfor %}
+</ul>
+</div>
+</div>
+
+<div class="container-fluid">
+{% if error_warning %}
+<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+{% endif %}
+<div class="panel-heading" id ="api_panel" style="display: inline-block; margin-left: 20px; ">
+<div class="af" id="af" style="float: left; padding:  26px 5px 0px; border-right: 1px; height: 40px;">
+<a href="https://www.ccavenue.com" target="blank"><img src="https://www.ccavenue.com/images_shoppingcart/ccavenue_logo_india.png" alt="CCAvenue MCPG" title="CCAvenue MCPG" style="height:25px" /></a><br><br>
+</div>
+
+ <div id ="right_panel" style="display: inline-block; margin-left: 20px; margin-top: 18px; float:left">
+<h2 class="panel-title" style="font-size:20px;margin-bottom:9px">{{ heading_title }} </h2>
+<a style=" font-size:18px;font-family:Verdana, Geneva, sans-serif; color:#09F;">Module Version:3.0</a></br><a style=" font-size:16px;font-family:Verdana, Geneva, sans-serif; color:#09F;" href="mailto:shoppingcart@ccavenue.com?subject=India%20Shopping%20Cart%20-%20Opencart%203.0">Contact Support</a>
+</div>
+</div>
+<div class="panel-body">
+<form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-payment" class="form-horizontal">
+
+<div class="form-group">
+<label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
+<div class="col-sm-10">
+<select name="payment_ccavenuepay_status" id="input-status" class="form-control">
+{% if payment_ccavenuepay_status %}
+<option value="1" selected="selected">{{ text_enabled }}</option>
+<option value="0">{{ text_disabled }}</option>
+{% else %}
+<option value="1">{{ text_enabled }}</option>
+<option value="0" selected="selected">{{ text_disabled }}</option>
+{% endif %}
+</select>
+</div>
+</div>
+
+<div class="form-group required">
+<label class="col-sm-2 control-label" for="entry-email">{{ entry_merchant_id }}</label>
+<div class="col-sm-10">
+<input type="text" name="payment_ccavenuepay_merchant_id" value="{{ payment_ccavenuepay_merchant_id }}" placeholder="{{ entry_merchant_id }}" id="entry-merchant_id" class="form-control"/>
+{% if error_merchant_id %}
+<div class="text-danger">{{ error_merchant_id }}</div>
+{% endif %}
+</div>
+</div>
+
+<div class="form-group required">
+<label class="col-sm-2 control-label" for="entry-access_code">{{ entry_access_code }}</label>
+<div class="col-sm-10">
+<input type="text" name="payment_ccavenuepay_access_code" value="{{ payment_ccavenuepay_access_code }}" placeholder="{{ entry_access_code }}" id="entry-access_code" class="form-control"/>
+{% if error_access_code %}
+<div class="text-danger">{{ error_access_code }}</div>
+{% endif %}
+</div>
+</div>
+
+<div class="form-group required">
+<label class="col-sm-2 control-label" for="entry-working_key">{{ entry_working_key }}</label>
+<div class="col-sm-10">
+<input type="password" name="payment_ccavenuepay_working_key" value="{{ payment_ccavenuepay_working_key }}" placeholder="{{ entry_working_key }}" id="entry-working_key" class="form-control"/>
+{% if error_working_key %}
+<div class="text-danger">{{ error_working_key }}</div>
+{% endif %}
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-2 control-label" for="input-payment_confirmation_mail">{{ entry_payment_confirmation_mail }}</label>
+<div class="col-sm-10">
+<select name="payment_ccavenuepay_payment_confirmation_mail" id="input-payment_confirmation_mail" class="form-control">
+{% if payment_ccavenuepay_payment_confirmation_mail %}
+<option value="1" selected="selected">{{ text_yes }}</option>
+<option value="0">{{ text_no }}</option>
+{% else %}
+<option value="1">{{ text_yes }}</option>
+<option value="0" selected="selected">{{ text_no }}</option>
+{% endif %}
+</select>
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-2 control-label" for="input-payment_test_mode">{{ entry_payment_test_mode }}</label>
+<div class="col-sm-10">
+<select name="payment_ccavenuepay_test_mode" id="input-payment_test_mode" class="form-control">
+{% if payment_ccavenuepay_test_mode %}
+<option value="1" selected="selected">{{ text_test }}</option>
+<option value="0">{{ text_live }}</option>
+{% else %}
+<option value="1">{{ text_test }}</option>
+<option value="0" selected="selected">{{ text_live }}</option>
+{% endif %}
+</select>
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-2 control-label" for="input-payment_currency_option">{{ entry_payment_currency_option }}</label>
+<div class="col-sm-10">
+<select name="payment_ccavenuepay_currency_option[]" id="input-payment_currency_option" class="form-control" multiple="multiple">
+{% for currency in currencies %}
+{% if currency.code in allowcurrencies %}
+{% if currency.code in payment_ccavenuepay_currency_option %}
+<option value="{{ currency.code }}" selected="selected">{{ currency.title }}</option>
+{% else %}
+<option value="{{ currency.code }}">{{ currency.title }}</option>
+{% endif %}
+{% endif %}
+{% endfor %}
+</select>
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-2 control-label" for="entry-total">{{ entry_total }}</label>
+<div class="col-sm-10">
+<input type="text" name="payment_ccavenuepay_total" value="{{ payment_ccavenuepay_total }}" id="entry-total" class="form-control"/>
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-2 control-label" for="input-geo-zone">{{ entry_geo_zone }}</label>
+<div class="col-sm-10">
+<select name="payment_ccavenuepay_geo_zone_id" id="input-geo-zone" class="form-control">
+<option value="0">{{ text_all_zones }}</option>
+{% for geo_zone in geo_zones %}
+{% if geo_zone.geo_zone_id == payment_ccavenuepay_geo_zone_id %}
+<option value="{{ geo_zone.geo_zone_id }}" selected="selected">{{ geo_zone.name }}</option>
+{% else %}
+<option value="{{ geo_zone.geo_zone_id }}">{{ geo_zone.name }}</option>
+{% endif %}
+{% endfor %}
+</select>
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-2 control-label" for="input-completed-status">{{ entry_completed_status }}</label>
+<div class="col-sm-10">
+<select name="payment_ccavenuepay_completed_status_id" id="input-completed-status" class="form-control">
+{% for order_status in order_statuses %}
+{% if order_status.order_status_id == payment_ccavenuepay_completed_status_id %}
+<option value="{{ order_status.order_status_id }}" selected="selected">{{ order_status.name }}</option>
+{% else %}
+<option value="{{ order_status.order_status_id }}">{{ order_status.name }}</option>
+{% endif %}
+{% endfor %}
+</select>
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-2 control-label" for="input-pending-status">{{ entry_pending_status }}</label>
+<div class="col-sm-10">
+<select name="payment_ccavenuepay_pending_status_id" id="input-pending-status" class="form-control">
+{% for order_status in order_statuses %}
+{% if order_status.order_status_id == payment_ccavenuepay_pending_status_id %}
+<option value="{{ order_status.order_status_id }}" selected="selected">{{ order_status.name }}</option>
+{% else %}
+<option value="{{ order_status.order_status_id }}">{{ order_status.name }}</option>
+{% endif %}
+{% endfor %}
+</select>
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-2 control-label" for="input-failed-status">{{ entry_failed_status }}</label>
+<div class="col-sm-10">
+<select name="payment_ccavenuepay_failed_status_id" id="input-failed-status" class="form-control">
+{% for order_status in order_statuses %}
+{% if order_status.order_status_id == payment_ccavenuepay_failed_status_id %}
+<option value="{{ order_status.order_status_id }}" selected="selected">{{ order_status.name }}</option>
+{% else %}
+<option value="{{ order_status.order_status_id }}">{{ order_status.name }}</option>
+{% endif %}
+{% endfor %}
+</select>
+</div>
+</div>
+
+<div class="form-group">
+<label class="col-sm-2 control-label" for="entry-sort_order">{{ entry_sort_order}}</label>
+<div class="col-sm-10">
+<input type="text" name="payment_ccavenuepay_sort_order" value="{{ payment_ccavenuepay_sort_order }}" id="entry-sort_order" class="form-control"/>
+</div>
+</div>
+
+</form>
+</div>
+</div>
+</div>
+{{ footer }}

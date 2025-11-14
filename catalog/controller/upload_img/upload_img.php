@@ -5,6 +5,7 @@ class ControllerUploadImgUploadImg extends Controller {
     public function index(){
         $data['footer'] = $this->load->controller('common/footer');
         $data['header'] = $this->load->controller('common/header');
+        $data['menu'] = $this->load->controller('common/menu');
         $this->load->model('tool/image');
         $this->load->model('upload_img/upload_img');
 
@@ -16,13 +17,13 @@ class ControllerUploadImgUploadImg extends Controller {
         foreach ($results as $result) {
             
 			if (is_file(DIR_IMAGE . $result['image'])) {
-				$image = $this->model_tool_image->resize($result['image'], 400,280);
+				$image = $this->model_tool_image->resize($result['image'], 421,292);
 			} else {
 				$image = $this->model_tool_image->resize('no_image.png', 100, 100);
 			}
 
             if (is_file(DIR_IMAGE . $result['image'])) {
-				$image2 = $this->model_tool_image->resize($result['image'], 2000,1395);
+				$image2 = $this->model_tool_image->resize($result['image'], 1760,1340);
 			} else {
 				$image2 = $this->model_tool_image->resize('no_image.png', 100, 100);
 			}

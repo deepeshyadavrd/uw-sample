@@ -2,7 +2,7 @@
 	width:100%;
 	position: absolute;
 	z-index: 1000;
-	padding: 0px 0 0px;
+	padding: 5px 0 20px;
 	/* margin-top: 40px; */
 	background-color:#FFF;
 	border: 1px solid #DDD;
@@ -29,7 +29,7 @@
 	padding:5px;
 	margin:0px 5px;
 	background-color:#FFF;
-	min-height:40px;
+	min-height:50px;
 	clear:both;
 }
 .live-search ul li:nth-child(even) {
@@ -73,9 +73,8 @@
 .live-search ul li .product-name{
 	/* font-weight: bold; */
 	float: left;
-	width:100%;
+	width:53%;
 	color: #434342;
-	line-height: 30px;
 }
 .live-search ul li .product-add-cart{
 	float: right;

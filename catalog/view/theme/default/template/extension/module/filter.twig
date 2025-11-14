@@ -1,25 +1,3 @@
-{# <div class="panel panel-default">
-  <div class="panel-heading">{{ heading_title }}</div>
-  <div class="list-group"> {% for filter_group in filter_groups %} <a class="list-group-item">{{ filter_group.name }}</a>
-    <div class="list-group-item">
-      <div id="filter-group{{ filter_group.filter_group_id }}">{% for filter in filter_group.filter %}
-        <div class="checkbox">
-          <label>{% if filter.filter_id in filter_category %}
-            <input type="checkbox" name="filter[]" value="{{ filter.filter_id }}" checked="checked" />
-            {{ filter.name }}
-            {% else %}
-            <input type="checkbox" name="filter[]" value="{{ filter.filter_id }}" />
-            {{ filter.name }}
-            {% endif %}</label>
-        </div>
-        {% endfor %}</div>
-    </div>
-    {% endfor %}</div>
-  <div class="panel-footer text-right">
-    <button type="button" id="button-filter" class="btn btn-primary">{{ button_filter }}</button>
-  </div>
-</div> #}
-
 <style type="text/css">
     .slider-example {
         padding-top: 10px;
@@ -27,27 +5,27 @@
         margin: 35px 0;
     }
 </style>
-<div class="col-lg-12 col-md-12 col-sm-12">
+<div class="col-lg-12 col-md-12 col-sm-12 d-md-none d-block">
         <div class="fillter-mob-sec">
           <div class="d-flex justify-content-between align-items-center"> 
-        <h6>Sort/Filter</h6>
-        <button class="btn filter-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#filtercanvas" aria-controls="offcanvasRight"> <i class="fas fa-sort-amount-up-alt"></i></button>
+        <span class="filter-heading">Sort/Filter</span>
+        <button class="btn filter-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#filtercanvas" aria-controls="offcanvasRight"> <i class='bx bx-sort-up bx-sm' ></i></button>
           </div>
           <div class="offcanvas offcanvas-end" tabindex="-1" id="filtercanvas" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
               <h5 id="offcanvasRightLabel">Sort/Filter</h5>
-              <button type="button" class=" text-reset" data-bs-dismiss="offcanvas" aria-label="Close" style="background: none; border: none; "> <i class="fas fa-arrow-left"></i></button>
+              <button type="button" class=" text-reset" data-bs-dismiss="offcanvas" aria-label="Close" style="background: none; border: none; "> <i class='bx bx-left-arrow-alt bx-sm'></i></button>
             </div>
             <div class="offcanvas-body">
               <div class="filter-box">
                 <div class="short-by-sec">
                   <div class="accordion" id="accordionPanelsStayOpen1">
                     <div class="accordion-item accordion-item-filter">
-                      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                      <span class="accordion-header" id="panelsStayOpen-headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
                           Sort by
                         </button>
-                      </h2>
+                      </span>
                       <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                         <div class="accordion-body">
                          <ul>
@@ -72,28 +50,6 @@
                          </div>
                         </div>
                       </div>
-              
-                    <div class="accordion-item accordion-item-filter">
-                      <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          Primary Material
-                        </button>
-                      </h2>
-                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                         
-                          <ul>
-                            <li>
-                            <div class="form-check filter-switch">
-                              <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecke2" checked>
-                              <label class="form-check-label" for="flexSwitchCheckChecked">Sheesham Wood</label>
-                            </div>
-                          </li>
-                         
-                             </ul>
-                        </div>
-                      </div>
-                    </div>
               
                   </div>
               
@@ -121,12 +77,12 @@
                     {% for filter_group in filter_groups %}
     <div class="accordion-item accordion-item-filter">
     
-        <h2 class="accordion-header" id="headingTwo">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo{{ filter_group.filter_group_id }}" aria-expanded="false" aria-controls="collapseTwo">
+        <span class="accordion-header" id="headingTwo">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo{{ filter_group.filter_group_id }}" aria-expanded="true" aria-controls="collapseTwo">
             {{ filter_group.name }}
           </button>
-        </h2>
-        <div id="collapseTwo{{ filter_group.filter_group_id }}" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        </span>
+        <div id="collapseTwo{{ filter_group.filter_group_id }}" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
           <div class="accordion-body">
            
             <ul>
@@ -134,7 +90,7 @@
               <li>
               <div class="form-check filter-switch">
               {% if filter.filter_id in filter_category %}
-                <input class="form-check-input ifilter" name="filter[]" id="{{ filter.filter_id }}" value="{{ filter.filter_id }}" type="checkbox" id="flexSwitchCheckChecke2" checked>
+                <input class="form-check-input ifilter" name="filter[]" id="{{ filter.filter_id }}" value="{{ filter.filter_id }}" type="checkbox" id="flexSwitchCheckChecke2" >
                 <label class="form-check-label" for="flexSwitchCheckChecked">{{ filter.name }}</label>
                 {% else %}
                 <input class="form-check-input ifilter" name="filter[]" id="{{ filter.filter_id }}" value="{{ filter.filter_id }}" type="checkbox" id="flexSwitchCheckChecke2">
@@ -151,11 +107,6 @@
       </div>
       {% endfor %}
                   </div>
-                 
-              
-              
-              
-                    
                     </div>
                   </div>
             </div>
@@ -197,12 +148,7 @@
            </div>
           </div>
         </div>
-
-      
-
     </div>
-
-    
 <div class="filter-sec-heading"> Filter</div>
 {% if min_max != 0 %}
 <div class="rangeslider">
@@ -228,7 +174,7 @@
     <div class="accordion-item accordion-item-filter">
     
         <h2 class="accordion-header" id="headingTwo">
-          <button class="accordion-button show" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo{{ filter_group.filter_group_id }}" aria-expanded="true" aria-controls="collapseTwo">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo{{ filter_group.filter_group_id }}" aria-expanded="true" aria-controls="collapseTwo">
             {{ filter_group.name }}
           </button>
         </h2>
@@ -259,37 +205,36 @@
       </div>
       </div>
     </div>
-    </div> 
-      <script>
+    </div>
+    
+      <script type="text/javascript">
 $('.ifilter').on('click', function() {
 	filter = [];
 
 	$('input[name^=\'filter\']:checked').each(function(element) {
 		filter.push(this.value);
 	});
-
-	location = '{{ action }}&filter=' + filter.join(',');
+  if (filter.length === 0) {
+    location = '{{ action }}';
+  }else {
+	  location = '{{ action }}?filter=' + filter.join(',');
+  }
 });
 //--></script> 
 
-{# price slider filter #}
     <script>
     //alert({{ price_range[0] }});
 	if( {{ price_range|length }} != 0){
-    // alert('here');
 	    var handlers = [{{ price_range[0] }},  {{ price_range[1] }}];
     }else{
-      // alert('here2');
       var handlers = [{{ price_min }},  {{ price_max }}];
     }
-  // alert(handlers);
     $("#slider-range").slider({
         range: true,
         min: 15000,
         max: 90000,
-        values: handlers,//[15000, 90000],
+        values: handlers,
         slide: function (event, ui) {
-            //$("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
             $("#amount").val( ui.values[0]);
             $( "#amount2" ).val( ui.values[ 1 ] );
             $("#total").val($( "#amount" ).val()+','+$( "#amount2" ).val());
@@ -331,12 +276,9 @@ $('.ifilter').on('click', function() {
 </script>
 {# mobile price range slider #}
 <script>
-    //alert({{ price_range[0] }});
 	if( {{ price_range|length }} != 0){
-    // alert('here');
 	    var handlers = [{{ price_range[0] }},  {{ price_range[1] }}];
     }else{
-      // alert('here2');
       var handlers = [{{ price_min }},  {{ price_max }}];
     }
   // alert(handlers);
@@ -344,9 +286,8 @@ $('.ifilter').on('click', function() {
         range: true,
         min: 15000,
         max: 90000,
-        values: handlers,//[15000, 90000],
+        values: handlers,
         slide: function (event, ui) {
-            //$("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
             $("#m-amount").val( ui.values[0]);
             $( "#m-amount2" ).val( ui.values[ 1 ] );
             $("#m-total").val($( "#m-amount" ).val()+','+$( "#m-amount2" ).val());

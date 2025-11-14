@@ -1,13 +1,29 @@
 {{ header }}
 {{ menu }}
+</div>
+<style>
+.login-side img{
+  width: 100%;
+}
 
-  {# <div class="qu-sec py-2 ">
+@media screen and (min-width:1200px){
+.login-side img{
+  width: 93%;
+}
+}
+@media screen and (min-width:1400px){
+.login-side img{
+  width: 82%;
+}
+}
+</style>
+  <div class="qu-sec py-2 ">
   <div class="container container-custom">
     <div class="row">
 <div class="col-md-12 col-sm-12">
   <nav class="breadcumb-navigation">
     <ol class="breadcrumb m-0">
-      {# <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li> #
+      {# <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li> #}
       {% for breadcrumb in breadcrumbs %}
       <li class="breadcrumb-item active" aria-current="page"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
       {% endfor %}
@@ -24,13 +40,14 @@
   <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
   {% endif %}
     <section class="login-reg-sec">
+      <div class="container container-custom">
       <div class="row">
-        <div class="col-md-7 col-sm-6 col-xs-6 width-30">
+        <div class="col-md-6 col-sm-6 col-xs-6 width-30">
           <div class="login-side">
-               <img src="catalog/view/javascript/assets/image/popupimg/slider1.png" class="img-responsive">
+               <img src="catalog/view/javascript/assets/image/popupimg/slider1.avif" class="img-responsive">
           </div>
         </div>
-        <div class="col-md-5 col-sm-6 col-xs-6 width-70">
+        <div class="col-md-6 col-sm-6 col-xs-6 width-70">
         <!--- sign in form-->
           <div class="signin-form-popup signupform1 selected">
             <div class="from-header">
@@ -39,7 +56,7 @@
             </div>
             <div class="popup-signform">
               <!-- class="loginform" -->
-              <form method="post" action="?route=account/login">
+              <form method="post" action="login">
                 <div class="row">
                   <div class="col-md-12">
                     <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email Address" required="">
@@ -57,8 +74,8 @@
                     {# <div class="d-flex justify-content-center align-items-center my-3">
                       <img src="./assets/image/icon/g-icon.png" alt="" width="40" class="mx-1">
                       <img src="./assets/image/icon/f-icon.png" alt="" width="40" class="mx-1">
-                    </div> #
-                    <p class="text-center dont-accont">Dont Have an Account ? <a href="?route=account/register" >Sign Up Now</a></p>
+                    </div> #}
+                    <p class="text-center dont-accont">Dont Have an Account ? <a href="register" >Sign Up Now</a></p>
                   </div>
                 </div>
               </form>
@@ -66,167 +83,6 @@
           </div>
         </div>
       </div>
-    </section> #}
-
-    <style>
-
-  .formsec {
-    display: flex;
-    min-height: 60vh;
-  }
-
-  /* Form section */
-  .form-section {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
-    background: #fff;
-  }
-  .form-box {
-    width: 100%;
-    max-width: 400px;
-  }
-  .form-box h2 {
-    margin-bottom: 20px;
-    color: #222;
-  }
-  .form-box input {
-    width: 100%;
-    padding: 12px 14px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-  }
-  .form-box button {
-    width: 100%;
-    padding: 12px;
-    /* background: var(--primary); */
-    border: none;
-    border-radius: 8px;
-    /* color: #fff; */
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-
-  /* Google button */
-  .btn-google {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    background: #fff;
-    font-weight: 600;
-    color: #202124;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  .btn-google img {
-    width: 18px;
-    height: 18px;
-  }
-
-  .toggle {
-    margin-top: 15px;
-    text-align: center;
-    font-size: 14px;
-    color: #555;
-  }
-  .toggle a {
-    /* color: var(--primary); */
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  /* Image section */
-  .image-section {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #fafafa;
-  }
-  .image-section img {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-
-  /* Responsive */
-  @media (max-width: 900px) {
-    .container {
-      flex-direction: column;
-    }
-    .image-section {
-      display: none;
-    }
-    .form-section {
-      width: 100%;
-      padding: 30px 20px;
-    }
-  }
-</style>
-<div class="container formsec">
-    <!-- Form Section -->
-    <div class="form-section">
-      <div class="form-box">
-
-        <!-- Login Form -->
-        <div id="loginForm">
-          <h2>Login</h2>
-          <form>
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Password" required>
-            <button type="submit">Sign In</button>
-            <button type="button" class="btn-google">
-              <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google"> Sign in with Google
-            </button>
-          </form>
-          <div class="toggle">
-            Don’t have an account? <a onclick="showSignup()">Sign Up</a>
-          </div>
-        </div>
-
-        <!-- Signup Form -->
-        <div id="signupForm" style="display:none;">
-          <h2>Sign Up</h2>
-          <form>
-            <input type="text" placeholder="Full Name" required>
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Password" required>
-            <button type="submit">Create Account</button>
-            <button type="button" class="btn-google">
-              <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google"> Sign up with Google
-            </button>
-          </form>
-          <div class="toggle">
-            Already have an account? <a onclick="showLogin()">Login</a>
-          </div>
-        </div>
-
       </div>
-    </div>
-
-    <!-- Image Section -->
-    <div class="image-section">
-      <img src="https://via.placeholder.com/600x600" alt="Furniture">
-    </div>
-  </div>
-  <script>
-  function showSignup() {
-    document.getElementById('loginForm').style.display = 'none';
-    document.getElementById('signupForm').style.display = 'block';
-  }
-  function showLogin() {
-    document.getElementById('signupForm').style.display = 'none';
-    document.getElementById('loginForm').style.display = 'block';
-  }
-</script>
+    </section>
 {{footer}}

@@ -43,7 +43,7 @@
       {{ content_bottom }}</div>
     {{ column_right }}</div>
 </div> #}
-  <style>
+<style>
     .uw-title { font-weight:700; font-size:24px; margin:0; position:relative; }
     .uw-title:after { content:""; display:block; width:60px; height:3px; background:#d70909; margin-top:8px; border-radius:3px; }
     .uw-card { background:#fff; border:1px solid #eee; border-radius:14px; padding:16px; box-shadow:0 8px 24px rgba(0,0,0,.04); transition:all .2s; }
@@ -94,11 +94,13 @@
     <div class="user-panel ">
 
       <ul class="nav flex-column nav-pills user-panel-list me-3" id="v-pills-tab" role="tablist">
-        <li><a href="" class="active">My Profile</a></li>
-        <li><a href="" >My Orders</a></li>
+        <li><a href="account">Profile</a></li>
+        <li><a href="address" class="active">Address</a></li>
+        <li><a href="orders">Orders</a></li>
       </ul>
+
       <div class="log-out-btn">
-        <a href=""> LOGOUT </a>
+        <a href="logout"> LOGOUT </a>
       </div>
     </div>
   </div>

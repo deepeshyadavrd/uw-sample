@@ -26,16 +26,37 @@
   background: #fff;
 }
 .pp-dd-21 {
-  display: block;
-  margin: 0px 0px 0px 0px;
+  /* display: block;
+  margin: 0px 0px 0px 0px; */
   width: 100%;
+}
+.price--order {
+    display: flex;
+    align-items: center;
+  }
+.real-amm {
+    font-size: 31px;
+    font-weight: bold;
+    color:#ff8000;
+    margin-right: 10px;
+}
+.dis-amm {
+    font-size: 18px;
+    color: #959595;
+    font-weight: 400;
+    text-decoration: line-through;
+    margin-right: 10px;
+}
+.off-amm {
+    color: #1ecb09;
+    font-weight: 600;
 }
 .solid-amount {
     display: flex;
     color: #fd5b40;
     font-size: 13px;
-    justify-content: space-between;
-    align-items: center;
+    /* justify-content: space-between;
+    align-items: center; */
     flex-direction: row-reverse;
 }  
 .bestseller-tag- {
@@ -59,9 +80,6 @@
 }
 .out-of-stock {
     filter: grayscale(1);
-}
-.pp-with-together .real-amm {
-    font-size: 20px;
 }
 .feature-box ul {
 	list-style: none;
@@ -122,7 +140,7 @@
 	padding: 8px 60px;
 	font-size: 15px;
 	margin: 10px 0px;
-	transition: all ease-in 5.ms;
+	transition: all ease-in .5ms;
 	cursor: pointer;
 	width: 100%;
 	display: block;
@@ -149,10 +167,10 @@
     padding: 3px;
     text-align: center;
 }
-.finish-nm {
+/* .finish-nm {
     color: #000;
     font-size: 14px;
-}
+} */
 .price-object {
     color: #5c5c5c;
     font-size: 15px;
@@ -197,14 +215,7 @@
 .pp-heading-line2 a{
 	color: #434342;
 }
-.off-amm-together {
-	color: #1ecb09;
-	font-size: 9px;
-	font-weight: 600;
-	background: #d4f7d0;
-	padding: 4px 8px;
-	border-radius: 10px;
-}
+
 .cart-shop-btn:hover,
 .see-product-btn:hover,
 .whatsappnotify .submit-number:hover {
@@ -308,7 +319,7 @@
 .rating-num {
   color: #02a71d;
   font-size: 50px;
-  font-weight: 900;
+  font-weight: 700;
   align-items: center;
   display: inline-flex;
 }
@@ -533,7 +544,7 @@
 }
 
 .cutom-detail,
-.offer-box,
+/* .offer-box, */
 .slider-outer {
 	display: flex
 }

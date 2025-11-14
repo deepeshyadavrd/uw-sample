@@ -25,13 +25,13 @@
       <div class="header"> 
         <div class="cutom-detail">
         <div class="user-dp">
-          <img alt="" src="{{ review.customer_img }}">
+          <img alt="" src="catalog/view/javascript/assets/image/user-pic.png">
         </div>
         <div class="client-name-com">
           <span class="cc-name-title"><strong>{{ review.author }}</strong></span>
           <span class="customer-rating">{{ review.rating }} <i class="fa fa-star"></i></span>
           <span class="post-date">Posted on &nbsp;{{ review.date_added }}</span>
-          <div class="certified-tick"> <i class="fas fa-check"></i> Certified Buyer  </div>
+          <div class="certified-tick"> <i class='bx bxs-badge-check'></i> Certified Buyer  </div>
         </div>
       </div>
         {# <div class="likes-for-pp">
@@ -45,16 +45,14 @@
       <div class="clien-rew-img">
       <ul>
       {% if review.review_image is iterable  %}
-    {% for row in review.review_image %}
-        {% for column in row %}
-            
+        {% for row in review.review_image %}
+          {% for column in row %}
             <li><a href="{{ column }}" data-lightbox="photos"> <img alt="" src="{{ column }}"></a></li>
+          {% endfor %}
         {% endfor %}
-      {% endfor %}
-{% else %}
-    <li><a href="{{ column }}" data-lightbox="photos"> <img alt="" src="{{ review.review_image }}"></a></li>
-{% endif %}
-      
+      {% else %}
+        <li><a href="{{ review.review_image }}" data-lightbox="photos"> <img alt="" src="{{ review.review_image }}"></a></li>
+      {% endif %}
         
           
           

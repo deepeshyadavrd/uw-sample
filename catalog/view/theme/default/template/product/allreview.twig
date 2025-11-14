@@ -24,7 +24,7 @@
     <div class="breadcrumb-sec all-review-banner">
       <div class="container container-custom">
         <div class="breadcrumb-content breadcrumb-content d-sm-block d-none">
-          <h6>Our Customers</h6>
+          <h1>Our Customers</h1>
           <p class="text-lg-start"> To add a touch of elegance to your home at a reasonable price, get furniture online from our wide selection of wooden furniture units. To suit your home interiors. </p>
     <p class="text-lg-start" style="color:#fd8500"> <strong>You can also purchase specifically customized for your needs. </strong></p>
           
@@ -55,7 +55,7 @@
   </div>
       </div>
   </div> -->
-  <div class="qu-sec py-2 ">
+  <div class="py-2 ">
     <div class="container container-custom">
       <div class="row">
       
@@ -106,7 +106,7 @@
             <div class="slide client-box client-box2"> 
       
               <div class="client-img">
-                <img src="assets/image/review-img/client-1-img.png" class="img-responsive img-fluid ">
+                <img src="{{ review.image }}" class="img-responsive img-fluid " alt="{{ review.author }}">
               </div>
        <div class="client-content">
          <div class="client-name"> <p> {{ review.author }} <span>( &nbsp;{{ review.city }} ) </span> </p></div>
@@ -114,12 +114,12 @@
        <p>{{ review.text }}</p>
        <div class="rating">
        {% for i in 1..review.rating %}
-          {% if review.rating < i %} 
+          {# {% if review.rating < i %} 
             <span><i class='bx bx-star rst'></i></span>
           {% else %} 
             <span><i class='bx bxs-star rst'></i><i class='bx bx-star rst'></i></span>
-          {% endif %}
-          
+          {% endif %} #}
+          <span><i class='bx bxs-star rst'></i></span>
       {% endfor %}
          {# <span><i class='bx bxs-star'></i></span>
          <span><i class='bx bxs-star'></i></span>

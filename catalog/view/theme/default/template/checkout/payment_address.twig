@@ -320,10 +320,10 @@
 
   
     </div>
-    <button type="button" id="button-payment-address" class="save-continue-btn">Save & Continue</button>
+    <button type="button" id="button-payment-address" class="save-continue-btn">Save Addrerss</button>
    
   </form>
-  {% if paynowbtn %}
+ {% if paynowbtn %}
  <button type="button" id="button-payment-methods" class="pay-now-btn">Pay Now</button>
  {% endif %}
 
@@ -377,7 +377,7 @@ $('#collapse-payment-address button[id^=\'button-payment-custom-field\']').on('c
 			clearInterval(timer);
 
 			$.ajax({
-				url: 'index.php?route=tool/upload',
+				url: '?route=tool/upload',
 				type: 'post',
 				dataType: 'json',
 				data: new FormData($('#form-upload')[0]),
@@ -431,7 +431,7 @@ $('#collapse-payment-address button[id^=\'button-payment-custom-field\']').on('c
 <script type="text/javascript"><!--
 $('#newaddressform select[name=\'country_id\']').on('change', function() {
 	$.ajax({
-		url: 'index.php?route=checkout/checkout/country&country_id=' + this.value,
+		url: '?route=checkout/checkout/country&country_id=' + this.value,
 		dataType: 'json',
 		beforeSend: function() {
 			$('#collapse-payment-address select[name=\'country_id\']').prop('disabled', true);

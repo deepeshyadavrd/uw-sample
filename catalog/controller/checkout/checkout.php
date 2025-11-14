@@ -22,7 +22,7 @@ class ControllerCheckoutCheckout extends Controller {
 				$this->response->redirect($this->url->link('checkout/cart'));
 			}
 		}
-		
+
 		$data['products'] = array();
 		$this->load->model('tool/image');
 			$this->load->model('tool/upload');
@@ -78,10 +78,10 @@ class ControllerCheckoutCheckout extends Controller {
 					$inc_price = $product['price'];
 				}
 			if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
-				$unit_price = $this->tax->calculate($inc_price, $product['tax_class_id'], $this->config->get('config_tax'));
+				$unit_price = $this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax'));
 				
-				$price = $this->currency->format($unit_price, $this->session->data['currency']);
-				$total = $this->currency->format($unit_price * $product['quantity'], $this->session->data['currency']);
+				$price = $this->currency->format($unit_price* $product['quantity'], $this->session->data['currency']);
+				$total = $this->currency->format($product['mrp'] * $product['quantity'], $this->session->data['currency']);
 			} else {
 				$price = false;
 				$total = false;
@@ -108,9 +108,9 @@ class ControllerCheckoutCheckout extends Controller {
 					$recurring .= sprintf($this->language->get('text_payment_cancel'), $this->currency->format($this->tax->calculate($product['recurring']['price'] * $product['quantity'], $product['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']), $product['recurring']['cycle'], $frequencies[$product['recurring']['frequency']], $product['recurring']['duration']);
 				}
 			}
-			// $data['total_save'] =  $product['ourPrice'] - $product['price'];
-			$discount_amt += ($product['mrp'] * $product['quantity'] )- ($inc_price2 * $product['quantity']);
-			$percentage_off = (($product['ourPrice'] - $product['price']) / $product['ourPrice'])* 100;
+
+			// $discount_amt += ($product['mrp'] * $product['quantity'] )- ($inc_price2 * $product['quantity']);
+			$percentage_off = round(((round($product['mrp']) - $product['price']) / (round($product['mrp'])))* 100);
 			//echo $percentage_off;
 			$data['products'][] = array(
 				'cart_id'   => $product['cart_id'],
@@ -123,13 +123,13 @@ class ControllerCheckoutCheckout extends Controller {
 				'stock'     => $product['stock'] ? true : !(!$this->config->get('config_stock_checkout') || $this->config->get('config_stock_warning')),
 				'reward'    => ($product['reward'] ? sprintf($this->language->get('text_points'), $product['reward']) : ''),
 				'price'     => $price,
+				'special_number'     => $product['price'],
 				'total'     => $total,
 				'discount'	=> $percentage_off,
 				'href'      => $this->url->link('product/product', 'product_id=' . $product['product_id'])
 			);
 		}
-		$data['discount_amt'] = $this->currency->format($discount_amt,$this->session->data['currency']);
-		//print_r($data['products']);
+		// $data['discount_amt'] = $this->currency->format($discount_amt,$this->session->data['currency']);
 		$this->load->language('checkout/checkout');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -244,17 +244,18 @@ class ControllerCheckoutCheckout extends Controller {
 		}
 
 		$data['shipping_required'] = $this->cart->hasShipping();
-
+		
 		$data['total_mrp'] = $this->currency->format($total_mrp,$this->session->data['currency']);//$total_mrp;
 		$total_save = $total_mrp - $total_price;
 		$data['total_save'] = $this->currency->format($total_save,$this->session->data['currency']);
-
+		$data['alltimetotal'] = round($total_price);
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
 		$data['content_top'] = $this->load->controller('common/content_top');
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
+		$data['menu'] = $this->load->controller('common/menu');
 
 		$this->response->setOutput($this->load->view('checkout/checkout', $data));
 	}

@@ -332,7 +332,7 @@
   </li>
   <li>
     <div class="step-5 cirlce-step"><i class='bx bx-package bx-sm'></i></div>
-    <div class="step-detail"> Dispacthed Item</div>
+    <div class="step-detail">Item Dispacthed</div>
   </li>
   <li>
     <div class="step-6 cirlce-step"><i class='bx bx-home bx-sm'></i></div>
@@ -346,7 +346,6 @@
             <span class="tick-icon2"><i class='bx bx-check-circle bx-lg' ></i></span>
             <div class=""> <p>Payment Pending </p>
              <div class="shipp-date">{{ date_added|date() }}</div>
-             
             </div>
         </div>
         <div class="dd-time-box2"> 
@@ -389,7 +388,7 @@
     </li>
     <li>
       <div class="step-5 cirlce-step"><i class='bx bx-package bx-sm'></i></div>
-      <div class="step-detail"> Dispacthed Item</div>
+      <div class="step-detail">Item Dispacthed</div>
     </li>
     <li>
       <div class="step-6 cirlce-step"><i class='bx bx-home bx-sm'></i></div>
@@ -401,7 +400,7 @@
         <div class="d-md-flex d-block px-3 justify-content-around"> 
         <div class="dd-time-box"> 
             <span class="tick-icon2"><i class='bx bx-check-circle bx-lg' ></i></span>
-            <div class=""> <p>Order Placed </p>
+            <div class=""> <p>Processing Order </p>
              <div class="shipp-date">{{ date_added|date_modify("+2 day")|date() }}</div>
             </div>
         </div>
@@ -455,7 +454,7 @@
         </div>
     </div> 
     </div>
-    {% elseif histories|last.status == 'Under Manufacturing' or histories|last.status == 'Under Polishing'%}
+    {% elseif histories|last.status == 'Under Manufacturing' %}
     <div class="row">
     <div class="col-md-4"> 
    <ul class="steps" id="steps">
@@ -480,7 +479,7 @@
   </li>
   <li>
     <div class="step-5 cirlce-step"><i class='bx bx-package bx-sm'></i></div>
-    <div class="step-detail"> Dispacthed Item</div>
+    <div class="step-detail">Item Dispacthed</div>
   </li>
   <li>
     <div class="step-6 cirlce-step"><i class='bx bx-home bx-sm'></i></div>
@@ -492,7 +491,7 @@
         <div class="d-md-flex d-block px-3 justify-content-around"> 
         <div class="dd-time-box"> 
             <span class="tick-icon2"><i class='bx bx-check-circle bx-lg' ></i></span>
-            <div class=""> <p>Order Placed </p>
+            <div class=""> <p>Product is in making</p>
              <div class="shipp-date">{{ date_added }}</div>
             </div>
         </div>
@@ -503,20 +502,16 @@
                 <li><div class="list-title"> <b> Address</b></div> <div class="list-detail"> {{ address_1 }}, &nbsp;{{address_2}}</div></li>
                 <li><div class="list-title"> <b> City</b></div> <div class="list-detail">{{ city }}</div></li>
                 <li><div class="list-title"> <b> State</b></div> <div class="list-detail"> {{ zone }}</div></li>
+        
             </ul>
         </div>
     </div>
         <div class="invoice-box d-block">
-          {% if order_stage_images %}
-            <h3>Order Progress Images</h3>
-            <div class="order-stage-images">
-              {% for image in order_stage_images %}
-                {# <div class="order-stage-image"> #}
-                  <img src="http://localhost/crm/uploads/order_stage_images/{{ image.filename }}" alt="Stage Image" style="max-width:200px;">
-                {# </div> #}
-              {% endfor %}
-            </div>
-          {% endif %}
+            <div class="d-flex align-items-center justify-content-evenly">
+       <div><img src="catalog/view/javascript/assets/image/download-vetor-img.jpg" alt=""></div>
+       {# <button type="button" class="download-btn"> DOWNLOAD INVOICE</button>
+       <a href="" class="view-pdf">View Details</a> #}
+    </div>
         </div>
     </div> 
     </div>
@@ -545,7 +540,7 @@
   </li>
   <li>
     <div class="step-5 cirlce-step"><i class='bx bx-package bx-sm'></i></div>
-    <div class="step-detail"> Dispacthed Item</div>
+    <div class="step-detail">Item Dispacthed</div>
   </li>
   <li>
     <div class="step-6 cirlce-step"><i class='bx bx-home bx-sm'></i></div>
@@ -557,7 +552,7 @@
         <div class="d-md-flex d-block px-3 justify-content-around"> 
         <div class="dd-time-box"> 
             <span class="tick-icon2"><i class='bx bx-check-circle bx-lg' ></i></span>
-            <div class=""> <p>Order Placed </p>
+            <div class=""> <p>Product Under Quality Check </p>
              <div class="shipp-date">{{ date_added }}</div>
             </div>
         </div>
@@ -585,30 +580,30 @@
    <ul class="steps" id="steps">
     <li>
     <div class="step-1 cirlce-step active"><i class='bx bx-shopping-bag bx-sm'></i></div>
-    <div class="step-detail"> Order Placed</div>
+    <div class="step-detail">Order Placed</div>
     
   </li>
    <li>
    
     <div class="step-2 cirlce-step active"><i class='bx bx-list-ul bx-sm'></i></div>
-    <div class="step-detail"> Processing Order</div>
+    <div class="step-detail">Processing Order</div>
     
   </li>
   <li>
     <div class="step-3 cirlce-step active"><i class='bx bxs-wrench bx-sm'></i></div>
-    <div class="step-detail"> Under Manfacturing</div>
+    <div class="step-detail">Under Manfacturing</div>
   </li>
   <li>
     <div class="step-4 cirlce-step active"><i class='bx bxs-user-check bx-sm'></i></div>
-    <div class="step-detail"> Quality Check & Packing</div>
+    <div class="step-detail">Quality Check & Packing</div>
   </li>
   <li>
     <div class="step-5 cirlce-step active"><i class='bx bx-package bx-sm'></i></div>
-    <div class="step-detail"> Dispacthed Item</div>
+    <div class="step-detail">Item Dispacthed</div>
   </li>
   <li>
     <div class="step-6 cirlce-step"><i class='bx bx-home bx-sm'></i></div>
-    <div class="step-detail"> Product Delivered</div>
+    <div class="step-detail">Product Delivered</div>
   </li>
    </ul>
     </div>   
@@ -616,7 +611,7 @@
         <div class="d-md-flex d-block px-3 justify-content-around"> 
         <div class="dd-time-box"> 
             <span class="tick-icon2"><i class='bx bx-check-circle bx-lg' ></i></span>
-            <div class=""> <p>Product Shipped </p>
+            <div class=""> <p>Order Shipped </p>
              <div class="shipp-date">{{ date_added }}</div>
             </div>
         </div>
@@ -631,7 +626,7 @@
             </ul>
         </div>
     </div>
-    <style>
+        <style>
       .dd-time-box3{
         width: 100%;
         padding: 1em;
@@ -651,7 +646,7 @@
             <p>{{ histories|last.tracking_id }}</p>
           </div>
         </div>
-      </div> 
+    </div> 
     </div>
     {% elseif histories|last.status == 'Delivered' %}
     <div class="row">
@@ -678,7 +673,7 @@
   </li>
   <li>
     <div class="step-5 cirlce-step active"><i class='bx bx-package bx-sm'></i></div>
-    <div class="step-detail"> Dispacthed Item</div>
+    <div class="step-detail">Item Dispacthed</div>
   </li>
   <li>
     <div class="step-6 cirlce-step active"><i class='bx bx-home bx-sm'></i></div>
@@ -690,8 +685,8 @@
         <div class="d-md-flex d-block px-3 justify-content-around"> 
         <div class="dd-time-box"> 
             <span class="tick-icon2"><i class='bx bx-check-circle bx-lg' ></i></span>
-            <div class=""> <p>Order Placed </p>
-             <div class="shipp-date">{{ date_added }}</div>
+            <div class=""> <p>Order Delivered </p>
+             {# <div class="shipp-date">{{ date_added }}</div> #}
             </div>
         </div>
         <div class="dd-time-box2"> 
@@ -709,7 +704,7 @@
         <div class="invoice-box d-block">
             <div class="d-flex align-items-center justify-content-evenly">
        <div><img src="catalog/view/javascript/assets/image/download-vetor-img.jpg" alt=""></div>
-       <button type="button" class="download-btn"> Give review</button>
+       {# <button type="button" class="download-btn"> Give review</button> #}
     </div>
         </div>
     </div> 
@@ -748,7 +743,7 @@
 <p><a href="https://www.urbanwood.in/Coffee-Tables"><strong>Coffee Tables:</strong> </a>  Look over the most recent <strong> wooden centre table for living room  </strong> at the best costs. The coffee table is probably going to be one of the normal furniture tables in any house. It is the point of convergence of your living room, which is encircled by originator sofa sets. No living room is finished without a coffee table that visitors and guests will see when they show up in your living room. It is the thing that gets the attention of everybody first; in this manner, it ought to be picked with the most extreme consideration from the furniture. Discover a totally modern, straightforward and exquisite focal point that will finish the vibe of your living room. Make a mark look in your living room with beautiful Coffee and end tables from Urbanwood. Shop furniture online in Bangalore at Urbanwood or shop in stores across Bangalore. In each home, the coffee table offers a new territory where you can share drinks and games with friends and family and visitors. Investigate coffee and end table sets with mathematical components and a straightforward allure.</p>
 <p>Choose Different Looks Furniture for Each Room</p>
 <p>You can give an alternate search for every one of your rooms in the house. For instance, the furniture utilized in your living room ought to be wonderful, exquisite just as the originator. Regardless of whether it is a sofa set or an originator plan of conventional furniture, it should upgrade the search for your living room. Essentially, your bedroom furniture ought to be comfortable, durable just as strong. It should very much fit inside the accessible space in your room without jumbling or clogging it. The furniture should coordinate the general subject of your house, which could be grave or peculiar.</p>
-<p>Further, for a modern look, you can utilize a modular kitchen that embellishes the house right away. Urbanwood offers a wide scope of furniture plans to assist you with getting the best pick. You can likewise try different things with various materials for each room separately for furniture online Bangalore. For instance, you can utilize <a href="https://www.urbanwood.in/sheesham-wood-furniture"> Sheesham wood furniture </a> for your living room and utilize a wooden bed in the bedroom. At Urbanwood you can likewise investigate outdoor furniture like <a href="https://www.urbanwood.in/hanging-chairs"> hanging chairs, ottomans and pouffes </a>, <a href="https://www.urbanwood.in/bean-bags"> bean bags</a>, etc. to have a private space for yourself.</p>
+<p>Further, for a modern look, you can utilize a modular kitchen that embellishes the house right away. Urbanwood offers a wide scope of furniture plans to assist you with getting the best pick. You can likewise try different things with various materials for each room separately for furniture online Bangalore. For instance, you can utilize <a href="https://www.urbanwood.in/sheesham-wood-furniture"> Sheesham wood furniture </a> for your living room and utilize a wooden bed in the bedroom. At Urbanwood you can likewise investigate outdoor furniture like <a href="https://www.urbanwood.in/hanging-chairs"> hanging chairs, ottomans and pouffes </a>, bean bags, etc. to have a private space for yourself.</p>
 <p> Urbanwood furniture in Bangalore</p>
 
 <p> The best thing about buying furniture online is, you can get the best arrangements for furniture sale, all-round the year. While investigating furniture available to be purchased with Urbanwood, you can get the best furniture online Bangalore for your home at a profoundly limited cost with alluring looks and solidness. With Urbanwood, you can likewise get diverse furniture pieces as an unconditional present with your purchases. While buying furniture, you can utilize various channels to limit your choices. At Urbanwood, you can utilize channels like material, value, shading, markdown, class, and so on to pick the furniture that best suits your need and taste. While it would make your shopping simpler, it would likewise help you save time and endeavours.</p>

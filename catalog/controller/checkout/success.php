@@ -2,15 +2,11 @@
 class ControllerCheckoutSuccess extends Controller {
 	public function index() {
 		$this->load->language('checkout/success');
-		// print_r($this->session->data);
 		$this->load->model('checkout/order');
-		$orderdetails = $this->model_checkout_order->getOrderProducts($this->session->data['order_id']);
 		
-			print_r($orderdetails);
 		if (isset($this->session->data['order_id'])) {
-			// echo "UPDATE oc_camp_track SET price ='". $this->session->data['totals'] ."' where session_id = '" . $this->request->cookie['OCSESSID'] . "'";
 			$this->cart->clear();
-			
+
 			unset($this->session->data['shipping_method']);
 			unset($this->session->data['shipping_methods']);
 			unset($this->session->data['payment_method']);
@@ -68,22 +64,28 @@ class ControllerCheckoutSuccess extends Controller {
 			'currency' => $_SESSION["currency"],
 			'amount' => $_SESSION["amount"]
 		);		
-		
 		if($_SESSION['order_id'] && $_SESSION["tracking_id"]){
-			 $this->load->model('checkout/order');
-			 $this->model_checkout_order->addTxnResponse($txnResponse);
-		}
+			// $this->load->model('checkout/order');
+			$this->model_checkout_order->addTxnResponse($txnResponse);
+	   }
+		$data['payment_status_message'] = $_SESSION['payment_status_message'];
+		$data['ourname'] = $_SESSION['ourname'];
+		$data['bank_ref_no'] = $_SESSION['bank_ref_no'];
+		$data['tracking_id'] = $_SESSION['tracking_id'];
+		$data['orderid'] = $_SESSION['orderid'];
+		$data['ammount'] = $_SESSION['amount'];
 		$data['continue'] = $this->url->link('common/home');
-
+		$data['order_id'] = $this->session->data['order_id'];
+		$data['order_id2'] = 'here';
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
 		$data['content_top'] = $this->load->controller('common/content_top');
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
-
+		$orderdetails = $this->model_checkout_order->getOrderProducts($data['orderid']);
 		$data['orderdetails'] = $orderdetails;
-		
+		// print_r($data['orderdetails']);
 		$this->response->setOutput($this->load->view('common/success', $data));
 	}
 }

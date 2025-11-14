@@ -40,7 +40,7 @@ $(document).ready(function() {
             }
         },
         openSubmenu: function() {
-            $(this.element).children("ul").find("li").bind("click touchstart", function(e) {
+            $(this.element).children("ul").find("li").bind("click ", function(e) {
                 e.stopPropagation();
                 e.preventDefault();
                 if ($(this).children(".submenu").length > 0) {
@@ -58,8 +58,9 @@ $(document).ready(function() {
                     if ($(this).children(".submenu").siblings("a").hasClass("submenu-indicator-minus")) {
                         $(this).children(".submenu").siblings("a").removeClass("submenu-indicator-minus")
                     }
-                }
+                }else{
                 window.location.href = $(this).children("a").attr("href")
+                }
             })
         },
         submenuIndicators: function() {
@@ -69,7 +70,7 @@ $(document).ready(function() {
         },
         addClickEffect: function() {
             var ink, d, x, y;
-            $(this.element).find("a").bind("click touchstart", function(e) {
+            $(this.element).find("a").bind("click", function(e) {
                 $(".ink").remove();
                 if ($(this).children(".ink").length === 0) {
                     $(this).prepend("<span class='ink'></span>")

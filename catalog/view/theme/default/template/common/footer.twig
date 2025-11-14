@@ -1,692 +1,474 @@
 
 {% if not custom_page %}
-{{ customerstories }}
+{# {{ customerstories }} #}
 {% endif %}
-<!--sign in signup popup-->
-  <div id="signuppopup" class="modal" role="dialog">
-    <div class="modal-dialog popup_content">
-      <!-- Modal content-->
-      <div class="modal-content p-0">
-        <div class="modal-header">
-            <button type="button" class="popup-close2 close" data-bs-dismiss="modal" id="closemo">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="modal-body m-0 p-0">
-          <div class="row">
-            <div class="col-md-7 col-sm-6 col-xs-6 width-30">
-              <img src="catalog/view/javascript/assets/image/popupimg/slider1.PNG"  class="img-responsive img-fluid" alt="x-mas offer avail now" loading="lazy"/>
-            </div>
-            <div class="col-md-5 col-sm-6 col-xs-6 width-70">
-              <!--- sign in form-->
-              <div class="signin-form-popup signupform1 notification-container " id="loginform" >
-                <div class="from-header">
-                  <h6>
-                      Welcome to
-                      <br>
-                      <span>
-                          UrbanWood</span>
-                  </h6>
-                  <p>Glad to See You!</p>
-                </div>
-                <div class="popup-signform">
-                  <form method="post" enctype="multipart/form-data" class="loginform">
-                      <div class="row">
-                          <div class="col-md-12">
-                              <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email Address" required="">
-                          </div>
-                          <div class="col-md-12 ">
-                              <input type="password" name="password" class="form-control password" autocomplete="current-password" required="" id="id_password_login" placeholder="Password">
-                              <i class="far fa-eye-slash" id="togglePassword"></i>
-                          </div>
-                          <div class="d-block">
-                              <button type="submit" class="login-btn-popup" id="loginbtn">Login</button>
-                              <a href="index.php?route=account/google/login" class="btn btn-google">Sign in with
-                                <img src="catalog\view\javascript\assets\image/google-logo.svg" alt="Google" style="width:100%;"> 
-                              </a>
-                              <a href="forgot-password" class="forget-pass text-center">Forget password?</a>
-                              <p class="text-center dont-accont">Dont Have an Account ?
-                                  <a href="" id="tosignup">Sign Up Now</a>
-                              </p>
-                          </div>
-                      </div>
-                  </form>
-                </div>
-              </div>
-              <!-- sign up for first time form -->
-              <div class="signin-form-popup signupform2 notification-container2 " id="signupform" style="display: none;">
-                <div class="from-header">
-                  <h6>
-                      <span>
-                          Join us now
-                      </span>
-                  </h6>
-                </div>
-                <div class="popup-signform">
-                  <form method="post" enctype="multipart/form-data" class="registerform">
-                    <div class="row">
-                      <div class="col-md-6 col-lg-6 ">
-                          <input type="name" name="firstname" class="form-control mt-0 mb-1" id="firstname" placeholder="First Name" required="">
-                          <span id="firstnameError" class="error"></span>
-                      </div>
-                      <div class="col-md-6 col-lg-6 ">
-                          <input type="text" name="lastname" class="form-control mt-0 mb-1" id="lastname" placeholder="Last Name" required="">
-                          <span id="lastnameError" class="error"></span>
-                      </div>
-                      <div class="col-md-12 ">
-                          <input type="email" name="email" class="form-control mt-0mb-1" id="email" placeholder="Email Address" required="">
-                          <span id="emailError" class="error"></span>
-                      </div>
-                      <div class="col-md-12 ">
-                          <input type="text" name="telephone" class="form-control mt-0 mb-1" id="phone" placeholder="contact Number" required="" onkeypress="if(this.value.length==10) return false;">
-                          <span id="phoneError" class="error"></span>
-                      </div>
-                      <div class="col-md-12">
-                          <input type="password" name="password" class="form-control password" autocomplete="current-password" required="" id="password" placeholder="Password">
-                          <i class="far fa-eye" id="togglePassword"></i>
-                          <span id="passwordError" class="error"></span>
-                      </div>
-                      <div class="col-md-12">
-                          <input type="password" name="confirm" class="form-control password" autocomplete="current-password" required="" id="confirmPassword" placeholder="Confirm password">
-                          <i class="far fa-eye" id="togglePassword"></i>
-                          <span id="confirmPasswordError" class="error"></span>
-                      </div>
-                      <div id="message"></div>
-                      <div class="d-block">
-                          <button type="submit" class="login-btn-popup" id="signupbtn">Sign up</button>
-                          
-                          <p class="text-center dont-accont mb-0">Already Have an Account ?
-                              <a href="" id="tosignin">Sign in Now</a>
-                          </p>
-                      </div>
-                    </div>
-                  </form>
-                  <div id="message"></div>
-                  <style>
-                    .error {
-                        color: red;
-                        font-size: 0.9em;
-                        display: block;
-                        margin-top: 5px;
-                    }
-                  </style>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-    <!--end popup-->
-<footer id="footer">
-  <div class="container">
-    <div class="row">
-      <div class="footer-newsletter">
-        <div class="col-lg-6 col-md-6 col-sm-12">
-          <h2 class="pg-heading text-lg-start">Subscribe Our Newsletter</h2>
-          <p class="heading-para text-lg-start ">Enter your email address to stay tuned with latest offers and products.</p>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12" id="newsletterdiv">
-          <form id="newsletter-form" method="post">
-              <input type="email" name="email" placeholder="Enter your email address &hellip;">
-          </form>
-          <button type="button" onclick="newsletter('newsletter-form');">Subscribe</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer-top d-md-block d-none">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 col-md-6 footer-info">
-          <h4>Contact Info</h4>
-          <p>We at Urbanwood would love to hear your opinion about our venture.</p>
-          <ul class="contact-list">
-            <li>
-              <span><i class='bx bxs-map'></i></span>
-              URBANWOOD FURNITURE PRIVATE LIMITED 843 , Gram Basdi , mukandpura Road , Bhankrota , Ajmer road , Jaipur , Rajasthan , 302026
-            </li>
-            <li>
-              <span><i class='bx bxs-phone'></i></span>+91 9599283126
-            </li>
-            <li>
-              <span><i class='bx bx-envelope'></i></span>
-              support@urbanwood.in
-            </li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-6 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li>
-              <i class="bx bx-chevron-right"></i>
-              <a href="about-us">About us</a>
-            </li>
-            <li>
-              <i class="bx bx-chevron-right"></i>
-              <a href="contact-us">Contact us</a>
-            </li>
-            <li>
-              <i class="bx bx-chevron-right"></i>
-              <a href="career">Career</a>
-            </li>
-            <li>
-              <i class="bx bx-chevron-right"></i>
-              <a href="bulk-order">Bulk Order</a>
-            </li>
-            <li>
-              <i class="bx bx-chevron-right"></i>
-              <a href="https://blog.urbanwood.in/">Blog</a>
-            </li>
-            <li>
-              <i class="bx bx-chevron-right"></i>
-              <a href="sitemap">Sitemap</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-6 footer-links ">
-          <h4>Customer Service</h4>
-          <ul>
-            <li>
-              <i class="bx bx-chevron-right"></i>
-              <a href="https://www.urbanwood.in/return-and-refunds">Return & Refunds</a>
-            </li>
-            <li>
-              <i class="bx bx-chevron-right"></i>
-              <a href="https://www.urbanwood.in/terms">Terms of Uses</a>
-            </li>
-            <li>
-              <i class="bx bx-chevron-right"></i>
-              <a href="https://www.urbanwood.in/security-and-privacy">Security & Privacy</a>
-            </li>
-            <li>
-              <i class="bx bx-chevron-right"></i>
-              <a href="https://www.urbanwood.in/delivery-and-shipping-policy">Delivery & Shipping Policy</a>
-            </li>
-            <li>
-              <i class="bx bx-chevron-right"></i>
-              <a href="customer-stories">Customer Stories</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-lg-3 col-md-6 footer-links ">
-          <h4>Top Categories</h4>
-          <ul>
-            <li>
-              <i class="bx bx-chevron-right"></i>
-              <a href="bedroom-furniture">Bedroom</a>
-            </li>
-            <li>
-              <i class="bx bx-chevron-right"></i>
-              <a href="sofas">Sofas</a>
-            </li>
-            <li>
-              <i class="bx bx-chevron-right"></i>
-              <a href="dining-room-furniture">Dining Room</a>
-            </li>
-            <li>
-              <i class="bx bx-chevron-right"></i>
-              <a href="wardrobes">Wardrobes</a>
-            </li>
-            <li>
-              <i class="bx bx-chevron-right"></i>
-              <a href="bookshelves">Bookshelves</a>
-            </li>
-          </ul>
-            <div class="social-links mt-3">
-                <h4>Follow us-</h4>
-                <a href="https://twitter.com/UrbanWoodin" class="twitter">
-                    <i class="bx bxl-twitter"></i>
-                </a>
-                <a href="https://www.facebook.com/urbanwood.in" class="facebook">
-                    <i class="bx bxl-facebook"></i>
-                </a>
-                <a href="https://www.instagram.com/urbanwoodpvtltd/" class="instagram">
-                    <i class="bx bxl-instagram"></i>
-                </a>
-                <a href="https://www.linkedin.com/company/urbanwood-in" class="linkedin">
-                    <i class="bx bxl-linkedin"></i>
-                </a>
-                <a href="https://www.youtube.com/channel/UCkW0cO6VRZbakl61qEnKelg?view_as=subscriber">
-                    <i class='bx bxl-youtube'></i>
-                </a>
-                <a href="https://in.pinterest.com/urbanwoodIndia/_created/">
-                    <i class='bx bxl-pinterest-alt'></i>
-                </a>
-            </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="mobifooter d-block d-md-none">
-      <div class="map"> 
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.6927478024973!2d80.2163412!3d12.991493199999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526762150b2b4d%3A0x604a15e2d0121e2f!2sHome%20Stop!5e0!3m2!1sen!2sin!4v1669466511215!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-      <div class="container">
-          <ul id="accordion_mob1" class="accordion-footer">
-              <li class="open">
-                  <div class="link"><i class='bx bxs-building-house' ></i>CONTACT INFO<i class="fa fa-chevron-down"></i></div>
-                  <ul class="submenu" style="display: block;">
-                      <li><span> <i class='bx bxs-map'></i></span> URBANWOOD FURNITURE PRIVATE LIMITED
-                          843 , Gram Basdi , mukandpura Road , Bhankrota , 
-                          Ajmer road , Jaipur , Rajasthan , 302026</li>
-                      <li> <span><i class='bx bxs-phone'></i></span>+91 9599283126</li>
-                      <li><span> <i class='bx bx-envelope' ></i></span> support@urbanwood.in </li>
-                  </ul>
-              </li>
-              <li>
-                <div class="link"><i class='bx bxs-paper-plane'></i>USEFUL LINKS<i class="fa fa-chevron-down"></i></div>
-                <ul class="submenu">
-                  <li><a href="about-us">About us</a></li>
-                  <li><a href="contact-us">Contact us</a></li>
-                  <li><a href="career">Career</a></li>
-                  <li><a href="bulk-order">Bulk Order</a></li>
-                  <li><a href="https://blog.urbanwood.in/"> Blog</a></li>
-                  <li><a href="sitemap"> Sitemap</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="link"><i class='bx bxs-message-square-error' ></i>CUSTOMER SERVICE<i class="fa fa-chevron-down"></i></div>
-                <ul class="submenu">
-                  <li> <a href="https://www.urbanwood.in/return-and-refunds">Return & Refunds</a></li> 
-                  <li> <a href="https://www.urbanwood.in/terms-of-use">Terms of Uses</a></li> 
-                  <li> <a href="https://www.urbanwood.in/payment-policy">Privacy policy</a></li> 
-                  <li> <a href="https://www.urbanwood.in/security-and-privacy">Security & Privacy</a></li> 
-                  <li> <a href="https://www.urbanwood.in/customer-stories">Customer Stories</a></li> 
-                  <li> <a href="https://www.urbanwood.in/delivery-and-shipping-policy">Delivery & Shipping Policy</a></            li>
-                </ul>   
-              </li>
-              <li>
-                <div class="link"><i class='bx bxs-category-alt' ></i>TOP CATEGORIES<i class="fa fa-chevron-down"></i></div>
-                <ul class="submenu">
-                  <li> <a href="bedroom-furniture">Bedroom</a></li> 
-                  <li> <a href="sofas">Sofas</a></li> 
-                  <li> <a href="dining-room-furniture">Dining Room</a></li> 
-                  <li> <a href="wardrobes">Wardrobes</a></li> 
-                  <li> <a href="bookshelves">Bookshelves </a></li>     
-                </ul>
-              </li>
-          </ul>
-          <div class="mobisocial mt-3">
-              <a href="https://twitter.com/UrbanWoodin" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="https://www.facebook.com/urbanwood.in" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="https://www.instagram.com/urbanwoodpvtltd/" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="https://www.linkedin.com/company/urbanwood-in" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-              <a href="https://www.youtube.com/channel/UCkW0cO6VRZbakl61qEnKelg?view_as=subscriber"><i class='bx bxl-youtube'></i></a>
-              <a href="https://in.pinterest.com/urbanwoodIndia/_created/"><i class='bx bxl-pinterest-alt'></i></a>
-          </div>
-      </div>
-  </div>
-  <div class="bottom-foot"> 
-  <div class="container d-block d-md-flex justify-content-between align-items-center">
-    <div class="copy-content"> 
-       <div class="location-list"> We Deliver in : Ahmedabad, Amritsar, Bangalore, Chandigarh, Faridabad, Ghaziabad, Gurgaon, 
-          Indore, Jaipur, Jodhpur,Mumbai, Delhi, Noida, Pune, Surat, Ludhiana,
-          Udaipur, Kanpur, Lucknow, Bhopal, Raipur, Ranchi, Patna & Across India.
-       </div>
-         <div class="copyright"> &copy; Copyright <strong><span><a href="https://www.urbanwood.in/" target="_blank">urbanwood.in </a></span></strong>. All Rights Reserved 
-          </div> 
-
-        </div>
-
- 
-
-          <div class="features-label">
-              <span class="img-label">
-               <picture>
-                <source media="(min-width: 1200px)" srcset="assets/image/icon/A+grade-sheesham-big.png" />
-                <img src="assets/image/icon/A+grade-sheesham.png" alt="Someone jumping on a hike" 15vw />
-              </picture>
-             </span>
-
-             <span class="img-label">
-               <picture>
-                <source media="(min-width: 1200px)" srcset="assets/image/icon/free-delivery-big.png" />
-                <img src="assets/image/icon/free-delivery.png" alt="Someone jumping on a hike" 15vw />
-              </picture>
-             </span>
-             <span class="img-label">
-               <picture>
-                <source media="(min-width: 1200px)" srcset="assets/image/icon/36-month-warrenty-big.png" />
-                <img src="assets/image/icon/36-month-warrenty.png" alt="Someone jumping on a hike" 15vw />
-              </picture>
-             </span>
-
-          </div>
-
-          </div>
-          </div>
-</footer>
-<button type="button" class="SmoothmyTop">
-    <i class='bx bx-up-arrow-alt'></i>
-</button>
-
-<script async type="text/javascript" src="catalog/view/javascript/assets/js/main.js?v=1.4" defer></script>
-<script async src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/bootstrap.bundle.min.js" ></script>
-                    <script src="catalog/view/javascript/assets/js/owl.carousel.js" defer></script>
-                    {# // <script src="catalog/view/javascript/assets/js/slick-js.js"defer></script> #}
-                    <script src="catalog/view/javascript/assets/js/new-menu2.js" ></script>
-                    <script src="catalog/view/javascript/common.js?v=1.5" type="text/javascript" defer></script>
-                    {# // <script src="https://unpkg.com/blaze-slider@1.9.3/dist/blaze-slider.min.js" defer></script>
-                    // <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js" defer></script> #}
+<!-- request call back -->
+<div class="sidecall">
+    <button type="button" class=" requestcall" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+        Request Call
+        <span><i class='bx bx-phone-call bx-tada'></i></span>
+    </button>
 </div>
-{# {% if route == 'common/home' %} #}
-  <script>
-   // Function to create slide HTML
-  function createSlideHTML(item) {
-
-            return `<a href="#" class="slide-card">
-      <div class="slide-img">
-        <img src="${item.image}" alt="Slide 1" />
-        <div class="slide-caption">
-          <h4>${item.name}</h4>
-          <strong>${item.price}</strong>
-              <strike>${item.mrp}</strike>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="modal-header text-center d-block">
+            <h5 class="modal-title" id="exampleModalLabel">Request a Callback</h5>
+            <p class="text-center">We will contact you as soon as we have received your information.</p>
         </div>
-      </div>
-    </a>`;
-  }
+        <div class="modal-body">
+            <form id="myform">
+                <div class="mb-3">
+                    <label for="user-name" class="col-form-label">Name</label>
+                    <input type="text" name="name" class="form-control" id="user-name">
+                </div>
+                <div class="mb-3">
+                    <label for="email-address" class="col-form-label">Email Adderess</label>
+                    <input type="text" name="email" class="form-control" id="email-address">
+                </div>
+                <div class="mb-3">
+                    <label for="con-num" class="col-form-label">Contact No.</label>
+                    <input type="text" name="mobile" class="form-control" id="con-num">
+                </div>
+                <div class="mb-3">
+                    <label for="state" class="col-form-label">State</label>
+                    <select name="state" id="state" name="state" class="form-control" required>
+			            <option value="">Select state</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                        <option value="Daman and Diu">Daman and Diu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Puducherry">Puducherry</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                    </select>
+			    </div>
+                <div class="mb-3">
+                    <label for="message-text" class="col-form-label">Message:</label>
+                    <textarea class="form-control" name="message" id="message-text"></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer text-center">
+            <button type="button" id="subbtn" onclick="submitCallRequest('myform','subbtn')" class="send-btn">Send message</button>
+        </div>
+    </div>
+</div>
+    <!--sign in signup popup-->
+<div id="signuppopup" class="modal fade" role="dialog" aria-label="signup">
+    <div class="modal-dialog popup_content modal-dialog-centered ">
+        <!-- Modal content-->
+        <div class="modal-content p-0">
+            <div class="modal-header">
+                <button type="button" class="popup-close2 close" data-bs-dismiss="modal" aria-label="dismiss modal"><i class='bx bx-x bx-sm'></i></button>
+            </div>
+            <div class="modal-body m-0 p-0">
+                <div class="row">
+                    <div class="col-md-7 col-sm-6 col-xs-6 width-30">
+                    <picture>
+                        <source srcset="catalog/view/javascript/assets/image/popupimg/slider1.avif" type="image/avif">
+                        <img src="catalog/view/javascript/assets/image/popupimg/slider1.webp"  class="img-responsive img-fluid" alt="New Year New home sale" loading="lazy"/>
+                    </picture>
+                    </div>
+                    <div class="col-md-5 col-sm-6 col-xs-6 width-70">
+                        <!--- sign in form-->
+                        <div class="signin-form-popup signupform1 notification-container selected">
+                            <div class="from-header">
+                                <h6>Welcome to <span>UrbanWood</span></h6>
+                                <p>Glad to See You!</p>
+                            </div>
+                            <div class="popup-signform">
+                                <form method="post" enctype="multipart/form-data" class="loginform">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="email" name="email" class="form-control mt-1 mb-2" id="exampleInputEmail1" placeholder="Email Address" required="">
+                                        </div>
+                                        <div class="col-md-12 ">
+                                            <input type="password" name="password" class="form-control mt-1 mb-3 password" autocomplete="current-password" required="" id="id_password_login" placeholder="Password">
+                                            <i class="bx bx-low-vision" id="togglePassword"></i>
+                                        </div>
+                                        <div class="d-block">
+                                            <button type="submit" class="login-btn-popup" id="loginbtn">Login</button>
+                                            <a href="index.php?route=account/google/login" class=" btn-google">Sign in with
+                                                <img src="catalog\view\javascript\assets\image/google-logo.svg" loading="lazy" alt="Google"> 
+                                            </a>
+                                            <a href="forgot-password" class="forget-pass text-center">Forget password?</a>
+                                            <p class="text-center dont-accont">Don't have an account? <a id="showFilePanel">Sign-up</a></p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- sign up for first time form -->
+                        <div class="signin-form-popup signupform2 notification-container2 dismiss">
+                            <div class="from-header">
+                                <h6><span>Create an Account</span></h6>
+                                {# <p class="mb-0">Welcome!</p> #}
+                            </div>
+                            <div class="popup-signform">
+                                <form method="post" enctype="multipart/form-data" class="registerform">
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-6 ">
+                                            <input type="name" name="firstname" class="form-control mt-0 mb-1" id="exampleInputFirstname" placeholder="First Name" required="">
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 ">
+                                            <input type="text" name="lastname" class="form-control mt-0 mb-1" id="exampleInputlastname" placeholder="Last Name" required="">
+                                        </div>
+                                        <div class="col-md-12 ">
+                                            <input type="email" name="email" class="form-control mt-1 mb-1" id="giveInputEmail1" placeholder="Email Address" required="">
+                                        </div>
+                                        <div class="col-md-12 ">
+                                            <input type="text" name="telephone" class="form-control mt-1 mb-1.5" id="giveInputnumber" placeholder="Contact Number" required="">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <input type="password" name="password" class="form-control mt-1 mb-1 password" autocomplete="current-password" required="" id="id_password" placeholder="Password">
+                                            <i class="bx bx-low-vision" id="togglePassword"></i>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <input type="password" name="confirm" class="form-control mt-1 mb-1.5 password" autocomplete="current-password" required="" id="id_password1" placeholder="Confirm password">
+                                            <i class="bx bx-low-vision" id="togglePassword"></i>
+                                        </div>
+                                        <div class="d-block">
+                                            <button type="submit" class="login-btn-popup" id="signupbtn">Sign up</button>
+                                            <p class="text-center dont-accont mb-0">Already have an account ?
+                                                <a id="closeFilePanel">Sign-in</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end popup-->
+<style>
+    .footer-newsletter {
+        display: flex;
+    } 
+    .footer-newsletter input[type=email] {
+    	padding: 14px 5px;
+    	border: 1px solid #ccc;
+    	background: #f7f7f7;
+    	border:none;
+    	width: 100%;
+    }
+    .footer-newsletter button {
+        border: 0;
+        background: #ff7200;
+        font-size: 16px;
+        padding: 0 14px;
+        color: #fff;
+        transition: .3s;
+        border-radius: 0;
+    }
+    .footer-newsletter button:hover {
+        background: #e6573f
+    }
+</style>
+<footer id="footer">
+    <div class="footer-top d-md-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 footer-info">
+                    <span>Contact Info</span>
+                    <ul class="contact-list">
+                        <li>
+                            <span><i class='bx bxs-map'></i></span>
+                            URBANWOOD FURNITURE PRIVATE LIMITED  Ajmer road , Jaipur , Rajasthan , 302026
+                        </li>
+                        <li>
+                            <span><i class='bx bxs-phone'></i></span><a href="tel:+91 9311662426" class="text" style="color:white;">+91 9311662426</a>
+                        </li>
+                        <li>
+                            <span><i class='bx bx-envelope'></i></span>
+                            <a href="mailto:support@urbanwood.in" rel='nofollow' style="color:white;">support@urbanwood.in</a>
+                        </li>
+                    </ul>
+                    <div class="social-links mt-3">
+                        <a href="https://twitter.com/UrbanWoodin" class="twitter" aria-label="twitter"><i class="bx bxl-twitter"></i></a>
+                        <a href="https://www.facebook.com/urbanwood.in" class="facebook" aria-label="facebook"><i class="bx bxl-facebook"></i></a>
+                        <a href="https://www.instagram.com/urbanwoodpvtltd/" class="instagram" aria-label="instagram"><i class="bx bxl-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/urbanwood-in" class="linkedin" aria-label="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        <a href="https://www.youtube.com/channel/UCkW0cO6VRZbakl61qEnKelg?view_as=subscriber" aria-label="youtube"><i class='bx bxl-youtube'></i></a>
+                        <a href="https://in.pinterest.com/urbanwoodgurgaon/_created" aria-label="pinterest"><i class='bx bxl-pinterest-alt'></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3 col-md-6 footer-links">
+                    <span>Useful Links</span>
+                    <ul>
+                        <li>
+                            
+                            <a href="about-us">About us</a>
+                        </li>
+                        <li>
+                            
+                            <a href="contact-us">Contact us</a>
+                        </li>
+                        <li>
+                            
+                            <a href="career">Career</a>
+                        </li>
+                        <li>
+                            
+                            <a href="bulk-order">Bulk Order</a>
+                        </li>
+                        <li>
+                            
+                            <a href="https://blog.urbanwood.in/">Blog</a>
+                        </li>
+                        <li>
+                            
+                            <a href="sitemap">Sitemap</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-3 col-md-6 footer-links ">
+                    <span>Customer Service</span>
+                    <ul>
+                        <li>
+                            
+                            <a href="https://www.urbanwood.in/return-and-refunds">Return & Refunds</a>
+                        </li>
+                        <li>
+                            
+                            <a href="https://www.urbanwood.in/terms">Terms of Uses</a>
+                        </li>
+                        <li>
+                            
+                            <a href="https://www.urbanwood.in/security-and-privacy">Security & Privacy</a>
+                        </li>
+                        <li>
+                            
+                            <a href="https://www.urbanwood.in/delivery-and-shipping-policy">Delivery & Shipping Policy</a>
+                        </li>
+                        <li>
+                            
+                            <a href="customer-stories">Customer Stories</a>
+                        </li>
+                        <li>
+                            
+                            <a href="custom-furniture">Custom Furniture</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 d-md-block d-none footer-links ">
+                    <span>Top Categories</span>
+                    <ul>
+                        <li>
+                            
+                            <a href="bedroom-furniture">Bedroom</a>
+                        </li>
+                        <li>
+                            
+                            <a href="sofas">Sofas</a>
+                        </li>
+                        <li>
+                            
+                            <a href="dining-room-furniture">Dining Room</a>
+                        </li>
+                        <li>
+                            
+                            <a href="wardrobes">Wardrobes</a>
+                        </li>
+                        <li>
+                            
+                            <a href="bookshelves">Bookshelves</a>
+                        </li>
+                    </ul>
 
-  // Function to initialize a slider
-  function initGliderSlider(container, jsonUrl) {
-    const track = container.querySelector('.glider');
-  const prev = container.querySelector('.glider-prev');
-  const next = container.querySelector('.glider-next');
-  const dots = container.querySelector('.dots');
-    if (!track) return;
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-foot"> 
+        <div class="container d-block d-md-flex justify-content-between align-items-center">
+            <div class="copy-content"> 
+                <div class="location-list"> We Deliver in : Ahmedabad, Amritsar, Bangalore, Chandigarh, Faridabad, Ghaziabad, Gurgaon, Indore, Jaipur, Jodhpur,Mumbai, Delhi, Noida, Pune, Surat, Ludhiana, Udaipur, Kanpur, Lucknow, Bhopal, Raipur, Ranchi, Patna & Across India.
+                </div>
+                <div class="copyright"> &copy;  2018 - <span id="ccright"></span> <strong><a href="https://www.urbanwood.in/" target="_blank">urbanwood.in </a></strong>. All Rights Reserved </div> 
+            </div>
+            <script>
+                document.getElementById("ccright").innerHTML= new Date().getFullYear() ;
+            </script>
+        </div>
+    </div>
+</footer>
+<button type="button" class="SmoothmyTop" aria-label='to top'><i class='bx bx-up-arrow-alt'></i></button>
 
-    fetch(jsonUrl)
-      .then(res => res.json())
-      .then(data => {
-        track.innerHTML = data.map(createSlideHTML).join('');
-        // sliderContainer.innerHTML = slidesHTML;
+<script type="text/javascript" src="catalog/view/javascript/assets/js/main.js?v=1.3" ></script>
+<script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/bootstrap.bundle.min.js" ></script>
+{# <script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/jquery1.1.1.min.js" ></script> #}
+{# <script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/jquery-ui.min.js" defer></script> #}
+<script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/slick-js.js" defer></script>
+<script src="catalog/view/javascript/assets/js/new-menu2.js" ></script>
+<script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/common.js" type="text/javascript" defer></script>
+<script src="catalog/view/javascript/assets/js/new-carousel-link/owl.carousel.min-new.js" type="text/javascript" defer></script>
+</div>
 
-       if (typeof Glider !== "undefined") {
-                new Glider(track, {
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      draggable: true,
-      scrollLock: true,
-      duration: 0.5,
-      rewind: true,
-      dots: dots,
-      arrows: {
-        prev: prev,
-        next: next
-      },
-      responsive: [
-  {
-    breakpoint: 1440,
-    settings: { slidesToShow: 3.1 }
-  },
-  {
-    breakpoint: 1200,
-    settings: { slidesToShow: 3.2 }
-  },
-  {
-    breakpoint: 1024,
-    settings: { slidesToShow: 3.2 }
-  },
-  {
-    breakpoint: 768,
-    settings: { slidesToShow: 2.1 }
-  },
-  {
-    breakpoint: 600,
-    settings: { slidesToShow: 1.5 }
-  },
-  {
-    breakpoint: 480,
-    settings: { slidesToShow: 1.2 }
-  },
-  {
-    breakpoint: 320,
-    settings: { slidesToShow: 1.2 }
-  }
-]
-    });
-            } else{
-                console.warn("BlazeSlider not loaded.");
-            }
-      })
-      .catch(err => console.error("Slider JSON load failed", err));
-  }
+<!-- Hotjar Tracking Code for my site -->
+<script>
 
-  // Lazy load all sliders using IntersectionObserver
-const lazySections1 = document.querySelectorAll('[data-json]');
+//     (function(h,o,t,j,a,r){
+//         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+//         h._hjSettings={hjid:3376034,hjsv:6};
+//         a=o.getElementsByTagName('head')[0];
+//         r=o.createElement('script');r.async=1;
+//         r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+//         a.appendChild(r);
+//     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+// </script>
 
-const observer1 = new IntersectionObserver((entries, obs) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
+<!-- ms clarity code -->
+{# <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "jggwwdk7bl");
+</script> #}
 
-    const el = entry.target;
-    const jsonUrl = el.dataset.json;
-
-    // if (el.classList.contains('lazy-slider')) {
-      initGliderSlider(el, jsonUrl);
-    // } else if (el.classList.contains('lazy-storage')) {
-    //   loadStorageOptions(el, jsonUrl);
-    // }
-
-    obs.unobserve(el);
-  });
-}, { rootMargin: "200px" });
-
-lazySections1.forEach(section => observer1.observe(section));
-  </script>
-{# {% endif %} #}
 <style>
     .float {
         position: fixed;
-        width: 40px;
-        height: 40px;
         bottom: 50px;
         z-index: 100;
         left: 18px;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 0px 0px inset;
     }
     .whatsappOnphone {
         width: 40px;
     }
 </style>
-<a href="https://wa.me/919311662426" class="float" target="_blank"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="48px" height="48px" clip-rule="evenodd"><path fill="#fff" d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"/><path fill="#fff" d="M4.868,43.803c-0.132,0-0.26-0.052-0.355-0.148c-0.125-0.127-0.174-0.312-0.127-0.483l2.639-9.636c-1.636-2.906-2.499-6.206-2.497-9.556C4.532,13.238,13.273,4.5,24.014,4.5c5.21,0.002,10.105,2.031,13.784,5.713c3.679,3.683,5.704,8.577,5.702,13.781c-0.004,10.741-8.746,19.48-19.486,19.48c-3.189-0.001-6.344-0.788-9.144-2.277l-9.875,2.589C4.953,43.798,4.911,43.803,4.868,43.803z"/><path fill="#cfd8dc" d="M24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,4C24.014,4,24.014,4,24.014,4C12.998,4,4.032,12.962,4.027,23.979c-0.001,3.367,0.849,6.685,2.461,9.622l-2.585,9.439c-0.094,0.345,0.002,0.713,0.254,0.967c0.19,0.192,0.447,0.297,0.711,0.297c0.085,0,0.17-0.011,0.254-0.033l9.687-2.54c2.828,1.468,5.998,2.243,9.197,2.244c11.024,0,19.99-8.963,19.995-19.98c0.002-5.339-2.075-10.359-5.848-14.135C34.378,6.083,29.357,4.002,24.014,4L24.014,4z"/><path fill="#40c351" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"/><path fill="#fff" fill-rule="evenodd" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z" clip-rule="evenodd"/></svg></a>
-
-<script>
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbarbottom").style.bottom = "10px" ;
-  } else {
-    document.getElementById("navbarbottom").style.bottom = "-50px" ;
-  }
-  prevScrollpos = currentScrollPos;
-}
-</script>
+<a href="https://wa.me/919880739819" class="float" target="_blank" aria-label="whatsapp">
+    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="48px" height="48px" clip-rule="evenodd"><path fill="#fff" d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"/><path fill="#fff" d="M4.868,43.803c-0.132,0-0.26-0.052-0.355-0.148c-0.125-0.127-0.174-0.312-0.127-0.483l2.639-9.636c-1.636-2.906-2.499-6.206-2.497-9.556C4.532,13.238,13.273,4.5,24.014,4.5c5.21,0.002,10.105,2.031,13.784,5.713c3.679,3.683,5.704,8.577,5.702,13.781c-0.004,10.741-8.746,19.48-19.486,19.48c-3.189-0.001-6.344-0.788-9.144-2.277l-9.875,2.589C4.953,43.798,4.911,43.803,4.868,43.803z"/><path fill="#cfd8dc" d="M24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,4C24.014,4,24.014,4,24.014,4C12.998,4,4.032,12.962,4.027,23.979c-0.001,3.367,0.849,6.685,2.461,9.622l-2.585,9.439c-0.094,0.345,0.002,0.713,0.254,0.967c0.19,0.192,0.447,0.297,0.711,0.297c0.085,0,0.17-0.011,0.254-0.033l9.687-2.54c2.828,1.468,5.998,2.243,9.197,2.244c11.024,0,19.99-8.963,19.995-19.98c0.002-5.339-2.075-10.359-5.848-14.135C34.378,6.083,29.357,4.002,24.014,4L24.014,4z"/><path fill="#40c351" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"/><path fill="#fff" fill-rule="evenodd" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z" clip-rule="evenodd"/></svg>
+</a>
 
 {% if logged is null %}
-<script>
+    <script>
+        $(document).ready(function () {
+            if (getCookie('modal_shown') == null) {
+                setTimeout(function () {
+                    setCookie('modal_shown', 'yes', 1);
+                    $('#signuppopup').modal('show');
+                }, 15000);
+            }
+        });
 
-  window.addEventListener('load', function () {
-    if (getCookie('modal_shown') == null) {
-          console.log('trigger');
-      setTimeout(function () {
-        setCookie('modal_shown', 'yes', 1);
-        $('#signuppopup').modal('show');
-      }, 15000);
-    }
-  })
+        function getCookie(cName) {
+          const name = cName + "=";
+          const cDecoded = decodeURIComponent(document.cookie); //to be careful
+          const cArr = cDecoded .split('; ');
+          let res;
+          cArr.forEach(val => {
+              if (val.indexOf(name) === 0) res = val.substring(name.length);
+          })
+          return res;
+        }
 
-  function getCookie(cName) {
-    const name = cName + "=";
-    const cDecoded = decodeURIComponent(document.cookie); //to be careful
-    const cArr = cDecoded .split('; ');
-    let res;
-    cArr.forEach(val => {
-        if (val.indexOf(name) === 0) res = val.substring(name.length);
-    })
-    return res;
-  }
-
-  function setCookie(cName, cValue, expDays) {
-      let date = new Date();
-      date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
-      const expires = "expires=" + date.toUTCString();
-      document.cookie = cName + "=" + cValue + "; " + expires + "; path=/";
-  }
+        function setCookie(cName, cValue, expDays) {
+            let date = new Date();
+            date.setTime(date.getTime() + (expDays * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = cName + "=" + cValue + "; " + expires + "; path=/";
+        }
     </script>
 {% endif %}
-<script>
-  $('.select-items div').click(function(){
-      
-    if($(this).text()=='Jaipur') location.href='furniture-shop-in-jaipur';
-    if($(this).text()=='Gurugram') location.href='furniture-shop-in-gurgaon';
-    if($(this).text()=='Bangalore') location.href='furniture-online-bangalore';
-  });
+    <script>
+        function signupmodal(){
+            $('#signuppopup').modal('show');
+            document.getElementById("showFilePanel").click();
+        }
+        function signinmodal(){
+            $('#signuppopup').modal('show');
 
-$(document).ready(function () {
-  // Reusable function to toggle forms
-  function openForm(formToShow) {
-    $(".signin-form-popup").hide(); // Hide all forms
-    $(formToShow).show(); // Show the specified form
-    $("#signuppopup").fadeIn(); // Show the modal
-  }
+        }
 
-  // Open Form 1 when #btnForm1 is clicked
-  $("#signin").click(function () {
-    event.preventDefault();
-    openForm("#loginform");
-  });
+        $('#showFilePanel').click(function(event) {
+            if ($('.notification-container').hasClass('selected')) {
+                $('.notification-container2').removeClass('dismiss').addClass('selected').show();
+                $('.notification-container').removeClass('selected').addClass('dismiss').hide();
+            } else {
+                $('.notification-container').removeClass('dismiss').addClass('selected').show();
+                $('.notification-container2').removeClass('selected').addClass('dismiss').hide();
+            }
+            event.preventDefault();
+        });
 
-  // Open Form 2 when #btnForm2 is clicked
-  $("#signup").click(function () {
-    event.preventDefault();
-    openForm("#signupform");
-  });
-
-  // Switch from Form 1 to Form 2
-  $("#tosignup").click(function () {
-    event.preventDefault();
-    openForm("#signupform");
-  });
-
-  // Switch from Form 2 to Form 1
-  $("#tosignin").click(function () {
-    event.preventDefault();
-    openForm("#loginform");
-  });
-// Close modal when clicking the close button
-  $("#closemo").click(function () {
-    $("#signuppopup").fadeOut(); // Hide the modal
-  });
-
-});
-</script>
- {# for profile and order tab  #}
-<script>
- $(document).ready(function() {
-  var last_id = localStorage.getItem('tab_id');
-  if(last_id) {
-    $('ul.nav-pills li a').removeClass('active');
-    $('#v-pills-tabContent .tab-pane').removeClass('active show');
-	$(".nav-pills li a").eq(Number(last_id.match(/\d+/)[0])-1).addClass('active');
-    $("#" + last_id).addClass('active show');
-  }
-  $('ul.nav-pills li a').click(function() {
-    var tab_id = $(this).attr('data-tab');
-    console.log(tab_id);
-    $('ul.nav-pills li a').removeClass('active');
-    $('.tab-pane').removeClass('active show');
-
-    $(this).addClass('active');
-    $("#" + tab_id).addClass('active show');
-    localStorage.setItem('tab_id', tab_id);
-  });
-});
-
-$('#feedbackform').submit(function(e) {
-  e.preventDefault();
-  var form = $(this);
-  $.ajax({
-    type: 'POST',
-    dataType: 'json',
-    url: '?route=account/account/feedback',
-    data: form.serialize(),
-    success: function (json) {
-        $('#feedback_btn').prop('disabled', true)
-        window.location = '?route=account/account';
-        //console.log('add success');
-    }
-  });
-});
-
-{# to open order page #}
-  function toOrderpage(){
-    localStorage.setItem('tab_id', 'home2');
-    window.location.href='account';
-  }
-  {# to open profile page #}
-  function toProfilepage(){
-    localStorage.setItem('tab_id', 'home1');
-    window.location.href='account';
-  }
-
- function submitRequest(idd,btn){
-   if(!formRule(idd)) return false;
-    $('#'+btn).text('Processing...');
+        $('#closeFilePanel').click(function(event) {
+            if ($('.notification-container2').hasClass('selected')) {
+                $('.notification-container2').removeClass('selected').addClass('dismiss').hide();
+                $('.notification-container').removeClass('dismiss').addClass('selected').show();
+            } else {
+                $('.notification-container2').removeClass('dismiss').addClass('selected').show();
+                $('.notification-container').removeClass('selected').addClass('dismiss').hide();
+            }
+            event.preventDefault();
+        });
    
-    $.ajax({
-      url:'?route=store/singlestorepage',
-      data:$('#'+idd + ' :input').serialize(),
-      type:'POST',
-    // dataType:'JSON',
-    success:function(res){      
-        location.href = 'thank-you';
-      
+    function submitRequest(idd,btn){
+        if(!formRule(idd)) return false;
+        $('#'+btn).text('Processing...');
+
+        $.ajax({
+            url:'?route=store/singlestorepage',
+            data:$('#'+idd + ' :input').serialize(),
+            type:'POST',
+            // dataType:'JSON',
+            success:function(res){      
+                location.href = 'thank-you';
+            }
+        });
     }
-  });
-  }
-</script>
-{# category read more button #}
-<script>
-  $(document).ready(function () {
-      $('#btAnimate').click(function () {
+    {# category read more button #}
 
-          $('#divC').show();          // Also show the div element.
-          $('#btAnimate').hide('slow');
-      });
+    function stickyheaddsadaer(obj) {
+      if($(obj).is(":checked")){
+        $('input.form-check-input').not(obj).prop('checked', false);      
+        location = $(obj).val(); 
+      }
+    }
 
-      // Reverse animate.
-      $('#btHide').click(function () {
-          $('#divC').hide('slow');          // Now hide the div.
-          $('#btAnimate').show('slow');
-      });
-  });
-</script>
-{# for sorting #}
-<script>
-function stickyheaddsadaer(obj) {
-  if($(obj).is(":checked")){
-    $('input.form-check-input').not(obj).prop('checked', false);  
-    
-    location = $(obj).val(); 
-  }
-}
-</script>
-  <script>
-// share button of product
-
+    // share button of product
     $('.share').click(function(){
-      $(this).siblings().toggleClass('opacity-0 opacity-1');
-
-});   
-  </script>
-
-
-<script>
-function newsletter(idd){
-    if(!formRule(idd)) return false;
+        $(this).siblings().toggleClass('opacity-0 opacity-1');
+    });   
+ 
+    function newsletter(idd){
+        if(!formRule(idd)) return false;
         $.ajax({
             url:'?route=account/newsletter/subscribe',
             data:$('#'+idd).serialize(),
@@ -700,175 +482,72 @@ function newsletter(idd){
                 }else{
                     $('body').prepend('<div class="success-popup2"> <span class="warrning-svg"> <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     </svg>  </span> <span class="warrning-text">  <p>'+ res.error +'</p> </span> </div>');
                 }
-                //$('#newsletterdiv').after('<p>Error</p>');
             }
         });
     }
-</script>
-<script>
-
 
     function minusPro(e){
-    var domse = $(e).siblings('.cart_'+$(e).data('id')).val();
-    if(domse > 1){
-      var newval = Number(domse)-1;
-      $(e).siblings('.cart_'+$(e).data('id')).val(newval);
-      $(e).parents('form:first').submit();
-    }
-  };
-  function plusPro(e){
-    var domse = $(e).siblings('.cart_'+$(e).data('id')).val();
-    if(domse < 10){
-      var newval = Number(domse)+1;
-      $(e).siblings('.cart_'+$(e).data('id')).val(newval);
-      $(e).parents('form:first').submit();
-    }
-  };
-</script>
-<script>
-$("body").on('click', '#togglePassword', function() {
-  $(this).toggleClass("fa-eye fa-eye-slash");
-  var input = $(this).siblings('.password');//$(".password");
-  if (input.attr("type") === "password") {
-    input.attr("type", "text");
-  } else {
-    input.attr("type", "password");
-  }
+        var domse = $(e).siblings('.cart_'+$(e).data('id')).val();
+        if(domse > 1){
+            var newval = Number(domse)-1;
+            $(e).siblings('.cart_'+$(e).data('id')).val(newval);
+            $(e).parents('form:first').submit();
+        }
+    };
+    function plusPro(e){
+        var domse = $(e).siblings('.cart_'+$(e).data('id')).val();
+        if(domse < 10){
+            var newval = Number(domse)+1;
+            $(e).siblings('.cart_'+$(e).data('id')).val(newval);
+            $(e).parents('form:first').submit();
+        }
+    };
 
-});
-
+    $("body").on('click', '#togglePassword', function() {
+        $(this).toggleClass("bx-low-vision bx-show ");
+        var input = $(this).siblings('.password');//$(".password");
+        if (input.attr("type") === "password") {
+            input.attr("type", "text");
+        } else {
+            input.attr("type", "password");
+        }
+    });
 
     $('.loginform').submit(function(e) {
- e.preventDefault();
-  $('#loginbtn').text('Logging...');
-  var form = $(this);
- $.ajax({
-    type: 'POST',
-    dataType: 'json',
-    url: '?route=account/loginapi',
-    data: form.serialize(),
-    success: function (json) {
-
-        if (json['success']) {
-            location = '/account';
-					
+        e.preventDefault();
+        $('#loginbtn').text('Logging...');
+        var form = $(this);
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: '?route=account/loginapi',
+            data: form.serialize(),
+            success: function (json) {
+                if (json['success']) {
+                    location = '/account';
 				}else{
-					$('body').prepend('<div class="success-popup2"> <span class="warrning-svg"> <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     </svg>  </span> <span class="warrning-text">  <p>'+ json.data['error_warning'] +'</p> </span> </div>');
-				}
-    }
+	    			$('body').prepend('<div class="success-popup2"> <span class="warrning-svg"> <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     </svg>  </span> <span class="warrning-text">  <p>'+ json.data['error_warning'] +'</p> </span> </div>');
+	    		}
+            }
+        });
+    });
 
-});
-});
-// Get the error elements
-const firstnameError = document.getElementById("firstnameError");
-const lastnameError = document.getElementById("lastnameError");
-const emailError = document.getElementById("emailError");
-const phoneError = document.getElementById("phoneError");
-const passwordError = document.getElementById("passwordError");
-const confirmPasswordError = document.getElementById("confirmPasswordError");
-
-// Event listeners to hide errors on input
-document.getElementById("firstname").addEventListener("input", () => {
-    firstnameError.innerHTML = "";
-});
-document.getElementById("lastname").addEventListener("input", () => {
-    lastnameError.innerHTML = "";
-});
-
-document.getElementById("email").addEventListener("input", () => {
-    emailError.innerHTML = "";
-});
-
-document.getElementById("phone").addEventListener("input", () => {
-    phoneError.innerHTML = "";
-});
-
-document.getElementById("password").addEventListener("input", () => {
-    passwordError.innerHTML = "";
-});
-
-document.getElementById("confirmPassword").addEventListener("input", () => {
-    confirmPasswordError.innerHTML = "";
-});
-$('.registerform').submit(function(e) {
- e.preventDefault();
- $('#signupbtn').text('Submitting...');
-//   var form = $(this);
-const submitButton = document.getElementById("signupbtn");
-// Get form values
-    const firstname = document.getElementById("firstname").value.trim();
-    const lastname = document.getElementById("lastname").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const password = document.getElementById("password").value.trim();
-    const confirmPassword = document.getElementById("confirmPassword").value.trim();
-    const messageDiv = document.getElementById("message");
-
-    // Clear any previous messages
-    messageDiv.innerHTML = "";
-    firstnameError.innerHTML = "";
-    lastnameError.innerHTML = "";
-    emailError.innerHTML = "";
-    phoneError.innerHTML = "";
-    passwordError.innerHTML = "";
-    confirmPasswordError.innerHTML = "";
-    let hasErrors = false; // Track if there are validation errors
-    // Basic validation checks
-    if (!validateName(firstname)) {
-        document.getElementById("firstnameError").innerHTML = "Firstname should contain only letters.";
-        hasErrors = true;
-    }
-    if (!validateName(lastname)) {
-        document.getElementById("lastnameError").innerHTML = "Lastname should contain only letters.";
-        hasErrors = true;
-    }
-    
-    if (!validateEmail(email)) {
-        document.getElementById("emailError").innerHTML = "Please enter a valid email address.";
-        hasErrors = true;
-    }
-
-    if (!validatePhone(phone)) {
-        document.getElementById("phoneError").innerHTML = "Please enter a valid 10-digit phone number.";
-        hasErrors = true;
-    }
-
-    if (password.length < 6) {
-        document.getElementById("passwordError").innerHTML = "Password must be at least 6 characters long.";
-        hasErrors = true;
-    }
-
-    if (password !== confirmPassword) {
-        document.getElementById("confirmPasswordError").innerHTML = "Passwords do not match.";
-        hasErrors = true;
-    }
-    // Stop submission if there are errors
-    if (hasErrors) {
-        submitButton.innerText = "SIGN UP";
-        return;
-    }
-    // If all checks pass, prepare data for submission
-    const formData = new URLSearchParams();
-    formData.append("firstname", firstname);
-    formData.append("lastname", lastname);
-    formData.append("email", email);
-    formData.append("telephone", phone);
-    formData.append("password", password);
-    formData.append("confirm", confirmPassword);
- $.ajax({
-    type: 'POST',
-    dataType: 'json',
-    url: '?route=account/registerapi',
-    data: formData.toString(), //form.serialize(),
-    success: function (json) {
-
-        if (json['success']) {
-            location = '/';
-					
-				}else{
-                     $('.success-popup2').remove();
+    $('.registerform').submit(function(e) {
+        e.preventDefault();
+        $('#signupbtn').text('Registering...');
+        var form = $(this);
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: '?route=account/registerapi',
+            data: form.serialize(),
+            success: function (json) {
+                if (json['success']) {
+                    location = '/';
+    			}else{
+                    $('.success-popup2').remove();
                     $('#signupbtn').text('SIGN UP');
-					if (json.data['error_warning'] == '' || json.data['error_warning'] == null) {
+    				if (json.data['error_warning'] == '' || json.data['error_warning'] == null) {
                         // console.log(json.data['error_warning']);
                         $('body').prepend('<div class="success-popup2"> <span class="warrning-svg"> <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     </svg>  </span> <span class="warrning-text">  <p>'+ json.data['error_confirm'] +'</p> </span> </div>');
                     } else {
@@ -876,41 +555,78 @@ const submitButton = document.getElementById("signupbtn");
                         $('body').prepend('<div class="success-popup2"> <span class="warrning-svg"> <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     </svg>  </span> <span class="warrning-text">  <p>'+ json.data['error_warning'] +'</p> </span> </div>');
                     }
 				}
-    }
+            }
+        });
+    });
+    $(document).ready(function() {
+        function callSocial() {
+            $.ajax({
+              type: "GET",
+              dataType: "html",
+              url: "?route=common/home/social",
+              success: function(data) {
+                $("#social").html(data);
+              },
+              error: function(xhr, status, error) {
+                $("#social").empty();
+                console.error('Error:', error);
+              }
+            });
+        }
+        function checkElementAndAttachScroll() {
+            if ($('#social').length) {
+                $(window).on('scroll', onScroll);
+            }
+        }
+        function onScroll() {
+            if ($('#social').length) {
+                const windowTop = $(window).scrollTop();
+                const elementTop = $('#social').offset().top;
+                if (windowTop + $(window).height() >= elementTop + 200) {
+                    callSocial();
+                    $(window).off('scroll', onScroll);
+                }
+            }
+        }
+        checkElementAndAttachScroll();
+    });
 
-});
-});
-// Helper function to validate name (no numbers allowed)
-function validateName(name) {
-    const re = /^[A-Za-z\s]+$/; // Allows only letters and spaces
-    return re.test(name);
-}
-// Helper function to validate email format
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
+    document.addEventListener('DOMContentLoaded', function() {
+        // Create a new <link> element
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css'; // Replace with the actual path to your CSS file
+        link.type = 'text/css';
+        link.onload = () => console.log('Boxicon CSS loaded successfully.');
 
-// Helper function to validate 10-digit phone number format
-function validatePhone(phone) {
-    const re = /^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/; // Matches exactly 10 digits
-    return re.test(phone);
-}
+        // Append the <link> element to the <head>
+        document.head.appendChild(link);
+    });
 
 </script>
 
 {% if not homepage %}
-<script type="application/ld+json">
+{# <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Urbanwood Furniture Pvt Ltd",
-  "alternateName": "Urbanwood",
+  "alternateName": "Urbanwood Furniture",
   "url": "https://www.urbanwood.in/",
   "logo": "https://www.urbanwood.in/catalog/view/javascript/assets/image/urbanwoodlogo.jpg",
+  "image": "https://www.urbanwood.in/catalog/view/javascript/assets/image/urbanwoodlogo.jpg",
+  "description" : "Top Wooden Furniture: Buy Furniture Online for Home & Office in India. Exclusive designs, quality and best price - Urbanwood",
+  "address" : {
+        "@type": "PostalAddress",
+        "addressCountry": "India",
+        "addressLocality": "Haryana",
+        "addressRegion": "Gurugram, Haryana",
+        "streetAddress": "Urbanwood Furniture, Sector 20, Gurugram"
+      },
+    "email" : "support@urbanwood.in",
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "9599283126",
+    "telephone": "9880739819",
     "contactType": "customer service",
     "contactOption": "TollFree",
     "areaServed": "IN",
@@ -925,8 +641,8 @@ function validatePhone(phone) {
     "https://in.pinterest.com/urbanwoodIndia/_created/"
   ]
 }
-</script>
-<script type="application/ld+json">
+</script> #}
+{# <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
   "@type": "WebSite",
@@ -938,75 +654,50 @@ function validatePhone(phone) {
     "query-input": "required name=search_term_string"
   }
 }
-</script>
+</script> #}
 {% endif %}
-
 <script>
-$(document).ready(function() {
-    function callSocial() {
-        $.ajax({
-          type: "GET",
-          dataType: "html",
-          url: "?route=common/home/social",
-          success: function(data) {
-            console.log(data);
-            $("#social").html(data);
-          },
-          error: function(xhr, status, error) {
-            $("#social").empty();
-            console.error('Error:', error);
-          }
-        });
-    }
+    function loadStorageOptions(section, jsonUrl) {
+  const grid = section.querySelector('.storage-grid');
+  if (!grid) return;
 
-    function checkElementAndAttachScroll() {
-        // const targetElement = $('#social');
-        if ($('#social').length) {
-            $(window).on('scroll', onScroll);
-        }
-    }
-
-    function onScroll() {
-        // const targetElement = $('#social');
-        if ($('#social').length) {
-            const windowTop = $(window).scrollTop();
-            const elementTop = $('#social').offset().top;
-
-            if (windowTop + $(window).height() >= elementTop + 200) {
-                callSocial();
-                $(window).off('scroll', onScroll);
-            }
-        }
-    }
-    checkElementAndAttachScroll();
-});
-
-
-  </script>
-  <script>
-  const autoLoadDuration = 5; //In Seconds
-const eventList = ["keydown", "mousemove", "wheel", "touchmove", "touchstart", "touchend"];
-
-const autoLoadTimeout = setTimeout(runScripts, autoLoadDuration * 1000);
-
-eventList.forEach(function(event) {
-    window.addEventListener(event, triggerScripts, { passive: true })
-});
-
-function triggerScripts() {
-    runScripts();
-    clearTimeout(autoLoadTimeout);
-    eventList.forEach(function(event) {
-         window.removeEventListener(event, triggerScripts, { passive: true });
-    });
+  fetch(jsonUrl)
+    .then(res => res.json())
+    .then(data => {
+      grid.innerHTML = data.map(item => `
+        <div class="storage-card">
+            <a href="${item.link}">
+                <img src="${item.image}" alt="${item.name}">
+                <h3>${item.name}</h3>
+            </a>
+        </div>
+      `).join('');
+    })
+    .catch(err => console.error("Storage options load failed", err));
 }
 
-function runScripts() {
-    document.querySelectorAll("script[async]").forEach(function(scriptTag) {
-        scriptTag.setAttribute("src", scriptTag.getAttribute("async"));
-    });
-}
+  // Lazy load all sliders using IntersectionObserver
+const lazySections = document.querySelectorAll('[data-json]');
 
+const observer = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+
+    const el = entry.target;
+    const jsonUrl = el.dataset.json;
+
+    // if (el.classList.contains('lazy-slider')) {
+    //   initBlazeSlider(el, jsonUrl);
+    // } else if (el.classList.contains('lazy-storage')) {
+      loadStorageOptions(el, jsonUrl);
+    // }
+
+    obs.unobserve(el);
+  });
+}, { rootMargin: "10px" });
+
+lazySections.forEach(section => observer.observe(section));
+// search bar typing effect
     $(window).scroll(function(e){ 
   var $el = $('.header-top'); 
   var isPositionFixed = ($el.css('position') == 'relative');
@@ -1017,142 +708,51 @@ function runScripts() {
     $el.css({'position': 'relative'}); 
   } 
 });
-
+$(window).scroll(function(){
+  if($(this).scrollTop() > 100){
+    $('.desk-menu').addClass('sticky')
+  }else{
+    $('.desk-menu').removeClass('sticky')
+  }
+});
 //typewriter effect
 timeout_var = null;
 
-function typeWriter(selector_target, text_list, placeholder = false, i = 0, text_list_i=0, delay_ms=200) {
-    if (!i) {
-        if (placeholder) {
-            document.querySelector(selector_target).placeholder = "";
-        }
-        else {
-            document.querySelector(selector_target).innerHTML = "";
-        }
+function typeWriter(selector_target, text_list, placeholder = false, i = 0, text_list_i=0, delay_ms=200){
+  if(!i){
+    if(placeholder){
+      document.querySelector(selector_target).placeholder = "";
+    }else{
+      document.querySelector(selector_target).innerHTML = "";
     }
-    txt = text_list[text_list_i];
-    if (i < txt.length) {
-        if (placeholder) {
-            document.querySelector(selector_target).placeholder += txt.charAt(i);
-        }
-        else {
-            document.querySelector(selector_target).innerHTML += txt.charAt(i);
-        }
-        i++;
-        setTimeout(typeWriter, delay_ms, selector_target, text_list, placeholder, i, text_list_i);
-    }else {
-        text_list_i++;
-        if (typeof text_list[text_list_i] === "undefined")  {
-            setTimeout(typeWriter, (delay_ms*5), selector_target, text_list, placeholder);
-        }
-        else {
-            i = 0;
-            setTimeout(typeWriter, (delay_ms*3), selector_target, text_list, placeholder, i, text_list_i);
-        }
+  }
+  txt = text_list[text_list_i];
+  if(i < txt.length){
+    if(placeholder){
+      document.querySelector(selector_target).placeholder += txt.charAt(i);
+    }else{
+      document.querySelector(selector_target).innerHTML += txt.charAt(i);
     }
+    i++;
+    setTimeout(typeWriter, delay_ms, selector_target, text_list, placeholder, i, text_list_i);
+  }else{
+    text_list_i++;
+    if(typeof text_list[text_list_i] === "undefined"){
+      setTimeout(typeWriter, (delay_ms*5), selector_target, text_list, placeholder);
+    }else{
+      i = 0;
+      setTimeout(typeWriter, (delay_ms*3), selector_target, text_list, placeholder, i, text_list_i);
+    }
+  }
 }
-
 text_list = [
-    "Search for Sofas",
-    "Search for Beds",
-    "Search for Bar Cabinets",
-    "Search for Sofa Cum Beds"
+  "Search for Sofas",
+  "Search for Beds",
+  "Search for Bar Cabinets",
+  "Search for Sofa Cum Beds"
 ];
-
 return_value = typeWriter("#searchinput", text_list, true);
-function signupmodal(){
-            $('#signuppopup').modal('show');
-            document.getElementById("showFilePanel").click();
-        }
-function signinmodal(){
-            $('#signuppopup').modal('show');
 
-        }
-</script>
-<script>
-   window.onscroll = function () { applySticky(); };
-
-var desktopHeader = document.getElementById("myHeader");
-var mobileHeader = document.getElementById("mobHeader");
-
-var desktopSticky = desktopHeader.offsetTop;
-var mobileSticky = mobileHeader.offsetTop;
-
-function applySticky() {
-  var width = window.innerWidth;
-
-  // Sticky behavior for desktop (width > 992px)
-  if (width > 992) {
-    if (window.pageYOffset > desktopSticky) {
-      desktopHeader.classList.add("sticky");
-    } else {
-      desktopHeader.classList.remove("sticky");
-    }
-    mobileHeader.classList.remove("sticky"); // Ensure mobile header doesn't stick
-  }
-
-  // Sticky behavior for mobile (width <= 992px)
-  if (width <= 992) {
-    if (window.pageYOffset > mobileSticky) {
-      mobileHeader.classList.add("sticky");
-    } else {
-      mobileHeader.classList.remove("sticky");
-    }
-    desktopHeader.classList.remove("sticky"); // Ensure desktop header doesn't stick
-  }
-}
   </script>
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Create a new <link> element
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css'; // Replace with the actual path to your CSS file
-    link.type = 'text/css';
-    link.onload = () => console.log('Boxicon CSS loaded successfully.');
-
-    // Append the <link> element to the <head>
-    document.head.appendChild(link);
-  });
-
-  document.addEventListener('DOMContentLoaded', function () {
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Dynamically show the modal when needed
-          $('#signuppopup').modal('show');
-          observer.unobserve(entry.target); // Stop observing
-        }
-      });
-    });
-    const modalTrigger = document.getElementById('signuppopup');
-    observer.observe(modalTrigger);
-  });
-</script>
-<script>
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("./sw.js")
-      .then(() => console.log("✅ Service Worker Registered"))
-      .catch(err => console.error("❌ SW Registration Failed", err));
-  }
-</script>
-<script>
-// Firework spark effect on card click
-document.querySelectorAll('.offer-card').forEach(card => {
-card.addEventListener('click', e => {
-const rect = card.getBoundingClientRect();
-for(let i=0;i<12;i++){
-const spark=document.createElement('div');
-spark.className='spark';
-spark.style.left=(e.clientX-rect.left)+'px';
-spark.style.top=(e.clientY-rect.top)+'px';
-spark.style.setProperty('--x', (Math.random()*100-50)+'px');
-spark.style.setProperty('--y', (Math.random()*100-50)+'px');
-card.appendChild(spark);
-setTimeout(()=>spark.remove(),600);
-}
-});
-});
-</script>
 </body>
 </html>

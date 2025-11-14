@@ -7,83 +7,59 @@ class ControllerExtensionModuleFilter extends Controller {
 			$parts = array();
 		}
 
-		$category_id = end($parts);
+		// sorting
 
 		if (isset($this->request->get['sort'])) {
 			$sort = $this->request->get['sort'];
 		} else {
 			$sort = 'p.sort_order';
 		}
+
 		if (isset($this->request->get['order'])) {
 			$order = $this->request->get['order'];
 		} else {
 			$order = 'ASC';
 		}
+		$data['sort'] = $sort;
+		$data['order'] = $order;
 		$data['sorts'] = array();
 
 			$data['sorts'][] = array(
 				'text'  => 'Recommended', //$this->language->get('text_default'),
 				'value' => 'p.sort_order-ASC',
-				'href'  => '?route=product/category2&path='.$this->request->get['path'].'&sort=p.sort_order&order=ASC'//$this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.sort_order&order=ASC' . $url)
+				'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.sort_order&order=ASC' . $url, true)
 			);
-
-			// $data['sorts'][] = array(
-			// 	'text'  => $this->language->get('text_name_asc'),
-			// 	'value' => 'pd.name-ASC',
-			// 	'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=pd.name&order=ASC' . $url)
-			// );
-
-			// $data['sorts'][] = array(
-			// 	'text'  => $this->language->get('text_name_desc'),
-			// 	'value' => 'pd.name-DESC',
-			// 	'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=pd.name&order=DESC' . $url)
-			// );
 
 			$data['sorts'][] = array(
 				'text'  => 'Price (Low to High)', //$this->language->get('text_price_asc'),
 				'value' => 'p.price-ASC',
-				'href'  => '?route=product/category2&path='.$this->request->get['path'].'&sort=p.price&order=ASC' //$this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.price&order=ASC' . $url)
+				'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.price&order=ASC' . $url, true)
 			);
 
 			$data['sorts'][] = array(
 				'text'  => 'Price (High to Low)', //$this->language->get('text_price_desc'),
 				'value' => 'p.price-DESC',
-				'href'  => '?route=product/category2&path='.$this->request->get['path'].'&sort=p.price&order=DESC' //$this->url->link('product/category2', 'path=' . $this->request->get['path'] . '&sort=p.price&order=DESC' . $url)
+				'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.price&order=DESC' . $url, true)
 			);
-
-			// if ($this->config->get('config_review_status')) {
-			// 	$data['sorts'][] = array(
-			// 		'text'  => $this->language->get('text_rating_desc'),
-			// 		'value' => 'rating-DESC',
-			// 		'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=rating&order=DESC' . $url)
-			// 	);
-
-			// 	$data['sorts'][] = array(
-			// 		'text'  => $this->language->get('text_rating_asc'),
-			// 		'value' => 'rating-ASC',
-			// 		'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=rating&order=ASC' . $url)
-			// 	);
-			// }
 
 			$data['sorts'][] = array(
 				'text'  => 'Latest', //$this->language->get('text_model_asc'),
 				'value' => 'p.date_added-ASC',
-				'href'  => '?route=product/category2&path='.$this->request->get['path'].'&sort=p.date_added&order=ASC'
-				// $this->url->link('product/category2', 'path=' . $this->request->get['path'] . '&sort=p.date_added&order=ASC' . $url)
+				'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.date_added&order=ASC' . $url, true)
 			);
 
-			$data['sorts'][] = array(
-				'text'  => 'Fast Shipping', //$this->language->get('text_model_desc'),
-				'value' => 'p.Fast_shipping',
-				'href'  => $this->url->link('product/category2', 'path=' . $this->request->get['path'] . '&sort=p.fast_shipping&order=DESC' . $url)
-			);
-			$data['sort'] = $sort;
-			$data['order'] = $order;
+			// $data['sorts'][] = array(
+			// 	'text'  => 'Fast Shipping', //$this->language->get('text_model_desc'),
+			// 	'value' => 'p.Fast_shipping',
+			// 	'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '&sort=p.fast_shipping&order=DESC' . $url, true)
+			// );
+		$category_id = end($parts);
+
 		$this->load->model('catalog/category');
 
-		$category_info = $this->model_catalog_category->getCategory($category_id);
+		// $category_info = $this->model_catalog_category->getCategory($category_id);
 
-		if ($category_info) {
+		// if ($category_info) {
 			$this->load->language('extension/module/filter');
 
 			$url = '';
@@ -104,8 +80,8 @@ class ControllerExtensionModuleFilter extends Controller {
 				$url .= '&pr=' . $this->request->get['pr'];
 			}
 
-			//$data['action'] = str_replace('&amp;', '&', $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url));
-			$data['action'] = str_replace('&amp;', '&', '?route=product/category2&path=' . $this->request->get['path'] . $url);
+			$data['action'] = str_replace('&amp;', '&', $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url, true));
+			//$data['action'] = str_replace('&amp;', '&', '?route=product/category&path=' . $this->request->get['path'] . $url);
 
 			if (isset($this->request->get['filter'])) {
 				$data['filter_category'] = explode(',', $this->request->get['filter']);
@@ -141,8 +117,8 @@ class ControllerExtensionModuleFilter extends Controller {
 						'filter'          => $childen_data
 					);
 				}
-				$this->document->addScript('catalog/view/javascript/bootstrap-slider.js');
-				$this->document->addStyle('catalog/view/theme/default/stylesheet/bootstrap-slider.css');
+				// $this->document->addScript('catalog/view/javascript/bootstrap-slider.js');
+				// $this->document->addStyle('catalog/view/theme/default/stylesheet/bootstrap-slider.css');
 				if (isset($this->request->get['filter'])) {
 					$filter = $this->request->get['filter'];
 				} else {
@@ -157,9 +133,9 @@ class ControllerExtensionModuleFilter extends Controller {
 				} else {
 					$category_id = 0;
 				}
-				$category_info = $this->model_catalog_category->getCategory($category_id);
+				// $category_info = $this->model_catalog_category->getCategory($category_id);
 		
-				if ($category_info) {
+				// if ($category_info) {
 					$filter_data = array(
 						'filter_category_id' => $category_id,
 					);
@@ -173,7 +149,7 @@ class ControllerExtensionModuleFilter extends Controller {
 						}
 		
 					}
-				}
+				// }
 				if (isset($this->request->get['sort'])) {
 					$sort = $this->request->get['sort'];
 				} else {
@@ -258,8 +234,8 @@ class ControllerExtensionModuleFilter extends Controller {
 						$url.='&manufacturer=' . $this->request->get['manufacturer'];
 					}
 		//echo $url;
-					//$data['action'] = str_replace('&amp;', '&', $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url));
-					$data['action2'] = str_replace('&amp;', '&', '?route=product/category2&path=' . $this->request->get['path'] . $url);
+					$data['action2'] = str_replace('&amp;', '&', $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url, true));
+					//$data['action2'] = str_replace('&amp;', '&', '?route=product/category&path=' . $this->request->get['path'] . $url);
 
 					if (!$min_max) {
 						$range = explode('-', '0-0');
@@ -277,6 +253,6 @@ class ControllerExtensionModuleFilter extends Controller {
 				}
 				return $this->load->view('extension/module/filter', $data);
 			}
-		}
+		// }
 	}
 }
