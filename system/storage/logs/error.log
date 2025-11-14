@@ -175,3 +175,7 @@
 2025-11-13 9:37:08 - PHP Unknown:  Creation of dynamic property Openbay::$logger is deprecated in C:\xampp\htdocs\opencartpro\system\library\openbay.php on line 43
 2025-11-13 9:49:37 - PHP Unknown:  Creation of dynamic property Openbay::$logger is deprecated in C:\xampp\htdocs\opencartpro\system\library\openbay.php on line 43
 2025-11-13 9:49:39 - PHP Unknown:  Creation of dynamic property Openbay::$logger is deprecated in C:\xampp\htdocs\opencartpro\system\library\openbay.php on line 43
+2025-11-14 7:48:46 - PHP Unknown:  mysqli::real_escape_string(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\opencartpro\system\library\db\mysqli.php on line 89
+2025-11-14 7:48:46 - PHP Unknown:  Creation of dynamic property Openbay::$logger is deprecated in C:\xampp\htdocs\opencartpro\system\library\openbay.php on line 43
+2025-11-14 7:48:48 - PHP Unknown:  Automatic conversion of false to array is deprecated in C:\xampp\htdocs\opencartpro\catalog\controller\startup\startup.php on line 189
+2025-11-14 7:48:48 - PHP Unknown:  Creation of dynamic property Openbay::$logger is deprecated in C:\xampp\htdocs\opencartpro\system\library\openbay.php on line 43
