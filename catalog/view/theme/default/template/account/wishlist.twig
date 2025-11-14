@@ -1,0 +1,112 @@
+{{ header }}
+{{ menu }}
+{# <hr> #}
+<style>
+.no-wish-bg {
+	padding: 5em 0;
+	background: linear-gradient(140deg, #ffe8ce47, #fbb8a078);
+  text-align:center;
+  display:block;
+}
+.no-wish-content h2 {
+	font-size: 1.5em;
+	color: #434342
+}
+.no-wish-content h3 {
+	font-size: 15px;
+	color: #434342;
+	font-weight: 200
+}
+.c-shop-btn {
+	font-size: 14px;
+	color: #ff8000;
+	padding: 6px 26px;
+	transition: .5s ease-out;
+	border: 1px solid #fc7e00;
+	border-radius: 100px;
+	margin-top: 1.4em;
+	display: inline-block
+}
+.list-of-cart {
+	background: #fff;
+	padding: 5px;
+	border: 1px solid #ff800021;
+	border-radius: 5px;
+  display: flex;
+}
+.wish-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media screen and (max-device-width:992px) {
+  .no-wish-content h2 {
+		font-size: 3em
+	}
+}
+@media only screen and (max-width:576px) {
+  .not-found-content h3{
+		font-size: 14px
+	}
+	.not-found-content h2 {
+		font-size: 1.3em
+	}
+  .no-wish-img img {
+		width: 47%;
+	}
+  .goback-btn {
+		font-size: 13px;
+		padding: 5px 25px
+	}
+}
+</style>
+<div id="account-wishlist" class="container">
+
+  {% if success %}
+    <div class="success-popup ">	<span class="warrning-svg">	<svg id="smile"		width="35" height="35" viewBox="0 0 41 41" fill="none">	 <path d="M16.2432 29.9911L16.5968 30.3439L16.95 29.9907L30.5886 16.352L30.9422 15.9985L30.5886 15.6449L27.7128 12.7691L27.3593 12.4156L27.0057 12.7691L16.592 23.1828L12.2699 18.8682L11.9158 18.5148L11.5626 18.869L8.69086 21.7489L8.33792 22.1028L8.69174 22.4558L16.2432 29.9911ZM0.823975 20.662C0.823975 9.72375 9.72375 0.823975 20.662 0.823975C31.6002 0.823975 40.5 9.72375 40.5 20.662C40.5 31.6002 31.6002 40.5 20.662 40.5C9.72375 40.5 0.823975 31.6002 0.823975 20.662Z" stroke="#33C300"/>  </svg>	</span>	<span class="warrning-text">   <p>{{ success }}</p>	</span>;  </div>
+  {% endif %}
+  <div class="row">
+      <h2>{{ heading_title }}</h2>
+      {% if products %}
+          {% for product in products %}
+            <div class="col-sm-12 col-md-6 col-lg-6 mb-3"> 
+              <div class="list-of-cart clear">
+                <div class="d-flex align-items-center">
+                  <div class="pp-img-cart">
+                    <div class="cart-img">
+                      <img src="{{ product.thumb }}" class="img-fluid img-responsive">
+                    </div>
+                  </div>
+                  <div class="cart-deatils">
+                    <div class="d-sm-flex d-block justify-content-between  align-items-start my-2">
+                      <div class="cart-p-name mx-sm-4 m-0">{{ product.name }}  
+                        <div class="price--order">
+                          <div class="real-amm">{{ product.special }}</div>
+                          <div class="dis-amm">{{ product.price }}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="wish-btn">
+                  <button type="button" onclick="cart.add('{{ product.product_id }}');" data-toggle="tooltip" title="{{ button_cart }}" class="btn btn-primary"><i class='bx bx-cart bx-sm'></i></button>
+                  <a href="?route=account/wishlist&remove={{ product.product_id }}" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class='bx bx-x bx-sm'></i></a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+      {% else %}
+        <div class="no-wish-bg" style="">
+          <div class="no-wish-content">
+            <h2>OOPS!</h2>
+            <h3 class="mb-3">You have not added in wishlist</h3>
+          </div>
+          <div class="no-wish-img">
+            <img src="catalog/view/javascript/assets/image/icon/empthy-cart-desktop.png" alt="" class="img-fluid">
+          </div>
+          <a href="/" class="c-shop-btn">Continue Shopping</a>
+        </div>
+      {% endif %}
+  </div>
+</div>
+{{ footer }}

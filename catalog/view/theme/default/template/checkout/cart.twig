@@ -1,0 +1,572 @@
+{{ header }}
+{{ menu }}
+</div>
+<style>
+.price--order {
+    display: flex;
+    align-items: center;
+  }
+.real-amm {
+    font-size: 31px;
+    font-weight: bold;
+    color:#ff8000;
+    margin-right: 10px;
+}
+.dis-amm {
+    font-size: 18px;
+    color: #959595;
+    font-weight: 400;
+    text-decoration: line-through;
+    margin-right: 10px;
+}
+.off-amm {
+    color: #1ecb09;
+    font-weight: 600;
+}
+</style>
+<div class="wrapper">
+<div class="wizard-sec">
+    <div class="stepwizard-outer">
+        <div class="stepwizard">
+            <div class="stepwizard-row setup-panel">
+                <div class="stepwizard-step col-xs-3">
+                    <a href="#step-1" type="button" class="step-for-checkout-scuss ">
+                        <i class='bx bx-chair' ></i>
+                    </a>
+                </div>
+                <div class="stepwizard-step col-xs-3">
+                    <a href="#step-2" type="button" class="step-for-checkout " disabled="disabled">
+                        <i class='bx bx-street-view' ></i>
+                    </a>
+                </div>
+                <div class="stepwizard-step col-xs-3">
+                    <a href="#step-3" type="button" class="step-for-checkout " disabled="disabled">
+                        <i class='bx bxs-shopping-bag' ></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="container container-custom">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-primary setup-content" id="step-1">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="d-md-flex justify-content-between d-block my-3 text-sm-center">
+                                <div class="text-md-start text-center">
+                                    <b>Check Delivery time & Services</b>
+                                </div>
+                            </div>
+                            <!--- active user -->
+                            
+                            <div class="out-active-user">
+                                <img src="catalog/view/javascript/assets/image/icon/active-users-icon.png">
+                                <div class="log-n-con">
+                                    <div class="search-form-dd">
+                                        <input class="form-control search-pincode-input" id="input-pincode" placeholder="Enter your PinCode" type="search">
+                                        <button type="button" class="search-pincode-btn-modal" onclick="checkPincode($(this))">
+                                            <i class='bx bx-search-alt-2' ></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="pincode-msg"></div>
+
+                            </div>
+
+                            <!-- add to cart list for order -->
+                            <div class="cart-list-for-order">
+                                <div class="the-cart-list my-lg-5">
+                                    <script>
+                                        const filters = {{ products | json_encode | raw }};
+                                        var itemsList = [];
+                                        for (var i = 0; i < filters.length; i++) {
+                                            var obj = {};
+                                            obj['item_id'] = filters[i]['product_id'];
+                                            obj['item_name'] = filters[i]['name'];
+                                            obj['price'] = filters[i]['special_number'];
+                                            obj['item_category'] = filters[i]['p_cat'];
+                                            obj['quantity'] = filters[i]['quantity'];
+                                            obj['item_brand'] = 'Urbanwood';
+                                            itemsList.push(obj);
+                                        }
+                                    </script>
+                                    <form action="?route=checkout/cart/edit" method="post" enctype="multipart/form-data" class="cartForm">
+                                        {% for product in products %}
+                                            <div class="mb-3">
+                                                <div class="list-of-cart clear">
+                                                    <a href="#remove-cart-drop" class="position-absolute top-0 text-black-50 fw-normal fs-6" data-bs-toggle="collapse" style="right:0px;">
+                                                        <i class='bx bx-x bx-sm' style="color:#ff8000"></i>
+                                                    </a>
+                                                    
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="pp-img-cart">
+                                                            <div class="cart-img">
+                                                                <img src="{{ product.thumb }}" class="img-fluid img-responsive">
+                                                            </div>
+                                                        </div>
+                                                        <div class="cart-deatils">
+                                                            <div class="d-sm-flex d-block justify-content-start  align-items-start my-2">
+                                                                <div class="cart-p-name mx-sm-4 m-0">{{ product.name }}
+                                                                </div>
+                                                                <div class="price--order">
+                                                                    <div class="real-amm">{{ product.price }}</div>
+                                                                    <div class="dis-amm">{{ product.total }}</div>
+                                                                    <div class="off-amm">{{ product.discount }}% OFF</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="d-lg-flex d-block justify-content-between my-2">
+                                                                <ul class="btn-list-cart">
+                                                                    <li>
+                                                                        <img src="catalog/view/javascript/assets/image/icon/coupon-icon.png" width="20px">
+                                                                        <a href="" class="couppon-apply" type="button" data-bs-toggle="offcanvas" data-bs-target="#canvasapplycoupon" aria-controls="canvasapplycoupon">Apply Coupon for Discount</a>
+                                                                    </li>
+
+                                                                </ul>
+                                                                <div class="quantity-bar">
+                                                                    <div class="countItem">
+
+                                                                        <span class="btn-minus minus" onclick="minusPro(this);" data-id="{{ product.cart_id }}">
+                                                                            <i class='bx bx-minus' ></i></span>
+                                                                        <input name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}" class="count quantity cart_{{ product.cart_id }}">
+                                                                        <span class="btn-plus plus" onclick="plusPro(this);" data-id="{{ product.cart_id }}">
+                                                                            <i class='bx bx-plus' ></i></span>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="remove-cart-drop" class="collapse">
+                                                    <div class="romove cart-pop-bottom">
+                                                        <div class="con-rem">
+                                                            <p>Are you sure you want to remove this item from cart?
+                                                            </p>
+                                                        </div>
+                                                        <div class="rem-btn-sec">
+                                                            <button type="button" onclick="cart.remove({{ product.cart_id }}); removefromcart({{ product.product_id }},{{ product.cart_id }});" class="btn remove-cart-btn mx-1">
+                                                                remove</button>
+                                                            <button type="button" onclick="wishlist.add({{ product.product_id }});" class=" mx-1 move-wishlist-btn">
+                                                                move to wishlist</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            {% if applied_coupon %}
+                                <div class="coupon-box-buton coupon-box-buton-applied">
+                                    <svg width="30" height="30" viewbox="0 0 24 24" fill="none">
+                                        <path d="M20.4915 9.84173L22.0626 11.6746C22.223 11.8618 22.223 12.1382 22.0626 12.3254L20.4915 14.1583C20.2312 14.462 20.103 14.857 20.1353 15.2557L20.3313 17.6723C20.3514 17.9211 20.185 18.1467 19.9414 18.2008L17.6137 18.7181C17.2096 18.8079 16.8606 19.0607 16.6493 19.4166L15.4226 21.4826C15.2935 21.7001 15.0223 21.7869 14.7909 21.6848L12.6055 20.7206C12.2198 20.5505 11.7802 20.5505 11.3945 20.7206L9.20914 21.6848C8.97773 21.7869 8.70653 21.7001 8.5774 21.4826L7.35071 19.4166C7.13938 19.0607 6.79038 18.8079 6.38632 18.7181L4.05865 18.2008C3.81498 18.1467 3.64858 17.9211 3.66875 17.6723L3.86469 15.2557C3.89702 14.857 3.76878 14.462 3.50849 14.1583L1.93745 12.3254C1.77695 12.1382 1.77695 11.8618 1.93745 11.6746L3.50849 9.84173C3.76878 9.53805 3.89702 9.14298 3.86469 8.74432L3.66875 6.32767C3.64858 6.07887 3.81498 5.85331 4.05865 5.79916L6.38632 5.2819C6.79038 5.19211 7.13938 4.93934 7.35071 4.58343L8.5774 2.51743C8.70653 2.29994 8.97773 2.21314 9.20914 2.31524L11.3945 3.27938C11.7802 3.44955 12.2198 3.44955 12.6055 3.27938L14.7909 2.31524C15.0223 2.21314 15.2935 2.29994 15.4226 2.51743L16.6493 4.58343C16.8606 4.93934 17.2096 5.19211 17.6137 5.2819L19.9414 5.79916C20.185 5.85331 20.3514 6.07887 20.3313 6.32766L20.1353 8.74432C20.103 9.14298 20.2312 9.53805 20.4915 9.84173ZM11.0607 16.6464L17.6536 10.0536C18.2354 9.47169 18.2354 8.52831 17.6536 7.94645C17.0717 7.36458 16.1283 7.36459 15.5464 7.94645L10.3536 13.1393C10.1583 13.3346 9.84171 13.3346 9.64645 13.1393L8.45355 11.9464C7.87169 11.3646 6.92831 11.3646 6.34645 11.9464C5.76459 12.5283 5.76458 13.4717 6.34645 14.0536L8.93934 16.6464C9.52513 17.2322 10.4749 17.2322 11.0607 16.6464Z" stroke="#33C300"/>
+                                    </svg>
+                                    &nbsp;
+                                    {{ applied_coupon }}
+                                    <span style="float:right; cursor:pointer;" onclick="removecoupon();">
+                                        <i class='bx bx-x bx-sm'></i>
+                                    </span>
+                                </div>
+                            {% else %}
+                                <div class="coupon-box-buton" type="button" data-bs-toggle="offcanvas" data-bs-target="#canvasapplycoupon" aria-controls="canvasapplycoupon"><img src="catalog/view/javascript/assets/image/icon/coupon-icon.jpg" alt="coupon-icon">
+                                    &nbsp; Apply Coupon
+                                    <span style="float:right ">
+                                        <i class='bx bxs-chevron-right bx-sm'></i></span></div>
+                            {% endif %}
+
+                            <div class="order-summary-box">
+                                <div class="summary-heading">
+                                    Order Summary
+                                    <span>( &nbsp;{{ cart_total_items }}
+                                        Item )</span></div>
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <td>MRP</td>
+                                            <td>{{ total_mrp }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Delivery</td>
+                                            <td style="color:#48ca1a;font-weight:800;">Free</td>
+                                        </tr>
+                                        <script>
+                                        
+                                            const filters2 = {{ totals | json_encode | raw }};
+                                            // console.log(filters2);
+                                            {% if filters2[1]['title'] == 'Total' %}
+                                                var itemsList2 = filters2[0]['text'].substring(1);
+                                            {% else %}
+                                                var itemsList2 = filters2[1]['text'].substring(1);
+                                            {% endif %}
+                                        </script>
+                                        {% for total in totals %}
+
+                                            {% if loop.last %}
+
+                                                <tr class="bill-total-sub">
+                                                    <td>{{ total.title }}</td>
+                                                    <td>{{ total.text }}</td>
+                                                </tr>
+                                            {% else %}
+                                                {% if 'Coupon' in total.title %}
+                                                    <tr style="color:#48ca1a;font-weight:600;">
+                                                        <td>{{ total.title }}</td>
+                                                        <td>{{ total.text }}</td>
+                                                    </tr>
+                                                {% else %}
+                                                    <tr>
+                                                        <td>{{ total.title }}</td>
+                                                        <td>{{ total.text }}</td>
+                                                    </tr>
+                                                {% endif %}
+
+                                            {% endif %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                <div class="save-ammt-con">You will save &nbsp;{{ total_save }}
+                                    on this order</div>
+                                <a href="?route=checkout/checkout" class="procced-next-button" id="purchase" type="button">
+                                    Procced
+                                </a>
+                                <div class="we-accpt-pay">
+                                    <div class="heading-acpt">We Accept</div>
+                                    <div class="pay-way-box">
+                                        <img src="catalog/view/javascript/assets/image/icon/visa-pay.jpg" width="100%"></div>
+                                    <div class="pay-way-box">
+                                        <img src="catalog/view/javascript/assets/image/icon/rupay.jpg" width="100%"></div>
+                                    <div class="pay-way-box">
+                                        <img src="catalog/view/javascript/assets/image/icon/master-card.jpg" width="100%"></div>
+                                    <div class="pay-way-box">
+                                        <img src="catalog/view/javascript/assets/image/icon/meastro-card.jpg" width="100%"></div>
+                                    <div class="pay-way-box">
+                                        <img src="catalog/view/javascript/assets/image/icon/netbanking.jpg" width="100%"></div>
+                                    <div class="pay-way-box">
+                                        <img src="catalog/view/javascript/assets/image/icon/wallet.jpg" width="100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="canvasapplycoupon" aria-labelledby="canvasapplycouponLabel" style="background-color: #fff5f0;">
+    <div class="offcanvas-header">
+        <h5 id="canvasapplycouponLabel">Apply Coupons</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="enter-cuopon-code">
+            <input type="text" name="coupon" class="form-control enter-coupon-input" placeholder="Enter Your Coupon Code ">
+            <butrton class="button-apply-coupon-btn" id="button-coupon" type="submit">Apply</butrton>
+        </div>
+        <div class="coupon-heading my-4">Available Coupons</div>
+        <!--first coupon -->
+        {% set string="minimum purchase of ₹15000/-" %}
+        {% if coupon_info %}
+            {% for c_info in coupon_info %}
+                <div class="coupon-box">
+                    <div>
+                        <img src="catalog/view/javascript/assets/image/icon/coupon-uw.png" alt="coupon-icon"></div>
+                    <div class="coupon-content">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="avail-coupon">{{c_info.name }}</div>
+                            <button class="aplly-coupon-btn" type="button" data-bs-toggle="modal" onclick="addcoupon('{{c_info.code }}')" ;=";" data-bs-target="#couponapplied">
+                                Apply</button>
+                        </div>
+                        {% if c_info.name == 'NYNH5' %}
+                            <p>Get Upto
+                                <b>
+                                    &nbsp;{{ c_info.discount|round(1, 'ceil') }}% Flat OFF
+                                </b>
+                                on Furniture and Decor
+                            </p>
+                            <p>Get 10% Flat OFF order above 50,000
+                            </p>
+                        {% else %}
+                            <p>Get Upto
+                                <b>
+                                    Flat&nbsp;{{ c_info.discount|round(1, 'ceil') }}% OFF
+                                </b>
+                                on Furniture and Decor
+                            </p>
+                        {% endif %}
+                        <button type="button" data-bs-toggle="collapse" data-bs-target="#coupon-avail-details{{ c_info.coupon_id}}" aria-expanded="false" aria-controls="coupon-avail-details1" class="avail-coupon-details">
+                            Show details</button>
+                        <div class="d-block" style="position: absolute; right: -0px; top:15px;">
+                            <span class="circle--cc"></span>
+                            <span class="circle--cc"></span>
+                            <span class="circle--cc"></span>
+                            <span class="circle--cc"></span>
+                            <span class="circle--cc"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapse" id="coupon-avail-details{{ c_info.coupon_id}}">
+                    <div class="card card-body detail-box-for-coupon">
+                        <div class="c-deatil-heading">Applicable Terms & Conditions</div>
+                        <ul class="c-detail-list">
+                            {% if c_info.name == 'NYNH5' %}
+                                <li>
+                                    <i class='bx bxs-chevron-right' ></i>
+                                    &nbsp; Get Upto &nbsp;{{ c_info.discount|round(1, 'ceil') }}% Off on Furniture and Decor
+                                </li>
+                                <li>
+                                    <i class='bx bxs-chevron-right' ></i>
+                                    &nbsp; Get 10% Flat OFF order above 50,000
+                                </li>
+                            {% else %}
+                                <li>
+                                    <i class='bx bxs-chevron-right' ></i>
+                                    &nbsp; Get Upto &nbsp;{{ c_info.discount|round(1, 'ceil') }}% Off On Furniture and Decor
+                                </li>
+                            {% endif %}
+                            <li>
+                                <i class='bx bxs-chevron-right' ></i>
+                                &nbsp; Offer valid till &nbsp;{{ c_info.date_end }}
+                            </li>
+                            <li>
+                                <i class='bx bxs-chevron-right' ></i>
+                                &nbsp; Other TnC may apply
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>
+                Sorry, coupon not available right now</p>
+        {% endif %}
+    </div>
+</div>
+</div>
+<script>
+//for billing form tabing to choose the perpose
+$('[name=tab]').each(function (i, d) {
+    var p = $(this).prop('checked');
+    if (p) {
+        $('div')
+            .eq(i)
+            .addClass('on');
+    }
+});
+
+$('[name=tab]').on('change', function () {
+    var p = $(this).prop('checked');
+    var i = $('[name=tab]').index(this);
+
+    $('div').removeClass('on');
+    $('div').eq(i).addClass('on');
+});
+</script>
+<script>
+$(document).ready(function () {
+
+    var navListItems = $('div.setup-panel div a'),
+        allWells = $('.setup-content'),
+        allNextBtn = $('.nextBtn');
+
+    allWells.hide();
+
+    navListItems.click(function (e) {
+        e.preventDefault();
+        var $target = $($(this).attr('href')),
+            $item = $(this);
+
+        if (!$item.hasClass('disabled')) {
+            navListItems.removeClass('step-for-checkout-scuss').addClass('step-for-checkout');
+            $item.addClass('step-for-checkout-scuss');
+            allWells.hide();
+            $target.show();
+            $target.find('input:eq(0)').focus();
+        }
+    });
+
+    allNextBtn.click(function () {
+        var curStep = $(this).closest(".setup-content"),
+            curStepBtn = curStep.attr("id"),
+            nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+            curInputs = curStep.find("input[type='text'],input[type='url']"),
+            isValid = true;
+
+        $(".form-group").removeClass("has-error");
+        for (var i = 0; i < curInputs.length; i++) {
+            if (!curInputs[i].validity.valid) {
+                isValid = false;
+                $(curInputs[i]).closest(".form-group").addClass("has-error");
+            }
+        }
+
+        if (isValid) 
+            nextStepWizard.removeAttr('disabled').trigger('click');
+        }
+    );
+
+    $('div.setup-panel div a.step-for-checkout-scuss ').trigger('click');
+});
+</script>
+
+<script type="text/javascript">
+$('#button-coupon').on('click', function () {
+    $('.cerror').hide();
+    $.ajax({
+        url: '?route=extension/total/coupon/coupon',
+        type: 'post',
+        data: 'coupon=' + encodeURIComponent($('input[name=\'coupon\']').val()),
+        dataType: 'json',
+
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                $('.cerror').html(json['error']).show();
+
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 'slow');
+            }
+
+            if (json['redirect']) {
+                location = json['redirect'];
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+function addcoupon(coupon) {
+    $('.cerror').hide();
+    $.ajax({
+        url: '?route=extension/total/coupon/coupon',
+        type: 'post',
+        data: 'coupon=' + coupon,
+        dataType: 'json',
+
+        success: function (json) {
+            $('.success-popup2').remove();
+            if (json['error']) {
+                $('body').prepend('<div class="success-popup2">    <span class="warrning-svg">      <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">        <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>        </svg>  </span>      <span class="warrning-text">      <p>Not applicable, check TnC</p>    </span>     </div>');
+            }
+            if (json['redirect']) {
+                location = json['redirect'];
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+}
+function removecoupon(coupon = '') {
+    $('.cerror').hide();
+    $.ajax({
+        url: '?route=extension/total/coupon/coupon',
+        type: 'post',
+        data: 'coupon=' + coupon,
+        dataType: 'json',
+
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                location.reload();
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 'slow');
+            }
+
+            if (json['redirect']) {
+                location = json['redirect'];
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+};
+</script>
+<script>
+// Measure a view of product details. This example assumes the detail view occurs on pageload,
+// and also tracks a standard pageview of the details page.
+// Clear the previous ecommerce object.
+dataLayer.push({
+    'event': 'view_cart',
+    'ecommerce': {
+        'currencyCode': 'INR',
+        "value": {{ alltimetotal }},
+        'add': { // 'add' actionFieldObject measures.
+            'products': itemsList
+        }
+    }
+});
+
+gtag("event", "view_cart", {
+    currency: "INR",
+    value: {{ alltimetotal }},
+    items: [{
+            itemsList
+        }]
+});
+</script>
+
+<script>
+document.getElementById("purchase").addEventListener("click", function () {
+    gtag("event", "begin_checkout", {
+        currency: "INR",
+        value: {{ alltimetotal }},
+        items: [{
+                itemsList
+            }]
+    });
+
+    fbq('track', 'InitiateCheckout', {
+        value: {{ alltimetotal }},
+        currency: 'INR',
+        contents: [itemsList],
+        content_type: 'product'
+    });
+});
+
+function removefromcart(productid, cartid) {
+    $.ajax({
+        url: '?route=checkout/cart/getcartproduct',
+        type: 'post',
+        data: {
+            productid: productid,
+            cartid: cartid
+        },
+        dataType: 'json',
+
+        success: function (json) {
+            // console.log(json);
+            gtag("event", "remove_from_cart", {
+                currency: "INR",
+                value: json.total_value,
+                items: [
+                    {
+                        item_id: json.product_id,
+                        item_name: json.name,
+                        item_brand: "Urbanwood",
+                        item_category: "Furniture",
+                        price: json.special,
+                        quantity: json.cart_quantity
+                    }
+                ]
+            });
+            location = 'cart';
+
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+}
+</script>
+{{ footer }}

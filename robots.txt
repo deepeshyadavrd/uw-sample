@@ -1,0 +1,83 @@
+user-agent: *
+Disallow: /*&limit
+Disallow: /*?route=checkout/
+Disallow: /*?route=account/
+Disallow: /*?route=affiliate/
+Disallow: /*?type=category_breadcrumbs
+Disallow: /*?route=product/search
+Disallow: /*?option_value
+Disallow: /login
+Disallow: /specials
+Disallow: /specials*
+Disallow: /login*
+Disallow: /staging/
+Disallow: /*?filter
+Disallow: /*?limit
+Disallow: /*?sort
+Disallow: /*&filter
+Disallow: /*?_route_=cart
+Disallow: /*search&search=
+Disallow: /*?route=product
+Disallow: /*?page=
+Disallow: /cdn-cgi/
+User-agent: Scrapy
+Disallow: /
+
+User-agent: Teleport
+Disallow: /
+
+User-agent: TeleportPro
+Disallow: /
+
+User-agent: EmailCollector
+Disallow: /
+
+User-agent: EmailSiphon
+Disallow: /
+
+User-agent: WebBandit
+Disallow: /
+
+User-agent: WebZIP
+Disallow: /
+
+User-agent: WebReaper
+Disallow: /
+
+User-agent: WebStripper
+Disallow: /
+
+User-agent: Web Downloader
+Disallow: /
+
+User-agent: WebCopier
+Disallow: /
+
+User-agent: Offline Explorer Pro
+Disallow: /
+
+User-agent: HTTrack Website Copier
+Disallow: /
+
+User-agent: Offline Commander
+Disallow: /
+
+User-agent: Leech
+Disallow: /
+
+User-agent: WebSnake
+Disallow: /
+
+User-agent: BlackWidow
+Disallow: /
+
+User-agent: HTTP Weazel
+Disallow: /
+
+User-agent: Extreme Picture Finder
+Disallow: /
+
+
+Sitemap: https://www.urbanwood.in/sitemap.xml
+
+

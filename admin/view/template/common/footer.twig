@@ -1,0 +1,16 @@
+<footer id="footer">{{ text_footer }}<br />{{ text_version }}</footer></div>
+<script>
+    $(document).ready(function() {
+        // Toggle the side menu
+        $('#toggle-menu').on('click', function() {
+            $('#column-left').toggle(); // Change this selector based on your actual side menu class
+            $("#content").css({"margin-left": "0"});
+        });
+
+        // Hide the side menu when any link is clicked
+        $('.column-left a').on('click', function() {
+            $('.column-left').hide(); // Change this selector based on your actual side menu class
+        });
+    });
+</script>
+</body></html>

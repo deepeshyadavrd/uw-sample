@@ -1,0 +1,289 @@
+.trending_product_box {
+    border:1px solid #ededed;
+    border-radius: 0.3rem;
+}
+.product_img_ img {
+    border-radius: 0.3rem 0.3rem 0 0;
+}
+.sale_badge {
+    position: absolute;
+    left: auto;
+    right: 0px;
+    background: #eee;
+    padding: 4px 4px;
+    top: 0px;
+    display: inline-flex;
+    width: 70px;
+}
+/* .sale_badge img {
+    width: 60px;
+} */
+.product_content {
+    padding: .5rem;
+    text-align: left;
+}
+.p_item_name {
+    font-weight: 500;
+    line-height: 2;
+}
+.p_item_amount {
+    color: #7d7d7d;
+    font-size: 14px;
+    font-weight: 400;
+}
+/* .tag_start_from{
+  font-size:14px;
+  font-weight:400;
+  color:#767676;
+} */
+/* .owner-tag {
+    color: #ff8000d4;
+    font-size: 0.8em;
+    line-height: 1;
+    position: absolute;
+    right: .8em;
+    top: 1em;
+} */
+.offer_tag{
+    position: relative;
+  }
+  .new_arrival, .best_tag {
+    position: absolute;
+    z-index: 1;
+    top: 1rem;
+    left: 0;
+    width: max-content;
+    height: fit-content;
+    font-size: 12px;
+    padding: .1rem .5rem;
+    line-height: 1.1;
+    color: #fff !important;
+}
+.new_arrival {
+    background: #d34141;
+}
+.best_tag {
+    background: #0068b1;
+}
+.new_arrival:after, .best_tag:after {
+    position: absolute;
+    content: '';
+    width: .5vw;
+    z-index: 1;
+    top: 0;
+    left: auto;
+    border-right: 8px solid transparent;
+}
+.new_arrival:after {
+    border-top: 8px solid #d34141;
+    border-bottom: 8px solid #d34141;
+    border-left: 8px solid #d34141;
+}
+.best_tag:after {
+    border-top: 8px solid #0068b1;
+    border-bottom: 8px solid #0068b1;
+    border-left: 8px solid #0068b1;
+}
+  .uw_p_img{
+    width: 100%;
+    border-radius: 0.3rem 0.3rem 0 0;
+  }
+  .uw_p_img img{
+    width: 100%;
+    border-radius: 0.3rem 0.3rem 0 0;
+  }
+.uw_price {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size:14px;
+}
+.uw_price > span{
+  font-weight: 500; 
+  margin-right: .5rem;
+}
+.real_p {
+    color: #515151;
+    text-decoration: line-through;
+}
+span.offer_dis {
+    color: #006d10;
+}
+/* .new-item{
+  height:auto !important;
+  background:none !important; 
+  border:2px solid red;
+} */
+  .game-section .item {
+    margin: 0 8px 23px;
+    width: 320px;
+    height: 500px;
+    display: flex;
+    display: -webkit-flex;
+    align-items: flex-end;
+    -webkit-align-items: flex-end;
+    background: #343434 no-repeat center center / cover;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    cursor: pointer;
+  }
+  .game-section ._item2 {
+    margin: 0 10px 0px;
+    width: 320px;
+    height: auto;
+    background:none;
+  }
+  .game-section ._item2:last-child {
+    margin-right:0px;
+  }
+  .game-section .item.active {
+    width: 500px;
+  }
+  /* .game-section .item-desc {
+      padding: 0 31px 0px;
+      color: #000;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      transform: translateY(calc(100% - 463px));
+      -webkit-transform: translateY(calc(100% - 463px));
+      transition: all 0.4s ease-in-out;
+      -webkit-transition: all 0.4s ease-in-out;
+      font-size: 19px;
+      text-align:left;
+  }
+  .game-section .item-desc h3 {
+      font-size: 32px;
+      font-weight: 500;
+      margin-bottom: 0px;
+  }
+  .game-section .item-desc p {
+      margin: 0px;
+      font-size: 1.2rem;
+      color: #000;
+      line-height: 1.5;
+  } */
+  /* .v_all_btn {
+      font-size: 12px;
+      padding: .3rem .8rem;
+      border-radius: 1.5rem;
+      border: 1px solid;
+      margin: .5rem 0px 0px;
+      text-align: left;
+      text-transform: capitalize;
+      color: black;
+  } */
+  .owl-carousel2 .owl-nav {
+      display: block;
+      width: 100%;
+      position: absolute;
+      top: 40%;
+  }
+  .owl-carousel2 .owl-nav .owl-prev, .owl-carousel2 .owl-nav .owl-next{
+    position: absolute;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    margin-right: 16px;
+    background-color: #fff !important;
+  }
+  .owl-carousel2 .owl-nav .owl-prev {
+      left: 0px !important;
+      right: auto !important;
+  }
+  .owl-carousel2 .owl-nav .owl-next {
+      left: auto !important;
+      right: 6px !important;
+  }
+  /* .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  } */
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .game-section .item {
+      margin: 0 12px 30px;
+      width: 260px;
+      height: 360px;
+    }
+    .game-section ._item2 {
+      width: 260px;
+      height:auto !important;
+  
+    }
+    .game-section .item.active {
+      width: 400px;
+    }
+    /* .game-section .item-desc {
+      transform: translateY(calc(100% - 343px));
+      -webkit-transform:translateY(calc(100% - 343px));
+    }
+    .game-section .item-desc h3 {
+      font-size: 20px;
+  } */
+  }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .game-section .item {
+      margin: 0 12px 0px;
+      width: 240px;
+      height: 330px;
+    }
+    .game-section ._item2 {
+      width: 240px;
+      height:auto !important;
+      margin: 0 12px 0px;
+    }
+    .game-section .item.active {
+      width: 360px;
+    }
+    /* .game-section .item-desc {
+      transform: translateY(calc(100% - 314px));
+      -webkit-transform:translateY(calc(100% - 314px));
+    }
+    .game-section .item-desc h3 {
+      font-size: 20px;
+  } */
+  }
+  @media (max-width: 767px) {
+    .uw_price {
+      font-size: 12px;
+    }
+    .p_item_name {
+      font-size: 14px;
+      /* line-height: 2; */
+    }
+    .game-section .item {
+      margin: 0 8px 15px;
+      width: 200px;
+      height: 280px;
+    }
+    .game-section ._item2 {
+      margin: 0 8px 0px;
+      height:auto !important;
+    }
+    .game-section .item.active {
+      width: 270px;
+    }
+    /* .game-section .item-desc {
+      padding: 0 14px 5px;
+      transform: translateY(calc(100% - 271px));
+      -webkit-transform: translateY(calc(100% - 271px));
+    }
+    .game-section .item-desc h3 {
+      font-size: 15px;
+    }
+    .game-section .item-desc p {
+      font-size: .8rem;
+    } */
+  }

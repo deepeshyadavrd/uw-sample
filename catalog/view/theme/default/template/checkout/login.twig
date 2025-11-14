@@ -1,0 +1,86 @@
+{# <div class="row">
+  <div class="col-sm-6">
+    <h2>{{ text_new_customer }}</h2>
+    <p>{{ text_checkout }}</p>
+    <div class="radio">
+      <label> {% if account == 'register' %}
+        <input type="radio" name="account" value="register" checked="checked" />
+        {% else %}
+        <input type="radio" name="account" value="register" />
+        {% endif %}
+        {{ text_register }}</label>
+    </div>
+    {% if checkout_guest %}
+    <div class="radio">
+      <label> {% if account == 'guest' %}
+        <input type="radio" name="account" value="guest" checked="checked" />
+        {% else %}
+        <input type="radio" name="account" value="guest" />
+        {% endif %}
+        {{ text_guest }}</label>
+    </div>
+    {% endif %}
+    <p>{{ text_register_account }}</p>
+    <input type="button" value="{{ button_continue }}" id="button-account" data-loading-text="{{ text_loading }}" class="btn btn-primary" />
+  </div>
+  <div class="col-sm-6">
+    <h2>{{ text_returning_customer }}</h2>
+    <p>{{ text_i_am_returning_customer }}</p>
+    <div class="form-group">
+      <label class="control-label" for="input-email">{{ entry_email }}</label>
+      <input type="text" name="email" value="" placeholder="{{ entry_email }}" id="input-email" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="input-password">{{ entry_password }}</label>
+      <input type="password" name="password" value="" placeholder="{{ entry_password }}" id="input-password" class="form-control" />
+      <a href="{{ forgotten }}">{{ text_forgotten }}</a></div>
+    <input type="button" value="{{ button_login }}" id="button-login" data-loading-text="{{ text_loading }}" class="btn btn-primary" />
+  </div>
+</div> #}
+<!--login/ sign up moadal for cart precess -->
+{# <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"> #}
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content m-0 p-0" style="background: #fff6f1;">
+      <div class="modal-header  m-0 p-0">
+        {# <img src="/assets/image/signup-or-guest-modal-bg.avif" class="img-fluid"> #}
+        {# <button type="button" class="btn-close" onclick="setTimeout('window.history.back()', 500);" data-bs-dismiss="modal" aria-label="Close" style="font-size: 10px;"></button> #}
+      </div> 
+      <div class="modal-body px-5">
+        <div class="heading-text-to-login-in text-center">Login to <span style="color:#ff8000"> Account</span></div>
+        <div class="popup-signform">
+          
+          <form id="loginform">
+            <div class="row">
+            <div class="col-md-12">
+              <input type="email" name="email" class="form-control" id="InputEmail1" placeholder="Email Address" required="">
+          
+            </div>
+            <div class="col-md-12 ">
+              <input type="password" name="password" class="form-control password" autocomplete="current-password" required="" id="id_password" placeholder="Password">
+              <i class="bx bx-low-vision" id="togglePassword"></i>
+            </div>
+            <div class="d-block">
+            <button type="button" id="button-login" class="login-btn-popup">Login</button>
+            <a href="#" class="forget-pass text-center">Forget password?</a>
+           
+          <p class="text-center dont-accont2" >Don't Have an Account ? <button type="button" id="registerbtn" class="guestlogin" data-value="register"  id="showform2">Sign Up Now</button></p>
+          <div class="d-flex justify-content-center align-items-center my-3">
+            <span class="line"></span><p class="or-way-tolog">OR </p> <span class="line"></span>
+          </div>
+          <button id="guestlogin" data-value="guest" type="button" class="login-guest guestlogin">Login as a Guest</button>
+          </div>
+        </div>
+          </form>
+          </div>
+      </div>
+      <div class="modal-footer text-center m-auto">
+       <p><small> By Continuing , I agree  to  the <span style="color:#ff8000"> Terms  of Use & Privacy Policy </span></small> </p>
+      </div>
+    </div>
+  </div>
+{# </div> #}
+<script type="text/javascript">
+    // $(window).on('load', function() {
+    //     $('#staticBackdrop').modal('show');
+    // });
+</script>

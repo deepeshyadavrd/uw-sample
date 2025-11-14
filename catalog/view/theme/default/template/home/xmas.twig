@@ -1,0 +1,151 @@
+<style>
+.christmas-sec{
+	background-size: 100% 100%;
+    padding: 2em 0 3em;
+    background: linear-gradient(45deg, #ffe6f1, #ffd2ee);
+}
+  .pp2-item-box img.bells {
+    position: absolute;
+    top: 5px;
+    z-index: 9999;
+    width: 20%!important;
+    height: 20%!important;
+    left: 10px;
+    filter: drop-shadow(0px 0px 5px #fff8bf);
+    color: #fff8bf;
+    animation: zoom-in-zoom-out 1s ease infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+	0% {
+	  transform: scale(1, 1);
+	}
+	50% {
+	  transform: scale(1.2, 1.2);
+	}
+	100% {
+	  transform: scale(1, 1);
+	}
+}
+.toast-timer {
+    margin: 0 auto 1em;
+    text-align: center;
+    padding: 0;
+    color: #373636;
+    font-size: 15px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.xmas-text {
+  color: #373636;
+  font-family: 'Coiny', cursive;
+  text-align: center;
+  font-size: 25px;
+-webkit-animation: bounce .54s ease infinite alternate;
+}
+    @-webkit-keyframes bounce {
+  0% {
+  }
+  100% {
+    transform:translateY(-20px);
+  
+  }
+}
+
+@media only screen and (max-width:576px) {
+	.christmas-sec {
+		background-size: cover;
+		padding: 2em 0 2em;
+	}
+	.pp2-item-box img.bells{
+		width: 36%;
+	}
+}
+
+@media (min-device-width:800px) and (max-device-width:1280px) {
+
+	.pp2-item-box img.bells {
+    width: 20%!important;
+    height: 20%!important;
+}
+}
+</style>
+<section class="christmas-sec">
+  <div class="container container-custom">
+    <div class="row">
+
+          <h2 class="pg-heading xmas-text text-center" style="text-transform:capitalize;text-align:center">Celebrate Women's Day With Urbanwood</h2>
+          <p class="text-center" style=" background: #ef0e8c;    display: block;    margin: 0 auto;    text-align: center;    width: fit-content;    color: #fff;    border-radius: 18px;">Use coupon code: <span style="font-size:17px;"><b>BESTRONG</b></span></p>
+          <div class="toast-timer"><i class='bx bx-timer' ></i> &nbsp; <span id="offertimer"></sapn> </div>
+  <div class="bbb_slider_container">
+    <div class="owl-carousel owl-theme bbb_slider bbb_slider4">
+
+
+         {%for keysss,product in products%}
+        <div class="owl-item owl-item4">
+            <div class="bbb_item bbb_item4 is_new">
+
+              <div class="pp2-item-box">
+              {# <img src="catalog/view/javascript/assets/image/year-sale.png" alt="" width="100" height="20" class="bells"> #}
+                <div class="item-img">
+                  <img src="{{product.thumb}}" class="img-responsive img-fluid" loading="lazy" alt="{{ product.name }}">
+              </div>
+              <a href="{{product.href}}" class="d-block pp-name-title">{{product.name}}</a>
+              <div class="item-content">
+                  <div class="pp-name">
+                    Starting
+                </div>
+                <div class="_pp_content clearfix">
+                    <div class="pp-price">
+
+                      {{product.special}}
+                  </div>
+              </div>
+          </div>
+          <span class="off_badge" style="background:linear-gradient(39deg, #ff129c, #ffa9a9)">
+              Extra 10% <br>OFF
+          </span>
+      </div>
+
+  </div>
+</div>
+{%endfor%}
+
+
+
+</div>
+</div>
+</div>
+</div>
+</section>
+ <script>
+  // Set the date we're counting down to
+  var countDownDate = new Date("March 12, 2024 23:59:59").getTime();
+  
+  // Update the count down every 1 second
+  var x = setInterval(function() {
+  
+    // Get today's date and time
+    var now = new Date().getTime();
+      
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+      
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+    // Output the result in an element with id="demo"
+    document.getElementById("offertimer").innerHTML = days + "d :" + hours + "h :"
+    + minutes + "m :" + seconds +"s";
+      
+    // If the count down is over, write some text 
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("offertimer").innerHTML = "EXPIRED";
+    }
+  }, 1000);
+  </script> 

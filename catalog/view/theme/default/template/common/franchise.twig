@@ -1,0 +1,643 @@
+{{ header }}
+{{ menu }}
+<style>
+    .why-urbanwood {
+      background-color: #f9fafb;
+      padding: 60px 0;
+    }
+    .section-tag {
+      display: inline-block;
+      background-color: #fff3e0;
+      color: #e58f1c;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+    .section-header h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    .section-header p {
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      font-size: 1rem;
+    }
+    .feature-card {
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+      text-align: center;
+      height: 100%;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+    .feature-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+    .partnership-cta .badge {
+        font-size: 0.85rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+    }
+    .partnership-cta .position-absolute h5 {
+      color: #fff;
+    }
+    .partnership-cta .position-absolute small {
+      color: #f7f7f7;
+    }
+    .HappyPartners {
+      background-color: #e58f1c;
+    }
+    .benefit-item { 
+      padding: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
+    .benefit-item span { font-size: 30px; display: block; margin-bottom: 10px;}
+    .HappyPartners.Right  {
+      left: inherit !important;
+      right: -20px;
+      top: 0;
+      bottom: inherit !important;
+      background-color: #2D3953 !important;
+    }
+    .requirements-list ul {
+        list-style: none;
+        padding-left: 20px;
+    }
+    .requirements-list ul li {
+        margin-bottom: 0.7rem;
+        font-size: 1rem;
+        color: #555;
+    }
+    .requirements-list ul li::before {
+        content: '•'; /* Bullet point */
+        color: #e58f1c; /* Changed to match theme, was #007bff */
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+    }
+    .ready-to-join-section {
+        background-color: #f8f9fa; /* Light background similar to screenshot */
+        padding: 80px 0;
+    }
+    .ready-to-join-section .get-started-tag {
+        display: inline-block;
+        background-color: #fff3e0; /* Similar to existing section-tag */
+        color: #e58f1c;
+        font-weight: 500;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+    .ready-to-join-section h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #1a1a1a;
+        margin-bottom: 1.5rem;
+    }
+    .ready-to-join-section p {
+        color: #555;
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+    .contact-info-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+    .contact-info-item .icon-wrapper {
+          background-color: #fff3e0; /* Light orange background for icons */
+          border-radius: 50%;
+          width: 45px;
+          height: 45px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 1rem;
+          flex-shrink: 0; /* Prevent icon from shrinking */
+    }
+    .contact-info-item .icon-wrapper img {
+          width: 24px; /* Icon size */
+          height: 24px;
+    }
+    .contact-info-item .text-content h6 {
+          font-weight: 600;
+          margin-bottom: 0.2rem;
+          color: #333;
+    }
+    .contact-info-item .text-content a,
+    .contact-info-item .text-content span {
+          color: #666;
+          text-decoration: none;
+          font-size: 0.95rem;
+    }
+    .contact-info-item .text-content a:hover {
+          color: #e58f1c;
+    }
+    .inquiry-form-card {
+          background-color: #fff;
+          padding: 30px;
+          border-radius: 12px;
+          box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+    .inquiry-form-card h4 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #1a1a1a;
+        margin-bottom: 1.5rem;
+    }
+    .form-control, .form-select {
+        border-radius: 8px;
+        padding: 0.75rem 1rem;
+        border: 1px solid #ddd;
+        font-size: 0.95rem;
+    }
+    .form-control:focus, .form-select:focus {
+        border-color: #e58f1c; /* Highlight color on focus */
+        box-shadow: 0 0 0 0.25rem rgba(229, 143, 28, 0.25); /* Light orange shadow */
+    }
+    .submit-application-btn {
+        background-color: #e58f1c;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: bold;
+        border: none;
+        width: 100%;
+        transition: background-color 0.2s ease;
+    }
+    .submit-application-btn:hover {
+        background-color: #c97e17; /* Darker shade on hover */
+        color: white;
+    }
+    .banner-section {
+        min-height: 500px;
+        display: flex;
+        align-items: center;
+    }
+    .radio-group{
+        padding-left: 15px;
+    }
+    button:disabled,
+    .submit-application-btn:disabled {
+        background-color: #cccccc !important;
+        color: #666666;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+    @media (min-width: 768px) {
+        .requirements-list ul{
+            padding:0;
+        }
+    }
+</style>
+<section class="banner-section bg-dark text-white py-5" style="background-image: url('catalog/view/javascript/assets/image/franchise/banner.png'); background-size: cover; background-position: center;">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-family: serif;">Let's Bring Stylish Living <br>
+            To Your City!</h1>
+        <button onclick="document.getElementById('form-sec').scrollIntoView();" class="btn btn-warning btn-lg rounded-pill">Get a free consultation</button>
+    </div>
+</section>
+<!-- Why Urbanwood Section -->
+<section class="why-urbanwood">
+    <div class="container text-center">
+        <div class="section-header">
+            <span class="section-tag">Why Choose Us</span>
+            <h2>Why Urbanwood</h2>
+            <p>
+                Backed by 5 Years of industry expertise, we create
+                exclusive,
+                design-led furniture that blends global aesthetics with
+                Indian sensibilities.
+            </p>
+        </div>
+        <div class="row gy-4 justify-content-center mt-4">
+            <div class="col-sm-6 col-lg-3">
+                <div class="feature-card">
+                    <div class="icon">🏆</div>
+                    <h3>5 Years of Expertise</h3>
+                    <p>
+                        Backed by 5 Years of industry expertise,
+                        we create exclusive,
+                        design-led furniture.
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="feature-card">
+                    <div class="icon">🌍</div>
+                    <h3>Global Aesthetics</h3>
+                    <p>
+                        Furniture that blends global aesthetics with
+                        Indian sensibilities.
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="feature-card">
+                    <div class="icon">📈</div>
+                    <h3>Market Leadership</h3>
+                    <p>Leading the transformation of India's ₹295 billion home and interior market.</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="feature-card">
+                    <div class="icon">✨</div>
+                    <h3>Sophisticated Living</h3>
+                    <p>Fueled by growing demand for sophisticated living spaces.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Market Opportunity Section -->
+<section class="market-opportunity py-5 bg-light">
+    <div class="container">
+        <div class="row bg-white rounded-4 shadow-sm align-items-center p-4">
+            <!-- Left Text Block -->
+            <div class="col-md-8 mb-4 mb-md-0">
+                <h3 class="fw-bold mb-3">Market Opportunity</h3>
+                <p class="text-muted">
+                    India's ₹295 billion home and interior market is
+                    evolving, fueled by a growing demand for
+                    sophisticated living spaces.
+                    At Urbanwood, we're leading this transformation.
+                </p>
+                <p class="text-muted mb-0">
+                    Through our franchise model, we aspire to
+                    collaborate and partner with entrepreneurs to
+                    capture this extraordinary market potential
+                    with ease and confidence.
+                </p>
+            </div>
+            <!-- Right Highlight Box -->
+            <div class="col-md-4">
+                <div
+                    class="bg-light rounded-3 p-4 text-center h-100 d-flex flex-column justify-content-center">
+                    <h2 class="text-warning fw-bold">₹295B</h2>
+                    <small class="text-secondary">Market Size</small>
+                    <h6 class="fw-bold mt-2">Growing</h6>
+                    <small class="text-muted">Demand for Premium Living</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="partnership-cta py-5">
+    <div class="container">
+        <div class="row align-items-center justify-content-between g-4">
+            <!-- Left Content -->
+            <div class="col-lg-6">
+                <span class="badge bg-light text-warning border border-warning mb-3">Partnership Opportunity</span>
+                <h2 class="fw-bold text-dark">Shape the Future of
+                    <br>Modern Living</h2>
+                <p class="text-muted mb-4">
+                    As a franchise partner, you'll gain access to a
+                    proven operational model, celebrated architects, and
+                    global designers network.
+                    Are you ready to shape the Future of Modern Living
+                    with Urbanwood?
+                </p>
+                <button onclick="document.getElementById('form-sec').scrollIntoView();" class="btn btn-dark px-4 py-2 rounded">Join Our Network</button>
+            </div>
+            <!-- Right Image -->
+            <div class="col-lg-6 position-relative">
+                <div class="rounded-4 overflow-hidden shadow"
+                    style="max-width: 100%;">
+                    <img src="catalog\view\javascript\assets\image\franchise/partnership.jpg"
+                        alt="Partnership Image"
+                        class="img-fluid w-100 rounded-4">
+                </div>
+                <!-- Overlay Box -->
+                {# <div
+                    class="HappyPartners position-absolute bottom-0 m-3 text-white px-4 py-3 rounded shadow-sm"
+                    style="left: -60px !important;">
+                    <h5 class="mb-0 fw-bold">500+</h5>
+                    <small class="text-white">Happy Partners</small>
+                </div> #}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="franchise-benefits-section py-5">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <span class="section-tag">Benefits</span>
+            <h2>Franchise Benefits</h2>
+            <p>Comprehensive support system designed for your success</p>
+        </div>
+        <div class="row text-left">
+            <div class="col-md-4 mb-4">
+                <div class="benefit-item">
+                    <span class="text-3xl mb-4">📊</span>
+                    <h5>Proven Business Model</h5>
+                    <p>Access to a new tested operational framework with proven success metrics.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="benefit-item">
+                    <span class="text-3xl mb-4">🏗️</span>
+                    <h5>Celebrated Architects Network</h5>
+                    <p>Connect with our network of renowned architects and design professionals.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="benefit-item">
+                    <span class="text-3xl mb-4">🎨</span>
+                    <h5>Global Designer Network</h5>
+                    <p>Benefit from our extensive network of international design talent.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="benefit-item">
+                    <span class="text-3xl mb-4">🎓</span>
+                    <h5>Comprehensive Training</h5>
+                    <p>Complete training programs covering all aspects of the business.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="benefit-item">
+                    <span class="text-3xl mb-4">📢</span>
+                    <h5>Marketing Support</h5>
+                    <p>Full marketing and brand support to establish your presence.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="benefit-item">
+                    <span class="text-3xl mb-4">⚙️</span>
+                    <h5>Operational Excellence</h5>
+                    <p>Ongoing operational support and quality assurance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="partnership-cta py-5">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <!-- Right Image -->
+            <div class="col-lg-6 position-relative">
+                <div class="rounded-4 overflow-hidden shadow"
+                    style="max-width: 100%;">
+                    <img src="catalog\view\javascript\assets\image\franchise/uw-store.jpg" alt="Partnership Image" class="img-fluid w-100 rounded-4">
+                </div>
+                <!-- Overlay Box -->
+                <div class="HappyPartners Right position-absolute bottom-0 m-3 text-white px-4 py-3 rounded shadow-sm">
+                    <h5 class="mb-0 fw-bold">Premium</h5>
+                    <small class="text-white">Showroom</small>
+                </div>
+            </div>
+            <!-- Left Content -->
+            <div class="col-lg-6">
+                <span class="badge bg-light text-warning border border-warning mb-3">Requirements</span>
+                <h2 class="fw-bold text-dark">Franchise Requirements
+                </h2>
+                <p class="text-muted mb-4"> We're looking for passionate entrepreneurs who share our vision for bringing premium home furnishing experiences to communities across India. </p>
+                <div class="requirements-list">
+                    <ul>
+                        <li>2500 - 6000 sq ft showroom space</li>
+                        <li>Investment capacity of ₹15L - ₹40L</li>
+                        <li>Business experience in retail/furniture</li>
+                        <li>Commitment to brand standards</li>
+                        <li>Local market knowledge</li>
+                    </ul>
+                </div>
+                <button onclick="document.getElementById('form-sec').scrollIntoView();" class="btn btn-dark px-4 py-2 rounded">Join Our Network</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ready-to-join-section" id="form-sec">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-5">
+                <span class="get-started-tag">Get Started</span>
+                <h2>Ready to Join Urbanwood?</h2>
+                <p>Take the first step towards becoming a Urbanwood franchise partner. Fill out the form and our team will connect with you to discuss the opportunity.
+                </p>
+                <div class="contact-info mt-4">
+                    <div class="contact-info-item">
+                        <div class="icon-wrapper">📞</div>
+                        <div class="text-content">
+                            <h6>Phone</h6>
+                            <a href="tel:+91 9311662426">+91 9311662426</a>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="icon-wrapper">📧</div>
+                        <div class="text-content">
+                            <h6>Email</h6>
+                            <a href="mailto:support@urbanwood.in">support@urbanwood.in</a>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="icon-wrapper">⏰</div>
+                        <div class="text-content">
+                            <h6>Response Time</h6>
+                            <span>Within 24 hours</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="inquiry-form-card">
+                    <h4>Franchise Inquiry Form</h4>
+                    <form id="fr-form">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="fullName" class="form-label visually-hidden">Full Name *</label>
+                                <input type="text" class="form-control" id="fullName" name="fullname" placeholder="Enter your full name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="emailAddress" class="form-label visually-hidden">Email Address *</label>
+                                <input type="email" class="form-control" id="emailAddress" name="email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phoneNumber" class="form-label visually-hidden">Phone Number *</label>
+                                <input type="tel" class="form-control" id="phoneNumber" name="mobile" placeholder="Enter your phone number" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="city" class="form-label visually-hidden">City *</label>
+                                <input type="text" class="form-control" id="city" name="city" placeholder="Enter your city" required>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="radio-group">
+                                <label class="form-label d-block">Do you own any franchisee</label>
+                                    <input class="form-check-input" type="radio" name="franchisee" id="franchiseeYes" value="yes">
+                                    <label class="form-check-label" for="franchiseeYes">Yes</label>
+                                    <input class="form-check-input" type="radio" name="franchisee" id="franchiseeNo" value="no" checked>
+                                    <label class="form-check-label" for="franchiseeNo">No</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="radio-group">
+                                <label class="form-label d-block">Do you own a retail space</label>
+                                    <input class="form-check-input" type="radio" name="retail_space" id="retailYes" value="yes">
+                                    <label class="form-check-label" for="retailYes">Yes</label>
+                                    <input class="form-check-input" type="radio" name="retail_space" id="retailNo" value="no" checked>
+                                    <label class="form-check-label" for="retailNo">No</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="investmentCapacity" class="form-label visually-hidden">Investment Capacity</label>
+                                <select class="form-select" id="investmentCapacity" name="investamt">
+                                    <option selected disabled>Select investment range</option>
+                                    <option value="15L-25L">₹15L - ₹25L</option>
+                                    <option value="25L-35L">₹25L - ₹35L</option>
+                                    <option value="35L+">₹35L +</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label visually-hidden">Message</label>
+                                <textarea class="form-control" id="message" rows="4" name="msg" placeholder="Tell us about your interest and any questions you have"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="button" id="fr-subbtn" onclick="submitFrachiseRequest('fr-form','fr-subbtn')" class="submit-application-btn">Submit Application</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function submitFrachiseRequest(idd,btn){
+        const form = $('#' + idd);
+        const button = document.getElementById(btn);
+        const formData = form.serializeArray();
+        let hasInvalidInput = false;
+
+        let restrictedWords = ['test', 'example', 'xxx', 'sperm', 'sex'];
+
+        $('.field-error').remove();
+        $('.success-popup2').remove();
+
+        formData.forEach(field => {
+            const value = field.value.toLowerCase();
+            restrictedWords.forEach(word => {
+                if (value.includes(word)) {
+                    form.find(`[name="${field.name}"]`).after(`<div class="field-error text-danger small">Invalid input detected: ${word}</div>`);
+                    hasInvalidInput = true;
+                }
+            });
+        });
+
+        if (hasInvalidInput) return;
+
+        const email = $('#emailAddress').val().toLowerCase().trim();
+        const phone = $('#phoneNumber').val().trim();
+        const emailKey = `franchise_email_${email}`;
+        const phoneKey = `franchise_phone_${phone}`;
+
+        // Check if already submitted with this email or phone
+        if (localStorage.getItem(emailKey) || localStorage.getItem(phoneKey)) {
+            $('body').prepend(`<div class="success-popup2"> 
+                <span class="warrning-svg"> 
+                    <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  
+                        <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     
+                    </svg>  
+                </span> 
+                <span class="warrning-text">  
+                    <p>This email or phone has already been used.</p> 
+                </span> 
+            </div>`);
+            return; // Stop form submission
+        }
+        // If no invalid input, submit the form
+        if (!hasInvalidInput) {
+            button.disabled = true;
+            button.innerText = "Submitting..."; // Optional: show progress
+            $.ajax({
+                type: 'POST',
+                url: '?route=common/franchise/sendtodb',
+                data: $('#'+idd).serialize(),
+                success: function(res) {
+                    
+                if (res.success) {
+                    localStorage.setItem(emailKey, 'submitted');
+                    localStorage.setItem(phoneKey, 'submitted');
+                    button.remove();
+                    form.html(`<div class="ThankuMsgx text-center">
+                        <img src="catalog/view/javascript/assets/image/check-sml.gif" style="width: 136px;" loading="lazy"><br>
+                        <h2 class="text-success">Success!</h2>
+                        <p>Our team will contact you shortly.</p>
+                    </div>`);
+                } else if (res.errors) {
+                    for (const key in res.errors) {
+                        form.find(`[name="${key}"]`).after(`<div class="field-error text-danger small">${res.errors[key]}</div>`);
+                        
+                    }
+                    button.disabled = false;
+                    button.innerText = "Submit Application";
+                } else if (res.error) {
+                    $('body').prepend(`<div class="success-popup2">⚠ ${res.error}</div>`);
+                    button.disabled = false;
+                    button.innerText = "Submit Application";
+                }
+                
+                },
+                error: function(xhr) {
+                    try {
+                        const response = JSON.parse(xhr.responseText);
+                        if (response.errors) {
+                            // Get the first error message
+                            const firstErrorMessage = Object.values(response.errors)[0];
+                            $('body').prepend(`<div class="success-popup2">
+                                <span class="warrning-svg">
+                                    <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">  
+                                <path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/>     
+                            </svg> 
+                                </span>
+                                <span class="warrning-text">
+                                    <p>${firstErrorMessage}</p>
+                                </span>
+                            </div>`);
+                        } else {
+                            showGenericError();
+                        }
+                    } catch (e) {
+                        showGenericError();
+                    }
+                    button.disabled = false;
+                    button.innerText = "Submit Application";
+                    function showGenericError() {
+                        $('body').prepend(`<div class="success-popup2">
+                            <span class="warrning-svg">
+                                <svg id="smile2" width="35" height="35" viewBox="0 0 27 27" fill="none">
+                                    <path d="M13.6154 0.84668C6.57223..."/>
+                                </svg>
+                            </span>
+                            <span class="warrning-text">
+                                <p>❌ Could not submit form, please try again later.</p>
+                            </span>
+                        </div>`);
+                    }
+                }
+            });
+        }
+    }
+  </script>
+        {{ footer }}

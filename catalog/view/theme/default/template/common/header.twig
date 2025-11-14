@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Cache-Control" content="public">
+        <title>{{ title }}</title>
+        {% if robots %}
+            {{ robots }}
+        {% else %}
+            <meta name="Robots" content="INDEX,FOLLOW">
+        {% endif %}
+        <meta name="theme-color" content="#435471">
+        <base href="{{ base }}"/>
+        {% if description %}
+            <meta name="description" content="{{ description }}"/>
+        {% endif %}
+        {% if keywords %}
+            <meta name="keywords" content="{{ keywords }}"/>
+        {% endif %}
+        <link rel="icon" type="image/png" href="https://www.urbanwood.in/images/favicon-32x32.png" sizes="32x32"/>
+        {% if canonical %}
+            <link href="{{canonical}}" rel="canonical"/>
+        {% endif %}
+        <meta name="author" content="{{canonical}}"/>
+        <meta name="Language" content="English"/>
+        <!-- Twitter card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@UrbanWoodin">
+        <meta name="twitter:title" content="{{title}}">
+        <meta name="twitter:description" content="{{description}}">
+        {% if ogimage %}
+            <meta name="twitter:image" content="{{ogimage}}">
+        {% else %}
+            <meta name="twitter:image" content="https://www.urbanwood.in/images/common/cover.gif">
+        {% endif %}
+        <meta property="og:type" content="website" />
+        <meta property="og:site" content="{{base}}" />
+        <meta property="og:url" content="{{canonical}}" />
+        <meta property="og:title" content="{{title}}" />
+        {% if ogimage %}
+            <meta property="og:image" content="{{ogimage}}"/>
+        {% else %}
+            <meta property="og:image" content="https://www.urbanwood.in/images/common/cover.gif"/>
+        {% endif %}
+
+        <meta property="og:description" content="{{ description }}"/>
+        <meta name="p:domain_verify" content="f65634fcf102a5da88c2046485e0263f"/>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+        {# <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700&display=swap&text=abcdefghijklmnopqrstuvwxyz1234567890" rel="stylesheet"> #}
+        
+{# ;1,100;1,300;1,400;1,500;1,700;1,900 #}
+        {# <meta name="facebook-domain-verification" content="n31fgxna6z4j0ysq5m11oddl0mbs9u"/>
+        {% if canonical == 'https://www.urbanwood.in' %}
+            <meta name="facebook-domain-verification" content="n31fgxna6z4j0ysq5m11oddl0mbs9u"/>
+        {% endif %} #}
+
+        
+        {# <link rel="preload" as="image" href="image/catalog/monsoon-offer/mobile-banner.avif" fetchpriority="high" type="image/avif"> #}
+        {% if route == 'common/home' %}
+        <link rel="preload" as="image" href="image/catalog/monsoon-offer/mobile-banner.avif" fetchpriority="high" type="image/avif"/>
+        {% endif %}
+        <link rel="preload" as="style" href="catalog/view/javascript/assets/css/menu.css">
+        <link rel="preload" href="catalog/view/javascript/assets/css/main2.css?v=7.7" as="style" onload="this.rel='stylesheet'"/>
+        <link rel="preload" href="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        
+        <noscript><link href="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/css/bootstrap.min.css" rel="stylesheet"></noscript>
+        
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/css/owl-carousel.css" media="none" onload="if(media!=='all')media='all'">
+        <link rel="stylesheet" type="text/css" href="catalog/view/javascript/assets/css/new-css.css" media="none" onload="if(media!=='all')media='all'">
+        <link rel="stylesheet" type="text/css" href="catalog/view/javascript/assets/css/menu.css">
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/3.2.1-jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+        <!-- mobile view contact-->
+        
+<!-- Google Tag Manager -->
+        {# <script>
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.defer = true;
+                j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-TTH6LBM');
+        </script> #}
+
+        {# <script defer src="https://www.googletagmanager.com/gtag/js?id=G-81SY3Q82SY"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', 'G-81SY3Q82SY'); //,{ 'debug_mode':true });
+        </script> #}
+        <!-- Meta Pixel Code -->
+        {# <script>
+            !function (f, b, e, v, n, t, s) {
+                if (f.fbq) 
+                    return;
+                n = f.fbq = function () {
+                    n.callMethod ? n.callMethod.apply(n, arguments): n.queue.push(arguments)
+                };
+                if (!f._fbq) 
+                    f._fbq = n;
+                n.push = n;
+                n.loaded = !0;
+                n.version = '2.0';
+                n.queue = [];
+                t = b.createElement(e);
+                t.async = !0;
+                t.src = v;
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s)
+            }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '406608128494895');
+            fbq('track', 'PageView');
+        </script> #}
+        
+        <!-- End Meta Pixel Code -->
+    </head>
+    <body>
+        <!-- facebook tag -->
+        {# <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=406608128494895&ev=PageView&noscript=1"/></noscript>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TTH6LBM" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript> #}
+        <!-- End Google Tag Manager (noscript) -->
+
+        <script>
+            function submitCallRequest(idd, btn) {
+                if (!formRule(idd)) 
+                    return false;
+                $('#'+btn).attr("disabled", true);
+                $('#' + btn).text('Processing...');
+                $.ajax({
+                    url: '?route=information/requestcallback',
+                    data: $('#' + idd).serialize(),
+                    type: 'POST',
+                    // dataType:'JSON',
+                    success: function (res) {
+                        console.log(res);
+                        var thanksHtml = '<div class="ThankuMsgx" style="text-align:center;">\n\
+                        <img src="https://i.pinimg.com/originals/06/ae/07/06ae072fb343a704ee80c2c55d2da80a.gif" style="width: 136px;" loading="lazy"><br>\n\
+                        <h2 style="color: gray;">Success!</h2><br>\n\
+                        <p>Our team will contact you shortly.</p><br>';
+                        $('#' + idd).html('');
+                        $('#' + idd).html(thanksHtml);
+                        $('#' + btn).remove();
+                    }
+                });
+            }
+        </script>

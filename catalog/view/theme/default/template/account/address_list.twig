@@ -1,0 +1,152 @@
+{{ header }}
+{{ menu }}
+{# <div id="account-address" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  {% if success %}
+  <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}</div>
+  {% endif %}
+  {% if error_warning %}
+  <div class="alert alert-warning"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
+  {% endif %}
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      <h2>{{ text_address_book }}</h2>
+      {% if addresses %}
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          {% for result in addresses %}
+          <tr>
+            <td class="text-left">{{ result.address }}</td>
+            <td class="text-right"><a href="{{ result.update }}" class="btn btn-info">{{ button_edit }}</a> &nbsp; <a href="{{ result.delete }}" class="btn btn-danger">{{ button_delete }}</a></td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+      {% else %}
+      <p>{{ text_empty }}</p>
+      {% endif %}
+      <div class="buttons clearfix">
+        <div class="pull-left"><a href="{{ back }}" class="btn btn-default">{{ button_back }}</a></div>
+        <div class="pull-right"><a href="{{ add }}" class="btn btn-primary">{{ button_new_address }}</a></div>
+      </div>
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div> #}
+<style>
+    .uw-title { font-weight:700; font-size:24px; margin:0; position:relative; }
+    .uw-title:after { content:""; display:block; width:60px; height:3px; background:#d70909; margin-top:8px; border-radius:3px; }
+    .uw-card { background:#fff; border:1px solid #eee; border-radius:14px; padding:16px; box-shadow:0 8px 24px rgba(0,0,0,.04); transition:all .2s; }
+    .uw-card:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(0,0,0,.06); }
+    .uw-badge-default { background:#16a34a; color:#fff; border-radius:999px; padding:4px 10px; font-size:12px; }
+    .uw-btn-primary { background:#d70909; color:#fff; border-radius:999px; padding:8px 16px; font-weight:600; border:1px solid #d70909; text-decoration:none; }
+    .uw-btn-primary:hover { opacity:.95; color:#fff; }
+    .uw-btn-outline { background:#fff; color:#d70909; border:1px solid #d70909; border-radius:999px; padding:8px 14px; text-decoration:none; }
+    .uw-btn-ghost { background:#fff; color:#333; border:1px solid #ddd; border-radius:999px; padding:8px 14px; text-decoration:none; }
+    .uw-btn-danger { background:#fff; color:#b91c1c; border:1px solid #b91c1c; border-radius:999px; padding:8px 14px; text-decoration:none; }
+    .user-panel-list {
+	margin: 16px auto;
+	padding: 0
+}
+
+.user-panel-list li {
+	margin: 15px auto 0;
+	padding: 0;
+	width: 100%
+}
+
+.user-panel-list li a {
+	background: #fff9f4;
+	color: #ff8000;
+	font-size: 15px;
+	margin: auto;
+	padding: 10px 18px;
+	width: 100%;
+	display: block;
+	border-radius: 10px
+}
+
+/* .add-to-cart-btn:hover, */
+.user-panel-list li .active {
+	background: #ff8000;
+	color: #fff
+}
+    .user-panel-box {
+    /* background: #fff; */
+    border-radius: 14px;
+    box-shadow: 0px 0px 13px #0000001c;
+    padding: 20px;
+    }
+  </style>
+<div class="container py-4">
+  <div class="row">
+  <div class="col-lg-2 col-md-4 col-sm-12 pt-lg-0 pt-sm-5">
+    <div class="user-panel ">
+
+      <ul class="nav flex-column nav-pills user-panel-list me-3" id="v-pills-tab" role="tablist">
+        <li><a href="account">Profile</a></li>
+        <li><a href="address" class="active">Address</a></li>
+        <li><a href="orders">Orders</a></li>
+      </ul>
+
+      <div class="log-out-btn">
+        <a href="logout"> LOGOUT </a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-10 col-md-8 col-sm-12 ">
+  <div class="user-panel-box">
+    <!-- Header with Add Button -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h1 class="uw-title">My Addresses</h1>
+      <a href="{{ add }}" class="uw-btn-primary">
+        <i class="fa fa-plus"></i> Add New Address
+      </a>
+    </div>
+    {% if addresses %}
+      <!-- Address Cards Grid -->
+      <div class="row g-3">
+        <!-- Address Card Example -->
+        {% for result in addresses %}
+        <div class="col-md-6 col-lg-4">
+          <div class="uw-card h-100">
+            <div class="d-flex justify-content-between mb-2">
+              <strong>{{ result.name }}</strong>
+              {% if result.default %}
+                <span class="uw-badge-default">Default</span>
+              {% endif %}
+            </div>
+            <div class="mb-3">
+              {{ result.address|raw }}
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              {% if not result.default %}
+                <a href="{{ result.set_default }}" class="uw-btn-outline">
+                  <i class="fa fa-star"></i> Set Default
+                </a>
+              {% endif %}
+              <a href="{{ result.update }}" class="uw-btn-ghost"><i class="fa fa-edit"></i> Edit</a>
+              <a href="{{ result.delete }}" class="uw-btn-danger"><i class="fa fa-trash"></i> Delete</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+  {% else %}
+      <p>{{ text_empty }}</p>
+      {% endif %}
+      </div>
+      </div>
+</div>
+</div>
+{{ footer }}

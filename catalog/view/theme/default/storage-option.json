@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Box Storage",
+    "link": "box-storage-beds",
+    "image": "image/bed-s/box.webp"
+  },
+  {
+    "name": "Drawer Storage",
+    "link": "drawer-storage-beds",
+    "image": "image/bed-s/drawer.webp"
+  },
+  {
+    "name": "Hydraulic Storage",
+    "link": "hydraulic-storage-beds",
+    "image": "image/bed-s/hy.webp"
+  },
+  {
+    "name": "No Storage",
+    "link": "beds-without-storage",
+    "image": "image/bed-s/ws.webp"
+  }
+]

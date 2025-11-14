@@ -1,0 +1,1445 @@
+{{ header }}
+{{ menu }}
+  <style>
+
+    :root{
+       
+        --primaery-text-color:#434342;
+        --secondery-text-color:#8a8a8a;
+        --special_color:#fc7f03;
+        --white-color-text:#fff;
+    }
+
+  body{
+    --banner-heading:5rem;
+    --heading-text-size:2.5rem;
+    --Paragraph_text-size:16px;
+    --section-padding:1rem 0;
+    --section-margin:1rem 0;
+  }  
+.headbanner {
+    background-image: url(catalog/view/javascript/assets/image/img/customfurniturebanner.webp);
+    padding: 2rem 0;
+    background-repeat: no-repeat;
+}
+.headbanner h1{
+    font-size: var(--banner-heading);
+
+}
+.headbanner h1 span{
+color:var(--special_color);
+}
+.headbanner p {
+    color: #FFF;
+}
+.headbanner ul li {
+    color: #fff;
+    font-weight: 500;
+    float: left;
+}
+.form-outer {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+}
+.form-outer input:placeholder,.form-outer select {
+    color:var(--secondery-text-color)
+}
+.form-outer input[type=name]:focus,
+.form-outer input[type=email]:focus,
+.form-outer input[type=text]:focus,
+.form-outer select:focus,
+.form-outer textarea:focus,
+.form-outer input[type=file]:focus {
+     box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+
+.cusstom-img {
+    display: flex;
+    flex-direction: row;
+}
+.cusstom-img input[type=file] {
+    color:var(--secondery-text-color);
+    padding: 2px;
+}
+
+.cusstom-img input[type=file]::file-selector-button {
+  background: #6990f2;
+  padding: 10px 20px;
+  color: var(--white-color-text);
+  cursor: pointer;
+}
+
+.cusstom-img input[type=file]::file-selector-button:hover {
+  background: #0d45a5;
+}
+.cusstom-img span {
+    color:#ff9696;
+    font-size: .8rem;
+    margin-left:10px
+}
+.submit-btn {
+    background: #ff7800;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0;
+    color:var(--white-color-text);
+    font-weight: 600;
+}
+.page-globel{
+    padding: var(--section-padding);
+    margin:var(--section-margin)
+}
+.heading-all {
+    color: var(--primaery-text-color);
+    font-size: var(--heading-text-size);
+}
+.heading-all span {
+    font-size: 16px;
+    font-weight: 400;
+}
+.page-globel p{
+    color: var(--secondery-text-color);
+}
+.process-icon {
+    display: flex;
+    padding: 1.5rem 1rem;
+}
+.process-icon .box-process {
+    position: relative;
+    width: calc(100% / 4);
+    border-radius: 15px;
+    padding: 10px;
+    border: 1px solid #f1f1f1;
+    text-align: center;
+    margin: 0px 8px;
+}
+.process-icon .box-process img{
+    width: 60%;
+}
+span.step {
+color: #fff;
+	background-color: #8F7000;
+	border-radius: 20px;
+	font-size: 9px;
+	font-weight: bold;
+	padding: 3px 7px;
+	top: 5px;
+	left: 5px;
+}
+.badge-num {
+    background: red;
+    font-size: .6rem;
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    text-shadow: 2px 2px #363636;
+}
+.pricing-outer {
+    margin: 2rem 0 0 0;
+    border: 1px solid #ebebeb;
+    padding: 2rem;
+}
+.pricing-module{
+    display: block;
+    width: 100%;
+}
+.price {
+    display: flex;
+    justify-content: center;
+}
+
+.price .header {
+    border: none;
+}
+.price .header, .price .header p {
+  font-size: 18px;
+  color:var(--primaery-text-color);
+  font-weight: 600;
+}
+.price li {
+    width: 28%;
+}
+.price li label {
+    font-size: 1.3rem;
+    margin: 0px;
+    padding: 15px;
+    font-weight: 600;
+    width: 100%;
+}
+li.ux-mdl_li {
+    border: 1px solid #e6edff;
+    border-radius: 10px;
+    box-shadow: 1px 3px 10px #e3e3e3;
+    margin-left: 19px;
+}
+.price li span {
+    display: block;
+    padding: 15px 20px;
+    border: 1px solid #e6edff;
+    line-height: 40px;
+    margin: 13px 0px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.price .grey {
+    background-color: #f3f3f3;
+    border-radius: 0px 10px 10px 0px;
+}
+.header-uw-li {
+    background: #fffcf7;
+    color: var(--special_color);
+}
+.ux-mdl {
+    margin: 0px !important;
+    border-top: none !important;
+    padding: 1.5rem !important;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.customise-now {
+    background: #ff7800;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+}
+.box-1 {
+    border-radius: 10px;
+    background: #f9f9f9;
+    text-align: center;
+    padding: 30px;
+    border: 1px solid #f1f1f1;
+    height: 100%;
+}
+.box-1 img {
+    width: 75px;
+    height: 75px;
+    background: #ffffff;
+    border: 1px solid #f3f3f3;
+    padding: 10px;
+    border-radius: 6px;
+}
+.box-1 .sec-heading-pp {
+    color: var(--primaery-text-color);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 12px 0px;
+}
+.box-1 p{
+    font-size:var(--Paragraph_text-size);
+    color:var(--secondery-text-color);
+
+}
+
+.slick-slide img {
+    width: 100%;
+}
+
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus {
+    outline: none;
+}
+.slick-list.dragging {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+.slick-slide{
+  margin: 0;
+}
+.slick-track {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+}
+.slick-track:before,
+.slick-track:after {
+    display: table;
+    content: '';
+}
+.slick-track:after {
+    clear: both;
+}
+.slick-loading .slick-track {
+    visibility: hidden;
+}
+
+.slick-slide {
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+[dir='rtl'] .slick-slide {
+    float: right;
+}
+.slick-slide img {
+    display: block;
+}
+.slick-slide.slick-loading img {
+    display: none;
+}
+.slick-slide.dragging img {
+    pointer-events: none;
+}
+.slick-initialized .slick-slide {
+    display: flex;
+}
+.slick-loading .slick-slide {
+    visibility: hidden;
+}
+.slick-vertical .slick-slide {
+    display: block;
+    height: auto;
+    border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+    display: none;
+}
+/*---- end slick slider----*/
+
+.whatsappsection {
+    background:#424241;
+}
+.whatsappsection .chatting-img{
+    margin-top: 46px;
+    /* width: 100%; */
+}
+.wtsap-heading{
+    font-size: 3rem;
+    font-weight: 200;
+}
+.text-big {
+    font-size: 3.5rem !important;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.right-whastapp {
+    padding: 0rem 4rem;
+    margin-top: 2rem;
+}
+.chat-now {
+    background: #21cf6b;
+    padding: 9px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #242424;
+    font-size: 1.5rem;
+    font-weight: 600;
+    width: 50%;
+    margin: 2rem 0;
+}
+.chat-now img {
+    width: 21px;
+    margin-right: 10px;
+}
+.chat-now:hover{
+    background: #21cf6b;
+    color:#242424;
+}
+
+/* Create four equal columns that sits next to each other */
+.row-1 {
+    display: -ms-flexbox !important;
+    display: flex;
+    -ms-flex-wrap: wrap !important;
+    flex-wrap: wrap !important;
+    padding: 0 0px;
+    width: 100%;
+    margin: 0px;
+}
+.column {
+    -ms-flex: 25%;
+    flex: 25%;
+    max-width: 100%;
+    padding: 0 0px;
+    width: 100%;
+    margin: 0px;
+    height: 574px;
+    display: flex;
+}
+.img-grid {
+    width: 100%;
+    height: 100%;
+    transition: all ease-in-out .5s;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+.img-grid img {
+    margin-top: 8px;
+    vertical-align: middle;
+    max-width: 100%;
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+}
+.img-grid .img-content {
+    position: absolute;
+    bottom: 90px;
+    width: 100%;
+    top: auto;
+    padding: 0px 30px;
+}
+.img-grid .img-content h6{
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color:#fff;
+}
+.img-grid .img-content hr{
+    background: #fff;
+    border: 1px solid #fff;
+    width: 100%;
+}
+.img-grid .img-content span{
+    text-align: end;
+    float: right;
+    color:#fff;
+}
+.card-img-overlay {
+    background: #00000094;
+    position: absolute;
+    top: auto;
+    right: 0;
+    bottom: -5px;
+    left: 0;
+    padding: 6rem;
+    border-radius: calc(.25rem - 1px);
+    filter: blur(23px);
+}
+
+/*--- custom --*/
+.client-comment p {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0px;
+    color: #a3a3a3;
+}
+.client-box {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 7px #5b5b5b30;
+    padding: 10px;
+    margin: .7rem .8rem;
+
+}
+.client-img-cstm {
+    border-radius: 10px;
+    position: relative;
+    width: 20%;
+    display: block;
+}
+
+.client-content {
+    width: 80%;
+}
+
+.client-img-cstm img {
+    max-width: 70px;
+    width: 70px;
+    min-width: 70px; 
+    min-height: 70px;
+    height: 70px;
+}
+.see-product-btn{
+  font-size: 12px;
+  margin: 10px 0px;
+  padding: 8px 15px;
+}
+.client-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.client-name span {
+    font-size: 13px;
+    color: #434342;
+    font-weight: 600;
+    margin: 0px;
+}
+.rating{
+    padding: 0px;
+    margin:0px;
+    line-height: 1;
+}
+.rating span i{
+  color:green;
+   background:-webkit-linear-gradient(#efff00, #fc7e00);
+  -webkit-background-clip: text;
+   background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family:"Font Awesome 6 Free";
+  font-size: 10px;
+}
+.client-comment {
+    max-height: 200px;
+    scroll-behavior: auto;
+    overscroll-behavior-y: auto;
+    overflow-y: scroll;
+}
+
+.client-comment::-webkit-scrollbar{
+	width: 1px
+}
+.client-comment::-webkit-scrollbar-track{
+	background: rgba(216, 216, 216, 0.04)
+}
+.client-comment::-webkit-scrollbar-thumb{
+	background: #d4f6ff}
+
+.partner-logo-list {
+    width: 100%;
+    height: 100px;
+    display: flex;
+}
+.partner-logo-list span {
+    float: left;
+    width: 50%;
+    margin: 0px 20px;
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+}
+
+.partner-logo-list span img {
+    width: 100%;
+}
+/*--media query ---*/
+@media (max-width: 1200px){
+    .client-content{
+        width: 70%
+    }
+}
+@media (max-width: 1024px){
+    body {
+    --banner-heading: 4rem;
+    --heading-text-size: 1.7rem;
+    --Paragraph_text-size: 14px;
+    --section-padding: .5rem 0;
+    --section-margin: .5rem 0;
+}
+.chat-now {
+    font-size: 1rem;
+    margin: 1rem 0;
+}
+.text-big {
+    font-size: 2.5rem !important;
+}
+/* .right-whastapp {
+    padding: 0rem 4rem;
+} */
+.wtsap-heading.text-white {
+    font-size: 2rem;
+}
+.box-1 {
+    padding: 18px;
+}
+.column {
+    height: 384px;
+}
+.img-grid .img-content {
+    bottom: 22px;
+    padding: 0px 12px;
+}
+.img-grid .img-content h6 {
+    font-size: 20px;
+}
+}
+@media (max-width: 768px)
+{
+    .reverse-row-cl {
+        flex-direction: column-reverse;
+    }
+    .img-grid .img-content h6 {
+        font-size: 13px;
+    }
+.form-outer {
+    margin-top: 3rem;
+}
+.cusstom-img {
+    flex-direction: column;
+}
+.pricing-outer {
+        margin: 1rem 0 0 0;
+        padding: 1rem;
+    }
+    .price li label {
+    font-size: 1.1rem;
+}
+    .price .header, .price .header p {
+    font-size: 16px;
+}
+.right-whastapp {
+        text-align: center;
+}
+.box-1 img {
+    width: 60px;
+    height: 60px;
+}
+.box-1 {
+        padding: 8px;
+    }
+    .column {
+        height: 280px;
+    }
+    .client-content{
+        width: 70%;
+    }
+
+.client-img-cstm{
+    width:30%
+}
+.rating span i{
+    font-size: 8px;
+}
+.width-50 {
+    width: 50%;
+    margin-bottom: 1rem;
+}
+.partner-logo-list {
+    scroll-behavior: smooth;
+    overflow-x: scroll;
+    height: 50px;
+    overflow-y: hidden;
+    display: flex;
+}
+.partner-logo-list span {
+    width: 27%;
+}
+.partner-logo-list span img {
+    width: 100px;
+}
+}
+@media (max-width: 425px){
+    body {
+        --banner-heading: 3rem;
+    }
+    .h5, h5 {
+    font-size: 1rem;
+}
+    .img-grid .img-content h6 {
+        font-size: 16px;
+    }
+.heading-all span {
+    font-size: 14px;
+}
+    /* .right-whastapp {
+        padding: 0rem 0rem;
+        text-align: center;
+    } */
+    .chat-now{
+        margin: 0rem 0;
+    }  
+    .text-big {
+        font-size: 1.7rem !important;
+    }
+    .column {
+        -ms-flex: 25% !important;
+        flex: 100%;
+        max-width: 100%;
+        padding: 0 0px;
+        width: 100%;
+        margin: 0px;
+        display: flex;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 20px;
+    }
+    .img-grid {
+        width: 100%;
+        height: 100%;
+        flex: 50%;
+        min-width: 100%;
+    }
+    .img-grid img {
+    max-width: max-content;
+}
+
+.ourpartner ul li{
+    width: 165px;
+    border: 1px solid #ececec;
+    height: 160px;
+    text-align: center;
+    padding: 0;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.process-icon {
+    display: inline-block;
+    padding: 1rem;
+}
+.process-icon .box-process {
+    width: 46%;
+    margin: 6px 6px;
+    float: left;
+}
+.wtsap-heading.text-white {
+        font-size: 1.5rem;
+    }
+    .chat-now {
+    width: 90%;
+}
+.chat-now img {
+    width: 17px;
+}
+.chat-now {
+    padding: 4px;
+    font-size: 1rem;
+}
+}
+
+
+</style>
+
+    <div class="warpper">
+    <section class="headbanner" id="headersec">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h1 class="text-white"><span>Design Your </span>  <br>
+                    Custom Order</h1>
+                    <p>Share your Design Idea & Our Expert will Get Back With The Best Possible Custom Made Furniture  Suggestions Online</p>
+                    <ul>
+                        <li>SIZE &nbsp; | &nbsp;</li>
+                        <li>DESIGN &nbsp; | &nbsp;</li>
+                        <li>FINISH &nbsp; | &nbsp;</li>
+                        <li>MATERIALS   </li>
+                    </ul>
+
+            </div>
+            <div class="col-lg-6">
+                <div class="form-outer">
+                    <h5>Fill details for your custom furniture </h5>
+                <form class="row" id="customizedetails"> 
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                      <input type="name" class="form-control" id="inputname" name="name" placeholder="Enter your full name">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                        <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Enter your email">
+                      </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                      <input type="text" class="form-control" id="inputphone" name="mobile" placeholder="Enter your contact">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                      <select name="state" id="state" class="form-control" required>
+			                <option value="">Select state</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                            <option value="Daman and Diu">Daman and Diu</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Lakshadweep">Lakshadweep</option>
+                            <option value="Puducherry">Puducherry</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="West Bengal">West Bengal</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-12 col-md-6 col-sm-12 mb-3">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="comment" name="message" rows="3"></textarea>
+                    </div>
+                    <div class="col-lg-12 col-md-6 col-sm-12 mb-3">
+
+                    <div class="cusstom-img">
+                    <input type="file"  class="form-control" id="InputFile1" name="customImage" placeholder="Upload your image" aria-describedby="supooertfile">
+                    <span id="supooertfile">Supported file JPG, PDF PNG</span>
+                    </div>
+                    </div>
+                    <div class="col-lg-12 col-md-6 col-sm-12">
+                    <button type="button" class="submit-btn" id="submitbtn" onclick="customRequest('customizedetails', 'submitbtn')">SEND REQUEST</button>
+                </div>
+                  </form>
+                </div>
+            </div>
+            
+          
+        </div>
+    </div>
+        </section>
+     
+<section class="process_section page-globel">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6"><div class="content-sec-forcustom-process">
+            <h2 class="heading-all"><span>MODERN CUSTOM  FURNITURE </span><br>
+                MADE TO ORDER OF YOUR CHOICE
+            </h2>
+            <p>UrbanWood is an online furniture store offering exclusive custom-made & ready to order furniture with the "Best price & Quality" standards in the market. We extend you the chance to make wonderful and moving interiors utilizing your dream furniture one that mirrors your style and energy forever. We make and customize furniture to suit and supplement your
+                home and lifestyle.</p>
+        </div>
+    </div>
+        <div class="col-lg-6">
+           <div class="process-icon">
+            <div class="box-process"><img src="catalog/view/javascript/assets/image/img/icon/brainstorming.webp" alt="brainstorm ideas">
+                <span class="step position-absolute top-1 start-1">1</span>
+                <p>Share your Idea</p>
+            </div>
+            <div class="box-process"><img src="catalog/view/javascript/assets/image/img/icon/design.webp" alt="">
+                <span class="step position-absolute top-1 start-1">2</span>
+                <p>Designing</p>
+            </div>
+            <div class="box-process"><img src="catalog/view/javascript/assets/image/img/icon/sofa.webp" alt="">
+                <span class="step position-absolute top-1 start-1">3</span>
+                <p>Manufacturing</p>
+            </div>
+            <div class="box-process"><img src="catalog/view/javascript/assets/image/img/icon/delivery-truck2.webp" alt="">
+                <span class="step position-absolute top-1 start-1">4</span>
+                <p>Delivery</p>
+            </div>
+           </div>
+            
+        </div>
+    </div>
+</div>
+</section>
+
+<section class="pricing-module page-globel">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="heading-all"><span>Why?</span><br> Urbanwood
+                </h2>
+                <div class="pricing-outer d-md-block d-none">
+                         
+                            <ul class="price">
+                                <li>
+                                    <label  class="header">Process</label>
+                                <span> Manufacturer</span>
+                                <span>Wholesaler </span>
+                                <span>Retailer </span>
+                                <span>Customer</span>
+                                </li>
+                                <li>
+                                 <label  class="header">The Market Model</label>
+                                <span class="grey "> Rs 500</span>
+                                <span class="grey ">Rs 700 </span>
+                                <span class="grey ">Rs 1000</span>
+                                <span class="grey ">Rs 2000</span>
+                                </li>
+                                <li class="ux-mdl_li">
+                                    <label class="header-uw-li">The Urbanwood Model</label>
+                                   <span class="ux-mdl"> Rs 500</span>
+                                   <span class="ux-mdl" style="color:red">X </span>
+                                   <span class="ux-mdl" style="color:red" >X</span>
+                                   <span class="ux-mdl">Rs 500</span>
+                                   </li>
+                                   
+                            </ul>
+                    <p>Your furniture leaves the care of craftsmen and is <br>
+                        delivered to your doorstep. No middlemen, no hidden costs!</p>
+                        <button class="customise-now" onClick="document.getElementById('headersec').scrollIntoView();">Customise Now</button>
+                </div>
+                <img src="catalog/view/javascript/assets/image/img/customfurniture-costchargetable2.webp" alt="urbanwood business model" class="img-fluid d-md-none d-block">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="how-we-do page-globel py-0 my-0">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3 class="heading-all">Already customized
+                </h3>
+            
+            </div>
+            <div class="popularitems slider" dir="rtl">
+                <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-1.jpg" loading="lazy"></div>
+                <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-2.jpg" loading="lazy"></div>
+                <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-3.jpg" loading="lazy"></div>
+                <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-4.jpg" loading="lazy"></div>
+                <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-5.jpg" loading="lazy"></div>
+                <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-6.jpg" loading="lazy"></div>
+                <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-7.jpg" loading="lazy"></div>
+                <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-8.jpg" loading="lazy"></div>
+                <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-9.jpg" loading="lazy"></div>
+              </div>
+             <div class="popularitems2 slider">
+              <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-10.jpg" loading="lazy"></div>
+              <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-11.jpg" loading="lazy"></div>
+              <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-12.jpg" loading="lazy"></div>
+              <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-13.jpg" loading="lazy"></div>
+              <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-14.jpg" loading="lazy"></div>
+              <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-15.jpg" loading="lazy"></div>
+              <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-16.jpg" loading="lazy"></div>
+              <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-17.jpg" loading="lazy"></div>
+              <div class="slide slide-item-pp"><img src="catalog/view/javascript/assets/image/img/top-sell/img-18.jpg" loading="lazy"></div>
+             </div>
+        </div>
+    </div>
+</section>
+
+<section class="whatsappsection">
+    <div class="container">
+        <div class="row reverse-row-cl">
+            <div class="col-lg-6"> <img src="catalog/view/javascript/assets/image/img/whatsappchat.webp" alt="chat with furniture expert at Urbanwood" class="img-fluid chatting-img" width="100%" height="100%"></div>
+            <div class="col-lg-6">
+                <div class="right-whastapp">
+                   <h4 class="wtsap-heading text-white ">Instant <b>Chat</b> With 
+                    <br> Our <b>Expert</b> for your<br> <span class="text-big">Custominsation</span> </h4>
+                    <a href="https://wa.me/919311662426" target="_blank" type="button" class="chat-now"><img src="catalog/view/javascript/assets/image/img/icon/whatsapp.png" alt="Chat now with furniture expert at Urbanwood">Chat now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+ <section class="uw-feasture page-globel">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h5 class="heading-all"><span>We personalize</span><br>
+                    Your Furniture Completely!
+                </h5>
+            </div>
+   <div class="col-lg-3 col-md-3 col-sm-12 width-50"><div class="box-1"><img src="catalog/view/javascript/assets/image/img/icon/wood.webp" alt="premium quality sheesham wood" class="src" loading="lazy"><div class="sec-heading-pp">Wood</div><p>Pick from the vast range of sturdy furniture woods for elegant and solid wood looking furniture</p></div></div>
+   <div class="col-lg-3 col-md-3 col-sm-12 width-50"><div class="box-1"><img src="catalog/view/javascript/assets/image/img/icon/furnitures.webp" alt="vast style catalog to choose from" class="src" loading="lazy"><div class="sec-heading-pp">Style</div><p>Get a unique design of your choice with personalized look and feel to your Dream furniture.</p></div></div>
+   <div class="col-lg-3 col-md-3 col-sm-12 width-50"><div class="box-1"><img src="catalog/view/javascript/assets/image/img/icon/finish.webp" alt="best finish wood products" class="src" loading="lazy"><div class="sec-heading-pp">Finish</div><p>The right finishing gives elegant and alluring look and feel to your furniture design.</p></div></div>
+   <div class="col-lg-3 col-md-3 col-sm-12 width-50"><div class="box-1"><img src="catalog/view/javascript/assets/image/img/icon/fabric.webp" alt="large color option in fabric" class="src" loading="lazy"><div class="sec-heading-pp">Fabric</div><p>Enhance your living space with amazing fabric designs and material of your furniture.</p></div></div> 
+        </div>
+    </div>
+</section>
+
+<section class="custom-review-ec page-globel">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="heading-all">Loved By 2500+ Customers </h2>
+            </div>
+            <div class="customer-logos-cfp slider">
+                <div class="slide client-box"> 
+                    <div class="client-img-cstm">
+                      <img src="catalog/view/javascript/assets/image/img/review-img/client-1-img.png" class="img-responsive img-fluid " loading="lazy">
+                    </div>
+             <div class="client-content">
+               <div class="client-name"> <span> Raza Abbas </span></div>
+               <div class="client-comment">
+             <p>The finish and style of the table are superb. Very subtle yet beautiful design to have for a small space apartment. The delivery was done safely, and we are completely satisfied with the purchase. THANK YOU URBANWOOD</p>
+                </div>
+             </div>
+                 </div>
+                <div class="slide client-box"> 
+                 <div class="client-img-cstm">
+                   <img src="catalog/view/javascript/assets/image/img/review-img/client-2-img.png" class="img-responsive img-fluid " loading="lazy">
+                 </div>
+          <div class="client-content">
+            <div class="client-name"> <span> Manaranjan Das </span></div>
+            <div class="client-comment">
+          <p>I purchased furniture from the Urban Wood website. I'm delighted to share that they exceeded my expectations with their delivery. Thank you, Urban Wood, for providing such beautiful products!</p>
+             </div>
+          </div>
+              </div>
+                <div class="slide client-box"> 
+                 <div class="client-img-cstm">
+                   <img src="catalog/view/javascript/assets/image/img/review-img/client-3-img.png" class="img-responsive img-fluid " loading="lazy">
+                 </div>
+          <div class="client-content">
+            <div class="client-name"> <span> Sonam Kumari </span></div>
+            <div class="client-comment">
+          <p>I am absolutely in love with my new dining table, The craftsmanship is exceptional, It's a perfect blend of style and functionality. I am so happy with the purchase from Urbanwood. .</p>
+             </div>
+          </div>
+                </div>
+                <div class="slide client-box"> 
+                 <div class="client-img-cstm">
+                   <img src="catalog/view/javascript/assets/image/img/review-img/client-4-img.png" class="img-responsive img-fluid " loading="lazy">
+                 </div>
+          <div class="client-content">
+            <div class="client-name"> <span> Satyendra Patel </span></div>
+            <div class="client-comment">
+          <p>Extremely Satisfied l, right from ordering to product delivery and installation. Hight professional staff and committed to customer satisfaction. Highly recommended for people looking to purchase product online or offline.</p>
+             </div>
+          </div>
+                </div>
+                <div class="slide client-box"> 
+                  <div class="client-img-cstm">
+                    <img src="catalog/view/javascript/assets/image/img/review-img/client-5-img.png" class="img-responsive img-fluid " loading="lazy">
+                  </div>
+           <div class="client-content">
+            <div class="client-name"> <span> Priyaspatle Patle </span></div>
+             <div class="client-comment">
+           <p>I had been surching a customised bed for long time. Finely I got this site.The experience With urbanwood is so good. I received my sheesum wood bed . It look very nice. The polish and crafting, finishing is the best.Thanks urbanwood.</p>
+              </div>
+           </div>
+                 </div>
+          <div class="slide client-box"> 
+          <div class="client-img-cstm">
+          <img src="catalog/view/javascript/assets/image/img/review-img/client-6-img.jpeg" class="img-responsive img-fluid " loading="lazy">
+           </div>
+          <div class="client-content">
+            <div class="client-name"> <span> Yatharth Joiya </span></div>
+          <div class="client-comment">
+           <p>Impressive work as per my expectations. Finishing, polish and wood quality is also good, overall product is fantastic and as per my expectations.</p>
+          </div>
+          </div>
+          </div>
+          </div>
+          <div class="customer-logos2-cfp slider">
+            <div class="slide client-box"> 
+                
+                <div class="client-img-cstm">
+                  <img src="catalog/view/javascript/assets/image/img/review-img/client-7-img.jpeg" class="img-responsive img-fluid " loading="lazy">
+                </div>
+         <div class="client-content">
+           <div class="client-name"> <span> JOHN PINTO </span>        </div>
+           <div class="client-comment">
+         <p>Urbanwood Furniture exceeded my expectations in every way! From start to finish, their customer service was exceptional, ensuring my custom requirements were met with precision and care. The quality of the furniture delivered is outstanding.</p>
+            </div>
+         </div>
+             </div>
+            <div class="slide client-box"  > 
+             <div class="client-img-cstm">
+               <img src="catalog/view/javascript/assets/image/img/review-img/client-8-img.jpeg" class="img-responsive img-fluid " loading="lazy">
+             </div>
+      <div class="client-content">
+        <div class="client-name"> <span> Deepak Gopinath </span></div>
+        <div class="client-comment">
+      <p>We got a custom made crockery unit from Urbanwood Bangalore and are very happy with the quality of work, customer service and timeliness of delivery. Thank you Subhrakanta for your assistance.</p>
+         </div>
+      </div>
+          </div>
+            <div class="slide client-box"> 
+             <div class="client-img-cstm">
+               <img src="catalog/view/javascript/assets/image/img/review-img/client-9-img.jpeg" class="img-responsive img-fluid " loading="lazy">
+             </div>
+      <div class="client-content">
+        <div class="client-name"> <span> MR Vlogs </span></div>
+        <div class="client-comment">
+      <p>This table and chair set is so preety and cleverly made. It is perfect size for 4 people. I love this beautiful set... THANK YOU URBANWOOD..</p>
+         </div>
+      </div>
+            </div>
+            <div class="slide client-box"> 
+             <div class="client-img-cstm">
+               <img src="catalog/view/javascript/assets/image/img/review-img/client-10-img.jpeg" class="img-responsive img-fluid " loading="lazy">
+             </div>
+      <div class="client-content">
+        <div class="client-name"> <span> Meganath Chowdary </span>
+        </div>
+        <div class="client-comment">
+      <p>I have purchased a beautiful coffee table from urban wood furniture and the quality of the material gives premium look and experience</p>
+         </div>
+      </div>
+            </div>
+            <div class="slide client-box"> 
+              <div class="client-img-cstm">
+                <img src="catalog/view/javascript/assets/image/img/review-img/client-11-img.jpeg" class="img-responsive img-fluid " loading="lazy">
+              </div>
+       <div class="client-content">
+        <div class="client-name"> <span> Sneha tn </span>
+        </div>
+         <div class="client-comment">
+       <p>Needed custom coffee table to match my pouffes . They did an excellent job in designing to my requirements and delivering on time , with very good quality finish and packaging</p>
+          </div>
+       </div>
+             </div>
+      <div class="slide client-box"> 
+      <div class="client-img-cstm">
+      <img src="catalog/view/javascript/assets/image/img/review-img/client-5-img.png" class="img-responsive img-fluid " loading="lazy">
+       </div>
+      <div class="client-content">
+        <div class="client-name"> <span> Junaid Pasha </span>
+        </div>
+      <div class="client-comment">
+       <p>I really like urban wood products quality because I came their store to buy some furniture for my home and I really satisfy with their product quality and durability and one more important thing urban wood gives 3 years warranty..... Thank you Urban wood</p>
+      </div>
+      </div>
+      </div>
+      </div>
+        </div>
+    </div>
+</section>
+
+<section class="uw-unit page-globel" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="heading-all">
+                    Own Manufacturing Factory 
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="row row-1"> 
+        <div class="column">
+            <div class="img-grid-box">
+                <div class="img-grid" > 
+                    <div class="card-img-overlay "></div>
+        <img src="catalog/view/javascript/assets/image/img/categories/beadrooms.jpg" loading="lazy">
+        <div class="img-content">
+      <h6>Choosing the Right Wood</h6>
+      <hr>
+        </div>
+      </div>
+    </div>
+      <div class="img-grid-box"> 
+      <div class="img-grid"> 
+        <div class="card-img-overlay card-img-overlay2"></div>
+      <img src="catalog/view/javascript/assets/image/img/categories/diningroom.jpg" loading="lazy">
+      <div class="img-content">
+    <h6>Measuring and Cutting the Wood</h6>
+    <hr>
+      </div>
+    </div>
+  </div>
+  
+  <div class="img-grid-box"> 
+    <div class="img-grid"> 
+      <div class="card-img-overlay"></div>
+    <img src="catalog/view/javascript/assets/image/img/categories/livingroom.jpg" loading="lazy">
+    <div class="img-content">
+  <h6>Joinery Techniques</h6>
+  <hr>
+    </div>
+  </div>
+  </div>
+  
+  <div class="img-grid-box"> 
+  <div class="img-grid"> 
+    <div class="card-img-overlay card-img-overlay2"></div>
+  <img src="catalog/view/javascript/assets/image/img/categories/storageroom.jpg" loading="lazy">
+  <div class="img-content">
+  <h6>Sanding and Finishing</h6>
+  <hr>
+  </div>
+  </div>
+  </div>
+      </div>
+      </div>
+</section>
+<section class="ourpartner page-globel">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="heading-all">Trusted Partners</h2>
+            </div>
+        </div>
+        <div class="partner-logo-list">
+            <span><img src="catalog/view/javascript/assets/image/img/partner/amezon.jpg" alt="amezon-partner" loading="lazy"></span>
+            <span><img src="catalog/view/javascript/assets/image/img/partner/flipkart.jpg" alt="flipkart-partner" loading="lazy"></span>
+            <span><img src="catalog/view/javascript/assets/image/img/partner/pepperfry.jpg" alt="pepperfry-partner" loading="lazy"></span>
+            <span><img src="catalog/view/javascript/assets/image/img/partner/apkainterior.jpg" alt="apkainterior-partner" loading="lazy"></span>
+            <span><img src="catalog/view/javascript/assets/image/img/partner/shopper.jpg" alt="shopperstop-partner" loading="lazy"></span>
+        </div>
+    </div>
+</section>
+<section class="bottom-content py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2>Custom-Made Your Furniture From The Best Customized Furniture Maker In India</h2>
+        <p>Customized furniture has become a popular trend due to its ability to transform any interior into a space that reflects a personalized vision, allowing homeowners to cherish their homes. For those inspired by the idea of creating a dream home, we have a team of highly skilled designers who excel at turning bespoke concepts into masterpiece pieces of furniture. Whether you need a <b>custom sofa</b> or <b>custom beds</b>, our online shop for customized furniture secures you. Contact Urbanwood Furniture now and book your bespoke <a href="custom-furniture"><b>custom furniture</b></a> today!</p>
+        <div class="con-text" id="div3" style="display: none;">
+          <h2>Your Idea, We Design, Create, And We Deliver</h2>
+          <h3><b>Express Your Perspective</b></h3>
+          <p>When purchasing custom furniture, please bring a picture, sketch, or link to share with our skilled professionals. Additionally, provide details regarding your preferred colors, sizes, materials, and finishes.</p>
+          <h3><b>High-Tech 3D Design</b></h3>
+          <p>Once we receive your ideas for a custom furniture order, our expert designers will analyze your concepts using 3D technology to create precise customizations.</p>
+          <h3><b>Excellent Production</b></h3>
+          <p>Once the final design is selected, our highly skilled artisans and engineers collaboratively manufacture your bespoke custom order into a masterpiece of customized furniture.</p>
+          <h3><b>Delivery On Time</b></h3>
+          <p>We ensure that production is completed before the expected date and delivered on time, as we prioritize the satisfaction and happiness of our customers in getting their custom-made furniture.</p>
+          <h2><b>Premium Customized Furniture Online in India at Urbanwood</b></h2>
+          <p>Are you tired of mass-produced furniture available in every bouquet you visit that does not quite fit your style or needs? So why settle less? You deserve to furnish your envisioned home with the furniture that defines your style. Urbanwood offers a unique solution with premium <b>custom made furniture</b>, made just for you! Whether you want to enhance the aesthetic of your home or improve its functionality with <b>custom furnishings</b>, we bring your vision to life with bespoke designs tailored to your taste.</p>
+          <h2><b>Elevate Your Home With Custom Furniture Crafted Exclusively For You</b></h2>
+          <p>The pleasure of choosing <b>online custom furniture</b> for your home is unparalleled, allowing you to select items that align perfectly with your tastes and preferences. Investing in a unique and authentically <b>customized sofa set</b> or bed can add a timeless elegance to your living space. One of the most exciting aspects of shopping for <b>custom furniture online</b> is discovering high-quality pieces designed specifically for you. At Urbanwood Furniture, we take pride in our exceptional craftsmanship, offering exclusive wooden, <b>custom designed furniture</b> tailored to each client's style and needs. With us, you can truly enjoy the opportunity to find your dream furniture for your home.</p>
+          <h2><b>We Customise To Your Utmost Contentment: Your Vision, Our Craftsmanship</b></h2>
+          <h3><b>Wood Essence</b></h3>
+          <p>Choose a wood type that matches your material preferences and living standards. Our premium woods are available in various types and qualities, each featuring unique characteristics.</p>
+
+          <h3><b>Unique  Custom Design</b></h3>
+          <p>Our custom-made furniture online provides the possibility of transforming any sketch into awe-inspiring craftsmanship. Enthrall yourself in the joy of one-piece furniture tailored to your style and sense the disparity.</p>
+
+          <h3><b>Finishes Types</b></h3>
+          <p>A carefully selected finish can transform your custom furniture, showcasing its luxurious appeal. Choose a finishing color that enhances the enduring style of your interior design.</p>
+
+          <h3><b>Fabric And Hues</b></h3>
+          <p>Elevate your home into a luxurious, picturesque space by choosing the best fabric and colors for your custom furniture. Conceive opting for top-notch fabrics like velvet, refined cotton, linen, leatherette, and many more, exuding unique color elements.</p>
+
+          <h2><b>Why Is Custom Furniture The Ideal Choice For Home?</b></h2>
+          <p>Mass-produced furniture may be convenient, but it often lacks the uniqueness and durability that every <b>custom furniture design</b> piece offers. Here is why investing in premium <b>custom wood furniture</b> is a transformative breakthrough:</p>
+
+          <h3><b>Designed to Your Needs</b></h3>
+          <p>One of the biggest advantages of <b>custom made furniture online india</b> is its ability to meet specific design requirements. Whether it is a uniquely shaped <b>custom dining set</b>, a stylish <b>customized sofa set</b>, or a space-saving <b>custom wardrobe</b>, custom furnishings are customized precisely to fit seamlessly into your home.</p>
+
+          <h3><b>Best Quality Materials</b></h3>
+          <p>The intriguing aspect of <b>custom furniture online india</b> is the use of high-quality materials for customization to ensure better longevity and durability. Each piece of <b>custom wooden furniture</b> guarantees a long-lasting investment for your home.</p>
+
+          <h3><b>Exclusively Unique Aesthetic </b></h3>
+          <p>Custom-made furniture allows you to express your creativity by offering explorative avenues. Whether for custom dining furniture or a custom table, allowing you to hand-pick from a variety of finishes, textures, colors, and materials to design a piece that is uniquely yours. </p>
+
+          <h3><b>Fit Like A Glove for Any Space</b></h3>
+          <p>An already ready-made and exhibited stock furniture often does not fit perfectly in your home. Through custom furniture in Bangalore and custom furniture Mumbai, the happiness of finding the perfect dimensions for your home becomes seamlessly attainable, making the most of your available space.</p>
+
+          <h2><b>Pass! Make The Right Choice: Customize Your Furniture To Suit Your Style</b></h2>
+          <p>As you are aware, custom furniture embodies the essence of originality. Each piece of custom-made furniture is specially designed with the utmost care and skills to craft the perfect uniqueness that can transform any atmosphere into an opulent aesthetic. While customizing furniture, making the right choice is pivotal to correlating functionality, aesthetics, and durability. Consider your space, style inclination, and high material attributes to create pieces that complement your home. Opt for designs that reflect your personality while maintaining practicality. Investing in high-quality craftsmanship and suitable materials enhances longevity, making your <b>custom furniture</b> a worthwhile addition to your home space or office. At Urbanwood, we are skilled in crafting high-quality, tailor-made furniture pieces that reflect your style and personality. Whether looking for a modern, minimalist look or a classic, traditional appeal, our maestro craftsman ensures that every detail and feature comes forth.</p>
+
+          <h2><b>Transform Your Space With Urbanwood Furniture Expert Craftsmanship</b></h2>
+          <p>The significance of why you should choose our expert craftsmanship online anywhere from <b>custom furniture Bangalore</b>, <b>customized furniture Mumbai</b>, <b>custom furniture Pune</b>, and <b>customized furniture Chennai</b>, our custom furniture manufacturers provide you the pleasure of receiving the preeminent piece of distinctive furniture design that is masterfully bound by the inherited enchanted essence, captivating every gazer with its awe-inspiringly appealing craftsmanship. Whether you fantasize about bringing to life a multifunctional <b>custom wardrobe</b>, <b>drawing room custom table</b>, <b>custom study table</b>, <b>custom dining room table</b>, <b>custom chairs</b>, or <b>customized sofa set</b>, our expertise showcases their everlasting mastery through sculpting out every piece of sketched paper into an item of luxurious furniture that seamlessly amalgamates style, durability, and practicality, making every coin of investment count.</p>
+
+          <h2><b>Our Craftsmanship and Expertise</b></h2>
+          <p>At UrbanWood, we take pride in our attention to detail and commitment to quality. Our experienced craftsman thoughtfully blends traditional woodworking techniques with modern innovation to create aesthetically pleasing and highly functional furniture.</p>
+          <p>From bedroom furniture, living room, dining furnishings, kitchen, outdoor, and office furniture like custom beds and custom wardrobes to luxurious sofas and dining sets, every piece is manufactured skillfully. Whether you have a specific design in mind or need expert recommendations, our team is here to help you every step of the way.</p>
+
+          <h2><b>Urban Wood Furniture: Crafting Masterpieces Nationwide</b></h2>
+          <p>Transform your home and enhance your living style with Urbanwood custom furniture shop near me all over India, with the best custom furniture worth every investment. Conceivingly, <b>customized furniture Mumbai</b> from Urbanwood is remarkably popular for its premium handcrafted custom wooden furniture, exhibiting cutting-edge precision in delivery and enduring style that wowed many clientele. Stepping into the world of <b>customized furniture Chennai</b> and <b>customized furniture Hyderabad</b> is a game-changer for enhancing your home interior. These artisans showcase their remarkable woodworking skills by handcrafting custom furniture pieces that beautifully blend timeless elegance with contemporary design. Each creation is a marvelous addition to any home, much like a treasured chest adores. Discover the customized furniture in Jaipur from Urbanwood, which embodies vibrant beauty and exceptional woodcarving. Its appeal and practicality make it astonishing. Further exploring Urbanwood online custom furniture boutiques in India, particularly in <b>customized furniture Gurgaon</b> and <b>customized furniture Pune</b>, offers an exquisite array of premium wooden furnishings. Each item is crafted with precision and care to reflect the elegance of contemporary modern design, making a bold statement in any space. With a focus on quality and customization, these collections are perfect for unique, stylish, and functional furniture seekers that seamlessly blend artistry and practicality. </p>
+        </div>
+        <button class="toggle-button btn-show" data-target="#div3">Show More</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<script>
+  
+    $(document).ready(function(){
+      $('.popularitems').slick({
+          slidesToShow: 4,
+          slidesToScroll:1,
+          autoplay: true,
+          rtl:true,
+          scrollBehavior:'smooth',
+          autoplaySpeed: 1000,
+          arrows: false,
+          dots: false,
+          pauseOnHover: false,
+          responsive: [{
+              breakpoint: 1200,
+              settings: {
+                  slidesToShow: 4
+              }
+          },{
+              breakpoint: 992,
+              settings: {
+                  slidesToShow: 4
+              }
+          },{
+              breakpoint: 768,
+              settings: {
+                  slidesToShow: 4
+              }
+          }, {
+              breakpoint: 520,
+              settings: {
+                  slidesToShow: 2
+              }
+          }]
+      });
+  });
+
+  
+    $(document).ready(function(){
+      $('.popularitems2').slick({
+          slidesToShow: 4,
+          slidesToScroll:1,
+          autoplay: true,
+          scrollBehavior:'smooth',
+          autoplaySpeed: 2000,
+          arrows: false,
+          dots: false,
+          pauseOnHover: false,
+          responsive: [{
+              breakpoint: 1200,
+              settings: {
+                  slidesToShow: 4
+              }
+          },{
+              breakpoint: 992,
+              settings: {
+                  slidesToShow: 4
+              }
+          },{
+              breakpoint: 768,
+              settings: {
+                  slidesToShow: 4
+              }
+          }, {
+              breakpoint: 520,
+              settings: {
+                  slidesToShow: 2
+              }
+          }]
+      });
+  });
+  
+    $(document).ready(function(){
+      $('.customer-logos-cfp').slick({
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 1000,
+          arrows: false,
+          dots: false,
+          pauseOnHover: false,
+          responsive: [{
+              breakpoint: 1600,
+              settings: {
+                  slidesToShow: 3
+              }
+          },{
+              breakpoint: 1400,
+              settings: {
+                  slidesToShow: 3
+              }
+          },{
+              breakpoint: 1200,
+              settings: {
+                  slidesToShow: 2
+              }
+          },{
+              breakpoint: 992,
+              settings: {
+                  slidesToShow: 2
+              }
+          },{
+              breakpoint: 768,
+              settings: {
+                  slidesToShow: 2
+              }
+          }, {
+              breakpoint: 440,
+              settings: {
+                  slidesToShow: 1
+              }
+          }]
+      });
+  });
+
+  $(document).ready(function(){
+      $('.customer-logos2-cfp').slick({
+          slidesToShow:4,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 1500,
+          arrows: false,
+          dots: false,
+          pauseOnHover: false,
+          responsive: [{
+              breakpoint: 1600,
+              settings: {
+                  slidesToShow: 3
+              }
+          },{
+              breakpoint: 1400,
+              settings: {
+                  slidesToShow: 3
+              }
+          },{
+              breakpoint: 1200,
+              settings: {
+                  slidesToShow: 2
+              }
+          },{
+              breakpoint: 992,
+              settings: {
+                  slidesToShow: 2
+              }
+          },{
+              breakpoint: 768,
+              settings: {
+                  slidesToShow: 2
+              }
+          }, {
+              breakpoint: 440,
+              settings: {
+                  slidesToShow: 1
+              }
+          }]
+      });
+  });
+    function customRequest(idd,btn){
+   if(!formRule(idd)) return false;
+
+    $('#'+btn).attr("disabled", true);
+    $('#'+btn).text('Processing...');
+
+var formData = new FormData(document.getElementById('customizedetails'));
+
+    $.ajax({
+      url: '?route=custom/customfurniture/customerRequest',
+      type: 'post',
+      dataType: 'json',
+      data: formData, //$('#'+idd).serialize(),
+      processData: false,
+      contentType: false,
+    success:function(res){
+        if(res.success == 'text_upload'){
+          location.href = 'thank-you';
+        
+        }else{
+            var thanksHtml = '<div class="success-popup2"><span><svg id="smile2" width="45" height="45" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/></svg></span><span><h6>Alert</h6><p>Something is wrong check again</p></span></div>';
+        }
+         $('body').prepend(thanksHtml);
+        $('#'+btn).attr("disabled", false)
+        $('#'+btn).text('Submit');
+      
+    }
+  });
+  }
+  </script> 
+{{ footer }}

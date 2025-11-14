@@ -1,0 +1,292 @@
+{{ header }}
+{{ menu }}
+<div class="qu-sec py-2 ">
+  <div class="container container-custom">
+    <div class="row">
+<div class="col-md-12 col-sm-12">
+  <nav class="breadcumb-navigation">
+    <ol class="breadcrumb m-0 p-2">
+      {% for breadcrumb in breadcrumbs %}
+      <li class="breadcrumb-item active" aria-current="page">{{ breadcrumb.text }}</li>
+      {% endfor %}
+    </ol>
+  </nav>   
+</div>
+</div>
+    </div>
+</div>
+
+<style>
+/* common with account */
+.user-panel-list {
+	margin: 16px auto;
+	padding: 0
+}
+
+.user-panel-list li {
+	margin: 15px auto 0;
+	padding: 0;
+	width: 100%
+}
+
+.user-panel-list li a {
+	background: #fff9f4;
+	color: #ff8000;
+	font-size: 15px;
+	margin: auto;
+	padding: 10px 18px;
+	width: 100%;
+	display: block;
+	border-radius: 10px
+}
+
+/* .add-to-cart-btn:hover, */
+.user-panel-list li .active {
+	background: #ff8000;
+	color: #fff
+}
+.user-panel-box {
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0px 0px 13px #0000001c;
+        padding: 20px;
+    }
+/* common with account */
+    
+    .tab-name {
+        width: 100%;
+        background: #fff5f0;
+        padding: 15px;
+        margin: 0px 0px;
+        color: #ff8000;
+    }
+    .panel-order-list {
+        /* display: flex; */
+        padding: 10px 10px;
+        background: #fff;
+        margin: 0 0 20px 0;
+        box-shadow: 0px 0px 20px #e5e5e5;
+        border-radius: 5px;
+        justify-content: space-between;
+    }
+    .pr-img-myorder {
+        /* border-radius: 10px; */
+        flex: 0 0 20%;
+    }
+    
+    .pr-img-myorder img{
+        width:100%;
+        border-radius: 6px 6px 0 0;
+    }
+    .my-panel-order-detail {
+        margin: 0px 17px;
+        flex: 1 0 50%;
+    }
+    .pp-title-panel {
+        font-size: 16px;
+        font-weight: 400;
+        color: #434342;
+        margin: 5px 0px;
+        height: 30px;
+        overflow: hidden;
+    }
+    .pp-title-panel span{
+        font-size: 12px;
+        color: #b1b1b1;
+    }
+    .delivery-add-detil {
+        margin: 0px 0px;
+        padding: 0px;
+        list-style: none;
+    }
+    .delivery-add-detil li {
+        margin: 0px 0px;
+        padding: 4px 0px;
+        font-size: 14px;
+        color:#afafaf;
+    }
+    .info-order {
+        margin: 20px 0px 0px;
+    }
+    .panel-order-id {
+        background: #fff5f0;
+        border-radius: 50px;
+        font-size: 16px;
+        padding: 10px 15px;
+        color: #ff8000;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 13px;
+    }
+ 
+.btn.btn-check-bill {
+  border-radius: 100px;
+  border: 1px solid #fc7e007a;
+  background: #fff5f0;
+  color: #ff8000;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  bottom: 16px;
+  right: 24px;
+  padding: 3px;
+  z-index: 999;
+}
+.bill-detail-down {
+  box-shadow: 0px 15px 20px #e5e5e5;
+}
+.bill-detail-down .card{
+border:none;
+box-shadow:none;
+}
+
+         .order-details {background-image: linear-gradient(to right, #232526 0%, #414345  51%, #232526  100%)}
+         .order-details {
+            margin: 7px 0px 6px 0px;
+            padding: 10px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+          }
+
+          .order-details:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+
+.pr-detail-myorder p {
+  margin: 0;
+}
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1){
+  .pp-title-panel {
+      font-size: 20px;
+      margin: 3px 0px;
+  }
+  .delivery-add-detil li {
+      font-size: 13px;
+  }
+  .panel-order-id {
+      font-size: 13px;
+  }
+}
+@media only screen and (max-width:1024px) { 
+  /* .pp-title-panel {
+      font-size: 18px;
+  } */
+  .delivery-add-detil li {
+    font-size: 13px;
+    margin: 0px 0px;
+  }
+  .panel-order-id {
+    font-size: 12px;
+  }
+  .btn.btn-check-bill {
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    font-size: 13px;
+    line-height: 1;
+  }
+}
+@media only screen and (max-width: 992px) { 
+  .panel-order-id {
+    padding: 6px 6px;
+  }
+}
+@media only screen and (max-width: 768px){
+  .user-panel-box {
+    box-shadow: none;
+    padding: 0px;
+  }
+  .pp-title-panel {
+      font-size: 15px;
+  }
+  .row  .order{
+    flex-direction: column-reverse;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .panel-order-list{
+    flex-wrap: wrap;
+  }
+  .pr-img-myorder {
+    width:48%;
+    display: table-cell;
+    padding:5px;
+  }
+  .pr-detail-myorder {
+    width: 48%;
+    display: table-cell;
+    padding:5px;
+    vertical-align: top;
+  }
+  .my-panel-order-detail {
+    margin: 0 5px;
+  }
+  .pp-title-panel {
+    height: 52px;
+    overflow: visible;
+  }
+  .user-panel {
+      margin-top: 0;    
+  }
+}
+</style>
+<div class="wrapper">
+  <section class="py-lg-2 mt-lg-0 mt-md-0 pt-lg-2 pt-md-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 col-md-12 col-sm-12 pt-lg-0 pt-sm-5">
+          <div class="user-panel ">
+            <ul class="nav flex-column nav-pills user-panel-list" id="v-pills-tab" role="tablist">
+              <li><a href="account" class="" >Profile</a></li>
+              <li><a href="address" class="" >Address</a></li>
+              <li><a href="" class="active">Orders</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-10 col-md-12 col-sm-12 ">
+
+                <div class="row">
+
+                  {% for order in orders %}
+
+
+{% for order_product in order.order_products %}
+
+  <div class="col-lg-4 col-md-6 col-sm-6 ">
+    <div class="panel-order-list">
+      <a href="{{ order.view }}">
+        <div class="pr-img-myorder">
+          <img src="{{ order_product.image }}" class="">
+        </div>
+        <div class="pr-detail-myorder">
+        <p class="pp-title-panel">{{ order_product.name }}</p>
+        <p class="">Total:&nbsp; {{ order.total }}</p>
+        <p class="">Quantity:&nbsp; {{ order.products }}</p>
+        </div>
+      </a>
+      <a href="{{ order.view }}" class=" order-details"> Order Details</a>
+    </div>
+  </div>
+            
+  {% endfor %}
+
+{% endfor %}
+                </div>
+<div class="row">
+        <div class="col-sm-6 text-left">{{ pagination }}</div>
+        <div class="col-sm-6 text-right">{{ results }}</div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{{ footer }}
