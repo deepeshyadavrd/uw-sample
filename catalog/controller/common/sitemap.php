@@ -51,7 +51,10 @@ class ControllerCommonSitemap extends Controller {
 		}
 	
 		function sort_by_children_length($a, $b) {
-			return count($a['children']) - count($b['children']);
+			$a_count = isset($a['children']) && is_array($a['children']) ? count($a['children']) : 0;
+			$b_count = isset($b['children']) && is_array($b['children']) ? count($b['children']) : 0;
+
+			return $a_count - $b_count;
 		}
 		
 		usort($data['categories'], 'sort_by_children_length');

@@ -808,7 +808,6 @@ class ControllerCatalogProduct extends Controller {
 		} else {
 			$data['model'] = '';
 		}
-
 		if (isset($this->request->post['parent_product_id'])) {
 			$data['parent_product_id'] = $this->request->post['parent_product_id'];
 		} elseif (!empty($product_info)) {
@@ -818,19 +817,19 @@ class ControllerCatalogProduct extends Controller {
 		}
 		// echo $product_info['product_id'];
 
-		if (isset($this->request->post['parent_product'])) {
-			$data['parent_product'] = $this->request->post['parent_product'];
-		} elseif (!empty($product_info)) {
-			$parent_product = $this->model_catalog_product->getProductName($product_info['parent_id']);
+		// if (isset($this->request->post['parent_product'])) {
+		// 	$data['parent_product'] = $this->request->post['parent_product'];
+		// } elseif (!empty($product_info)) {
+		// 	$parent_product = $this->model_catalog_product->getProductName($product_info['parent_id']);
 // print_r($parent_product);
-			if ($parent_product) {
-				$data['parent_product'] = $parent_product;
-			} else {
-				$data['parent_product'] = '';
-			}
-		} else {
-			$data['parent_product'] = '';
-		}
+		// 	if ($parent_product) {
+		// 		$data['parent_product'] = $parent_product;
+		// 	} else {
+		// 		$data['parent_product'] = '';
+		// 	}
+		// } else {
+		// 	$data['parent_product'] = '';
+		// }
 
 		if (isset($this->request->post['sku'])) {
 			$data['sku'] = $this->request->post['sku'];
