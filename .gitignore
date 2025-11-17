@@ -41,7 +41,7 @@ eos/
 install/
 template/
 storage/
-system/
+system/storage
 .svn/
 .index.nitropack-backup.php
 bootstrap.min.css
