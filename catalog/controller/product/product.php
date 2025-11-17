@@ -308,7 +308,7 @@ class ControllerProductProduct extends Controller {
 					'required'             => $option['required']
 				);
 			}
-print_r($data['options']);
+// print_r($data['options']);
 			// if ($product_info['minimum']) {
 			// 	$data['minimum'] = $product_info['minimum'];
 			// } else {
