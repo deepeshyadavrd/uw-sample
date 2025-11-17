@@ -148,7 +148,7 @@ input#quantity {
     <div class="container">
       <div class="row"> 
         <div class="col-lg-7 col-md-12 col-sm-12 child-sticky ">
-          <div class="f-carousel" id="myCarousel">
+          {# <div class="f-carousel" id="myCarousel">
             {% if images %}
               {% set i = 0 %}
               {% for image in images %}
@@ -180,7 +180,62 @@ input#quantity {
               });
             }); 
 
-          </script>
+          </script> #}
+          <div class="swiper product-main-slider">
+  <div class="swiper-wrapper">
+    {% for image in images %}
+    <div class="swiper-slide">
+      <a href="{{ image.big_thumb }}" >
+        <img src="{{ image.thumb }}" class="main-image" loading="lazy">
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="swiper product-thumb-slider">
+  <div class="swiper-wrapper">
+    {% for image in images %}
+    <div class="swiper-slide">
+      <img src="{{ image.img_thumb }}" class="thumb-img" loading="lazy">
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<script>
+var productThumbs = new Swiper('.product-thumb-slider', {
+    slidesPerView: 4,
+    spaceBetween: 5,
+    watchSlidesProgress: true,
+});
+
+var productMain = new Swiper('.product-main-slider', {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    lazy: true,
+    navigation: {
+        nextEl: '.product-next',
+        prevEl: '.product-prev',
+    },
+    thumbs: {
+        swiper: productThumbs
+    }
+});
+</script>
+<link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css">
+{# <script src="https://cdn.jsdelivr.net/npm/photoswipe@5/photoswipe.min.js"></script> #}
+<script src="https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js" type="module"></script>
+<script type="module">
+import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
+
+const lightbox = new PhotoSwipeLightbox({
+    gallery: '.product-main-slider',
+    children: 'a',
+    pswpModule: () => import('https://unpkg.com/photoswipe'),
+});
+
+lightbox.init();
+</script>
           <picture>
             <source srcset="catalog/view/javascript/assets/image/big-strip-mobile.webp" type="avif" alt="emi small banner" class=" img-fluid mobile-offer-baner ">
             <img src="catalog/view/javascript/assets/image/big-strip-mobile.webp" alt="emi small banner" class="img-fluid mobile-offer-baner " style="width:100%;" media="(min-width: 425px)" loading="lazy"/>
