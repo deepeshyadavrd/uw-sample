@@ -1,7 +1,6 @@
 <?php
 class ModelToolImage extends Model {
 	public function resize($filename, $width, $height) {
-
 		$real = str_replace('\\', '/', realpath(DIR_IMAGE . $filename));
 		$dir  = str_replace('\\', '/', DIR_IMAGE);
 
@@ -15,11 +14,13 @@ class ModelToolImage extends Model {
 		$image_new = 'cache/' . utf8_substr($filename, 0, utf8_strrpos($filename, '.')) . '-' . (int)$width . 'x' . (int)$height . '.' . $extension;
 		if (!is_file(DIR_IMAGE . $image_new) || (filemtime(DIR_IMAGE . $image_old) > filemtime(DIR_IMAGE . $image_new))) {
 			list($width_orig, $height_orig, $image_type) = getimagesize(DIR_IMAGE . $image_old);
+
 			if (!in_array($image_type, array(IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF, IMAGETYPE_WEBP))) { 
 				return DIR_IMAGE . $image_old;
 			}
 			$path = '';
 			$directories = explode('/', dirname($image_new));
+			
 			foreach ($directories as $directory) {
 				$path = $path . '/' . $directory;
 				if (!is_dir(DIR_IMAGE . $path)) {
