@@ -1,13 +1,16 @@
 function formRule(formid) {
+	alert('ree maan ja makha');
+	console.log('on top');
     var validatebool = 1;
     $('.errorResponse').remove();
-    $('[id^=' + formid + '] input,[id^=' + formid + '] textarea, #' + formid + ' select').each(function(index) {
+    $('[id^=' + formid + '] input,[id^=' + formid + '] textarea, [id^=' + formid + '] select').each(function(index) {
         var domelement = $(this);
         var domename = domelement.attr('name');
         var inputVal = domelement.val().trim();
         var radioReview = $('input[name=rate]:checked', '#review_product_form').val();
         var errorResponse = '';
 		domelement.css('border','');
+		console.log('here');
         if (domename && domelement.attr('type') != 'hidden') {
             if (domename == 'email' && inputVal == '') {
                 errorResponse = 'Please enter email';
@@ -18,7 +21,7 @@ function formRule(formid) {
             } else if (domename == 'register_email' && !ve(inputVal)) {
                 errorResponse = 'Please enter valid email';
             } else if ((domename == 'name' || domename == 'firstname' || domename == 'lastname') && inputVal == '') {
-                errorResponse = 'Please enter valid name';
+                errorResponse = 'Please enter valid name 1';
             } else if ((domename == 'telephone') && inputVal.length < 10) {
                 errorResponse = 'Please enter 10 digit mobile';
             } else if ((domename == 'telephone') && !vm(inputVal)) {
@@ -54,17 +57,15 @@ function formRule(formid) {
                 errorResponse = 'Please enter House No';
             } else if (domename == 'address_3' && inputVal == '') {
                 errorResponse = 'Please enter Street Address';
-            } else if (domename == "state" && (inputVal === "" || inputVal === null)){
+            } else if (domename== "state" && (inputVal === "" || inputVal === null)){
 				errorResponse = "Please select your state";
-			} else if (domename == 'message' && inputVal === '') {
-                errorResponse = 'Please enter message';
-            }
+			} 
         }
         if (errorResponse) {
             validatebool = 0;
 			domelement.css('border','1px solid red');
             domelement.after(' <p class="errorResponse" style="font-size: 12px;color: red;position: absolute;padding: 2px;">' + errorResponse + '</p>');
-            return false;
+            return;
         }
     });
     return validatebool;

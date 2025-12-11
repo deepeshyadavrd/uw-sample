@@ -142,13 +142,9 @@
 
         <script>
             function submitCallRequest(idd, btn) {
+                console.log(idd + 'here is form id');
                 if (!formRule(idd)) 
-                    return false;
-                    // Check cookie before submit
-                if (getCookieforForm("callback_submitted") === "1") {
-                    alert("You have already submitted a request. Our team will contact you soon.");
                     return;
-                }
                 $('#'+btn).attr("disabled", true);
                 $('#' + btn).text('Processing...');
                 $.ajax({
@@ -158,9 +154,6 @@
                     // dataType:'JSON',
                     success: function (res) {
                         console.log(res);
-                        // Set cookie (valid for 24 hours)
-                        setCookieforForm("callback_submitted", "1", 1);
-
                         var thanksHtml = '<div class="ThankuMsgx" style="text-align:center;">\n\
                         <img src="https://i.pinimg.com/originals/06/ae/07/06ae072fb343a704ee80c2c55d2da80a.gif" style="width: 136px;" loading="lazy"><br>\n\
                         <h2 style="color: gray;">Success!</h2><br>\n\
