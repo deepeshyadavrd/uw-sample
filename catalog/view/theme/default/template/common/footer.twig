@@ -336,7 +336,7 @@
 {# <script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/jquery-ui.min.js" defer></script> #}
 {# <script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/slick-js.js" defer></script> #}
 <script src="catalog/view/javascript/assets/js/new-menu2.js" ></script>
-<script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/common.js" type="text/javascript" defer></script>
+<script src="catalog/view/javascript/common.js" type="text/javascript" defer></script>
 {# <script src="catalog/view/javascript/assets/js/new-carousel-link/owl.carousel.min-new.js" type="text/javascript" defer></script> #}
 <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
@@ -755,6 +755,38 @@ text_list = [
 ];
 return_value = typeWriter("#searchinput", text_list, true);
 
+
+function setSubmitCookie(cookieName, days = 7) {
+    let d = new Date();
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + d.toUTCString();
+
+    document.cookie = cookieName + "=yes;" + expires + ";path=/";
+}
+function checkSubmitCookie(cookieName) {
+    let name = cookieName + "=";
+    let decoded = decodeURIComponent(document.cookie);
+    let arr = decoded.split(';');
+
+    for (let i = 0; i < arr.length; i++) {
+        let c = arr[i].trim();
+        if (c.indexOf(name) === 0) {
+            return true;     // cookie found → block
+        }
+    }
+    return false; // no cookie → allow
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    if (getCookie("callback_submitted") === "1") {
+        document.getElementById("myform").innerHTML = `
+            <div style="text-align:center;padding:20px;">
+                <h3>You have already submitted the request.</h3>
+                <p>Our team will contact you soon.</p>
+            </div>`;
+        document.getElementById("subbtn")?.remove();
+    }
+});
   </script>
 </body>
 </html>

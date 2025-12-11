@@ -1,6 +1,4 @@
 function formRule(formid) {
-	alert('ree maan ja makha');
-	console.log('on top');
     var validatebool = 1;
     $('.errorResponse').remove();
     $('[id^=' + formid + '] input,[id^=' + formid + '] textarea, [id^=' + formid + '] select').each(function(index) {
@@ -77,12 +75,25 @@ function ve(mail) {
     return (false)
 }
 function vm(mvalue) {
-    var defaultMvalue = 6;
-    var mnumber = mvalue.toString()[0];
-    if (Number(mnumber) < defaultMvalue) {
-        return 0;
+    // Trim spaces
+    mvalue = mvalue.trim();
+
+    // Must be digits only
+    if (!/^[0-9]+$/.test(mvalue)) {
+        return false;
     }
-    return 1;
+
+    // Must be exactly 10 digits
+    if (mvalue.length !== 10) {
+        return false;
+    }
+
+    // First digit must be 6, 7, 8, or 9
+    if (!/^[6-9]/.test(mvalue)) {
+        return false;
+    }
+
+    return true;
 }
 function vp(pvalue) {
     if (pvalue.length == 6 && pvalue.match(/^[1-9][0-9]{5}$/)) {
