@@ -1,7 +1,7 @@
 function formRule(formid) {
     var validatebool = 1;
     $('.errorResponse').remove();
-    $('[id^=' + formid + '] input,[id^=' + formid + '] textarea').each(function(index) {
+    $('[id^=' + formid + '] input,[id^=' + formid + '] textarea, #' + formid + ' select').each(function(index) {
         var domelement = $(this);
         var domename = domelement.attr('name');
         var inputVal = domelement.val().trim();
@@ -54,6 +54,10 @@ function formRule(formid) {
                 errorResponse = 'Please enter House No';
             } else if (domename == 'address_3' && inputVal == '') {
                 errorResponse = 'Please enter Street Address';
+            } else if (domename == "state" && (inputVal === "" || inputVal === null)){
+				errorResponse = "Please select your state";
+			} else if (domename == 'message' && inputVal === '') {
+                errorResponse = 'Please enter message';
             }
         }
         if (errorResponse) {

@@ -34,7 +34,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="state" class="col-form-label">State</label>
-                    <select name="state" id="state" name="state" class="form-control" required>
+                    <select name="state" id="state" class="form-control" required>
 			            <option value="">Select state</option>
                         <option value="Andhra Pradesh">Andhra Pradesh</option>
                         <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -410,6 +410,7 @@
     </script>
 {% endif %}
     <script>
+    
         function signupmodal(){
             $('#signuppopup').modal('show');
             document.getElementById("showFilePanel").click();
@@ -755,6 +756,32 @@ text_list = [
 ];
 return_value = typeWriter("#searchinput", text_list, true);
 
+function setCookieforForm(name, value, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + (days*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+function getCookieforForm(name) {
+    let cname = name + "=";
+    let ca = document.cookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+        let c = ca[i].trim();
+        if (c.indexOf(cname) === 0) return c.substring(cname.length, c.length);
+    }
+    return "";
+}
+document.addEventListener("DOMContentLoaded", function() {
+    if (getCookie("callback_submitted") === "1") {
+        document.getElementById("myform").innerHTML = `
+            <div style="text-align:center;padding:20px;">
+                <h3>You have already submitted the request.</h3>
+                <p>Our team will contact you soon.</p>
+            </div>`;
+        document.getElementById("subbtn")?.remove();
+    }
+});
   </script>
 </body>
 </html>
