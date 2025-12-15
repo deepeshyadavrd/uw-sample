@@ -45,7 +45,7 @@ class ControllerCommonHeader extends Controller {
 		if($data['title']!='The page you requested cannot be found!'){
 			$data['canonical'] = $server.strtolower($req_uri);
 		}
-
+print_r($req_uri);
 		// $data['name'] = $this->config->get('config_name');
 
 		// $data['cart_items'] = sprintf($this->cart->countProducts());
