@@ -1665,4 +1665,9 @@ let pincodeData = [];
     });
   });
 </script>
+{% if product_schema %}
+<script type="application/ld+json">
+{{ product_schema|raw }}
+</script>
+{% endif %}
 {{ footer }}

@@ -126,7 +126,7 @@ class ControllerProductProduct extends Controller {
 		}
 		$this->load->model('catalog/product');
 		$product_info = $this->model_catalog_product->getProduct($product_id);
-		// print_r($product_info);
+		print_r($product_info);
 		
 		if ($product_info) {
 			$url = '';
@@ -308,26 +308,8 @@ class ControllerProductProduct extends Controller {
 					'required'             => $option['required']
 				);
 			}
-// print_r($data['options']);
-			// if ($product_info['minimum']) {
-			// 	$data['minimum'] = $product_info['minimum'];
-			// } else {
-			// 	$data['minimum'] = 1;
-			// }
 
 			$data['review_status'] = $this->config->get('config_review_status');
-
-			// if ($this->config->get('config_review_guest') || $this->customer->isLogged()) {
-			// 	$data['review_guest'] = true;
-			// } else {
-			// 	$data['review_guest'] = false;
-			// }
-
-			// if ($this->customer->isLogged()) {
-			// 	$data['customer_name'] = $this->customer->getFirstName() . '&nbsp;' . $this->customer->getLastName();
-			// } else {
-			// 	$data['customer_name'] = '';
-			// }
 
 			$data['reviews'] = sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']);
 			$data['rating'] = (int)$product_info['rating'];
@@ -536,15 +518,45 @@ class ControllerProductProduct extends Controller {
 			$data['recurrings'] = $this->model_catalog_product->getProfiles($this->request->get['product_id']);
 
 			$this->model_catalog_product->updateViewed($this->request->get['product_id']);
-			// print_r($data);
-			// $data['column_left'] = $this->load->controller('common/column_left');
-			// $data['column_right'] = $this->load->controller('common/column_right');
-			// $data['content_top'] = $this->load->controller('common/content_top');
-			// $data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 			$data['menu'] = $this->load->controller('common/menu');
+			$stock_status = strtolower(trim($product_info['stock_status']));
 
+if ($stock_status === 'out of stock') {
+    $availability = 'https://schema.org/OutOfStock';
+} else {
+    // Covers "In Stock" and any future positive statuses
+    $availability = 'https://schema.org/InStock';
+}
+			$schema = [
+				"@context" => "https://schema.org/",
+				"@type"    => "Product",
+				"name"     => html_entity_decode($product_info['name'], ENT_QUOTES, 'UTF-8'),
+				"image"    => [
+					$this->model_tool_image->resize($product_info['image'], 800, 800)
+				],
+				"description" => trim(strip_tags(html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8'))),
+				"brand"    => [
+					"@type" => "Brand",
+					"name"  => $product_info['manufacturer'] ?: $this->config->get('config_name')
+				],
+				"offers"   => [
+					"@type" => "Offer",
+					"url"   => $this->url->link('product/product', 'product_id=' . $product_info['product_id'], true),
+					"priceCurrency" => $this->session->data['currency'],
+					"price" => number_format($this->tax->calculate(
+						$product_info['special'] ?: $product_info['price'],
+						$product_info['tax_class_id'],
+						$this->config->get('config_tax')
+					), 2, '.', ''),
+					
+					"availability" => $availability,
+					"itemCondition" => "https://schema.org/NewCondition"
+				]
+			];
+		
+		$data['product_schema'] = json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 			$this->response->setOutput($this->load->view('product/product', $data));
 		} else {
 			$url = '';
