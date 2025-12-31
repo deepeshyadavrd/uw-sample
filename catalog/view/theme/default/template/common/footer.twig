@@ -332,12 +332,8 @@
 
 <script type="text/javascript" src="catalog/view/javascript/assets/js/main.js?v=1.3" ></script>
 <script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/bootstrap.bundle.min.js" ></script>
-{# <script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/jquery1.1.1.min.js" ></script> #}
-{# <script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/jquery-ui.min.js" defer></script> #}
-{# <script src="https://cdn.jsdelivr.net/gh/deepeshyadavrd/assets@main/js/slick-js.js" defer></script> #}
 <script src="catalog/view/javascript/assets/js/new-menu2.js" ></script>
 <script src="catalog/view/javascript/common.js" type="text/javascript" defer></script>
-{# <script src="catalog/view/javascript/assets/js/new-carousel-link/owl.carousel.min-new.js" type="text/javascript" defer></script> #}
 <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
 </div>
@@ -607,57 +603,6 @@
 
 </script>
 
-{% if not homepage %}
-{# <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Urbanwood Furniture Pvt Ltd",
-  "alternateName": "Urbanwood Furniture",
-  "url": "https://www.urbanwood.in/",
-  "logo": "https://www.urbanwood.in/catalog/view/javascript/assets/image/urbanwoodlogo.jpg",
-  "image": "https://www.urbanwood.in/catalog/view/javascript/assets/image/urbanwoodlogo.jpg",
-  "description" : "Top Wooden Furniture: Buy Furniture Online for Home & Office in India. Exclusive designs, quality and best price - Urbanwood",
-  "address" : {
-        "@type": "PostalAddress",
-        "addressCountry": "India",
-        "addressLocality": "Haryana",
-        "addressRegion": "Gurugram, Haryana",
-        "streetAddress": "Urbanwood Furniture, Sector 20, Gurugram"
-      },
-    "email" : "support@urbanwood.in",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "9880739819",
-    "contactType": "customer service",
-    "contactOption": "TollFree",
-    "areaServed": "IN",
-    "availableLanguage": ["en","Hindi"]
-  },
-  "sameAs": [
-    "https://www.facebook.com/urbanwood.in",
-    "https://twitter.com/UrbanWoodin",
-    "https://www.youtube.com/@urbanwood",
-    "https://www.instagram.com/urbanwoodpvtltd/",
-    "https://www.linkedin.com/company/urbanwood-in",
-    "https://in.pinterest.com/urbanwoodIndia/_created/"
-  ]
-}
-</script> #}
-{# <script type="application/ld+json">
-{
-  "@context": "https://schema.org/",
-  "@type": "WebSite",
-  "name": "Urbanwood Furniture",
-  "url": "https://www.urbanwood.in/",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://www.urbanwood.in/search?search={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}
-</script> #}
-{% endif %}
 <script>
     function loadStorageOptions(section, jsonUrl) {
   const grid = section.querySelector('.storage-grid');
@@ -688,11 +633,8 @@ const observer = new IntersectionObserver((entries, obs) => {
     const el = entry.target;
     const jsonUrl = el.dataset.json;
 
-    // if (el.classList.contains('lazy-slider')) {
-    //   initBlazeSlider(el, jsonUrl);
-    // } else if (el.classList.contains('lazy-storage')) {
       loadStorageOptions(el, jsonUrl);
-    // }
+
 
     obs.unobserve(el);
   });
