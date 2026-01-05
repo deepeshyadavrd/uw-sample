@@ -51,7 +51,7 @@
                   <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-name{{ language.language_id }}">{{ entry_name }}</label>
                     <div class="col-sm-10">
-                      <input type="text" name="product_description[{{ language.language_id }}][name]" value="{{ product_description[language.language_id] ? product_description[language.language_id].name }}" placeholder="{{ entry_name }}" id="input-name{{ language.language_id }}" class="form-control" />
+                      <input type="text" name="product_description[{{ language.language_id }}][name]" value="{{ product_description[language.language_id] ? product_description[language.language_id].name }}" placeholder="{{ entry_name }}" id="input-name{{ language.language_id }}" class="form-control inputBox1" oninput="updateText()" />
                       {% if error_name[language.language_id] %}
                       <div class="text-danger">{{ error_name[language.language_id] }}</div>
                       {% endif %} </div>
@@ -1159,7 +1159,7 @@
                     <td class="text-left">{{ store.name }}</td>
                     <td class="text-left">{% for language in languages %}
                       <div class="input-group"><span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
-                        <input type="text" name="product_seo_url[{{ store.store_id }}][{{ language.language_id }}]" value="{% if product_seo_url[store.store_id][language.language_id] %}{{ product_seo_url[store.store_id][language.language_id] }}{% endif %}" placeholder="{{ entry_keyword }}" class="form-control" />
+                        <input type="text" name="product_seo_url[{{ store.store_id }}][{{ language.language_id }}]" value="{% if product_seo_url[store.store_id][language.language_id] %}{{ product_seo_url[store.store_id][language.language_id] }}{% endif %}" placeholder="{{ entry_keyword }}" class="form-control inputBox2" />
                       </div>
                       {% if error_keyword[store.store_id][language.language_id] %}
                       <div class="text-danger">{{ error_keyword[store.store_id][language.language_id] }}</div>
@@ -1868,4 +1868,14 @@ $('.datetime').datetimepicker({
 $('#language a:first').tab('show');
 $('#option a:first').tab('show');
 //--></script></div>
+<script>
+        function updateText() {
+          
+            var inputBox1 = document.getElementsByClassName('inputBox1')[0].value;
+   
+            var formattedText = inputBox1.toLowerCase().replace(/[^A-Z0-9]+/ig, "-");
+            formattedText = formattedText.replace(/-$/, ""); 
+            document.getElementsByClassName('inputBox2')[0].value = formattedText;
+        }
+    </script>
 {{ footer }} 
