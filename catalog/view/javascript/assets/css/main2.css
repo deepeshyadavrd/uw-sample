@@ -281,7 +281,7 @@ p a:hover::after {
 .home-slider-control-prev {
 	position: absolute;
 	top: auto !important;
-	bottom: 38px !important;
+	bottom: 10px !important;
 	z-index: 1;
 	display: flex;
 	background: #ff8000 !important;
