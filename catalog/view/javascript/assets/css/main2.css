@@ -7028,6 +7028,9 @@ span.img-label:last-child{
 }
 
 @media screen and (max-device-width:992px) {
+	.cp-with {
+		display: none
+	}
 	.text-size {
         font-size: 30px;
     }
@@ -7221,9 +7224,7 @@ span.img-label:last-child{
 }
 
 @media only screen and (max-width:768px) {
-	.cp-with {
-  		display: none
-  	}
+	
 	.make-in-india img{
         margin:10px 0;
     }
@@ -7708,6 +7709,10 @@ span.img-label:last-child{
 }
 
 @media only screen and (max-width:576px) {
+	.cp-with {
+		padding: 10px 0;
+		display: block;
+	}
 	.list-for-custom li {
         margin: 0.3em;
     }
