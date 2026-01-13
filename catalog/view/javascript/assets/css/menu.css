@@ -64,7 +64,7 @@ padding:0!important;
 .header-content-top .content span {
   color: #fff;
   font-size: 14px;
-margin: 0 15px;
+margin: 0 0 0 10px;
 }
 .header-content-top .content span a {
   color: #fff;
@@ -525,7 +525,6 @@ position:relative;
 .text-wrapper {
   position: absolute;
   top: 0;
-  left: 0;
   animation: slideTop 12s ease-in-out infinite;
 }
 
@@ -645,6 +644,7 @@ margin:0;
   }
 .text-wrapper {
   right: 0;
+  left: 0;
 }
 .text-wrapper div {
   justify-content: center;
