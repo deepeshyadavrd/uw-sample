@@ -2,39 +2,60 @@
 {{ menu }}
 </div>
 <div class="wrapper">
-  <div class="sidecall">
-    <button type="button" class="requestcall" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-      Request Call
-      <span><i class='bx bx-phone-call bx-tada'></i></span>
-    </button>
-  </div>
     <!-- quality section-->
   <div class="qu-sec py-2">
-    <div class="container">
+    <div class="container-md">
       <div class="row"> 
         <div class="col-lg-12">
-          <picture>
-            <source srcset="catalog/view/javascript/assets/image/big-strip.jpeg" type="image/webp" media="(min-width:768px)">
-            <img loading="eager" src="catalog/view/javascript/assets/image/big-strip-mobile.webp" type="image/webp" height="100" alt="no cost emi small banner" class="img-fluid mobile-offer-baner d-sm-block" loading="lazy"/>
-          </picture>
+          {# <picture>
+            <source srcset="catalog/view/javascript/assets/image/big-strip.jpeg" type="image/webp" media="(min-width:768px)" loading="lazy">
+            <img loading="eager" src="catalog/view/javascript/assets/image/big-strip.jpeg" type="image/webp" height="100" alt="no cost emi small banner" class="img-fluid mobile-offer-baner d-sm-block" loading="lazy"/>
+          </picture> #}
+          <div class="marquee-wrapper">
+<a href="custom-furniture" class="marquee-track">
+    <img src="catalog/view/javascript/assets/image/big-strip.webp" alt="Scrolling banner">
+    <img src="catalog/view/javascript/assets/image/big-strip.webp" alt="" aria-hidden="true">
+    </a>
+
+</div>
         </div>
       </div>
     </div>
   </div>
+  <style>
+  .marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-track img {
+  height: 250px;       /* adjust as needed */
+  width: auto;
+  flex-shrink: 0;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+  </style>
   <!-- end quality section-->
   <div class="slider-outer">
     <!-- Carousel -->
-    <div class="container" style="width: 100%;">
+    <div class="container-md" style="width: 100%;">
       <div class="row ">
-        {% if is_mobile == null %}
-        <div class="col-lg-3 ps-lg-0" style="padding-right:0;">
-          <div class="cp-with">
-            <a href="new-arrivals">
-              <img src="assets/image/web-side-image.webp"  class="img-responsive img-fluid"  loading="lazy" alt="Celebrate Diwali with Huge Discounts and Special Offers"/>
-            </a>
-          </div>
-        </div>
-        {% endif %}
+        
         <div class="col-lg-9">
         {% if is_mobile == null %}
           <div id="demo" class="carousel slide d-none d-sm-block" data-bs-ride="carousel">
@@ -48,10 +69,10 @@
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <div class="slider-img">
-                  <a href="diwali-sale">
+                  <a href="sofas">
                     <picture class="picture-image-cls-container">
-                      <source srcset="image/catalog/monsoon-offer/monsoon-sale-1.webp" media="(min-width:768px)" data-type="picture">
-                      <img class="d-block img-responsive img-fluid" src="image/catalog/monsoon-offer/monsoon-sale-1.webp" loading="eager" media="(min-width:768px)" width="100%" height="100%" alt="diwan beds at urbanwood new birthday sale" loading="lazy">
+                      <source srcset="image/catalog/monsoon-offer/monsoon-sale-1.avif" media="(min-width:768px)" data-type="picture">
+                      <img class="d-block img-responsive img-fluid" src="image/catalog/monsoon-offer/monsoon-sale-1.webp" loading="eager" media="(min-width:768px)" width="100%" alt="Urbanwood's New Year Sale sofa upto 40% discount" loading="lazy">
                     </picture>
                   </a>
                 </div>
@@ -59,21 +80,21 @@
               <div class="carousel-item">
                 <div class="slider-img">
                   <a href="temples">
-                    <img src="image/catalog/monsoon-offer/monsoon-sale-2.avif" alt="temples made with sheesham wood" class="d-block img-responsive img-fluid" width="100%" height="100%" loading="lazy">
+                    <img src="image/catalog/monsoon-offer/monsoon-sale-2.webp" alt="temples made with sheesham wood" class="d-block img-responsive img-fluid" width="100%" loading="lazy">
                   </a>
                 </div>
               </div>
               <div class="carousel-item">
                 <div class="slider-img">
                   <a href="sofa-cum-bed">
-                    <img src="image/catalog/monsoon-offer/monsoon-sale-3.avif" alt="best quality sofa cum beds at Urbanwood" class="d-block img-responsive img-fluid" width="100%" height="100%" loading="lazy">
+                    <img src="image/catalog/monsoon-offer/monsoon-sale-3.webp" alt="best quality sofa cum beds at Urbanwood" class="d-block img-responsive img-fluid" width="100%" loading="lazy">
                   </a>
                 </div>
               </div>
               <div class="carousel-item">
                 <div class="slider-img">
                   <a href="wardrobes">
-                    <img src="image/catalog/monsoon-offer/monsoon-sale-5.avif" alt="wardrobes for storage" class="d-block img-responsive img-fluid" width="100%" height="100%" loading="lazy">
+                    <img src="image/catalog/monsoon-offer/monsoon-sale-5.webp" alt="wardrobes for storage" class="d-block img-responsive img-fluid" width="100%" loading="lazy">
                   </a>
                 </div>
               </div>
@@ -89,19 +110,64 @@
           {% else %}
           <div id="demo2" class="carousel slide d-block d-sm-none pt-2" >
             <div class="slider-img">
-            <a href="diwali-sale">
+            <a href="sofas">
               <picture>
-                <source srcset="image/catalog/monsoon-offer/mobile-banner.webp" type="image/avif">
+                <source srcset="image/catalog/monsoon-offer/mobile-banner.avif" type="image/avif">
                 <img src="image/catalog/monsoon-offer/mobile-banner.webp" alt="urbanwood furniture sale" width="469" height="385" class="d-block img-fluid img-responsive" fetchpriority="high" loading="eager">
               </picture>
               </a>
             </div>
           </div>
           {% endif %}
+          
+        </div>
+        <div class="col-lg-3 ps-lg-0">
+          <div class="cp-with">
+            <a href="https://www.urbanwood.in/clearance-sale">
+              <img src="assets/image/web-side-image.webp" class="img-responsive img-fluid" loading="lazy" alt="Celebrate Wedding season with Huge Discounts and Special Offers"/>
+              <a href="https://maps.app.goo.gl/Pk51raAtg93oVu6k7" target="_blank" class="overlay-btn btn btn-primary">
+      <i class='bx  bx-trip'></i> Gurugram, Haryana
+  </a>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <style>
+  .img-overlay-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.img-overlay-wrap img {
+  display: block;
+  width: 100%;
+}
+
+.overlay-btn {
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: #d2691e00!important;
+    background-color: #00000000;
+    border-color: #f31819;
+    font-size: 9px;
+}
+.overlay-btn:hover {
+  color:white!important;
+  background:#f51a1f;
+}
+@media screen and (max-width:576px) {
+  .overlay-btn {
+    bottom: 15px;
+    font-size: 14px;
+  }
+
+}
+  </style>
   <!-- -slider end -->
 
 
@@ -233,7 +299,7 @@
   </section>
   <style>
     .skeleton-loader {
-      width: 100%;
+      width: 90%;
       position: absolute;
       height: 115px; 
       background-color: #e0e0e0; 
