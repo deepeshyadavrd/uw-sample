@@ -5566,8 +5566,8 @@ span.img-label:last-child{
 	/* beds storage options */
 	.storage-options {
 	  padding: 40px 20px;
-	  max-width: 1200px;
-	  margin: 0 auto;
+	  /* max-width: 1200px;
+	  margin: 0 auto; */
 	}
 	.storage-options h2 {
 	  font-size: 18px;
