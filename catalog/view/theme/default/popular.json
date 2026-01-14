@@ -5,7 +5,9 @@
     "price": "₹55,310",
     "mrp": "₹89,600",
     "link": "/stack-bed-with-storage-king-size-honey-finish",
-    "discount": "38"
+    "discount": "38",
+    "brand": "Urbanwood",
+    "features": ["3 Years Warranty", "A-Grade Wood"]
   },
   {
     "name": "Trace Bar Cabinet",
@@ -13,7 +15,9 @@
     "price": "₹42,000",
     "mrp": "₹70,300",
     "link": "/trace-bar-cabinet-teak-finish",
-    "discount": "40"
+    "discount": "40",
+    "brand": "Urbanwood",
+    "features": ["3 Years Warranty", "A-Grade Wood"]
   },
   {
     "name": "Joe Diwan Bed",
@@ -21,7 +25,9 @@
     "price": "₹20,450",
     "mrp": "₹33,601",
     "link": "/joe-diwan-bed-walnut-finish",
-    "discount": "39"
+    "discount": "39",
+    "brand": "Urbanwood",
+    "features": ["3 Years Warranty", "A-Grade Wood"]
   },
   {
     "name": "Freshlyn Sofa Set",
@@ -29,7 +35,9 @@
     "price": "₹65,000",
     "mrp": "₹94,683",
     "link": "/freshlyn-wooden-sofa-sets-teak-finish",
-    "discount": "31"
+    "discount": "31",
+    "brand": "Urbanwood",
+    "features": ["3 Years Warranty", "A-Grade Wood"]
   },
   {
     "name": "Aper Sofa Cum Bed",
@@ -38,7 +46,9 @@
     "mrp": "₹59,848",
     "link": "/aper-wooden-sofa-cum-bed-teak-finish",
     "discount": "46",
-    "best_seller": true
+    "best_seller": true,
+    "brand": "Urbanwood",
+    "features": ["3 Years Warranty", "A-Grade Wood"]
   },
   {
     "name": "Tubular File Cabinet",
@@ -46,6 +56,8 @@
     "price": "₹32,155",
     "mrp": "₹65,170",
     "link": "/royce-diwan-teak-finish",
-    "discount": "51"
+    "discount": "51",
+    "brand": "Urbanwood",
+    "features": ["3 Years Warranty", "A-Grade Wood"]
   }
 ]
