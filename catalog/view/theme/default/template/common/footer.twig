@@ -730,5 +730,38 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
   </script>
+  <script>
+
+const track = document.getElementById('productTrack');
+let loaded = false;
+
+const observer1 = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting && !loaded) {
+    loaded = true;
+
+    fetch('catalog/view/theme/default/popular.json')
+      .then(res => res.json())
+      .then(products => {
+        products.forEach(p => {
+          const card = document.createElement('a');
+          card.href = p.link;
+          card.className = 'product-card';
+
+          card.innerHTML = `
+            ${p.best_seller ? '<span class="product-badge">Best Seller</span>' : ''}
+            <img src="${p.image}" alt="${p.name}" loading="lazy">
+            <h4>${p.name}</h4>
+            <div class="price">${p.price}</div>
+          `;
+
+          track.appendChild(card);
+        });
+      });
+  }
+});
+
+observer1.observe(track);
+
+  </script>
 </body>
 </html>

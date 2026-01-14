@@ -449,6 +449,60 @@
     </div>
   </section>
   <style>
+.product-slider {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 5px;
+}
+
+.slider-track {
+  display: flex;
+  gap: 16px;
+  width: max-content; /* KEY FIX */
+}
+  .product-card {
+  flex: 0 0 220px;
+  max-width: 220px;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+/* Badge */
+.product-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: #d32f2f;
+  color: #fff;
+  border-radius: 3px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+  </style>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="product-slider">
+          <div class="slider-track" id="productTrack"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <style>
     .custom-carousel2 .owl-nav i {
       position: relative;
       top: 12%;
