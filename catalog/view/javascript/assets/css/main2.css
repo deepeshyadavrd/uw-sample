@@ -5564,15 +5564,15 @@ span.img-label:last-child{
       margin: 0.5rem;
     }
 	/* beds storage options */
-	.storage-options {
+	/* .storage-options {
 	  padding: 40px 20px;
 	  /* max-width: 1200px;
-	  margin: 0 auto; */
+	  margin: 0 auto; *
 	}
 	.storage-options h2 {
 	  font-size: 18px;
 	  margin-bottom: 10px;
-	}
+	} */
 	.storage-grid {
 	  display: grid;
 	  gap: 20px;
