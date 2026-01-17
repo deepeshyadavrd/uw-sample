@@ -190,6 +190,7 @@ class ControllerProductCategory extends Controller {
 					'price'       	=> $price,
 					'special'     	=> $special,
 					'special_number'=>  $result['special'],
+					'bestseller'=>  $result['bestseller'],
 					'discount'	  	=> $percentage_off,
 					'brand'			=> $result['manufacturer'],
 					// 'tax'         	=> $tax,

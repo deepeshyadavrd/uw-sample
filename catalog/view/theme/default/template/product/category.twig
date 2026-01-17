@@ -146,8 +146,8 @@ for(var i = 0; i < filters.length; i++) {
                   </div> 
                 </div>
                 <div class="pd-img-in">
-                {% if badge %}
-                  <div class="item-name" style="top:4px !important; font-size:12px;">Big Deal Flat 55% Off<span> </span></div>
+                {% if product.bestseller == 1 %}
+                  <span class="product-badge">BEST SELLER</span>
                 {% endif %}
                 {% if (product.stock_status == 'Out Of Stock') %}
                   <span class="shop-nowb-btn" style="margin-top: 19px;"> Out Of Stock</span>
@@ -235,7 +235,7 @@ for(var i = 0; i < filters.length; i++) {
 		* callback datalayer variable to handle navigation after the ecommerce data has been sent  
 		* to Google Analytics.  * @param {Object} productObj An object representing a product.  
 		*/ 
-		function productObj{{ product.product_id }}() {
+		{# function productObj{{ product.product_id }}() {
     event.preventDefault(); // Prevent default navigation
     dataLayer.push({ ecommerce: null });   
 		dataLayer.push({      
@@ -279,7 +279,7 @@ for(var i = 0; i < filters.length; i++) {
           content_ids: '{{ product.product_id }}',
           content_type: 'product'
         });
-		}
+		} #}
 		</script>
           {% endfor %}
           <div id="newslr"></div>
@@ -521,15 +521,15 @@ function productLoading(){
 // containing one or more impressionFieldObjects.
   // Clear the previous ecommerce object.
 
-dataLayer.push({
+{# dataLayer.push({
   'event': 'view_item_list', 
   'ecommerce': {
     'currencyCode': 'INR',                       // Local currency is optional.
     'impressions': itemsList
   }
-});
+}); #}
 </script>
 <script>
-  fbq('track', 'ViewContent', { content_name: '{{ heading_title }}' });
+  {# fbq('track', 'ViewContent', { content_name: '{{ heading_title }}' }); #}
 </script>
 {{ footer }}
