@@ -214,11 +214,13 @@ $('.ifilter').on('click', function() {
 	$('input[name^=\'filter\']:checked').each(function(element) {
 		filter.push(this.value);
 	});
+  
   if (filter.length === 0) {
     location = '{{ action }}';
   }else {
 	  location = '{{ action }}?filter=' + filter.join(',');
   }
+  console.log(filter, filter.length); 
 });
 //--></script> 
 
