@@ -80,8 +80,8 @@ class ControllerExtensionModuleFilter extends Controller {
 				$url .= '&pr=' . $this->request->get['pr'];
 			}
 
-			// $data['action'] = str_replace('&amp;', '&', $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url, true));
-			$data['action'] = str_replace('&amp;', '&', '?route=product/category&path=' . $this->request->get['path'] . $url);
+			$data['action'] = str_replace('&amp;', '&', $this->url->link('product/category', 'path=' . $this->request->get['path'] . $url, true));
+			//$data['action'] = str_replace('&amp;', '&', '?route=product/category&path=' . $this->request->get['path'] . $url);
 
 			if (isset($this->request->get['filter'])) {
 				$data['filter_category'] = explode(',', $this->request->get['filter']);
