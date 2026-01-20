@@ -2661,7 +2661,7 @@ background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ecec
 .submit-forgot-btn:hover {
 	color: #fff
 }
-.fillter-mob-sec {
+/* .fillter-mob-sec {
 	background: #fff3e7;
 	border-radius: 6px;
 	margin: 0 0 27px;
@@ -2669,14 +2669,14 @@ background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ecec
 	box-shadow: 0 9px 20px #cd67023d;
 	border: 1px solid #fdd0a2;
 	display: none
-}
-.fillter-mob-sec .filter-button {
+} */
+/* .fillter-mob-sec .filter-button {
 	background: linear-gradient(45deg, #ff8000, #ffe598);
 	padding: 4px 10px;
 	box-shadow: 0 9px 20px #cd67023d;
 	border: none;
 	color: #fff
-}
+} */
 .accordion-item-filter,
 .filter-switch2>.form-check-input:focus,
 .filter-switch>.form-check-input:focus,
@@ -6611,7 +6611,7 @@ span.img-label:last-child{
 		display: none
 	}
 
-	.fillter-mob-sec,
+	/* .fillter-mob-sec, */
 	.review-item {
 		display: block
 	}

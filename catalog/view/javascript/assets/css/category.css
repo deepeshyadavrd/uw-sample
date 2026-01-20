@@ -178,7 +178,7 @@ background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ecec
 	padding: 8px;
 	box-shadow: 0 9px 20px #cd67023d;
 	border: 1px solid #fdd0a2;
-	display: none
+	/* display: none */
 }
 .fillter-mob-sec .filter-heading {
 	margin: 0;

@@ -102,67 +102,66 @@
   </section>    
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 {# <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script> #}
-  <section class="py-2">
-    <div class="container container-custom">
-      <div class="row">
-        {{ filter }}
-    <div class="col-md-9 col-sm-12">
-      <div class="product-img-list">
-        <div class="row"  id="product_box">
-        <script>
-        let filters = {{ products | json_encode | raw }};
-var itemsList = [];
+<section class="py-2">
+  <div class="container container-custom">
+    <div class="row">
+      {{ filter }}
+      <div class="col-md-12 col-sm-12">
+        <div class="product-img-list">
+          <div class="row"  id="product_box">
+            <script>
+              let filters = {{ products | json_encode | raw }};
+              var itemsList = [];
 
-for(var i = 0; i < filters.length; i++) {
-    var obj = {};
-    obj['id'] = filters[i]['product_id'];
-    obj['name'] = filters[i]['name'];
-    obj['price'] = filters[i]['special_number'];
-    obj['image'] = filters[i]['thumb'];
-    obj['link'] = filters[i]['href'];
-    obj['category'] = filters[i]['p_cat'];
-    obj['brand'] = 'Urbanwood';
-    itemsList.push(obj);
-}
-          </script>
-          {% for product in products %}
-          <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
-            <div class="product-box-img">
-              <div class="button-pd">
-                <div class="like-heart mx-2"> 
-                  <span ><i class="bx bx-heart" onclick="wishlist.add('{{ product.product_id }}');" id="likeheart" ></i></span> 
-                </div>  
-                <div class="sharer">
-                  <button id="share" class="cursor-pointer share">
-                    <i class='bx bxs-share-alt'></i></button> 
+              for(var i = 0; i < filters.length; i++) {
+                  var obj = {};
+                  obj['id'] = filters[i]['product_id'];
+                  obj['name'] = filters[i]['name'];
+                  obj['price'] = filters[i]['special_number'];
+                  obj['image'] = filters[i]['thumb'];
+                  obj['link'] = filters[i]['href'];
+                  obj['category'] = filters[i]['p_cat'];
+                  obj['brand'] = 'Urbanwood';
+                  itemsList.push(obj);
+              }
+            </script>
+            {% for product in products %}
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+              <div class="product-box-img">
+                {# <div class="button-pd">
+                  {# <div class="like-heart mx-2"> 
+                    <span ><i class="bx bx-heart" onclick="wishlist.add('{{ product.product_id }}');" id="likeheart" ></i></span> 
+                  </div>   #}
+                  {# <div class="sharer">
+                    {# <button id="share" class="cursor-pointer share"><i class='bx bxs-share-alt'></i></button> 
                     <div id="share_icons" class="absolute opacity-0 share_icons"> 
-                      <a href="https://twitter.com/intent/tweet?text=Im Sharing on Twitter&url=https://www.urbanwood.in&hashtags=urbanwood,custom furniture,furniture" target="_blank" class="pd-share cursor-pointer">
+                      {# <a href="https://twitter.com/intent/tweet?text=Im Sharing on Twitter&url=https://www.urbanwood.in&hashtags=urbanwood,custom furniture,furniture" target="_blank" class="pd-share cursor-pointer">
                         <i class="bx bxl-twitter"></i>
-                      </a> 
-                      <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.urbanwood.in" target="_blank" class=" pd-share cursor-pointer">
+                      </a>  
+                      {# <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.urbanwood.in" target="_blank" class=" pd-share cursor-pointer">
                         <i class="bx bxl-facebook"></i>
-                      </a> 
+                      </a>  
                     </div> 
-                  </div> 
-                </div>
+                  </div>
+                </div> #}
                 <div class="pd-img-in">
-
-                {% if product.bestseller == 1 %}
-                  <span class="product-badge1">BEST SELLER</span>
-                {% endif %}
-                {% if (product.stock_status == 'Out Of Stock') %}
-                  <span class="shop-nowb-btn" style="margin-top: 19px;"> Out Of Stock</span>
-                {% else %}
-                  <button class="shop-nowb-btn" onclick="addtocart(1,{{ product.product_id }}); productTocart{{ product.product_id }}();"> Add to Cart</button>
-                {% endif %}
-                  <a href="{{ product.href }}" onclick="productObj{{ product.product_id }}();" target="_blank"><div class="overlay-pd" style="cursor: pointer"></div></a>
+                  {% if product.bestseller == 1 %}
+                    <span class="product-badge1">BEST SELLER</span>
+                  {% endif %}
+                  {% if (product.stock_status == 'Out Of Stock') %}
+                    <span class="shop-nowb-btn" style="margin-top: 19px;"> Out Of Stock</span>
+                  {% else %}
+                    <button class="shop-nowb-btn" onclick="addtocart(1,{{ product.product_id }}); productTocart{{ product.product_id }}();"> Add to Cart</button>
+                  {% endif %}
+                  <a href="{{ product.href }}" onclick="productObj{{ product.product_id }}();" target="_blank">
+                  {# <div class="overlay-pd" style="cursor: pointer"></div> #}
+                  </a>
                   {% if loop.first %}
                     {% if (product.stock_status == 'Out Of Stock') %}
                       <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid out-of-stock" fetchpriority="high" loading="eager">
                     {% else %}
                       <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid" fetchpriority="high" loading="eager">
                     {% endif %}
-
                   {% else %}
                     {% if (product.stock_status == 'Out Of Stock') %}
                       <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid out-of-stock" loading="lazy">
@@ -172,62 +171,67 @@ for(var i = 0; i < filters.length; i++) {
                   {% endif %}
                 </div>
                 <div class="pd-deatils-sec">
-                  <div class="d-flex justify-content-between align-items-start p-2" style="    padding-left: 0!important;    padding-right: 0!important;">
+                  <div class="d-flex justify-content-between align-items-start py-2">
                     <div class="pd-heading"> 
-                     <div class="pd-name"><a href="{{ product.href }}" onclick="productObj{{ product.product_id }}();" target="_blank" style="cursor: pointer">{{ product.name }}</a></div> 
-                      {% if product.finish %}
-                        <div class="pd-config">{{ product.finish }}</div>
-                      {% endif %}
-                     <span class="pd-creater"> By&nbsp;{{ product.brand }}</span>
-                   </div>
-                   <div class="color-feature">
-                    {% if (product.stock_status == 'Out Of Stock') %}
-                      <span class="availibility-pd">Out of Stock</span>
-                    {% else %}
-                    {% if product.pro_gro is not empty %}
-                      <span class="availibility-pd">More Finish</span>
-                      <div class="color-feature-check"> 
-                        {% for progro in product.pro_gro %}
-                          <div class="zoom" data-toggle="tooltip" data-placement="top" title="{{progro.text }}">
-                            <a href="{{ progro.link }}"><img src="catalog/view/javascript/assets/image/icon/{{ progro.text|lower }}.jpg" alt="{{progro.text }}" loading="lazy"></a>
-                          </div>
-                        {% endfor %}
+                      <div class="pd-name"><a href="{{ product.href }}" onclick="productObj{{ product.product_id }}();" target="_blank" style="cursor: pointer">{{ product.name }}</a></div> 
+                        {% if product.finish %}
+                          <div class="pd-config">{{ product.finish }}</div>
+                        {% endif %}
+                        <span class="pd-creater"> By&nbsp;{{ product.brand }}</span>
+                      </div>
+                      <div class="color-feature">
+                        {% if (product.stock_status == 'Out Of Stock') %}
+                          <span class="availibility-pd">Out of Stock</span>
+                        {% else %}
+                          {% if product.pro_gro is not empty %}
+                            <span class="availibility-pd">More Finish</span>
+                            <div class="color-feature-check"> 
+                              {% for progro in product.pro_gro %}
+                                <div class="zoom" data-toggle="tooltip" data-placement="top" title="{{progro.text }}">
+                                  <a href="{{ progro.link }}"><img src="catalog/view/javascript/assets/image/icon/{{ progro.text|lower }}.jpg" alt="{{progro.text }}" loading="lazy"></a>
+                                </div>
+                              {% endfor %}
+                            </div>
+                          {% endif %}
+                        {% endif %}
+                      </div>
                     </div>
-                    {% endif %}
-                    {% endif %}
+                    {# <hr> #}
+                    <div class="d-flex justify-content-between align-items-start">
+                      <div class="pricing-pd">
+                        <div class=""> 
+                          <div class="pd-amount price-now"> {{ product.special }} </div> 
+                        </div>
+                        <div class="">
+                          <div class="cut-ammount price-was">{{ product.price }} </div>  
+                          <span class=" badge bridge-offer" style="font-size:10px">{{ product.discount }}% off </span>
+                        </div>
+                      </div>
+                      <button class="product-button"  onclick="addtocart(1,{{ product.product_id }}); productTocart{{ product.product_id }}();">
+                    <span class="button-text">Add to Cart</span>
+                    <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                </button>
+                    </div>
                   </div>
                 </div>
-                <hr>
-                <div class="d-flex justify-content-between align-items-start">
-                  <div class="pricing-pd">
-                    <div class=""> 
-                      <div class="pd-amount"> {{ product.special }} </div> <div class="cut-ammount">{{ product.price }} </div>  
-                      <span class=" badge bridge-offer" style="font-size:10px">{{ product.discount }}% off </span>
+              </div>
+              {% if  loop.index0 == 5 %}
+                <div class="signup-banner-strip">
+                  <div class="d-md-flex d-block justify-content-around align-items-center text-center ">
+                    <div class="sign-banner-con">
+                      <h5>Empower Your Choices</h5>
+                      <h6>EMI Options Now <span style="color:#fc0000;font-weight: 700;"> Unlocked!</span></h6>
                     </div>
-                  </div>
-                  {# <div class="pd-offers">
-                    <ul>
-                      <li class="offer-list"> <i class="bx bx-check"></i> No Cost EMI </li>
-                    </ul>
-                  </div> #}
+                  <div>
+                  <a href="/" type="button" class="view_all_btn" style="margin-top: 19px;"> Shop Now</a>
                 </div>
-              </div>
-            </div>
-          </div>
-          {% if  loop.index0 == 5 %}
-          <div class="signup-banner-strip">
-            <div class="d-md-flex d-block justify-content-around align-items-center text-center ">
-              <div class="sign-banner-con">
-                <h5>Empower Your Choices</h5>
-                {# <p>&</p> #}
-                <h6>EMI Options Now <span style="color:#fc0000;font-weight: 700;"> Unlocked!</span></h6>
-              </div>
-              <div>
-                <a href="/" type="button" class="view_all_btn" style="margin-top: 19px;"> Shop Now</a>
-              </div>
-              <div class="banner-strip-img">
-                <img src="catalog/view/javascript/assets/image/red-shape-bg.png" alt="background shape to highlight our sofa" class="img-fluid img-responsive" loading="lazy">
-              </div>
+                <div class="banner-strip-img">
+                  <img src="catalog/view/javascript/assets/image/red-shape-bg.png" alt="background shape to highlight our sofa" class="img-fluid img-responsive" loading="lazy">
+                </div>
             </div>
           </div>
           {% endif %}
