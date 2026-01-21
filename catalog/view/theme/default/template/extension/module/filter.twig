@@ -4,7 +4,110 @@
         padding-bottom: 55px;
         margin: 35px 0;
     }
+
+    {# new  #}
+
+    /* Custom Button Styling */
+        .btn-outline-dark { border-color: #333; border-radius: 0; padding: 8px 20px; }
+        .nav-link { color: #333; margin-right: 15px; }
+        
+        /* Filter Labels and Controls */
+        .filter-label-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; font-size: 0.85rem; }
+        .clear-link { text-decoration: none; color: #333; font-size: 0.75rem; }
+        .form-control, .form-select { border-radius: 0; border: 1px solid #333; height: 45px; }
+        
+        /* Tag Styling */
+        .filter-tag {
+            display: inline-flex;
+            align-items: center;
+            background-color: #f0f0f0;
+            padding: 5px 12px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        .btn-close-small { font-size: 0.6rem; margin-left: 10px; cursor: pointer; }
+        
+        .results-count { font-size: 0.8rem; color: #333; margin-top: 25px; text-align: right; }
 </style>
+<div class="container-fluid">
+    <div class="row align-items-center mb-4">
+        <div class="col-md-2">
+            <button class="btn btn-outline-dark"><i class="bi bi-filter-left"></i> Filters</button>
+        </div>
+        <div class="col-md-8">
+            <div class="d-flex align-items-center">
+                <button class="btn btn-outline-dark me-3">View all</button>
+                {# <a href="#" class="nav-link">Category one</a>
+                <a href="#" class="nav-link">Category two</a>
+                <a href="#" class="nav-link">Category three</a>
+                <a href="#" class="nav-link">Category four</a> #}
+            </div>
+        </div>
+        <div class="col-md-2 text-end">
+            <div class="dropdown">
+                <span class="me-1">Sort by</span>
+                <i class="bi bi-chevron-down"></i>
+            </div>
+        </div>
+    </div>
+
+    {# <div class="row g-3">
+        <div class="col-md-3">
+            <div class="filter-label-row">
+                <span>Filter One</span>
+                <a href="#" class="clear-link">Clear</a>
+            </div>
+            <div class="input-group">
+                <span class="input-group-text bg-white border-dark border-end-0"><i class="bi bi-search"></i></span>
+                <input type="text" class="form-control border-start-0 ps-0" placeholder="Keyword">
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="filter-label-row">
+                <span>Filter Two</span>
+                <a href="#" class="clear-link">Clear</a>
+            </div>
+            <select class="form-select">
+                <option selected>Option One</option>
+                <option value="1">Option Two</option>
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <div class="filter-label-row">
+                <span>Filter Three</span>
+                <a href="#" class="clear-link">Clear</a>
+            </div>
+            <select class="form-select">
+                <option selected>Option One</option>
+                <option value="1">Option Two</option>
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <div class="filter-label-row">
+                <span>Filter Four</span>
+                <a href="#" class="clear-link">Clear</a>
+            </div>
+            <select class="form-select">
+                <option selected>Option One</option>
+                <option value="1">Option Two</option>
+            </select>
+        </div>
+    </div> #}
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="filter-tag">
+                Tag <i class="bi bi-x btn-close-small"></i>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <p class="results-count">Showing 0 of 100</p>
+        </div>
+    </div>
+</div>
 <div class="col-lg-12 col-md-12 col-sm-12">
   <div class="fillter-mob-sec">
     <div class="d-flex justify-content-between align-items-center">
