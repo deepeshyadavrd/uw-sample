@@ -557,7 +557,7 @@
                     </div>
                     <div class="col-md-6 col-6">
                         <div class="category-card explore-all-card d-flex align-items-center justify-content-center">
-                            <a href="#" class="text-white text-decoration-none h5">Explore All <i class="bi bi-arrow-right"></i></a>
+                            <a href="#" class="text-white text-decoration-none h5">Explore All <i class="bx bx-right-arrow-alt"></i></a>
                         </div>
                     </div>
                 </div>
@@ -616,8 +616,22 @@
 }
 
 .explore-all-card {
-    background: linear-gradient(135deg, #1a2a23 0%, #2d4a3e 100%);
+    background: linear-gradient(135deg, #00bd6a 0%, #000000 100%);
     min-height: 200px;
+}
+.explore-all-card::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: linear-gradient(135deg, #00bd6a 0%, #000000 100%);
+  transform: rotate(0deg);
+  transition: transform 1.2s ease-in-out;
+}
+.explore-all-card:hover::before {
+  transform: rotate(180deg);
+}
+.explore-all-card a{
+  z-index:1;
 }
 
 .small-card { min-height: 190px; }
