@@ -515,6 +515,113 @@
     </div>
   </div>
 </section>
+<section class="relay-collection py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="category-card hero-card shadow-lg">
+                    <img src="image/catalog/monsoon-offer/mobile-banner-1.jpg" alt="Astra Collection">
+                    <div class="card-overlay text-center">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="row g-4">
+                    <div class="col-md-6 col-6">
+                        <div class="category-card small-card">
+                            <img src="image/catalog/monsoon-offer/mobile-banner-1.jpg" alt="Living Room">
+                            <div class="card-footer-label">
+                                {# <span>Living Room</span>
+                                <i class="bi bi-arrow-right-circle"></i> #}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-6">
+                        <div class="category-card small-card">
+                            <img src="image/catalog/monsoon-offer/mobile-banner-1.jpg" alt="Dining Room">
+                            <div class="card-footer-label">
+                                {# <span>Dining Room</span>
+                                <i class="bi bi-arrow-right-circle"></i> #}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-6">
+                        <div class="category-card small-card">
+                            <img src="image/catalog/monsoon-offer/mobile-banner-1.jpg" alt="Bedroom">
+                            <div class="card-footer-label">
+                                {# <span>Bedroom</span>
+                                <i class="bi bi-arrow-right-circle"></i> #}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-6">
+                        <div class="category-card explore-all-card d-flex align-items-center justify-content-center">
+                            <a href="#" class="text-white text-decoration-none h5">Explore All <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+.category-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    background: var(--royal-emerald);
+    height: 100%;
+    transition: transform 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.category-card:hover {
+    transform: scale(1.02);
+    border-color: var(--gold-accent);
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+/* Hero Overlay Styling */
+.hero-card .card-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.hero-card h2 {
+    letter-spacing: 8px;
+    color: var(--gold-accent);
+    text-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
+}
+
+/* Small Card Footer Labels */
+.card-footer-label {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+}
+
+.explore-all-card {
+    background: linear-gradient(135deg, #1a2a23 0%, #2d4a3e 100%);
+    min-height: 200px;
+}
+
+.small-card { min-height: 190px; }
+</style>
   {# <style>
     .custom-carousel2 .owl-nav i {
       position: relative;
