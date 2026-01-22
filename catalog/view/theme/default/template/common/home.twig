@@ -557,7 +557,7 @@
                     </div>
                     <div class="col-md-6 col-6">
                         <div class="category-card explore-all-card d-flex align-items-center justify-content-center">
-                            <a href="#" class="text-white text-decoration-none h5">Explore All <i class="bx bx-right-arrow-alt"></i></a>
+                            <a href="#" class="text-white text-decoration-none card-link h5">Explore All <span class="hover-icon"><i class="bx bx-right-arrow-alt"></i></span></a>
                         </div>
                     </div>
                 </div>
@@ -616,14 +616,14 @@
 }
 
 .explore-all-card {
-    background: linear-gradient(135deg, #00bd6a 0%, #000000 100%);
-    min-height: 200px;
+    /*background: linear-gradient(135deg, #00bd6a 0%, #000000 100%);*/
+    min-height: 190px;
 }
 .explore-all-card::before {
   content: "";
   position: absolute;
   inset: -50%;
-  background: linear-gradient(135deg, #00bd6a 0%, #000000 100%);
+  background: linear-gradient(135deg, #fc7e00 21%, #000000 100%);
   transform: rotate(0deg);
   transition: transform 1.2s ease-in-out;
 }
@@ -635,6 +635,34 @@
 }
 
 .small-card { min-height: 190px; }
+.hover-icon {
+  margin-left: 8px;
+  opacity: 0;
+  transform: translateX(-8px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.35s ease;
+}
+
+/* show icon on hover */
+.explore-all-card:hover .hover-icon {
+  opacity: 1;
+  transform: translateX(0);
+}
+.card-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
 </style>
   {# <style>
     .custom-carousel2 .owl-nav i {
