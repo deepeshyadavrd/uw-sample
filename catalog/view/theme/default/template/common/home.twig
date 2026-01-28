@@ -670,14 +670,50 @@ display: inline-flex;
           <div class="col-md-6 col-6">
             <div class="category-card small-card">
               <a href="relay-dining-room-collection">
-                <img src="image/collection/relay-dining-room.jpg" alt="Dining Room">
+                {# <img src="image/collection/relay-dining-room.jpg" alt="Dining Room"> #}
+                <img 
+              src="image/collection/relay-dining-room.webp" 
+              srcset="
+                image/collection/relay-dining-room-187.webp 399w,
+                image/collection/relay-dining-room-214.webp 1024w,
+                image/collection/relay-dining-room-304.webp 1440w,
+                image/collection/relay-dining-room-334.webp 768w
+              "
+              sizes="
+                (max-width: 576px) 30vw,
+                (max-width: 768px) 45vw,
+                (max-width: 992px) 45vw,
+                50vw
+              "
+              alt="Dining room"
+              class="img-fluid"
+              loading="lazy"
+              style="aspect-ratio:1/1; ">
               </a>
             </div>
           </div>
           <div class="col-md-6 col-6">
             <div class="category-card small-card">
               <a href="relay-living-room-collection">
-                <img src="image/collection/relay-living-room.jpg" alt="Living">
+                {# <img src="image/collection/relay-living-room.jpg" alt="Living"> #}
+                <img 
+              src="image/collection/relay-living-room.webp" 
+              srcset="
+                image/collection/relay-living-room-187.webp 399w,
+                image/collection/relay-living-room-214.webp 1024w,
+                image/collection/relay-living-room-304.webp 1440w,
+                image/collection/relay-living-room-334.webp 768w
+              "
+              sizes="
+                (max-width: 576px) 30vw,
+                (max-width: 768px) 45vw,
+                (max-width: 992px) 45vw,
+                50vw
+              "
+              alt="Living room"
+              class="img-fluid"
+              loading="lazy"
+              style="aspect-ratio:1/1; ">
               </a>
             </div>
           </div>
