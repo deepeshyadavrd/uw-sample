@@ -1024,7 +1024,7 @@ p a:hover::after {
 	border-radius: 10px !important
 }
 .query-sec {
-	background: url(../image/ques-bg.png) bottom left 38px no-repeat, no-repeat #ff7200;
+	background: url(../image/ques-bg.avif) bottom left 38px no-repeat, no-repeat #ff7200;
 	color: #fff;
 	padding: 40px 28px 0;
 	margin: 4rem 0 0 -3rem;
@@ -2923,7 +2923,7 @@ background-image: -webkit-linear-gradient(left, #ececec 0px, #f4f4f4 40px, #ecec
 	float: left
 }
 .signup-banner-strip {
-	background: url(../image/sign-strip-banner-bg.jpg) top 35px center/cover repeat-x;
+	background: url(../image/sign-strip-banner-bg.avif) top 35px center/cover repeat-x;
 	height: 232px;
 	width: 100%;
 	margin: 0 0 43px;
