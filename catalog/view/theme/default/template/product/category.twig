@@ -153,7 +153,8 @@
                   {% else %}
                     <button class="shop-nowb-btn" onclick="addtocart(1,{{ product.product_id }}); productTocart{{ product.product_id }}();"> Add to Cart</button>
                   {% endif %}
-                  <a href="{{ product.href }}" onclick="productObj{{ product.product_id }}();" target="_blank">
+                  <a href="{{ product.href }}"  target="_blank">
+                  {# onclick="productObj{{ product.product_id }}();" #}
                   {# <div class="overlay-pd" style="cursor: pointer"></div> #}
                   </a>
                   {% if loop.first %}
@@ -173,7 +174,8 @@
                 <div class="pd-deatils-sec">
                   <div class="d-flex justify-content-between align-items-start py-2">
                     <div class="pd-heading"> 
-                      <div class="pd-name"><a href="{{ product.href }}" onclick="productObj{{ product.product_id }}();" target="_blank" style="cursor: pointer">{{ product.name }}</a></div> 
+                      <div class="pd-name"><a href="{{ product.href }}"  target="_blank" style="cursor: pointer">{{ product.name }}</a></div>
+                      {# onclick="productObj{{ product.product_id }}();"  #}
                         {% if product.finish %}
                           <div class="pd-config">{{ product.finish }}</div>
                         {% endif %}
