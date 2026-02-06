@@ -277,18 +277,24 @@
     </div>
   </div>
 </section>
-
+<style>
+.grid-abc{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+</style>
 {# new sec end #}
   <section class="py-lg-4 py-3">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 col-6">
+        <div class="grid-abc">
           <a href="wardrobes" aria-label="wardrobes">
             <div class="skeleton-loader skeleton-loader2"></div>
             <img data-src="assets/image/extra-off-banner/festive-offer-banner.webp" tabincdex="0" alt="Luxurious Solid Wood Wardrobe with Timeless Design" class="lazy-load img-fluid" onerror="this.style.display='none';" loading="lazy">
           </a>
-        </div>
-        <div class="col-lg-6 col-6">
+        {# </div>
+        <div class="col-lg-6 col-6"> #}
           <a href="sofas" aria-label="sofas">
             <div class="skeleton-loader skeleton-loader2"></div>
             <img data-src="assets/image/extra-off-banner/sofaset-banner.webp" tabincdex="0" alt="Classic Design for a Timeless Look" class="lazy-load img-fluid" onerror="this.style.display='none';" loading="lazy">

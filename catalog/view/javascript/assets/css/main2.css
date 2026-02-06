@@ -5544,12 +5544,13 @@ span.img-label:last-child{
   .gallery {
       display: flex;
       flex-wrap: wrap;
+	  gap: 10px;
     }
     .gallery-item {
       flex: 1 1 calc(16% - 20px);
-      margin: 5px;
+      /* margin: 5px; */
       overflow: hidden;
-      border-radius: 0.3rem;
+      border-radius: 0.5rem;
     }
     .gallery-item img {
       width: 100%;
@@ -5575,12 +5576,12 @@ span.img-label:last-child{
 	} */
 	.storage-grid {
 	  display: grid;
-	  gap: 20px;
+	  gap: 15px;
 	  grid-template-columns: repeat(4, 1fr);
 	}
 	.storage-card {
 	  background: #fff;
-	  border-radius: 16px;
+	  border-radius: 8px;
 	  box-shadow: inset -1px 1px 13px 5px rgba(0, 0, 0, 0.06);
 	  overflow: hidden;
 	  transition: transform 2s ease, box-shadow 3s ease;
