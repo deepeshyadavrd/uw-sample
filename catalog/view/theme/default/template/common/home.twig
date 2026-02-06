@@ -611,6 +611,11 @@ display: inline-flex;
   align-items: center;
   gap: 6px;
 }
+.category-grid{
+  display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+}
 </style>
 <section class="relay-collection py-5">
   <div class="container">
@@ -619,115 +624,104 @@ display: inline-flex;
         <div class="category-card hero-card">
           <a href="relay-collection">
             {# <img src="image/collection/the-relay-collection.jpg" alt="Relay Collection"> #}
-            <img 
-              src="image/collection/the-relay-collection.webp" 
-              srcset="
-                image/collection/the-relay-collection-399.webp 399w,
-                image/collection/the-relay-collection-454.webp 1024w,
-                image/collection/the-relay-collection-634.webp 1440w,
-                image/collection/the-relay-collection-694.webp 768w
-              "
-              sizes="
-                (max-width: 576px) 30vw,
-                (max-width: 768px) 45vw,
-                (max-width: 992px) 45vw,
-                40vw
-              "
-              alt="Relay Collection"
-              class="img-fluid"
-              loading="lazy"
-              style="aspect-ratio:1/1; ">
+            <img src="image/collection/the-relay-collection.webp" srcset="image/collection/the-relay-collection-399.webp 399w, image/collection/the-relay-collection-454.webp 1024w, image/collection/the-relay-collection-634.webp 1440w, image/collection/the-relay-collection-694.webp 768w" sizes=" (max-width: 576px) 30vw, (max-width: 768px) 45vw, (max-width: 992px) 45vw, 40vw" alt="Relay Collection" class="img-fluid" loading="lazy">
           </a>  
         </div>
       </div>
       <div class="col-lg-6">
-        <div class="row g-4">
-          <div class="col-md-6 col-6">
+        <div class="category-grid">
+          {# <div class="col-md-6 col-6"> #}
             <div class="category-card small-card">
               <a href="relay-bedroom-collection">
                 {# <img src="image/collection/relay-bedroom.jpg" alt="Bedroom"> #}
-                <img 
-              src="image/collection/relay-bedroom.webp" 
-              srcset="
-                image/collection/relay-bedroom-187.webp 399w,
-                image/collection/relay-bedroom-214.webp 1024w,
-                image/collection/relay-bedroom-304.webp 1440w,
-                image/collection/relay-bedroom-334.webp 768w
-              "
-              sizes="
-                (max-width: 576px) 30vw,
-                (max-width: 768px) 45vw,
-                (max-width: 992px) 45vw,
-                40vw
-              "
-              alt="Bedroom"
-              class="img-fluid"
-              loading="lazy"
-              style="aspect-ratio:1/1; ">
+                <img src="image/collection/relay-bedroom.webp" srcset="image/collection/relay-bedroom-187.webp 399w,image/collection/relay-bedroom-214.webp 1024w,image/collection/relay-bedroom-304.webp 1440w,image/collection/relay-bedroom-334.webp 768w" sizes="(max-width: 576px) 30vw,(max-width: 768px) 45vw,(max-width: 992px) 45vw,40vw" alt="Bedroom" class="img-fluid" loading="lazy">
               </a>
             </div>
-          </div>
-          <div class="col-md-6 col-6">
+          {# </div>
+          <div class="col-md-6 col-6"> #}
             <div class="category-card small-card">
               <a href="relay-dining-room-collection">
                 {# <img src="image/collection/relay-dining-room.jpg" alt="Dining Room"> #}
-                <img 
-              src="image/collection/relay-dining-room.webp" 
-              srcset="
-                image/collection/relay-dining-room-187.webp 399w,
-                image/collection/relay-dining-room-214.webp 1024w,
-                image/collection/relay-dining-room-304.webp 1440w,
-                image/collection/relay-dining-room-334.webp 768w
-              "
-              sizes="
-                (max-width: 576px) 30vw,
-                (max-width: 768px) 45vw,
-                (max-width: 992px) 45vw,
-                40vw
-              "
-              alt="Dining room"
-              class="img-fluid"
-              loading="lazy"
-              style="aspect-ratio:1/1; ">
+                <img src="image/collection/relay-dining-room.webp" srcset=" image/collection/relay-dining-room-187.webp 399w, image/collection/relay-dining-room-214.webp 1024w, image/collection/relay-dining-room-304.webp 1440w, image/collection/relay-dining-room-334.webp 768w" sizes="(max-width: 576px) 30vw, (max-width: 768px) 45vw, (max-width: 992px) 45vw, 40vw " alt="Dining room" class="img-fluid" loading="lazy" style="aspect-ratio:1/1; ">
               </a>
             </div>
-          </div>
-          <div class="col-md-6 col-6">
+          {# </div>
+          <div class="col-md-6 col-6"> #}
             <div class="category-card small-card">
               <a href="relay-living-room-collection">
                 {# <img src="image/collection/relay-living-room.jpg" alt="Living"> #}
-                <img 
-              src="image/collection/relay-living-room.webp" 
-              srcset="
-                image/collection/relay-living-room-187.webp 399w,
-                image/collection/relay-living-room-214.webp 1024w,
-                image/collection/relay-living-room-304.webp 1440w,
-                image/collection/relay-living-room-334.webp 768w
-              "
-              sizes="
-                (max-width: 576px) 30vw,
-                (max-width: 768px) 45vw,
-                (max-width: 992px) 45vw,
-                40vw
-              "
-              alt="Living room"
-              class="img-fluid"
-              loading="lazy"
-              style="aspect-ratio:1/1; ">
+                <img src="image/collection/relay-living-room.webp" srcset="image/collection/relay-living-room-187.webp 399w, image/collection/relay-living-room-214.webp 1024w, image/collection/relay-living-room-304.webp 1440w, image/collection/relay-living-room-334.webp 768w" sizes=" (max-width: 576px) 30vw, (max-width: 768px) 45vw, (max-width: 992px) 45vw, 40vw" alt="Living room" class="img-fluid" loading="lazy">
               </a>
             </div>
-          </div>
-          <div class="col-md-6 col-6">
+          {# </div>
+          <div class="col-md-6 col-6"> #}
             <div class="category-card explore-all-card d-flex align-items-center justify-content-center">
               <a href="#" class="text-white text-decoration-none card-link h5">Explore All <span class="hover-icon"><i class="bx bx-right-arrow-alt"></i></span></a>
             </div>
+          {# </div> #}
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+<div class="container mt-4">
+  <div class="furniture-grid">
+    <div class="grid-item main-feature">
+      <a href="relay-collection">
+            {# <img src="image/collection/the-relay-collection.jpg" alt="Relay Collection"> #}
+            <img src="image/collection/the-relay-collection.webp" srcset="image/collection/the-relay-collection-399.webp 399w, image/collection/the-relay-collection-454.webp 1024w, image/collection/the-relay-collection-634.webp 1440w, image/collection/the-relay-collection-694.webp 768w" sizes=" (max-width: 576px) 30vw, (max-width: 768px) 45vw, (max-width: 992px) 45vw, 40vw" alt="Relay Collection" class="img-fluid" loading="lazy" style="width:100%">
+          </a>  
+    </div>
+    
+    <div class="grid-item">
+    <a href="relay-dining-room-collection">
+                {# <img src="image/collection/relay-dining-room.jpg" alt="Dining Room"> #}
+                <img src="image/collection/relay-dining-room.webp" srcset=" image/collection/relay-dining-room-187.webp 399w, image/collection/relay-dining-room-214.webp 1024w, image/collection/relay-dining-room-304.webp 1440w, image/collection/relay-dining-room-334.webp 768w" sizes="(max-width: 576px) 30vw, (max-width: 768px) 45vw, (max-width: 992px) 45vw, 40vw " alt="Dining room" class="img-fluid" loading="lazy" style="width:100%">
+              </a>
+    </div>
+    <div class="grid-item">
+    <a href="relay-bedroom-collection">
+                {# <img src="image/collection/relay-bedroom.jpg" alt="Bedroom"> #}
+                <img src="image/collection/relay-bedroom.webp" srcset="image/collection/relay-bedroom-187.webp 399w,image/collection/relay-bedroom-214.webp 1024w,image/collection/relay-bedroom-304.webp 1440w,image/collection/relay-bedroom-334.webp 768w" sizes="(max-width: 576px) 30vw,(max-width: 768px) 45vw,(max-width: 992px) 45vw,40vw" alt="Bedroom" class="img-fluid" loading="lazy" style="width:100%">
+              </a>
+    </div>
+    <div class="grid-item">
+    <a href="relay-living-room-collection">
+                {# <img src="image/collection/relay-living-room.jpg" alt="Living"> #}
+                <img src="image/collection/relay-living-room.webp" srcset="image/collection/relay-living-room-187.webp 399w, image/collection/relay-living-room-214.webp 1024w, image/collection/relay-living-room-304.webp 1440w, image/collection/relay-living-room-334.webp 768w" sizes=" (max-width: 576px) 30vw, (max-width: 768px) 45vw, (max-width: 992px) 45vw, 40vw" alt="Living room" class="img-fluid" loading="lazy" style="width:100%">
+              </a>
+    </div>
+    <div class="grid-item explore-all-card"><a href="#" class="text-white text-decoration-none card-link h5">Explore All <span class="hover-icon"><i class="bx bx-right-arrow-alt"></i></span></a></div>
+  </div>
+</div>
+<style>
+.furniture-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 15px;
+}
 
+/* Mobile: Main feature takes the full first row */
+.main-feature {
+  grid-column: span 2; 
+}
+
+/* Desktop: Screens 768px and wider */
+@media (min-width: 768px) {
+  .furniture-grid {
+    grid-template-columns: repeat(4, 1fr); 
+  }
+
+  .main-feature {
+    grid-row: span 2;
+  }
+}
+
+.grid-item {
+  overflow: hidden;
+}
+</style>
   {# <style>
     .custom-carousel2 .owl-nav i {
       position: relative;
