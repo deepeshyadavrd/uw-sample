@@ -109,7 +109,7 @@ for(var i = 0; i < filters.length; i++) {
                 {% else %}
                   <button class="shop-nowb-btn" onclick="addtocart(1,{{ product.product_id }}); productTocart{{ product.product_id }}();"> ADD TO CART</button>
                 {% endif %}
-                  <a onclick="productObj{{ product.product_id }}();" target="_blank"><div class="overlay-pd" style="cursor: pointer"></div></a>
+                  <a href="{{ product.href }}" onclick="productObj{{ product.product_id }}();" target="_blank"><div class="overlay-pd" style="cursor: pointer"></div></a>
                   {% if loop.first %}
                     {% if (product.stock_status == 'Out Of Stock') %}
                       <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid out-of-stock" fetchpriority="high" loading="eager">
@@ -128,7 +128,7 @@ for(var i = 0; i < filters.length; i++) {
                 <div class="pd-deatils-sec">
                   <div class="d-flex justify-content-between align-items-start p-2" style="    padding-left: 0!important;    padding-right: 0!important;">
                     <div class="pd-heading"> 
-                     <div class="pd-name"><a  onclick="productObj{{ product.product_id }}();" target="_blank" style="cursor: pointer">{{ product.name }}</a></div> 
+                     <div class="pd-name"><a  href="{{ product.href }}" onclick="productObj{{ product.product_id }}();" target="_blank" style="cursor: pointer">{{ product.name }}</a></div> 
                       {% if product.finish %}
                         <div class="pd-config">{{ product.finish }}</div>
                       {% endif %}
