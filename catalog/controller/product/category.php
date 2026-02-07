@@ -138,7 +138,11 @@ class ControllerProductCategory extends Controller {
 				'limit'              => $limit,
 				'pr'				 =>	$pr
 			);
+			$exception_categories = [90]; // CHANGE IDS
 
+			if (!in_array($category_id, $exception_categories)) {
+				$filter_data['hide_recent_products'] = true;
+			}
 			// $product_total = $this->model_catalog_product->getTotalProducts($filter_data);
 
 			$results = $this->model_catalog_product->getProducts($filter_data);
@@ -414,7 +418,11 @@ class ControllerProductCategory extends Controller {
 		  'limit'              => $limit,
 		  'pr'				=> $pr
 	  );
-	  
+	  $exception_categories = [90]; // CHANGE IDS
+
+			if (!in_array($category_id, $exception_categories)) {
+				$filter_data['hide_recent_products'] = true;
+			}
 	  
 		 $results = $this->model_catalog_product->getProducts($filter_data);
 
