@@ -9,6 +9,15 @@ class ModelInformationRequestcallback extends Model {
 		return $rc_id;
 
 	}
+	public function addPriceRequest($data) {
+		date_default_timezone_set("Asia/Kolkata");
+		$date =   date("y-m-d H:i:s");
+		$this->db->query("INSERT INTO " . DB_PREFIX . "request_callback SET name = '" . $this->db->escape($data['c_name']) . "', email = '" . $this->db->escape($data['c_email']) . "', mobile = '" . $this->db->escape($data['c_mobile']) . "',state = '" . $this->db->escape($data['c_state']) . "', message = 'Price For -" . $this->db->escape($data['product']) . "', date_added = '" . $date . "'");
+
+		$rc_id = $this->db->getLastId();
+		return $rc_id;
+
+	}
 
 	public function addCatalogrequest($data) {
 		date_default_timezone_set("Asia/Kolkata");

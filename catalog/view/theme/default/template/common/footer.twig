@@ -328,30 +328,6 @@
         </div>
     </div>
 </footer>
-<div class="modal fade" id="callPopup" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content p-3">
-
-      <div class="modal-header border-0">
-        <h5 class="modal-title">Request Price</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <div class="modal-body">
-        <form id="priceReqForm">
-        <input type="hidden" name="product" id="modalProduct">
-          <input type="hidden" name="source" id="modalSource">
-          <input class="form-control mb-2" type="text"  name="p_name" placeholder="Name" required>
-          <input class="form-control mb-2" type="email" name="c_email"  placeholder="Email" required>
-          <input class="form-control mb-2" type="tel"   name="c_mobile" placeholder="Mobile" required>
-          <input class="form-control mb-2" type="text"  name="c_state" placeholder="State" required>
-          <button class="btn send-btn w-100" type="submit">Send</button>
-        </form>
-      </div>
-
-    </div>
-  </div>
-</div>
 <button type="button" class="SmoothmyTop" aria-label='to top'><i class='bx bx-up-arrow-alt'></i></button>
 
 <script type="text/javascript" src="catalog/view/javascript/assets/js/main.js?v=1.3" ></script>
@@ -383,33 +359,7 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "jggwwdk7bl");
 </script> #}
-<script>
-const modal = document.getElementById('callPopup');
 
-modal.addEventListener('show.bs.modal', e => {
-  const btn = e.relatedTarget;
-  //modal.querySelector('#modalTitle').innerText = btn.dataset.title;
-  modal.querySelector('#modalProduct').value = btn.dataset.title;
-  modal.querySelector('#modalSource').value = btn.dataset.source;
-});
-
-document.getElementById('priceReqForm').addEventListener('submit', function(e){
-  e.preventDefault();
-
-  fetch('?route=product/new_products/submit', {
-    method: 'POST',
-    body: new FormData(this)
-  })
-  .then(r => r.json())
-  .then(res => {
-    if(res.success){
-      alert('Request submitted');
-      bootstrap.Modal.getInstance(document.getElementById('callPopup')).hide();
-      this.reset();
-    }
-  });
-});
-</script>
 <style>
     .float {
         position: fixed;

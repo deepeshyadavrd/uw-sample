@@ -188,10 +188,10 @@ class ControllerProductNewProducts extends Controller {
 
     public function submit(){
         $this->load->model('information/requestcallback');
-        if($_POST['name'] != ' ' && $_POST['name'] != NULL && $_POST['email'] != ' ' && $_POST['email'] != NULL){
-            $result = $this->model_information_requestcallback->addRequestcallback($this->request->post);
+        if($_POST['c_name'] != ' ' && $_POST['c_name'] != NULL && $_POST['c_email'] != ' ' && $_POST['c_email'] != NULL){
+            $result = $this->model_information_requestcallback->addPriceRequest($this->request->post);
             $json = array();
-            $to="deepesh.yadav.in@urbanwood.in";
+            $to="deepesh.yadav@urbanwood.in";
             $subject="Request Callback enquiry";
             $senderName = 'Urbanwood Furniture';
             $senderEmail = 'support@urbanwood.in';
@@ -211,7 +211,7 @@ class ControllerProductNewProducts extends Controller {
             	$message .= "Name: ".$_POST["name"]."\n"."EMail: ".$_POST['email']."\nMobile: ".$_POST['mobile']."\nTime Slot:".$_POST["time_slot"]."\nDate:".$_POST["date"]."\nLooking For:".$_POST["message"];
             }else{
             	$message="Call Back Request\n\n";
-            	$message .= "Name: ".$_POST["name"]."\n"."EMail: ".$_POST['email']."\nMobile: ".$_POST['mobile']."\nState: ".$_POST['state']."\nLooking For: ".$_POST["message"];
+            	$message .= "Name: ".$_POST["c_name"]."\n"."EMail: ".$_POST['c_email']."\nMobile: ".$_POST['c_mobile']."\nState: ".$_POST['c_state']."\nLooking For: Price for - ".$_POST["product"];
             }
             $message = "This is a multi-part message in MIME format.\n\n" .
             "--{$mime_boundary}\n" .
@@ -229,9 +229,10 @@ class ControllerProductNewProducts extends Controller {
             //$json['data'] = $this->request->post;
             $this->response->addHeader('Content-Type: application/json');
 		    $this->response->setOutput(json_encode($json));
-        }
+        }else{
         $json['error'] = 'empty data';
         $this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
+        }
     }
 }

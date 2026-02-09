@@ -140,15 +140,15 @@ for(var i = 0; i < filters.length; i++) {
                      <div class="pd-name"><a  href="{{ product.href }}" onclick="productObj{{ product.product_id }}();" target="_blank" style="cursor: pointer">{{ product.name }}</a></div> 
                       {# {% if product.finish %}
                         <div class="pd-config">{{ product.finish }}</div>
-                      {% endif %} #}
-                     {# <span class="pd-creater"> By&nbsp;{{ product.brand }}</span> #}
+                      {% endif %} 
+                     <span class="pd-creater"> By&nbsp;{{ product.brand }}</span> #}
                    </div>
                    <div class="color-feature">
                     {% if (product.stock_status == 'Out Of Stock') %}
                       <span class="availibility-pd">Out of Stock</span>
                     {% else %}
                       {% if product.pro_gro is not empty %}
-                        <span class="availibility-pd">More Finish</span>
+                        <span class="availibility-pd">Available Finish</span>
                         <div class="color-feature-check"> 
                           {% for progro in product.pro_gro %}
                             <div class="zoom" data-toggle="tooltip" data-placement="top" title="{{progro.text }}">
@@ -157,6 +157,22 @@ for(var i = 0; i < filters.length; i++) {
                             </div>
                           {% endfor %}
                         </div>
+                      {% else %}
+                        {% set finishes = ['teak', 'honey', 'walnut', 'natural', 'brown'] %}
+                        {% set finish_text = product.finish|lower %}
+                        <span class="availibility-pd">Available Finish</span>
+                        {% for finish in finishes %}
+                          {% if finish not in finish_text %}
+                            <div class="zoom"
+                                 data-toggle="tooltip"
+                                 data-placement="top"
+                                 title="{{ finish|capitalize }}">
+                        
+                              <img src="catalog/view/javascript/assets/image/icon/{{ finish }}.jpg"
+                                   alt="{{ finish }} finish">
+                            </div>
+                          {% endif %}
+                        {% endfor %}
                       {% endif %}
                     {% endif %}
                   </div>
@@ -206,7 +222,7 @@ for(var i = 0; i < filters.length; i++) {
 		* callback datalayer variable to handle navigation after the ecommerce data has been sent  
 		* to Google Analytics.  * @param {Object} productObj An object representing a product.  
 		*/ 
-		function productObj{{ product.product_id }}() {
+		{# function productObj{{ product.product_id }}() {
     dataLayer.push({ ecommerce: null });   
 		dataLayer.push({      
 		'event': 'productClick',   
@@ -249,7 +265,7 @@ for(var i = 0; i < filters.length; i++) {
           content_ids: '{{ product.product_id }}',
           content_type: 'product'
         });
-		}
+		} #}
 		</script>
           {% endfor %}
           <div id="newslr"></div>
@@ -394,7 +410,7 @@ $(".btAnimate").click(function(){
   var plock = 1;
   var page = 2;
   var limitp = 15;
-  var categoryloadmore = {{category_id}};
+  var categoryloadmore = {{ category_id }};
   var queryString = window.location.href;
   var urlParam = '';
   
@@ -524,17 +540,17 @@ function productLoading(){
 // containing one or more impressionFieldObjects.
   // Clear the previous ecommerce object.
 
-dataLayer.push({
+{# dataLayer.push({
   'event': 'view_item_list', 
   'ecommerce': {
     'currencyCode': 'INR',                       // Local currency is optional.
     'impressions': itemsList
   }
-});
+}); #}
 
 
 </script>
 <script>
-        fbq('track', 'ViewContent', { content_name: '{{ heading_title }}' });
+        {# fbq('track', 'ViewContent', { content_name: '{{ heading_title }}' }); #}
     </script>
 {{ footer }}
