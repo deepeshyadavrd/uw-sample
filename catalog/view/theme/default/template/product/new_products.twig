@@ -104,11 +104,11 @@ for(var i = 0; i < filters.length; i++) {
                 {% if badge %}
                   <div class="item-name" style="top:4px !important; font-size:12px;">Big Deal Flat 55% Off<span> </span></div>
                 {% endif %}
-                {% if (product.stock_status == 'Out Of Stock') %}
+                {# {% if (product.stock_status == 'Out Of Stock') %}
                   <h3 class="shop-nowb-btn" style="margin-top: 19px;"> Out Of Stock</h3>
-                {% else %}
-                  <button class="shop-nowb-btn" onclick="addtocart(1,{{ product.product_id }}); productTocart{{ product.product_id }}();"> ADD TO CART</button>
-                {% endif %}
+                {% else %} #}
+                  <button class="shop-nowb-btn" data-bs-toggle="modal" data-bs-target="#callPopup" data-title="{{ product.name }}" data-source="New Arrival">Request Price</button>
+                {# {% endif %} #}
                   <a href="{{ product.href }}" onclick="productObj{{ product.product_id }}();" target="_blank"><div class="overlay-pd" style="cursor: pointer"></div></a>
                   {% if loop.first %}
                     {% if (product.stock_status == 'Out Of Stock') %}
@@ -128,36 +128,49 @@ for(var i = 0; i < filters.length; i++) {
                 <div class="pd-deatils-sec">
                   <div class="d-flex justify-content-between align-items-start p-2" style="    padding-left: 0!important;    padding-right: 0!important;">
                     <div class="pd-heading"> 
+                    <style>
+                      .mto{
+                        background: #dddddd;
+                        padding: 4px;
+                        color: #4f4f4f;
+                        font-size: 12px;
+                      }
+                    </style>
+                    <span class="mto">Made to Order</span>
                      <div class="pd-name"><a  href="{{ product.href }}" onclick="productObj{{ product.product_id }}();" target="_blank" style="cursor: pointer">{{ product.name }}</a></div> 
-                      {% if product.finish %}
+                      {# {% if product.finish %}
                         <div class="pd-config">{{ product.finish }}</div>
-                      {% endif %}
-                     <span class="pd-creater"> By&nbsp;{{ product.brand }}</span>
+                      {% endif %} #}
+                     {# <span class="pd-creater"> By&nbsp;{{ product.brand }}</span> #}
                    </div>
                    <div class="color-feature">
                     {% if (product.stock_status == 'Out Of Stock') %}
                       <span class="availibility-pd">Out of Stock</span>
                     {% else %}
-                    {% if product.pro_gro is not empty %}
-                      <span class="availibility-pd">More Finish</span>
-                      <div class="color-feature-check"> 
-                        {% for progro in product.pro_gro %}
-                          <div class="zoom" data-toggle="tooltip" data-placement="top" title="{{progro.text }}">
-                            <a href="{{ progro.link }}"><img src="catalog/view/javascript/assets/image/icon/{{ progro.text|lower }}.jpg" alt="{{progro.text }}"></a>
+                      {% if product.pro_gro is not empty %}
+                        <span class="availibility-pd">More Finish</span>
+                        <div class="color-feature-check"> 
+                          {% for progro in product.pro_gro %}
+                            <div class="zoom" data-toggle="tooltip" data-placement="top" title="{{progro.text }}">
+                              <a href="{{ progro.link }}"><img src="catalog/view/javascript/assets/image/icon/{{ progro.text|lower }}.jpg" alt="{{progro.text }}"></a>
             
-                          </div>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
+                            </div>
+                          {% endfor %}
+                        </div>
+                      {% endif %}
                     {% endif %}
                   </div>
+                  
 
                 </div>
-                <hr>
-                <div class="d-flex justify-content-between align-items-start p-2">
+                {# <hr> #}
+                
+                {# <div class="d-flex justify-content-between align-items-start p-2">
                   <div class="pricing-pd">
                     <div class=""> 
-                      <div class="pd-amount"> {{ product.special }} </div> <div class="cut-ammount">{{ product.price }} </div>  
+                      <div class="pd-amount">  #}
+                      {# <button class="send-btn">Request Price</button>  #}
+                      {# </div>  
                       <span class=" badge bridge-offer" style="font-size:10px">{{ product.discount }}% off </span>
                     </div>
                   </div>
@@ -167,7 +180,7 @@ for(var i = 0; i < filters.length; i++) {
                     </ul>
                   </div>
 
-                </div>
+                </div> #}
               </div>
             </div>
           </div>
