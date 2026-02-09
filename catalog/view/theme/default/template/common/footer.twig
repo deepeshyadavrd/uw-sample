@@ -337,7 +337,15 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
 </div>
+<script>
+document.addEventListener('click', function (e) {
+  const btn = e.target.closest('.wa-btn');
+  if (!btn) return;
 
+  const msg = encodeURIComponent(btn.dataset.text);
+  window.open('https://wa.me/919311662426?text=' + msg, '_blank');
+});
+</script>
 <!-- Hotjar Tracking Code for my site -->
 <script>
 

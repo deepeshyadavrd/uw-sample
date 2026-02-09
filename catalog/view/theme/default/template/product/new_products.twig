@@ -107,7 +107,7 @@ for(var i = 0; i < filters.length; i++) {
                 {# {% if (product.stock_status == 'Out Of Stock') %}
                   <h3 class="shop-nowb-btn" style="margin-top: 19px;"> Out Of Stock</h3>
                 {% else %} #}
-                  <button class="shop-nowb-btn" data-bs-toggle="modal" data-bs-target="#callPopup" data-title="{{ product.name }}" data-source="New Arrival">Request Price</button>
+                  <button class="shop-nowb-btn wa-btn" data-text="Hi, I would like more information about {{ ' ' ~ product.name }}">Request Price</button>
                 {# {% endif %} #}
                   <a href="{{ product.href }}" onclick="productObj{{ product.product_id }}();" target="_blank"><div class="overlay-pd" style="cursor: pointer"></div></a>
                   {% if loop.first %}
@@ -167,7 +167,7 @@ for(var i = 0; i < filters.length; i++) {
                                  data-toggle="tooltip"
                                  data-placement="top"
                                  title="{{ finish|capitalize }}">
-                        
+
                               <img src="catalog/view/javascript/assets/image/icon/{{ finish }}.jpg"
                                    alt="{{ finish }} finish">
                             </div>
