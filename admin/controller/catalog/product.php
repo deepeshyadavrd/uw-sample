@@ -576,7 +576,7 @@ class ControllerCatalogProduct extends Controller {
 				'new_price_status'=>$result['new_price_status'],
 				'status'     => $result['status'] ? $this->language->get('text_enabled') : $this->language->get('text_disabled'),
 				'edit'       => $this->url->link('catalog/product/edit', 'user_token=' . $this->session->data['user_token'] . '&product_id=' . $result['product_id'] . $url, true),
-				'hide_price' => $result['hide_price'],
+				'hide_price' => $result['hide_price']
 			);
 		}
 
