@@ -321,14 +321,38 @@ lightbox.init();
               <h1 class="pp-heading-line">{{ heading_title }} &nbsp;<span class="pp-about"> {{ finish }}</span></h1>
               
               <span class="pd-creater"> By&nbsp;{{ manufacturer }}</span>
-              <div class="d-flex justify-content-between">
+              <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center my-2 p-4 rounded-3 bg-dark bg-opacity-10">
+                {% if not hide_price %}
                 <div class="price--order">
+                
                   <div class="real-amm">{{ special }}</div>
                   <div class="dis-amm">{{ price }}</div>
                   <div class="off-amm">{{ per_dis }}% OFF</div>
                   &nbsp;
                   <span class="pp-about">Incl all taxes*</span>
-                </div>
+                  </div>
+                {% else %}
+                <div class="row align-items-center w-100 m-0">
+    <div class="col-6 p-0">
+        <h4 class="mb-0 lh-sm fw-bold" style="font-size: 1rem;">
+            PRICE ON REQUEST
+        </h4>
+    </div>
+
+    <div class="col-6 p-0">
+        <button class="btn btn-success w-100 d-flex align-items-center justify-content-center gap-1 py-2 px-1 border-0" 
+                style="background-color: #25d366;"
+                data-text="Hi, I would like more information about Relay Ceramic Tile Coffee Table">
+            <span class="small text-nowrap">Whatsapp</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="18px" height="18px">
+                <path fill="#fff" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"></path>
+                <path fill="#40c351" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z"></path>
+            </svg>
+        </button>
+    </div>
+</div>
+                {% endif %}
+                
                 {% if review|default([])|length %}
                   <div class="rating-pp-ad-shoping"> 
                     <span class="rr-start"><i class='bx bxs-star'></i></span>
@@ -367,6 +391,7 @@ lightbox.init();
                 </div>
                 <div id="pincode-result"></div>
               </div>
+              {% if not hide_price %}
               <div class="my-3"  id="productcart">
                 <label for="size">Quantity</label>
                 <select name="quantity" class="form-select qty-select-drop" style="display:inline;line-height: 1;" aria-label="Default select example">
@@ -380,15 +405,35 @@ lightbox.init();
                     <span class="add-to-cart-btn">Out of Stock</span>
                   </div>
                 {% else %}
-                  <div class="w-100 d-block mt-3 text-center" style="position: sticky;">
-                    <input name="product_id" type="hidden" value="{{ product_id }}">
-                    <a class="add-to-cart-btn" id="addtocart">ADD TO CART</a>
-                    <div class="shake">
-                      <a class="buy-now-btn-pp element" id="buynow">BUY NOW</a>  
-                    </div>
-                  </div>
+                  <div class="w-100 mt-3">
+    <input name="product_id" type="hidden" value="{{ product_id }}">
+
+    <div class="d-flex align-items-stretch w-100 mb-2 gap-2">
+        
+        <button class="wa-btn btn btn-success d-flex align-items-center justify-content-center gap-1 py-2 px-2 border-0 rounded-2" 
+                style="background-color: #25d366; flex: 0 0 35%;"
+                data-text="Hi, I would like more information about {{ ' ' ~ heading_title }}">
+            <span class="small text-nowrap">Whatsapp</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="18px" height="18px">
+                <path fill="#fff" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"></path>
+                <path fill="#40c351" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z"></path>
+            </svg>
+        </button>
+
+        <a class="btn btn-outline-dark d-flex align-items-center justify-content-center fw-bold rounded-2 add-to-cart-btn" 
+           id="addtocart" 
+           style="flex: 1;">
+           ADD TO CART
+        </a>
+    </div>
+
+    <div class="shake w-100">
+        <a class="btn btn-dark w-100 py-3 fw-bold rounded-2 buy-now-btn-pp element" id="buynow">BUY NOW</a>  
+    </div>
+</div>
                 {% endif %}
               </div>
+              
               <hr style="border-bottom: 1px dashed #6a6a6a;border-top:none;">
               <h6>Available offers:</h6>
               <ul class="offer-avil-list">
@@ -397,6 +442,7 @@ lightbox.init();
                   </svg>EMI - Starting from Rs&nbsp;{{ starting_emi }} on HDFC credit card & More
                 </li>
               </ul>
+              {% endif %}
               {% for product_group in product_groups %}
                 {% if product_group.finish_name == 'Finish Option' %}
                   <div class="options-div">

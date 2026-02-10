@@ -42,12 +42,18 @@ for(var i = 0; i < filters.length; i++) {
   </div>
 
   <div class="pd-img-in">
-    {% if (product.stock_status == 'Out Of Stock') and (product.quantity == 0) %}
-      <h3 class="shop-nowb-btn" style="margin-top: 19px;"> Out Of Stock</h3>
-      {% else %}
-      <button class="shop-nowb-btn" onclick="addtocart(1,{{ product.product_id }}); productTocart{{ product.product_id }}();"> ADD TO CART</button>
-  
-    {% endif %}
+    {% if not product.hide_price %}
+
+{% if (product.stock_status == 'Out Of Stock') %}
+                    <span class="shop-nowb-btn" style="margin-top: 19px;"> Out Of Stock</span>
+                  {% else %}
+                    <button class="shop-nowb-btn" onclick="addtocart(1,{{ product.product_id }}); productTocart{{ product.product_id }}();"> Add to Cart</button>
+                  {% endif %}
+{% else %}
+    <button class="shop-nowb-btn wa-btn" data-text="Hi, I would like more information about {{ ' ' ~ product.name }}">
+        Request Price
+    </button>
+{% endif %}
     <a href="{{ product.href }}"  target="_blank"><div class="overlay-pd"  style="cursor: pointer"></div></a>
     {# onclick="productObj{{ product.product_id }}();" #}
     {% if (product.stock_status == 'Out Of Stock') %}
@@ -89,20 +95,19 @@ for(var i = 0; i < filters.length; i++) {
      
     </div>
     <hr>
-    <div class="d-flex justify-content-between align-items-start">
-                  <div class="pricing-pd">
-                    <div class=""> 
-                      <div class="pd-amount"> {{ product.special }} </div> <div class="cut-ammount">{{ product.price }} </div>  
-                      <span class=" badge bridge-offer" style="font-size:10px">{{ product.discount }} </span>
-                    </div>
-                  </div>
-                  {# <div class="pd-offers">
-                    <ul>
-                      <li class="offer-list"> <i class="bx bx-check"></i> No Cost EMI </li>
-                    </ul>
-                  </div> #}
-
-                </div>
+    {% if not product.hide_price %}
+                      <div class="d-flex justify-content-between align-items-start">
+                        <div class="pricing-pd">
+                          <div class=""> 
+                            <div class="pd-amount price-now"> {{ product.special }} </div> 
+                          </div>
+                          <div class="">
+                            <div class="cut-ammount price-was">{{ product.price }} </div>  
+                            <span class=" badge bridge-offer" style="font-size:10px">{{ product.discount }}% off </span>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
   </div>
 </div>
 </div>

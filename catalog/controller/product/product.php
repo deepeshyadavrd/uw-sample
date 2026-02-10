@@ -126,7 +126,7 @@ class ControllerProductProduct extends Controller {
 		}
 		$this->load->model('catalog/product');
 		$product_info = $this->model_catalog_product->getProduct($product_id);
-		print_r($product_info);
+		// print_r($product_info);
 		
 		if ($product_info) {
 			$url = '';
@@ -199,6 +199,7 @@ class ControllerProductProduct extends Controller {
 			$data['model'] = $product_info['model'];
 			$data['sku'] = $product_info['sku'];
 			$data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
+			$data['hide_price'] = (bool)$product_info['hide_price'];
 			if($product_info['length'] != 0 && $product_info['width'] != 0){
 				$data['dimension'] = ($product_info['length'] +0) . " L x " . ($product_info['width']+0) . " W x " . ($product_info['height']+0) . " H";
 			}
