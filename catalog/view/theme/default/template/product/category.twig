@@ -148,11 +148,19 @@
                   {% if product.bestseller == 1 %}
                     <span class="product-badge1">BEST SELLER</span>
                   {% endif %}
-                  {% if (product.stock_status == 'Out Of Stock') %}
+                  {% if not product.hide_price %}
+
+{% if (product.stock_status == 'Out Of Stock') %}
                     <span class="shop-nowb-btn" style="margin-top: 19px;"> Out Of Stock</span>
                   {% else %}
                     <button class="shop-nowb-btn" onclick="addtocart(1,{{ product.product_id }}); productTocart{{ product.product_id }}();"> Add to Cart</button>
                   {% endif %}
+{% else %}
+    <button class="shop-nowb-btn wa-btn" data-text="Hi, I would like more information about {{ ' ' ~ product.name }}">
+        Request Price
+    </button>
+{% endif %}
+
                   <a href="{{ product.href }}"  target="_blank">
                   {# onclick="productObj{{ product.product_id }}();" #}
                   {# <div class="overlay-pd" style="cursor: pointer"></div> #}
@@ -199,7 +207,20 @@
                       </div>
                     </div>
                     {# <hr> #}
-                    <div class="d-flex justify-content-between align-items-start">
+                    {% if not product.hide_price %}
+    {# {% if product.price %}
+        <p class="price">
+            {% if product.special %}
+                <span class="price-new">{{ product.special }}</span>
+                <span class="price-old">{{ product.price }}</span>
+            {% else %}
+                {{ product.price }}
+            {% endif %}
+        </p>
+    {% endif %}
+
+    <button class="shop-nowb-btn">Add to Cart</button> #}
+    <div class="d-flex justify-content-between align-items-start">
                       <div class="pricing-pd">
                         <div class=""> 
                           <div class="pd-amount price-now"> {{ product.special }} </div> 
@@ -210,6 +231,13 @@
                         </div>
                       </div>
                     </div>
+{# {% else %}
+    <button class="send-btn"
+            data-product="{{ product.name }}">
+        Request Price
+    </button> #}
+{% endif %}
+                    
                   </div>
                 </div>
               </div>

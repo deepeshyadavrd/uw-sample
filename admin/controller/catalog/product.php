@@ -575,7 +575,8 @@ class ControllerCatalogProduct extends Controller {
 				'quantity'   => $result['quantity'],
 				'new_price_status'=>$result['new_price_status'],
 				'status'     => $result['status'] ? $this->language->get('text_enabled') : $this->language->get('text_disabled'),
-				'edit'       => $this->url->link('catalog/product/edit', 'user_token=' . $this->session->data['user_token'] . '&product_id=' . $result['product_id'] . $url, true)
+				'edit'       => $this->url->link('catalog/product/edit', 'user_token=' . $this->session->data['user_token'] . '&product_id=' . $result['product_id'] . $url, true),
+				'hide_price' => $result['hide_price'],
 			);
 		}
 
@@ -1699,5 +1700,17 @@ class ControllerCatalogProduct extends Controller {
 				return 1; 
 			}else{ return 0;}
 		}
+	}
+	public function toggleHidePrice() {
+		$this->load->model('catalog/product');
+	
+		if (isset($this->request->post['product_id'])) {
+			$this->model_catalog_product->setHidePrice(
+				(int)$this->request->post['product_id'],
+				(int)$this->request->post['hide_price']
+			);
+		}
+	
+		$this->response->setOutput(json_encode(['success' => true]));
 	}
 }

@@ -196,6 +196,7 @@ class ControllerProductCategory extends Controller {
 					'special_number'=>  $result['special'],
 					'bestseller'=>  $result['bestseller'],
 					'discount'	  	=> $percentage_off,
+					'hide_price' => (bool)$result['hide_price'],
 					'brand'			=> $result['manufacturer'],
 					// 'tax'         	=> $tax,
 					// 'minimum'     	=> $result['minimum'] > 0 ? $result['minimum'] : 1,

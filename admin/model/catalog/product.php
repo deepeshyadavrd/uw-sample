@@ -2141,6 +2141,13 @@ class ModelCatalogProduct extends Model {
 		return $query->row['total'];
 
 	}
+	public function setHidePrice($product_id, $status) {
+		$this->db->query("
+			UPDATE " . DB_PREFIX . "product
+			SET hide_price = '" . (int)$status . "'
+			WHERE product_id = '" . (int)$product_id . "'
+		");
+	}
 
 }
 
