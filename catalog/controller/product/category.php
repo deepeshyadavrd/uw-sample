@@ -138,7 +138,7 @@ class ControllerProductCategory extends Controller {
 				'limit'              => $limit,
 				'pr'				 =>	$pr
 			);
-			$exception_categories = [90]; // CHANGE IDS
+			$exception_categories = [358]; // CHANGE IDS
 
 			if (!in_array($category_id, $exception_categories)) {
 				$filter_data['hide_recent_products'] = true;
@@ -418,7 +418,7 @@ class ControllerProductCategory extends Controller {
 		  'limit'              => $limit,
 		  'pr'				=> $pr
 	  );
-	  $exception_categories = [90]; // CHANGE IDS
+	  $exception_categories = [358]; // CHANGE IDS
 
 			if (!in_array($category_id, $exception_categories)) {
 				$filter_data['hide_recent_products'] = true;
