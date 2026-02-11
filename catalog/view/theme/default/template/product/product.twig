@@ -340,9 +340,9 @@ lightbox.init();
     </div>
 
     <div class="col-6 p-0">
-        <button class="btn btn-success w-100 d-flex align-items-center justify-content-center gap-1 py-2 px-1 border-0" 
+        <button class="wa-btn btn btn-success w-100 d-flex align-items-center justify-content-center gap-1 py-2 px-1 border-0" 
                 style="background-color: #25d366;"
-                data-text="Hi, I would like more information about Relay Ceramic Tile Coffee Table">
+                data-text="Hi, I would like more information about {{ ' ' ~ heading_title }}">
             <span class="small text-nowrap">Whatsapp</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="18px" height="18px">
                 <path fill="#fff" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"></path>
@@ -1332,7 +1332,7 @@ $('#addtocart').on('click', function() {
 				$('#cart > ul').load('index.php?route=common/cart/info ul li');
         var qun = $('#productcart select').val();
         var totalvalue = {{ special_number }} * qun;
-        gtag("event", "add_to_cart", {
+        /*gtag("event", "add_to_cart", {
           currency: "INR",
           value: totalvalue,
           items: [
@@ -1346,12 +1346,12 @@ $('#addtocart').on('click', function() {
             }
           ]
         });
-  fbq('track', 'AddToCart', {
+   fbq('track', 'AddToCart', {
     currency: 'INR',
     value:totalvalue,
     content_ids: '{{ product_id }}',
     content_type: 'product'
-  });
+  }); */
 
 			}
 		},
@@ -1599,7 +1599,7 @@ $('#reviewSubmit').on('click', function(e) {
 
     <script>
 // Measure a view of product details. This example assumes the detail view occurs on pageload, // and also tracks a standard pageview of the details page. // Clear the previous ecommerce object.
-dataLayer.push({
+{# dataLayer.push({
   'ecommerce': {
     'detail': {
       'actionField': {'list': 'Furniture'},    // 'detail' actions have an optional list property.
@@ -1627,18 +1627,18 @@ gtag("event", "view_item", {
       quantity: 1
     }
   ]
-});
+}); #}
 </script>
 <script>
 // Measures product impressions and also tracks a standard // pageview for the tag configuration. // Product impressions are sent by pushing an impressions object // containing one or more impressionFieldObjects. // Clear the previous ecommerce object.
 
-dataLayer.push({
+{# dataLayer.push({
   'event': 'view_item_list', 
   'ecommerce': {
     'currencyCode': 'INR',                       // Local currency is optional.
     'impressions': itemsList
   }
-});
+}); #}
 
 let pincodeData = [];
   let jsonLoaded = false;
