@@ -42,12 +42,12 @@
       </div>
     </div>
   </section>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+{# <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script> #}
   <section class="py-2">
     <div class="container container-custom">
       <div class="row">
-        {{ filter }}
+        {# {{ filter }} #}
     <div class="col-md-12 col-sm-12">
       <div class="product-img-list">
         <div class="row"  id="product_box">
@@ -97,7 +97,6 @@ for(var i = 0; i < filters.length; i++) {
                   <button class="shop-nowb-btn wa-btn" data-text="Hi, I would like more information about {{ ' ' ~ product.name }}">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="25px" height="25px" clip-rule="evenodd"><path fill="#fff" d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"></path><path fill="#fff" d="M4.868,43.803c-0.132,0-0.26-0.052-0.355-0.148c-0.125-0.127-0.174-0.312-0.127-0.483l2.639-9.636c-1.636-2.906-2.499-6.206-2.497-9.556C4.532,13.238,13.273,4.5,24.014,4.5c5.21,0.002,10.105,2.031,13.784,5.713c3.679,3.683,5.704,8.577,5.702,13.781c-0.004,10.741-8.746,19.48-19.486,19.48c-3.189-0.001-6.344-0.788-9.144-2.277l-9.875,2.589C4.953,43.798,4.911,43.803,4.868,43.803z"></path><path fill="#cfd8dc" d="M24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,4C24.014,4,24.014,4,24.014,4C12.998,4,4.032,12.962,4.027,23.979c-0.001,3.367,0.849,6.685,2.461,9.622l-2.585,9.439c-0.094,0.345,0.002,0.713,0.254,0.967c0.19,0.192,0.447,0.297,0.711,0.297c0.085,0,0.17-0.011,0.254-0.033l9.687-2.54c2.828,1.468,5.998,2.243,9.197,2.244c11.024,0,19.99-8.963,19.995-19.98c0.002-5.339-2.075-10.359-5.848-14.135C34.378,6.083,29.357,4.002,24.014,4L24.014,4z"></path><path fill="#40c351" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"></path><path fill="#fff" fill-rule="evenodd" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z" clip-rule="evenodd"></path></svg>
                   Request Price</button>
-
                   <a href="{{ product.href }}" onclick="productObj{{ product.product_id }}();" target="_blank"><div class="overlay-pd" style="cursor: pointer"></div></a>
                   {% if loop.first %}
                     {% if (product.stock_status == 'Out Of Stock') %}
@@ -115,7 +114,7 @@ for(var i = 0; i < filters.length; i++) {
                   {% endif %}
                 </div>
                 <div class="pd-deatils-sec">
-                  <div class="d-flex justify-content-between align-items-start p-2" style="    padding-left: 0!important;    padding-right: 0!important;">
+                  <div class="d-flex justify-content-between align-items-start p-2" style="padding-left: 0!important;padding-right: 0!important;">
                     <div class="pd-heading"> 
                     <style>
                       .mto{
@@ -137,8 +136,7 @@ for(var i = 0; i < filters.length; i++) {
                         <div class="color-feature-check"> 
                           {% for progro in product.pro_gro %}
                             <div class="zoom" data-toggle="tooltip" data-placement="top" title="{{progro.text }}">
-                              <a href="{{ progro.link }}"><img src="catalog/view/javascript/assets/image/icon/{{ progro.text|lower }}.jpg" alt="{{progro.text }}"></a>
-            
+                              <a href="{{ progro.link }}"><img src="catalog/view/javascript/assets/image/icon/{{ progro.text|lower }}.jpg" alt="{{progro.text }}" loading="lazy"></a>
                             </div>
                           {% endfor %}
                         </div>
@@ -148,13 +146,8 @@ for(var i = 0; i < filters.length; i++) {
                         <span class="availibility-pd">Available Finish</span>
                         {% for finish in finishes %}
                           {% if finish not in finish_text %}
-                            <div class="zoom"
-                                 data-toggle="tooltip"
-                                 data-placement="top"
-                                 title="{{ finish|capitalize }}">
-
-                              <img src="catalog/view/javascript/assets/image/icon/{{ finish }}.jpg"
-                                   alt="{{ finish }} finish">
+                            <div class="zoom" data-toggle="tooltip" data-placement="top" title="{{ finish|capitalize }}">
+                              <img src="catalog/view/javascript/assets/image/icon/{{ finish }}.jpg" alt="{{ finish }} finish" loading="lazy">
                             </div>
                           {% endif %}
                         {% endfor %}
@@ -168,6 +161,7 @@ for(var i = 0; i < filters.length; i++) {
           {% endfor %}
           <div id="newslr"></div>
         </div> 
+
         <div class="banner-strip-location">
           <div class="sign-banner-con text-cente">
             <h5 class="r text-white">VISIT OUR NEAREST STORE</h5>
@@ -206,7 +200,6 @@ for(var i = 0; i < filters.length; i++) {
             <p>883+ Options Available</p>
           </a>
         </div>
-
         <div class="item-box3">
           <a href="dining-room-furniture">
             <img src="catalog/view/javascript/assets/image/icon/diningtable-pp-icons1.png" alt="complete dining room furniture at urbanwood" loading="lazy">
@@ -214,7 +207,6 @@ for(var i = 0; i < filters.length; i++) {
             <p>883+ Options Available</p>
           </a>
         </div>
-
         <div class="item-box3">
           <a href="shoe-racks">
             <img src="catalog/view/javascript/assets/image/icon/shoerack-pp-icon1.png" alt="stylish and solid shoe racks" loading="lazy">
@@ -222,7 +214,6 @@ for(var i = 0; i < filters.length; i++) {
             <p>883+ Options Available</p>
             </a>
         </div>
-
         <div class="item-box3">
           <a href="study-tables">
             <img src="catalog/view/javascript/assets/image/icon/studytable-pp-icon1.png" alt="study tables made of pure sheesham wood" loading="lazy">
@@ -230,7 +221,6 @@ for(var i = 0; i < filters.length; i++) {
             <p>883+ Options Available</p>
             </a>
         </div>
-
         <div class="item-box3">
           <a href="bookcase">
             <img src="catalog/view/javascript/assets/image/icon/bookcase-pp-icon1.png" alt="bookcase urbanwood wooden" loading="lazy">
@@ -238,7 +228,6 @@ for(var i = 0; i < filters.length; i++) {
             <p>883+ Options Available</p>
           </a>
         </div>
-
         <div class="item-box3">
           <a href="wardrobes">
             <img src="catalog/view/javascript/assets/image/icon/wardrobe-pp-icon1.png" alt="wardrobes made by urbanwood" loading="lazy">
@@ -250,7 +239,6 @@ for(var i = 0; i < filters.length; i++) {
     </div>
   </div>
 </section>
-
 <section class="bottom-content py-4"> 
   <div class="container container-custom"> 
     <div class="row">
@@ -259,21 +247,17 @@ for(var i = 0; i < filters.length; i++) {
       </div>
     </div>
   </div>
-
-
 </section>
 </div>
 
 <script type="text/javascript">
-
- var custom_filter = '{{custom_filter}}';
+ {# var custom_filter = '{{custom_filter}}';
  var custom_filter_cat_id = '{{category_id}}';
  if(custom_filter){
   categoryFilter(custom_filter,custom_filter_cat_id);
 }
 
 function categoryFilter(custom_filter_ids,custom_f_cat_id){
-
   $.ajax({
     url: '?route=product/category/categoryFilter',
     type: 'post',
@@ -288,16 +272,15 @@ function categoryFilter(custom_filter_ids,custom_f_cat_id){
       alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
     }
   });
-}
+} #}
 $(".btAnimate").click(function(){
     $(".ViewContent").toggleClass("show");
   });
-</script>
-<script>
-  var plock = 1;
+
+  {# var plock = 1;
   var page = 2;
   var limitp = 15;
-  var categoryloadmore = {{ category_id }};
+  var categoryloadmore = {{category_id}};
   var queryString = window.location.href;
   var urlParam = '';
   
@@ -317,8 +300,6 @@ $(".btAnimate").click(function(){
       }
     }
   });
-
-
   
 var psort = '{{sort}}';
 var pfilter = '{{filters_data}}';
@@ -364,9 +345,8 @@ function productLoading(){
       console.log('no more product');
      }
    });
-  }
-  </script>
-  <script>
+  } #}
+  
   function addtocart(quantity, product_id) {
 
 	$.ajax({
@@ -406,7 +386,6 @@ function productLoading(){
 			}
 
 			if (json['success']) {
-				//$('.breadcrumb').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
         $('body').prepend('<div class="success-popup ">	<span class="warrning-svg">	<svg id="smile"		width="35" height="35" viewBox="0 0 41 41" fill="none">					  <path d="M16.2432 29.9911L16.5968 30.3439L16.95 29.9907L30.5886 16.352L30.9422 15.9985L30.5886 15.6449L27.7128 12.7691L27.3593 12.4156L27.0057 12.7691L16.592 23.1828L12.2699 18.8682L11.9158 18.5148L11.5626 18.869L8.69086 21.7489L8.33792 22.1028L8.69174 22.4558L16.2432 29.9911ZM0.823975 20.662C0.823975 9.72375 9.72375 0.823975 20.662 0.823975C31.6002 0.823975 40.5 9.72375 40.5 20.662C40.5 31.6002 31.6002 40.5 20.662 40.5C9.72375 40.5 0.823975 31.6002 0.823975 20.662Z" stroke="#33C300"/>  </svg>					</span>	<span class="warrning-text">   <p>' + json['success'] + '</p>	</span>				  </div>');
 				$('#cartli .badge_pp').text(json['total']);
 				// $('html, body').animate({ scrollTop: 0 }, 'slow');
@@ -420,5 +399,4 @@ function productLoading(){
 	});
 }
 </script>
-
 {{ footer }}
