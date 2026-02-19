@@ -140,7 +140,7 @@
           <div id="emailHelp" class="form-text">Enter Email to receive a reset password link.</div>
         <div class="d-flex justify-content-end align-items-center mt-lg-5 mt-0">
             {# <span class="step-button">Send</span> #}
-            <button type="submit" class="submit-forgot-btn" id="sbm"><i class="fas fa-paper-plane"></i></button>
+            <button type="submit" class="submit-forgot-btn" id="sbm"><i class="bx bxs-paper-plane"></i></button>
         </div>
     </form>
 
@@ -160,6 +160,17 @@
   $("form").submit(function(){
    $('#sbm').html("<i class='bx bx-loader-circle bx-spin' ></i>");
 });
+    document.addEventListener('DOMContentLoaded', function() {
+        // Create a new <link> element
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css'; // Replace with the actual path to your CSS file
+        link.type = 'text/css';
+        link.onload = () => console.log('Boxicon CSS loaded successfully.');
+
+        // Append the <link> element to the <head>
+        document.head.appendChild(link);
+    });
  </script>
  </body>
  </html>

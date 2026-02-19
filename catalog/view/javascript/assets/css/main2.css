@@ -4857,12 +4857,15 @@ p #registerbtn {
 
 .submit-forgot-btn {
 	background: linear-gradient(45deg, #ff8000, #ffdf80);
-	border: 0;
-	padding: 13px 52px;
-	border-radius: 100px;
-	color: #fff;
+    border: 0;
+    padding: 0px 28px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 24px;
+}
+
+.submit-forgot-btn:hover {
 	box-shadow: 0 7px 20px #ff800085;
-	font-size: 17px
 }
 
 .mail-sent-box {
