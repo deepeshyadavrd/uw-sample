@@ -18,124 +18,35 @@
   </div>
   {% endif %}
   <style>
-    .forget-pass-sec {
-    	/* background: #fffbf5; */
-    	padding: 8em;
-    	width: 80%;
-    	display: block;
-    	margin: 10em auto
-    }
-    .forget-pass-sec h2 {
-    	font-size: 85px;
-    	color: #434342;
-    	font-weight: 100;
-    	line-height: 1.3em
-    }
-    .forget-pass-sec h2 span {
-    	font-weight: 700;
+    h2 span {
     	color: #ff8000
     }
-    .forget-pass-sec p {
-    	color: #434342;
-    	font-size: 18px
+    #togglePasswordre {
+      color: #ff8000;
     }
-    .fotgot-form-in input[type=email]:focus {
-	    box-shadow: none
-    }
-    .fotgot-form {
-    	background: #fff;
-    	padding: 3em;
-    	border-radius: 10px;
-    	box-shadow: 0 0 20px #ffb06141;
-    	position: relative;
-    	width: 100%;
-    	display: block
-    }
-    .fotgot-form-in label {
-    	font-size: 16px;
-    	color: #434342;
-    	margin-bottom: 1em
-    }
-    .fotgot-form-in input[type=email] {
-    	border-radius: 5px;
-    	border: 1px solid #ffad5a;
-    	padding: 10px;
-    	font-size: 14px;
-    	color: #ff8000
-    }
-    @media screen and (min-device-width:1200px) and (max-device-width:1600px) and (-webkit-min-device-pixel-ratio:1) {
-      .forget-pass-sec {
-		    width: 90%;
-        padding: 6em;
-		    margin: 2em auto
-	    }
-	    .forget-pass-sec h2 {
-		    font-size: 70px
-	    }
-      .fotgot-form {
-		    padding: 2em
-	    }
-    }
-    @media (min-device-width:800px) and (max-device-width:1280px) {
-      .forget-pass-sec {
-	    	padding: 3em;
-	    	width: 95%;
-	    	margin: 8em auto
-	    }
-      .forget-pass-sec h2 {
-		    font-size: 70px
-	    }
-      .fotgot-form {
-		    padding: 2em
-	    }
-    }
-    @media only screen and (max-width:1024px) {
-      .forget-pass-sec {
-	    	padding: 2em;
-	    	margin: 6em auto
-	    }
-	    .forget-pass-sec h2 {
-	    	font-size: 61px
-	    }
-      .fotgot-form {
-		    padding: 2em
-	    }
-    }
-    @media only screen and (max-width:576px) {
-      .forget-pass-sec {
-		    text-align: center;
-        width: 80%;
-        padding: 3em 0
-	    }
-      .forget-pass-sec h2 {
-		    font-size: 35px
-	    }
-      .forget-pass-sec p{
-		    font-size: 13px
-	    }
-      .fotgot-form {
-		    padding: 1em
-	    }
+    .form-control:focus {
+      border-color: #ff8000;
+      box-shadow: inset 0 0 4px 0.25rem rgba(255, 128, 0, 0.25);
     }
   </style>
- <section class="forget-pass-sec">
+ <section>
   <div class="container">
-    <div class="row">
-  <div class="col-lg-6 col-lg-6 col-sm-12">
-<h2 class="forgot-heading">
-    Forgot Your <br>
+    <div class="row my-5 mx-auto px-4 px-md-4 px-lg-5">
+  <div class="col-lg-6 col-lg-6 col-sm-12 py-lg-5">
+<h2 class="forgot-heading fs-1">
+    Forgot Your <br class="d-none d-lg-block">
 <span >Password?</span>
 </h2>
 <p>Enter the email address associated
     with your account</p>
 </div>
 <div class="col-lg-6 col-lg-6 col-sm-12">
-<div class="fotgot-form">
+<div class="shadow-lg p-3 p-md-4 rounded">
 
     <form action="{{ action }}" method="post" enctype="multipart/form-data" class="fotgot-form-in">
         <div class="mb-3">
-            <label for="useremailforgot" class="form-label">Enter Your Email address</label>
-            <input type="email" class="form-control" name="email" id="useremailforgot" required>
+            <label for="useremailforgot" class="col-sm-2 control-label form-label mt-2">Enter Your Email address</label>
+            <input type="email" class="form-control p-2" name="email" id="useremailforgot" required>
           </div>
           <div id="emailHelp" class="form-text">Enter Email to receive a reset password link.</div>
         <div class="d-flex justify-content-end align-items-center mt-lg-5 mt-0">

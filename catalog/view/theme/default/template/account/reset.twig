@@ -69,6 +69,10 @@
     #togglePasswordre {
       color: #ff8000;
     }
+    .form-control:focus {
+      border-color: #ff8000;
+      box-shadow: inset 0 0 4px 0.25rem rgba(255, 128, 0, 0.25);
+    }
   </style>
   <section>
     <div class="container">
@@ -82,11 +86,11 @@
         </div>
         <div class="col-lg-6 col-lg-6 col-sm-12">
           <div class="shadow-lg p-3 p-md-4 rounded">
-            <form action="{{ action }}" method="post" enctype="multipart/form-data" class="fotgot-form-in">
+            <form action="{{ action }}" method="post" enctype="multipart/form-data">
               <div class="form-group">
                 <label class="col-sm-2 control-label form-label mt-2" for="input-password">{{ entry_password }}</label>
                 <div class="password-field">
-                  <input type="password" name="password" value="{{ password }}" id="input-password" class="form-control password" />
+                  <input type="password" name="password" value="{{ password }}" id="input-password" class="form-control password p-2" />
                   <span class="position-absolute top-50 end-0 translate-middle-y me-3 toggle-password">
                     <i class="bx bx-low-vision" id="togglePasswordre"></i>
                   </span>
@@ -98,7 +102,7 @@
               <div class="form-group">
                 <label class="col-sm-2 control-label form-label mt-2" for="input-confirm">{{ entry_confirm }}</label>
                 <div class="password-field">
-                  <input type="password" name="confirm" value="{{ confirm }}" id="input-confirm" class="form-control password"/>
+                  <input type="password" name="confirm" value="{{ confirm }}" id="input-confirm" class="form-control password p-2"/>
                   <span class="position-absolute top-50 end-0 translate-middle-y me-3 toggle-password">
                     <i class="bx bx-low-vision" id="togglePasswordre"></i>
                   </span>
