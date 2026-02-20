@@ -31,9 +31,9 @@
   </style>
  <section>
   <div class="container">
-    <div class="row my-5 mx-auto px-4 px-md-4 px-lg-5">
+    <div class="row my-5 mx-auto px-3 px-md-4 px-lg-5 py-5">
   <div class="col-lg-6 col-lg-6 col-sm-12 py-lg-5">
-<h2 class="forgot-heading fs-1">
+<h2 class="fs-1">
     Forgot Your <br class="d-none d-lg-block">
 <span >Password?</span>
 </h2>
@@ -45,11 +45,11 @@
 
     <form action="{{ action }}" method="post" enctype="multipart/form-data" class="fotgot-form-in">
         <div class="mb-3">
-            <label for="useremailforgot" class="col-sm-2 control-label form-label mt-2">Enter Your Email address</label>
-            <input type="email" class="form-control p-2" name="email" id="useremailforgot" required>
+            <label for="useremailforgot" class="control-label form-label mt-2">Enter Your Email address</label>
+            <input type="email" class="form-control p-2" name="email" id="useremailforgot" required autocomplete="email">
           </div>
           <div id="emailHelp" class="form-text">Enter Email to receive a reset password link.</div>
-        <div class="d-flex justify-content-end align-items-center mt-lg-5 mt-0">
+        <div class="d-flex justify-content-end align-items-center mt-lg-4 mt-1">
             {# <span class="step-button">Send</span> #}
             <button type="submit" class="submit-forgot-btn" id="sbm"><i class="bx bxs-paper-plane"></i></button>
         </div>

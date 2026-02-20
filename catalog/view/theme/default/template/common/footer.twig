@@ -22,15 +22,15 @@
             <form id="myform">
                 <div class="mb-3">
                     <label for="user-name" class="col-form-label">Name</label>
-                    <input type="text" name="name" class="form-control" id="user-name">
+                    <input type="text" name="name" class="form-control" id="user-name" autocomplete="name">
                 </div>
                 <div class="mb-3">
                     <label for="email-address" class="col-form-label">Email Adderess</label>
-                    <input type="text" name="email" class="form-control" id="email-address">
+                    <input type="text" name="email" class="form-control" id="email-address" autocomplete="email">
                 </div>
                 <div class="mb-3">
                     <label for="con-num" class="col-form-label">Contact No.</label>
-                    <input type="text" name="mobile" class="form-control" id="con-num">
+                    <input type="text" name="mobile" class="form-control" id="con-num" autocomplete="tel">
                 </div>
                 <div class="mb-3">
                     <label for="state" class="col-form-label">State</label>
@@ -76,7 +76,7 @@
 			    </div>
                 <div class="mb-3">
                     <label for="message-text" class="col-form-label">Message:</label>
-                    <textarea class="form-control" name="message" id="message-text"></textarea>
+                    <textarea class="form-control" name="message" id="message-text" autocomplete="on"></textarea>
                 </div>
             </form>
         </div>
@@ -112,7 +112,7 @@
                                 <form method="post" enctype="multipart/form-data" class="loginform">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="email" name="email" class="form-control mt-1 mb-2" id="exampleInputEmail1" placeholder="Email Address" required="">
+                                            <input type="email" name="email" class="form-control mt-1 mb-2" id="exampleInputEmail1" placeholder="Email Address" required="" autocomplete="email">
                                         </div>
                                         <div class="col-md-12 ">
                                             <input type="password" name="password" class="form-control mt-1 mb-3 password" autocomplete="current-password" required="" id="id_password_login" placeholder="Password">

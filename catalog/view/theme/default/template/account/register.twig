@@ -40,23 +40,23 @@
         <form method="post"  action="register">
           <div class="row" >
             <div class="col-md-6 col-lg-6 ">
-              <input type="name" name="firstname" class="form-control mt-0 mb-2" id="exampleInputFirstname" placeholder="First Name" required="" >
+              <input type="name" name="firstname" class="form-control mt-0 mb-2" id="exampleInputFirstname" placeholder="First Name" required="" autocomplete="given-name">
             </div>
             <div class="col-md-6 col-lg-6 ">
-              <input type="text" name="lastname" class="form-control mt-0 mb-2" id="exampleInputlastname" placeholder="Last Name" required="">
+              <input type="text" name="lastname" class="form-control mt-0 mb-2" id="exampleInputlastname" placeholder="Last Name" required="" autocomplete="family-name">
             </div> 
             <div class="col-md-12 ">
-              <input type="email" name="email" class="form-control mt-0 mb-2" id="giveInputEmail1" placeholder="Email Address" required="">
+              <input type="email" name="email" class="form-control mt-0 mb-2" id="giveInputEmail1" placeholder="Email Address" required="" autocomplete="email">
             </div>
             <div class="col-md-12 ">
-              <input type="text" name="telephone" class="form-control mt-0 mb-2" id="giveInputnumber" placeholder="Contact Number" required="">
+              <input type="text" name="telephone" class="form-control mt-0 mb-2" id="giveInputnumber" placeholder="Contact Number" required="" autocomplete="tel">
             </div>
             <div class="col-md-12">
-              <input type="password" name="password" class="form-control password mt-0 mb-2" autocomplete="current-password" required="" id="id_password" placeholder="Password">
+              <input type="password" name="password" class="form-control password mt-0 mb-2" required="" id="id_password" placeholder="Password" autocomplete="new-password">
               <i class="far fa-eye" id="togglePassword"></i>
             </div>
             <div class="col-md-12">
-              <input type="password" name="confirm" class="form-control password mt-0 mb-3" autocomplete="current-password" required="" id="id_password" placeholder="Confirm password">
+              <input type="password" name="confirm" class="form-control password mt-0 mb-3" required="" id="id_password_c" placeholder="Confirm password" autocomplete="new-password">
               <i class="far fa-eye" id="togglePassword"></i>
             </div>
             <div class="d-block">
