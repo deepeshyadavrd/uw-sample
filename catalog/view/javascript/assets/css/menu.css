@@ -45,16 +45,16 @@ overflow: hidden;
 }
 /* .v-center{
 align-items: center;
-} */
-/* ul{
+}
+ul{
 margin:0;
 padding:0!important;
-} */
+} 
 .header-content-top {
-  /* background: linear-gradient(0deg, white 77%, #000 77%); */
+  background: linear-gradient(0deg, white 77%, #000 77%);
   display: block;
 }
-/* .header-content-top .content {
+.header-content-top .content {
   align-items: center;
   display: flex;
   justify-content: flex-end;
@@ -71,10 +71,10 @@ margin: 0 0 0 10px;
 
 }
 .header-content-top .content span i {
-  /* margin-right: 3px;
-font-weight: 500; *
+   margin-right: 3px;
+font-weight: 500; 
 vertical-align: middle;
-/* font-size: 14px; *
+font-size: 14px;
 } */
 .header {
   display: inline-block;
@@ -520,11 +520,12 @@ position:relative;
   height: 30px;
   overflow: hidden;
   position: relative;
-} */
+}
 
-/* .text-wrapper {
+.text-wrapper {
   position: absolute;
   top: 0;
+  left: 0;
   animation: slideTop 12s ease-in-out infinite;
 }
 
@@ -624,7 +625,7 @@ margin:0;
       padding: 0 2rem;
   }	
 .header .menu > ul > li > .uw-nut{
- font-size: 13px;
+ font-size: 12px;
  }
  .header-content-top .content span {
   
@@ -636,21 +637,20 @@ margin:0;
 .sticky {
       padding: 0.5rem 1rem;
   }
-.header-content-top {
-  /* background: linear-gradient(0deg, white 65%, #000 65%); */
+/* .header-content-top {
+  background: linear-gradient(0deg, white 65%, #000 65%);
 }
 .header-content-top .content {
      display: none;
   }
-/* .text-wrapper {
+.text-wrapper {
   right: 0;
-  left: 0;
 }
 .text-wrapper div {
   justify-content: center;
   text-align: center;
-} */
-/* .text-slider {
+} 
+  .text-slider {
   width: 100%!important;
 } */
 }
@@ -670,9 +670,9 @@ margin:0;
   position: static;
   text-align: right;
    }
-.header-content-top {
-  /* background: linear-gradient(0deg, white 60%, #000 60%); */
-}
+/* .header-content-top {
+  background: linear-gradient(0deg, white 60%, #000 60%);
+} */
 .container .search {
       display: none;
       position: fixed;
@@ -731,8 +731,8 @@ display: none;
   }
 .text-slider {
   height: 50px;
-} */
-/* .text-wrapper div {
+}
+.text-wrapper div {
   height: 40px;
   font-size: 14px;
 } */
