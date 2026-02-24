@@ -671,7 +671,7 @@ $(window).scroll(function(){
 //typewriter effect
 timeout_var = null;
 
-function typeWriter(selector_target, text_list, placeholder = false, i = 0, text_list_i=0, delay_ms=200){
+{# function typeWriter(selector_target, text_list, placeholder = false, i = 0, text_list_i=0, delay_ms=200){
   if(!i){
     if(placeholder){
       document.querySelector(selector_target).placeholder = "";
@@ -704,7 +704,7 @@ text_list = [
   "Search for Bar Cabinets",
   "Search for Sofa Cum Beds"
 ];
-return_value = typeWriter("#searchinput", text_list, true);
+return_value = typeWriter("#searchinput", text_list, true); #}
 
 
 function setSubmitCookie(cookieName, days = 7) {
