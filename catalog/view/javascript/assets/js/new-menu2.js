@@ -34,11 +34,15 @@ function toggleMenu(){
     $('body').toggleClass('goback')
 }
 function showSubMenu(hasChildren){
+  if (hasChildren) {
+    var text = hasChildren.querySelector('.uw-nut').textContent.trim();
+    // console.log(text);
+}
    subMenu = hasChildren.querySelector(".sub-menu");
    subMenu.classList.add("active");
    subMenu.style.animation = "slideLeft 0.5s ease forwards";
   //  alert(hasChildren.querySelector("a").textContent);
-   const menuTitle = hasChildren.querySelector("a").textContent;
+   const menuTitle = text;//hasChildren.querySelector("a").textContent;
    menu.querySelector(".current-menu-title").innerHTML=menuTitle;
    menu.querySelector(".mobile-menu-head").classList.add("active");
 }
@@ -47,7 +51,7 @@ function  hideSubMenu(){
    setTimeout(() =>{
       subMenu.classList.remove("active");	
    },300); 
-   menu.querySelector(".current-menu-title").innerHTML='<a href="#"><img src="catalog/view/javascript/assets/image/urbanwoodlogo.png" ></a>';
+   menu.querySelector(".current-menu-title").innerHTML='<a href="#"><img src="catalog/view/javascript/assets/image/urbanwoodlogo.png" width="130" style="padding-left:16px;"></a>';
    menu.querySelector(".mobile-menu-head").classList.remove("active");
 }
 window.onresize = function(){
