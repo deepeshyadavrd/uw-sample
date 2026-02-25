@@ -754,7 +754,7 @@ const observer1 = new IntersectionObserver(entries => {
         products.forEach(p => {
           const card = document.createElement('a');
           card.href = p.link;
-          card.className = 'product-card';
+          card.className = 'product-card bg-white rounded-3 my-5';
 const featuresHTML = Array.isArray(p.features) ? p.features.map(f => `<span class="feature">${f}</span>`).join("") : "";
           card.innerHTML = `
             ${p.best_seller ? '<span class="product-badge">Best Seller</span>' : ''}
