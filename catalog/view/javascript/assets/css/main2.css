@@ -39,12 +39,12 @@ body::-webkit-scrollbar-thumb {
 	background-color: #767676;
 	border-radius: 1px
 }
-div {
+/* div {
 	display: block;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box
-}
+} */
 ul {
 	list-style: none;
 	margin-bottom: 0

@@ -46,19 +46,19 @@
   }
   
   /* Header & Navigation Base */
-  .header {
+  /* .header {
     display: inline-block;
     width: 100%;
     position: relative;
     z-index: 99;
-  }
+  } */
   
-  .log-sec {
+  /* .log-sec {
     display: flex;
     align-items: center;
     margin: 10px 0;
     width: 100%;
-  }
+  } */
   
   .header .logo img {
     width: 135px;
@@ -313,6 +313,12 @@ color:#fc7e00;
           display: flex;
           align-items: center;
         }
+        .dropdown-content-pp .sign-up-btn:hover {
+          background-color: orange;
+        }
+        .sign-up-btn {
+        background: #434342;display: block;margin-top: 10px;border-top: 1px solid #ccc;
+        }
   @keyframes blinker { 50% { opacity: 0; } }
   @keyframes slideLeft{
     0%{
@@ -363,10 +369,12 @@ color:#fc7e00;
     .header .menu {
       position: relative;
       width: auto;
-      height: auto;
+      /* height: auto; */
       transform: none;
-      background: none;
-      display: block;
+      /* background: none;
+      display: block; */
+      overflow: visible;
+      z-index: auto;
     }
   
     .header .menu-main {
