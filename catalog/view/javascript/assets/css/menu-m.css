@@ -62,12 +62,10 @@
   
   .header .logo img {
     width: 135px;
-    margin: 0;
-    padding: 0;
   }
   
   /* Mobile Menu Trigger */
-  .header .mobile-menu-trigger {
+  /* .header .mobile-menu-trigger {
     display: flex;
     height: 25px;
     width: 30px;
@@ -86,7 +84,7 @@
   }
   
   .header .mobile-menu-trigger span:before { content: ''; position: absolute; top: -6px; left: 0; }
-  .header .mobile-menu-trigger span:after { content: ''; position: absolute; top: 6px; left: 0; }
+  .header .mobile-menu-trigger span:after { content: ''; position: absolute; top: 6px; left: 0; } */
   
   /* Mobile Menu Side Drawer */
   .header .menu {
@@ -283,16 +281,16 @@ color:#fc7e00;
         display: block;
         }
       .container .open-search {
-        margin: 0;
+        /* margin: 0; */
         position: static;
-        text-align: right;
+        /* text-align: right; */
          }
       .container .open-search .input-open-search {
           display: none;
         }
         
-        .header .item-left { flex: 0 0 17%; }
-        .header .item-right { flex: 1 0 50%; display: flex; justify-content: flex-end; align-items: center; gap:20px;}
+        /* .header .item-left { flex: 0 0 17%; } */
+        /* .header .item-right { flex: 1 0 50%; display: flex; justify-content: flex-end; align-items: center; gap:20px;} */
         .container .open-search .input-open-search:checked ~ .search {
           display: block;
         }
@@ -301,7 +299,7 @@ color:#fc7e00;
           border: 0;
           color: #fff;
           cursor: pointer;
-          padding: 11px 20px;
+          padding: 8px 20px;
         }
         .container .search .button-search .bx-search {
           display: block;
@@ -446,9 +444,9 @@ color:#fc7e00;
           padding: 0;          /* Removes the mobile padding */
         }
         .container .open-search {
-          border-radius: 3px;
+          /* border-radius: 3px; */
           flex: auto;
-          margin: 0 52px;
+          /* margin: 0 52px; */
           position: relative;
         }
         .container .open-search .bx-search {
