@@ -29,9 +29,10 @@ document.querySelector(".menu-overlay").addEventListener("click",() =>{
 })
 function toggleMenu(){
 
-    menu.classList.toggle("active");
-    document.querySelector(".menu-overlay").classList.toggle("active");
-    $('body').toggleClass('goback')
+  menu.classList.toggle("active");
+  document.querySelector(".menu-overlay").classList.toggle("show");
+  document.querySelector(".menu-overlay").classList.toggle("z-2");
+  $('body').toggleClass('goback')
 }
 function showSubMenu(hasChildren){
   if (hasChildren) {
