@@ -46,45 +46,10 @@
   }
   
   /* Header & Navigation Base */
-  /* .header {
-    display: inline-block;
-    width: 100%;
-    position: relative;
-    z-index: 99;
-  } */
-  
-  /* .log-sec {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-    width: 100%;
-  } */
-  
+
   .header .logo img {
     width: 135px;
   }
-  
-  /* Mobile Menu Trigger */
-  /* .header .mobile-menu-trigger {
-    display: flex;
-    height: 25px;
-    width: 30px;
-    margin-right: 11px;
-    cursor: pointer;
-  }
-  
-  .header .mobile-menu-trigger span,
-  .header .mobile-menu-trigger span:before,
-  .header .mobile-menu-trigger span:after {
-    display: block;
-    height: 2px;
-    background-color: #333333;
-    width: 24px;
-    position: relative;
-  }
-  
-  .header .mobile-menu-trigger span:before { content: ''; position: absolute; top: -6px; left: 0; }
-  .header .mobile-menu-trigger span:after { content: ''; position: absolute; top: 6px; left: 0; } */
   
   /* Mobile Menu Side Drawer */
   .header .menu {
