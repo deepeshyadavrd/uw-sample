@@ -31,7 +31,8 @@ function toggleMenu(){
 
   menu.classList.toggle("active");
   document.querySelector(".menu-overlay").classList.toggle("show");
-  document.querySelector(".menu-overlay").classList.toggle("z-2");
+  document.querySelector(".menu-overlay").classList.toggle("z-1");
+  document.querySelector(".menu-overlay").classList.toggle("invisible");
   $('body').toggleClass('goback')
 }
 function showSubMenu(hasChildren){
