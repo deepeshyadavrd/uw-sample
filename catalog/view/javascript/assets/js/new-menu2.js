@@ -53,7 +53,7 @@ function  hideSubMenu(){
    setTimeout(() =>{
       subMenu.classList.remove("active");	
    },300); 
-   menu.querySelector(".current-menu-title").innerHTML='<a href="#"><img src="catalog/view/javascript/assets/image/urbanwoodlogo.png" width="130" style="padding-left:16px;"></a>';
+   menu.querySelector(".current-menu-title").innerHTML='<a href="#"><img class="ps-3" src="catalog/view/javascript/assets/image/urbanwoodlogo.png" width="130"></a>';
    menu.querySelector(".mobile-menu-head").classList.remove("active");
 }
 window.onresize = function(){
