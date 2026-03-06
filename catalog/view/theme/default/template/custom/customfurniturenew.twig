@@ -1,12 +1,6 @@
 {{ header }}
 {{ menu }}
   <style>
-    /**{
-        box-sizing: border-box;
-        margin:0;
-        padding: 0;
-        list-style: none;
-    }*/
     :root{
        
         --primaery-text-color:#434342;
@@ -24,55 +18,31 @@
   }  
 .headbanner {
     background-image: url(catalog/view/javascript/assets/image/img/customfurniturebanner.webp);
-    padding: 2rem 0;
+    /*padding: 2rem 0;*/
     background-repeat: no-repeat;
-    /* position: relative; */
 }
-.headbanner h6{
+{# .headbanner h1{
     font-size: var(--banner-heading);
 
-}
-.headbanner h6 span{
+} #}
+.headbanner h1 span{
 color:var(--special_color);
-/* font-weight: 100; */
 }
-.headbanner p {
+{# .headbanner p {
     color: #FFF;
-    /* font-size: var(--Paragraph_text-size); */
-    /* margin: 0; */
-}
-/* .headbanner ul{
-    padding: 0;
-    margin: 0;
-    display: inline-block;
-    width: 100%;
-} */
-.headbanner ul li {
+} #}
+
+{# .headbanner ul li {
     color: #fff;
-    /* font-size: var(--Paragraph_text-size); */
-    /* text-transform: uppercase; */
     font-weight: 500;
     float: left;
-    /* padding-left: 0px; */
-    /* margin: 10px 0px; */
-}
+} #}
 .form-outer {
     background: #fff;
     padding: 1rem;
     border-radius: 10px;
-    /* border: 1px solid #efefef; */
 }
-/* .form-outer h6 {
-    font-size: 1.3rem;
-    margin: .5rem 0;
-} */
-/* .form-outer span{
-    color:#ff7800;
-    /* font-size: 1rem; *
-} */
-/* .form-outer input[type=name], .form-outer input[type=email], .form-outer input[type=text], .form-outer select, .form-outer textarea, .form-outer input[type=file]{
-border:1px solid #bed1ff;
-} */
+
 .form-outer input:placeholder,.form-outer select {
     color:var(--secondery-text-color)
 }
@@ -82,35 +52,24 @@ border:1px solid #bed1ff;
 .form-outer select:focus,
 .form-outer textarea:focus,
 .form-outer input[type=file]:focus {
-    /* outline: 0px; Remove default outline */
-     box-shadow: 0 0 5px rgba(81, 203, 238, 1); /* Add custom focus style */
-    border: 1px solid rgba(81, 203, 238, 1); /* Optional: Add border */
+     box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
 }
 
 .cusstom-img {
     display: flex;
-    /* justify-content: left;
-    align-items: center; */
     flex-direction: row;
 }
 .cusstom-img input[type=file] {
-    /* width: 300px; */
-    /* max-width: 100%; */
     color:var(--secondery-text-color);
     padding: 2px;
-    /* background: var(--white-color-text);
-    border: 1px solid #bed1ff; */
 }
 
 .cusstom-img input[type=file]::file-selector-button {
-  /* margin-right: 20px; */
-  /* border: none; */
   background:#6990f2;
   padding: 10px 20px;
-  /* border-radius: 8px; */
   color: var(--white-color-text);
   cursor: pointer;
-  /* transition: background .2s ease-in-out; */
 }
 
 .cusstom-img input[type=file]::file-selector-button:hover {
@@ -128,48 +87,9 @@ border:1px solid #bed1ff;
     border-radius: 5px;
     border: 0;
     color:var(--white-color-text);
-    /* font-size: var(--Paragraph_text-size);
-    text-transform: uppercase;
-    font-weight: 600; */
-}
-/* .breadcumb-navigation {
-    display: block;
-    bottom: 15px;
-    position: absolute;
-}
-.breadcumb-navigation .breadcrumb-item {
-    position: relative;
-    margin: 0;
-    padding: 0 18px;
-    font-size:var(--Paragraph_text-size);
-    color:var(--white-color-text);
-}
-.breadcumb-navigation .breadcrumb-item:first-child{
-    padding-left: 0;
+    
 }
 
-.breadcumb-navigation .breadcrumb-item i{
-    color: var(--special_color);
-}
-.breadcumb-navigation .breadcrumb-item:after {
-    position: absolute;
-    content: "\f054";
-    font-family: 'font awesome\ 5 free';
-    font-weight: 900;
-    top: 7px;
-    right: -8px;
-    width: 10px;
-    height: 10px;
-    background-repeat: no-repeat;
-    font-size: 8px;
-    color: var(--white-color-text);
-}
-.breadcumb-navigation .breadcrumb-item:last-child::after {
-    display: none;
-}
-.breadcrumb-item+.breadcrumb-item::before{
-    display: none;
-} */
 .page-globel{
     padding: var(--section-padding);
     margin:var(--section-margin)
@@ -177,8 +97,6 @@ border:1px solid #bed1ff;
 .heading-all {
     color: var(--primaery-text-color);
     font-size: var(--heading-text-size);
-    /* font-weight: 600; */
-    /* margin-bottom: 1rem; */
 }
 .heading-all span {
     font-size: 16px;
@@ -186,13 +104,10 @@ border:1px solid #bed1ff;
 }
 .page-globel p{
     color: var(--secondery-text-color);
-    /* font-size: var(--Paragraph_text-size); */
 }
 .process-icon {
     display: flex;
-    /* border: 1px solid #f3f3f3; */
     padding: 1.5rem 1rem;
-    /* border-radius: 14px; */
 }
 .process-icon .box-process {
     position: relative;
@@ -206,11 +121,6 @@ border:1px solid #bed1ff;
 .process-icon .box-process img{
     width: 60%;
 }
-/* .process-icon .box-process p {
-    margin-block: 10px;
-    color:var(--secondery-text-color);
-    font-size: var(--Paragraph_text-size);
-} */
 .badge-num {
     background: red;
     font-size: .6rem;
@@ -229,11 +139,7 @@ border:1px solid #bed1ff;
     width: 100%;
 }
 .price {
-    /* padding: 0; */
-    /* width: 70%; */
     display: flex;
-    /* margin: 0 auto; */
-    /* text-align: center; */
     justify-content: center;
 }
 
@@ -253,10 +159,8 @@ border:1px solid #bed1ff;
 }
 .price li label {
     font-size: 1.3rem;
-    /* margin: 0px; */
     padding: 15px;
     font-weight: 600;
-    /* width: 100%; */
 }
 li.ux-mdl_li {
     border: 1px solid #e6edff;
@@ -269,7 +173,6 @@ li.ux-mdl_li {
     padding: 15px 20px;
     border: 1px solid #e6edff;
     line-height: 40px;
-    /* border-radius: 0px; */
     margin: 13px 0px;
     border-radius: 10px 0px 0px 10px;
 }
@@ -282,14 +185,9 @@ li.ux-mdl_li {
 .header-uw-li {
     background: #fffcf7;
     color: var(--special_color);
-    /* border-radius: 10px 10px 0px 0px ; */
 }
 .ux-mdl {
     margin: 0px !important;
-    /* border-bottom: 1px solid #e6edff !important; */
-    /* border-radius: 0px !important; */
-    /* border-right: none !important;
-    border-left: none !important; */
     border-top: none !important;
     padding: 1.5rem !important;
     font-size: 1.2rem;
@@ -448,7 +346,6 @@ li.ux-mdl_li {
 }
 .whatsappsection .chatting-img{
     margin-top: 46px;
-    /* width: 100%; */
 }
 .wtsap-heading{
     font-size: 3rem;
@@ -675,19 +572,9 @@ li.ux-mdl_li {
     font-size: 1rem;
     margin: 1rem 0;
 }
-/* .pricing-outer {
-    margin: 2rem 0 0 0;
-    padding: 2rem;
-} */
-/* .price {
-    width: 90%;
-} */
 .text-big {
     font-size: 2.5rem !important;
 }
-/* .right-whastapp {
-    padding: 0rem 4rem;
-} */
 .wtsap-heading.text-white {
     font-size: 2rem;
 }
@@ -722,20 +609,11 @@ li.ux-mdl_li {
 .cusstom-img {
     flex-direction: column;
 }
-/* .cusstom-img input[type=file] {
-    width: 100%;
-} */
-/* .cusstom-img span {
-    text-align: left;
-    width: 100%;
-} */
+
 .pricing-outer {
         margin: 1rem 0 0 0;
         padding: 1rem;
     }
-    /* .price {
-        width: 100%;
-    } */
     .price li label {
     font-size: 1.1rem;
 }
@@ -794,9 +672,6 @@ li.ux-mdl_li {
     font-size: 1rem;
 }
 
-/* .form-outer span {
-    font-size: .9rem;
-} */
     .img-grid .img-content h6 {
         font-size: 16px;
     }
@@ -806,10 +681,6 @@ li.ux-mdl_li {
 .breadcumb-navigation .breadcrumb-item:after {
     top: 5px;
 }
-    /* .right-whastapp {
-        padding: 0rem 0rem;
-        text-align: center;
-    } */
     .chat-now{
         margin: 0rem 0;
     }  
@@ -900,18 +771,18 @@ li.ux-mdl_li {
 </head>
 <body>
     <div class="warpper">
-    <section class="headbanner" id="headersec">
+    <section class="headbanner text-center text-lg-start py-4" id="headersec">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <h6 class="text-white"><span>Design Your </span>  <br>
-                    Custom Order</h6>
-                    <p>Share your Design Idea & Our Expert will Get Back With The Best Possible Custom Made Furniture  Suggestions Online</p>
-                    <ul>
-                        <li>Size &nbsp; | &nbsp;</li>
-                        <li>DESIGN &nbsp; | &nbsp;</li>
-                        <li>Finishing &nbsp; | &nbsp;</li>
-                        <li>Meterials   </li>
+                <h1 class="text-white display-1 fw-medium"><span>Design Your </span>  <br>
+                    Custom Order</h1>
+                    <p class="text-white">Share your Design Idea & Our Expert will Get Back With The Best Possible Custom Made Furniture  Suggestions Online</p>
+                    <ul class="d-inline-block m-0 list-unstyled p-lg-0 d-flex mb-0 justify-content-center justify-content-lg-start">
+                        <li class="text-white fw-medium me-3">SIZE &nbsp;|&nbsp;</li>
+                        <li class="text-white fw-medium me-3">DESIGN &nbsp;|&nbsp;</li>
+                        <li class="text-white fw-medium me-3">FINISH &nbsp;|&nbsp;</li>
+                        <li class="text-white fw-medium">MATERIAL </li>
                     </ul>
 
             </div>
