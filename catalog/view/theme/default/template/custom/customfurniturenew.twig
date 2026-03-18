@@ -1630,7 +1630,30 @@ color: #fff;
           }]
       });
   });
+function showMessage(msg) {
+    const toast = `
+    <div class="msg position-fixed top-0 end-0 p-3" style="z-index:9999">
+        <div class="toast show align-items-center text-white bg-danger border-0">
+            <div class="d-flex">
+                <div class="toast-body">${msg}</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" onclick="this.closest('.toast').remove()"></button>
+            </div>
+        </div>
+    </div>`;
+    
+    document.body.insertAdjacentHTML("beforeend", toast);
+
+    setTimeout(() => {
+        document.querySelectorAll('.msg').forEach(t => t.remove());
+    }, 3000);
+}
     function customRequest(idd,btn){
+        // 🚫 Check if already submitted
+    if (getCookie("callback_submitted") || getCookie("formFilled")) {
+
+        showMessage("You have already submitted the form. Please try again tomorrow.");
+        return false;
+    }
    if(!formRule(idd)) return false;
 
     $('#'+btn).text('Processing...');
@@ -1646,6 +1669,8 @@ var formData = new FormData(document.getElementById('customizedetails'));
     success:function(res){  
       console.log(res);    
         if(res.success == 'text_success'){
+            // ✅ Set cookie for 24 hours AFTER success
+                setCookie("formFilled", "1", 24);
             var thanksHtml = '<div class="success-popup "><span><svg id="smile" width="45" height="45" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M16.2432 29.9911L16.5968 30.3439L16.95 29.9907L30.5886 16.352L30.9422 15.9985L30.5886 15.6449L27.7128 12.7691L27.3593 12.4156L27.0057 12.7691L16.592 23.1828L12.2699 18.8682L11.9158 18.5148L11.5626 18.869L8.69086 21.7489L8.33792 22.1028L8.69174 22.4558L16.2432 29.9911ZM0.823975 20.662C0.823975 9.72375 9.72375 0.823975 20.662 0.823975C31.6002 0.823975 40.5 9.72375 40.5 20.662C40.5 31.6002 31.6002 40.5 20.662 40.5C9.72375 40.5 0.823975 31.6002 0.823975 20.662Z" stroke="#33C300"/> </svg> </span> <span> <h6>Success</h6> <p>You will be notified on whatsapp </p> </span></div>';
         }else{
             var thanksHtml = '<div class="success-popup2"><span><svg id="smile2" width="45" height="45" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.6154 0.84668C6.57223 0.84668 0.846741 6.60249 0.846741 13.6733C0.846741 20.7464 6.60033 26.5 13.6734 26.5C20.7464 26.5 26.5 20.7464 26.5 13.6733C26.5 6.59806 20.7183 0.84668 13.6154 0.84668ZM14.406 19.3366H12.9407V17.8713H14.406V19.3366ZM14.406 14.406H12.9407V8.01H14.406V14.406Z" stroke="#FFD1D1"/></svg></span><span><h6>Alert</h6><p>Add your error message here </p></span></div>';
