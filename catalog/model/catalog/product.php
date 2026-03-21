@@ -132,7 +132,7 @@ class ModelCatalogProduct extends Model {
 
 		$sql .= " LEFT JOIN " . DB_PREFIX . "product_description pd ON (p.product_id = pd.product_id) LEFT JOIN oc_product_special ps ON (p.product_id = ps.product_id) WHERE pd.name not like '%custom%' AND pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW()";
 		if (!empty($data['hide_recent_products'])) {
-			$sql .= " AND p.date_added < DATE_SUB(NOW(), INTERVAL 200 DAY)";
+			$sql .= " AND p.date_added < DATE_SUB(NOW(), INTERVAL 250 DAY)";
 		}
 
 		if (!empty($data['filter_category_id'])) {
