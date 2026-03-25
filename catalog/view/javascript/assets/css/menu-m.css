@@ -40,7 +40,17 @@
   width: 30px;
   height: 30px;
 }
-
+.send-btn {
+  background: #fc7e00;
+  border: 0;
+  border-radius: 6px;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #fc7e00;
+}
 /* Header & Navigation Base */
 
 .header .logo img {
