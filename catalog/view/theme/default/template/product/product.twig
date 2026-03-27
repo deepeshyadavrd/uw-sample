@@ -1290,7 +1290,11 @@ $('ul.tabs li').last().addClass("tab_last");
 
 <script type="text/javascript"><!--
 $('#addtocart').on('click', function() {
-	$.ajax({
+  let product_id = $('input[name="product_id"]').val();
+  let quantity = $('#input-quantity').val() || 1;
+
+  cart.add(product_id, quantity);
+	/*$.ajax({
 		url: '?route=checkout/cart/add',
 		type: 'post',
 		data: $('#productcart input[type=\'text\'], #productcart input[type=\'hidden\'], #productcart input[type=\'radio\']:checked, #productcart input[type=\'checkbox\']:checked, #productcart select, #productcart textarea'),
@@ -1332,7 +1336,7 @@ $('#addtocart').on('click', function() {
 				$('#cart > ul').load('index.php?route=common/cart/info ul li');
         var qun = $('#productcart select').val();
         var totalvalue = {{ special_number }} * qun;
-        /*gtag("event", "add_to_cart", {
+        gtag("event", "add_to_cart", {
           currency: "INR",
           value: totalvalue,
           items: [
@@ -1351,14 +1355,14 @@ $('#addtocart').on('click', function() {
     value:totalvalue,
     content_ids: '{{ product_id }}',
     content_type: 'product'
-  }); */
+  }); *
 
 			}
 		},
         error: function(xhr, ajaxOptions, thrownError) {
             alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
         }
-	});
+	});*/
 });
 
 //buy now
