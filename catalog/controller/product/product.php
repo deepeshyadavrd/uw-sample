@@ -309,7 +309,7 @@ class ControllerProductProduct extends Controller {
 					'required'             => $option['required']
 				);
 			}
-
+print_r($data);
 			$data['review_status'] = $this->config->get('config_review_status');
 
 			$data['reviews'] = sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']);

@@ -442,6 +442,15 @@ lightbox.init();
                   </svg>EMI - Starting from Rs&nbsp;{{ starting_emi }} on HDFC credit card & More
                 </li>
               </ul>
+              {% for option in options %}
+                <h3>{{ option.name }}</h3>
+                <input type="radio" id="html" name="fav_language" value="HTML">
+                <label for="html">HTML</label><br>
+              {% endfor %}
+              <form>
+  
+  
+</form>
               {% endif %}
               {% for product_group in product_groups %}
                 {% if product_group.finish_name == 'Finish Option' %}
@@ -1293,7 +1302,7 @@ $('#addtocart').on('click', function() {
   let product_id = $('input[name="product_id"]').val();
   let quantity = $('#input-quantity').val() || 1;
 
-  cart.add(product_id, quantity);
+  cart.add(product_id, quantity,0);
 	/*$.ajax({
 		url: '?route=checkout/cart/add',
 		type: 'post',
