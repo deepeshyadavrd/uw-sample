@@ -402,7 +402,7 @@ $('#send').click(function() {
 
     // STEP 4: Call backend
     $.ajax({
-        url: 'index.php?route=extension/module/chatbot/chat',
+        url: '?route=extension/module/chatbot',
         type: 'POST',
         data: {
             message: msg,
