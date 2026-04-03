@@ -328,6 +328,34 @@
         </div>
     </div>
 </footer>
+<!-- Floating Chat Button -->
+<button id="chat-toggle" class="btn btn-primary rounded-circle"
+        style="position:fixed;bottom:20px;right:20px;width:60px;height:60px;z-index:9999;">
+    💬
+</button>
+
+<!-- Chat Box -->
+<div id="chat-widget" class="card shadow"
+     style="position:fixed;bottom:90px;right:20px;width:320px;display:none;z-index:9999;">
+
+    <!-- Header -->
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+        <span>Urbanwood Assistant</span>
+        <button id="chat-close" class="btn btn-sm btn-light">✖</button>
+    </div>
+
+    <!-- Messages -->
+    <div id="chat-box" class="card-body"
+         style="height:300px;overflow-y:auto;background:#f8f9fa;">
+    </div>
+
+    <!-- Input -->
+    <div class="card-footer d-flex">
+        <input type="text" id="chat-input" class="form-control me-2"
+               placeholder="Ask about furniture...">
+        <button id="send" class="btn btn-primary">Send</button>
+    </div>
+</div>
 <button type="button" class="SmoothmyTop" aria-label='to top'><i class='bx bx-up-arrow-alt'></i></button>
 
 <script type="text/javascript" src="catalog/view/javascript/assets/js/main.js?v=1.3" ></script>
@@ -339,6 +367,71 @@
 
 </div>
 <script>
+//chatbot code
+// Open chat
+$('#chat-toggle').click(function() {
+    $('#chat-widget').fadeToggle();
+});
+
+// Close button
+$('#chat-close').click(function() {
+    $('#chat-widget').fadeOut();
+});
+
+$('#send').click(function() {
+    let msg = $('#chat-input').val().toLowerCase();
+
+    $('#chat-box').append(`<div><b>You:</b> ${msg}</div>`);
+
+    // STEP 1: Detect intent
+    let intent = "general";
+
+    if (msg.match(/\d+/) || msg.includes("under") || msg.includes("price")) {
+        intent = "product_search";
+    } else if (msg.includes("best") || msg.includes("which") || msg.includes("difference")) {
+        intent = "information";
+    }
+
+    // STEP 2: Extract category
+    let categories = ["sofa", "bed", "table", "chair", "dining", "cabinet"];
+    let category = categories.find(cat => msg.includes(cat));
+
+    // STEP 3: Extract budget
+    let priceMatch = msg.match(/\d+/);
+    let budget = priceMatch ? parseInt(priceMatch[0]) : null;
+
+    // STEP 4: Call backend
+    $.ajax({
+        url: 'index.php?route=extension/module/chatbot/chat',
+        type: 'POST',
+        data: {
+            message: msg,
+            intent: intent,
+            category: category,
+            budget: budget
+        },
+        success: function(res) {
+            let data = JSON.parse(res);
+
+            if (data.type === "products") {
+                data.products.forEach(p => {
+                    $('#chat-box').append(`
+                        <div style="border:1px solid #eee;margin:5px;padding:5px;">
+                            <img src="${p.image}" width="50">
+                            <div>${p.name}</div>
+                            <div>₹${p.price}</div>
+                        </div>
+                    `);
+                });
+            } else {
+                $('#chat-box').append(`<div>${data.reply}</div>`);
+            }
+
+            $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
+        }
+    });
+});
+//chatbot code end
 document.addEventListener('click', function (e) {
   const btn = e.target.closest('.wa-btn');
   if (!btn) return;
