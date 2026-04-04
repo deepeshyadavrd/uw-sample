@@ -328,33 +328,26 @@
         </div>
     </div>
 </footer>
-<!-- Floating Chat Button -->
+<!-- CHAT BUTTON -->
 <button id="chat-toggle" class="btn btn-primary rounded-circle"
-        style="position:fixed;bottom:20px;right:20px;width:60px;height:60px;z-index:9999;">
-    💬
+style="position:fixed;bottom:20px;right:20px;width:60px;height:60px;z-index:9999;">
+💬
 </button>
 
-<!-- Chat Box -->
+<!-- CHAT BOX -->
 <div id="chat-widget" class="card shadow"
-     style="position:fixed;bottom:90px;right:20px;width:320px;display:none;z-index:9999;">
+style="position:fixed;bottom:90px;right:20px;width:320px;display:none;z-index:9999;">
 
-    <!-- Header -->
-    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-        <span>Urbanwood Assistant</span>
-        <button id="chat-close" class="btn btn-sm btn-light">✖</button>
-    </div>
+<div class="card-header bg-primary text-white d-flex justify-content-between">
+<span>Urbanwood Assistant</span>
+<button id="chat-close" class="btn btn-sm btn-light">✖</button>
+</div>
 
-    <!-- Messages -->
-    <div id="chat-box" class="card-body"
-         style="height:300px;overflow-y:auto;background:#f8f9fa;">
-    </div>
+<div id="chat-box" class="card-body" style="height:300px;overflow:auto;background:#f8f9fa;"></div>
 
-    <!-- Input -->
-    <div class="card-footer d-flex">
-        <input type="text" id="chat-input" class="form-control me-2"
-               placeholder="Ask about furniture...">
-        <button id="send" class="btn btn-primary">Send</button>
-    </div>
+<div class="card-footer d-flex">
+<input type="text" id="chat-input" class="form-control me-2" placeholder="Ask something...">
+<button id="send" class="btn btn-primary">Send</button>
 </div>
 <button type="button" class="SmoothmyTop" aria-label='to top'><i class='bx bx-up-arrow-alt'></i></button>
 
@@ -368,68 +361,60 @@
 </div>
 <script>
 //chatbot code
-// Open chat
-$('#chat-toggle').click(function() {
-    $('#chat-widget').fadeToggle();
+$('#chat-toggle').click(function(){
+    $('#chat-widget').toggle();
 });
 
-// Close button
-$('#chat-close').click(function() {
-    $('#chat-widget').fadeOut();
+$('#chat-close').click(function(){
+    $('#chat-widget').hide();
 });
 
-$('#send').click(function() {
-    let msg = $('#chat-input').val().toLowerCase();
+$('#send').click(function(){
 
-    $('#chat-box').append(`<div><b>You:</b> ${msg}</div>`);
+    let msg = $('#chat-input').val();
+    if(!msg) return;
 
-    // STEP 1: Detect intent
-    let intent = "general";
+    $('#chat-box').append(`
+        <div class="text-end mb-2">
+            <span class="badge bg-primary p-2">${msg}</span>
+        </div>
+    `);
 
-    if (msg.match(/\d+/) || msg.includes("under") || msg.includes("price")) {
-        intent = "product_search";
-    } else if (msg.includes("best") || msg.includes("which") || msg.includes("difference")) {
-        intent = "information";
-    }
-
-    // STEP 2: Extract category
-    let categories = ["sofa", "bed", "table", "chair", "dining", "cabinet"];
-    let category = categories.find(cat => msg.includes(cat));
-
-    // STEP 3: Extract budget
-    let priceMatch = msg.match(/\d+/);
-    let budget = priceMatch ? parseInt(priceMatch[0]) : null;
-
-    // STEP 4: Call backend
     $.ajax({
         url: '?route=extension/module/chatbot',
         type: 'POST',
-        data: {
-            message: msg,
-            intent: intent,
-            category: category,
-            budget: budget
-        },
-        success: function(res) {
+        data: { message: msg },
+        success: function(res){
+
             let data = JSON.parse(res);
 
-            if (data.type === "products") {
+            if(data.type === "products"){
+
                 data.products.forEach(p => {
                     $('#chat-box').append(`
-                        <div style="border:1px solid #eee;margin:5px;padding:5px;">
-                            <img src="${p.image}" width="50">
-                            <div>${p.name}</div>
+                        <div class="card mb-2 p-2">
+                            <img src="${p.image}" style="height:120px;object-fit:cover;">
+                            <div><b>${p.name}</b></div>
                             <div>₹${p.price}</div>
+                            <a href="${p.link}" class="btn btn-sm btn-outline-primary mt-1">View</a>
                         </div>
                     `);
                 });
+
             } else {
-                $('#chat-box').append(`<div>${data.reply}</div>`);
+
+                $('#chat-box').append(`
+                    <div class="text-start mb-2">
+                        <span class="badge bg-light text-dark p-2">${data.reply}</span>
+                    </div>
+                `);
             }
 
+            $('#chat-input').val('');
             $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight);
         }
     });
+
 });
 //chatbot code end
 document.addEventListener('click', function (e) {

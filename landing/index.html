@@ -1,0 +1,1709 @@
+<head>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+        <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"></noscript>
+</head>
+<div class="wrapper">
+  <div class="slider-outer">
+    <!-- Carousel -->
+    <div class="container" style="width: 100%;">
+      <div class="row ">
+        <div class="col-lg-9">
+          <div id="demo" class="carousel slide d-none d-sm-block" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active" aria-label="0"></button>
+              <button type="button" data-bs-target="#demo" data-bs-slide-to="1" aria-label="1"></button>
+              <button type="button" data-bs-target="#demo" data-bs-slide-to="2" aria-label="2"></button>
+              <button type="button" data-bs-target="#demo" data-bs-slide-to="3" aria-label="3"></button>
+            </div>
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="slider-img">
+                  <a href="javascript:void(0)" onclick="openLeadPopup()">
+                    <picture class="picture-image-cls-container">
+                      <source srcset="image/catalog/monsoon-offer/monsoon-sale-1.avif" media="(min-width:768px)" data-type="picture">
+                      <img class="d-block img-responsive img-fluid" src="image/catalog/monsoon-offer/monsoon-sale-1.webp" loading="eager" media="(min-width:768px)" width="100%" height="100%" alt="Urbanwood's Exclusive Summer Collection">
+                    </picture>
+                  </a>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="slider-img">
+                  <a href="javascript:void(0)" onclick="openLeadPopup()">
+                    <img src="image/catalog/monsoon-offer/monsoon-sale-2.avif" alt="beautiful sofas from urbanwood" class="d-block img-responsive img-fluid" width="100%" height="100%" loading="lazy">
+                  </a>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="slider-img">
+                  <a href="javascript:void(0)" onclick="openLeadPopup()">
+                    <img src="image/catalog/monsoon-offer/monsoon-sale-3.avif" alt="storage made with premium sheesham wood" class="d-block img-responsive img-fluid" width="100%" height="100%" loading="lazy">
+                  </a>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="slider-img">
+                  <a href="javascript:void(0)" onclick="openLeadPopup()">
+                    <img src="image/catalog/monsoon-offer/monsoon-sale-5.avif" alt="luxury dining table sets" class="d-block img-responsive img-fluid" width="100%" height="100%" loading="lazy">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev home-slider-control-prev d-lg-block d-none" type="button" data-bs-target="#demo" data-bs-slide="prev" aria-label="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next home-slider-control-next d-lg-block d-none" type="button" data-bs-target="#demo" data-bs-slide="next" aria-label="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+          <div id="demo2" class="carousel slide d-block d-sm-none pt-2">
+            <div class="slider-img">
+            <a href="javascript:void(0)" onclick="openLeadPopup()">
+              <picture>
+                <source srcset="image/catalog/monsoon-offer/mobile-banner.avif" type="image/avif">
+                <img src="image/catalog/monsoon-offer/mobile-banner.webp" alt="Urbanwood's republic day sale" width="469" height="385" class="d-block img-fluid img-responsive" fetchpriority="high" loading="eager">
+              </picture>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 ps-lg-0 d-none d-lg-block">
+  			<div class="cp-with p-3 rounded shadow-sm w-100 d-flex align-items-center justify-content-center" style="background-color:#fec89357">
+    			<div id="desktopFormContainer" class="d-flex justify-content-center">
+              		
+              	<form id="enquiryForm" class="w-100">
+        				<h6 class="mb-3 fw-bold d-none d-lg-block">Our Experts Will Call You in 1 Min</h6>
+
+        				<input type="text" name="name" class="form-control mb-2" placeholder="Your Name" required="">
+        				<input type="tel" name="phone" class="form-control mb-3" placeholder="Phone Number" required="">
+
+        				<button type="submit" class="btn text-white w-100" style="background-color:#fc7e00">Get Callback in 1 Min</button>
+      				</form></div>
+  			</div>
+		</div>
+      </div>
+    </div>
+  </div>
+<style>
+  .img-overlay-wrap {
+  position: relative;
+  display: inline-block;
+}
+.img-overlay-wrap img {
+  display: block;
+  width: 100%;
+}
+.overlay-btn {
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: #d2691e00!important;
+    background-color: #00000000;
+    border-color: #f31819;
+    font-size: 9px;
+}
+.overlay-btn:hover {
+  color:white!important;
+  background:#f51a1f;
+}
+@media screen and (max-width:576px) {
+  .overlay-btn {
+    bottom: 15px;
+    font-size: 14px;
+  }
+}
+  </style>
+  <div class="offcanvas offcanvas-bottom" tabindex="-1" id="mobileForm">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Our Experts Will Call You in 1 Min</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <div id="mobileFormContainer"></div>
+  </div>
+</div>
+<div class="d-lg-none position-fixed bottom-0 start-0 w-100 p-2 bg-white shadow z-3 d-flex gap-2">
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/919311662426?text=Hi%20Urbanwood,%20I%20am%20interested%20in%20your%20products" target="_blank" class="btn btn-success text-white w-50">
+    WhatsApp
+  </a>
+  <!-- Enquiry Button -->
+  <button class="btn text-white w-50" data-bs-toggle="offcanvas" style="background-color:#fc7e00" data-bs-target="#mobileForm">
+    Callback in 1 Min
+  </button>
+</div>
+  <script>
+  function placeForm() {
+    const form = document.getElementById('enquiryForm');
+
+    if (window.innerWidth < 992) {
+      document.getElementById('mobileFormContainer').appendChild(form);
+    } else {
+      document.getElementById('desktopFormContainer').appendChild(form);
+    }
+  }
+
+  // Run once + on resize
+  placeForm();
+  window.addEventListener('resize', placeForm);
+</script>
+  <style>
+  .offcanvas-bottom {
+  max-height: 75vh;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+  </style>
+  <!-- -slider end -->
+
+  <!-- Popular Categories-->
+  <style>
+
+    .popular-catagories {
+        background: none;
+    }
+
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        /*padding: 10px;*/
+    }
+
+    .gallery-item {
+        flex: 1 1 calc(16% - 20px);
+        margin: 5px;
+        overflow: hidden;
+        border-radius: 0.3rem;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 0.3rem;
+        image-rendering: crisp-edges;
+    }
+    .new-text-name {
+        color: #1a1a1a;
+        font-size: 14px;
+        width: 100%;
+        font-weight: 400;
+        text-align: center;
+        margin: 10px 0;
+        text-transform: capitalize;
+        display: block;
+    }
+    .new-pp-item-box {
+        margin: 0.5rem;
+    }
+
+    @media screen and (max-width: 1024px) {
+        .gallery {
+            width: 100%;
+            margin: auto !important;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+            scroll-snap-type: x mandatory;
+            scroll-padding-inline: 20px;
+            height: fit-content;
+            display: block;
+        }
+
+        .gallery-item {
+            width: 37% !important;
+            display: inline-block;
+            /* padding: 0px !important;
+        margin: 0px !important; */
+        }
+    }
+    @media screen and (max-width:425px) {
+        .new-text-name {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow:ellipsis;
+    		-webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+    }
+</style>
+
+<section class="popular-catagories d-flex py-lg-2 py-3" aria-label="Popular Categories">
+    <div class="container-lg container-md">
+        <div class="row">
+            <h2 class="pg-heading text-center">Popular Categories</h2>
+            <p class="heading-para text-center ">Unlimited Options. Unbelievable Prices. Free Delivery</p>
+        </div>
+        <div class="gallery">
+            <div class="gallery-item ">
+                <a href="javascript:void(0)" onclick="openLeadPopup()">
+                    <img data-src="assets/image/popular-items/sofa-set.jpg" class="lazy-load img-fluid" alt="wooden sofa set" loading="lazy">
+                    <span class="new-text-name">Sofa Sets</span>
+                </a>
+            </div>
+            <div class="gallery-item ">
+                <a href="javascript:void(0)" onclick="openLeadPopup()">
+                    <img data-src="assets/image/popular-items/bed.jpg" class="lazy-load img-fluid" alt="wooden beds" loading="lazy">
+                    <span class="new-text-name">Beds</span>
+                </a>
+            </div>
+            <div class="gallery-item ">
+                <a href="javascript:void(0)" onclick="openLeadPopup()">
+                    <img data-src="assets/image/popular-items/dining-set.jpg" class="lazy-load img-fluid" alt="dining set" loading="lazy">
+                    <span class="new-text-name">Dining Sets</span>
+                </a>
+            </div>
+            <div class="gallery-item ">
+                <a href="javascript:void(0)" onclick="openLeadPopup()">
+                    <img data-src="assets/image/popular-items/tvunit.jpg" class="lazy-load img-fluid" alt="tv units" loading="lazy">
+                    <span class="new-text-name">TV Units</span>
+                </a>
+            </div>
+
+            <div class="gallery-item ">
+                <a href="javascript:void(0)" onclick="openLeadPopup()">
+                    <img data-src="assets/image/popular-items/studytables.jpg" class="lazy-load img-fluid" alt="study tables" loading="lazy">
+                    <span class="new-text-name">Study Tables</span>
+                </a>
+            </div>
+            <div class="gallery-item ">
+                <a href="javascript:void(0)" onclick="openLeadPopup()">
+                    <img data-src="assets/image/popular-items/shoerack.jpg" class="lazy-load img-fluid" alt="shoe racks" loading="lazy">
+                    <span class="new-text-name">Shoe Racks</span>
+                </a>
+            </div>
+            <div class="gallery-item ">
+                <a href="javascript:void(0)" onclick="openLeadPopup()">
+                    <img data-src="assets/image/popular-items/console-table.jpg" class="lazy-load img-fluid" alt="consloe tables" loading="lazy">
+                    <span class="new-text-name">console Table</span>
+                </a>
+            </div>
+            <div class="gallery-item ">
+                <a href="javascript:void(0)" onclick="openLeadPopup()">
+                    <img data-src="assets/image/popular-items/canebed.jpg" class="lazy-load img-fluid" alt="cane furniture" loading="lazy">
+                    <span class="new-text-name">Cane Furniture</span>
+                </a>
+            </div>
+            <div class="gallery-item ">
+                <a href="javascript:void(0)" onclick="openLeadPopup()">
+                    <img data-src="assets/image/popular-items/sofacumbed.jpg" class="lazy-load img-fluid" alt="sofa cum bed" loading="lazy">
+                    <span class="new-text-name">Sofa Cum Bed</span>
+                </a>
+            </div>
+            <div class="gallery-item ">
+                <a href="javascript:void(0)" onclick="openLeadPopup()">
+                    <img data-src="assets/image/popular-items/chestofdrawer.jpg" class="lazy-load img-fluid" alt="chest of drawers" loading="lazy">
+                    <span class="new-text-name">Chest of Drawers</span>
+                </a>
+            </div>
+            <div class="gallery-item ">
+                <a href="javascript:void(0)" onclick="openLeadPopup()">
+                    <img data-src="assets/image/popular-items/sideboard.jpg" class="lazy-load img-fluid" alt="cabinets and sideboard" loading="lazy">
+                    <span class="new-text-name">Sideboard &amp; Cabinets</span>
+                </a>
+            </div>
+            <div class="gallery-item ">
+                <a href="javascript:void(0)" onclick="openLeadPopup()">
+                    <img data-src="assets/image/popular-items/barcabinet.jpg" class="lazy-load img-fluid" alt="bar cabinets" loading="lazy">
+                    <span class="new-text-name">Bar Cabinets</span>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</section></div>
+
+<section class="relay-collection py-5">
+  <div class="container">
+    <div class="row">
+    <h2 class="pg-heading text-center">New Collection</h2>
+      <p></p>
+      <div class="furniture-grid">
+        <div class="grid-item main-feature">
+          <a href="javascript:void(0)" onclick="openLeadPopup()">
+            <img src="image/collection/the-relay-collection.webp" srcset="image/collection/the-relay-collection-399.webp 399w, image/collection/the-relay-collection-454.webp 1024w, image/collection/the-relay-collection-634.webp 1440w, image/collection/the-relay-collection-694.webp 768w" sizes=" (max-width: 576px) 30vw, (max-width: 768px) 45vw, (max-width: 992px) 45vw, 40vw" alt="Relay Collection" class="img-fluid" loading="lazy" style="width:100%">
+          </a>  
+        </div>
+        <div class="grid-item">
+          <a href="javascript:void(0)" onclick="openLeadPopup()">
+            <img src="image/collection/relay-dining-room.webp" srcset=" image/collection/relay-dining-room-187.webp 399w, image/collection/relay-dining-room-214.webp 1024w, image/collection/relay-dining-room-304.webp 1440w, image/collection/relay-dining-room-334.webp 768w" sizes="(max-width: 576px) 30vw, (max-width: 768px) 45vw, (max-width: 992px) 45vw, 40vw " alt="Dining room" class="img-fluid" loading="lazy" style="width:100%">
+          </a>
+        </div>
+        <div class="grid-item">
+          <a href="javascript:void(0)" onclick="openLeadPopup()">
+            <img src="image/collection/relay-bedroom.webp" srcset="image/collection/relay-bedroom-187.webp 399w,image/collection/relay-bedroom-214.webp 1024w,image/collection/relay-bedroom-304.webp 1440w,image/collection/relay-bedroom-334.webp 768w" sizes="(max-width: 576px) 30vw,(max-width: 768px) 45vw,(max-width: 992px) 45vw,40vw" alt="Bedroom" class="img-fluid" loading="lazy" style="width:100%">
+          </a>
+        </div>
+        <div class="grid-item">
+          <a href="javascript:void(0)" onclick="openLeadPopup()">
+            <img src="image/collection/relay-living-room.webp" srcset="image/collection/relay-living-room-187.webp 399w, image/collection/relay-living-room-214.webp 1024w, image/collection/relay-living-room-304.webp 1440w, image/collection/relay-living-room-334.webp 768w" sizes=" (max-width: 576px) 30vw, (max-width: 768px) 45vw, (max-width: 992px) 45vw, 40vw" alt="Living room" class="img-fluid" loading="lazy" style="width:100%">
+          </a>
+        </div>
+        <div class="grid-item explore-all-card"><a href="javascript:void(0)" onclick="openLeadPopup()" class="text-white text-decoration-none card-link h5">Explore All <span class="hover-icon"><i class="bx bx-right-arrow-alt"></i></span></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+.furniture-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 15px;
+}
+.main-feature {
+  grid-column: span 2; 
+}
+@media (min-width: 768px) {
+  .furniture-grid {
+    grid-template-columns: repeat(4, 1fr); 
+  }
+
+  .main-feature {
+    grid-row: span 2;
+  }
+}
+.grid-item {
+  overflow: hidden;
+  transition: transform 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+}
+.grid-item:hover {
+    transform: scale(1.01);
+    border-color: gold;
+}
+.explore-all-card .card-link {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.explore-all-card::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: linear-gradient(135deg, #fc7e00 21%, #000000 100%);
+  transform: rotate(0deg);
+  transition: transform 1.2s ease-in-out;
+}
+.explore-all-card:hover::before {
+  transform: rotate(180deg);
+}
+.hover-icon {
+opacity: 0;
+  transform: translateX(-6px);
+  width: 0;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+.explore-all-card:hover .hover-icon {
+  opacity: 1;
+  transform: translateX(0);
+  width: 18px;
+}
+  </style>
+
+<section class="py-lg-4 py-3" aria-label="featured category">
+<div class="container ">
+    <div class="row row-cols-2 g-3">
+        <div class="col">
+            <a href="javascript:void(0)" onclick="openLeadPopup()"><img data-src="assets/image/extra-off-banner/festive-offer-banner.jpg" tabincdex="0" alt="urbanwood-temple" class="lazy-load img-fluid rounded-3"></a>
+        </div>
+        <div class="col">
+            <a href="javascript:void(0)" onclick="openLeadPopup()">
+                <img data-src="assets/image/extra-off-banner/sofaset-banner.jpg" tabincdex="0" alt="urbanwood-temple" class="lazy-load img-fluid rounded-3"></a>
+        </div>
+
+    </div>
+</div>
+</section>
+<script>
+//JavaScript for Lazy Loading
+
+document.addEventListener("DOMContentLoaded", function () {
+    const lazyImages = document.querySelectorAll('.lazy-load');
+
+    const loadImage = (image) => {
+        image.src = image.getAttribute('data-src');
+        image.onload = () => {
+            image.classList.remove('lazy-load'); // Optionally remove the class after loading
+        };
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                loadImage(entry.target);
+                observer.unobserve(entry.target); // Stop observing once the image is loaded
+            }
+        });
+    });
+
+    lazyImages.forEach(image => {
+        observer.observe(image); // Start observing each lazy image
+    });
+});
+</script>
+    <!-- end Popular Categories-->
+
+<style>
+.custom-carousel2 .owl-nav i {
+    position: relative;
+    top: 12%;
+}
+.product_content a{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+</style>
+    <section class="game-section py-lg-4 py-3" aria-label="most loved items" data-nav="true">
+ <div class="container">
+  <div class="row"> 
+  <h2 class="pg-heading text-center"> Most Loved Items</h2>
+    <p class="heading-para text-center">Your Go-To Collection</p>
+
+  <div class="owl-carousel owl-carousel2 custom-carousel2 owl-theme">
+  <div class="item _item2">
+       <div class="uw_prduct_box_">
+          <div class="offer_tag">
+            <span class="best_tag">Bestseller</span>
+            </div>
+          <div class="uw_p_img">
+            <a href="javascript:void(0)" onclick="openLeadPopup()"><img src="assets/image/most-loved-items/coffee-table-most-loved.jpg" alt="coffee-table" class="img-fluid" loading="lazy"></a>
+            </div>
+          <div class="product_content">
+            <a href="javascript:void(0)" onclick="openLeadPopup()" class="p_item_name">Coffee Table</a>
+            <div class="uw_price">
+              <span class="giving_p">₹21,129</span><span class="real_p">₹31,155</span> <span class="offer_dis">32%</span>
+            </div>
+           </div>
+        </div>
+  </div>
+  <div class="item _item2">
+       <div class="uw_prduct_box_">
+          <div class="offer_tag">
+            <span class="best_tag">Bestseller</span>
+            </div>
+          <div class="uw_p_img">
+            <a href="javascript:void(0)" onclick="openLeadPopup()"><img src="assets/image/most-loved-items/dressing-most-loved.jpg" alt="dressing table" class="img-fluid" loading="lazy"></a>
+            </div>
+          <div class="product_content">
+            <a href="javascript:void(0)" onclick="openLeadPopup()" class="p_item_name">Dressing Table</a>
+            <div class="uw_price">
+              <span class="giving_p">₹40,999</span><span class="real_p">₹65,189</span> <span class="offer_dis">37%</span>
+            </div>
+           </div>
+        </div>
+  </div>
+  <div class="item _item2">
+       <div class="uw_prduct_box_">
+          <div class="offer_tag">
+            <span class="best_tag">Bestseller</span>
+            </div>
+          <div class="uw_p_img">
+            <a href="javascript:void(0)" onclick="openLeadPopup()"><img src="assets/image/most-loved-items/wardrobe-most-loved.jpg" alt="coffee-table" class="img-fluid" loading="lazy"></a>
+            </div>
+          <div class="product_content">
+            <a href="javascript:void(0)" onclick="openLeadPopup()" class="p_item_name">Wardrobe</a>
+            <div class="uw_price">
+              <span class="giving_p">₹41,145</span><span class="real_p">₹64,550</span> <span class="offer_dis">36%</span>
+            </div>
+           </div>
+        </div>
+  </div>
+  <div class="item _item2">
+       <div class="uw_prduct_box_">
+       <div class="offer_tag"> <span class="new_arrival">New</span></div>
+          <div class="uw_p_img">
+            <a href="javascript:void(0)" onclick="openLeadPopup()"><img src="assets/image/most-loved-items/king-bed-most-loved.jpg" alt="coffee-table" class="img-fluid" loading="lazy"></a>
+            </div>
+          <div class="product_content">
+            <a href="javascript:void(0)" onclick="openLeadPopup()" class="p_item_name">King size bed</a>
+            <div class="uw_price">
+              <span class="giving_p">₹35,155</span><span class="real_p">₹55,155</span> <span class="offer_dis">36%</span>
+            </div>
+           </div>
+        </div>
+  </div>
+  <div class="item _item2">
+       <div class="uw_prduct_box_">
+          <div class="offer_tag">
+            <span class="best_tag">Bestseller</span>
+            </div>
+          <div class="uw_p_img">
+            <a href="javascript:void(0)" onclick="openLeadPopup()"><img src="assets/image/most-loved-items/dining-set-most-loved.jpg" alt="coffee-table" class="img-fluid" loading="lazy"></a>
+            </div>
+          <div class="product_content">
+            <a href="javascript:void(0)" onclick="openLeadPopup()" class="p_item_name">Dining Table Set</a>
+            <div class="uw_price">
+              <span class="giving_p">₹78,129</span><span class="real_p">₹111,590</span> <span class="offer_dis">50%</span>
+            </div>
+           </div>
+        </div>
+  </div>
+  <div class="item _item2">
+       <div class="uw_prduct_box_">
+       <div class="offer_tag"> <span class="new_arrival">New</span></div>
+          <div class="uw_p_img">
+            <a href="javascript:void(0)" onclick="openLeadPopup()"><img src="assets/image/most-loved-items/shoe-rack-most-loved.jpg" alt="coffee-table" class="img-fluid" loading="lazy"></a>
+            </div>
+          <div class="product_content">
+            <a href="javascript:void(0)" onclick="openLeadPopup()" class="p_item_name">Shoe rack</a>
+            <div class="uw_price">
+              <span class="giving_p">₹20,500</span><span class="real_p">₹30,500</span> <span class="offer_dis">33%</span>
+            </div>
+           </div>
+        </div>
+  </div>
+
+  </div>
+
+  </div>
+  </div> 
+</section>
+
+<style>
+.sbr_item {
+  padding: 10px;
+}
+.room-card {
+  box-shadow: inset -1px 1px 13px 5px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.room-card img {
+  width: 100%;
+}
+.room-card h5 {
+  padding: 10px
+}
+.room-card:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+</style>
+<section class="shop-by-room py-5">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold">Shop by Room</h2>
+      <p class="text-muted">Find furniture designed for every corner of your home</p>
+    </div>
+
+    <div class="d-flex flex-wrap justify-content-center">
+      <div class="sbr_item col-6 col-md-4 col-lg-4">
+        <a href="javascript:void(0)" onclick="openLeadPopup()" class="room-card text-center d-block">
+          <img src="assets/image/shopby-room/living/living.webp" srcset="
+    assets/image/shopby-room/living/living_180x144.webp 480w,
+    assets/image/shopby-room/living/living_1_210x168.webp 800w,
+    assets/image/shopby-room/living/living_2_410x328.webp 1200w
+  " sizes="(max-width: 767px) 50vw,
+         (max-width: 1024px) 50vw,
+         220vw" alt="Living room Banner" loading="lazy" decoding="async" class="img-fluid">
+          <h5>Living Room</h5>
+        </a>
+      </div>
+      <div class="sbr_item col-6 col-md-4 col-lg-4">
+        <a href="javascript:void(0)" onclick="openLeadPopup()" class="room-card text-center d-block">
+          <img src="assets/image/shopby-room/bedroom/bed-img.webp" srcset="
+    assets/image/shopby-room/bedroom/bed-img_180x144.webp 480w,
+    assets/image/shopby-room/bedroom/bed-img_1_210x168.webp 800w,
+    assets/image/shopby-room/bedroom/bed-img_2_410x328.webp 1200w
+  " sizes="(max-width: 767px) 50vw,
+         (max-width: 1024px) 50vw,
+         220vw" alt="Bedroom Banner" loading="lazy" decoding="async" class="img-fluid">
+          <h5>Bedroom</h5>
+        </a>
+      </div>
+      <div class="sbr_item col-6  col-md-4 col-lg-4">
+        <a href="javascript:void(0)" onclick="openLeadPopup()" class="room-card text-center d-block">
+          <img src="assets/image/shopby-room/dining/dining.webp" srcset="
+    assets/image/shopby-room/dining/dining_180x144.webp 480w,
+    assets/image/shopby-room/dining/dining_1_210x168.webp 800w,
+    assets/image/shopby-room/dining/dining_2_410x328.webp 1200w
+  " sizes="(max-width: 767px) 50vw,
+         (max-width: 1024px) 50vw,
+         220vw" alt="Bedroom Banner" loading="lazy" decoding="async" class="img-fluid">
+          <h5>Dining Room</h5>
+        </a>
+      </div>
+      <div class="sbr_item col-6  col-md-4 col-lg-4">
+        <a href="javascript:void(0)" onclick="openLeadPopup()" class="room-card text-center d-block">
+          <img src="assets/image/shopby-room/storage/storage.webp" srcset="
+    assets/image/shopby-room/storage/storage_180x144.webp 480w,
+    assets/image/shopby-room/storage/storage_1_210x168.webp 800w,
+    assets/image/shopby-room/storage/storage_2_410x328.webp 1200w
+  " sizes="(max-width: 767px) 50vw,
+         (max-width: 1024px) 50vw,
+         220vw" alt="Bedroom Banner" loading="lazy" decoding="async" class="img-fluid">
+          <h5>Storage</h5>
+        </a>
+      </div>
+      <div class="sbr_item col-6 col-md-4 col-lg-4">
+        <a href="javascript:void(0)" onclick="openLeadPopup()" class="room-card text-center d-block">
+          <img src="assets/image/shopby-room/study/study.webp" srcset="
+    assets/image/shopby-room/study/study_180x144.webp 480w,
+    assets/image/shopby-room/study/study_1_210x168.webp 800w,
+    assets/image/shopby-room/study/study_2_410x328.webp 1200w
+  " sizes="(max-width: 767px) 50vw,
+         (max-width: 1024px) 50vw,
+         220vw" alt="Bedroom Banner" loading="lazy" decoding="async" class="img-fluid ">
+          <h5>Study Room</h5>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+    <!--new arrival furniture  -->
+
+<section class="game-section py-lg-4 py-3" aria-label="Latest Arrials" data-nav="true">
+  <div class="container">
+   <div class="row"> 
+   <h3 class="pg-heading text-center">Latest Arrivals</h3>
+     <p class="heading-para text-center">Fresh Looks for Your Space</p>
+ 
+   <div class="owl-carousel owl-carousel2 custom-carousel2 owl-theme">
+   <div class="item _item2">
+        <div class="uw_prduct_box_">
+           <div class="offer_tag">
+             <span class="new_arrival">New</span>
+             </div>
+           <div class="uw_p_img">
+             <a href="javascript:void(0)" onclick="openLeadPopup()"><img src="assets/image/new-arrival/sideboard-new.jpg" alt="sideboard" class="img-fluid" loading="lazy"></a>
+             </div>
+           <div class="product_content">
+             <a href="javascript:void(0)" onclick="openLeadPopup()" class="p_item_name">Martin Side Cabinet</a>
+             <div class="uw_price">
+               <span class="giving_p">₹42,199</span><span class="real_p">₹62,199</span> <span class="offer_dis">32%</span>
+             </div>
+            </div>
+         </div>
+   </div>
+   <div class="item _item2">
+        <div class="uw_prduct_box_">
+           <div class="offer_tag">
+             <span class="new_arrival">New</span>
+             </div>
+           <div class="uw_p_img">
+             <a href="javascript:void(0)" onclick="openLeadPopup()"><img src="assets/image/new-arrival/bed-new.jpg" alt="king size bed" class="img-fluid" loading="lazy"></a>
+             </div>
+           <div class="product_content">
+             <a href="javascript:void(0)" onclick="openLeadPopup()" class="p_item_name">Ashoka Without Storage Bed</a>
+             <div class="uw_price">
+               <span class="giving_p">₹46,555</span><span class="real_p">₹66,555</span> <span class="offer_dis">30%</span>
+             </div>
+            </div>
+         </div>
+   </div>
+   <div class="item _item2">
+        <div class="uw_prduct_box_">
+           <div class="offer_tag">
+             <span class="new_arrival">New</span>
+             </div>
+           <div class="uw_p_img">
+             <a href="javascript:void(0)" onclick="openLeadPopup()"><img src="assets/image/new-arrival/study-new.jpg" alt="study table" class="img-fluid" loading="lazy"></a>
+             </div>
+           <div class="product_content">
+             <a href="javascript:void(0)" onclick="openLeadPopup()" class="p_item_name">Crispin Wooden Study Table</a>
+             <div class="uw_price">
+               <span class="giving_p">₹29,844</span><span class="real_p">₹45,159</span> <span class="offer_dis">34%</span>
+             </div>
+            </div>
+         </div>
+   </div>
+   <div class="item _item2">
+        <div class="uw_prduct_box_">
+        <div class="offer_tag"> <span class="new_arrival">New</span></div>
+           <div class="uw_p_img">
+             <a href="javascript:void(0)" onclick="openLeadPopup()"><img src="assets/image/new-arrival/sofa-new.jpg" alt="sofa set" class="img-fluid" loading="lazy"></a>
+             </div>
+           <div class="product_content">
+             <a href="javascript:void(0)" onclick="openLeadPopup()" class="p_item_name">Falcon Wooden Sofa Set</a>
+             <div class="uw_price">
+               <span class="giving_p">₹70,444</span><span class="real_p">₹99,999</span> <span class="offer_dis">30%</span>
+             </div>
+            </div>
+         </div>
+   </div>
+   <div class="item _item2">
+        <div class="uw_prduct_box_">
+           <div class="offer_tag">
+             <span class="new_arrival">New</span>
+             </div>
+           <div class="uw_p_img">
+             <a href="javascript:void(0)" onclick="openLeadPopup()"><img src="assets/image/new-arrival/wardrobe-new.jpg" alt="wardrobe" class="img-fluid" loading="lazy"></a>
+             </div>
+           <div class="product_content">
+             <a href="javascript:void(0)" onclick="openLeadPopup()" class="p_item_name">Mace Solid Wood Wardrobe</a>
+             <div class="uw_price">
+               <span class="giving_p">₹37,199</span><span class="real_p">₹55,099</span> <span class="offer_dis">32%</span>
+             </div>
+            </div>
+         </div>
+   </div>
+   <div class="item _item2">
+        <div class="uw_prduct_box_">
+        <div class="offer_tag"> <span class="new_arrival">New</span></div>
+           <div class="uw_p_img">
+             <a href="javascript:void(0)" onclick="openLeadPopup()"><img src="assets/image/new-arrival/bookshelf-new.jpg" alt="Wooden Bookshelf" class="img-fluid" loading="lazy"></a>
+             </div>
+           <div class="product_content">
+             <a href="javascript:void(0)" onclick="openLeadPopup()" class="p_item_name">Gloria Wooden Bookshelf</a>
+             <div class="uw_price">
+               <span class="giving_p">₹31,159</span><span class="real_p">₹47,189</span> <span class="offer_dis">34%</span>
+             </div>
+            </div>
+         </div>
+   </div>
+ 
+   </div>
+ 
+   </div>
+   </div> 
+ </section>
+    <style>
+  .trending_product_box {
+    padding: 0;
+    margin: 6px auto;
+    border:1px solid #ededed;
+    transition: .5s ease-out;
+    border-radius: 0.3rem;
+
+}
+.product_img_ img {
+    border-radius: 0.3rem 0.3rem 0 0;
+    image-rendering: smooth;
+}
+.sale_badge {
+    position: absolute;
+    left: auto;
+    right: 0px;
+    background: #eee;
+    padding: 4px 4px;
+    top: 0px;
+    display: inline-flex;
+    width: 70px;
+}
+.sale_badge img {
+    width: 60px;
+}
+.product_content {
+    padding: .5rem;
+    text-align: left;
+}
+.p_item_name {
+    font-size: 15px;
+    color: #2c2c2c;
+    font-weight: 500;
+    line-height: 2.3;
+}
+
+.p_item_amount {
+    color: #7d7d7d;
+    font-size: 14px;
+    font-weight: 400;
+}
+.tag_start_from{
+  font-size:14px;
+  font-weight:400;
+  color:#767676;
+}
+
+.owner-tag {
+    color: #ff8000d4;
+    font-size: 0.8em;
+    line-height: 1;
+    position: absolute;
+    right: .8em;
+    top: 1em;
+}
+</style>
+<section class="trending_sec py-lg-4 py-3" aria-label="Bulk Buying Options">
+ <div class="container-lg container-md">
+  <div class="row ">
+      <h4 class="pg-heading text-center">Go Big with Bulk Buying</h4>
+    <p class="heading-para text-center ">Buy More, Save More</p>
+
+     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 wdith-50-sm-top">
+
+      <div class="trending_product_box">
+      <div class="product_img_"> 
+          <img data-src="assets/image/home-bulk/hotel-img.jpg" class="img-fluid lazy-load" loading="lazy" alt="Hotel Furniture">
+      </div>
+          <div class="product_content">
+            <a href="javascript:void(0)" onclick="openLeadPopup()" class="p_item_name">Hotel Furniture</a>
+         </div>
+      </div>
+      </div>
+
+     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 wdith-50-sm-top">
+
+  <div class="trending_product_box">
+      <div class="product_img_"> 
+          <img data-src="assets/image/home-bulk/work-space-img.jpg" class="img-fluid lazy-load" loading="lazy" alt="hotel-img">
+      </div>
+          <div class="product_content">
+            <a href="javascript:void(0)" onclick="openLeadPopup()" class="p_item_name">Work Space Furniture </a>
+         </div>
+  </div>
+     </div>
+
+
+
+     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 wdith-50-sm-top">
+
+  <div class="trending_product_box">
+      <div class="product_img_"> 
+          <img data-src="assets/image/home-bulk/whole-sellers-img.jpg" class="img-fluid lazy-load" loading="lazy" alt="hotel-img">
+      </div>
+          <div class="product_content">
+            <a href="javascript:void(0)" onclick="openLeadPopup()" class="p_item_name">Retailers and Wholesalers</a>
+         </div>
+  </div>
+     </div>
+
+
+
+     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 wdith-50-sm-top">
+
+  <div class="trending_product_box">
+      <div class="product_img_"> 
+          <img data-src="assets/image/home-bulk/institute-img.jpg" class="img-fluid lazy-load" loading="lazy" alt="hotel-img">
+      </div>
+          <div class="product_content">
+            <a href="javascript:void(0)" onclick="openLeadPopup()" class="p_item_name">Educational Institutions</a>
+         </div>
+  </div>
+     </div>
+
+
+
+  </div>
+</div>
+</section>
+
+<style>
+.customise-now {
+    background: #f7f7f7;
+    text-align:center;
+}
+.custom_btn_n {
+    border: 1px solid #434342;
+    padding: 4px 15px;
+    font-size: 16px;
+    color: #fff;
+    margin: 10px auto;
+    background: #434342;
+    width: max-content;
+}
+.custom_btn_n:hover{
+    color: #434342; /*#fc7e00;*/
+    background: white
+}
+.list-for-custom {
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.list-for-custom li {
+    border: 1px dashed #1a366c1f;
+    border-radius:10px;
+    width: max-content;
+    margin: 1em;
+    padding: .5em 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:#fff;
+}
+.text-size {
+    font-size: 45px;
+    font-weight: bolder;
+}
+.list-for-custom li img{
+  width: 75px;
+}
+
+@media screen and (max-width:992px) {
+  .text-size {
+    font-size: 30px;
+}
+.list-for-custom li img {
+    width: 57px;
+}
+}
+@media screen and (max-width:576px) {
+  .list-for-custom li {
+    margin: 0.3em;
+}
+.text-size {
+    font-size: 14px;
+}
+.list-for-custom li img {
+    width: 20px;
+}
+.custom_btn_n {
+    padding: 4px 10px;
+    font-size: 12px;
+
+}
+}
+</style>
+<section class="customise-now py-4" aria-label="product customization">
+    <div class="container container-custom">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="pg-heading text-center"> <span> Product Customization </span></h2>
+                <p class="heading-para text-center"> Got a dream furniture in mind we will make it for you</p>
+                <ul class="list-for-custom">
+                  <li><img src="catalog/view/javascript/assets/image/icon/sofa-custom.svg" alt="sofa-custom"><span class="text-size" style="color:#1a366c">SIZE</span></li>
+                  <li style="border: 1px dashed #23ff8d3d;"><img src="catalog/view/javascript/assets/image/icon/color-palette.svg" alt="color-palette"><span class="text-size" style="color:#4ad78e;">COLOR</span></li>
+                  <li style="border: 1px dashed #ff676738;"><img src="catalog/view/javascript/assets/image/icon/design-custom.svg" alt="design-custom"><span class="text-size" style="color:#ff6767;">DESIGN</span></li>
+                </ul>
+                <a href="javascript:void(0)" onclick="openLeadPopup()" type="button" class="custom_btn_n">Customize now</a>
+            </div>
+        </div>
+    </div>
+</section>
+    
+
+<!--family collection-->
+<section class="family-collection py-lg-4 py-3" aria-label="family collections">
+  <div class="container">
+    <div class="row">
+    <h4 class="pg-heading  text-center">Family Collections </h4>
+    <p class="heading-para text-center">Handcrafted furniture from same family for your family</p>
+
+    <div class="col-lg-6 col-sm-12"><div class="fam_box_coll"><img src="assets/image/family-collection/family-1.webp" alt="beds family collection" class="img-fluid " loading="lazy"><a href="javascript:void(0)" onclick="openLeadPopup()" class="famil-link p_item_name">Wooden Bed</a></div></div>
+    <div class="col-lg-6 col-sm-12">
+    <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12"><div class="fam_box_coll"><img src="assets/image/family-collection/family-2.webp" alt="sofa set family collection" class="img-fluid " loading="lazy"><a href="javascript:void(0)" onclick="openLeadPopup()" class="famil-link p_item_name">Sofa Set</a></div></div>
+    <div class="col-lg-6 col-md-6 col-sm-12"><div class="fam_box_coll"><img src="assets/image/family-collection/family-3.webp" alt="family-collection" class="img-fluid"><a href="javascript:void(0)" onclick="openLeadPopup()" class="famil-link p_item_name">Wooden Wardrobe</a></div></div>
+    <div class="col-lg-6 col-md-6 col-sm-12"><div class="fam_box_coll"><img src="assets/image/family-collection/family-4.webp" alt="family-collection" class="img-fluid" loading="lazy"><a href="javascript:void(0)" onclick="openLeadPopup()" class="famil-link p_item_name">Dining Table Set</a></div></div>
+    <div class="col-lg-6 col-md-6 col-sm-12"><div class="fam_box_coll"><img src="assets/image/family-collection/family-5.webp" alt="family-collection" class="img-fluid" loading="lazy"><a href="javascript:void(0)" onclick="openLeadPopup()" class="famil-link p_item_name">Dressing Table</a></div></div>
+    </div>
+    </div>
+    
+    </div>
+  </div>
+</section>
+
+    <!--branch -->
+
+<section class="game-section py-lg-4 py-3" aria-label="experience studios" data-nav="true">
+  <div class="container">
+   <div class="row"> 
+   <h6 class="pg-heading text-center">Urbanwood Furniture</h6>
+     <p class="heading-para text-center ">Offline Furniture Experience Store</p>  
+   <div class="owl-carousel owl-carousel2 custom-carousel2 owl-theme">
+   <div class="item _item2">
+   <div class="uw_prduct_box_"><a href="javascript:void(0)" onclick="openLeadPopup()" ><img src="assets/image/branch/banglore.jpg" class="img-fluid" loading="lazy" alt="banglore_store"></a></div>
+   </div>
+   <div class="item _item2">
+   <div class="uw_prduct_box_"><a href="javascript:void(0)" onclick="openLeadPopup()"><img src="assets/image/branch/jaipur.jpg" class="img-fluid" loading="lazy" alt="jaipur_store"></a></div>
+   </div>
+ 
+   <div class="item _item2">
+   <div class="uw_prduct_box_"><a href="javascript:void(0)" onclick="openLeadPopup()"><img src="assets/image/branch/chennai.jpg" class="img-fluid" loading="lazy" alt="chennai_store"></a></div>
+   </div>
+ 
+   <div class="item _item2">
+   <div class="uw_prduct_box_"><a href="javascript:void(0)" onclick="openLeadPopup()"><img src="assets/image/branch/mumbai.jpg" class="img-fluid" loading="lazy" alt="mumbai_store"> </a></div>
+   </div>
+ 
+   <div class="item _item2">
+   <div class="uw_prduct_box_"><a href="javascript:void(0)" onclick="openLeadPopup()"> <img src="assets/image/branch/gurgaon.jpg" class="img-fluid" loading="lazy" alt="gurgaon_store"></a></div>
+   </div>
+ 
+   </div>
+ 
+   </div>
+   </div> 
+ </section>
+    <!-- insta section -->
+     <style>
+.row-1 {
+    padding: 0 ;
+    margin: 0;
+    z-index:1;
+}
+.column-2 {
+    display: flex;
+    padding: 0px;
+}
+.img-box i {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  font-size: 45px;
+  color: #fff;
+  -webkit-transform: scale(1.5) rotate(-15deg);
+  transform: scale(1.5) rotate(-15deg);
+
+}
+
+.img-box {
+  text-align: center;
+  width: calc(100%/7);
+  position: relative;
+  padding: 0px;
+  overflow: hidden;
+}
+#zoomIn {
+  display: block;
+  z-index: 99;
+  width: 100%;
+  position: relative;
+}
+figure {
+	overflow: hidden;
+}
+.img-box img {
+	display: block;
+	width: 100%;
+	transition: .3s ease-in-out;
+}
+.img-box:hover img {
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3) ;
+  opacity: 0.5;
+
+}
+.img-box:hover i{
+  opacity: 1;
+  -webkit-transform: scale(1) rotate(0);
+  transform: scale(1) rotate(0);
+}
+
+@media (max-width: 768px) {
+
+  .column-2 {
+        -ms-flex: 25% !important;
+        flex: 100%;
+        max-width: 100%;
+        padding: 0 0px;
+        width: 100%;
+        margin: 0px;
+        display: flex;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 20px;
+    }
+    .img-box img {
+        height: 100%;
+        width: 279px;
+    }
+.img-box {
+  overflow: unset;
+  width: 100%;
+}
+.img-box i {
+  font-size: 28px;
+  -webkit-transform: scale(1) rotate(360deg);
+  transform: scale(1) rotate(360deg);
+}
+}
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+    </style>
+    <section class="py-4" id="social" aria-label="insta feed"><i class="fa fa-spinner" aria-hidden="true"></i></section>
+
+<style>
+
+.partner-logo-list img {
+    width: 80%;
+    filter: opacity(0.5);
+}
+.partner-logo {
+    flex: 1 1 calc(16% - 20px);
+    margin: 5px;
+    overflow: hidden;
+    border-radius: 0.3rem;
+}
+.partner-logo-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+@media (max-width:425px){
+  .partner-logo {
+        display: inline-block;
+        width:50%;
+    }
+    .partner-logo-list {
+        width: 100%;
+        margin: auto !important;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        scroll-snap-type: x mandatory;
+        scroll-padding-inline: 20px;
+        height: fit-content;
+        display: block;
+    }
+}
+</style>
+
+
+<section class="ourpartner page-globel py-lg-5 py-3" aria-label="urbanwood's partners">
+    <div class="container">
+      <div class="row">
+            <div class="partner-logo-list">
+                <div class="partner-logo"><img src="assets/image/partner/amezon.jpg" alt="amazon-partner" class="img-fluid" loading="lazy"></div>
+                <div class="partner-logo"><img src="assets/image/partner/flipkart.jpg" alt="flipkart-partner" class="img-fluid" loading="lazy"></div>
+                <div class="partner-logo"><img src="assets/image/partner/pepperfry.jpg" alt="pepperfry-partner" class="img-fluid" loading="lazy"></div>
+                <div class="partner-logo"><img src="assets/image/partner/apkainterior.jpg" alt="apkainterior-partner" class="img-fluid" loading="lazy"></div>
+                <div class="partner-logo"><img src="assets/image/partner/shopper.jpg" alt="shopperstop-partner" class="img-fluid" loading="lazy"></div>
+            </div>
+            </div>
+            </div>
+</section>
+
+<section class="faq_sec py-lg-5 "> 
+<div class="container">
+  <div class="row">
+    
+    <div class="col-lg-6">
+      <div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        What is the best furniture shop in Gurgaon?
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Urbanwood is one of the best furniture shops in Gurgaon offering premium wooden furniture, modern designs, and affordable pricing for sofas, beds, and dining tables.      
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Where can I find a reliable furniture shop near me in Gurgaon?
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        If you are searching for a furniture shop near me in Gurgaon, Urbanwood provides a trusted online furniture store with doorstep delivery and quality products.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Is it safe to buy furniture from an online furniture store in Gurgaon?
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Yes, buying from an online furniture store like Urbanwood in Gurgaon is safe as it offers detailed product descriptions, secure ordering, and reliable delivery.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFour">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        What type of furniture is best for Gurgaon homes?
+      </button>
+    </h2>
+    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Solid wooden furniture such as Sheesham wood is best for Gurgaon homes due to its durability, strength, and ability to handle changing weather conditions.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFive">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        Why should I choose wooden furniture over engineered wood?
+      </button>
+    </h2>
+    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Wooden furniture is more durable and long-lasting compared to engineered wood, offering better strength and a premium look for modern homes.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingSix">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+        Does Urbanwood offer affordable furniture in Gurgaon?
+      </button>
+    </h2>
+    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Urbanwood offers affordable furniture in Gurgaon including sofa sets, beds, and dining tables without compromising on quality and design.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingSeven">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+        How long does furniture delivery take in Gurgaon?
+      </button>
+    </h2>
+    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Furniture delivery in Gurgaon depends on the product, but Urbanwood ensures timely delivery along with installation support.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingEight">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+        Which furniture store in Gurgaon offers the best quality and design?
+      </button>
+    </h2>
+    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Urbanwood is a trusted furniture store in Gurgaon known for high-quality wooden furniture, stylish designs, and competitive prices.
+      </div>
+    </div>
+  </div>
+
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="query-sec">
+        <div> 
+        <h2 class="pg-heading text-lg-start text-white"><span class="" style="font-weight: 200;">Questions? </span>  <span style="color:#fcff00"> Look here! </span></h2>
+        <p class="heading-para text-lg-start text-white"> <b>Can't Find Question? </b></p>
+        <div class="con-info">
+          <svg width="40px" height="40px" viewBox="-8.4 -8.4 40.80 40.80" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0" transform="translate(1.92,1.92), scale(0.84)">
+                    <rect x="-8.4" y="-8.4" width="40.80" height="40.80" rx="20.4" fill="#059939" strokewidth="0"></rect>
+                  </g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#e60000" stroke-width="0.048"></g>
+                  <g id="SVGRepo_iconCarrier"> 
+                    <path d="M3 5.5C3 14.0604 9.93959 21 18.5 21C18.8862 21 19.2691 20.9859 19.6483 20.9581C20.0834 20.9262 20.3009 20.9103 20.499 20.7963C20.663 20.7019 20.8185 20.5345 20.9007 20.364C21 20.1582 21 19.9181 21 19.438V16.6207C21 16.2169 21 16.015 20.9335 15.842C20.8749 15.6891 20.7795 15.553 20.6559 15.4456C20.516 15.324 20.3262 15.255 19.9468 15.117L16.74 13.9509C16.2985 13.7904 16.0777 13.7101 15.8683 13.7237C15.6836 13.7357 15.5059 13.7988 15.3549 13.9058C15.1837 14.0271 15.0629 14.2285 14.8212 14.6314L14 16C11.3501 14.7999 9.2019 12.6489 8 10L9.36863 9.17882C9.77145 8.93713 9.97286 8.81628 10.0942 8.64506C10.2012 8.49408 10.2643 8.31637 10.2763 8.1317C10.2899 7.92227 10.2096 7.70153 10.0491 7.26005L8.88299 4.05321C8.745 3.67376 8.67601 3.48403 8.55442 3.3441C8.44701 3.22049 8.31089 3.12515 8.15802 3.06645C7.98496 3 7.78308 3 7.37932 3H4.56201C4.08188 3 3.84181 3 3.63598 3.09925C3.4655 3.18146 3.29814 3.33701 3.2037 3.50103C3.08968 3.69907 3.07375 3.91662 3.04189 4.35173C3.01413 4.73086 3 5.11378 3 5.5Z" stroke="#f7f7f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> 
+                  </g>
+                </svg>
+          <div class="con-detail"><p class="text-white"><small> contact us for any query</small></p> <h5>  +91- 8955228351 </h5></div>
+        </div>
+        <div class="con-info">
+          <svg width="40px" height="40px" viewBox="-8.4 -8.4 40.80 40.80" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0" transform="translate(1.92,1.92), scale(0.84)">
+                    <rect x="-8.4" y="-8.4" width="40.80" height="40.80" rx="20.4" fill="#32a6fd" strokewidth="0"></rect>
+                  </g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier"> 
+                    <path d="M17.4009 19.2C15.8965 20.3302 14.0265 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12V13.5C21 14.8807 19.8807 16 18.5 16C17.1193 16 16 14.8807 16 13.5V8M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> 
+                  </g>
+                </svg>
+          <div class="con-detail"><p class="text-white"><small> Email us for frequent response</small></p> <h5>Support@Urbanwood.In</h5></div>
+        </div>
+       </div>
+       <div class="query_man"> 
+     
+      <div class=""> <img src="catalog/view/javascript/assets/image/query-man.avif" class="img-responsive img-fluid" alt="for queries call us - Urbanwood Furniture" loading="lazy"> </div>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </section>
+    
+    <section class="bottom-content py-4"> 
+    <div class="container"> 
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>Furniture Shop in Gurgaon: The Ultimate Guide to Crafting Your Dream Home with Urbanwood</h1>
+       	<p>Let’s be honest—moving into a new apartment in Gurgaon is as much of a workout as a session at a Gold’s Gym. Whether you’ve just grabbed the keys to a high-rise in Sector 65 or a cozy spot in DLF Phase 3, the real adventure begins when you try to turn those echoing concrete walls into a home that actually feels like you. You’re probably already scouring the internet for a reliable <a href="furniture-shop-in-gurgaon">furniture shop in Gurgaon</a> because, let’s face it, nobody wants a living room that looks exactly like a budget hotel lobby. You want character, you want that "Urban Look," and you definitely want furniture that doesn't surrender to the first sign of a Gurgaon monsoon.</p>
+        <p>At <a href="furniture-shop-in-gurgaon">Urbanwood</a>, we get it. We’ve lived through the frantic weekend searches and the struggle of finding a <a href="tv-units">Tv unit design</a> that doesn't just look like a glorified shelf. This is why we’ve built our <a href="furniture-shop-in-gurgaon">online furniture store</a> to be your one-stop sanctuary. Before you even think about stepping out into the NH8 traffic, let’s talk about the essentials. Maybe you’re on the hunt for a versatile <a href="sofa-cum-beds">sofa cum bed</a> to save space in a guest room, or a grand <a href="dining-tables">dining table</a> that can handle both Sunday brunch and the kids' homework. You might be dreaming of sturdy <a href="beds">beds</a> that offer the kind of sleep you only get on vacation, or perhaps you're looking for authentic <a href="wooden-furniture-online">wooden furniture</a> that brings a touch of nature into the "Millennium City."</p>
+        <p>If you’re a fan of quality, <a href="sheesham-wood-furniture">sheesham wooden furniture</a> is probably already on your radar—it’s the gold standard for durability and grain beauty. Your journey into <a href="bedroom-furniture">bedroom furniture</a> shouldn't be a chore; it should be about finding <a href="chairs">chairs</a> that actually support your posture, <a href="wardrobes">wardrobes</a> that fit your entire summer and winter collections, and <a href="office-chairs">office chairs</a> that make working from home feel less like a chore. From plush <a href="fabric-sofas">sofa sets</a> to elegant <a href="coffee-tables">coffee tables</a> and comfortable <a href="sofas">sofas</a> for your balcony, every piece matters. Don't forget the details—a handcrafted <a href="chest-of-drawers">chest of drawers</a>, a wall full of <a href="bookshelves">bookcases</a>, or even a traditional <a href="diwan-beds">diwan beds</a> can completely change the energy of a room. All these elements are designed to work together, ensuring your home is as functional as it is beautiful.</p>
+        <h2><b>Why Choosing an Online Furniture Store is the Smart Move for Modern Living</b></h2>
+        <p>If you’ve lived in Gurgaon for more than a week, you know that time is the most expensive thing you own. Why spend your precious Saturday afternoon hopping between showrooms in Sector 14 and MG Road when the best <a href="furniture-shop-in-gurgaon">online furniture store</a> is literally in the palm of your hand?</p>
+        <h3><b>The Urban Wood Digital Experience</b></h3>
+        <p>When you browse our <a href="furniture-shop-in-gurgaon">online furniture store</a>, you aren't just looking at stock photos. You’re exploring a curated collection of <a href="wooden-furniture-online">wooden furniture</a> that has been designed with the modern Indian home in mind. We provide high-resolution imagery and 360-degree views so you can see every knot in the Sheesham wood before it even reaches your doorstep. Plus, shopping online means you can measure your space and compare a sleek <a href="tv-units">Tv unit design</a> against your wall color in real-time.</p>
+        <h3><b>Bridging the Gap Between Quality and Convenience</b></h3>
+        <p>Many people worry that an <a href="furniture-shop-in-gurgaon">online furniture store</a> might compromise on the "touch and feel" aspect. At Urbanwood, we mitigate this by providing exhaustive material descriptions. Whether you’re looking for a specific <a href="office-chairs">office chair</a> for your home studio or a 6-seater <a href="fabric-sofas">sofa set</a>, our platform provides the transparency you need to make an informed decision without leaving your air-conditioned living room. We know that Gurgaon residents value their time, which is why our digital experience is built for speed and clarity.</p>
+        <h2><b>The Timeless Appeal of Solid Wooden Furniture in Modern Decor</b></h2>
+        <p>In a world of "fast furniture" made of particle board and glue, there is something deeply grounding about authentic <a href="wooden-furniture-online">wooden furniture</a>. It has a weight, a scent, and a texture that synthetic materials simply cannot replicate. When you visit a local furniture shop in Gurgaon, you might see a lot of flashy veneers, but nothing beats the soul of solid wood.</p>
+        <h3><b>Why Sheesham Wood Wins Every Time</b></h3>
+        <p>When you walk into a reputable furniture shop in Gurgaon, the first word you’ll likely hear is "Sheesham." At Urbanwood, we use <a href="sheesham-wood-furniture">sheesham wooden furniture</a> because it is the gold standard for Indian climates. It is naturally resistant to decay and offers a stunning natural grain that makes every <a href="dining-tables">dining table</a> or <a href="chest-of-drawers">chest of drawers</a> unique. You aren't just buying a piece of utility; you are buying a slice of nature that ages like fine wine.</p>
+        <h3><b>Versatility Across Styles</b></h3>
+        <p>Whether your home is "Modern Chic" or "Traditional Indian," <a href="wooden-furniture-online">wooden furniture</a> fits everywhere. A sleek <a href="tv-units">Tv unit design</a> in a dark walnut finish can anchor a room, while a light honey-finished <a href="diwan-beds">diwan beds</a> can bring warmth to a guest room. The flexibility of wood is what makes it the favorite choice for <a href="bedroom-furniture">bedroom furniture</a> and beyond. It’s about creating a foundation that stays stylish regardless of changing trends.</p>
+        <h2><b>Elevating Your Living Room with a Premium Sofa Set and Tv Unit Design</b></h2>
+        <p>The living room is the "social heart" of the home. It’s where you host your boss, where your kids play, and where you probably eat dinner more often than you’d like to admit. Because it’s a high-traffic area, the quality of your <a href="fabric-sofas">Sofa set</a> is non-negotiable.</p>
+        <h3><b>Finding the Perfect Sofa Set for Your Layout</b></h3>
+        <p>A <a href="fabric-sofas">sofa set</a> is often the largest investment in your living room. It dictates the flow of the entire space. In Gurgaon’s luxury apartments, L-shaped <a href="sofas">sofas</a> are becoming increasingly popular for their ability to define a seating area in an open-plan layout. However, the classic 3-2-1 <a href="fabric-sofas">sofa set</a> remains a staple for those who prefer a more formal arrangement.</p>
+        <p>At Urbanwood, our <a href="fabric-sofas">sofa sets</a> are built on solid wood frames, ensuring they don't creak or sag over time. When you shop through our <a href="furniture-shop-in-gurgaon">online furniture store</a>, you can filter by fabric, color, and size to ensure the piece matches your vision. Don't forget to pair it with a matching <a href="coffee-tables">coffee table</a> to give your guests a place to rest their drinks.</p>
+        <h3><b>Master of Entertainment: Modern Tv Unit Design</b></h3>
+        <p>Your TV is likely the focal point of your evening, so why treat the stand as an afterthought? A modern <a href="tv-units">Tv unit design</a> should do more than just hold a screen; it should hide the messy wires of your gaming consoles and routers while providing a platform for your decor.</p>
+        <p>Our designs at Urbanwood range from wall-mounted floating units to massive floor-standing consoles that incorporate <a href="bookshelves">bookcases</a> for a truly intellectual vibe. If you have a smaller apartment, a minimalist <a href="tv-units">Tv unit design</a> can make the room feel much larger by keeping the floor space clear.</p>
+        <h2><b>The Art of Organizing with Bookcases and Chest of Drawers</b></h2>
+        <p>A beautiful home is an organized home. In the fast-paced life of Gurgaon, clutter can quickly build up, turning your sanctuary into a source of stress. This is where clever storage solutions come in.</p>
+        <h3><b>Curating Your Library with Bookcases</b></h3>
+        <p>For those who still appreciate the feel of paper, our <a href="bookshelves">bookcases</a> are a must-have. They aren't just for books; they are the perfect stage for your travel souvenirs, family photos, and indoor plants. A tall, solid wood <a href="bookshelves">bookcases</a> adds vertical interest to a room and can even act as a room divider in studio apartments.</p>
+        <h3><b>The Versatile Chest of Drawers</b></h3>
+        <p>A <a href="chest-of-drawers">chest of drawers</a> is perhaps the most underrated piece of <a href="wooden-furniture-online">wooden furniture</a>. In the bedroom, it holds your linens and accessories. In the hallway, it acts as a console for your keys and mail. At Urbanwood, our <a href="chest-of-drawers">chest of drawers</a> are built with smooth-gliding drawers and sturdy handles, ensuring that they are as pleasant to use as they are to look at.</p>
+        <h2><b>Designing a Personal Sanctuary with Handcrafted Bedroom Furniture</b></h2>
+        <p>If the living room is the face you show to the world, the bedroom is the soul of your home. In a city that never sleeps, your <a href="bedroom-furniture">bedroom furniture</a> needs to work overtime to create an environment conducive to rest. At Urbanwood, we believe that a bedroom should be more than just a place to crash; it should be a curated retreat.</p>
+        <h3><b>The Foundation: Choosing Your Beds</b></h3>
+        <p>The centerpiece of any sleeping quarters is, naturally, the bed. When searching for the perfect <a href="beds">beds</a> at a furniture shop in Gurgaon, you have to consider both size and storage. Because space is often at a premium in high-rise apartments, many of our solid <a href="wooden-furniture-online">wooden furniture</a> bed frames come with integrated hydraulic storage. This is a lifesaver for stashing away those heavy winter quilts, extra pillows, and suitcases that usually clutter up your <a href="wardrobes">wardrobes</a>.</p>
+        <p>Whether you prefer a grand king-size frame with an upholstered headboard or a minimalist platform bed, the quality of the wood is paramount. Our <a href="sheesham-wood-furniture">sheesham wooden furniture</a> frames are built to be noise-free and incredibly sturdy, ensuring that your investment in <a href="bedroom-furniture">bedroom furniture</a> lasts for decades, not just a few seasons.</p>
+        <h3><b>Storage and Style: Wardrobes and Chest of Drawers</b></h3>
+        <p>A bedroom without proper storage is a recipe for stress. A well-designed <a href="wardrobes">wardrobe</a> should have a place for everything—from your formal corporate attire to your weekend casuals. At our <a href="furniture-shop-in-gurgaon">online furniture store</a>, you can find <a href="wardrobes">wardrobes</a> that feature a mix of hanging space, deep shelves, and secure drawers.</p>
+        <p>To complement your closet, a matching <a href="chest-of-drawers">chest of drawers</a> provides a stylish surface for a vanity mirror or a table lamp while keeping your smaller essentials organized. By coordinating these pieces of <a href="chest-of-drawers">bedroom furniture</a>, you create a cohesive look that feels sophisticated and intentional.</p>
+        <h2><b>Productivity in the Millennium City: The Essential Office Chair</b></h2>
+        <p>Gurgaon isn't just a residential hub; it's the corporate engine of India. With the rise of flexible work models, the "home office" has moved from a luxury to a necessity. However, leaning over a laptop at your <a href="dining-tables">dining table</a> for eight hours is a fast track to back pain.</p>
+        <h3><b>Why Your Back Deserves a Professional Office Chair</b></h3>
+        <p>An ergonomic <a href="office-chairs">office chair</a> is perhaps the most important health investment you can make for your home. Unlike a standard dining chair, a high-quality <a href="office-chairs">office chair</a> provides lumbar support, adjustable height, and a swivel base that allows for natural movement. At Urbanwood, we’ve curated a selection of <a href="office-chairs">office chairs</a> that bridge the gap between "corporate functional" and "home aesthetic."</p>
+        <p>Our <a href="office-chairs">office chairs</a> feature breathable mesh or premium leatherette finishes that look great next to a solid wood desk. When you shop via our <a href="furniture-shop-in-gurgaon">online furniture store</a>, you can choose models that offer the specific support you need to stay focused during those long Zoom marathons or late-night projects.</p>
+        <h3><b>Setting Up a High-Performance Workspace</b></h3>
+        <p>Even if you don’t have a spare room to dedicate to an office, a small corner of your living room can be transformed. A compact wooden desk, an ergonomic <a href="office-chairs">office chair</a>, and a small <a href="bookshelves">bookcase</a> for your files can create a dedicated productivity zone. If you need a break between tasks, having a nearby <a href="sofa-cum-beds">sofa cum bed</a> or a comfortable <a href="diwan-beds">diwan beds</a> provides the perfect spot for a quick "power nap" before your next meeting.</p>
+        <h2><b>Dining in Style: More Than Just a Dining Table</b></h2>
+        <p>In a city where everyone is always on the move, the evening meal is often the only time a family truly connects. This is why a <a href="dining-tables">dining table</a> is one of the most emotional purchases you’ll make at a furniture shop in Gurgaon.</p>
+        <h3><b>Choosing the Right Size for Your Lifestyle</b></h3>
+        <p>When looking for a <a href="dining-tables">dining table</a>, think about your hosting habits.</p>
+        <ul>
+          <li><b>For the Socialite:</b> An 8-seater <a href="dining-tables">dining table</a> crafted from solid Sheesham wood is the perfect anchor for dinner parties.</li>
+          <li><b>For the Modern Couple:</b> A compact 4-seater set provides intimacy without crowding a smaller dining nook.</li>
+          <li><b>The Versatility of Wood:</b> A wooden <a href="dining-tables">dining table</a> is incredibly easy to maintain and only gets better with age, unlike glass or plastic alternatives that can scratch or stain easily.</li>
+        </ul>
+        <h3><b>The Charm of Wooden Seating: Chairs and Benches</b></h3>
+        <p>The <a href="chairs">chairs</a> you choose for your dining area should be as comfortable as they are beautiful. From upholstered seats that invite long, lingering conversations to solid wood slats that offer a more traditional vibe, the right <a href="chairs">chairs</a> complete the look. At Urbanwood, we also offer dining benches—a trending choice in Gurgaon homes that adds a casual, communal feel to your meals.</p>
+        <h2><b>The Urbanwood Promise: Quality, Ethics, and Branding</b></h2>
+        <p>Why has Urbanwood become a household name for those seeking a furniture shop in Gurgaon? It’s because we treat your home like our own.</p>
+        <h3><b>Direct-to-Consumer Value</b></h3>
+        <p>By operating as a specialized <a href="furniture-shop-in-gurgaon">online furniture store</a>, we remove the layers of middlemen that usually drive up prices in traditional showrooms. This allows us to offer premium <a href="wooden-furniture-online">wooden furniture</a> and <a href="sheesham-wood-furniture">sheesham wooden furniture</a> at prices that are fair and transparent. When you buy from us, you aren’t paying for a fancy storefront’s rent; you’re paying for the wood, the labor, and the design.</p>
+        <h3><b>A Legacy of Craftsmanship</b></h3>
+        <p>Every <a href="fabric-sofas">sofa set</a>, <a href="tv-units">Tv unit design</a>, and <a href="office-chairs">office chair</a> that leaves our facility has undergone a rigorous quality check. We use seasoned wood and high-quality upholstery fabrics to ensure that your furniture can withstand the busy lifestyle of a Gurgaon household. We are proud to be a brand that focuses on durability over "fast-fashion" trends.</p>
+        <h2><b>Final Thoughts: Your Dream Home is One Click Away</b></h2>
+        <p>Transforming your space shouldn't be an overwhelming chore. Whether you are looking for a singular ergonomic <a href="office-chairs">office chair</a> to fix your posture or an entire house worth of <a href="bedroom-furniture">bedroom furniture</a>, Urbanwood is here to make the process seamless.</p>
+        <p>Gurgaon is a city of dreams, and your home should be the foundation where those dreams are built. From the first search for a furniture shop in Gurgaon to the moment we assemble your new <a href="tv-units">Tv unit design</a>, we are committed to excellence.</p>
+        <h3><b>Quick Guide to Your Next Purchase:</b></h3>
+        <ul>
+          <li><b>Need Space?</b> Explore our <a href="sofa-cum-beds">sofa cum bed</a> collection.</li>
+          <li><b>Hosting a Party?</b> Check out our <a href="dining-tables">dinning table</a> designs.</li>
+          <li><b>Sleep Better:</b> Browse our premium <a href="beds">beds</a> and <a href="bedroom-furniture">bedroom furniture</a>.</li>
+          <li><b>Work Harder:</b> Find the perfect <a href="office-chairs">office chair</a> or <a href="office-chairs">office chairs</a>.</li>
+          <li><b>Relax More:</b> Sink into our <a href="fabric-sofas">sofa sets</a>, <a href="sofas">sofas</a>, and <a href="chairs">chairs</a>.</li>
+          <li><b>Stay Organized:</b> Shop <a href="wardrobes">wardrobes</a>, <a href="chest-of-drawers">chest of drawers</a>, and <a href="bookshelves">bookcases</a>.</li>
+          <li><b>Add Tradition:</b> A classic <a href="diwan-beds">diwan beds</a> is always in style.</li>
+          <li><b>Total Wood Quality:</b> We specialize in <a href="wooden-furniture-online">wooden furniture</a> and <a href="sheesham-wood-furniture">sheesham wooden furniture</a>.</li>
+          <li><b>Complete the Look:</b> Don't forget your <a href="coffee-tables">coffee table</a> and a custom <a href="tv-units">Tv unit design</a>.</li>
+        </ul>
+        <h2><b>Your home deserves the best. Your home deserves Urbanwood.</b></h2>
+      </div>
+    </div>
+    </div>    
+    </section>
+<style>
+    .new-call-to-act {
+      background: url(catalog/view/javascript/assets/image/call-to-actionbg-2.svg) #50525b;
+    }
+    .call_source_btn {
+      background: #fff;
+      border-radius: 10px;
+      padding: 9px 2rem;
+      font-weight: 600;
+    }
+    
+  </style>
+  <section class="new-call-to-act py-4 text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="pg-heading text-white">Chat with Our Furniture Expert</h2>
+          <p class="heading-para" style="color:#C2C1C1;">Finding your perfect piece is just a chat away!</p>
+          <ul class="d-flex flex-column flex-md-row justify-content-center align mb-3 gap-3">
+            <li class="call_source_btn" type="button">
+              <a href="tel:+91 9311662426" class="d-flex justify-content-center align-items-center gap-3"> 
+                <svg class="d-inline" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16.5152 12.0128L12.7964 10.419C12.6375 10.3513 12.461 10.3371 12.2933 10.3784C12.1256 10.4197 11.9759 10.5144 11.8667 10.6481L10.2198 12.6603C7.63511 11.4416 5.55505 9.36157 4.3364 6.77691L6.34855 5.13C6.48258 5.02099 6.57745 4.87127 6.61879 4.70352C6.66013 4.53577 6.64569 4.35911 6.57765 4.2003L4.98388 0.481485C4.90921 0.310289 4.77714 0.170514 4.61045 0.0862606C4.44376 0.00200721 4.2529 -0.0214431 4.07077 0.0199532L0.617589 0.816842C0.441997 0.85739 0.285334 0.956258 0.173169 1.09731C0.0610036 1.23836 -4.04491e-05 1.41326 2.01088e-08 1.59348C2.01088e-08 10.1102 6.90305 17 15.4065 17C15.5868 17.0001 15.7618 16.9391 15.9029 16.8269C16.044 16.7148 16.1429 16.5581 16.1835 16.3824L16.9804 12.9292C17.0215 12.7462 16.9976 12.5546 16.9127 12.3873C16.8277 12.2201 16.6872 12.0876 16.5152 12.0128V12.0128Z" fill="#183153"></path>
+                </svg> +91 9311662426 
+              </a>
+            </li>
+            <li class="call_source_btn" type="button" style="background:#13dc68;">
+              <a href="https://wa.me/919311662426" class="d-flex justify-content-center align-items-center gap-3" target="_blank">
+                <svg class="d-inline" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_146_2)">
+                    <path d="M17.8547 3.05156C15.8906 1.08281 13.275 0 10.4953 0C4.75781 0 0.0890625 4.66875 0.0890625 10.4062C0.0890625 12.2391 0.567188 14.0297 1.47656 15.6094L0 21L5.51719 19.5516C7.03594 20.3813 8.74688 20.8172 10.4906 20.8172H10.4953C16.2281 20.8172 21 16.1484 21 10.4109C21 7.63125 19.8187 5.02031 17.8547 3.05156ZM10.4953 19.0641C8.93906 19.0641 7.41562 18.6469 6.08906 17.8594L5.775 17.6719L2.50313 18.5297L3.375 15.3375L3.16875 15.0094C2.30156 13.6313 1.84688 12.0422 1.84688 10.4062C1.84688 5.63906 5.72812 1.75781 10.5 1.75781C12.8109 1.75781 14.9812 2.65781 16.6125 4.29375C18.2437 5.92969 19.2469 8.1 19.2422 10.4109C19.2422 15.1828 15.2625 19.0641 10.4953 19.0641ZM15.2391 12.5859C14.9813 12.4547 13.7016 11.8266 13.4625 11.7422C13.2234 11.6531 13.05 11.6109 12.8766 11.8734C12.7031 12.1359 12.2063 12.7172 12.0516 12.8953C11.9016 13.0688 11.7469 13.0922 11.4891 12.9609C9.96094 12.1969 8.95781 11.5969 7.95 9.86719C7.68281 9.40781 8.21719 9.44062 8.71406 8.44687C8.79844 8.27344 8.75625 8.12344 8.69062 7.99219C8.625 7.86094 8.10469 6.58125 7.88906 6.06094C7.67813 5.55469 7.4625 5.625 7.30313 5.61563C7.15313 5.60625 6.97969 5.60625 6.80625 5.60625C6.63281 5.60625 6.35156 5.67188 6.1125 5.92969C5.87344 6.19219 5.20312 6.82031 5.20312 8.1C5.20312 9.37969 6.13594 10.6172 6.2625 10.7906C6.39375 10.9641 8.09531 13.5891 10.7062 14.7188C12.3562 15.4312 13.0031 15.4922 13.8281 15.3703C14.3297 15.2953 15.3656 14.7422 15.5812 14.1328C15.7969 13.5234 15.7969 13.0031 15.7313 12.8953C15.6703 12.7781 15.4969 12.7125 15.2391 12.5859Z" fill="black"></path>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_146_2">
+                      <rect width="21" height="21" fill="white"></rect>
+                    </clipPath>
+                  </defs>
+                </svg>Live Chat 
+              </a> 
+            </li>
+          </ul>
+          <hr class="line_hr">
+          <h2 class="text-center text-white pg-heading">Best Furniture Shop in Gurgaon with the Latest Furniture Designs</h2>
+          <span class="text-center heading-para" style="color:#b1b0b0;">Gurgaon has been a city of people with a fancy and luxurious approach to life. People here understand that luxury adds value to life. That is why they never compromise on quality. Be it a vehicle, furniture, or anything  </span>
+          <span class="text-center heading-para con-text" id="div2" style="display: none; color:#b1b0b0;">else. Because we constantly think that you should be a part of our lives forever, UrbanWood never disappoints on your Home Furniture expectations. When it comes to our products, we never compromise on quality. </span>
+          <button class="toggle-button btn-show text-white fw-light" data-target="#div2">Show More</button>  
+        </div>
+      </div>
+    </div>
+</section>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "FAQPage",
+"mainEntity": [{
+"@type": "Question",
+"name": "What is the best furniture shop in Gurgaon?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Urbanwood is one of the best furniture shops in Gurgaon offering premium wooden furniture, modern designs, and affordable pricing for sofas, beds, and dining tables."
+}
+},{
+"@type": "Question",
+"name": "Where can I find a reliable furniture shop near me in Gurgaon?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "If you are searching for a furniture shop near me in Gurgaon, Urbanwood provides a trusted online furniture store with doorstep delivery and quality products."
+}
+},{
+"@type": "Question",
+"name": "Is it safe to buy furniture from an online furniture store in Gurgaon?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Yes, buying from an online furniture store like Urbanwood in Gurgaon is safe as it offers detailed product descriptions, secure ordering, and reliable delivery."
+}
+
+},{
+"@type": "Question",
+"name": "What type of furniture is best for Gurgaon homes?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Solid wooden furniture such as Sheesham wood is best for Gurgaon homes due to its durability, strength, and ability to handle changing weather conditions."
+}
+},{
+"@type": "Question",
+"name": "Why should I choose wooden furniture over engineered wood?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Wooden furniture is more durable and long-lasting compared to engineered wood, offering better strength and a premium look for modern homes."
+}
+},{
+"@type": "Question",
+"name": "Does Urbanwood offer affordable furniture in Gurgaon?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Urbanwood offers affordable furniture in Gurgaon including sofa sets, beds, and dining tables without compromising on quality and design."
+}
+},{
+"@type": "Question",
+"name": "How long does furniture delivery take in Gurgaon?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Furniture delivery in Gurgaon depends on the product, but Urbanwood ensures timely delivery along with installation support."
+}
+},{
+"@type": "Question",
+"name": "Which furniture store in Gurgaon offers the best quality and design?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "Urbanwood is a trusted furniture store in Gurgaon known for high-quality wooden furniture, stylish designs, and competitive prices."
+}
+}]
+}
+</script>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "LocalBusiness",
+"name": "Urbanwood",
+"@id": "https://www.urbanwood.in/furniture-shop-in-gurgaon",
+"url": "https://www.urbanwood.in/furniture-shop-in-gurgaon",
+"image": "https://www.urbanwood.in/",
+"address": {
+"@type": "PostalAddress",
+"addressLocality": "Gurgaon",
+"addressRegion": "Haryana",
+"addressCountry": "IN"
+},
+"areaServed": "Gurgaon",
+
+"aggregateRating": {
+"@type": "AggregateRating",
+"ratingValue": "4.6",
+"bestRating": "5",
+"worstRating": "1",
+"ratingCount": "14"
+},
+
+"review": [
+{
+"@type": "Review",
+"author": {
+"@type": "Person",
+"name": "Rahul Sharma"
+},
+"reviewRating": {
+"@type": "Rating",
+"ratingValue": "5",
+"bestRating": "5"
+},
+"reviewBody": "Excellent quality wooden furniture. The sofa set I bought looks premium and delivery was smooth."
+},
+{
+"@type": "Review",
+"author": {
+"@type": "Person",
+"name": "Priya Verma"
+},
+"reviewRating": {
+"@type": "Rating",
+"ratingValue": "4",
+"bestRating": "5"
+},
+"reviewBody": "Good designs and affordable pricing. One of the best furniture shops in Gurgaon for modern homes."
+},
+{
+"@type": "Review",
+"author": {
+"@type": "Person",
+"name": "Amit Singh"
+},
+"reviewRating": {
+"@type": "Rating",
+"ratingValue": "5",
+"bestRating": "5"
+},
+"reviewBody": "Great experience with Urbanwood. The bed quality is solid and perfect for long-term use."
+}
+]
+
+}
+</script>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "BlogPosting",
+"@id": "https://www.urbanwood.in/furniture-shop-in-gurgaon#blog",
+
+"mainEntityOfPage": {
+"@type": "WebPage",
+"@id": "https://www.urbanwood.in/furniture-shop-in-gurgaon"
+},
+
+"headline": "Furniture Shop in Gurgaon: The Ultimate Guide to Crafting Your Dream Home with Urban Wood",
+
+"description": "Looking for the best furniture shop in Gurgaon? Explore premium wooden furniture, sofa sets, beds, TV units, and office chairs at Urbanwood. Shop stylish and durable furniture online.",
+
+"image": {
+"@type": "ImageObject",
+"url": "https://www.urbanwood.in/assets/image/family-collection/family-2.webp",
+"width": 1200,
+"height": 630
+},
+
+"author": {
+"@type": "Organization",
+"name": "Urbanwood"
+},
+
+"publisher": {
+"@type": "Organization",
+"name": "Urbanwood",
+"logo": {
+"@type": "ImageObject",
+"url": "https://www.urbanwood.in/assets/image/family-collection/family-2.webp"
+}
+},
+
+"url": "https://www.urbanwood.in/furniture-shop-in-gurgaon",
+
+"datePublished": "2026-03-31",
+"dateModified": "2026-03-31",
+
+"inLanguage": "en-IN",
+
+"keywords": [
+"furniture shop in gurgaon",
+"best furniture shop in gurgaon",
+"furniture shops in gurgaon",
+"online furniture store",
+"wooden furniture",
+"sheesham wooden furniture",
+"sofa set",
+"bedroom furniture",
+"tv unit design",
+"office chair"
+],
+
+"about": {
+"@type": "Thing",
+"name": "Furniture Shop in Gurgaon"
+},
+
+"isPartOf": {
+"@type": "WebPage",
+"@id": "https://www.urbanwood.in/furniture-shop-in-gurgaon"
+}
+}
+</script>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "FurnitureStore",
+"@id": "https://www.urbanwood.in/furniture-shop-in-gurgaon#localbusiness",
+"name": "Urbanwood - Furniture Shop in Gurgaon",
+"url": "https://www.urbanwood.in/furniture-shop-in-gurgaon",
+
+"image": "https://www.urbanwood.in/catalog/view/javascript/assets/image/about-us-img.webp",
+
+"description": "Urbanwood is a trusted furniture shop in Gurgaon offering premium wooden furniture including sofa sets, beds, dining tables, TV units, and office chairs for modern homes.",
+
+"address": {
+"@type": "PostalAddress",
+"addressLocality": "Gurgaon",
+"addressRegion": "Haryana",
+"addressCountry": "IN"
+},
+
+"areaServed": {
+"@type": "City",
+"name": "Gurgaon"
+},
+
+"priceRange": "₹₹",
+
+"aggregateRating": {
+"@type": "AggregateRating",
+"ratingValue": "4.6",
+"ratingCount": "14"
+},
+
+"sameAs": [
+"https://www.facebook.com/urbanwood.in",
+"https://www.linkedin.com/company/urbanwood-in",
+"https://www.instagram.com/urbanwoodpvtltd/"
+]
+}
+</script>
