@@ -369,6 +369,35 @@ class ControllerProductProduct extends Controller {
 			$product_groups = $this->model_catalog_product->getProductGroup($this->request->get['product_id']);
 			// print_r($product_groups);
 			// exit;
+			$has_finish_option = false;
+
+foreach($product_groups as $pg){
+    if($pg['name'] == 'Finish Option'){
+        $has_finish_option = true;
+        break;
+    }
+}
+
+if(!$has_finish_option){
+    $product_groups[] = array(
+        'name' => 'Available Colors',
+        'group_product' => array(
+            array(
+                'text' => 'Grey',
+                'p_image' => 'catalog/colors/grey.jpg'
+            ),
+            array(
+                'text' => 'Beige',
+                'p_image' => 'catalog/colors/beige.jpg'
+            ),
+            array(
+                'text' => 'Blue',
+                'p_image' => 'catalog/colors/blue.jpg'
+            )
+        )
+    );
+
+}
 			foreach($product_groups as $product_group){
 				$product_group1= array();
 				foreach($product_group['group_product']  as $value){
@@ -383,7 +412,10 @@ class ControllerProductProduct extends Controller {
 						'text'=>$value['text'],
 						// 'p_price'=>round($value['p_price']),
 						'p_image'=>$image,
-						'p_link' => $this->url->link('product/product', 'product_id=' . $value['p_id'], true)
+						// 'p_link' => $this->url->link('product/product', 'product_id=' . $value['p_id'], true)
+						'p_link' => !empty($value['p_id']) 
+    ? $this->url->link('product/product', 'product_id=' . $value['p_id'], true)
+    : 'javascript:void(0)'
 					);
 				}
 				$data['product_groups'][] = array(
