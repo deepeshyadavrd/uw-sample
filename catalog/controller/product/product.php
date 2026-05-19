@@ -309,7 +309,7 @@ class ControllerProductProduct extends Controller {
 					'required'             => $option['required']
 				);
 			}
-print_r($data);
+// print_r($data);
 			$data['review_status'] = $this->config->get('config_review_status');
 
 			$data['reviews'] = sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']);
@@ -391,7 +391,7 @@ print_r($data);
 					'group_product' =>$product_group1
 				);
 			}
-			// print_r($data['product_groups']);
+			print_r($data['product_groups']);
 			$data['products'] = array();
 
 			$results = $this->model_catalog_product->getProductRelated($this->request->get['product_id']);
