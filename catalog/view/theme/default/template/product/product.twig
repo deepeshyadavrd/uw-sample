@@ -466,6 +466,19 @@ lightbox.init();
                       </a>
                     {% endfor %}
                   </div>
+                {% elseif product_group.finish_name == 'Available Finish' %}
+                  <div class="options-div">
+                    <h6 class="my-2">{{ product_group.finish_name }}</h6>
+                    {% for pg in product_group.group_product %}
+                      <div class="box-opt">
+                        <div class="product-img-opt"><img src="{{ pg.p_image }}" alt="{{ pg.text }}" loading="lazy"></div>
+                        <div class="price-opt-box">
+                          <span class="finish-nm">{{ pg.text }}</span>
+                          {# <span class="price-object">₹&nbsp;{{ pg.p_price }}</span> #}
+                        </div>
+                      </div>
+                    {% endfor %}
+                  </div>
                 {% elseif product_group.finish_name == 'Deco' %}
                   <div class="options-div">
                     <h6 class="my-2">{{ product_group.finish_name }}</h6>
@@ -505,19 +518,7 @@ lightbox.init();
                       </a>
                     {% endfor %}
                   </div>
-                  {% elseif product_group.finish_name == 'Available Colors' %}
-                  <div class="options-div">
-                    <h6 class="my-2">{{ product_group.finish_name }}</h6>
-                    {% for pg in product_group.group_product %}
-                      {# <a href="{{pg.p_link}}" class="box-opt"> #}
-                        <div class="product-img-opt"><img src="{{ pg.p_image }}" alt="{{ pg.text }}" loading="lazy"></div>
-                        <div class="price-opt-box">
-                          <span class="finish-nm">{{ pg.text }}</span>
-                          {# <span class="price-object">₹&nbsp;{{ pg.p_price }}</span> #}
-                        </div>
-                      {# </a> #}
-                    {% endfor %}
-                  </div>
+                  
                 {% else %}
                   <div class="options-div">
                     <h6 class="my-2">{{ product_group.finish_name }}</h6>

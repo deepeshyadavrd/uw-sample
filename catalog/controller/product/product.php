@@ -379,24 +379,32 @@ foreach($product_groups as $pg){
 }
 
 if(!$has_finish_option){
-    $product_groups[] = array(
-        'name' => 'Available Colors',
+    $custom_colors = array(
+        'name' => 'Available Finish',
         'group_product' => array(
             array(
-                'text' => 'Grey',
-                'p_image' => 'catalog/colors/grey.jpg'
+                'text' => 'Sheesham Natural',
+                'p_image' => 'catalog/colors/snf.jpg'
             ),
             array(
-                'text' => 'Beige',
-                'p_image' => 'catalog/colors/beige.jpg'
+                'text' => 'Honey Finish',
+                'p_image' => 'catalog/colors/honey.jpg'
             ),
             array(
-                'text' => 'Blue',
-                'p_image' => 'catalog/colors/blue.jpg'
+                'text' => 'Walnut Finish',
+                'p_image' => 'catalog/colors/walnut.jpg'
+            ),
+            array(
+                'text' => 'Teak Finish',
+                'p_image' => 'catalog/colors/teak.jpg'
+            ),
+            array(
+                'text' => 'Mango Natural',
+                'p_image' => 'catalog/colors/mnf.jpg'
             )
         )
     );
-
+	array_unshift($product_groups, $custom_colors);
 }
 			foreach($product_groups as $product_group){
 				$product_group1= array();
@@ -423,7 +431,7 @@ if(!$has_finish_option){
 					'group_product' =>$product_group1
 				);
 			}
-			print_r($data['product_groups']);
+			// print_r($data['product_groups']);
 			$data['products'] = array();
 
 			$results = $this->model_catalog_product->getProductRelated($this->request->get['product_id']);
