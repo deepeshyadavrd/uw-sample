@@ -1,88 +1,163 @@
 <?php
-// 1. Load OpenCart Configurations & DB Framework
+// Load OpenCart
+
 if (file_exists('config.php')) {
     require_once('config.php');
 } else {
-    exit('Error: config.php missing.');
+    exit('config.php not found');
 }
 
 require_once(DIR_SYSTEM . 'library/db.php');
 require_once(DIR_SYSTEM . 'library/db/mysqli.php');
 
-$db = new DB('mysqli', 'localhost', 'root', '', 'beta_uw', 3306);
+$db = new DB('mysqli', 'localhost', 'root', '', 'beta_uw', 3306 );
 
-echo "<h3>Starting OpenCart Database Deep Clean...</h3>";
+echo '<h2>Starting Deep HTML Cleanup...</h2>';
 
-// 2. Define target tables and columns to scrub
+// Tables / Columns
 $targets = [
-    'oc_blog_description'    => 'description'
+    'oc_blog_description' => [
+        'column' => 'description',
+        'id'     => 'information_id'
+    ]
 ];
+$blog_id = isset($_GET['blog_id']) ? (int)$_GET['blog_id'] : 0;
 
-foreach ($targets as $table => $column) {
-    // Fetch records that contain suspected HTML styling clutter
-    $query = $db->query("SELECT * FROM `" . $table . "` WHERE `" . $column . "` LIKE '%style=%' OR `" . $column . "` LIKE '%<p>%';");
-    
-    $cleaned_count = 0;
-    
-    if ($query->num_rows) {
-        foreach ($query->rows as $row) {
-            $id_column = isset($row['information_id']) ? 'information_id' : 'product_id';
-            $lang_id   = $row['language_id'];
-            $raw_data  = $row[$column];
-            
-            if (empty(trim($raw_data))) continue;
+if (!$blog_id) {
+    die('Please provide blog_id');
+}
+// Process
+foreach ($targets as $table => $info) {
+    $column    = $info['column'];
+    $id_column = $info['id'];
+    $query = $db->query("SELECT * FROM `" . $table . "` WHERE information_id = '" . $blog_id . "'");
+    $cleaned = 0;
 
-            // STEP 1: DECODE UNTIL IT IS PURE RAW HTML
-            // We loop 5 times to peel back deep double-encodings (like &amp;amp;lt;)
-            $html = $raw_data;
-            for ($i = 0; $i < 5; $i++) {
-                $html = html_entity_decode($html, ENT_QUOTES, 'UTF-8');
+    foreach ($query->rows as $row) {
+        $raw_html = $row[$column];
+
+        if (!$raw_html) {
+            continue;
+        }
+
+        // Decode multiple times
+        $html = $raw_html;
+
+        for ($i = 0; $i < 5; $i++) {
+            $decoded = html_entity_decode($html, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+
+            if ($decoded === $html) {
+                break;
             }
+            $html = $decoded;
+        }
 
-            // STEP 2: STRIP ALL SPANS COMPLETELY
-            $html = preg_replace('/<\s*\/?span\s*.*?>/is', '', $html);
+        // Remove span tags only
+        $html = preg_replace('#</?span[^>]*>#i','',$html);
 
-            // STEP 3: STRIP EVERY ATTRIBUTE FROM LI AND P TAGS
-            // Wipes out aria-level, role, or anything inside <li ...> and <p ...>
-            $html = preg_replace('/<(li|p)\b[^>]*>/is', '<$1>', $html);
+        // Remove ALL attributes from tags
+        // Keep only tag names
+        $allowed_tags = ['p','ul','ol','li','h1','h2','h3','h4','h5','h6','strong','b','em','i','br','a','img'];
 
-            // STEP 4: STRIP GENERAL STYLES AND DIRECTIONS
-            $html = preg_replace('/style=".*?"/is', '', $html);
-            $html = preg_replace('/dir=".*?"/is', '', $html);
+        $html = preg_replace_callback(
+            '/<([a-z0-9]+)(?:\s+[^>]*)?>/i',
+            function ($matches) use ($allowed_tags) {
+                $tag = strtolower($matches[1]);
+                if (!in_array($tag, $allowed_tags)) {
+                    return $matches[0];
+                }
+                if ($tag == 'a') {
+                    return $matches[0];
+                }
+                if ($tag == 'img') {
 
-            // STEP 5: REMOVE EMPTY PARAGRAPHS
-            $html = preg_replace('/<p>\s*(&nbsp;|\s)*\s*<\/p>/is', '', $html);
+                    preg_match('/src\s*=\s*([\'"])(.*?)\1/is', $matches[0], $src);
+                    preg_match('/alt\s*=\s*([\'"])(.*?)\1/is', $matches[0], $alt);
+                
+                    return '<img src="' .
+                        htmlspecialchars($src[2] ?? '', ENT_QUOTES, 'UTF-8') .
+                        '" alt="' .
+                        htmlspecialchars($alt[2] ?? '', ENT_QUOTES, 'UTF-8') .
+                        '">';
+                }
+                return '<' . $tag . '>';
+            },
+            $html
+        );
 
-            // STEP 6: FLATTEN ALL NEWLINES TO REBUILD CLEAN FORMATTING
-            $html = preg_replace('/(?:\r\n|\r|\n)+/s', ' ', $html);
+        // Clean A tags but keep href
+        // $html = preg_replace_callback(
+        //     '/<a\b([^>]*)>/i',
+        //     function ($matches) {
+        //         preg_match('/href\s*=\s*([\'"])(.*?)\1/i', $matches[1], $href);
 
-            // STEP 7: APPLY EXACT NEWLINE STRUCTURAL FORMATTING RULES
-            // Force opening tags onto fresh lines (\n)
-            $html = preg_replace('/(<p>|<ul>|<ol>|<li>)/i', "\n$1", $html);
-            // Force closing tags down—EXCLUDING THE CLOSING </li> TAGS
-            $html = preg_replace('/(<\/p>|<\/ul>|<\/ol>)/i', "$1\n", $html);
+        //         if (!empty($href[2])) {
+        //             return '<a href="' .
+        //                 htmlspecialchars($href[2], ENT_QUOTES, 'UTF-8') .
+        //                 '">';
+        //         }
+        //         return '<a>';
+        //     },
+        //     $html
+        // );
 
-            // Condense multiple running newlines down into single spacing steps
-            $html = preg_replace("/\n+/", "\n", $html);
-            $html = trim($html);
+        // Remove empty tags
+        do {
 
-            // STEP 8: RE-ENCODE BACK TO THE EXACT OPENCART DATABASE STANDARD
-            $final_db_string = htmlentities($html, ENT_QUOTES, 'UTF-8', false);
-            $final_db_string = str_replace(
-                array('&amp;lt;', '&amp;gt;', '&amp;quot;', '&amp;amp;'), 
-                array('&lt;', '&gt;', '&quot;', '&amp;'), 
-                $final_db_string
+            $old_html = $html;
+
+            $html = preg_replace('#<p>\s*(?:&nbsp;|\s)*</p>#i', '', $html);
+
+            $html = preg_replace('#<(h[1-6])>\s*(?:&nbsp;|\s)*</\1>#i', '', $html);
+
+            $html = preg_replace('#<li>\s*(?:&nbsp;|\s)*</li>#i', '', $html);
+            $html = preg_replace(
+                '#<p>\s*(?:&nbsp;|\s|<br\s*/?>)*\s*</p>#is',
+                '',
+                $html
+            );
+        
+            $html = preg_replace(
+                '#<li>\s*(?:&nbsp;|\s|<br\s*/?>)*\s*</li>#is',
+                '',
+                $html
+            );
+        
+            $html = preg_replace(
+                '#<(h[1-6])>\s*(?:&nbsp;|\s|<br\s*/?>)*\s*</\1>#is',
+                '',
+                $html
             );
 
-            // STEP 9: EXECUTE SAVE IF CHANGES ARE DETECTED
-            if (trim($raw_data) !== trim($final_db_string)) {
-                $db->query("UPDATE `" . $table . "` SET `" . $column . "` = '" . $db->escape($final_db_string) . "' WHERE `" . $id_column . "` = '" . (int)$row[$id_column] . "' AND `language_id` = '" . (int)$lang_id . "'");
-                $cleaned_count++;
-            }
+        } while ($old_html !== $html);
+        
+        // Normalize whitespace
+        $html = preg_replace('/[\r\n\t]+/', ' ', $html);
+        $html = preg_replace('/\s{2,}/', ' ', $html);
+
+        // Put tags on separate lines
+        $tags = ['h1','h2','h3','h4','h5','h6','p','ul','ol','li'];
+
+        foreach ($tags as $tag) {
+            $html = preg_replace('#<' . $tag . '>#i', "\n<{$tag}>", $html );
+            $html = preg_replace('#</' . $tag . '>#i', "</{$tag}>\n", $html);
+        }
+
+        $html = preg_replace("/\n{2,}/", "\n", $html);
+        $html = trim($html);
+
+        // Encode back
+        $final = htmlentities($html, ENT_QUOTES | ENT_HTML5, 'UTF-8', false);
+
+        if ($final !== $raw_html) {
+
+            $db->query("UPDATE `" . $table . "` SET `" . $column . "` = '" . $db->escape($final) . "' WHERE `" . $id_column . "` = '" . (int)$row[$id_column] . "' AND language_id = '" . (int)$row['language_id'] . "' ");
+
+            $cleaned++;
         }
     }
-    echo "Table <strong>{$table}</strong> complete. Cleaned and formatted {$cleaned_count} records.<br>";
+
+    echo "<strong>{$table}</strong> : {$cleaned} records cleaned.<br>";
 }
 
-echo "<h4>Database code structural styling complete! Refresh your caches and remove db_cleaner.php.</h4>";
-?>
+echo '<h3>Cleanup Complete.</h3>';
