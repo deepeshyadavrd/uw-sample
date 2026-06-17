@@ -53,7 +53,31 @@ foreach ($targets as $table => $info) {
         }
 
         // Remove span tags only
-        $html = preg_replace('#</?span[^>]*>#i','',$html);
+        // $html = preg_replace('#</?span[^>]*>#i','',$html);
+        // Convert bold spans to <b>
+$html = preg_replace_callback(
+    '#<span([^>]*)>(.*?)</span>#is',
+    function ($matches) {
+
+        $attrs   = $matches[1];
+        $content = $matches[2];
+
+        if (
+            preg_match('/style\s*=\s*([\'"])(.*?)\1/is', $attrs, $style)
+        ) {
+            $css = strtolower($style[2]);
+
+            if (
+                preg_match('/font-weight\s*:\s*(700|800|900|bold)\b/i', $css)
+            ) {
+                return '<b>' . $content . '</b>';
+            }
+        }
+
+        return $content; // remove non-bold span
+    },
+    $html
+);
 
         // Remove ALL attributes from tags
         // Keep only tag names
@@ -145,10 +169,12 @@ foreach ($targets as $table => $info) {
 
         $html = preg_replace("/\n{2,}/", "\n", $html);
         $html = trim($html);
-
+        // file_put_contents('debug.html', $html);
+        // exit;
         // Encode back
-        $final = htmlentities($html, ENT_QUOTES | ENT_HTML5, 'UTF-8', false);
-
+        $final = htmlentities($html, ENT_QUOTES, 'UTF-8');
+        // file_put_contents('final.txt', $final);
+        // exit;
         if ($final !== $raw_html) {
 
             $db->query("UPDATE `" . $table . "` SET `" . $column . "` = '" . $db->escape($final) . "' WHERE `" . $id_column . "` = '" . (int)$row[$id_column] . "' AND language_id = '" . (int)$row['language_id'] . "' ");
