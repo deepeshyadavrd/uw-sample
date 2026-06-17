@@ -53,7 +53,31 @@ foreach ($targets as $table => $info) {
         }
 
         // Remove span tags only
-        $html = preg_replace('#</?span[^>]*>#i','',$html);
+        // $html = preg_replace('#</?span[^>]*>#i','',$html);
+        // Convert bold spans to <b>
+$html = preg_replace_callback(
+    '#<span([^>]*)>(.*?)</span>#is',
+    function ($matches) {
+
+        $attrs   = $matches[1];
+        $content = $matches[2];
+
+        if (
+            preg_match('/style\s*=\s*([\'"])(.*?)\1/is', $attrs, $style)
+        ) {
+            $css = strtolower($style[2]);
+
+            if (
+                preg_match('/font-weight\s*:\s*(700|800|900|bold)\b/i', $css)
+            ) {
+                return '<b>' . $content . '</b>';
+            }
+        }
+
+        return $content; // remove non-bold span
+    },
+    $html
+);
 
         // Remove ALL attributes from tags
         // Keep only tag names
