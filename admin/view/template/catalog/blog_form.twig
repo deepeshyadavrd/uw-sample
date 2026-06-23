@@ -58,7 +58,7 @@
                   <div class="form-group required">
                     <label class="col-sm-2 control-label" for="input-description{{ language.language_id }}">{{ entry_description }}</label>
                     <div class="col-sm-10">
-                      <textarea name="information_description[{{ language.language_id }}][description]" placeholder="{{ entry_description }}" id="input-description{{ language.language_id }}" data-toggle="summernote" class="form-control">{{ information_description[language.language_id] ? information_description[language.language_id].description }}</textarea>
+                      <textarea id="description_editor" name="information_description[{{ language.language_id }}][description]" placeholder="{{ entry_description }}" id="input-description{{ language.language_id }}" class="form-control">{{ information_description[language.language_id] ? information_description[language.language_id].description }}</textarea>
                       {% if error_description[language.language_id] %}
                       <div class="text-danger">{{ error_description[language.language_id] }}</div>
                       {% endif %} </div>
@@ -221,10 +221,13 @@
   <script type="text/javascript" src="view/javascript/codemirror/lib/codemirror.js"></script> 
   <script type="text/javascript" src="view/javascript/codemirror/lib/xml.js"></script> 
   <script type="text/javascript" src="view/javascript/codemirror/lib/formatting.js"></script> 
-  <script type="text/javascript" src="view/javascript/summernote/summernote.js"></script>
+  {# <script type="text/javascript" src="view/javascript/summernote/summernote.js"></script>
   <link href="view/javascript/summernote/summernote.css" rel="stylesheet" />
   <script type="text/javascript" src="view/javascript/summernote/summernote-image-attributes.js"></script> 
-  <script type="text/javascript" src="view/javascript/summernote/opencart.js?v=1.1"></script> 
+  <script type="text/javascript" src="view/javascript/summernote/opencart.js?v=1.1"></script>  #}
+  <link rel="stylesheet" href="view/javascript/jodit/jodit.min.css">
+
+<script src="view/javascript/jodit/jodit.min.js"></script>
   <script type="text/javascript"><!--
 $('#language a:first').tab('show');
 //--></script></div>
@@ -239,4 +242,29 @@ $('#language a:first').tab('show');
             document.getElementsByClassName('inputBox2')[0].value = formattedText;
         }
     </script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const editor = Jodit.make('#description_editor', {
+    height: 600,
+    minHeight: 600,
+
+    askBeforePasteHTML: false,
+    askBeforePasteFromWord: false,
+
+    defaultActionOnPaste: 'insert_clear_html',
+
+    cleanHTML: {
+        removeEmptyElements: true,
+        fillEmptyParagraph: false
+    },
+      uploader: {
+    insertImageAsBase64URI: true
+  },
+  toolbarInline: false,
+  buttons: "bold,italic,underline,strikethrough,eraser,ul,ol,font,fontsize,paragraph,cut,copy,paste,selectall,copyformat,hr,table,link,symbols,left,undo,redo,find,source,fullsize"
+});
+
+});
+</script>
 {{ footer }} 
