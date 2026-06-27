@@ -245,7 +245,7 @@ $('#language a:first').tab('show');
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
-    window.editor = Jodit.make('#description_editor', {
+    editor = Jodit.make('#description_editor', {
     height: 600,
     minHeight: 600,
 
@@ -257,7 +257,9 @@ document.addEventListener('DOMContentLoaded', function () {
     cleanHTML: {
         removeEmptyElements: true,
         fillEmptyParagraph: false,
-        replaceNBSP: true
+        replaceNBSP: true,
+        removeHelperSpans: true,
+        useSemanticHTML: true
     },
       uploader: {
     insertImageAsBase64URI: true
