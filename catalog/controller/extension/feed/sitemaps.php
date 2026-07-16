@@ -31,6 +31,29 @@ class ControllerExtensionFeedSitemaps extends Controller {
             $this->response->setOutput($output);
         }
     }
+    public function generateSitemapIndex() {
+
+        $base = HTTPS_SERVER;
+    
+        $xml  = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+        $xml .= '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+    
+        $xml .= '<sitemap>';
+        $xml .= '<loc>' . $base . 'sitemap-products.xml</loc>';
+        $xml .= '</sitemap>';
+    
+        $xml .= '<sitemap>';
+        $xml .= '<loc>' . $base . 'sitemap-categories.xml</loc>';
+        $xml .= '</sitemap>';
+    
+        $xml .= '<sitemap>';
+        $xml .= '<loc>' . $base . 'sitemap-pages.xml</loc>';
+        $xml .= '</sitemap>';
+    
+        $xml .= '</sitemapindex>';
+    
+        file_put_contents(DIR_APPLICATION . '../sitemap-base.xml', $xml);
+    }
 
     public function generate() {
         $this->load->model('extension/feed/sitemaps');
