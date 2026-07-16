@@ -27,41 +27,71 @@ class ControllerExtensionFeedSitemaps extends Controller {
     }
     public function products() {
         $this->load->model('extension/feed/sitemaps');
+        $this->load->model('tool/image');
+
         $products = $this->model_extension_feed_sitemaps->getProducts();
-    
+
         $xml  = '<?xml version="1.0" encoding="UTF-8"?>';
-        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
-    
+        $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" ';
+        $xml .= 'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">';
+
         foreach ($products as $product) {
-    
+
             $xml .= '<url>';
-    
             $xml .= '<loc>' .
-                $this->url->link(
-                    'product/product',
-                    'product_id=' . $product['product_id'],
-                    true
+                htmlspecialchars(
+                    $this->url->link(
+                        'product/product',
+                        'product_id=' . $product['product_id'],
+                        true
+                    )
                 ) .
                 '</loc>';
-    
+                    
+            $xml .= '<changefreq>daily</changefreq>';
+                    
             if (!empty($product['date_modified'])) {
+            
                 $xml .= '<lastmod>' .
                     date('Y-m-d', strtotime($product['date_modified'])) .
                     '</lastmod>';
             }
-    
-            $xml .= '<changefreq>weekly</changefreq>';
+        
             $xml .= '<priority>0.8</priority>';
-    
+        
+            if (!empty($product['image'])) {
+            
+                $image = $this->model_tool_image->resize(
+                    $product['image'],
+                    $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_width'),
+                    $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_height')
+                );
+            
+                $xml .= '<image:image>';
+            
+                $xml .= '<image:loc>' .
+                    htmlspecialchars($image) .
+                    '</image:loc>';
+            
+                $xml .= '<image:caption><![CDATA[' .
+                    $product['name'] .
+                    ']]></image:caption>';
+            
+                $xml .= '<image:title><![CDATA[' .
+                    $product['name'] .
+                    ']]></image:title>';
+            
+                $xml .= '</image:image>';
+            }
+        
             $xml .= '</url>';
         }
-    
+
         $xml .= '</urlset>';
-    
-        file_put_contents(DIR_APPLICATION . '../sitemap-products.xml', $xml);
-    
-        $this->response->addHeader('Content-Type: application/xml');
-        $this->response->setOutput($xml);
+
+        file_put_contents( DIR_APPLICATION . '../sitemap-products.xml', $xml );
+
+        echo 'Product sitemap generated';
     }
 
     public function categories() {
