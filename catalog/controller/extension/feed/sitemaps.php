@@ -129,23 +129,9 @@ class ControllerExtensionFeedSitemaps extends Controller {
 
     public function pages() {
         $this->load->model('extension/feed/sitemaps');
-        $urls = [];
 
-        // Homepage
-        // $urls[] = HTTPS_SERVER;
-
-        // Static pages
-        // $urls[] = HTTPS_SERVER . 'contact-us';
-        // $urls[] = HTTPS_SERVER . 'postal-address';
         $informations = $this->model_extension_feed_sitemaps->getInformations();
-        // foreach ($informations as $info) {
 
-        //     $urls[] = $this->url->link(
-        //         'information/information',
-        //         'information_id=' . $info['information_id'],
-        //         true
-        //     );
-        // }
     
         $xml  = '<?xml version="1.0" encoding="UTF-8"?>';
         $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
@@ -155,11 +141,29 @@ class ControllerExtensionFeedSitemaps extends Controller {
         $xml .= '<changefreq>daily</changefreq>';
         $xml .= '<priority>1.0</priority>';
         $xml .= '</url>';
-    
-        foreach ($informations as $info) {
-    
+
+        /* Manual pages */
+        $pages = [
+            'contact-us',
+            'postal-address',
+            'new-arrivals'
+        ];
+
+        foreach ($pages as $page) {
+        
             $xml .= '<url>';
-    
+            $xml .= '<loc>' . HTTPS_SERVER . $page . '</loc>';
+            $xml .= '<changefreq>monthly</changefreq>';
+            $xml .= '<priority>0.6</priority>';
+            $xml .= '</url>';
+        }
+            $exclude = [63];
+        foreach ($informations as $info) {
+            if (in_array($info['information_id'], $exclude)) {
+                continue;
+            }
+        
+            $xml .= '<url>';
             $xml .= '<loc>' .
                 $this->url->link(
                     'information/information',
@@ -170,7 +174,6 @@ class ControllerExtensionFeedSitemaps extends Controller {
     
             $xml .= '<changefreq>monthly</changefreq>';
             $xml .= '<priority>0.6</priority>';
-    
             $xml .= '</url>';
         }
     
