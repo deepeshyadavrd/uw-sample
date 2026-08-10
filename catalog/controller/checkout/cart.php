@@ -170,7 +170,7 @@ class ControllerCheckoutCart extends Controller {
 			$coupon_info = $this->model_extension_total_coupon->getAllCoupon();
 			
 			$data['coupon_info'] = $coupon_info;
-			//print_r($coupon_info);
+			print_r($coupon_info);
 			$data['applied_coupon'] = $this->session->data['coupon'];
 			// Gift Voucher
 			$data['vouchers'] = array();
@@ -343,7 +343,34 @@ class ControllerCheckoutCart extends Controller {
 
 			if (!$json) {
 				$this->cart->add($this->request->post['product_id'], $quantity, $option, $recurring_id);
+// Auto apply latest coupon
+if ($this->cart->hasProducts() && empty($this->session->data['coupon'])) {
 
+    $coupon_query = $this->db->query("
+        SELECT *
+        FROM `" . DB_PREFIX . "coupon`
+        WHERE status = '1'
+        AND date_start <= NOW()
+        AND (date_end = '0000-00-00' OR date_end >= NOW())
+        ORDER BY date_added DESC, coupon_id DESC
+        LIMIT 1
+    ");
+
+    if ($coupon_query->num_rows) {
+
+        $coupon = $coupon_query->row;
+
+        $valid = true;
+
+        if ($coupon['uses_total'] > 0 && $coupon['uses_total'] <= $coupon['total_used']) {
+            $valid = false;
+        }
+
+        if ($valid) {
+            $this->session->data['coupon'] = $coupon['code'];
+        }
+    }
+}
 				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
 
 				// Unset all shipping and payment methods

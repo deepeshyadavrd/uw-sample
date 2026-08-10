@@ -1400,7 +1400,7 @@ $('#buynow').on('click', function() {
       var qun = $('#productcart select').val();
         var totalvalue = {{ special_number }} * qun;
         console.log("{{ heading_title }}");
-        gtag("event", "add_to_cart", {
+        /*gtag("event", "add_to_cart", {
           currency: "INR",
           value: totalvalue,
           items: [
@@ -1420,7 +1420,7 @@ $('#buynow').on('click', function() {
           value:totalvalue,
           content_ids: '{{ product_id }}',
           content_type: 'product'
-        });
+        });*/
 		},
 		complete: function() {
 			$('#button-cart').button('reset');
