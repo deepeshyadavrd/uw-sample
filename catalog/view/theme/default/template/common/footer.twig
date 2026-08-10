@@ -360,6 +360,34 @@ style="position:fixed;bottom:90px;right:20px;width:320px;display:none;z-index:99
 
 </div>
 <script>
+//sliders with swiper 
+// Find all swiper elements on the page
+document.querySelectorAll('.swiper').forEach((el) => {
+  // Base configuration shared by both sliders
+  const config = {
+    slidesPerView: 1,
+    loop: true,
+    autoHeight: true,
+  };
+
+  // Dynamically add pagination ONLY if the data attribute is present
+  if (el.hasAttribute('data-pagination')) {
+    config.pagination = {
+      el: el.querySelector('.swiper-pagination'),
+      clickable: true,
+    };
+  }
+  // Conditionally add autoplay (slides every 3 seconds)
+  if (el.hasAttribute('data-autoplay')) {
+    config.autoplay = {
+      delay: 3000,
+      disableOnInteraction: false, // Keeps autoplay running after user swipes
+    };
+  }
+
+  // Initialize this specific instance
+  new Swiper(el, config);
+});
 //chatbot code
 $('#chat-toggle').click(function(){
     $('#chat-widget').toggle();

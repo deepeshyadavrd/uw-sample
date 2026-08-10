@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row align-items-center">
       <div class="col-12 col-md-5 col-lg-6">
-        <div class="carousel slide" data-bs-ride="carousel">
+        {# <div class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner text-center text-md-start fw-bold ">
             <div class="carousel-item active">
               <span>🔥 Flash Sale: 50% off all items!</span>
@@ -14,7 +14,24 @@
               <span>⭐ New arrivals just landed!</span>
             </div>
           </div>
-        </div>
+        </div> #}
+        <!-- Main container uses inline styles only for limits and centering -->
+<div class="swiper text-center text-md-start" data-autoplay="true">
+  <div class="swiper-wrapper">
+    <!-- Padding on slides ensures text doesn't hit the screen edges -->
+    <div class="swiper-slide">
+      🔥 Monsoon Sale: 50% off all items!
+    </div>
+    <div class="swiper-slide">
+      🚚 Free shipping on orders over $50
+    </div>
+    <div class="swiper-slide">
+      ⭐ New arrivals just landed!
+    </div>
+  </div>
+  <!-- Built-in pagination -->
+  <div class="swiper-pagination"></div>
+</div>
       </div>
       <div class="col-md-7 col-lg-6 d-none d-md-flex justify-content-end align-items-center text-decoration-none">
         <a href="tel:8955228351" class="text-white text-nowrap me-3">
