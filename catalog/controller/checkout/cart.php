@@ -346,6 +346,9 @@ class ControllerCheckoutCart extends Controller {
 // Auto apply latest coupon
 if ($this->cart->hasProducts() && empty($this->session->data['coupon'])) {
 
+    // Get cart total before coupon
+    $cart_total = $this->cart->getTotal();
+
     $coupon_query = $this->db->query("
         SELECT *
         FROM `" . DB_PREFIX . "coupon`
@@ -362,7 +365,13 @@ if ($this->cart->hasProducts() && empty($this->session->data['coupon'])) {
 
         $valid = true;
 
+        // Check total usage limit
         if ($coupon['uses_total'] > 0 && $coupon['uses_total'] <= $coupon['total_used']) {
+            $valid = false;
+        }
+
+        // Check minimum order amount
+        if ($coupon['total'] > 0 && $cart_total < $coupon['total']) {
             $valid = false;
         }
 
