@@ -126,7 +126,7 @@
               }
             </script>
             {% for product in products %}
-            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+            <div class="col-6 col-xl-4 col-lg-6 col-md-6 col-sm-6">
               <div class="product-box-img">
                 {# <div class="button-pd">
                   {# <div class="like-heart mx-2"> 
@@ -152,8 +152,8 @@
 
 {% if (product.stock_status == 'Out Of Stock') %}
                     <span class="shop-nowb-btn" style="margin-top: 19px;"> Out Of Stock</span>
-                  {% else %}
-                    <button class="shop-nowb-btn" onclick="addtocart(1,{{ product.product_id }}); productTocart{{ product.product_id }}();"> Add to Cart</button>
+                  {# {% else %} #}
+                    {# <button class="shop-nowb-btn" onclick="addtocart(1,{{ product.product_id }}); productTocart{{ product.product_id }}();"> Add to Cart</button> #}
                   {% endif %}
 {% else %}
     <button class="shop-nowb-btn wa-btn" data-text="Hi, I would like more information about {{ ' ' ~ product.name }}">
@@ -187,7 +187,7 @@
                         {% if product.finish %}
                           <div class="pd-config">{{ product.finish }}</div>
                         {% endif %}
-                        <span class="pd-creater"> By&nbsp;{{ product.brand }}</span>
+                        {# <span class="pd-creater"> By&nbsp;{{ product.brand }}</span> #}
                       </div>
                       <div class="color-feature">
                         {% if (product.stock_status == 'Out Of Stock') %}
@@ -212,8 +212,7 @@
                         <div class="pricing-pd">
                           <div class=""> 
                             <div class="pd-amount price-now"> {{ product.special }} </div> 
-                          </div>
-                          <div class="">
+                          
                             <div class="cut-ammount price-was">{{ product.price }} </div>  
                             <span class=" badge bridge-offer" style="font-size:10px">{{ product.discount }}% off </span>
                           </div>

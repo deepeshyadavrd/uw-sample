@@ -150,7 +150,7 @@ class ControllerProductCategory extends Controller {
 			foreach ($results as $result) {
 				if ($result['image']) {
 					// echo DIR_IMAGE . $result['image'];
-					$image = $this->model_tool_image->resize($result['image'], 400, 281);
+					$image = $this->model_tool_image->crop($result['image'], 300, 250);
 					// var_dump($image);
 				} else {
 					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));

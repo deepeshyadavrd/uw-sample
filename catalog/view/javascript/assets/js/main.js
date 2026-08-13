@@ -1,34 +1,34 @@
 
-document.addEventListener('DOMContentLoaded', function () {
-  const carouselContainers = document.querySelectorAll('.game-section');
+// document.addEventListener('DOMContentLoaded', function () {
+//   const carouselContainers = document.querySelectorAll('.game-section');
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const carousel = $(entry.target).find('.owl-carousel2');
-        const navEnabled = entry.target.getAttribute('data-nav') === 'true';
+//   const observer = new IntersectionObserver((entries, observer) => {
+//     entries.forEach(entry => {
+//       if (entry.isIntersecting) {
+//         const carousel = $(entry.target).find('.owl-carousel2');
+//         const navEnabled = entry.target.getAttribute('data-nav') === 'true';
 
-        // Initialize Owl Carousel
-        carousel.owlCarousel({
-          autoWidth: true,
-          loop: true,
-          autoplay: true,
-          lazyLoad: true,
-          lazyLoadEager: 1,
-          nav:navEnabled,
-          navText: ['<i class="bx bx-chevron-left"></i>','<i class="bx bx-chevron-right"></i>'],
-          dots: false, // This disables the dots
-          autoplayHoverPause: true
-        });
+//         // Initialize Owl Carousel
+//         carousel.owlCarousel({
+//           autoWidth: true,
+//           loop: true,
+//           autoplay: true,
+//           lazyLoad: true,
+//           lazyLoadEager: 1,
+//           nav:navEnabled,
+//           navText: ['<i class="bx bx-chevron-left"></i>','<i class="bx bx-chevron-right"></i>'],
+//           dots: false, // This disables the dots
+//           autoplayHoverPause: true
+//         });
 
-        // Unobserve after initialization
-        observer.unobserve(entry.target);
-      }
-    });
-  });
+//         // Unobserve after initialization
+//         observer.unobserve(entry.target);
+//       }
+//     });
+//   });
 
-  carouselContainers.forEach(container => observer.observe(container));
-});
+//   carouselContainers.forEach(container => observer.observe(container));
+// });
 
   //client story
    $(document).ready(function(){

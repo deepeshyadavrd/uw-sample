@@ -2,9 +2,9 @@
 {{ menu }}
 </div>
 <link  rel="stylesheet"  href="catalog/view/javascript/assets/css/product.css" > 
-<link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" > 
+{# <link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" > 
 <link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.css" > 
-<link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.css" > 
+<link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.css" >  #}
 
 <style>
   .product_content a{
@@ -183,7 +183,7 @@ input#quantity {
           </script> #}
           <style>
           /* MAIN SLIDER */
-.product-main-slider,
+{# .product-main-slider,
 .product-main-slider .swiper-wrapper,
 .product-main-slider .swiper-slide {
     width: 100% !important;
@@ -195,15 +195,15 @@ input#quantity {
     height: auto;
     object-fit: contain; 
     display: block;
-}
+} #}
 
 /* THUMBNAIL SLIDER */
-.product-thumb-slider {
+{# .product-thumb-slider {
     width: 100%;
     margin-top: 10px;
-}
+} #}
 
-.product-thumb-slider .swiper-slide {
+{# .product-thumb-slider .swiper-slide {
     width: 20% !important;    /* 4 thumbnails per row */
     height: auto;
     box-sizing: border-box;
@@ -226,7 +226,7 @@ input#quantity {
 .product-thumb-slider {
     max-width: 100% !important;
     overflow: hidden !important;
-}
+} #}
 
 /* FIX any theme padding issues */
 {# .swiper-container,
@@ -236,18 +236,45 @@ input#quantity {
     margin: 0 !important;
 } #}
           </style>
-          <div class="swiper product-main-slider">
-  <div class="swiper-wrapper">
-    {% for image in images %}
-    <div class="swiper-slide">
-      <a href="{{ image.big_thumb }}" data-pswp-width="1200" data-pswp-height="840">
-        <img src="{{ image.thumb }}" class="main-image" loading="lazy">
-      </a>
+          <div id="productImageCarousel" class="carousel slide product-main-slider" data-bs-ride="carousel"
+     data-bs-touch="true"
+     data-bs-wrap="true"
+     data-bs-interval="36000">
+
+    <div class="carousel-inner">
+        {% for image in images %}
+            <div class="carousel-item {% if loop.first %} active {% endif %}">
+                <a href="{{ image.big_thumb }}"
+                   data-pswp-width="1200"
+                   data-pswp-height="1200">
+
+                    <img src="{{ image.thumb }}"
+                         class="main-image d-block w-100"
+                         alt="{{ heading_title }}"
+                         {% if not loop.first %}loading="lazy"{% endif %}>
+                </a>
+            </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-  </div>
-  <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+
+    {% if images|length > 1 %}
+        <button class="carousel-control-prev"
+                type="button"
+                data-bs-target="#productImageCarousel"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button class="carousel-control-next"
+                type="button"
+                data-bs-target="#productImageCarousel"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    {% endif %}
+
 </div>
 
 {# <div class="swiper product-thumb-slider">
@@ -267,19 +294,19 @@ input#quantity {
     watchSlidesProgress: true,
 }); #}
 
-var productMain = new Swiper('.product-main-slider', {
+{# var productMain = new Swiper('.product-main-slider', {
     loop: true,
     navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
     spaceBetween: 10,
-    lazy: true,
+    lazy: true, #}
     
     //thumbs: {
       //  swiper: productThumbs
     //}
-});
+{# }); #}
 </script>
 <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css">
 {# <script src="https://cdn.jsdelivr.net/npm/photoswipe@5/photoswipe.min.js"></script> #}
@@ -295,6 +322,26 @@ const lightbox = new PhotoSwipeLightbox({
 
 lightbox.init();
 </script>
+<style>
+ .carousel-control-prev,
+ .carousel-control-next {
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 20%;
+    opacity: 1;
+}
+
+ .carousel-control-prev {
+    left: 10px;
+}
+
+ .carousel-control-next {
+    right: 10px;
+}
+</style>
           <picture>
             <source srcset="catalog/view/javascript/assets/image/big-strip-mobile.webp" type="avif" alt="emi small banner" class=" img-fluid mobile-offer-baner ">
             <img src="catalog/view/javascript/assets/image/big-strip-mobile.webp" alt="emi small banner" class="img-fluid mobile-offer-baner " style="width:100%;" media="(min-width: 425px)" loading="lazy"/>
@@ -650,26 +697,82 @@ lightbox.init();
 <section class="game-section py-lg-4 py-3">
  <div class="container">
   <div class="row"> 
-  <h2 class="pg-heading text-center"> Popular Pairings</h2>
-    <p class="heading-para text-center">Pair it Right</p>
+  <h2 class="pg-heading text-center">Popular Pairings</h2>
+<p class="heading-para text-center">Pair it Right</p>
 
-    <div class="owl-carousel owl-carousel2 custom-carousel2 owl-theme">
-    {% for product in bundle_products %}
-      <div class="item _item2">
-        <div class="uw_prduct_box_">
-          <div class="uw_p_img">
-            <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid" loading="lazy"></a>
+<div id="popularPairings"
+     class="carousel slide"
+     data-bs-ride="carousel"
+     data-bs-interval="3000">
+
+    <div class="carousel-inner">
+
+        {% for product in bundle_products %}
+
+            {% if loop.first %}
+                <div class="carousel-item active">
+                <div class="row g-3">
+            {% endif %}
+
+            <div class="col-6 col-md-3">
+                <div class="uw_prduct_box_">
+
+                    <div class="uw_p_img">
+                        <a href="{{ product.href }}">
+                            <img src="{{ product.thumb }}"
+                                 alt="{{ product.name }}"
+                                 class="img-fluid"
+                                 loading="lazy">
+                        </a>
+                    </div>
+
+                    <div class="product_content">
+                        <a href="{{ product.href }}" class="p_item_name">
+                            {{ product.name }}
+                        </a>
+
+                        <div class="uw_price">
+                            <span class="giving_p">{{ product.special }}</span>
+                            <span class="real_p">{{ product.price }}</span>
+                            <span class="offer_dis">{{ product.discount }}%</span>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-          <div class="product_content">
-            <a href="{{ product.href }}" class="p_item_name">{{ product.name }}</a>
-            <div class="uw_price">
-              <span class="giving_p">{{ product.special }}</span><span class="real_p">{{ product.price }}</span> <span class="offer_dis">{{ product.discount }}%</span>
-            </div>
-           </div>
-        </div>
-      </div>
-    {% endfor %}
+
+            {% if loop.index is divisible by(4) and not loop.last %}
+                </div>
+                </div>
+
+                <div class="carousel-item">
+                <div class="row g-3">
+            {% endif %}
+
+            {% if loop.last %}
+                </div>
+                </div>
+            {% endif %}
+
+        {% endfor %}
+
     </div>
+
+    <button class="carousel-control-prev"
+            type="button"
+            data-bs-target="#popularPairings"
+            data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next"
+            type="button"
+            data-bs-target="#popularPairings"
+            data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+
+</div>
 
   </div>
   </div> 
@@ -678,31 +781,103 @@ lightbox.init();
 {% endif %}
 {% if products %}
 <section class="game-section py-lg-4 py-3">
- <div class="container">
-  <div class="row"> 
-  <h2 class="pg-heading text-center">Similar Products</h2>
-    <p class="heading-para text-center">Alternatives You’ll Adore</p>
+    <div class="container">
+        <div class="row">
 
-    <div class="owl-carousel owl-carousel2 custom-carousel2 owl-theme">
-    {% for product in products %}
-      <div class="item _item2">
-        <div class="uw_prduct_box_">
-          <div class="uw_p_img">
-            <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid" loading="lazy"></a>
+            <h2 class="pg-heading text-center">Similar Products</h2>
+            <p class="heading-para text-center">Alternatives You’ll Adore</p>
+
+            <div id="similarProducts"
+                 class="carousel slide"
+                 data-bs-ride="carousel"
+                 data-bs-interval="3000"
+                 data-bs-touch="true"
+                 data-bs-wrap="true">
+
+                <div class="carousel-inner">
+
+                    {% for product in products %}
+
+                        {% if loop.first %}
+                        <div class="carousel-item active">
+                            <div class="row g-3">
+                        {% endif %}
+
+                            <div class="col-6 col-md-3">
+                                <div class="uw_prduct_box_">
+
+                                    <div class="uw_p_img">
+                                        <a href="{{ product.href }}">
+                                            <img src="{{ product.thumb }}"
+                                                 alt="{{ product.name }}"
+                                                 class="img-fluid"
+                                                 loading="lazy">
+                                        </a>
+                                    </div>
+
+                                    <div class="product_content">
+                                        <a href="{{ product.href }}"
+                                           class="p_item_name">
+                                            {{ product.name }}
+                                        </a>
+
+                                        <div class="uw_price">
+                                            <span class="giving_p">
+                                                {{ product.special }}
+                                            </span>
+
+                                            <span class="real_p">
+                                                {{ product.price }}
+                                            </span>
+
+                                            <span class="offer_dis">
+                                                {{ product.discount }}%
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        {% if loop.index is divisible by(4) and not loop.last %}
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="row g-3">
+                        {% endif %}
+
+                        {% if loop.last %}
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    {% endfor %}
+
+                </div>
+
+                {% if products|length > 4 %}
+                    <button class="carousel-control-prev"
+                            type="button"
+                            data-bs-target="#similarProducts"
+                            data-bs-slide="prev"
+                            aria-label="Previous">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+
+                    <button class="carousel-control-next"
+                            type="button"
+                            data-bs-target="#similarProducts"
+                            data-bs-slide="next"
+                            aria-label="Next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                {% endif %}
+
             </div>
-          <div class="product_content">
-            <a href="{{ product.href }}" class="p_item_name">{{ product.name }}</a>
-            <div class="uw_price">
-              <span class="giving_p">{{ product.special }}</span><span class="real_p">{{ product.price }}</span> <span class="offer_dis">{{ product.discount }}%</span>
-            </div>
-           </div>
+
         </div>
-      </div>
-    {% endfor %}
     </div>
-
-  </div>
-  </div> 
 </section>
     <script>
         const filters = {{ products | json_encode | raw }};
