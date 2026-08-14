@@ -184,8 +184,8 @@ class ModelToolImage extends Model {
 					break;
 			}
 	
-			imagedestroy($source);
-			imagedestroy($destination);
+			unset($source);
+			unset($destination);
 		}
 	
 		$image_new = str_replace(' ', '%20', $image_new);
@@ -299,7 +299,7 @@ class ModelToolImage extends Model {
 				85
 			);
 	
-			imagedestroy($source);
+			unset($source);
 	
 			if (!$result || !is_file($destination_file)) {
 				return;

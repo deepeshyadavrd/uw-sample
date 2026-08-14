@@ -219,17 +219,17 @@ class ControllerProductProduct extends Controller {
 			$data['stock_status'] = $product_info['stock_status'];
 			$this->load->model('tool/image');
 
-			if ($product_info['image']) {
-				$data['popup'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_height'));
-			} else {
-				$data['popup'] = '';
-			}
+			// if ($product_info['image']) {
+			// 	$data['popup'] = $this->model_tool_image->resize($product_info['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_height'));
+			// } else {
+			// 	$data['popup'] = '';
+			// }
 
-			if ($product_info['image']) {
-				$data['thumb'] = $this->model_tool_image->resize($product_info['image'], 1340, 1340);
-			} else {
-				$data['thumb'] = '';
-			}
+			// if ($product_info['image']) {
+			// 	$data['thumb'] = $this->model_tool_image->webp($this->model_tool_image->resize($product_info['image'], 950, 950));
+			// } else {
+			// 	$data['thumb'] = '';
+			// }
 
 			$data['images'] = array();
 
@@ -237,10 +237,10 @@ class ControllerProductProduct extends Controller {
 
 			foreach ($results as $result) {
 				$data['images'][] = array(
-					'popup' => $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_height')),
-					'big_thumb' => $this->model_tool_image->crop($result['image'], 1340, 1340),
+					// 'popup' => $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_height')),
+					'big_thumb' => $this->model_tool_image->webp($this->model_tool_image->crop($result['image'], 950, 950)),
 					'thumb' => $this->model_tool_image->webp($this->model_tool_image->crop($result['image'], 501, 501)),
-					'img_thumb' => $this->model_tool_image->resize($result['image'], 96, 72)
+					'img_thumb' => $this->model_tool_image->webp($this->model_tool_image->crop($result['image'], 96, 72))
 				);
 			}
 
@@ -411,7 +411,7 @@ if(!$has_finish_option){
 				foreach($product_group['group_product']  as $value){
 					if($value['p_image'] != NULL){
 						if ($value['p_image']) {
-							$image = $this->model_tool_image->resize($value['p_image'], 128, 88);//201, 139);
+							$image = $this->model_tool_image->webp($this->model_tool_image->crop($value['p_image'], 128, 88));//201, 139);
 						} else {
 							$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_height'));
 						}
@@ -438,7 +438,7 @@ if(!$has_finish_option){
 
 			foreach ($results as $result) {
 				if ($result['image']) {
-					$image = $this->model_tool_image->resize($result['image'], 700, 480);
+					$image = $this->model_tool_image->webp($this->model_tool_image->crop($result['image'], 500, 450));
 				} else {
 					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_height'));
 				}
@@ -494,7 +494,7 @@ if(!$has_finish_option){
 
 			foreach ($results as $result) {
 				if ($result['image']) {
-					$image = $this->model_tool_image->resize($result['image'], 700, 480);
+					$image = $this->model_tool_image->webp($this->model_tool_image->crop($result['image'], 500, 450));
 				} else {
 					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_related_height'));
 				}
