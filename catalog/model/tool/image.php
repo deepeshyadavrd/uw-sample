@@ -60,9 +60,7 @@ class ModelToolImage extends Model {
 		$image_old = $filename;
 	
 		// Same cache location/naming as resize()
-		$image_new = 'cache/' .
-			utf8_substr($filename, 0, utf8_strrpos($filename, '.')) .
-			'-' . (int)$width . 'x' . (int)$height . '.' . $extension;
+		$image_new = 'cache/' . utf8_substr($filename, 0, utf8_strrpos($filename, '.')) . '-' . (int)$width . 'x' . (int)$height . '.' . $extension;
 	
 		// Generate only when necessary
 		if (!is_file(DIR_IMAGE . $image_new) ||
@@ -111,10 +109,7 @@ class ModelToolImage extends Model {
 			// Original aspect ratio
 			$original_ratio = $width_orig / $height_orig;
 	
-			/*
-			 * Determine the exact area to crop.
-			 */
-	
+			/* * Determine the exact area to crop. */
 			if ($original_ratio > $target_ratio) {
 	
 				// Original is wider.
@@ -123,9 +118,7 @@ class ModelToolImage extends Model {
 				$crop_height = $height_orig;
 				$crop_width = (int)round($height_orig * $target_ratio);
 	
-				$src_x = (int)round(
-					($width_orig - $crop_width) / 2
-				);
+				$src_x = (int)round( ($width_orig - $crop_width) / 2 );
 	
 				$src_y = 0;
 	
@@ -135,76 +128,35 @@ class ModelToolImage extends Model {
 				// Crop top + bottom.
 	
 				$crop_width = $width_orig;
-				$crop_height = (int)round(
-					$width_orig / $target_ratio
-				);
+				$crop_height = (int)round( $width_orig / $target_ratio );
 	
 				$src_x = 0;
 	
-				$src_y = (int)round(
-					($height_orig - $crop_height) / 2
-				);
+				$src_y = (int)round( ($height_orig - $crop_height) / 2 );
 			}
 	
-			/*
-			 * Create the final image.
-			 */
-			$destination = imagecreatetruecolor(
-				$width,
-				$height
-			);
+			/* * Create the final image. */
+			$destination = imagecreatetruecolor( $width, $height );
 	
 			// Preserve transparency for PNG/WebP
-			if ($image_type == IMAGETYPE_PNG ||
-				$image_type == IMAGETYPE_WEBP) {
+			if ($image_type == IMAGETYPE_PNG || $image_type == IMAGETYPE_WEBP) {
 	
 				imagealphablending($destination, false);
 				imagesavealpha($destination, true);
 	
-				$transparent = imagecolorallocatealpha(
-					$destination,
-					255,
-					255,
-					255,
-					127
-				);
+				$transparent = imagecolorallocatealpha( $destination, 255, 255, 255, 127 );
 	
-				imagefill(
-					$destination,
-					0,
-					0,
-					$transparent
-				);
+				imagefill( $destination, 0, 0, $transparent );
 			}
 	
-			/*
-			 * TRUE CROP + RESIZE
-			 */
-			imagecopyresampled(
-				$destination,
-				$source,
+			/* * TRUE CROP + RESIZE */
+			imagecopyresampled( $destination, $source, 0, 0, $src_x, $src_y, $width, $height, $crop_width, $crop_height );
 	
-				0,
-				0,
-	
-				$src_x,
-				$src_y,
-	
-				$width,
-				$height,
-	
-				$crop_width,
-				$crop_height
-			);
-	
-			/*
-			 * Create cache directories.
-			 */
+			/* * Create cache directories. */
 			$path = '';
 			$directories = explode('/', dirname($image_new));
 	
 			foreach ($directories as $directory) {
-	
 				$path .= '/' . $directory;
 	
 				if (!is_dir(DIR_IMAGE . $path)) {
@@ -212,45 +164,146 @@ class ModelToolImage extends Model {
 				}
 			}
 	
-			/*
-			 * Save image.
-			 */
+			/* * Save image. */
 			switch ($image_type) {
 	
 				case IMAGETYPE_JPEG:
-					imagejpeg(
-						$destination,
-						DIR_IMAGE . $image_new,
-						90
-					);
+					imagejpeg( $destination, DIR_IMAGE . $image_new, 90 );
 					break;
 	
 				case IMAGETYPE_PNG:
-					imagepng(
-						$destination,
-						DIR_IMAGE . $image_new,
-						6
-					);
+					imagepng( $destination, DIR_IMAGE . $image_new, 6 );
 					break;
 	
 				case IMAGETYPE_GIF:
-					imagegif(
-						$destination,
-						DIR_IMAGE . $image_new
-					);
+					imagegif( $destination, DIR_IMAGE . $image_new );
 					break;
 	
 				case IMAGETYPE_WEBP:
-					imagewebp(
-						$destination,
-						DIR_IMAGE . $image_new,
-						90
-					);
+					imagewebp( $destination, DIR_IMAGE . $image_new, 90 );
 					break;
 			}
 	
 			imagedestroy($source);
 			imagedestroy($destination);
+		}
+	
+		$image_new = str_replace(' ', '%20', $image_new);
+	
+		if ($this->request->server['HTTPS']) {
+			return $this->config->get('config_ssl') . '/image/' . $image_new;
+		} else {
+			return $this->config->get('config_url') . 'image/' . $image_new;
+		}
+	}
+	public function webp($filename) {
+
+		// If a full image URL was passed, convert it back to relative image path
+		$filename = str_replace($this->config->get('config_ssl') . '/image/', '', $filename);
+		$filename = str_replace($this->config->get('config_url') . 'image/', '', $filename);
+	
+		$filename = urldecode($filename);
+	
+		$source_file = DIR_IMAGE . $filename;
+	
+		// Check source exists
+		if (!is_file($source_file)) {
+			return;
+		}
+	
+		// Check GD WebP support
+		if (!function_exists('imagewebp')) {
+			return;
+		}
+	
+		$extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+	
+		// Don't convert WebP again
+		if ($extension == 'webp') {
+			return $this->config->get('config_ssl') . '/image/' . $filename;
+		}
+	
+		// WebP file name
+		$image_new = 
+			utf8_substr(
+				$filename,
+				0,
+				utf8_strrpos($filename, '.')
+			) .
+			'.webp';
+	
+		$destination_file = DIR_IMAGE . $image_new;
+	
+		// Create cache directories
+		$path = '';
+		$directories = explode('/', dirname($image_new));
+	
+		foreach ($directories as $directory) {
+	
+			$path .= '/' . $directory;
+	
+			if (!is_dir(DIR_IMAGE . $path)) {
+				@mkdir(DIR_IMAGE . $path, 0777, true);
+			}
+		}
+	
+		// Convert only if required
+		if (
+			!is_file($destination_file) ||
+			filemtime($source_file) > filemtime($destination_file)
+		) {
+	
+			$info = getimagesize($source_file);
+	
+			if (!$info) {
+				return;
+			}
+	
+			switch ($info[2]) {
+	
+				case IMAGETYPE_JPEG:
+					$source = imagecreatefromjpeg($source_file);
+					break;
+	
+				case IMAGETYPE_PNG:
+					$source = imagecreatefrompng($source_file);
+					break;
+	
+				case IMAGETYPE_GIF:
+					$source = imagecreatefromgif($source_file);
+					break;
+	
+				case IMAGETYPE_WEBP:
+					return $this->config->get('config_ssl') .
+						'/image/' . $filename;
+	
+				default:
+					return;
+			}
+	
+			if (!$source) {
+				return;
+			}
+	
+			// Preserve PNG transparency
+			if ($info[2] == IMAGETYPE_PNG) {
+				imagepalettetotruecolor($source);
+				imagealphablending($source, false);
+				imagesavealpha($source, true);
+			}
+	
+			// Convert to WebP
+			$result = imagewebp(
+				$source,
+				$destination_file,
+				85
+			);
+	
+			imagedestroy($source);
+	
+			if (!$result || !is_file($destination_file)) {
+				return;
+			}
 		}
 	
 		$image_new = str_replace(' ', '%20', $image_new);

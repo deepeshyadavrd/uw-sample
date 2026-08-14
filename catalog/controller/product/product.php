@@ -239,7 +239,7 @@ class ControllerProductProduct extends Controller {
 				$data['images'][] = array(
 					'popup' => $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_height')),
 					'big_thumb' => $this->model_tool_image->crop($result['image'], 1340, 1340),
-					'thumb' => $this->model_tool_image->crop($result['image'], 501, 501),
+					'thumb' => $this->model_tool_image->webp($this->model_tool_image->crop($result['image'], 501, 501)),
 					'img_thumb' => $this->model_tool_image->resize($result['image'], 96, 72)
 				);
 			}
