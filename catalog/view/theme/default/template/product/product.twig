@@ -127,6 +127,49 @@ input#quantity {
   75%{transform:scale(1);} 
 }
 
+#productImageCarousel .carousel-indicators {
+    position: static;
+    display: flex;
+    gap: 8px;
+    justify-content: flex-start;
+    margin: 10px 0 0;
+    overflow-x: auto;
+    padding: 0;
+}
+
+#productImageCarousel .carousel-indicators button {
+    width: 70px;
+    height: 70px;
+    flex: 0 0 70px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    opacity: .6;
+    background: none;
+    text-indent: 0;
+    overflow: hidden;
+}
+
+#productImageCarousel .carousel-indicators button.active {
+    opacity: 1;
+    border: 1px solid #fc7e00;
+}
+
+#productImageCarousel .carousel-indicators button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+@media (max-width: 575px) {
+    #productImageCarousel .carousel-indicators button {
+        width: 55px;
+        height: 55px;
+        flex-basis: 55px;
+    }
+}
+
 </style>
 <div class="wrapper">
   <div class="qu-sec py-2 ">
@@ -181,65 +224,8 @@ input#quantity {
             }); 
 
           </script> #}
-          <style>
-          /* MAIN SLIDER */
-{# .product-main-slider,
-.product-main-slider .swiper-wrapper,
-.product-main-slider .swiper-slide {
-    width: 100% !important;
-    height: auto !important;
-}
 
-.product-main-slider .swiper-slide img {
-    width: 100%;
-    height: auto;
-    object-fit: contain; 
-    display: block;
-} #}
-
-/* THUMBNAIL SLIDER */
-{# .product-thumb-slider {
-    width: 100%;
-    margin-top: 10px;
-} #}
-
-{# .product-thumb-slider .swiper-slide {
-    width: 20% !important;    /* 4 thumbnails per row */
-    height: auto;
-    box-sizing: border-box;
-    opacity: 0.6;
-}
-
-.product-thumb-slider .swiper-slide-thumb-active {
-    opacity: 1;
-}
-
-.product-thumb-slider .swiper-slide img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    display: block;
-}
-
-/* STOP OVERFLOW ON MOBILE */
-.product-main-slider,
-.product-thumb-slider {
-    max-width: 100% !important;
-    overflow: hidden !important;
-} #}
-
-/* FIX any theme padding issues */
-{# .swiper-container,
-.swiper-wrapper,
-.swiper-slide {
-    padding: 0 !important;
-    margin: 0 !important;
-} #}
-          </style>
-          <div id="productImageCarousel" class="carousel slide product-main-slider" data-bs-ride="carousel"
-     data-bs-touch="true"
-     data-bs-wrap="true"
-     data-bs-interval="36000">
+          <div id="productImageCarousel" class="carousel slide product-main-slider" data-bs-ride="carousel" data-bs-touch="true" data-bs-wrap="true" data-bs-interval="36000">
 
     <div class="carousel-inner">
         {% for image in images %}
@@ -274,43 +260,22 @@ input#quantity {
             <span class="visually-hidden">Next</span>
         </button>
     {% endif %}
+    <div class="carousel-indicators position-static mt-2 mb-0">
+        {% for image in images %}
+        <button type="button"
+                data-bs-target="#productImageCarousel"
+                data-bs-slide-to="{{ loop.index0 }}"
+                {% if loop.first %}class="active" aria-current="true"{% endif %}
+                aria-label="Slide {{ loop.index }}">
+            <img src="{{ image.thumb }}" alt="">
+        </button>
+        {% endfor %}
+    </div>
 
 </div>
 
-{# <div class="swiper product-thumb-slider">
-  <div class="swiper-wrapper">
-    {% for image in images %}
-    <div class="swiper-slide">
-      <img src="{{ image.img_thumb }}" class="thumb-img" loading="lazy">
-    </div>
-    {% endfor %}
-  </div>
-</div> #}
-<script>
-{# var productThumbs = new Swiper('.product-thumb-slider', {
-    loop: true,
-    slidesPerView: 4,
-    spaceBetween: 5,
-    watchSlidesProgress: true,
-}); #}
-
-{# var productMain = new Swiper('.product-main-slider', {
-    loop: true,
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    spaceBetween: 10,
-    lazy: true, #}
-    
-    //thumbs: {
-      //  swiper: productThumbs
-    //}
-{# }); #}
-</script>
 <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css">
-{# <script src="https://cdn.jsdelivr.net/npm/photoswipe@5/photoswipe.min.js"></script> #}
-{# <script src="https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js" type="module"></script> #}
+
 <script type="module">
 import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
 
@@ -342,10 +307,61 @@ lightbox.init();
     right: 10px;
 }
 </style>
-          <picture>
-            <source srcset="catalog/view/javascript/assets/image/big-strip-mobile.webp" type="avif" alt="emi small banner" class=" img-fluid mobile-offer-baner ">
-            <img src="catalog/view/javascript/assets/image/big-strip-mobile.webp" alt="emi small banner" class="img-fluid mobile-offer-baner " style="width:100%;" media="(min-width: 425px)" loading="lazy"/>
-          </picture>
+          <!-- quality section-->
+  <div class="qu-sec py-2">
+    <div class="container-md p-0">
+      <div class="row"> 
+        <div class="col-lg-12">
+          <div class="marquee-wrapper">
+            <a href="custom-furniture" class="marquee-track">
+              <picture>
+    <source media="(max-width: 767px)"
+            srcset="catalog/view/javascript/assets/image/big-strip-mobile.webp">
+
+    <img src="catalog/view/javascript/assets/image/big-strip.webp"
+         alt="Urbanwood: India's Finest furniture customization brand">
+</picture>
+
+<picture>
+    <source media="(max-width: 767px)"
+            srcset="catalog/view/javascript/assets/image/big-strip-mobile.webp">
+
+    <img src="catalog/view/javascript/assets/image/big-strip.webp"
+         alt="Urbanwood"
+         aria-hidden="true">
+</picture>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<style>
+  .marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+.marquee-track img {
+  height: 140px;       /* adjust as needed */
+  width: auto;
+  flex-shrink: 0;
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+  </style>
+  <!-- end quality section-->
         </div>
         <div class="col-lg-5 col-md-12 col-sm-12 child">
           <div class="shopping-pp-detail">
@@ -368,7 +384,7 @@ lightbox.init();
               <h1 class="pp-heading-line">{{ heading_title }} &nbsp;<span class="pp-about"> {{ finish }}</span></h1>
               
               <span class="pd-creater"> By&nbsp;{{ manufacturer }}</span>
-              <div class="d-flex my-2 p-4 rounded-3 bg-dark bg-opacity-10">
+              <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center my-2 p-4 rounded-3 bg-dark bg-opacity-10">
                 {% if not hide_price %}
                 <div class="price--order">
                 
@@ -391,7 +407,7 @@ lightbox.init();
                 style="background-color: #25d366;"
                 data-text="Hi, I would like more information about {{ ' ' ~ heading_title }}">
             <span class="small text-nowrap">Whatsapp</span>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="25px" height="25px">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20px" height="20px">
                 <path fill="#fff" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"></path>
                 <path fill="#40c351" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z"></path>
             </svg>
@@ -416,7 +432,11 @@ lightbox.init();
                   <ul>
                     <li>
                       <svg fill="#787878" width="35px" height="35px" viewBox="0 0 32 32" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" xmlns:xlink="http://www.w3.org/1999/xlink" stroke="#787878" stroke-width="0.384"><g id="SVGRepo_bgCarrier" stroke-width="0"/><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/><g id="SVGRepo_iconCarrier"> <g transform="matrix(1,0,0,1,-96,-384)"> <g transform="matrix(1,0,0,1.5,0,-195)"> <path d="M123,390.139C123,389.941 122.869,389.755 122.642,389.628C122.415,389.501 122.116,389.448 121.825,389.483C119.095,389.739 115.9,389.237 113.167,387.95C112.472,387.611 111.529,387.612 110.835,387.953C108.106,389.249 104.916,389.77 102.184,389.504C101.896,389.468 101.598,389.519 101.372,389.643C101.146,389.768 101.015,389.954 101.015,390.149C101,392.424 101,398.817 101,401.141C101,401.664 101.458,402.139 102.172,402.355C104.41,403.033 109.237,404.496 111.172,405.083C111.698,405.242 112.302,405.242 112.828,405.083C114.763,404.496 119.59,403.033 121.828,402.355C122.542,402.139 123,401.664 123,401.141C123,398.813 123,392.403 123,390.139Z" style="fill:#f5f5f5;"/> </g> <path d="M124,406.712L124,390.208C124,389.616 123.738,389.055 123.284,388.675C122.836,388.3 122.247,388.14 121.671,388.236C119.171,388.584 116.25,387.878 113.747,386.109C112.704,385.354 111.293,385.357 110.253,386.116C107.762,387.889 104.859,388.626 102.364,388.272C101.772,388.168 101.183,388.323 100.734,388.695C100.279,389.072 100.015,389.633 100.015,390.224C100,393.632 100,403.225 100,406.712L100,406.712C100,407.889 100.688,408.956 101.759,409.443C103.996,410.46 108.823,412.654 110.759,413.534C111.547,413.893 112.453,413.893 113.241,413.534C115.177,412.654 120.004,410.46 122.241,409.443C123.312,408.956 124,407.889 124,406.712ZM121.999,390.208L122,390.209L122,406.712C122,407.104 121.771,407.46 121.414,407.623C119.177,408.639 114.349,410.834 112.414,411.713C112.151,411.833 111.849,411.833 111.586,411.713C109.651,410.834 104.823,408.639 102.586,407.623C102.229,407.46 102,407.104 102,406.712C102,403.231 102,393.664 102.015,390.242L102.018,390.243C104.998,390.678 108.459,389.849 111.416,387.743L111.422,387.739C111.77,387.483 112.235,387.482 112.578,387.732L112.584,387.736C115.547,389.831 119.009,390.63 121.964,390.214L121.999,390.208ZM107.293,399.707L110.44,402.854C110.83,403.244 111.463,403.244 111.854,402.854L117.748,396.96C118.138,396.57 118.138,395.936 117.748,395.546C117.357,395.155 116.724,395.155 116.334,395.546L111.147,400.732C111.147,400.732 108.707,398.293 108.707,398.293C108.317,397.903 107.683,397.903 107.293,398.293C106.903,398.683 106.903,399.317 107.293,399.707ZM122,390.209C122,390.209 122,390.209 122,390.209Z" style="fill:#787878;"/> </g> </g></svg>
-                      <span class="fe-con-"> 36 Months' Warranty</span>
+                      {% if 'natural' in finish|lower or 'brown' in finish|lower %}
+    <span class="fe-con-">24 Months' Warranty</span>
+{% else %}
+    <span class="fe-con-">{{ custom_attributes[13] }} Warranty</span>
+{% endif %}
                     </li>
                     <li>
                       <svg width="35px" height="35px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#787878"><g id="SVGRepo_bgCarrier" stroke-width="0"/><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/><g id="SVGRepo_iconCarrier"> <path fill="var(--ci-primary-color, #787878)" d="M245.151,168a88,88,0,1,0,88,88A88.1,88.1,0,0,0,245.151,168Zm0,144a56,56,0,1,1,56-56A56.063,56.063,0,0,1,245.151,312Z" class="ci-primary"/> <path fill="var(--ci-primary-color, #787878)" d="M464.7,322.319l-31.77-26.153a193.081,193.081,0,0,0,0-80.332l31.77-26.153a19.941,19.941,0,0,0,4.606-25.439l-32.612-56.483a19.936,19.936,0,0,0-24.337-8.73l-38.561,14.447a192.038,192.038,0,0,0-69.54-40.192L297.49,32.713A19.936,19.936,0,0,0,277.762,16H212.54a19.937,19.937,0,0,0-19.728,16.712L186.05,73.284a192.03,192.03,0,0,0-69.54,40.192L77.945,99.027a19.937,19.937,0,0,0-24.334,8.731L21,164.245a19.94,19.94,0,0,0,4.61,25.438l31.767,26.151a193.081,193.081,0,0,0,0,80.332l-31.77,26.153A19.942,19.942,0,0,0,21,347.758l32.612,56.483a19.937,19.937,0,0,0,24.337,8.73l38.562-14.447a192.03,192.03,0,0,0,69.54,40.192l6.762,40.571A19.937,19.937,0,0,0,212.54,496h65.222a19.936,19.936,0,0,0,19.728-16.712l6.763-40.572a192.038,192.038,0,0,0,69.54-40.192l38.564,14.449a19.938,19.938,0,0,0,24.334-8.731L469.3,347.755A19.939,19.939,0,0,0,464.7,322.319Zm-50.636,57.12-48.109-18.024-7.285,7.334a159.955,159.955,0,0,1-72.625,41.973l-10,2.636L267.6,464h-44.89l-8.442-50.642-10-2.636a159.955,159.955,0,0,1-72.625-41.973l-7.285-7.334L76.241,379.439,53.8,340.562l39.629-32.624-2.7-9.973a160.9,160.9,0,0,1,0-83.93l2.7-9.972L53.8,171.439l22.446-38.878,48.109,18.024,7.285-7.334a159.955,159.955,0,0,1,72.625-41.973l10-2.636L222.706,48H267.6l8.442,50.642,10,2.636a159.955,159.955,0,0,1,72.625,41.973l7.285,7.334,48.109-18.024,22.447,38.877-39.629,32.625,2.7,9.972a160.9,160.9,0,0,1,0,83.93l-2.7,9.973,39.629,32.623Z" class="ci-primary"/> </g></svg>
@@ -460,7 +480,7 @@ lightbox.init();
                     <span class="add-to-cart-btn">Out of Stock</span>
                   </div>
                 {% else %}
-                  <div class="w-100 mt-3">
+                  <div class="w-100 d-block mt-3 text-center" style="position: sticky;">
     <input name="product_id" type="hidden" value="{{ product_id }}">
 </form>
     <div class="d-flex align-items-stretch w-100 mb-2 gap-2">
@@ -514,6 +534,19 @@ lightbox.init();
                     {% endfor %}
                   </div>
                 {% elseif product_group.finish_name == 'Available Finish' %}
+                <div class="options-div">
+                    <h6 class="my-2">{{ product_group.finish_name }}</h6>
+                    {% for pg in product_group.group_product %}
+                      <div class="box-opt">
+                        <div class="product-img-opt"><img src="{{ pg.p_image }}" alt="{{ pg.text }}" loading="lazy"></div>
+                        <div class="price-opt-box">
+                          <span class="finish-nm">{{ pg.text }}</span>
+                          {# <span class="price-object">₹&nbsp;{{ pg.p_price }}</span> #}
+                        </div>
+                      </div>
+                    {% endfor %}
+                  </div>
+                {% elseif product_group.finish_name == 'Fabric Color' %}
                   <div class="options-div">
                     <h6 class="my-2">{{ product_group.finish_name }}</h6>
                     {% for pg in product_group.group_product %}
@@ -697,7 +730,7 @@ lightbox.init();
 <section class="game-section py-lg-4 py-3">
  <div class="container">
   <div class="row"> 
-  <h2 class="pg-heading text-center">Popular Pairings</h2>
+  <h2 class="pg-heading text-center"> Popular Pairings</h2>
 <p class="heading-para text-center">Pair it Right</p>
 
 <div id="popularPairings"
@@ -783,7 +816,6 @@ lightbox.init();
 <section class="game-section py-lg-4 py-3">
     <div class="container">
         <div class="row">
-
             <h2 class="pg-heading text-center">Similar Products</h2>
             <p class="heading-para text-center">Alternatives You’ll Adore</p>
 

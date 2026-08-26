@@ -32,7 +32,7 @@ class ControllerProductProduct extends Controller {
 
 			// Set the last category breadcrumb
 			$category_info = $this->model_catalog_category->getCategory($category_id);
-
+			print_r($category_info);
 			if ($category_info) {
 				$url = '';
 				if (isset($this->request->get['sort'])) {
@@ -238,9 +238,13 @@ class ControllerProductProduct extends Controller {
 			foreach ($results as $result) {
 				$data['images'][] = array(
 					// 'popup' => $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_popup_height')),
-					'big_thumb' => $this->model_tool_image->webp($this->model_tool_image->crop($result['image'], 950, 950)),
-					'thumb' => $this->model_tool_image->webp($this->model_tool_image->crop($result['image'], 501, 501)),
-					'img_thumb' => $this->model_tool_image->webp($this->model_tool_image->crop($result['image'], 96, 72))
+					// 'big_thumb' => $this->model_tool_image->webp($this->model_tool_image->crop($result['image'], 950, 950)),
+					// 'thumb' => $this->model_tool_image->webp($this->model_tool_image->crop($result['image'], 501, 501)),
+					// 'img_thumb' => $this->model_tool_image->webp($this->model_tool_image->crop($result['image'], 96, 72))
+					'mobile' => $this->model_tool_image->webp($this->model_tool_image->crop($result['image'], 400, 320)),
+        			'tablet' => $this->model_tool_image->webp($this->model_tool_image->crop($result['image'], 768, 614)),
+        			'desktop' => $this->model_tool_image->webp($this->model_tool_image->crop($result['image'], 1440, 1152)),
+        			'thumb' => $this->model_tool_image->webp($this->model_tool_image->crop($result['image'], 85, 68))
 				);
 			}
 
@@ -365,20 +369,74 @@ class ControllerProductProduct extends Controller {
 			$data['share'] = $this->url->link('product/product', 'product_id=' . (int)$this->request->get['product_id']);
 
 			$data['attribute_groups'] = $this->model_catalog_product->getProductAttributes($this->request->get['product_id']);
-			
+			// print_r($data['attribute_groups']);
+			$has_fabric_color = false;
+			foreach($data['attribute_groups'] as $key => $value){
+				foreach ($value['attribute'] as $attribute) {
+					if ($attribute['attribute_id'] == 26) {
+						$has_fabric_color = true;
+						break;
+					}
+				}
+
+			}
+			$data['custom_attributes'] = [];
+foreach ($data['attribute_groups'] as $group) {
+    foreach ($group['attribute'] as $attr) {
+        // Index the array by the attribute_id itself
+        $data['custom_attributes'][$attr['attribute_id']] = $attr['text'];
+    }
+}		
 			$product_groups = $this->model_catalog_product->getProductGroup($this->request->get['product_id']);
-			// print_r($product_groups);
-			// exit;
+
 			$has_finish_option = false;
+			$has_cotton_fabric = false;
+			$has_velvet = false;
 
 foreach($product_groups as $pg){
     if($pg['name'] == 'Finish Option'){
         $has_finish_option = true;
         break;
     }
+	if($pg['name'] == 'Cotton Fabric'){
+        $has_cotton_fabric = true;
+        break;
+    }
+	if($pg['name'] == 'Velvet'){
+        $has_velvet = true;
+        break;
+    }
+
 }
 
-if(!$has_finish_option){
+if(!$has_finish_option && !$has_cotton_fabric && !$has_velvet){
+	if ($has_fabric_color) {
+		$custom_colors = array(
+    	    'name' => 'Fabric Color',
+    	    'group_product' => array(
+    	        array(
+    	            'text' => 'Navy Blue',
+    	            'p_image' => 'catalog/colors/navy-blue.jpg'
+				),array(
+    	            'text' => 'Amber Gold',
+    	            'p_image' => 'catalog/colors/amber-gold.jpg'
+    	        ),array(
+    	            'text' => 'Diana Orange',
+    	            'p_image' => 'catalog/colors/diana-orange.jpg'
+    	        ),array(
+    	            'text' => 'Sapphire Blue',
+    	            'p_image' => 'catalog/colors/sapphire-blue.jpg'
+    	        ),array(
+    	            'text' => 'Sepia Cream',
+    	            'p_image' => 'catalog/colors/sepia-cream.jpg'
+    	        ),array(
+    	            'text' => 'Steel Grey',
+    	            'p_image' => 'catalog/colors/steel-grey.jpg'
+    	        )
+    	    )
+    	);
+		array_unshift($product_groups, $custom_colors);
+	}else{
     $custom_colors = array(
         'name' => 'Available Finish',
         'group_product' => array(
@@ -405,6 +463,7 @@ if(!$has_finish_option){
         )
     );
 	array_unshift($product_groups, $custom_colors);
+}
 }
 			foreach($product_groups as $product_group){
 				$product_group1= array();
@@ -597,7 +656,7 @@ if ($stock_status === 'out of stock') {
 				]
 			];
 		
-		$data['product_schema'] = json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+		$data['product_schema'] = json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 			$this->response->setOutput($this->load->view('product/product', $data));
 		} else {
 			$url = '';
