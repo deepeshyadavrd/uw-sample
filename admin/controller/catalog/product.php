@@ -1300,6 +1300,14 @@ class ControllerCatalogProduct extends Controller {
 		} else {
 			$data['image'] = '';
 		}
+		// Image Crop
+		if (isset($this->request->post['image_crop'])) {
+		    $data['image_crop'] = (int)$this->request->post['image_crop'];
+		} elseif (!empty($product_info)) {
+		    $data['image_crop'] = (int)$product_info['image_crop'];
+		} else {
+		    $data['image_crop'] = 0;
+		}
 
 		$this->load->model('tool/image');
 
