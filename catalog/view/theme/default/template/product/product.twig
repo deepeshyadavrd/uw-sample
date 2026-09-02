@@ -163,6 +163,49 @@ input#quantity {
     }
 }
 
+#productImageCarousel .carousel-indicators {
+    position: static;
+    display: flex;
+    gap: 8px;
+    justify-content: flex-start;
+    margin: 10px 0 0;
+    overflow-x: auto;
+    padding: 0;
+}
+
+#productImageCarousel .carousel-indicators button {
+    width: 70px;
+    height: 70px;
+    flex: 0 0 70px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    opacity: .6;
+    background: none;
+    text-indent: 0;
+    overflow: hidden;
+}
+
+#productImageCarousel .carousel-indicators button.active {
+    opacity: 1;
+    border: 1px solid #fc7e00;
+}
+
+#productImageCarousel .carousel-indicators button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+@media (max-width: 575px) {
+    #productImageCarousel .carousel-indicators button {
+        width: 55px;
+        height: 55px;
+        flex-basis: 55px;
+    }
+}
+
 </style>
 <div class="wrapper">
   <div class="qu-sec py-2 d-none d-md-block">
@@ -342,6 +385,7 @@ input#quantity {
               
               <span class="pd-creater"> By&nbsp;{{ manufacturer }}</span>
               <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center my-2 p-4 rounded-3 bg-dark bg-opacity-10">
+              <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center my-2 p-4 rounded-3 bg-dark bg-opacity-10">
                 {% if not hide_price %}
                 <div class="price--order d-flex align-items-center">
                 
@@ -364,6 +408,7 @@ input#quantity {
                 style="background-color: #25d366;"
                 data-text="Hi, I would like more information about {{ ' ' ~ heading_title }}">
             <span class="small text-nowrap">Whatsapp</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20px" height="20px">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20px" height="20px">
                 <path fill="#fff" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"></path>
                 <path fill="#40c351" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z"></path>
@@ -389,6 +434,11 @@ input#quantity {
                   <ul class="list-unstyled m-0 p-0 w-100">
                     <li class="d-flex align-items-center float-start fw-medium">
                       <svg fill="#787878" width="35px" height="35px" viewBox="0 0 32 32" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" xmlns:xlink="http://www.w3.org/1999/xlink" stroke="#787878" stroke-width="0.384"><g id="SVGRepo_bgCarrier" stroke-width="0"/><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/><g id="SVGRepo_iconCarrier"> <g transform="matrix(1,0,0,1,-96,-384)"> <g transform="matrix(1,0,0,1.5,0,-195)"> <path d="M123,390.139C123,389.941 122.869,389.755 122.642,389.628C122.415,389.501 122.116,389.448 121.825,389.483C119.095,389.739 115.9,389.237 113.167,387.95C112.472,387.611 111.529,387.612 110.835,387.953C108.106,389.249 104.916,389.77 102.184,389.504C101.896,389.468 101.598,389.519 101.372,389.643C101.146,389.768 101.015,389.954 101.015,390.149C101,392.424 101,398.817 101,401.141C101,401.664 101.458,402.139 102.172,402.355C104.41,403.033 109.237,404.496 111.172,405.083C111.698,405.242 112.302,405.242 112.828,405.083C114.763,404.496 119.59,403.033 121.828,402.355C122.542,402.139 123,401.664 123,401.141C123,398.813 123,392.403 123,390.139Z" style="fill:#f5f5f5;"/> </g> <path d="M124,406.712L124,390.208C124,389.616 123.738,389.055 123.284,388.675C122.836,388.3 122.247,388.14 121.671,388.236C119.171,388.584 116.25,387.878 113.747,386.109C112.704,385.354 111.293,385.357 110.253,386.116C107.762,387.889 104.859,388.626 102.364,388.272C101.772,388.168 101.183,388.323 100.734,388.695C100.279,389.072 100.015,389.633 100.015,390.224C100,393.632 100,403.225 100,406.712L100,406.712C100,407.889 100.688,408.956 101.759,409.443C103.996,410.46 108.823,412.654 110.759,413.534C111.547,413.893 112.453,413.893 113.241,413.534C115.177,412.654 120.004,410.46 122.241,409.443C123.312,408.956 124,407.889 124,406.712ZM121.999,390.208L122,390.209L122,406.712C122,407.104 121.771,407.46 121.414,407.623C119.177,408.639 114.349,410.834 112.414,411.713C112.151,411.833 111.849,411.833 111.586,411.713C109.651,410.834 104.823,408.639 102.586,407.623C102.229,407.46 102,407.104 102,406.712C102,403.231 102,393.664 102.015,390.242L102.018,390.243C104.998,390.678 108.459,389.849 111.416,387.743L111.422,387.739C111.77,387.483 112.235,387.482 112.578,387.732L112.584,387.736C115.547,389.831 119.009,390.63 121.964,390.214L121.999,390.208ZM107.293,399.707L110.44,402.854C110.83,403.244 111.463,403.244 111.854,402.854L117.748,396.96C118.138,396.57 118.138,395.936 117.748,395.546C117.357,395.155 116.724,395.155 116.334,395.546L111.147,400.732C111.147,400.732 108.707,398.293 108.707,398.293C108.317,397.903 107.683,397.903 107.293,398.293C106.903,398.683 106.903,399.317 107.293,399.707ZM122,390.209C122,390.209 122,390.209 122,390.209Z" style="fill:#787878;"/> </g> </g></svg>
+                      {% if 'natural' in finish|lower or 'brown' in finish|lower %}
+    <span class="fe-con-">24 Months' Warranty</span>
+{% else %}
+    <span class="fe-con-">{{ custom_attributes[13] }} Warranty</span>
+{% endif %}
                       {% if 'natural' in finish|lower or 'brown' in finish|lower %}
     <span class="fe-con-">24 Months' Warranty</span>
 {% else %}
@@ -437,6 +487,7 @@ input#quantity {
                     <span class="add-to-cart-btn">Out of Stock</span>
                   </div>
                 {% else %}
+                  <div class="w-100 d-block mt-3 text-center" style="position: sticky;">
                   <div class="w-100 d-block mt-3 text-center" style="position: sticky;">
     <input name="product_id" type="hidden" value="{{ product_id }}">
 </form>
@@ -712,6 +763,7 @@ input#quantity {
 <section class="game-section py-lg-4 py-3">
  <div class="container">
   <div class="row"> 
+  <h2 class="pg-heading text-center"> Popular Pairings</h2>
   <h2 class="pg-heading text-center"> Popular Pairings</h2>
 <p class="heading-para text-center">Pair it Right</p>
 
