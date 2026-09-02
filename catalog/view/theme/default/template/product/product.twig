@@ -7,38 +7,38 @@
 <link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.css" >  #}
 
 <style>
-  .product_content a{
+  {# .product_content a{
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
-  }
+  } #}
   .box-opt img {
       /* width: 100%;
       height: 100%; */
       /* border-radius: 6px; */
   }
   .size-block {
-      width: 100%;
+      /*width: 100%;
       display: block;
-      position: relative;
+      position: relative;*/
   }
   .add-to-cart-p-sec{
-    height: max-content;
+    /*height: max-content;
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto;*/
   }
   .child-sticky {
     height: max-content;
-    position: sticky;
-    top: 20px;
+    /*position: sticky;
+    top: 20px;*/
   }
   .child {
     height: max-content;
   }
   .shake {
-    -webkit-animation: shake-animation 4.72s ease infinite;
+
     animation: shake-animation 4.72s ease infinite;
     transform-origin: 50% 50%;
   }
@@ -52,17 +52,7 @@
   10.71429% { transform:translate(0,0) }
   100% { transform:translate(0,0) }
 }
-@keyframes shake-animation {
-   0% { transform:translate(0,0) }
-  1.78571% { transform:translate(5px,0) }
-  3.57143% { transform:translate(0,0) }
-  5.35714% { transform:translate(5px,0) }
-  7.14286% { transform:translate(0,0) }
-  8.92857% { transform:translate(5px,0) }
-  10.71429% { transform:translate(0,0) }
-  100% { transform:translate(0,0) }
-}
-.product-count {
+{# .product-count {
     margin-top: 0px;
     display: inline-flex;
     justify-content: space-around;
@@ -116,29 +106,29 @@ input#quantity {
     background: none;
     border: none;
     color: #2c3034;
-}
+} #}
 
-.blink-image {
+{# .blink-image {
   animation: blink 1.5s linear infinite;
 }
 @keyframes blink{
   25%{opacity:1;} 
   50%{opacity:0;} 
   75%{transform:scale(1);} 
-}
+} #}
 
 #productImageCarousel .carousel-indicators {
-    position: static;
+    /*position: static;
     display: flex;
     gap: 8px;
-    justify-content: flex-start;
+    justify-content: flex-start;*/
     margin: 10px 0 0;
-    overflow-x: auto;
-    padding: 0;
+    /*overflow-x: auto;
+    padding: 0;*/
 }
 
 #productImageCarousel .carousel-indicators button {
-    width: 70px;
+    /*width: 70px;*/
     height: 70px;
     flex: 0 0 70px;
     margin: 0;
@@ -157,22 +147,25 @@ input#quantity {
 }
 
 #productImageCarousel .carousel-indicators button img {
-    width: 100%;
+    /*width: 100%;*/
     height: 100%;
     object-fit: cover;
     display: block;
 }
 @media (max-width: 575px) {
+  #productImageCarousel .carousel-indicators {
+        margin:0;
+    }
     #productImageCarousel .carousel-indicators button {
-        width: 55px;
-        height: 55px;
-        flex-basis: 55px;
+        /*width: 55px;*/
+        height: 5px;
+        flex-basis: 26px;
     }
 }
 
 </style>
 <div class="wrapper">
-  <div class="qu-sec py-2 ">
+  <div class="qu-sec py-2 d-none d-md-block">
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-sm-12">
@@ -190,102 +183,66 @@ input#quantity {
   <section class="py-2 add-to-cart-p-sec">
     <div class="container">
       <div class="row"> 
-        <div class="col-lg-7 col-md-12 col-sm-12 child-sticky ">
-          {# <div class="f-carousel" id="myCarousel">
-            {% if images %}
-              {% set i = 0 %}
-              {% for image in images %}
-                <div class="f-carousel__slide" data-thumb-src="{{ image.img_thumb }}" >
-                  <a href="{{ image.big_thumb }}" class="sld_lnk" data-fancybox="gallery"><img class="sld_img" alt="{{ heading_title }}" data-lazy-src="{{ image.thumb }}" data-alt="{{ heading_title }}"/></a>
-                </div>
-                {% set i = i + 1 %}
-              {% endfor %}
-            {% endif %}
-          </div>  
-          <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-          <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.umd.js"></script>
-          <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/carousel/carousel.thumbs.umd.js"></script>
-          <script>
-            const container = document.getElementById("myCarousel");
-            const options = { Dots: false,transition: 'slide', preload: 3 };
-            new Carousel(container, options, { Thumbs });
-            Fancybox.bind("[data-fancybox]", {
-              // Your custom options
-            });
-            
-            jQuery(document).ready(function($) {
-              const thumbnails = document.querySelectorAll('.f-carousel__slide img');
-              thumbnails.forEach(img => {
-                const altText = img.getAttribute('data-alt');
-                if (altText) {
-                  $(".f-thumbs__slide__img").attr('alt', altText);
-                }
-              });
-            }); 
-
-          </script> #}
-
+        <div class="col-lg-7 col-md-12 col-sm-12 position-sticky top-0 mt-0 mt-md-3 child-sticky ">
           <div id="productImageCarousel" class="carousel slide product-main-slider" data-bs-ride="carousel" data-bs-touch="true" data-bs-wrap="true" data-bs-interval="36000">
-
     <div class="carousel-inner">
         {% for image in images %}
             <div class="carousel-item {% if loop.first %} active {% endif %}">
-                <a href="{{ image.big_thumb }}"
-                   data-pswp-width="1200"
-                   data-pswp-height="1200">
+                <a href="{{ image.desktop }}" data-pswp-width="1200" data-pswp-height="960">
+                    <picture>
 
-                    <img src="{{ image.thumb }}"
-                         class="main-image d-block w-100"
-                         alt="{{ heading_title }}"
-                         {% if not loop.first %}loading="lazy"{% endif %}>
+        <source media="(max-width: 767px)"
+                srcset="{{ image.mobile }}">
+
+        <source media="(max-width: 1199px)"
+                srcset="{{ image.tablet }}">
+
+        <img src="{{ image.desktop }}"
+             class="d-block w-100"
+             alt="{{ heading_title }}"
+             {% if not loop.first %}loading="lazy"{% else %}loading="eager" fetchpriority="high"{% endif %}>
+
+    </picture>
                 </a>
             </div>
         {% endfor %}
     </div>
 
     {% if images|length > 1 %}
-        <button class="carousel-control-prev"
-                type="button"
-                data-bs-target="#productImageCarousel"
-                data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#productImageCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
             <span class="visually-hidden">Previous</span>
         </button>
 
-        <button class="carousel-control-next"
-                type="button"
-                data-bs-target="#productImageCarousel"
-                data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#productImageCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon"></span>
             <span class="visually-hidden">Next</span>
         </button>
     {% endif %}
-    <div class="carousel-indicators position-static mt-2 mb-0">
+    <div class="carousel-indicators position-static d-flex justify-content-start gap-2 mt-2 mb-0 overflow-x-auto p-0">
         {% for image in images %}
-        <button type="button"
-                data-bs-target="#productImageCarousel"
-                data-bs-slide-to="{{ loop.index0 }}"
-                {% if loop.first %}class="active" aria-current="true"{% endif %}
-                aria-label="Slide {{ loop.index }}">
-            <img src="{{ image.thumb }}" alt="">
+        <button type="button" data-bs-target="#productImageCarousel" data-bs-slide-to="{{ loop.index0 }}" {% if loop.first %}class="active" aria-current="true"{% endif %} aria-label="Slide {{ loop.index }}">
+            <img src="{{ image.thumb }}" alt="" class="d-none d-md-block">
         </button>
         {% endfor %}
     </div>
-
 </div>
 
-<link rel="stylesheet" href="https://unpkg.com/photoswipe@5.2.2/dist/photoswipe.css">
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe.min.css">
 
 <script type="module">
-import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js';
+    import PhotoSwipeLightbox from 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe-lightbox.esm.min.js';
 
-const lightbox = new PhotoSwipeLightbox({
-    gallery: '.product-main-slider',
-    children: 'a',
-    pswpModule: () => import('https://unpkg.com/photoswipe'),
-});
+    const lightbox = new PhotoSwipeLightbox({
+        gallery: '.product-main-slider',
+        children: 'a',
+        pswpModule: () => import(
+            'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.4.4/photoswipe.esm.min.js'
+        )
+    });
 
-lightbox.init();
+    lightbox.init();
 </script>
 <style>
  .carousel-control-prev,
@@ -348,7 +305,7 @@ lightbox.init();
   animation: marquee 30s linear infinite;
 }
 .marquee-track img {
-  height: 140px;       /* adjust as needed */
+  height: 90px;       /* adjust as needed */
   width: auto;
   flex-shrink: 0;
 }
@@ -363,12 +320,12 @@ lightbox.init();
   </style>
   <!-- end quality section-->
         </div>
-        <div class="col-lg-5 col-md-12 col-sm-12 child">
+        <div class="col-lg-5 col-md-12 col-sm-12">
           <div class="shopping-pp-detail">
             <div class="pp-dd-21 scroll-text">
-              <div class="solid-amount"> 
+              <div class="solid-amount d-flex justify-content-between"> 
                 {% if bestseller %}
-                  <span class="bestseller-tag-"><img src="catalog/view/javascript/assets/image/icon/bestseller-con.png" alt="best seller" width="60" class="img-fluid"></span>
+                  <span class="bestseller-tag- my-1 d-inline-block"><img src="catalog/view/javascript/assets/image/icon/bestseller-con.png" alt="best seller" width="60" class="img-fluid"></span>
                   <style>
                     .solid-amount{
                       flex-direction: row;
@@ -381,18 +338,18 @@ lightbox.init();
                   <span id="hrs">4</span> hours
                 </div>
               </div>
-              <h1 class="pp-heading-line">{{ heading_title }} &nbsp;<span class="pp-about"> {{ finish }}</span></h1>
+              <h1 class="pp-heading-line fs-5 fw-semibold text-dark m-0">{{ heading_title }} &nbsp;<span class="pp-about small text-body-secondary"> {{ finish }}</span></h1>
               
               <span class="pd-creater"> By&nbsp;{{ manufacturer }}</span>
               <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center my-2 p-4 rounded-3 bg-dark bg-opacity-10">
                 {% if not hide_price %}
-                <div class="price--order">
+                <div class="price--order d-flex align-items-center">
                 
-                  <div class="real-amm">{{ special }}</div>
-                  <div class="dis-amm">{{ price }}</div>
+                  <div class="real-amm fs-2 fw-bold me-2">{{ special }}</div>
+                  <div class="dis-amm fs-6 fw-normal text-secondary text-decoration-line-through me-2">{{ price }}</div>
                   <div class="off-amm">{{ per_dis }}% OFF</div>
                   &nbsp;
-                  <span class="pp-about">Incl all taxes*</span>
+                  <span class="pp-about small text-body-secondary">Incl all taxes*</span>
                   </div>
                 {% else %}
                 <div class="row align-items-center w-100 m-0">
@@ -428,9 +385,9 @@ lightbox.init();
                 {% endif %}
               </div>
               {% if manufacturer_id == 1 %}
-                <div class="feature-box">
-                  <ul>
-                    <li>
+                <div class="feature-box d-flex align-items-center">
+                  <ul class="list-unstyled m-0 p-0 w-100">
+                    <li class="d-flex align-items-center float-start fw-medium">
                       <svg fill="#787878" width="35px" height="35px" viewBox="0 0 32 32" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" xmlns:xlink="http://www.w3.org/1999/xlink" stroke="#787878" stroke-width="0.384"><g id="SVGRepo_bgCarrier" stroke-width="0"/><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/><g id="SVGRepo_iconCarrier"> <g transform="matrix(1,0,0,1,-96,-384)"> <g transform="matrix(1,0,0,1.5,0,-195)"> <path d="M123,390.139C123,389.941 122.869,389.755 122.642,389.628C122.415,389.501 122.116,389.448 121.825,389.483C119.095,389.739 115.9,389.237 113.167,387.95C112.472,387.611 111.529,387.612 110.835,387.953C108.106,389.249 104.916,389.77 102.184,389.504C101.896,389.468 101.598,389.519 101.372,389.643C101.146,389.768 101.015,389.954 101.015,390.149C101,392.424 101,398.817 101,401.141C101,401.664 101.458,402.139 102.172,402.355C104.41,403.033 109.237,404.496 111.172,405.083C111.698,405.242 112.302,405.242 112.828,405.083C114.763,404.496 119.59,403.033 121.828,402.355C122.542,402.139 123,401.664 123,401.141C123,398.813 123,392.403 123,390.139Z" style="fill:#f5f5f5;"/> </g> <path d="M124,406.712L124,390.208C124,389.616 123.738,389.055 123.284,388.675C122.836,388.3 122.247,388.14 121.671,388.236C119.171,388.584 116.25,387.878 113.747,386.109C112.704,385.354 111.293,385.357 110.253,386.116C107.762,387.889 104.859,388.626 102.364,388.272C101.772,388.168 101.183,388.323 100.734,388.695C100.279,389.072 100.015,389.633 100.015,390.224C100,393.632 100,403.225 100,406.712L100,406.712C100,407.889 100.688,408.956 101.759,409.443C103.996,410.46 108.823,412.654 110.759,413.534C111.547,413.893 112.453,413.893 113.241,413.534C115.177,412.654 120.004,410.46 122.241,409.443C123.312,408.956 124,407.889 124,406.712ZM121.999,390.208L122,390.209L122,406.712C122,407.104 121.771,407.46 121.414,407.623C119.177,408.639 114.349,410.834 112.414,411.713C112.151,411.833 111.849,411.833 111.586,411.713C109.651,410.834 104.823,408.639 102.586,407.623C102.229,407.46 102,407.104 102,406.712C102,403.231 102,393.664 102.015,390.242L102.018,390.243C104.998,390.678 108.459,389.849 111.416,387.743L111.422,387.739C111.77,387.483 112.235,387.482 112.578,387.732L112.584,387.736C115.547,389.831 119.009,390.63 121.964,390.214L121.999,390.208ZM107.293,399.707L110.44,402.854C110.83,403.244 111.463,403.244 111.854,402.854L117.748,396.96C118.138,396.57 118.138,395.936 117.748,395.546C117.357,395.155 116.724,395.155 116.334,395.546L111.147,400.732C111.147,400.732 108.707,398.293 108.707,398.293C108.317,397.903 107.683,397.903 107.293,398.293C106.903,398.683 106.903,399.317 107.293,399.707ZM122,390.209C122,390.209 122,390.209 122,390.209Z" style="fill:#787878;"/> </g> </g></svg>
                       {% if 'natural' in finish|lower or 'brown' in finish|lower %}
     <span class="fe-con-">24 Months' Warranty</span>
@@ -438,11 +395,11 @@ lightbox.init();
     <span class="fe-con-">{{ custom_attributes[13] }} Warranty</span>
 {% endif %}
                     </li>
-                    <li>
+                    <li class="d-flex align-items-center float-start fw-medium">
                       <svg width="35px" height="35px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#787878"><g id="SVGRepo_bgCarrier" stroke-width="0"/><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/><g id="SVGRepo_iconCarrier"> <path fill="var(--ci-primary-color, #787878)" d="M245.151,168a88,88,0,1,0,88,88A88.1,88.1,0,0,0,245.151,168Zm0,144a56,56,0,1,1,56-56A56.063,56.063,0,0,1,245.151,312Z" class="ci-primary"/> <path fill="var(--ci-primary-color, #787878)" d="M464.7,322.319l-31.77-26.153a193.081,193.081,0,0,0,0-80.332l31.77-26.153a19.941,19.941,0,0,0,4.606-25.439l-32.612-56.483a19.936,19.936,0,0,0-24.337-8.73l-38.561,14.447a192.038,192.038,0,0,0-69.54-40.192L297.49,32.713A19.936,19.936,0,0,0,277.762,16H212.54a19.937,19.937,0,0,0-19.728,16.712L186.05,73.284a192.03,192.03,0,0,0-69.54,40.192L77.945,99.027a19.937,19.937,0,0,0-24.334,8.731L21,164.245a19.94,19.94,0,0,0,4.61,25.438l31.767,26.151a193.081,193.081,0,0,0,0,80.332l-31.77,26.153A19.942,19.942,0,0,0,21,347.758l32.612,56.483a19.937,19.937,0,0,0,24.337,8.73l38.562-14.447a192.03,192.03,0,0,0,69.54,40.192l6.762,40.571A19.937,19.937,0,0,0,212.54,496h65.222a19.936,19.936,0,0,0,19.728-16.712l6.763-40.572a192.038,192.038,0,0,0,69.54-40.192l38.564,14.449a19.938,19.938,0,0,0,24.334-8.731L469.3,347.755A19.939,19.939,0,0,0,464.7,322.319Zm-50.636,57.12-48.109-18.024-7.285,7.334a159.955,159.955,0,0,1-72.625,41.973l-10,2.636L267.6,464h-44.89l-8.442-50.642-10-2.636a159.955,159.955,0,0,1-72.625-41.973l-7.285-7.334L76.241,379.439,53.8,340.562l39.629-32.624-2.7-9.973a160.9,160.9,0,0,1,0-83.93l2.7-9.972L53.8,171.439l22.446-38.878,48.109,18.024,7.285-7.334a159.955,159.955,0,0,1,72.625-41.973l10-2.636L222.706,48H267.6l8.442,50.642,10,2.636a159.955,159.955,0,0,1,72.625,41.973l7.285,7.334,48.109-18.024,22.447,38.877-39.629,32.625,2.7,9.972a160.9,160.9,0,0,1,0,83.93l-2.7,9.973,39.629,32.623Z" class="ci-primary"/> </g></svg>
                       <span class="fe-con-"> Free Installation</span>
                     </li>
-                    <li>
+                    <li class="d-flex align-items-center float-start fw-medium">
                       <svg width="35px" height="35px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="#787878"><g id="SVGRepo_bgCarrier" stroke-width="0"/><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/><g id="SVGRepo_iconCarrier"> <g id="Layer_2" data-name="Layer 2"> <g id="invisible_box" data-name="invisible box"> <rect width="48" height="48" fill="none"/> </g> <g id="Health_Icons" data-name="Health Icons"> <g> <path d="M37.7,11.1A3,3,0,0,0,35.4,10H34.2l.3-1.7A3.1,3.1,0,0,0,33.9,6a3.2,3.2,0,0,0-2.2-1H7.8a2,2,0,0,0,0,4H30.3l-4,22.9a6.8,6.8,0,0,0-1,2.1H20.7A7,7,0,0,0,7.3,34H6.2l.5-2.9a2,2,0,0,0-1.6-2.3,2,2,0,0,0-2.3,1.6L2,34.7A2.8,2.8,0,0,0,2.7,37a2.8,2.8,0,0,0,2.1,1H7.3a7,7,0,0,0,13.4,0h4.6a7,7,0,0,0,13.4,0h2a3.2,3.2,0,0,0,3.1-2.7L46,22.5ZM14,39a3,3,0,0,1-3-3,3,3,0,0,1,6,0A3,3,0,0,1,14,39ZM33.5,14h1.3l5.9,8H32.1ZM32,39a3,3,0,0,1-3-3,3,3,0,0,1,6,0A3,3,0,0,1,32,39Zm8-5H38.7A7,7,0,0,0,32,29H30.9l.5-3.1h9.9Z"/> <path d="M4,15H14a2,2,0,0,0,0-4H4a2,2,0,0,0,0,4Z"/> <path d="M15,19a2,2,0,0,0-2-2H5a2,2,0,0,0,0,4h8A2,2,0,0,0,15,19Z"/> <path d="M6,23a2,2,0,0,0,0,4h6a2,2,0,0,0,0-4Z"/> </g> </g> </g> </g></svg>
                       <span class="fe-con-"> Free Delivery</span>
                     </li>
@@ -451,7 +408,7 @@ lightbox.init();
               {% endif %}
 
               <div class="my-2"> 
-                <h6>Delivery : <span class="pp-about">( Check Delivery availabilty by are your area ) </span></h6>
+                <h6>Delivery : <span class="pp-about small text-body-secondary">( Check Delivery availabilty by are your area ) </span></h6>
                 <div class="d-flex search-form-dd">
                   <input class="search-form-delivery" id="pincode" type="search" placeholder="Enter Pincode" aria-label="Search">
                   <button class="search-devlivery-btn" type="button" onclick="checkPincode()"><i class="bx bx-search"></i></button>
@@ -495,7 +452,7 @@ lightbox.init();
             </svg>
         </button>
 
-        <a class="btn btn-outline-dark d-flex align-items-center justify-content-center fw-bold rounded-2 add-to-cart-btn" 
+        <a class="btn btn-outline-dark d-flex justify-content-center border py-2  w-100 fw-semibold add-to-cart-btn" 
            id="addtocart" 
            style="flex: 1;">
            ADD TO CART
@@ -503,7 +460,7 @@ lightbox.init();
     </div>
 
     <div class="shake w-100">
-        <a class="btn btn-dark w-100 py-3 fw-bold rounded-2 buy-now-btn-pp element" id="buynow">BUY NOW</a>  
+        <a class="btn btn-dark w-100 text-white px-5 py-2 my-2 w-100 d-block fw-semibold buy-now-btn-pp" id="buynow">BUY NOW</a>  
     </div>
 </div>
                 {% endif %}
@@ -511,22 +468,21 @@ lightbox.init();
               
               <hr style="border-bottom: 1px dashed #6a6a6a;border-top:none;">
               <h6>Available offers:</h6>
-              <ul class="offer-avil-list">
-                <li> 
+              <ul class="offer-avil-list p-0 m-0">
+                <li class="fs-6 text-secondary my-2 fw-light"> 
                   <svg width="15px" height="14px" viewBox="-1.6 -1.6 23.20 23.20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"/><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/><g id="SVGRepo_iconCarrier"> <title>tag_fill_round [#d70909]</title>  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-180.000000, -2959.000000)" fill="#0590fb"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M129.020148,2805.2265 C128.444271,2805.2265 127.976892,2804.76459 127.976892,2804.19545 C127.976892,2803.62631 128.444271,2803.1644 129.020148,2803.1644 C129.596025,2803.1644 130.063404,2803.62631 130.063404,2804.19545 C130.063404,2804.76459 129.596025,2805.2265 129.020148,2805.2265 M143.388913,2809.64763 L139.933649,2806.2328 L139.933649,2806.2328 C134.061161,2800.42903 135.435129,2801.81888 133.157701,2799.41861 C132.961569,2799.22477 132.696582,2799 132.420119,2799 L126.085469,2799 C124.933714,2799 124,2800.15684 124,2801.29511 L124,2807.5546 C124,2807.82886 124.109542,2808.09075 124.304631,2808.28458 C128.396281,2812.32732 125.450126,2809.41564 134.536886,2818.39606 C135.351669,2819.20131 136.672431,2819.20131 137.487214,2818.39606 L137.487214,2818.39606 C142.018074,2813.91926 141.012376,2814.91215 143.388913,2812.56343 C144.203696,2811.75818 144.203696,2810.45287 143.388913,2809.64763" id="tag_fill_round-[#d70909]"> </path> </g> </g> </g> </g> 
                   </svg>EMI - Starting from Rs&nbsp;{{ starting_emi }} on HDFC credit card & More
                 </li>
               </ul>
-              
               {% endif %}
               {% for product_group in product_groups %}
                 {% if product_group.finish_name == 'Finish Option' %}
                   <div class="options-div">
                     <h6 class="my-2">{{ product_group.finish_name }}</h6>
                     {% for pg in product_group.group_product %}
-                      <a href="{{pg.p_link}}" class="box-opt">
-                        <div class="product-img-opt"><img src="{{ pg.p_image }}" alt="{{ pg.text }}" loading="lazy"></div>
-                        <div class="price-opt-box">
+                      <a href="{{pg.p_link}}" class="box-opt d-inline-block p-1 border mb-1 rounded-2">
+                        <div class="product-img-opt"><img src="{{ pg.p_image }}" alt="{{ pg.text }}" class="rounded-top" loading="lazy"></div>
+                        <div class="price-opt-box p-1 text-center">
                           <span class="finish-nm">{{ pg.text }}</span>
                           {# <span class="price-object">₹&nbsp;{{ pg.p_price }}</span> #}
                         </div>
@@ -537,9 +493,9 @@ lightbox.init();
                 <div class="options-div">
                     <h6 class="my-2">{{ product_group.finish_name }}</h6>
                     {% for pg in product_group.group_product %}
-                      <div class="box-opt">
-                        <div class="product-img-opt"><img src="{{ pg.p_image }}" alt="{{ pg.text }}" loading="lazy"></div>
-                        <div class="price-opt-box">
+                      <div class="box-opt d-inline-block p-1 border mb-1 rounded-2">
+                        <div class="product-img-opt"><img src="{{ pg.p_image }}" alt="{{ pg.text }}" class="rounded-top" loading="lazy"></div>
+                        <div class="price-opt-box p-1 text-center">
                           <span class="finish-nm">{{ pg.text }}</span>
                           {# <span class="price-object">₹&nbsp;{{ pg.p_price }}</span> #}
                         </div>
@@ -550,9 +506,9 @@ lightbox.init();
                   <div class="options-div">
                     <h6 class="my-2">{{ product_group.finish_name }}</h6>
                     {% for pg in product_group.group_product %}
-                      <div class="box-opt">
-                        <div class="product-img-opt"><img src="{{ pg.p_image }}" alt="{{ pg.text }}" loading="lazy"></div>
-                        <div class="price-opt-box">
+                      <div class="box-opt d-inline-block p-1 border mb-1 rounded-2">
+                        <div class="product-img-opt"><img src="{{ pg.p_image }}" alt="{{ pg.text }}" class="rounded-top" loading="lazy"></div>
+                        <div class="price-opt-box p-1 text-center">
                           <span class="finish-nm">{{ pg.text }}</span>
                           {# <span class="price-object">₹&nbsp;{{ pg.p_price }}</span> #}
                         </div>
@@ -563,9 +519,9 @@ lightbox.init();
                   <div class="options-div">
                     <h6 class="my-2">{{ product_group.finish_name }}</h6>
                     {% for pg in product_group.group_product %}
-                      <a href="{{pg.p_link}}" class="box-opt">
-                        <div class="product-img-opt"><img src="{{ pg.p_image }}" alt="{{ pg.text }}" loading="lazy"></div>
-                        <div class="price-opt-box">
+                      <a href="{{pg.p_link}}" class="box-opt d-inline-block p-1 border mb-1 rounded-2">
+                        <div class="product-img-opt"><img src="{{ pg.p_image }}" alt="{{ pg.text }}" class="rounded-top" loading="lazy"></div>
+                        <div class="price-opt-box p-1 text-center">
                           <span class="finish-nm">{{ pg.text }}</span>
                           {# <span class="price-object">₹&nbsp;{{ pg.p_price }}</span> #}
                         </div>
@@ -576,9 +532,9 @@ lightbox.init();
                   <div class="options-div">
                     <h6 class="my-2">{{ product_group.finish_name }}</h6>
                     {% for pg in product_group.group_product %}
-                      <a href="{{pg.p_link}}" class="box-opt">
-                        <div class="product-img-opt"><img src="{{ pg.p_image }}" alt="{{ pg.text }}" loading="lazy"></div>
-                        <div class="price-opt-box">
+                      <a href="{{pg.p_link}}" class="box-opt d-inline-block p-1 border mb-1 rounded-2">
+                        <div class="product-img-opt"><img src="{{ pg.p_image }}" alt="{{ pg.text }}" class="rounded-top" loading="lazy"></div>
+                        <div class="price-opt-box p-1 text-center">
                           <span class="finish-nm">{{ pg.text }}</span>
                           {# <span class="price-object">₹&nbsp;{{ pg.p_price }}</span> #}
                         </div>
@@ -589,22 +545,21 @@ lightbox.init();
                   <div class="options-div">
                     <h6 class="my-2">{{ product_group.finish_name }}</h6>
                     {% for pg in product_group.group_product %}
-                      <a href="{{pg.p_link}}" class="box-opt">
-                        <div class="product-img-opt"><img src="{{ pg.p_image }}" alt="{{ pg.text }}" loading="lazy"></div>
-                        <div class="price-opt-box">
+                      <a href="{{pg.p_link}}" class="box-opt d-inline-block p-1 border mb-1 rounded-2">
+                        <div class="product-img-opt"><img src="{{ pg.p_image }}" alt="{{ pg.text }}" class="rounded-top" loading="lazy"></div>
+                        <div class="price-opt-box p-1 text-center">
                           <span class="finish-nm">{{ pg.text }}</span>
                           {# <span class="price-object">₹&nbsp;{{ pg.p_price }}</span> #}
                         </div>
                       </a>
                     {% endfor %}
                   </div>
-                  
                 {% else %}
                   <div class="options-div">
                     <h6 class="my-2">{{ product_group.finish_name }}</h6>
                     {% for pg in product_group.group_product %}
-                      <a href="{{pg.p_link}}" class="box-opt">
-                        <div class="price-opt-box">
+                      <a href="{{pg.p_link}}" class="box-opt d-inline-block p-1 border mb-1 rounded-2">
+                        <div class="price-opt-box p-1 text-center">
                           <span class="finish-nm">{{ pg.text }}</span>
                           {# <span class="price-object">₹&nbsp;{{ pg.p_price }}</span> #}
                         </div>
@@ -616,49 +571,76 @@ lightbox.init();
               <div class="product-detial-sec">
                 <h6>Product Details </h6> 
                 <div class="collapse show" id="collapseExample">
-                  <div class="card card-body">
-                    <table class="table table-borderless2">
-                      <tbody>
-                        <tr >
-                          <td class="bill-sec">Brand :</td>
-                          <td>{{ manufacturer }}</td>
-                        </tr>
-                        {% if dimension %}
-                        <tr>
-                          <td class="bill-sec">Dimensions :</td>
-                          <td>{{ dimension }}</td>
-                        </tr>
-                        {% endif %}
-                        <tr>
-                          <td class="bill-sec">Sku :</td>
-                          <td>{{ sku }}</td>
-                        </tr>
-                        {% for attributes in attribute_groups %}
-                          {% for attribute in attributes.attribute %}
+                  <div class="card shadow-sm rounded-2 overflow-hidden">
+                    <div class="card-body p-0">
+                      <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0" style="font-size: 14px;">
+                          <tbody>
+                            <!-- Brand -->
                             <tr>
-                              <td>{{ attribute.name }} : </td>
-                              <td>{{ attribute.text }}</td>
-                            </tr> 
-                          {% endfor %}
-                        {% endfor %}
-                        <tr>
-                          <td class="bill-sec">Dispatch in :</td>
-                          <td>5 Weeks</td>
-                        </tr>
-                        <tr>
-                          <td class="bill-sec">Customization :</td>
-                          <td>Customized can be as per requirement.</td>
-                        </tr>
-                        <tr>
-                          <td class="bill-sec">*Note :</td>
-                          <td>Furniture having intricate hand-painted details are individual unique pieces (ceramic tile) and may have slight distinctions and variances between the  picture and the actual product..</td>
-                          </tr>
-                          <tr>
-                          <td class="">* </td>
-                          <td>If a board is required, we use MDF instead of plywood</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                              <td class="text-secondary fw-medium py-3 ps-2" style="width: 30%;">Brand :</td>
+                              <td class="text-dark fw-semibold py-3 pe-4">{{ manufacturer }}</td>
+                            </tr>
+
+                            <!-- Dimensions -->
+                            {% if dimension %}
+                            <tr>
+                              <td class="text-secondary fw-medium py-3 ps-2">Dimensions :</td>
+                              <td class="text-dark fw-semibold py-3 pe-4">{{ dimension }}</td>
+                            </tr>
+                            {% endif %}
+
+                            <!-- Sku -->
+                            <tr>
+                              <td class="text-secondary fw-medium py-3 ps-2">Sku :</td>
+                              <td class="text-dark fw-semibold py-3 pe-4">
+                                <code class="text-dark bg-light px-2 py-1 rounded" style="font-size: 13px;">{{ sku }}</code>
+                              </td>
+                            </tr>
+
+                            <!-- Dynamic Attributes Loop -->
+                            {% for attributes in attribute_groups %}
+                              {% for attribute in attributes.attribute %}
+                                <tr>
+                                  <td class="text-secondary fw-medium py-3 ps-2">{{ attribute.name }} :</td>
+                                  <td class="text-dark fw-semibold py-3 pe-4">{{ attribute.text }}</td>
+                                </tr> 
+                              {% endfor %}
+                            {% endfor %}
+
+                            <!-- Dispatch Time -->
+                            <tr>
+                              <td class="text-secondary fw-medium py-3 ps-2">Dispatch in :</td>
+                              <td class="text-dark fw-semibold py-3 pe-4">5 Weeks</td>
+                            </tr>
+
+                            <!-- Customization -->
+                            <tr>
+                              <td class="text-secondary fw-medium py-3 ps-2">Customization :</td>
+                              <td class="text-body py-3 pe-4">Customized can be as per requirement.</td>
+                            </tr>
+
+                            <!-- Notes / Disclaimer Area -->
+                            <tr class="table-light-subtle">
+                              <td class="text-muted fw-medium py-3 ps-2 valign-top" style="vertical-align: top;">
+                                <span class="text-warning fw-bold"><i class="bi bi-exclamation-circle-fill"></i> *Note :</span>
+                              </td>
+                              <td class="text-muted small py-3 pe-4 lh-base">
+                                Furniture having intricate hand-painted details are individual unique pieces (ceramic tile) and may have slight distinctions and variances between the picture and the actual product.
+                              </td>
+                            </tr>
+
+                            <!-- Last Row (Border Bottom Explicitly Disabled) -->
+                            <tr class="border-bottom-0 table-light-subtle">
+                              <td class="border-bottom-0 text-muted fw-bold py-3 ps-2 text-end" style="vertical-align: top;">*</td>
+                              <td class="border-bottom-0 text-muted small py-3 pe-4 lh-base">
+                                If a board is required, we use <strong class="text-dark">MDF</strong> instead of plywood and secondary material is solid wood.
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -669,7 +651,7 @@ lightbox.init();
     </div>
   </section>
 <style>
-  .trending_product_box {
+  {# .trending_product_box {
     padding: 0;
     margin: 6px auto;
     border:1px solid #ededed;
@@ -693,11 +675,11 @@ lightbox.init();
 }
 .sale_badge img {
     width: 60px;
-}
-.product_content {
+} #}
+{# .product_content {
     padding: .5rem;
     text-align: left;
-}
+} #}
 .p_item_name {
     font-size: 15px;
     color: #2c2c2c;
@@ -705,7 +687,7 @@ lightbox.init();
     line-height: 2.3;
 }
 
-.p_item_amount {
+{# .p_item_amount {
     color: #7d7d7d;
     font-size: 14px;
     font-weight: 400;
@@ -723,7 +705,7 @@ lightbox.init();
     position: absolute;
     right: .8em;
     top: 1em;
-}
+} #}
 </style>
 {% if bundle_products %}
 
@@ -733,51 +715,66 @@ lightbox.init();
   <h2 class="pg-heading text-center"> Popular Pairings</h2>
 <p class="heading-para text-center">Pair it Right</p>
 
-<div id="popularPairings"
-     class="carousel slide"
-     data-bs-ride="carousel"
-     data-bs-interval="3000">
-
+<div id="popularPairings" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
     <div class="carousel-inner">
-
         {% for product in bundle_products %}
-
             {% if loop.first %}
                 <div class="carousel-item active">
                 <div class="row g-3">
             {% endif %}
+            <div class="col-6 col-md-3 mb-4">
+  <div class="card h-100 border border-light-subtle rounded-3 overflow-hidden shadow-none bg-white">
+    
+    <!-- Image Box - 4:3 Landscape Frame -->
+    <div class="ratio ratio-4x3 bg-light position-relative">
+      <a href="{{ product.href }}">
+        <img src="{{ product.thumb }}" alt="{{ product.name }}" class="w-100 h-100 object-fit-cover" loading="lazy">
+      </a>
 
-            <div class="col-6 col-md-3">
-                <div class="uw_prduct_box_">
+      <!-- Premium Bestseller / New Arrival overlay badge (With click-through fix) -->
+      <div class="position-absolute top-0 start-0 m-2 pe-none">
+        <span class="badge bg-dark fw-medium px-2 py-1 rounded-1 text-uppercase tracking-wider shadow-sm" style="font-size: 10px;">
+          New Arrival
+        </span>
+      </div>
+    </div>
 
-                    <div class="uw_p_img">
-                        <a href="{{ product.href }}">
-                            <img src="{{ product.thumb }}"
-                                 alt="{{ product.name }}"
-                                 class="img-fluid"
-                                 loading="lazy">
-                        </a>
-                    </div>
+    <!-- Details Box -->
+    <div class="card-body p-2 p-md-3 d-flex flex-column justify-content-between">
+      <div class="mb-2 mb-md-3">
+        <!-- Luxury Muted Tagline Layout Option -->
+        <span class="d-block text-muted text-uppercase tracking-widest mb-1" style="font-size: 10px;">Solid Wood</span>
+        
+        <a href="{{ product.href }}" class="d-inline-block text-dark fw-normal text-decoration-none lh-sm small text-wrap" title="{{ product.name ~ "("~ product.finish }}">
+          {{ product.name ~ "("~ product.finish }}
+        </a>
+      </div>
 
-                    <div class="product_content">
-                        <a href="{{ product.href }}" class="p_item_name">
-                            {{ product.name }}
-                        </a>
+      <!-- Price Layout Frame with integrated Discount Badge -->
+      <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top border-light-subtle">
+        <div class="d-flex flex-column flex-md-row align-items-baseline gap-2">
+          {% if product.special %}
+            <span class="text-dark fw-semibold fs-5 m-0 lh-1">{{ product.special }}</span>
+            <span class="text-secondary text-decoration-line-through small m-0 lh-1">{{ product.price }}</span>
+          {% else %}
+            <span class="text-dark fw-semibold fs-5 m-0 lh-1">{{ product.price }}</span>
+          {% endif %}
+        </div>
+        
+        <!-- Compact, clean discount indicator tucked neatly next to the pricing -->
+        {% if product.discount and product.special %}
+        <span class="badge bg-danger-subtle text-danger fw-semibold px-2 py-1 rounded-1" style="font-size: 11px;">
+          {{ product.discount }}% Off
+        </span>
+        {% endif %}
+      </div>
+    </div>
 
-                        <div class="uw_price">
-                            <span class="giving_p">{{ product.special }}</span>
-                            <span class="real_p">{{ product.price }}</span>
-                            <span class="offer_dis">{{ product.discount }}%</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
+  </div>
+</div>
             {% if loop.index is divisible by(4) and not loop.last %}
                 </div>
                 </div>
-
                 <div class="carousel-item">
                 <div class="row g-3">
             {% endif %}
@@ -788,20 +785,12 @@ lightbox.init();
             {% endif %}
 
         {% endfor %}
-
     </div>
-
-    <button class="carousel-control-prev"
-            type="button"
-            data-bs-target="#popularPairings"
-            data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#popularPairings" data-bs-slide="prev">
         <span class="carousel-control-prev-icon"></span>
     </button>
 
-    <button class="carousel-control-next"
-            type="button"
-            data-bs-target="#popularPairings"
-            data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#popularPairings" data-bs-slide="next">
         <span class="carousel-control-next-icon"></span>
     </button>
 
@@ -814,18 +803,12 @@ lightbox.init();
 {% endif %}
 {% if products %}
 <section class="game-section py-lg-4 py-3">
-    <div class="container">
-        <div class="row">
-            <h2 class="pg-heading text-center">Similar Products</h2>
-            <p class="heading-para text-center">Alternatives You’ll Adore</p>
+  <div class="container">
+    <div class="row">
+      <h2 class="pg-heading text-center">Similar Products</h2>
+      <p class="heading-para text-center">Alternatives You’ll Adore</p>
 
-            <div id="similarProducts"
-                 class="carousel slide"
-                 data-bs-ride="carousel"
-                 data-bs-interval="3000"
-                 data-bs-touch="true"
-                 data-bs-wrap="true">
-
+        <div id="similarProducts" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" data-bs-touch="true" data-bs-wrap="true">
                 <div class="carousel-inner">
 
                     {% for product in products %}
@@ -835,41 +818,55 @@ lightbox.init();
                             <div class="row g-3">
                         {% endif %}
 
-                            <div class="col-6 col-md-3">
-                                <div class="uw_prduct_box_">
+                            <div class="col-6 col-md-3 mb-4">
+  <div class="card h-100 border border-light-subtle rounded-3 overflow-hidden shadow-none bg-white">
+    
+    <!-- Image Box - 4:3 Landscape Frame -->
+    <div class="ratio ratio-4x3 bg-light position-relative">
+      <a href="{{ product.href }}">
+        <img src="{{ product.thumb }}" alt="{{ product.name }}" class="w-100 h-100 object-fit-cover" loading="lazy">
+      </a>
 
-                                    <div class="uw_p_img">
-                                        <a href="{{ product.href }}">
-                                            <img src="{{ product.thumb }}"
-                                                 alt="{{ product.name }}"
-                                                 class="img-fluid"
-                                                 loading="lazy">
-                                        </a>
-                                    </div>
+      <!-- Premium Bestseller / New Arrival overlay badge (With click-through fix) -->
+                      <div class="position-absolute top-0 start-0 m-2 pe-none">
+                            <span class="badge bg-dark fw-medium px-2 py-1 rounded-1 text-uppercase tracking-wider shadow-sm" style="font-size: 10px;">
+          New Arrival
+        </span>
+      </div>
+    </div>
 
-                                    <div class="product_content">
-                                        <a href="{{ product.href }}"
-                                           class="p_item_name">
-                                            {{ product.name }}
-                                        </a>
+    <!-- Details Box -->
+      <div class="card-body p-2 p-md-3 d-flex flex-column justify-content-between">
+              <div class="mb-2 mb-md-3">
+                      <!-- Luxury Muted Tagline Layout Option -->
+                      <span class="d-block text-muted text-uppercase tracking-widest mb-1" style="font-size: 10px;">Solid Wood</span>
+                    <a href="{{ product.href }}" class="d-inline-block text-dark fw-normal text-decoration-none lh-sm small text-wrap" title="{{ product.name ~ "("~ product.finish }}">
+          {{ product.name ~ "("~ product.finish }}
+        </a>
+      </div>
 
-                                        <div class="uw_price">
-                                            <span class="giving_p">
-                                                {{ product.special }}
-                                            </span>
+                      <!-- Price Layout Frame with integrated Discount Badge -->
+                  <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top border-light-subtle">
+                <div class="d-flex flex-column flex-md-row align-items-baseline gap-2">
+                  {% if product.special %}
+                      <span class="text-dark fw-semibold fs-5 m-0 lh-1">{{ product.special }}</span>
+                        <span class="text-secondary text-decoration-line-through small m-0 lh-1">{{ product.price }}</span>
+                  {% else %}
+                    <span class="text-dark fw-semibold fs-5 m-0 lh-1">{{ product.price }}</span>
+                  {% endif %}
+              </div>
+        
+        <!-- Compact, clean discount indicator tucked neatly next to the pricing -->
+                    {% if product.discount and product.special %}
+                    <span class="badge bg-danger-subtle text-danger fw-semibold px-2 py-1 rounded-1" style="font-size: 11px;">
+          {{ product.discount }}% Off
+        </span>
+        {% endif %}
+      </div>
+    </div>
 
-                                            <span class="real_p">
-                                                {{ product.price }}
-                                            </span>
-
-                                            <span class="offer_dis">
-                                                {{ product.discount }}%
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
+  </div>
+</div>
 
                         {% if loop.index is divisible by(4) and not loop.last %}
                             </div>
@@ -889,19 +886,11 @@ lightbox.init();
                 </div>
 
                 {% if products|length > 4 %}
-                    <button class="carousel-control-prev"
-                            type="button"
-                            data-bs-target="#similarProducts"
-                            data-bs-slide="prev"
-                            aria-label="Previous">
-                        <span class="carousel-control-prev-icon"></span>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#similarProducts" data-bs-slide="prev" aria-label="Previous">
+                      <span class="carousel-control-prev-icon"></span>
                     </button>
 
-                    <button class="carousel-control-next"
-                            type="button"
-                            data-bs-target="#similarProducts"
-                            data-bs-slide="next"
-                            aria-label="Next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#similarProducts" data-bs-slide="next" aria-label="Next">
                         <span class="carousel-control-next-icon"></span>
                     </button>
                 {% endif %}
@@ -932,7 +921,7 @@ for(var i = 0; i < filters.length; i++) {
     
 {% endif %}
 <style>
-ul.tabs {
+{# ul.tabs {
     margin: 0;
     padding: 0;
     float: left;
@@ -1040,205 +1029,244 @@ ul.tabs li.active {
     display: block;
     margin-bottom: 5px;
     font-size: 12px;
+} #}
+.nav-pills button.active{
+  background: #000 !important;
+  color: #fff !important;
+}
+.nav-pills .nav-link{
+  color: #000 !important
+
 }
 </style>
-<section class="py-2">
-  <div class="container"> 
-    <div class="row">  
+<section class="py-4 py-lg-5">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="h4 h-lg-3 fw-bold mb-0"> MORE PRODUCT INFORMATION </h2> </div>
+        <div class="row g-3 g-lg-4">
+          <div class="col-12 col-lg-3">
+            <div class="nav nav-pills flex-row flex-lg-column flex-nowrap overflow-auto gap-2" id="product-info-tabs" role="tablist">
+              <button class="nav-link active text-start text-nowrap p-3 border rounded-3" id="tab1-tab" data-bs-toggle="pill" data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true"> 
+                <span class="fw-semibold">Overview</span> </button>
+              <button class="nav-link text-start text-nowrap p-3 border rounded-3" id="tab2-tab" data-bs-toggle="pill" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false"> 
+              <span class="fw-semibold">Care &amp; Instructions</span> </button>
+              <button class="nav-link text-start text-nowrap p-3 border rounded-3" id="tab3-tab" data-bs-toggle="pill" data-bs-target="#tab3" type="button" role="tab" aria-controls="tab3" aria-selected="false"> <span class="fw-semibold">Delivery &amp; Installation</span> </button>
+              <button class="nav-link text-start text-nowrap p-3 border rounded-3" id="tab4-tab" data-bs-toggle="pill" data-bs-target="#tab4" type="button" role="tab" aria-controls="tab4" aria-selected="false"> <span class="fw-semibold">Warranty</span> </button>
+              <button class="nav-link text-start text-nowrap p-3 border rounded-3" id="tab5-tab" data-bs-toggle="pill" data-bs-target="#tab5" type="button" role="tab" aria-controls="tab5" aria-selected="false"> <span class="fw-semibold">T&amp;C</span> </button>
+              <button class="nav-link text-start text-nowrap p-3 border rounded-3" id="tab6-tab" data-bs-toggle="pill" data-bs-target="#tab6" type="button" role="tab" aria-controls="tab6" aria-selected="false"> <span class="fw-semibold">Merchant Details</span> </button>
+                    <button class="nav-link text-start text-nowrap p-3 border rounded-3" id="tab7-tab" data-bs-toggle="pill" data-bs-target="#tab7" type="button" role="tab" aria-controls="tab7" aria-selected="false"> <span class="fw-semibold">FAQ's</span> </button>
+                    <button class="nav-link text-start text-nowrap p-3 border rounded-3" id="tab8-tab" data-bs-toggle="pill" data-bs-target="#tab8" type="button" role="tab" aria-controls="tab8" aria-selected="false"> <span class="fw-semibold">Disclaimer</span> </button>
+                </div>
+            </div>
 
-<div class="col-lg-12 col-sm-12">
-  {# <div >  #}
-  <div class="text-center py-3 heading-nrm"><b>MORE PRODUCT INFORMATION  </b></div>
-  <ul class="tabs">
-    <li class="active" rel="tab1">Overview</li>
-    <li rel="tab2">Care & Instructions</li>
-    <li rel="tab3">Delivery & Installation</li>
-    <li rel="tab4">Warranty</li>
-    <li rel="tab5">T&C</li>
-    <li rel="tab6">Merchant Details</li>
-    <li rel="tab7">FAQ’s</li>
-    <li rel="tab8">Disclaimer</li>
-  </ul>
-  <div class="tab_container">
-    <h3 class="d_active tab_drawer_heading" rel="tab1">Overview</h3>
-    <div id="tab1" class="tab_content">
-      
-      {{ description }}
+            <div class="col-12 col-lg-9">
+                <div class="tab-content" id="product-info-content">
+                    <!-- 01 OVERVIEW -->
+                    <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab" tabindex="0">
+                        <div class="border rounded-3 p-3 p-lg-4 overflow-auto"  style="height: 300px;">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <h3 class="h5 fw-bold mb-0"> Overview </h3> </div>
+                            <div class="lh-lg"> {{ description }} </div>
+                        </div>
+                    </div>
+                    <!-- 02 CARE & INSTRUCTIONS -->
+                    <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab" tabindex="0">
+                        <div class="border rounded-3 p-3 p-lg-4 overflow-auto"  style="height: 300px;">
+                            <div class="d-flex align-items-center gap-3 mb-4">
+                                <h3 class="h5 fw-bold mb-0"> Care &amp; Instructions </h3> </div>
+                            <div class="vstack gap-4">
+                                <div>
+                            <h4 class="h6 fw-bold mb-2"> Cleaning Technique </h4>
+                        <p class="text-secondary mb-0"> Use soft cotton cloth to wipe off the dirt from the bed. Don’t use excess water for cleaning; instead use moistened cloth to clean the dirt. </p>
+                        </div>
+                        <div>
+                            <h4 class="h6 fw-bold mb-2"> Avoid Chemicals </h4>
+                            <p class="text-secondary mb-0"> Don’t use chemicals with the furniture as it may damage the natural finish and durability of the wood. Also, don’t use polyurethane paints on the furniture. </p>
+                        </div>
+                      <div>
+                    <h4 class="h6 fw-bold mb-2"> Scratch &amp; Burn Remedy </h4>
+                          <p class="text-secondary mb-0"> Any kind of scratch, burn, residue and other surface damages can be cleared with fine-grit sandpaper. Use mineral oil after sanding with the sandpaper. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 03 DELIVERY & INSTALLATION -->
+                    <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab" tabindex="0">
+                        <div class="border rounded-3 p-3 p-lg-4 overflow-auto"  style="height: 300px;">
+                            <div class="d-flex align-items-center gap-3 mb-4">
+                                <h3 class="h5 fw-bold mb-0"> Delivery &amp; Installation </h3> </div>
+                            <div class="vstack gap-3">
+                                <div>
+                                    <h4 class="h6 fw-bold mb-2"> Delivery </h4>
+                            <p class="text-secondary"> Our help and delivery groups will be in contact with you for a problem-free delivery. </p>
+                            <p class="text-secondary"> Free delivery is just relevant for the primary endeavor to deliver at your transportation address. In the event that a client misses this delivery, an additional meeting charge will be appropriate for the subsequent endeavor. </p>
+                            <p class="text-secondary"> Our delivery partner will only deliver to the ground floor of the residence if there isn't a service lift. In such cases, there will be additional fees per floor for delivery to the customer's floor (on request). </p>
+                              <p class="text-secondary"> Additional charges were relevant for the end of the week or time-explicit delivery. </p>
+                              <p class="text-secondary mb-0"> Your product(s) will be held for 10 days at the closest delivery center in the event that you've neglected to get the delivery. After this, Urbanwood will be allowed to charge or drop the request. </p>
+                                </div>
+                                <div>
+                                <h4 class="h6 fw-bold mb-2"> Installation </h4>
+                                <p class="text-secondary"> Contingent upon the delivery condition, your item could conceivably require installation help upon delivery. </p>
+                                    <p class="text-secondary"> In the event that The Delivery Condition Is: </p>
+                            <p class="text-secondary"> <strong>Pre-assembled – </strong> no installation is required. The item comes completely assembled and prepared to utilize. </p>
+                                    <p class="text-secondary"> <strong>Wrecked – </strong> master help is needed, for which Urbanwood will give woodworkers to complete appropriate installation and assembly. </p>
+                          <p class="text-secondary"> <strong>Essential assembly/DIY – </strong> the item requires insignificant installation/assembly, which can be completed by the client utilizing basic devices and assembly guidelines gave. No master help required. </p>
+                        <p class="text-secondary mb-0"> Delivery of the product will only be provided till the ground floor. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 04 WARRANTY -->
+                    <div class="tab-pane fade" id="tab4" role="tabpanel" aria-labelledby="tab4-tab" tabindex="0">
+                        <div class="border rounded-3 p-3 p-lg-4 overflow-auto"  style="height: 300px;">
+                            <div class="d-flex align-items-center gap-3 mb-4">
+                              <h3 class="h5 fw-bold mb-0"> Warranty </h3> </div>
+                            <h4 class="h6 fw-bold mb-3"> Warranty </h4>
+                            <ol class="text-secondary">
+                      <li class="mb-2"> This item accompanies a&nbsp; {% for attributes in attribute_groups %} {% for attribute in attributes.attribute %} {% if attribute.name == 'Warranty' %} {{ attribute.text }} {% endif %} {% endfor %} {% endfor %} warranty covering all termite issues, and wood borer issues along with manufacturing defects. </li>
+                                <li> For products with upholstery, the warranty applies to the casing or frames, if any </li>
+                            </ol>
+                            <h4 class="h6 fw-bold mt-4 mb-3"> This warranty does not cover the following conditions </h4>
+                            <ol class="text-secondary mb-0">
+                                <li>Regular wear and tear that occurs with extended-term usage</li>
+                                <li> Damage caused due to false/inapprprtae installation done by customer </li>
+                        <li> Minor cuts, scratches, or damages due to improper/ wrong cleaning methods or effects/mishaps </li>
+                    <li>Cracks occurred due to the displacement of the item</li>
+                                <li> Fading caused due to direct exposure to sunlight on the product </li>
+                      <li> Decaying of wood due to continuous exposure to water </li>
+                                <li> Upholstery textures, for example, seat covers have no warranty </li>
+                        <li> Damage caused due to non-standard dry-cleaning strategies or using harsh chemicals on the product </li>
+                            <li> <strong> In the case of differences in floor and surface levels, an imbalance of up to 5 mm is often accepted according to commercial standards. There is no guarantee covering this. </strong> </li>
+              <li> Joint lines, wood grains, or other issues related to the natural characteristics of wood are not defects and are not covered under warranty. In addition, any claim for seasonal splits or joints opening is limited to the warranty period from the time of purchase (for solid wood furniture). </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <!-- 05 T&C -->
+                    <div class="tab-pane fade" id="tab5" role="tabpanel" aria-labelledby="tab5-tab" tabindex="0">
+                        <div class="border rounded-3 p-3 p-lg-4 overflow-auto"  style="height: 300px;">
+                            <div class="d-flex align-items-center gap-3 mb-4">
+                                <h3 class="h5 fw-bold mb-0"> T&amp;C </h3> </div>
+                            <div class="vstack gap-3">
+                            <p class="text-secondary mb-0"> For any inquiries or explanations identifying with the item, don't hesitate to contact our Customer Support. </p>
+                                <div>
+                        <h4 class="h6 fw-bold"> Understanding Your Product </h4>
+                              <p class="text-secondary"> Accessories appeared in the photo are intended for portrayal purposes just, and are not part of the real item. </p>
+                          <p class="text-secondary mb-0"> Furniture products having perplexing and hand-painted subtleties have been carefully made by talented specialists, following on the strides of a few ages of achieved craftsmen. Each bit of such Furniture is, in this manner, novel, and there is a chance of slight contrasts between the image and the genuine item. </p>
+                                </div>
+                                <div>
+                              <h4 class="h6 fw-bold"> Submitting A Request </h4>
+                      <p class="text-secondary mb-0"> If you don't mind check the components of your entrance/ door to your reason before purchasing, so that there is no issue in getting the item inside at the time of delivery. In such a circumstance, we won't have the option to acknowledge return or cancellation demands. Certain things require no get together and can be utilized with no guarantees. For this, kindly check the thing subtleties. Any place we help with gathering, the craftsman visits will be booked. </p>
+                                </div>
+                                <div>
+                                <h4 class="h6 fw-bold"> On Delivery </h4>
+                            <p class="text-secondary"> On Delivery: Our support and delivery group will be in a joint effort with you for a problem-free establishment measure. </p>
+                        <p class="text-secondary"> Free delivery is just pertinent for the absolute first endeavor on a visit to your boat to address. In the event of a missed delivery, (from a customer)/an extra visiting charge would be relevant for later establishment. Our delivery accomplice will just deliver the item to the ground floor without an assistance lift in your condo. (on the off chance that relevant) </p>
+                      <p class="text-secondary mb-0"> Extra charges appropriate for the end of the week or explicit time deliveries. When the request has reached your closest delivery place and you neglect to get the products, we would hold the products for 10 days, after this timeline, Urbanwood will be free to charge or drop the request. </p>
+                                </div>
+                                <div>
+                                <h4 class="h6 fw-bold"> Damages </h4>
+                        <p class="text-secondary"> Urbanwood's conveyance game plans to your home have been intended to guarantee a zero-harm and bother free insight. Kindly reach us promptly on the off chance that: You got a harmed or deficient item, acquire it the notification of conveyance staff quickly at the hour of conveyance and report a grievance at client care. Harm and imperfection will be evaluated in 72 hours', and an answer will be given. In the event that in the assessment of Urbanwood, the item is broken, it might be returned/supplanted, or some other remedial measure might be taken, as regarded fitting by Urbanwood, to address the issue. </p>
+                              <p class="text-secondary mb-0">Any missing parts needed in the gathering of the item ought to be promptly informed to the Customer Support group, with the goal that they can be organized to be conveyed to you at the earliest opportunity. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 06 MERCHANT DETAILS -->
+                    <div class="tab-pane fade" id="tab6" role="tabpanel" aria-labelledby="tab6-tab" tabindex="0">
+                      <div class="border rounded-3 p-3 p-lg-4 overflow-auto"  style="height: 300px;">
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                      <h3 class="h5 fw-bold mb-0"> Merchant Details </h3> </div>
+                            <div class="list-group list-group-flush">
+                        <div class="list-group-item px-0"> <span class="d-block small text-secondary"> Generic Name </span> <strong> {{ heading_title }} {{ finish }} </strong> </div>
+                        <div class="list-group-item px-0"> <span class="d-block small text-secondary"> Packed By </span> <strong> {{ manufacturer_official_name }} </strong> </div>
+                      <div class="list-group-item px-0"> <span class="d-block small text-secondary"> Packer Address </span> <strong> {{ manufacturer_address_1 }} {{ manufacturer_address_2 }} {{ manufacturer_city }}, Rajasthan, 302026 </strong> </div>
+                                <div class="list-group-item px-0">
+                                <span class="d-block small text-secondary"> Marketed By </span> <strong> {{ manufacturer_official_name }} </strong> </div>
+                          <div class="list-group-item px-0"> <span class="d-block small text-secondary"> Marketer Address </span> <strong> {{ manufacturer_address_1 }} {{ manufacturer_address_2 }} {{ manufacturer_city }}, {{ manufacturer_zone }}, 302026 </strong> </div>
+                                <div class="list-group-item px-0">
+                                <span class="d-block small text-secondary"> Country Of Assembly </span> <strong> {{ manufacturer_country }} </strong> </div>
+                        <div class="list-group-item px-0"> <span class="d-block small text-secondary"> Country Of Manufacture </span> <strong> {{ manufacturer_country }} </strong> </div>
+                                <div class="list-group-item px-0"> <span class="d-block small text-secondary"> Package Count </span> <strong> 1 </strong> </div>
+                        <div class="list-group-item px-0"> <span class="d-block small text-secondary"> Dimensions (Inch) </span> <strong> {{ dimension }} </strong> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 07 FAQ'S -->
+                    <div class="tab-pane fade" id="tab7" role="tabpanel" aria-labelledby="tab7-tab" tabindex="0">
+                        <div class="border rounded-3 p-3 p-lg-4 overflow-auto"  style="height: 300px;">
+                            <div class="d-flex align-items-center gap-3 mb-4">
+                                <h3 class="h5 fw-bold mb-0"> FAQ's </h3> </div>
+                            <div class="list-group">
+                      <div class="list-group-item px-2"> <strong class="d-block mb-2"> How would I check stock availability? </strong>
+                            <p class="text-secondary mb-0"> Essentially login to your enlisted record to check stock availability for every single recorded product. Everything will express the amount as either "In Stock", "Out of Stock". Pre-order things will be recorded in that capacity, with the following shipment date noticeable underneath the buy button. </p>
+                                </div>
+                  <div class="list-group-item px-2"> <strong class="d-block mb-2"> On the off chance that a thing I require is out of stock, what would I be able to do to make sure about the thing? </strong>
+                  <p class="text-secondary mb-0"> In the event that a thing is named as "Out of stock" this implies our purchasing group has not confirmed the date of the following shipment. In the event that the thing has a pre-order date recorded, you can essentially handle an online order to make sure about the stock. Kindly note, when buying the product online you will be charged in full for the thing. On the off chance that you'd want to just compensation a store on your pre-order if it's not too much trouble get in touch with us and we can physically receipt you for a store. </p>
+                                </div>
+                      <div class="list-group-item px-2"> <strong class="d-block mb-2"> How would I get a statement? </strong>
+                    <p class="text-secondary mb-0"> Pricing will be accessible after signing into your enrolled record and delivery cites are determined whenever things are added to your truck. </p>
+                                </div>
+                <div class="list-group-item px-2"> <strong class="d-block mb-2"> I am prepared to make a buy; how might I submit my request? </strong>
+                <p class="text-secondary mb-0"> When your last choices have been added to your truck, if you don't mind continue straightforwardly to the checkout. You will be needed to enter your favored technique for payment and once confirmed, your order will be consequently positioned through the site. Whenever required, our group will be in contact with you. If you don't mind guarantee to leave any order notes or extra data if necessary. </p>
+                                </div>
+                <div class="list-group-item px-2"> <strong class="d-block mb-2"> I've put in a request online, what happens now? </strong>
+                <p class="text-secondary"> In the event that there are no further directions required, our group will arrange dispatch and instruct you regarding the following or transporter data. </p>
+                <p class="text-secondary mb-0"> On the off chance that we require additional data, one of our colleagues will be in contact with you by means of email to examine your order. </p>
+                                </div>
+              <div class="list-group-item px-2"> <strong class="d-block mb-2"> Consider the possibility that I have to cancel my order. </strong>
+            <p class="text-secondary mb-0"> On the off chance that you are needed to cancel your order if you don't mind email through your cancellation demand as quickly as time permits. Our group will at that point change this for you. On the off chance that the order has been paid for, our records group will give you a credit note. </p>
+                      </div>
+                    <div class="list-group-item px-2"> <strong class="d-block mb-2"> Do your products come flat packed, or would they say they are completely assembled? </strong>
+                      <p class="text-secondary mb-0"> Each posting will indicate whether a thing is completely assembled, requires getting together, or is flat packed. On the off chance that you are uncertain, you are generally free to reach us. </p>
+                                </div>
+                  <div class="list-group-item px-2"> <strong class="d-block mb-2"> What does "Delivery Only" incorporate? </strong>
+            <p class="text-secondary mb-0"> All standard delivery administrations are careful to the ground floor. In the event that you require additional administrations, for example, over the ground floor by means of stairs or lift, get together, or potentially refuse evacuation, if it's not too much trouble connect with our group. </p>
+                                </div>
+                      <div class="list-group-item px-2"> <strong class="d-block mb-2"> What amount does the delivery cost? </strong>
+            <p class="text-secondary mb-0"> Our transportation mini-computer will consequently decide the most ideal delivery cost dependent on product size, weight, and your area. The transportation delivery cost is determined upon checkout after you enter your delivery address subtleties, and will show up preceding the creation of a payment. </p>
+                                </div>
+            <div class="list-group-item px-2"> <strong class="d-block mb-2"> What do I have to check for when the product is delivered? </strong>
+                <p class="text-secondary"> You should check to guarantee that the fabric over the product is very much sewed and there is no tear/gap in the sewing over the whole front, back, and sides of the product </p>
+                <p class="text-secondary mb-0"> You ought to guarantee that there are no stains on the fabric over the whole front, back, and sides of the product You ought to guarantee that the product is consistent on your floor. Various floors may have a slight slope that may not be perceptible to the unaided eye; in the event that the product wobbles unevenly on your floor, we will do the needful to ensure it stands firm. </p>
+                                </div>
+                    <div class="list-group-item px-2"> <strong class="d-block mb-2"> How would I realize that the correct material has been utilized on the product? </strong>
+                            <p class="text-secondary mb-0"> We just utilize the most strong, great materials in building your product be it the casing, froth, fabric, or pad. </p>
+                                </div>
+                        <div class="list-group-item px-2"> <strong class="d-block mb-2"> Will the product color be actually equivalent to it shows up on the patterns? </strong>
+                <p class="text-secondary mb-0"> While we do a Quality Check at our end for color coordinating, a 5-10% variety in color may show up in a clump contingent on states of production. As an industry-standard, we take into account a limit of a 10% variety. In the event that this limit is crossed, we reject the fabric clump. Inside these restrictions, we make an honest effort to ensure that the ideal color contacts you! </p>
+                                </div>
+                          <div class="list-group-item px-2"> <strong class="d-block mb-2"> Do you have a showroom? </strong>
+              <p class="text-secondary mb-0"> Our showroom space is at present being developed, anyway, we do have a brief region that is accessible to see a restricted determination of our products. We are striving to get our showroom ready for action once we are back in the office. Stay tuned! For more data with respect to our showroom, it would be ideal if you reach us straightforwardly. </p>
+                                </div>
+                        <div class="list-group-item px-2"> <strong class="d-block mb-2"> Are on the whole the things recorded online, showed in your showrooms? </strong>
+              <p class="text-secondary"> Just chose products will be shown in our showroom. On the off chance that there is a particular thing you wish to see that isn't in plain view, we can facilitate with our distribution center group to have the piece taken out. This must be organized earlier by means of arrangement as it were. </p>
+                    <p class="text-secondary mb-0"> Then again, if a retailer has this product in plain view, we might have the option to orchestrate a visit to their showroom for you. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 08 DISCLAIMER -->
+                    <div class="tab-pane fade" id="tab8" role="tabpanel" aria-labelledby="tab8-tab" tabindex="0">
+                        <div class="border rounded-3 p-3 p-lg-4 overflow-auto"  style="height: 300px;">
+                            <div class="d-flex align-items-center gap-3 mb-4">
+                            <h3 class="h5 fw-bold mb-0"> Disclaimer </h3> </div>
+                            <div class="vstack gap-3">
+                                <p class="text-secondary"> Embellishments displayed in the image are simply to give a thought regarding the arrangement. These are not an aspect of the item, except if determined. </p>
+                                <p class="text-secondary"> On account of strong wood-based furnishings, the wood grain may somewhat change from item to item. </p>
+                                <p class="text-secondary"> Many-sided plans or hand-paint may have slight variations between the 3D picture and the real item. </p>
+                                <p class="text-secondary"> As per the distinctive screen settings and goals, there may be brief contrast in fabric tone and wood finish between the website images and genuine item. </p>
+                          <p class="text-secondary"> <strong> ALL PICTURES SHOWN ARE FOR ILLUSTRATION PURPOSE ONLY. ACTUAL PRODUCT MAY VARY DUE TO PRODUCT ENHANCEMENT. </strong> </p>
+          <p class="text-secondary mb-0"> Please note that any disputes or issues arising from the purchase of our products will be exclusively subject to the jurisdiction of Gurgaon. By purchasing our product, you agree and acknowledge that any legal proceedings related to the transaction shall be resolved solely within the jurisdiction of Gurgaon. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- #tab1 -->
-    <h3 class="tab_drawer_heading" rel="tab2">Care & Instructions</h3>
-    <div id="tab2" class="tab_content">
-      <span>Cleaning Technique</span>
-      <p>Use soft cotton cloth to wipe off the dirt from the bed. Don’t use excess water for cleaning; instead use moistened cloth to clean the dirt.</p>
-      <span>Avoid Chemicals</span>
-      <p>Don’t use chemicals with the furniture as it may damage the natural finish and durability of the wood. Also, don’t use polyurethane paints on the furniture.</p>
-      <span>Scratch &amp; Burn Remedy</span>
-      <p>Any kind of scratch, burn, residue and other surface damages can be cleared with fine-grit sandpaper. Use mineral oil after sanding with the sandpaper.</p>
-    </div>
-    <!-- #tab2 -->
-    <h3 class="tab_drawer_heading" rel="tab3">Delivery & Installation</h3>
-    <div id="tab3" class="tab_content">
-      <span>Delivery:</span>
-      <p>Our help and delivery groups will be in contact with you for a problem-free delivery. </p>
-      <p>Free delivery is just relevant for the primary endeavor to deliver at your transportation address. In the event that a client misses this delivery, an additional meeting charge will be appropriate for the subsequent endeavor. </p>
-      <p>Our delivery partner will only deliver to the ground floor of the residence if there isn't a service lift. In such cases, there will be additional fees per floor for delivery to the customer's floor (on request). </p>
-      <p>Additional charges were relevant for the end of the week or time-explicit delivery. </p>
-      <p>Your product(s) will be held for 10 days at the closest delivery center in the event that you've neglected to get the delivery. After this, Urbanwood will be allowed to charge or drop the request. </p>
-      <span>Installation: </span>
-      <p>Contingent upon the delivery condition, your item could conceivably require installation help upon delivery. </p>
-      <p>In the event that The Delivery Condition Is: </p>
-      <p><strong>Pre-assembled – </strong> no installation is required. The item comes completely assembled and prepared to utilize. </p>
-      <p><strong> Wrecked – </strong> master help is needed, for which Urbanwood will give woodworkers to complete appropriate installation and assembly. </p>
-      <p> <strong>Essential assembly/DIY –</strong> the item requires insignificant installation/assembly, which can be completed by the client utilizing basic devices and assembly guidelines gave. No master help required.</p>
-      <p>Delivery of the product will only be provided till the ground floor.</p>
-    </div>
-    <!-- #tab3 -->
-    <h3 class="tab_drawer_heading" rel="tab4">Warranty</h3>
-    <div id="tab4" class="tab_content">
-      <span>Warranty</span>
-      <ol>
-        <li>This item accompanies a&nbsp;{% for attributes in attribute_groups %}
-        {% for attribute in attributes.attribute %}
-         {% if attribute.name == 'Warranty' %}
-          {{ attribute.text }}
-          {% endif %}
-        {% endfor %}
-      {% endfor %} warranty covering all termite issues, and wood borer issues along with manufacturing defects.</li>
-        <li>For products with upholstery, the warranty applies to the casing or frames, if any</li>
-        </ol>
-        <h2>This warranty does not cover the following conditions</h2>
-        <ol>
-        <li>Regular wear and tear that occurs with extended-term usage</li>
-        <li>Damage caused due to false/inapprprtae installation done by customer</li>
-        <li>Minor cuts, scratches, or damages due to improper/ wrong cleaning methods or effects/mishaps</li>
-        <li>Cracks occurred due to the displacement of the item</li>
-        <li>Fading caused due to direct exposure to sunlight on the product</li>
-        <li>Decaying of wood due to continuous exposure to water</li>
-        <li>Upholstery textures, for example, seat covers have no warranty</li>
-        <li>Damage caused due to non-standard dry-cleaning strategies or using harsh chemicals on the product</li>
-        <li><strong>In the case of differences in floor and surface levels, an imbalance of up to 5 mm is often accepted according to commercial standards. There is no guarantee covering this.</strong></li>
-      </ol>
-    </div>
-    <!-- #tab4 -->
-    <h3 class="tab_drawer_heading" rel="tab5">T&C</h3>
-    <div id="tab5" class="tab_content">
-      <p>For any inquiries or explanations identifying with the item, don't hesitate to contact our Customer Support. </p>
-      <span>Understanding Your Product: </span>
-      <p>Accessories appeared in the photo are intended for portrayal purposes just, and are not part of the real item. </p>
-      <p>Furniture products having perplexing and hand-painted subtleties have been carefully made by talented specialists, following on the strides of a few ages of achieved craftsmen. Each bit of such Furniture is, in this manner, novel, and there is a chance of slight contrasts between the image and the genuine item. </p>
-      <span>Submitting A Request: </span>
-      <p>If you don't mind check the components of your entrance/door to your reason before purchasing, so that there is no issue in getting the item inside at the time of delivery. In such a circumstance, we won't have the option to acknowledge return or cancellation demands. Certain things require no get together and can be utilized with no guarantees. For this, kindly check the thing subtleties. Any place we help with gathering, the craftsman visits will be booked. </p>
-      <span>On Delivery: </span>
-      <p>On Delivery: Our support and delivery group will be in a joint effort with you for a problem-free establishment measure. </p>
-      <p>Free delivery is just pertinent for the absolute first endeavor on a visit to your boat to address. In the event of a missed delivery, (from a customer)/an extra visiting charge would be relevant for later establishment. Our delivery accomplice will just deliver the item to the ground floor without an assistance lift in your condo. (on the off chance that relevant) </p>
-      <p>Extra charges appropriate for the end of the week or explicit time deliveries. When the request has reached your closest delivery place and you neglect to get the products, we would hold the products for 10 days, after this timeline, Urbanwood will be free to charge or drop the request.</p>
-      <span>Damages: </span>
-      <p>Urbanwood's conveyance game plans to your home have been intended to guarantee a zero-harm and bother free insight. Kindly reach us promptly on the off chance that: You got a harmed or deficient item, acquire it the notification of conveyance staff quickly at the hour of conveyance and report a grievance at client care. Harm and imperfection will be evaluated in 72 hours', and an answer will be given. In the event that in the assessment of Urbanwood, the item is broken, it might be returned/supplanted, or some other remedial measure might be taken, as regarded fitting by Urbanwood, to address the issue. </p>
-      <p>Any missing parts needed in the gathering of the item ought to be promptly informed to the Customer Support group, with the goal that they can be organized to be conveyed to you at the earliest opportunity. </p>
-    </div>
-    <!-- #tab5 -->
-    <h3 class="tab_drawer_heading" rel="tab6">Merchant Details</h3>
-    <div id="tab6" class="tab_content">
-      <span>Merchant Details</span>
-      <small>Generic Name -{{ heading_title }}  {{ finish }} </small>
-      <small>Packed By :{{ manufacturer_official_name }}</small>
-      <small>Packer Address:{{ manufacturer_address_1 }}{{ manufacturer_address_2 }}{{ manufacturer_city }}, Rajasthan, 302026</small>
-      <small>Marketed By : {{ manufacturer_official_name }}</small>
-      <small>Marketer Address :{{ manufacturer_address_1 }}{{ manufacturer_address_2 }}{{ manufacturer_city }}, {{ manufacturer_zone }}, 302026</small>
-      <small>Country Of Assembly : {{ manufacturer_country }}</small>
-      <small>Country Of Manufacture : {{ manufacturer_country }}</small>
-      <small>Package Count : 1</small>
-      <small>Dimensions (Inch) : &nbsp;{{ dimension }}</small>
-    </div>
-    <!-- #tab6 -->
-    <h3 class="tab_drawer_heading" rel="tab7">FAQ’s</h3>
-    <div id="tab7" class="tab_content">
-      FAQ’s
-      <ul class="Faqs">
-        <li>
-          <span>How would I check stock availability? </span>
-          <article><p>Essentially login to your enlisted record to check stock availability for every single recorded product. Everything will express the amount as either "In Stock", "Out of Stock". Pre-order things will be recorded in that capacity, with the following shipment date noticeable underneath the buy button. </p></article>
-        </li>
-        <li>
-          <span>On the off chance that a thing I require is out of stock, what would I be able to do to make sure about the thing? </span>
-          <article><p>In the event that a thing is named as "Out of stock" this implies our purchasing group has not confirmed the date of the following shipment. In the event that the thing has a pre-order date recorded, you can essentially handle an online order to make sure about the stock. Kindly note, when buying the product online you will be charged in full for the thing. On the off chance that you'd want to just compensation a store on your pre-order if it's not too much trouble get in touch with us and we can physically receipt you for a store. </p></article>
-        </li>
-        <li>
-          <span>How would I get a statement? </span>
-          <article><p>Pricing will be accessible after signing into your enrolled record and delivery cites are determined whenever things are added to your truck. </p></article>
-        </li>
-        <li>
-          <span>I am prepared to make a buy; how might I submit my request? </span>
-          <article><p>When your last choices have been added to your truck, if you don't mind continue straightforwardly to the checkout. You will be needed to enter your favored technique for payment and once confirmed, your order will be consequently positioned through the site. Whenever required, our group will be in contact with you. If you don't mind guarantee to leave any order notes or extra data if necessary. </p></article>
-        </li>
-        <li>
-          <span>I've put in a request online, what happens now? </span>
-          <article><p>In the event that there are no further directions required, our group will arrange dispatch and instruct you regarding the following or transporter data. </p>
-          <p>On the off chance that we require additional data, one of our colleagues will be in contact with you by means of email to examine your order. </p>
-          </article>
-        </li>
-        <li>
-          <span>Consider the possibility that I have to cancel my order. </span>
-          <article><p>On the off chance that you are needed to cancel your order if you don't mind email through your cancellation demand as quickly as time permits. Our group will at that point change this for you. On the off chance that the order has been paid for, our records group will give you a credit note. </p></article>
-        </li>
-        <li>
-          <span>Do your products come flat packed, or would they say they are completely assembled? </span>
-          <article><p>Each posting will indicate whether a thing is completely assembled, requires getting together, or is flat packed. On the off chance that you are uncertain, you are generally free to reach us. </p></article>
-        </li>
-        <li>
-          <span>What does "Delivery Only" incorporate? </span>
-          <article><p>All standard delivery administrations are careful to the ground floor. In the event that you require additional administrations, for example, over the ground floor by means of stairs or lift, get together, or potentially refuse evacuation, if it's not too much trouble connect with our group. </p></article>
-        </li>
-        <li>
-          <span>What amount does the delivery cost? </span>
-          <article><p>Our transportation mini-computer will consequently decide the most ideal delivery cost dependent on product size, weight, and your area. The transportation delivery cost is determined upon checkout after you enter your delivery address subtleties, and will show up preceding the creation of a payment. </p></article>
-        </li>
-        <li>
-          <span>What do I have to check for when the product is delivered? </span>
-          <article><p>You should check to guarantee that the fabric over the product is very much sewed and there is no tear/gap in the sewing over the whole front, back, and sides of the product </p>
-          <p>You ought to guarantee that there are no stains on the fabric over the whole front, back, and sides of the product You ought to guarantee that the product is consistent on your floor. Various floors may have a slight slope that may not be perceptible to the unaided eye; in the event that the product wobbles unevenly on your floor, we will do the needful to ensure it stands firm. </p>
-          </article>
-        </li>
-        <li>
-          <span>How would I realize that the correct material has been utilized on the product? </span>
-          <article><p>We just utilize the most strong, great materials in building your product be it the casing, froth, fabric, or pad. </p></article>
-        </li>
-        <li>
-          <span>Will the product color be actually equivalent to it shows up on the patterns? </span>
-          <article><p>While we do a Quality Check at our end for color coordinating, a 5-10% variety in color may show up in a clump contingent on states of production. As an industry-standard, we take into account a limit of a 10% variety. In the event that this limit is crossed, we reject the fabric clump. Inside these restrictions, we make an honest effort to ensure that the ideal color contacts you! </p></article>
-        </li>
-        <li>
-          <span>Do you have a showroom? </span>
-          <article><p>Our showroom space is at present being developed, anyway, we do have a brief region that is accessible to see a restricted determination of our products. We are striving to get our showroom ready for action once we are back in the office. Stay tuned! For more data with respect to our showroom, it would be ideal if you reach us straightforwardly. </p></article>
-        </li>
-        <li>
-          <span>Are on the whole the things recorded online, showed in your showrooms? </span>
-          <article><p>Just chose products will be shown in our showroom. On the off chance that there is a particular thing you wish to see that isn't in plain view, we can facilitate with our distribution center group to have the piece taken out. This must be organized earlier by means of arrangement as it were. </p>
-          <p>Then again, if a retailer has this product in plain view, we might have the option to orchestrate a visit to their showroom for you. </p>
-          </article>
-        </li>
-      </ul>
-    </div>
-    <!-- #tab7 -->
-    <h3 class="tab_drawer_heading" rel="tab8">Disclaimer</h3>
-    <div id="tab8" class="tab_content">
-      <span>Disclaimer</span>
-      <p>Embellishments displayed in the image are simply to give a thought regarding the arrangement. These are not an aspect of the item, except if determined. </p>
-      <p>On account of strong wood-based furnishings, the wood grain may somewhat change from item to item. </p>
-      <p>Many-sided plans or hand-paint may have slight variations between the 3D picture and the real item. </p>
-      <p>As per the distinctive screen settings and goals, there may be brief contrast in fabric tone and wood finish between the website images and genuine item.</p>
-      <p>ALL PICTURES SHOWN ARE FOR ILLUSTRATION PURPOSE ONLY.ACTUAL PRODUCT MAY VARY DUE TO PRODUCT ENHANCEMENT.</p>
-      <p>Please note that any disputes or issues arising from the purchase of our products will be exclusively subject to the jurisdiction of Gurgaon. By purchasing our product, you agree and acknowledge that any legal proceedings related to the transaction shall be resolved solely within the jurisdiction of Gurgaon.</p>
-    </div>
-    <!-- #tab8 -->
-  </div>
-  
-</div>
-      </div>
-      </div>
 </section>
 <script>
-$(".tab_content").hide();
+{# $(".tab_content").hide();
 $(".tab_content:first").show();
 / if in tab mode /
 $("ul.tabs li").click(function() {
@@ -1268,11 +1296,11 @@ $(".tab_drawer_heading").click(function() {
   $("ul.tabs li[rel^='" + d_activeTab + "']").addClass("active");
 });
 
-$('ul.tabs li').last().addClass("tab_last");
+$('ul.tabs li').last().addClass("tab_last"); #}
 </script>
 
 <style>
-  .pp-deati-accordian{
+  {# .pp-deati-accordian{
     margin: 0px;
     padding:0px;
   }
@@ -1280,24 +1308,26 @@ $('ul.tabs li').last().addClass("tab_last");
     margin-bottom: 10px;
     text-align: justify;
     font-size: 13px;
-  }
+  } #}
 </style>
-{% if rating %}
 <section class="py-2">
 <div class="container">
-  <div class="row comments-sec py-3 px-3 ">
-    <div class="col-lg-6 col-md-6 col-sm-12 px-lg-5 px-0">
+  <div class=" border rounded-4 py-3 px-3 ">
+  <div class="row">
+{% if rating %}
+
+    <div class="col-lg-6 col-md-6 col-sm-12 px-lg-5 px-2">
       <div class="pp-rating-graph">
         <div class="text-lg-start text-center p-lg-3 heading-nrm"><b>Product Ratings & Reviews</b></div>
-        <div class="d-sm-flex d-xs-block align-items-center py-5">
-          <div class="rate-pro-point">
-            <div class="rating-num"><span>{{ rating }}  </span><i class='bx bxs-star'></i></div> 
-            <div class="tol-rate-review">
+        <div class="d-sm-flex d-xs-block align-items-center py-5 gap-3">
+          <div class="rate-pro-point mx-auto text-center">
+            <div class="rating-num fw-bold d-inline-flex align-items-center"><span>{{ rating }}  </span><i class='bx bxs-star'></i></div> 
+            <div class="text-body-secondary small">
               <span> {{ reviews }}  </span></div>
           </div>
-          <div class="progress-bat-sec">
+          <div class="progress-bat-sec px-3">
             <div class="d-flex justify-content-start align-items-center mb-3"> 
-              <span class="progress-bar-name"> Excellent</span>
+              <span class="progress-bar-name text-secondary"> Excellent</span>
             <div class="meter green">
               <span data-progress="{{ rating5 }}" style="width:{{ rating5 }};"></span>
             </div>
@@ -1305,7 +1335,7 @@ $('ul.tabs li').last().addClass("tab_last");
           </div>
           <!-- -->
           <div class="d-flex justify-content-start align-items-center mb-3"> 
-          <span class="progress-bar-name">Very Good</span>
+          <span class="progress-bar-name text-secondary">Very Good</span>
             <div class="meter">
               <span data-progress="{{ rating4 }}" style="width:{{ rating4 }};"></span>
             </div>
@@ -1313,7 +1343,7 @@ $('ul.tabs li').last().addClass("tab_last");
           </div>
 
             <div class="d-flex justify-content-start align-items-center mb-3"> 
-              <span class="progress-bar-name">Good</span>
+              <span class="progress-bar-name text-secondary">Good</span>
             <div class="meter yellow">
               <span data-progress="{{ rating3 }}" style="width:{{ rating3 }};"></span>
             </div>
@@ -1321,7 +1351,7 @@ $('ul.tabs li').last().addClass("tab_last");
           </div>
 
            <div class="d-flex justify-content-start align-items-center mb-3"> 
-            <span class="progress-bar-name">Average</span>
+            <span class="progress-bar-name text-secondary">Average</span>
           <div class="meter orange ">
             <span data-progress="{{ rating2 }}" style="width:{{ rating2 }};"></span>
           </div>
@@ -1329,7 +1359,7 @@ $('ul.tabs li').last().addClass("tab_last");
         </div>
 
         <div class="d-flex justify-content-start align-items-center mb-3"> 
-          <span class="progress-bar-name">Poor</span>
+          <span class="progress-bar-name text-secondary">Poor</span>
         <div class="meter red">
           <span data-progress="{{ rating1 }}" style="width:{{ rating1 }};"></span>
         </div>
@@ -1339,7 +1369,7 @@ $('ul.tabs li').last().addClass("tab_last");
           </div>
         </div>
       </div>
-      <a class="write-rew" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Give Your Valueable Review</a>
+      <a class="btn write-rew d-block mx-auto my-5 py-2 px-3 text-center text-white text-decoration-none" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Give Your Valueable Review</a>
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
           <div class="modal-content p-md-3 p-sm-3" style="background: #fff5f0;">
@@ -1410,7 +1440,7 @@ $('ul.tabs li').last().addClass("tab_last");
     <div class="col-lg-6 col-md-6 col-sm-12 px-xs-0">
       <div class="d-sm-flex  d-block justify-content-between align-content-center text-center">
       <div class="text-sm-start text-center text-center py-3 heading-nrm"><b>Real Images and videos from customers</b></div>
-      <div><button class="view-rew"  type="button" data-bs-toggle="offcanvas" onclick="getProductReviews('{{ product_id }}')" data-bs-target="#offcanvasRightr-view" aria-controls="offcanvasRight">View all reviews</button></div>
+      <div><button class="view-rew fw-normal text-orange border-0 p-2 rounded-2" type="button" data-bs-toggle="offcanvas" onclick="getProductReviews('{{ product_id }}')" data-bs-target="#offcanvasRightr-view" aria-controls="offcanvasRight">View all reviews</button></div>
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRightr-view" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
           <h5 id="offcanvasRightLabel">Real Images and videos from customers</h5>
@@ -1420,13 +1450,13 @@ $('ul.tabs li').last().addClass("tab_last");
         </div>
       </div>
     </div>
-   <div class="com-sec-box-scroll scroll-text" id="review">
+   <div class="com-sec-box-scroll scroll-text overflow-hidden overflow-y-auto" id="review">
      </div>
-  </div>
+  {# </div>
 </div>
-</section>
+</section> #}
 {% else %}
-<a class="write-rew" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Give Your Valueable Review</a>
+<a class="btn write-rew d-block mx-auto my-5 py-2 px-3 text-center text-white text-decoration-none" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Give Your Valueable Review</a>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
           <div class="modal-content p-md-3 p-sm-3 p-3" style="background: #fff5f0;">
@@ -1494,6 +1524,10 @@ $('ul.tabs li').last().addClass("tab_last");
         </div>
       </div>
 {% endif %}
+</div>
+</div>
+</div>
+</section>
 <section class="py-5">
   <div class="container">
     <div class="row d-flex justify-content-center">
@@ -1521,150 +1555,27 @@ $('ul.tabs li').last().addClass("tab_last");
 <script type="text/javascript"><!--
 $('#addtocart').on('click', function() {
   let product_id = $('input[name="product_id"]').val();
-  let quantity = $('#input-quantity').val() || 1;
-
-  cart.add(product_id, quantity,0,name,price);
-	/*$.ajax({
-		url: '?route=checkout/cart/add',
-		type: 'post',
-		data: $('#productcart input[type=\'text\'], #productcart input[type=\'hidden\'], #productcart input[type=\'radio\']:checked, #productcart input[type=\'checkbox\']:checked, #productcart select, #productcart textarea'),
-		dataType: 'json',
-		beforeSend: function() {
-			$('#button-cart').button('loading');
-		},
-		complete: function() {
-			$('#button-cart').button('reset');
-		},
-		success: function(json) {
-			$('.alert-dismissible, .text-danger').remove();
-			$('.form-group').removeClass('has-error');
-
-			if (json['error']) {
-				if (json['error']['option']) {
-					for (i in json['error']['option']) {
-						var element = $('#input-option' + i.replace('_', '-'));
-
-						if (element.parent().hasClass('input-group')) {
-							element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
-						} else {
-							element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
-						}
-					}
-				}
-
-				if (json['error']['recurring']) {
-					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
-				}
-
-				// Highlight any found errors
-				$('.text-danger').parent().addClass('has-error');
-			}
-
-			if (json['success']) {
-        $('body').prepend('<div class="success-popup ">	<span class="warrning-svg">	<svg id="smile"		width="35" height="35" viewBox="0 0 41 41" fill="none">					  <path d="M16.2432 29.9911L16.5968 30.3439L16.95 29.9907L30.5886 16.352L30.9422 15.9985L30.5886 15.6449L27.7128 12.7691L27.3593 12.4156L27.0057 12.7691L16.592 23.1828L12.2699 18.8682L11.9158 18.5148L11.5626 18.869L8.69086 21.7489L8.33792 22.1028L8.69174 22.4558L16.2432 29.9911ZM0.823975 20.662C0.823975 9.72375 9.72375 0.823975 20.662 0.823975C31.6002 0.823975 40.5 9.72375 40.5 20.662C40.5 31.6002 31.6002 40.5 20.662 40.5C9.72375 40.5 0.823975 31.6002 0.823975 20.662Z" stroke="#33C300"/>  </svg>					</span>	<span class="warrning-text">   <p> Added to cart </p>	</span>				  </div>');
-				$('#cartli .badge_pp').text(json['total']);
-				$('#cart > ul').load('index.php?route=common/cart/info ul li');
-        var qun = $('#productcart select').val();
-        var totalvalue = {{ special_number }} * qun;
-        gtag("event", "add_to_cart", {
-          currency: "INR",
-          value: totalvalue,
-          items: [
-            {
-              item_id: "{{ product_id }}",
-              item_name: "{{ heading_title }}",
-              item_brand: "Urbanwood",
-              item_category: "Furniture",
-              price: {{ special_number }},
-              quantity: qun
-            }
-          ]
-        });
-   fbq('track', 'AddToCart', {
-    currency: 'INR',
-    value:totalvalue,
-    content_ids: '{{ product_id }}',
-    content_type: 'product'
-  }); *
-
-			}
-		},
-        error: function(xhr, ajaxOptions, thrownError) {
-            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-        }
-	});*/
+  let quantity = $('#product_quantity').val() || 1;
+  let product_name = "{{ heading_title }}";
+  let product_price = {{ special_number }};
+  cart.add(product_id, quantity,0, product_name, product_price);
 });
 
 //buy now
 $('#buynow').on('click', function() {
-	$.ajax({
-		url: '?route=checkout/cart/add',
-		type: 'post',
-		data: $('#productcart input[type=\'text\'], #productcart input[type=\'hidden\'], #productcart input[type=\'radio\']:checked, #productcart input[type=\'checkbox\']:checked, #productcart select, #productcart textarea'),
-		dataType: 'json',
-		beforeSend: function() {
-			$('#buynow').button('loading');
-      var qun = $('#productcart select').val();
-        var totalvalue = {{ special_number }} * qun;
-        console.log("{{ heading_title }}");
-        /*gtag("event", "add_to_cart", {
-          currency: "INR",
-          value: totalvalue,
-          items: [
-            {
-              item_id: {{ product_id }},
-              item_name: "{{ heading_title }}",
-              item_brand: "Urbanwood",
-              item_category: "Furniture",
-              price: {{ special_number }},
-              quantity: qun
-            }
-          ]
-        });
+  let product_id = $('input[name="product_id"]').val();
+  let quantity = 1;
+  let product_name = "{{ heading_title }}";
+  let product_price = {{ special_number }};
+  let btn = $(this);
+  btn.prop('disabled', true).addClass('disabled').text('Processing...');
 
-        fbq('track', 'AddToCart', {
-          currency: 'INR',
-          value:totalvalue,
-          content_ids: '{{ product_id }}',
-          content_type: 'product'
-        });*/
-		},
-		complete: function() {
-			$('#button-cart').button('reset');
-		},
-		success: function(json) {
-			$('.alert-dismissible, .text-danger').remove();
-			$('.form-group').removeClass('has-error');
+  cart.add(product_id, quantity,0, product_name, product_price);
 
-			if (json['error']) {
-				if (json['error']['option']) {
-					for (i in json['error']['option']) {
-						var element = $('#input-option' + i.replace('_', '-'));
-
-						if (element.parent().hasClass('input-group')) {
-							element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
-						} else {
-							element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
-						}
-					}
-				}
-
-				if (json['error']['recurring']) {
-					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
-				}
-
-				// Highlight any found errors
-				$('.text-danger').parent().addClass('has-error');
-			}
-
-			if (json['success']) {
-        location = location = '{{ buynow }}';
-			}
-		},
-        error: function(xhr, ajaxOptions, thrownError) {
-            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-        }
-	});
+  setTimeout(function () {
+    window.location.href = '{{ buynow }}'; // cart page
+  }, 1000);
+	
 });
 
 
@@ -1793,7 +1704,7 @@ $('#reviewSubmit').on('click', function(e) {
                 $.each(res.data, function (i, currProgram) {
     
                     // console.log(currProgram.review_image ); 
-                    reviewList += '<div class="client-review-cc"> <div class="boc-ckient-rew"> <div class="header"> <div class="cutom-detail"> <div class="user-dp"> <img alt="" src="catalog/view/javascript/assets/image/user-pic.png" loading="lazy"> </div> <div class="client-name-com"> <span class="cc-name-title">' + currProgram.author +'</span> <span class="customer-rating">' + currProgram.rating + ' <i class="bx bxs-star"></i></span> <span class="post-date">Posted on ' + currProgram.date_added + '</span> <div class="certified-tick"> <i class="bx bxs-badge-check"></i> Certified Buyer  </div> </div></div></div> <div class="com-sec-wrote">' + currProgram.text + ' </div> <div class="clien-rew-img"><ul>';
+                    reviewList += '<div class="client-review-cc border rounded-3 d-flex p-2 mb-3"> <div class="boc-ckient-rew"> <div class="header"> <div class="d-flex"> <div class="user-dp border rounded-circle"> <img class="w-100 h-100" alt="" src="catalog/view/javascript/assets/image/user-pic.png" loading="lazy"> </div> <div class="client-name-com"> <span class="cc-name-title">' + currProgram.author +'</span> <span class="customer-rating">' + currProgram.rating + ' <i class="bx bxs-star"></i></span> <span class="post-date">Posted on ' + currProgram.date_added + '</span> <div class="certified-tick"> <i class="bx bxs-badge-check"></i> Certified Buyer  </div> </div></div></div> <div class="com-sec-wrote">' + currProgram.text + ' </div> <div class="clien-rew-img"><ul>';
                     $.each(currProgram.review_image , function (i) {
                           $.each(currProgram.review_image [i], function (key, val) {
                             reviewList += '<li><a href="'+val+'" data-lightbox="photos"> <img alt="review from user" src="'+val+'" loading="lazy"></a></li>';    

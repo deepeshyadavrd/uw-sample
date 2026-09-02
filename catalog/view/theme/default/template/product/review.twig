@@ -20,12 +20,12 @@
 
 {% if reviews %}
     {% for review in reviews %}
-<div class="client-review-cc">
+<div class="client-review-cc border rounded-3 d-flex p-2 mb-3">
     <div class="boc-ckient-rew">
       <div class="header"> 
-        <div class="cutom-detail">
-        <div class="user-dp">
-          <img alt="" src="catalog/view/javascript/assets/image/user-pic.png">
+        <div class="d-flex">
+        <div class="user-dp border rounded-circle">
+          <img class="w-100 h-100" alt="user image" src="catalog/view/javascript/assets/image/user-pic.png">
         </div>
         <div class="client-name-com">
           <span class="cc-name-title"><strong>{{ review.author }}</strong></span>
