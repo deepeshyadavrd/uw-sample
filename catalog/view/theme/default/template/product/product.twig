@@ -1365,7 +1365,9 @@ $('ul.tabs li').last().addClass("tab_last"); #}
         <div class="text-lg-start text-center p-lg-3 heading-nrm"><b>Product Ratings & Reviews</b></div>
         <div class="d-sm-flex d-xs-block align-items-center py-5 gap-3">
           <div class="rate-pro-point mx-auto text-center">
-            <div class="rating-num fw-bold d-inline-flex align-items-center"><span>{{ rating }}  </span><i class='bx bxs-star'></i></div> 
+            <div class="rating-num fw-bold d-inline-flex align-items-center"><span>{{ rating }}  </span><svg class="bi" fill="currentColor" width="24" height="24">
+  <use href="image/icons.svg#icon-star-fill"></use>
+</svg></div> 
             <div class="text-body-secondary small">
               <span> {{ reviews }}  </span></div>
           </div>
@@ -1748,7 +1750,7 @@ $('#reviewSubmit').on('click', function(e) {
                 $.each(res.data, function (i, currProgram) {
     
                     // console.log(currProgram.review_image ); 
-                    reviewList += '<div class="client-review-cc border rounded-3 d-flex p-2 mb-3"> <div class="boc-ckient-rew"> <div class="header"> <div class="d-flex"> <div class="user-dp border rounded-circle"> <img class="w-100 h-100" alt="" src="catalog/view/javascript/assets/image/user-pic.png" loading="lazy"> </div> <div class="client-name-com"> <span class="cc-name-title">' + currProgram.author +'</span> <span class="customer-rating">' + currProgram.rating + ' <i class="bx bxs-star"></i></span> <span class="post-date">Posted on ' + currProgram.date_added + '</span> <div class="certified-tick"> <i class="bx bxs-badge-check"></i> Certified Buyer  </div> </div></div></div> <div class="com-sec-wrote">' + currProgram.text + ' </div> <div class="clien-rew-img"><ul>';
+                    reviewList += '<div class="client-review-cc border rounded-3 d-flex p-2 mb-3"> <div class="boc-ckient-rew"> <div class="header"> <div class="d-flex"> <div class="border rounded-3"> <svg class="bi" fill="currentColor"  width="40" height="40"><use href="image/icons.svg#icon-user-fill"></use></svg> </div> <div class="client-name-com"> <span class="cc-name-title">' + currProgram.author +'</span> <span class="customer-rating">' + currProgram.rating + ' <i class="bx bxs-star"></i></span> <span class="post-date">Posted on ' + currProgram.date_added + '</span> <div class="certified-tick"> <i class="bx bxs-badge-check"></i> Certified Buyer  </div> </div></div></div> <div class="com-sec-wrote">' + currProgram.text + ' </div> <div class="clien-rew-img"><ul>';
                     $.each(currProgram.review_image , function (i) {
                           $.each(currProgram.review_image [i], function (key, val) {
                             reviewList += '<li><a href="'+val+'" data-lightbox="photos"> <img alt="review from user" src="'+val+'" loading="lazy"></a></li>';    

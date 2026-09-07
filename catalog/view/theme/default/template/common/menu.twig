@@ -96,17 +96,17 @@
         <div class="header-item item-right d-flex align-items-center gap-3 w-100  justify-content-end">
           <form class="open-search search-form mx-lg-5 text-end" action="search">
             <label class="open-search-label" for="open-search">
-              <i class='bx bx-search' role="img" aria-label="Search icon"></i>
+              <i class="bx-search" data-lucide="search"></i>
               <input class="input-open-search" id="open-search" type="checkbox" />
               <div class="input-group search">
                 <input type="text" class="form-control"  placeholder="What are you looking for?" name="search" aria-label="What are you looking for?" id="searchinput" aria-describedby="button-addon2" required>
-                <button class="btn btn-outline-secondary button-search" type="submit" id="button-addon2"><i class='bx bx-search' role="img" aria-label="Search icon"></i></button>
+                <button class="btn btn-outline-secondary button-search" type="submit" id="button-addon2"><i data-lucide="search"></i></button>
               </div>
             </label>
           </form>
-          <a href="our-stores" aria-label="our store"><i class="bx bx-store-alt"></i></a>
+          <a href="our-stores" aria-label="our store"><i data-lucide="store"></i></a>
           <div class="dropdown-pp">
-            <i class='bx bx-user'></i>
+            <i data-lucide="user"></i>
             <div class="dropdown-content-pp"> 
               {% if logged %}
                 <a href="account" rel='nofollow'>My Profile</a>
@@ -131,10 +131,10 @@
               {% endif %}
             </div>
           </div>
-          <a href="cart" aria-label="cart"><i class='bx bx-basket' ></i></a>
+          <a href="cart" aria-label="cart"><i data-lucide="ShoppingCart"></i></a>
           <!-- mobile menu trigger -->
           <div class="mobile-menu-trigger">
-            <i class='bx bx-menu'></i>
+            <i data-lucide="menu"></i>
           </div>
         </div>
       </div>

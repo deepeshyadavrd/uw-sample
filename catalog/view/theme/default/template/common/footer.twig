@@ -356,7 +356,8 @@ style="position:fixed;bottom:90px;right:20px;width:320px;display:none;z-index:99
 {# <script src="https://unpkg.com/@knadh/oat/oat.min.js" defer></script> #}
 <script src="catalog/view/javascript/assets/js/new-menu2.js" ></script>
 <script src="catalog/view/javascript/common.js" type="text/javascript" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+{# <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>   #}
+{# <script src="https://unpkg.com/lucide@1.41.0/dist/umd/lucide.min.js"></script> #}
 
 </div>
 <script>
@@ -704,7 +705,7 @@ document.addEventListener('click', function (e) {
         checkElementAndAttachScroll();
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
+    {# document.addEventListener('DOMContentLoaded', function() {
         // Create a new <link> element
         const link = document.createElement('link');
         link.rel = 'stylesheet';
@@ -714,7 +715,7 @@ document.addEventListener('click', function (e) {
 
         // Append the <link> element to the <head>
         document.head.appendChild(link);
-    });
+    }); #}
 
 </script>
 
@@ -896,7 +897,21 @@ const featuresHTML = Array.isArray(p.features) ? p.features.map(f => `<span clas
 });
 
 observer1.observe(track);
+</script>
+<script src="https://unpkg.com/lucide@1.41.0/dist/umd/lucide.min.js"></script>
 
+<script>
+    lucide.createIcons({
+        icons: {
+            Menu: lucide.Menu,
+            Search: lucide.Search,
+            User: lucide.User,
+            ShoppingCart: lucide.ShoppingCart,
+            Heart: lucide.Heart,
+            Store: lucide.Store
+        }
+    });
+</script>
   </script>
     <style>
   .product-card {

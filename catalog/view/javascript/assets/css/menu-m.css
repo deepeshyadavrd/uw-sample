@@ -210,7 +210,7 @@
   border: 0;
   color: #fff;
   cursor: pointer;
-  padding: 8px 20px;
+  /* padding: 8px 20px; */
 }
 .container .search .button-search .bx-search {
   display: block;
@@ -324,11 +324,10 @@ header .item-right i {
     display: none;
   }
   .container .search .button-search {
-    padding: 7px 14px;
+    /* padding: 7px 14px; */
   }
   .container .search>.form-control{
     width: 99%;
-    font-size: 0.9rem;
   }
   .header .menu > ul > li .sub-menu.mega-menu{
     left: 50%;
