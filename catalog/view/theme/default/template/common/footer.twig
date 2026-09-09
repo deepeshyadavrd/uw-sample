@@ -3,12 +3,12 @@
 {# {{ customerstories }} #}
 {% endif %}
 <!-- request call back -->
-<div class="sidecall">
+{# <div class="sidecall">
     <button type="button" class=" requestcall" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
         Request Call
         <span><i class='bx bx-phone-call bx-tada'></i></span>
     </button>
-</div>
+</div> #}
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -338,8 +338,7 @@
         <!-- CALLBACK -->
         <div class="col border-end">
             <a href="javascript:void(0)"
-               data-bs-toggle="modal"
-               data-bs-target="#callbackModal"
+               data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
                class="text-decoration-none text-dark d-flex align-items-center justify-content-center py-2">
 
                 <span class="d-flex align-items-center justify-content-center rounded-circle bg-light"
@@ -357,7 +356,7 @@
 
         <!-- WHATSAPP -->
         <div class="col border-end">
-            <a href="https://wa.me/919999999999"
+            <a href="https://wa.me/919311662426"
                target="_blank"
                class="text-decoration-none text-dark d-flex align-items-center justify-content-center py-2">
 
@@ -376,8 +375,8 @@
 
         <!-- CATEGORIES -->
         <div class="col">
-            <a href="#categories"
-               class="text-decoration-none text-dark d-flex align-items-center justify-content-center py-2">
+            <button
+               class="mobile-menu-trigger text-decoration-none text-dark d-flex align-items-center justify-content-center py-2">
 
                 <span class="d-flex align-items-center justify-content-center rounded-circle bg-light"
                       style="width:34px;height:34px;">
@@ -388,7 +387,7 @@
                     Categories
                 </span>
 
-            </a>
+            </button>
         </div>
 
     </div>
