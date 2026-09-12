@@ -527,7 +527,6 @@ style="position:fixed;bottom:90px;right:20px;width:320px;display:none;z-index:99
 <script src="catalog/view/javascript/assets/js/new-menu2.js" ></script>
 <script src="catalog/view/javascript/common.js" type="text/javascript" defer></script>
 {# <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>   #}
-{# <script src="https://unpkg.com/lucide@1.41.0/dist/umd/lucide.min.js"></script> #}
 
 </div>
 <script>
@@ -1018,7 +1017,7 @@ document.addEventListener("DOMContentLoaded", function() {
   </script>
   <script>
 
-const track = document.getElementById('productTrack');
+const slidesContainer  = document.getElementById('productSlides');
 let loaded = false;
 
 const observer1 = new IntersectionObserver(entries => {
@@ -1028,19 +1027,38 @@ const observer1 = new IntersectionObserver(entries => {
     fetch('catalog/view/theme/default/popular.json')
       .then(res => res.json())
       .then(products => {
-        products.forEach(p => {
-          const card = document.createElement('a');
-          card.href = p.link;
-          card.className = 'product-card bg-white rounded-3 my-5';
-const featuresHTML = Array.isArray(p.features) ? p.features.map(f => `<span class="feature">${f}</span>`).join("") : "";
+        let productsPerSlide;
+
+            if (window.innerWidth < 768) {
+                productsPerSlide = 2;
+            } else if (window.innerWidth < 992) {
+                productsPerSlide = 3;
+            } else {
+                productsPerSlide = 4;
+            }
+        for (let i = 0; i < products.length; i += productsPerSlide) {
+          const slide = document.createElement('div');
+          //card.href = p.link;
+          slide.className = 'carousel-item' + (i === 0 ? ' active' : '');
+          const row = document.createElement('div');
+            row.className = 'row g-3';
+
+        const slideProducts = products.slice(i,i + productsPerSlide);
+        slideProducts.forEach(p => {
+            const col = document.createElement('div');
+                col.className = 'col-6 col-md-4 col-lg-3';
+                const card = document.createElement('a');
+                    card.href = p.link;
+                    card.className = 'product-card bg-white rounded-3 my-5 d-block';
+                    const featuresHTML = Array.isArray(p.features) ? p.features.map(f => `<span class="feature">${f}</span>`).join("") : "";
           card.innerHTML = `
             ${p.best_seller ? '<span class="product-badge">Best Seller</span>' : ''}
             <div class="product-tilt-effect">
             <div class="product-image"><img src="${p.image}" alt="${p.name}" loading="lazy"></div>
         </div>
         <div class="product-info">
-            <div class="product-category">Luxury Timepiece</div>
-            <h4 Class="product-title">${p.name}</h4>
+            <div class="product-category text-uppercase text-muted lh-base mb-2">Luxury Timepiece</div>
+            <h4 Class="product-title fs-6 mb-1 d-inline-block text-truncate">${p.name}</h4>
             <div class="product-features">${featuresHTML}</div>
             <div class="product-bottom">
                 <div class="product-price">
@@ -1049,24 +1067,31 @@ const featuresHTML = Array.isArray(p.features) ? p.features.map(f => `<span clas
                 </div>
                 <button class="product-button">
                     <span class="button-text">Add to Cart</span>
-                    <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                    </svg>
+                    <i data-lucide="ShoppingCart"></i>
                 </button>
             </div>
             </div>
           `;
           
-
-          track.appendChild(card);
+            col.appendChild(card);
+          row.appendChild(col);
         });
-      });
-  }
+        slide.appendChild(row);
+        slidesContainer.appendChild(slide);
+      }
+      if (typeof createIcons === 'function') {
+        createIcons();
+    }
+  })
+  .catch(error => {
+    console.error('Unable to load popular products:',error);
+
+    });
+
+}
 });
 
-observer1.observe(track);
+observer1.observe(slidesContainer);
 </script>
 <script src="https://unpkg.com/lucide@1.41.0/dist/umd/lucide.min.js"></script>
 
@@ -1081,7 +1106,9 @@ observer1.observe(track);
             Store: lucide.Store,
             Phone: lucide.Phone,
             MessageCircle: lucide.MessageCircle,
-            Grid2x2: lucide.Grid2x2
+            Grid2x2: lucide.Grid2x2,
+            "chevron-left": lucide.ChevronLeft,
+            "chevron-right": lucide.ChevronRight
         }
     });
 </script>
@@ -1094,7 +1121,7 @@ observer1.observe(track);
     position: relative;
     background: white;
     border-radius: 10px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    /*box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);*/
     overflow: hidden;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -1102,6 +1129,7 @@ observer1.observe(track);
     flex: 0 0 280px;
   scroll-snap-align: start;
   position: relative;
+  border: 1px solid #ededed;
 }
 {# 
 .product-card:hover {
@@ -1152,9 +1180,9 @@ observer1.observe(track);
 }
 
 .product-image img {
-    width: 100%;
+    /*width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover;*/
     transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
@@ -1171,11 +1199,6 @@ observer1.observe(track);
 
 .product-category {
     font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #71717A;
-    margin-bottom: 8px;
 }
 
 .product-title {
