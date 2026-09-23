@@ -129,7 +129,7 @@
 
                                                                         <span class="btn-minus minus" onclick="minusPro(this);" data-id="{{ product.cart_id }}">
                                                                             <i class='bx bx-minus' ></i></span>
-                                                                        <input name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}" class="count quantity cart_{{ product.cart_id }}">
+                                                                        <input name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}" class="count quantity cart_{{ product.cart_id }}" min="1" max="9" step="1">
                                                                         <span class="btn-plus plus" onclick="plusPro(this);" data-id="{{ product.cart_id }}">
                                                                             <i class='bx bx-plus' ></i></span>
 
@@ -568,5 +568,20 @@ function removefromcart(productid, cartid) {
         }
     });
 }
+$(document).on('input', 'input[name^="quantity["]', function () {
+    let value = this.value.replace(/\D/g, '');
+
+    if (value === '') {
+        this.value = '';
+        return;
+    }
+
+    value = parseInt(value, 10);
+
+    if (value < 1) value = 1;
+    if (value > 9) value = 9;
+
+    this.value = value;
+});
 </script>
 {{ footer }}
