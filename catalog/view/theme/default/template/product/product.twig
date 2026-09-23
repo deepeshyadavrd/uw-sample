@@ -508,6 +508,14 @@ input#quantity {
     </div>
 </div>
                 {% endif %}
+                <button type="button"
+  id="room-preview-trigger"
+  data-product-name="{{ heading_title }}"
+  data-product-image="{{ images[0].desktop }}"
+  data-product-category="{{ category_name }}"
+>See it in your room</button>
+
+<script src="room-preview/room-preview-widget.js" data-endpoint="room-preview/generate.php"></script> 
               </div>
               
               <hr style="border-bottom: 1px dashed #6a6a6a;border-top:none;">
