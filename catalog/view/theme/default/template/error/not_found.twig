@@ -19,7 +19,7 @@
 </div>
 
 <section class="text-center not-found-bg">
-<div class="container-custom container">
+<div class="container">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="not-found-page">
@@ -27,21 +27,21 @@
                     {% if text_error1 %}
                         <h2>{{ text_error1 }}</h2>
                     {% else %}
-                        <h2>OOPS!</h2>
+                        <h2>Oops! We Can't Find That Page</h2>
                     {% endif %}
-                    <h3 class="mb-3">{{ text_error }}</h3>
+                    <p class="mb-3">{{ text_error }}</p>
                      </div>
                 <div class="not-found-img">
-                    {% if page_text %}
-                        <img src="catalog/view/javascript/assets/image/icon/empthy-cart-desktop.png" alt="" class="img-fluid">
+                    {% if page_type == '404'  %}
+                        <img src="catalog/view/javascript/assets/image/not-found.webp" alt="" class="img-fluid">
                     {% else %}
-                        <img src="catalog/view/javascript/assets/image/not-found.png" alt="" class="img-fluid">
+                        <img src="catalog/view/javascript/assets/image/cart-empty.webp" alt="" class="img-fluid">
                     {% endif %}
                 </div>
-                {% if page_text %}
-                    <a href="/" class="goback-btn">Continue Shopping</a>
+                {% if page_type == '404'  %}
+                    <a href="/" class="goback-btn d-inline-block text-center text-white px-4 py-2 mt-4 border rounded-3">Back to Home</a>
                 {% else %}
-                    <a href="/" class="goback-btn">Go Back!</a>
+                    <a href="/" class="goback-btn d-inline-block text-center text-white px-4 py-2 mt-4 border rounded-3">Explore Furniture</a>
                 {% endif %}
                 
             </div>

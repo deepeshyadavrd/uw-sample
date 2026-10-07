@@ -273,7 +273,7 @@ class ControllerCheckoutCart extends Controller {
 			$this->response->setOutput($this->load->view('checkout/cart', $data));
 		} else {
 			$data['text_error1'] = 'Your cart is Empty!';
-			$data['text_error'] = 'Add something to make me happy';
+			$data['text_error'] = 'Find pieces that make your space feel like Home';
 		
 			unset($this->session->data['success']);
 
