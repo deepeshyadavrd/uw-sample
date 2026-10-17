@@ -1493,46 +1493,83 @@ function addGroup() {
 // 	}
 // });
 // product_group[{{ group_row }}][text]
+// Debounce helper: runs fn only after `delay` ms of no calls
+function debounce(fn, delay) {
+	var timer;
+	return function() {
+		var context = this, args = arguments;
+		clearTimeout(timer);
+		timer = setTimeout(function() {
+			fn.apply(context, args);
+		}, delay);
+	};
+}
+
 function groupautocomplete(group_row) {
-	$('input[name=\'product_group[' + group_row + '][product_name]\']').autocomplete({
+	var $input = $('input[name=\'product_group[' + group_row + '][product_name]\']');
+	var xhr = null;
+
+	var fetchData = debounce(function(request, response) {
+		if (xhr) { xhr.abort(); }               // cancel any older pending request
+		xhr = $.ajax({
+			url: 'index.php?route=catalog/product/autocomplete&user_token={{ user_token }}&filter_name=' + encodeURIComponent(request),
+			dataType: 'json',
+			success: function(json) {
+				response($.map(json, function(item) {
+					return {
+						label: item.name,
+						value: item.product_id
+					};
+				}));
+			}
+		});
+	}, 1000); // 2 seconds
+
+	$input.autocomplete({
 		'source': function(request, response) {
-			$.ajax({
-				url: 'index.php?route=catalog/product/autocomplete&user_token={{ user_token }}&filter_name=' +  encodeURIComponent(request),
-				dataType: 'json',
-				success: function(json) {
-					response($.map(json, function(item) {
-						return {
-							label: item.name,
-							value: item.product_id
-						}
-					}));
-				}
-			});
+			if (!request || request.trim() === '') {
+				response([]);
+				return;
+			}
+			fetchData(request, response);
 		},
 		'select': function(item) {
-			$('input[name=\'product_group[' + group_row + '][product_name]\']').val(item['label']);
+			$input.val(item['label']);
 			$('input[name=\'product_group[' + group_row + '][product_id]\']').val(item['value']);
 		}
 	});
 }
+
 function groupautocomplete1(group_row) {
-	$('input[name=\'product_group[' + group_row + '][group_name]\']').autocomplete({
+	var $input = $('input[name=\'product_group[' + group_row + '][group_name]\']');
+	var xhr = null;
+
+	var fetchData = debounce(function(request, response) {
+		if (xhr) { xhr.abort(); }
+		xhr = $.ajax({
+			url: 'index.php?route=catalog/attribute/autocomplete1&user_token={{ user_token }}&filter_name=' + encodeURIComponent(request),
+			dataType: 'json',
+			success: function(json) {
+				response($.map(json, function(item) {
+					return {
+						label: item.name,
+						value: item.group_id
+					};
+				}));
+			}
+		});
+	}, 1000);
+
+	$input.autocomplete({
 		'source': function(request, response) {
-			$.ajax({
-				url: 'index.php?route=catalog/attribute/autocomplete1&user_token={{ user_token }}&filter_name=' +  encodeURIComponent(request),
-				dataType: 'json',
-				success: function(json) {
-					response($.map(json, function(item) {
-						return {
-							label: item.name,
-							value: item.group_id
-						}
-					}));
-				}
-			});
+			if (!request || request.trim() === '') {
+				response([]);
+				return;
+			}
+			fetchData(request, response);
 		},
 		'select': function(item) {
-			$('input[name=\'product_group[' + group_row + '][group_name]\']').val(item['label']);
+			$input.val(item['label']);
 			$('input[name=\'product_group[' + group_row + '][group_id]\']').val(item['value']);
 		}
 	});
