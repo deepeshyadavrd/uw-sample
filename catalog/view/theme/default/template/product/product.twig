@@ -450,13 +450,100 @@ input#quantity {
                 </div>
               {% endif %}
 
-              <div class="my-2"> 
-                <h6>Delivery : <span class="pp-about small text-body-secondary">( Check Delivery availabilty by are your area ) </span></h6>
-                <div class="d-flex search-form-dd">
-                  <input class="search-form-delivery" id="pincode" type="search" placeholder="Enter Pincode" aria-label="Search">
-                  <button class="search-devlivery-btn" type="button" onclick="checkPincode()"><i class="bx bx-search"></i></button>
-                </div>
-                <div id="pincode-result"></div>
+              <div class="my-2">
+                <h6> Delivery :
+                  <span class="pp-about small text-body-secondary">
+                    (Check delivery availability in your area)
+                  </span>
+                </h6>
+
+                <div class="pincode-field">
+    <input
+        class="search-form-delivery"
+        id="pincode"
+        type="text"
+        placeholder="Enter Pincode"
+        aria-label="Pincode"
+    >
+
+    <button
+        class="search-devlivery-btn"
+        id="pincode-btn"
+        type="button"
+        onclick="checkPincode()"
+    >
+        Check
+    </button>
+</div>
+
+<div id="pincode-result"></div>
+<hr style="border-bottom: 1px dashed #6a6a6a;border-top:none;">
+<style>
+.pincode-field {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 42px;
+    border: 1px solid #c0c0c0;
+    border-radius: 3px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.pincode-field {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pincode-field:focus-within {
+    border-color: #fc7e00;
+    box-shadow: 0 0 0 3px rgb(252 126 0 / 16%);
+}
+
+.pincode-field .search-form-delivery {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    padding: 0 12px;
+    border: 0;
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+    color: #333;
+    font-size: 14px;
+}
+
+.pincode-field .search-form-delivery:disabled {
+    opacity: 1;
+    cursor: default;
+    background: transparent;
+    color: #333;
+    -webkit-text-fill-color: #333;
+}
+
+.pincode-field .search-devlivery-btn {
+    flex-shrink: 0;
+    height: 100%;
+    padding: 0 14px;
+    border: 0;
+    background: transparent;
+    color: #000000;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.pincode-field .search-devlivery-btn:hover {
+    background: transparent;
+    color: #ff8000;
+}
+
+.pincode-field .search-devlivery-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+</style>
+
+                <div id="pincode-result" aria-live="polite"></div>
               </div>
               {% if not hide_price %}
               <form id="product">
@@ -1605,7 +1692,86 @@ $('ul.tabs li').last().addClass("tab_last"); #}
   </div>
 </section>
 </div>
+<style>
+.pin-neutral-title{
+    margin: 0 0 6px;
+    color: #000;
+    font-size: 14px;
+}
+.pin-unavailable-box {
+    padding: 10px 0 4px;
+}
 
+.pin-unavailable-title {
+    margin: 0 0 6px;
+    color: #ff5252;
+    font-size: 13px;
+}
+
+.pin-unavailable-description {
+    margin: 0 0 12px;
+    color: #666;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.pin-unavailable-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pin-whatsapp-btn,
+.pin-call-btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 38px;
+    padding: 9px 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.pin-whatsapp-btn {
+    background: #25d366;
+    border-color: #25d366;
+    color: #fff;
+}
+
+.pin-whatsapp-btn:hover {
+    background: #1fb858;
+    color: #fff;
+}
+
+.pin-call-btn {
+    background: #fff;
+    color: #333;
+}
+
+.pin-call-btn:hover {
+    border-color: #000000;
+    color: #000000;
+}
+
+.pin-unavailable-actions i {
+    font-size: 18px;
+}
+.pin-pincode-contact a,
+#pincode-result a[href^="tel:"] {
+    color: #000;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+#pincode-result a[href^="tel:"]:hover {
+    color: #e83e70;
+}
+</style>
 <script type="text/javascript"><!--
 $('#addtocart').on('click', function() {
   let product_id = $('input[name="product_id"]').val();
@@ -1840,75 +2006,303 @@ gtag("event", "view_item", {
 }); #}
 
 let pincodeData = [];
-  let jsonLoaded = false;
+let jsonLoaded = false;
+let jsonLoading = null;
 
-  // Load JSON if needed
-  function loadPincodeData(callback) {
-    if (jsonLoaded) return callback();
-    fetch('catalog/view/theme/default/template/pincodes.json')
-      .then(res => res.json())
-      .then(data => {
-        pincodeData = data.pincodes;
-        jsonLoaded = true;
-        callback();
-      })
-      .catch(() => {
-        document.getElementById('pincode-result').innerHTML = '⚠️ Failed to load pincode data.';
-        document.getElementById('pincode-result').style.color = 'red';
-      });
-  }
+const SELECTED_PIN_KEY = 'selectedPincode';
 
-  function checkPincode() {
-    const input = document.getElementById('pincode').value.trim();
+// Load the JSON file only once.
+function loadPincodeData() {
+    if (jsonLoaded) {
+        return Promise.resolve();
+    }
+
+    if (jsonLoading) {
+        return jsonLoading;
+    }
+
+    jsonLoading = fetch(
+        'catalog/view/theme/default/template/pincodes.json'
+    )
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to load pincode data.');
+            }
+
+            return response.json();
+        })
+        .then(data => {
+            pincodeData = data.pincodes || [];
+            jsonLoaded = true;
+        })
+        .finally(() => {
+            jsonLoading = null;
+        });
+
+    return jsonLoading;
+}
+
+// Find a pincode in the JSON data.
+function findPincode(pin) {
+    return pincodeData.find(
+        p => String(p.pincode).trim() === pin
+    );
+}
+
+// Display the message for a valid pincode.
+function showPincodeSuccess(pin, found) {
+    const input = document.getElementById('pincode');
+    const button = document.getElementById('pincode-btn');
     const resultDiv = document.getElementById('pincode-result');
 
-    if (!/^\d{6}$/.test(input)) {
-      resultDiv.innerHTML = '❌ Please enter a valid 6-digit pincode.';
-      resultDiv.style.color = 'red';
-      return;
+    input.value = pin;
+    input.disabled = true;
+
+    resultDiv.replaceChildren();
+
+    // Delivery message with truck icon
+    const message = document.createElement('div');
+    message.className = 'd-flex align-items-center gap-2 text-success pt-3';
+    //message.style.cssText = 'display:flex;align-items:center;gap:7px;color:green;';
+
+    message.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="23" height="23" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+            <path d="M10 17h4V5H2v12h3"/>
+            <path d="M14 9h4l4 4v4h-3"/>
+            <circle cx="7.5" cy="17.5" r="2.5"/>
+            <circle cx="16.5" cy="17.5" r="2.5"/>
+        </svg>
+    `;
+
+    const messageText = document.createElement('span');
+    messageText.textContent =
+        `We deliver to ${found.district}, ${found.state}!`;
+
+    message.appendChild(messageText);
+
+    // Smaller, black text on the next line
+    const contact = document.createElement('div');
+    contact.style.cssText =
+        'font-size:12px;color:#000;margin-top:4px;';
+
+    contact.innerHTML = `
+    For more details, call:
+    <a href="tel:+919311662218">+91 9311662218</a>
+`;
+
+    resultDiv.append(message, contact);
+
+    button.innerHTML = 'Change';
+    button.dataset.mode = 'change';
+}
+
+// Enable the input so the customer can change the pincode.
+function enablePincodeChange() {
+    const input = document.getElementById('pincode');
+    const button = document.getElementById('pincode-btn');
+    const resultDiv = document.getElementById('pincode-result');
+
+    input.disabled = false;
+    input.value = '';
+    input.focus();
+
+    button.innerHTML = 'Check';
+    button.dataset.mode = 'check';
+resultDiv.innerHTML = `
+        <div class="pin-unavailable-box">
+            <p class="pin-neutral-title">
+                Enter a new pincode to check.
+            </p>
+            </div>`;
+    //resultDiv.textContent = 'Enter a new pincode to check.';
+    resultDiv.style.color = '';
+}
+
+// Display your existing courier-partner message.
+function showPincodeUnavailable() {
+    const resultDiv = document.getElementById('pincode-result');
+
+    resultDiv.innerHTML = `
+        <div class="pin-unavailable-box">
+            <p class="pin-unavailable-title">
+                Sorry, delivery is currently not available in your area.
+            </p>
+
+            <p class="pin-unavailable-description">
+                Contact us to check alternate delivery options.
+            </p>
+
+            <div class="pin-unavailable-actions">
+                <button class="wa-btn pin-whatsapp-btn btn btn-success d-flex align-items-center justify-content-center gap-1 py-2 px-2 border-0 rounded-2"
+                data-text="Hi, I would like more information about {{ ' ' ~ heading_title }}">
+            <span class="small text-nowrap">Whatsapp</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="25px" height="25px">
+                <path fill="#fff" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"></path>
+                <path fill="#40c351" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z"></path>
+            </svg>
+        </button>
+
+                <button
+                    type="button"
+                    class="pin-call-btn"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight"
+                >
+                    <i class="bx bx-phone"></i>
+                    Request Callback <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" aria-hidden="true" style="width:20px;height:20px;" class="lucide lucide-phone"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+function showPincodeUnavailableMessage() {
+    const resultDiv = document.getElementById('pincode-result');
+
+    resultDiv.textContent =
+        'We deliver through multiple courier partners. If DTDC or Gati serves your pincode, your order may be delivered. Call: +91 9311662218 for more details.';
+
+    resultDiv.style.color = '#ff8000';
+}
+
+// Main check button handler.
+async function checkPincode() {
+    const input = document.getElementById('pincode');
+    const button = document.getElementById('pincode-btn');
+    const resultDiv = document.getElementById('pincode-result');
+
+    // First click on Change enables the input.
+    if (button.dataset.mode === 'change') {
+        enablePincodeChange();
+        return;
     }
 
-    // Show loading
-    resultDiv.innerHTML = '⏳ Checking delivery area...';
+    const pin = input.value.trim();
+
+    if (!/^\d{6}$/.test(pin)) {
+        resultDiv.textContent =
+            'Please enter a valid 6-digit pincode.';
+        resultDiv.style.color = 'red';
+        return;
+    }
+
+    button.disabled = true;
+    resultDiv.textContent = '⏳ Checking delivery area...';
     resultDiv.style.color = 'gray';
 
-    // Check localStorage first
-    const cached = localStorage.getItem(`pincode-${input}`);
-    if (cached) {
-      const found = JSON.parse(cached);
-      resultDiv.innerHTML = `✅ We deliver to ${found.district}, ${found.state}! For more details Call: +91 9311662218`;
-      resultDiv.style.color = 'green';
-      return;
+    try {
+        // Always validate the new PIN against your JSON file.
+        await loadPincodeData();
+
+        const found = findPincode(pin);
+
+        if (found) {
+            // Cache the location data for this pincode.
+            localStorage.setItem(
+                `pincode-${pin}`,
+                JSON.stringify(found)
+            );
+
+            // Remember which pincode was selected most recently.
+            localStorage.setItem(SELECTED_PIN_KEY, pin);
+
+            showPincodeSuccess(pin, found);
+        } else {
+            // Keep the previous selected PIN unchanged.
+            showPincodeUnavailable();
+
+            // Let the customer correct the entered PIN.
+            input.disabled = false;
+            button.innerHTML = 'Check';
+            button.dataset.mode = 'check';
+        }
+    } catch (error) {
+        resultDiv.textContent =
+            'Failed to load pincode data. Please try again.';
+        resultDiv.style.color = 'red';
+    } finally {
+        button.disabled = false;
+    }
+}
+
+// Restore the last selected PIN when the page loads.
+document.addEventListener('DOMContentLoaded', async function () {
+    const input = document.getElementById('pincode');
+    const button = document.getElementById('pincode-btn');
+    const resultDiv = document.getElementById('pincode-result');
+
+    button.dataset.mode = 'check';
+
+    const savedPin = localStorage.getItem('selectedPincode');
+
+    if (!savedPin || !/^\d{6}$/.test(savedPin)) {
+        return;
     }
 
-    // Load JSON and search only if not in cache
-    loadPincodeData(() => {
-      const found = pincodeData.find(p => p.pincode === input);
-      if (found) {
-        resultDiv.innerHTML = `✅ We deliver to ${found.district}, ${found.state}! For more details Call: +91 9311662218`;
-        resultDiv.style.color = 'green';
-        localStorage.setItem(`pincode-${input}`, JSON.stringify(found));
-      } else {
-        resultDiv.innerHTML = 'We deliver through multiple courier partners. If DTDC or Gati serves your pincode, your order will be delivered, Call: +91 9311662218 for more details';
-        resultDiv.style.color = '#ff8000';
-      }
-    });
-  }
-// <p class="pin_error" style="color:#ff8000">We deliver through multiple courier partners. If DTDC or Gati serves your pincode, your order will be delivered, Call:+91 9311662218 </p>
-  // Trigger on input
-  window.addEventListener('DOMContentLoaded', () => {
-    const inputEl = document.getElementById('pincode');
+    // Check cached details first.
+    const cached = localStorage.getItem(`pincode-${savedPin}`);
 
-    inputEl.addEventListener('input', () => {
-      const input = inputEl.value.trim();
+    if (cached) {
+        try {
+            const found = JSON.parse(cached);
 
-      if (input.length === 6 && /^\d{6}$/.test(input)) {
-        checkPincode();
-      } else {
-        document.getElementById('pincode-result').innerHTML = '';
-      }
-    });
-  });
+            if (
+                String(found.pincode).trim() === savedPin &&
+                found.district &&
+                found.state
+            ) {
+                showPincodeSuccess(savedPin, found);
+                return; // No JSON fetch needed.
+            }
+        } catch (error) {
+            // Invalid cached data: verify using JSON.
+        }
+    }
+
+    // Fetch JSON only when cached details are unavailable or invalid.
+    input.value = '';
+    input.disabled = true;
+    button.disabled = true;
+
+    try {
+        await loadPincodeData();
+
+        const found = findPincode(savedPin);
+
+        if (found) {
+            localStorage.setItem(
+                `pincode-${savedPin}`,
+                JSON.stringify(found)
+            );
+
+            showPincodeSuccess(savedPin, found);
+        } else {
+            localStorage.removeItem('selectedPincode');
+
+            input.value = '';
+            input.disabled = false;
+            button.innerHTML = '<i class="bx bx-search"></i>';
+            button.dataset.mode = 'check';
+            resultDiv.textContent = '';
+        }
+    } catch (error) {
+        input.value = '';
+        input.disabled = false;
+        button.innerHTML = '<i class="bx bx-search"></i>';
+        button.dataset.mode = 'check';
+
+        resultDiv.textContent =
+            'Unable to verify your saved pincode. Please try again.';
+        resultDiv.style.color = 'red';
+    } finally {
+        button.disabled = false;
+    }
+});
 </script>
 {% if product_schema %}
 <script type="application/ld+json">

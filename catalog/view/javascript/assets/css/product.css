@@ -297,8 +297,8 @@
     bottom: 0;
     background: #ffecd9;
     transition: width 1s;
-    width: 46px;
-    height: 40px;
+    /* width: 46px; */
+    /* height: 40px; */
     border-radius: 0px;
     border: none;
     color: #ff8000;
