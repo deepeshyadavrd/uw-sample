@@ -4032,7 +4032,7 @@ p #registerbtn {
 	border-top: 1px solid #ddd
 }
 
-.search-pincode-btn-modal {
+/* .search-pincode-btn-modal {
 	float: right;
     padding: 4px 9px;
     background: linear-gradient(1deg, #ff8000, #ffe084);
@@ -4044,7 +4044,7 @@ p #registerbtn {
     right: 0;
     border-radius: 100px;
     top: 0;
-}
+} */
 
 .out-active-user {
 	align-items: center;
@@ -7279,9 +7279,9 @@ span.img-label:last-child{
       overflow: unset;
       width: 100%;
     }
-	.search-pincode-btn-modal{
+	/* .search-pincode-btn-modal{
 		font-size: 15px;
-	}
+	} */
 	.categories-best,
 	.categories-ff,
 	.categories-for-bulk,

@@ -54,38 +54,71 @@
                 <div class="panel panel-primary setup-content" id="step-1">
                     <div class="row">
                         <div class="col-lg-8">
-                            <div class="d-md-flex justify-content-between d-block my-3 text-sm-center">
-                                <div class="text-md-start text-center">
-                                    <b>Check Delivery time & Services</b>
-                                </div>
-                            </div>
-                            <!--- active user -->
-                            
-                            <div class="out-active-user">
-                                <img src="catalog/view/javascript/assets/image/icon/active-users-icon.png">
-                                <div class="search-form-dd">
-                                    <input
-                                        class="form-control search-pincode-input"
-                                        id="input-pincode"
-                                        placeholder="Enter your PinCode"
-                                        type="search"
-                                        maxlength="6"
-                                        inputmode="numeric"
-                                    >
+                            <div class="my-3">
+    {# <div class="fw-semibold mb-3">
+        
+    </div> #}
 
-                                    <button
-                                        type="button"
-                                        class="search-pincode-btn-modal"
-                                        onclick="checkCartPincode()"
-                                    >
-                                        CHECK
-                                    </button>
-                                </div>
-                            
+    <div class="out-active-user border rounded-3 p-3">
 
-                            <div class="pincode-msg" id="cart-pincode-result"></div>
+        <div class="d-flex flex-column gap-1">
+            {# <i class="bx bx-map-pin fs-4 text-secondary"></i> #}
+            <h2 class="fs-6 m-0">Check Delivery Availability</h2>
+            <span class="small text-muted" style="font-size:10px;">
+                Enter your pincode to check delivery availability.
+            </span>
+        </div>
 
-                            </div>
+        <div class="search-form-dd d-flex gap-2">
+            <input class="form-control search-pincode-input" id="input-pincode" placeholder="Enter pincode" type="text" maxlength="6" inputmode="numeric">
+
+            <button type="button" class="search-pincode-btn-modal btn btn-link text-decoration-none px-2" onclick="checkCartPincode()">
+                CHECK
+            </button>
+        </div>
+
+        <div class="pincode-msg" id="cart-pincode-result"></div>
+
+    </div>
+</div>
+<style>
+.out-active-user {
+    background: #fff;
+    border-color: #e5e5e5 !important;
+}
+
+.search-form-dd .search-pincode-input {
+    /*height: 44px;*/
+    font-size: 14px;
+}
+
+.search-form-dd .search-pincode-input:focus {
+    border-color: #999;
+    box-shadow: none;
+}
+
+.search-pincode-btn-modal {
+        height: 100%;
+    font-size: 13px;
+    font-weight: 600;
+    right: 0;
+    position: absolute;
+    color: #717171;
+}
+.search-pincode-btn-modal:hover {
+    color: #000;
+}
+
+@media (max-width: 400px) {
+    .search-form-dd {
+        flex-wrap: wrap;
+    }
+
+    .search-pincode-btn-modal {
+        width: 100%;
+    }
+}
+</style>
 
                             <!-- add to cart list for order -->
                             <div class="cart-list-for-order">
