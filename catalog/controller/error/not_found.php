@@ -25,6 +25,7 @@ class ControllerErrorNotFound extends Controller {
 		);
 
 		$current_route = isset($this->request->get['route']) ? $this->request->get['route'] : 'error/not_found';
+		print_r($current_route . 'here');
 		if ($current_route == 'checkout/cart') {
 			$data['page_type'] = 'empty_cart';
 		} else {
@@ -89,7 +90,7 @@ class ControllerErrorNotFound extends Controller {
 
 		$data['header'] = $this->load->controller('common/header');
 
-		$data['menu'] = $this->load->controller('common/menu');
+		$data['menu'] = $this->load->controller('common/menu'); 
 
 
 
