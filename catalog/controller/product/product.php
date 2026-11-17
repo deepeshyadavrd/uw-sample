@@ -494,7 +494,7 @@ if(!$has_finish_option && !$has_cotton_fabric && !$has_velvet){
 			$data['products'] = array();
 
 			$results = $this->model_catalog_product->getProductRelated($this->request->get['product_id']);
-
+print_r($results);
 			foreach ($results as $result) {
 				if ($result['image']) {
 					$image = $this->model_tool_image->webp($this->model_tool_image->crop($result['image'], 400, 320));
@@ -543,7 +543,8 @@ if(!$has_finish_option && !$has_cotton_fabric && !$has_velvet){
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'rating'      => $rating,
 					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'], true),
-					'stock_status'  => $result['stock_status']
+					'stock_status'  => $result['stock_status'],
+					'hide_price' => $result['hide_price'] 
 				);
 			}
 
@@ -597,7 +598,8 @@ if(!$has_finish_option && !$has_cotton_fabric && !$has_velvet){
 					'minimum'     	=> $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'rating'      	=> $rating,
 					'href'        	=> $this->url->link('product/product', 'product_id=' . $result['product_id'], true),
-					'stock_status'  => $result['stock_status']
+					'stock_status'  => $result['stock_status'],
+					'hide_price' => $result['hide_price'] 
 				);
 			}
 
