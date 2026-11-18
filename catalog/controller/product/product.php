@@ -32,7 +32,7 @@ class ControllerProductProduct extends Controller {
 
 			// Set the last category breadcrumb
 			$category_info = $this->model_catalog_category->getCategory($category_id);
-			print_r($category_info);
+			// print_r($category_info);
 			if ($category_info) {
 				$url = '';
 				if (isset($this->request->get['sort'])) {
@@ -494,7 +494,7 @@ if(!$has_finish_option && !$has_cotton_fabric && !$has_velvet){
 			$data['products'] = array();
 
 			$results = $this->model_catalog_product->getProductRelated($this->request->get['product_id']);
-print_r($results);
+
 			foreach ($results as $result) {
 				if ($result['image']) {
 					$image = $this->model_tool_image->webp($this->model_tool_image->crop($result['image'], 400, 320));
