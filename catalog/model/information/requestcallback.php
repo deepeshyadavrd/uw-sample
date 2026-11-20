@@ -1,13 +1,45 @@
 <?php
 class ModelInformationRequestcallback extends Model {
     public function addRequestcallback($data) {
+
 		date_default_timezone_set("Asia/Kolkata");
-		$date =   date("y-m-d H:i:s");
-		$this->db->query("INSERT INTO " . DB_PREFIX . "request_callback SET name = '" . $this->db->escape($data['name']) . "', email = '" . $this->db->escape($data['email']) . "', mobile = '" . $this->db->escape($data['mobile']) . "',state = '" . $this->db->escape($data['state']) . "', message = '" . $this->db->escape($data['message']) . "', date_added = '" . $date . "'");
-
-		$rc_id = $this->db->getLastId();
-		return $rc_id;
-
+		$date = date("Y-m-d H:i:s");
+	
+		// Support both city and state from different frontend forms
+		$location = '';
+	
+		if (isset($data['city']) && trim($data['city']) != '') {
+			$location = $data['city'];
+		} elseif (isset($data['state'])) {
+			$location = $data['state'];
+		}
+	
+		// Support both telephone and mobile
+		$mobile = isset($data['telephone']) ? $data['telephone'] : ($data['mobile'] ?? '');
+	
+		$name = $data['name'] ?? '';
+		$email = $data['email'] ?? '';
+		$message = $data['message'] ?? '';
+	
+		$furniture_type = $data['furniture_type'] ?? '';
+		$budget = $data['budget'] ?? '';
+		$purchase_timeline = $data['purchase_timeline'] ?? '';
+		$contact_time = $data['contact_time'] ?? '';
+	
+		$this->db->query("INSERT INTO " . DB_PREFIX . "request_callback SET
+			name = '" . $this->db->escape($name) . "',
+			email = '" . $this->db->escape($email) . "',
+			mobile = '" . $this->db->escape($mobile) . "',
+			state = '" . $this->db->escape($location) . "',
+			message = '" . $this->db->escape($message) . "',
+			furniture_type = '" . $this->db->escape($furniture_type) . "',
+			budget = '" . $this->db->escape($budget) . "',
+			purchase_timeline = '" . $this->db->escape($purchase_timeline) . "',
+			contact_time = '" . $this->db->escape($contact_time) . "',
+			date_added = '" . $date . "'
+		");
+	
+		return $this->db->getLastId();
 	}
 	public function addPriceRequest($data) {
 		date_default_timezone_set("Asia/Kolkata");
